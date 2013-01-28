@@ -3,7 +3,7 @@
 
 视图是一个包含了主要的用户交互元素的PHP脚本.他可以包含PHP语句,但是我们建议这些语句不要去改变数据模型,且最好能够保持其单纯性(单纯作为视图)。为了实现逻辑和界面分离,大段的逻辑应该被放置于控制器或模型中,而不是视图中。
 
-视图有一个名字，当渲染(render)时，名字会被用于识别视图脚本文件。视图的名称与其视图脚本名称是一样的.例如:视图  `edit`  的名称出自一个名为 `edit.php` 的脚本文件.要渲染时如，需通过传递视图的名称调用  [CController::render()]。这个方法将在 `protected/views/ControllerID` 目录下寻找对应的视图文件.
+视图有一个名字，当渲染(render)时，名字会被用于识别视图脚本文件。视图的名称与其视图脚本名称是一样的.例如:视图	`edit`	的名称出自一个名为 `edit.php` 的脚本文件.要渲染时如，需通过传递视图的名称调用	[CController::render()]。这个方法将在 `protected/views/ControllerID` 目录下寻找对应的视图文件.
 
 在视图脚本内部,我们可以通过 `$this` 来访问控制器实例.我们可以在视图里以 `$this->propertyName` 的方式 `拉取` 控制器的任何属性.
 
@@ -33,7 +33,7 @@ $this->render('edit', array(
 
 其中的 `$content` 则储存了内容视图的渲染结果.
 
-当使用 [render()|CController::render] 时,布局被隐式应用.视图脚本 `protected/views/layouts/main.php` 是默认的布局文件.这可以通过改变 [CWebApplication::layout] 或者  [CWebApplication::layout] 进行自定义。要渲染一个不带布局的视图，则需调用 [renderPartial()|CController::renderPartial] 。
+当使用 [render()|CController::render] 时,布局被隐式应用.视图脚本 `protected/views/layouts/main.php` 是默认的布局文件.这可以通过改变 [CWebApplication::layout] 或者	[CWebApplication::layout] 进行自定义。要渲染一个不带布局的视图，则需调用 [renderPartial()|CController::renderPartial] 。
 
 小物件
 ------

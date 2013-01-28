@@ -78,11 +78,11 @@ class CWebApplication extends CApplication
 	 * the corresponding controller properties. For example,
 	 * <pre>
 	 * array(
-	 *   'post'=>array(
-	 *      'class'=>'path.to.PostController',
-	 *      'pageTitle'=>'something new',
-	 *   ),
-	 *   'user'=>'path.to.UserController',,
+	 *	 'post'=>array(
+	 *			'class'=>'path.to.PostController',
+	 *			'pageTitle'=>'something new',
+	 *	 ),
+	 *	 'user'=>'path.to.UserController',,
 	 * )
 	 * </pre>
 	 *
@@ -99,9 +99,9 @@ class CWebApplication extends CApplication
 	 * and GET parameters (the rest name-value pairs). For example,
 	 * <pre>
 	 * array(
-	 *     'offline/notice',
-	 *     'param1'=>'value1',
-	 *     'param2'=>'value2',
+	 *		 'offline/notice',
+	 *		 'param1'=>'value1',
+	 *		 'param2'=>'value2',
 	 * )
 	 * </pre>
 	 * Defaults to null, meaning catch-all is not effective.
@@ -324,7 +324,7 @@ class CWebApplication extends CApplication
 			if(!$caseSensitive)
 				$id=strtolower($id);
 			$route=(string)substr($route,$pos+1);
-			if(!isset($basePath))  // first segment
+			if(!isset($basePath))	// first segment
 			{
 				if(isset($owner->controllerMap[$id]))
 				{

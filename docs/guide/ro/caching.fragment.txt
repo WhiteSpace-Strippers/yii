@@ -89,17 +89,17 @@ ca ar trebui sa folosim un ID diferit atunci cand apelam [beginCache()|CBaseCont
 Nu trebuie sa cerem programatorilor sa creeze o schema de ID-uri, pentru ca acest feature
 este deja implementat in [COutputCache]. Avem mai jos un sumar.
 
-   - [varyByRoute|COutputCache::varyByRoute]: prin setarea acestei optiuni
+	 - [varyByRoute|COutputCache::varyByRoute]: prin setarea acestei optiuni
 cu valoarea true, continutul cache va fi variat in functie de
 [ruta](/doc/guide/basics.controller#route). De aceea, fiecare combinatie de
 controller si action va avea un continut memorat in cache separat.
 
-   - [varyBySession|COutputCache::varyBySession]: prin setarea acestei optiuni cu
+	 - [varyBySession|COutputCache::varyBySession]: prin setarea acestei optiuni cu
 valoarea true, continutul memorat in cache va fi variat in functie de ID-urile de sesiune.
 De aceea, fiecare sesiune utilizator poate vedea o versiune diferita a continutului si in acelasi
 timp sa fie toti serviti din cache.
 
-   - [varyByParam|COutputCache::varyByParam]: prin setarea acestei optiuni cu un array de nume,
+	 - [varyByParam|COutputCache::varyByParam]: prin setarea acestei optiuni cu un array de nume,
 continutul memorat in cache poate fi variat in functie de valorile unor parametri specificati in
 GET. De exemplu, daca o pagina afiseaza continutul unui post in functie de parametrul
 `id` din GET, putem sa setam [varyByParam|COutputCache::varyByParam] sa fie `array('id')`,

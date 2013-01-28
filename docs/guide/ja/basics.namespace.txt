@@ -180,13 +180,13 @@ class TestController extends \CController
 
 ~~~
 /var/www/common/mynamespace/modules
-  testmodule
-    controllers
-      DefaultController.php
-    views
-      default
-        index.php
-    TestmoduleModule.php
+	testmodule
+		controllers
+			DefaultController.php
+		views
+			default
+				index.php
+		TestmoduleModule.php
 ~~~
 
 `index.php` ビューは、通常のモジュールにあるものと同じものです。

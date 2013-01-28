@@ -154,7 +154,7 @@ abstract class CDbMigration extends CComponent
 	 */
 	public function execute($sql, $params=array())
 	{
-		echo "    > execute SQL: $sql ...";
+		echo "		> execute SQL: $sql ...";
 		$time=microtime(true);
 		$this->getDbConnection()->createCommand($sql)->execute($params);
 		echo " done (time: ".sprintf('%.3f', microtime(true)-$time)."s)\n";
@@ -168,7 +168,7 @@ abstract class CDbMigration extends CComponent
 	 */
 	public function insert($table, $columns)
 	{
-		echo "    > insert into $table ...";
+		echo "		> insert into $table ...";
 		$time=microtime(true);
 		$this->getDbConnection()->createCommand()->insert($table, $columns);
 		echo " done (time: ".sprintf('%.3f', microtime(true)-$time)."s)\n";
@@ -185,7 +185,7 @@ abstract class CDbMigration extends CComponent
 	 */
 	public function update($table, $columns, $conditions='', $params=array())
 	{
-		echo "    > update $table ...";
+		echo "		> update $table ...";
 		$time=microtime(true);
 		$this->getDbConnection()->createCommand()->update($table, $columns, $conditions, $params);
 		echo " done (time: ".sprintf('%.3f', microtime(true)-$time)."s)\n";
@@ -200,7 +200,7 @@ abstract class CDbMigration extends CComponent
 	 */
 	public function delete($table, $conditions='', $params=array())
 	{
-		echo "    > delete from $table ...";
+		echo "		> delete from $table ...";
 		$time=microtime(true);
 		$this->getDbConnection()->createCommand()->delete($table, $conditions, $params);
 		echo " done (time: ".sprintf('%.3f', microtime(true)-$time)."s)\n";
@@ -209,7 +209,7 @@ abstract class CDbMigration extends CComponent
 	/**
 	 * Builds and executes a SQL statement for creating a new DB table.
 	 *
-	 * The columns in the new  table should be specified as name-definition pairs (e.g. 'name'=>'string'),
+	 * The columns in the new	table should be specified as name-definition pairs (e.g. 'name'=>'string'),
 	 * where name stands for a column name which will be properly quoted by the method, and definition
 	 * stands for the column type which can contain an abstract DB type.
 	 * The {@link getColumnType} method will be invoked to convert any abstract type into a physical one.
@@ -223,7 +223,7 @@ abstract class CDbMigration extends CComponent
 	 */
 	public function createTable($table, $columns, $options=null)
 	{
-		echo "    > create table $table ...";
+		echo "		> create table $table ...";
 		$time=microtime(true);
 		$this->getDbConnection()->createCommand()->createTable($table, $columns, $options);
 		echo " done (time: ".sprintf('%.3f', microtime(true)-$time)."s)\n";
@@ -236,7 +236,7 @@ abstract class CDbMigration extends CComponent
 	 */
 	public function renameTable($table, $newName)
 	{
-		echo "    > rename table $table to $newName ...";
+		echo "		> rename table $table to $newName ...";
 		$time=microtime(true);
 		$this->getDbConnection()->createCommand()->renameTable($table, $newName);
 		echo " done (time: ".sprintf('%.3f', microtime(true)-$time)."s)\n";
@@ -248,7 +248,7 @@ abstract class CDbMigration extends CComponent
 	 */
 	public function dropTable($table)
 	{
-		echo "    > drop table $table ...";
+		echo "		> drop table $table ...";
 		$time=microtime(true);
 		$this->getDbConnection()->createCommand()->dropTable($table);
 		echo " done (time: ".sprintf('%.3f', microtime(true)-$time)."s)\n";
@@ -260,7 +260,7 @@ abstract class CDbMigration extends CComponent
 	 */
 	public function truncateTable($table)
 	{
-		echo "    > truncate table $table ...";
+		echo "		> truncate table $table ...";
 		$time=microtime(true);
 		$this->getDbConnection()->createCommand()->truncateTable($table);
 		echo " done (time: ".sprintf('%.3f', microtime(true)-$time)."s)\n";
@@ -276,7 +276,7 @@ abstract class CDbMigration extends CComponent
 	 */
 	public function addColumn($table, $column, $type)
 	{
-		echo "    > add column $column $type to table $table ...";
+		echo "		> add column $column $type to table $table ...";
 		$time=microtime(true);
 		$this->getDbConnection()->createCommand()->addColumn($table, $column, $type);
 		echo " done (time: ".sprintf('%.3f', microtime(true)-$time)."s)\n";
@@ -289,7 +289,7 @@ abstract class CDbMigration extends CComponent
 	 */
 	public function dropColumn($table, $column)
 	{
-		echo "    > drop column $column from table $table ...";
+		echo "		> drop column $column from table $table ...";
 		$time=microtime(true);
 		$this->getDbConnection()->createCommand()->dropColumn($table, $column);
 		echo " done (time: ".sprintf('%.3f', microtime(true)-$time)."s)\n";
@@ -303,7 +303,7 @@ abstract class CDbMigration extends CComponent
 	 */
 	public function renameColumn($table, $name, $newName)
 	{
-		echo "    > rename column $name in table $table to $newName ...";
+		echo "		> rename column $name in table $table to $newName ...";
 		$time=microtime(true);
 		$this->getDbConnection()->createCommand()->renameColumn($table, $name, $newName);
 		echo " done (time: ".sprintf('%.3f', microtime(true)-$time)."s)\n";
@@ -319,7 +319,7 @@ abstract class CDbMigration extends CComponent
 	 */
 	public function alterColumn($table, $column, $type)
 	{
-		echo "    > alter column $column in table $table to $type ...";
+		echo "		> alter column $column in table $table to $type ...";
 		$time=microtime(true);
 		$this->getDbConnection()->createCommand()->alterColumn($table, $column, $type);
 		echo " done (time: ".sprintf('%.3f', microtime(true)-$time)."s)\n";
@@ -338,7 +338,7 @@ abstract class CDbMigration extends CComponent
 	 */
 	public function addForeignKey($name, $table, $columns, $refTable, $refColumns, $delete=null, $update=null)
 	{
-		echo "    > add foreign key $name: $table ($columns) references $refTable ($refColumns) ...";
+		echo "		> add foreign key $name: $table ($columns) references $refTable ($refColumns) ...";
 		$time=microtime(true);
 		$this->getDbConnection()->createCommand()->addForeignKey($name, $table, $columns, $refTable, $refColumns, $delete, $update);
 		echo " done (time: ".sprintf('%.3f', microtime(true)-$time)."s)\n";
@@ -351,7 +351,7 @@ abstract class CDbMigration extends CComponent
 	 */
 	public function dropForeignKey($name, $table)
 	{
-		echo "    > drop foreign key $name from table $table ...";
+		echo "		> drop foreign key $name from table $table ...";
 		$time=microtime(true);
 		$this->getDbConnection()->createCommand()->dropForeignKey($name, $table);
 		echo " done (time: ".sprintf('%.3f', microtime(true)-$time)."s)\n";
@@ -367,7 +367,7 @@ abstract class CDbMigration extends CComponent
 	 */
 	public function createIndex($name, $table, $column, $unique=false)
 	{
-		echo "    > create".($unique ? ' unique':'')." index $name on $table ($column) ...";
+		echo "		> create".($unique ? ' unique':'')." index $name on $table ($column) ...";
 		$time=microtime(true);
 		$this->getDbConnection()->createCommand()->createIndex($name, $table, $column, $unique);
 		echo " done (time: ".sprintf('%.3f', microtime(true)-$time)."s)\n";
@@ -380,7 +380,7 @@ abstract class CDbMigration extends CComponent
 	 */
 	public function dropIndex($name, $table)
 	{
-		echo "    > drop index $name ...";
+		echo "		> drop index $name ...";
 		$time=microtime(true);
 		$this->getDbConnection()->createCommand()->dropIndex($name, $table);
 		echo " done (time: ".sprintf('%.3f', microtime(true)-$time)."s)\n";
@@ -393,7 +393,7 @@ abstract class CDbMigration extends CComponent
 	 */
 	public function refreshTableSchema($table)
 	{
-		echo "    > refresh table $table schema cache ...";
+		echo "		> refresh table $table schema cache ...";
 		$time=microtime(true);
 		$this->getDbConnection()->getSchema()->getTable($table,true);
 		echo " done (time: ".sprintf('%.3f', microtime(true)-$time)."s)\n";
@@ -408,7 +408,7 @@ abstract class CDbMigration extends CComponent
 	 */
 	public function addPrimaryKey($name,$table,$columns)
 	{
-		echo "    > alter table $table add constraint $name primary key ($columns) ...";
+		echo "		> alter table $table add constraint $name primary key ($columns) ...";
 		$time=microtime(true);
 		$this->getDbConnection()->createCommand()->addPrimaryKey($name,$table,$columns);
 		echo " done (time: ".sprintf('%.3f', microtime(true)-$time)."s)\n";
@@ -422,7 +422,7 @@ abstract class CDbMigration extends CComponent
 	 */
 	public function dropPrimaryKey($name,$table)
 	{
-		echo "    > alter table $table drop primary key $name ...";
+		echo "		> alter table $table drop primary key $name ...";
 		$time=microtime(true);
 		$this->getDbConnection()->createCommand()->dropPrimaryKey($name,$table);
 		echo " done (time: ".sprintf('%.3f', microtime(true)-$time)."s)\n";

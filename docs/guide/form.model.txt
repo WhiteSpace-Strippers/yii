@@ -141,57 +141,57 @@ above example, the name `required` is the alias to [CRequiredValidator]
 which ensures the attribute value being validated is not empty. Below is
 the complete list of predefined validator aliases:
 
-   - `boolean`: alias of [CBooleanValidator], ensuring the attribute has
+	 - `boolean`: alias of [CBooleanValidator], ensuring the attribute has
 a value that is either [CBooleanValidator::trueValue] or
 [CBooleanValidator::falseValue].
 
-   - `captcha`: alias of [CCaptchaValidator], ensuring the attribute is
+	 - `captcha`: alias of [CCaptchaValidator], ensuring the attribute is
 equal to the verification code displayed in a
 [CAPTCHA](http://en.wikipedia.org/wiki/Captcha).
 
-   - `compare`: alias of [CCompareValidator], ensuring the attribute is
+	 - `compare`: alias of [CCompareValidator], ensuring the attribute is
 equal to another attribute or constant.
 
-   - `email`: alias of [CEmailValidator], ensuring the attribute is a
+	 - `email`: alias of [CEmailValidator], ensuring the attribute is a
 valid email address.
 
-   - `date`: alias of [CDateValidator], ensuring the attribute represents
+	 - `date`: alias of [CDateValidator], ensuring the attribute represents
 a valid date, time, or datetime value.
 
-   - `default`: alias of [CDefaultValueValidator], assigning a default value
+	 - `default`: alias of [CDefaultValueValidator], assigning a default value
 to the specified attributes.
 
-   - `exist`: alias of [CExistValidator], ensuring the attribute value
+	 - `exist`: alias of [CExistValidator], ensuring the attribute value
 can be found in the specified table column.
 
-   - `file`: alias of [CFileValidator], ensuring the attribute contains
+	 - `file`: alias of [CFileValidator], ensuring the attribute contains
 the name of an uploaded file.
 
-   - `filter`: alias of [CFilterValidator], transforming the attribute
+	 - `filter`: alias of [CFilterValidator], transforming the attribute
 with a filter.
 
-   - `in`: alias of [CRangeValidator], ensuring the data is among a
+	 - `in`: alias of [CRangeValidator], ensuring the data is among a
 pre-specified list of values.
 
-   - `length`: alias of [CStringValidator], ensuring the length of the
+	 - `length`: alias of [CStringValidator], ensuring the length of the
 data is within certain range.
 
-   - `match`: alias of [CRegularExpressionValidator], ensuring the data
+	 - `match`: alias of [CRegularExpressionValidator], ensuring the data
 matches a regular expression.
 
-   - `numerical`: alias of [CNumberValidator], ensuring the data is a
+	 - `numerical`: alias of [CNumberValidator], ensuring the data is a
 valid number.
 
-   - `required`: alias of [CRequiredValidator], ensuring the attribute is
+	 - `required`: alias of [CRequiredValidator], ensuring the attribute is
 not empty.
 
-   - `type`: alias of [CTypeValidator], ensuring the attribute is of
+	 - `type`: alias of [CTypeValidator], ensuring the attribute is of
 specific data type.
 
-   - `unique`: alias of [CUniqueValidator], ensuring the data is unique in
+	 - `unique`: alias of [CUniqueValidator], ensuring the data is unique in
 a database table column.
 
-   - `url`: alias of [CUrlValidator], ensuring the data is a valid URL.
+	 - `url`: alias of [CUrlValidator], ensuring the data is a valid URL.
 
 Below we list some examples of using the predefined validators:
 
@@ -344,10 +344,10 @@ $model=new User('register');
 $model->attributes=$_POST['User'];
 
 // performs the validation
-if($model->validate())   // if the inputs are valid
-    ...
+if($model->validate())	 // if the inputs are valid
+		...
 else
-    ...
+		...
 ~~~
 
 The applicable scenarios that a rule is associated can be specified via

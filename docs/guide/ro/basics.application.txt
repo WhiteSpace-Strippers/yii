@@ -2,9 +2,9 @@ Application
 ===========
 
 Application este locul unde se executa procesarea cererilor client. Rolul
-principal este analizarea cererii client si transmiterea ei la controller-ul 
-corespunzator pentru a fi procesata in continuare. De asemenea, Application joaca 
-un rol central pentru pastrarea configuratiilor la nivel de aplicatie. De aceea, 
+principal este analizarea cererii client si transmiterea ei la controller-ul
+corespunzator pentru a fi procesata in continuare. De asemenea, Application joaca
+un rol central pentru pastrarea configuratiilor la nivel de aplicatie. De aceea,
 application mai este numita `front-controller` (controller radacina, principal).
 
 Application este creata ca singleton de catre [fisierul de intrare](/doc/guide/basics.entry).
@@ -22,7 +22,7 @@ Ca alternativa de customizare, putem extinde [CWebApplication].
 Configuratia in sine este un array cu perechi key-value (cheie-valoare). Fiecare key reprezinta
 numele proprietatii instantei application, iar valoarea reprezinta valoarea initiala a proprietatii.
 De exemplu, asa se configureaza proprietatile [name|CApplication::name] si
-[defaultController|CWebApplication::defaultController]: 
+[defaultController|CWebApplication::defaultController]:
 
 ~~~
 [php]
@@ -56,7 +56,7 @@ adaugam cu `include()` fiecare fisier creat.
 
 Application Base Directory
 --------------------------
- 
+
 Application base directory se refera la directorul radacina care contine toate fisierele PHP
 care trebuie ascunse fata de clienti. Implicit, acest director este denumit `protected` si se afla
 in acelasi director cu fisierul php accesibil clientilor. Totusi, poate fi schimbat acest director
@@ -64,7 +64,7 @@ prin proprietatea [basePath|CWebApplication::basePath] din [configuratia aplicat
 
 Tot ce este in acest director special ar trebui protejat fata de orice client WEB.
 Cu [Apache HTTP server](http://httpd.apache.org/) protectia se face foarte simplu printr-un fisier
-`.htaccess` pus in acest director. Continutul fisierului `.htaccess` este: 
+`.htaccess` pus in acest director. Continutul fisierului `.htaccess` este:
 
 ~~~
 deny from all
@@ -121,70 +121,70 @@ Componente nucleu
 Yii activeaza implicit un set de componente nucleu pentru a asigura anumite features intalnite in majoritatea
 aplicatiilor Web. De exemplu, componenta [request|CWebApplication::request] este folosita pentru a analiza
 cererile client si pentru a furniza informatii folositoare despre URL, cookies. Prin configurarea
-proprietatilor acestor componente nucleu, putem schimba comportamentul implicit al Yii aproape in orice privinta. 
+proprietatilor acestor componente nucleu, putem schimba comportamentul implicit al Yii aproape in orice privinta.
 
 Mai jos este o lista de componente nucleu care sunt pre-declarate de catre [CWebApplication].
 
-   - [assetManager|CWebApplication::assetManager]: [CAssetManager] -
+	 - [assetManager|CWebApplication::assetManager]: [CAssetManager] -
 gestioneaza publicarea fisierelor private de tip asset (implicit acestea exista in directorul Asset).
 
-   - [authManager|CWebApplication::authManager]: [CAuthManager] - gestioneaza role-based access control (RBAC - control acces bazat pe roluri).
+	 - [authManager|CWebApplication::authManager]: [CAuthManager] - gestioneaza role-based access control (RBAC - control acces bazat pe roluri).
 
-   - [cache|CApplication::cache]: [CCache] - asigura cache de date. Este de retinut ca trebuie
+	 - [cache|CApplication::cache]: [CCache] - asigura cache de date. Este de retinut ca trebuie
 specificata clasa care se va ocupa cu acest lucru (ex. [CMemCache], [CDbCache]). Altfel,
-atunci cand se va accesa componenta se va primi null. 
+atunci cand se va accesa componenta se va primi null.
 
-   - [clientScript|CWebApplication::clientScript]: [CClientScript] -
+	 - [clientScript|CWebApplication::clientScript]: [CClientScript] -
 gestioneaza scripturile client (javascript si CSS).
 
-   - [coreMessages|CApplication::coreMessages]: [CPhpMessageSource] -
+	 - [coreMessages|CApplication::coreMessages]: [CPhpMessageSource] -
 gestioneaza mesajele nucleu traduse folosite de platforma Yii.
 
-   - [db|CApplication::db]: [CDbConnection] - asigura conexiunea la baza de date. Este de retinut
+	 - [db|CApplication::db]: [CDbConnection] - asigura conexiunea la baza de date. Este de retinut
 ca trebuie sa configuram proprietatea [connectionString|CDbConnection::connectionString]
 pentru a putea folosi aceasta componenta.
 
-   - [errorHandler|CApplication::errorHandler]: [CErrorHandler] - trateaza exceptii si erori PHP. 
+	 - [errorHandler|CApplication::errorHandler]: [CErrorHandler] - trateaza exceptii si erori PHP.
 
-   - [messages|CApplication::messages]: [CPhpMessageSource] - gestioneaza mesaje traduse folosite de Yii.
+	 - [messages|CApplication::messages]: [CPhpMessageSource] - gestioneaza mesaje traduse folosite de Yii.
 
-   - [request|CWebApplication::request]: [CHttpRequest] - furnizeaza informatii despre cererile client.
+	 - [request|CWebApplication::request]: [CHttpRequest] - furnizeaza informatii despre cererile client.
 
-   - [securityManager|CApplication::securityManager]: [CSecurityManager] -
+	 - [securityManager|CApplication::securityManager]: [CSecurityManager] -
 asigura servicii de securitate, precum hashing si encryption.
 
-   - [session|CWebApplication::session]: [CHttpSession] - functionalitati la nivel de sesiune.
+	 - [session|CWebApplication::session]: [CHttpSession] - functionalitati la nivel de sesiune.
 
-   - [statePersister|CApplication::statePersister]: [CStatePersister] -
-ofera o zona de date persistenta la nivel global al aplicatiei intre cererile client. 
+	 - [statePersister|CApplication::statePersister]: [CStatePersister] -
+ofera o zona de date persistenta la nivel global al aplicatiei intre cererile client.
 
-   - [urlManager|CWebApplication::urlManager]: [CUrlManager] - creare si analizare URL.
+	 - [urlManager|CWebApplication::urlManager]: [CUrlManager] - creare si analizare URL.
 
-   - [user|CWebApplication::user]: [CWebUser] - reprezinta informatiile despre identitatea utilizatorului curent.
+	 - [user|CWebApplication::user]: [CWebUser] - reprezinta informatiile despre identitatea utilizatorului curent.
 
-   - [themeManager|CWebApplication::themeManager]: [CThemeManager] - gestiune teme.
+	 - [themeManager|CWebApplication::themeManager]: [CThemeManager] - gestiune teme.
 
 
 Ciclul de viata al aplicatiei
 -----------------------------
 
-Atunci cand se trateaza o cerere client, aplicatia va trece prin urmatoarele stadii: 
+Atunci cand se trateaza o cerere client, aplicatia va trece prin urmatoarele stadii:
 
-   1. Seteaza tratarea de erori si autoloader-ul de clase;
-   
-   2. Inregistreaza componentele nucleu ale aplicatiei;
-   
-   3. Incarca configuratia aplicatiei;
-   
-   4. Initializeaza aplicatia cu [CApplication::init()]
-	   - Incarca componentele statice ale aplicatiei;
-	   
-   5. Activeaza evenimentul [onBeginRequest|CApplication::onBeginRequest];
-   
-   6. Proceseaza cererea client:
-	   - Analizeaza cererea client;
-	   - Creaza controller-ul necesar;
-	   - Ruleaza controller-ul;
-   7. Activeaza evenimentul [onEndRequest|CApplication::onEndRequest];
+	 1. Seteaza tratarea de erori si autoloader-ul de clase;
+
+	 2. Inregistreaza componentele nucleu ale aplicatiei;
+
+	 3. Incarca configuratia aplicatiei;
+
+	 4. Initializeaza aplicatia cu [CApplication::init()]
+		 - Incarca componentele statice ale aplicatiei;
+
+	 5. Activeaza evenimentul [onBeginRequest|CApplication::onBeginRequest];
+
+	 6. Proceseaza cererea client:
+		 - Analizeaza cererea client;
+		 - Creaza controller-ul necesar;
+		 - Ruleaza controller-ul;
+	 7. Activeaza evenimentul [onEndRequest|CApplication::onEndRequest];
 
 <div class="revision">$Id: basics.application.txt 626 2009-02-04 20:51:13Z qiang.xue $</div>

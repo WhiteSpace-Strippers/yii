@@ -19,7 +19,7 @@ diklasifikasikan sebagai berikut,
  * [perintah konsol](/doc/guide/topics.console)
  * validator: validator adalah kelas komponen yang memperluas [CValidator].
  * helper: helper adalah kelas yang hanya dengan metode statis saja. Kelas ini mirip fungsi global
-   yang menggunakan nama kelas sebagai namespace-nya.
+	 yang menggunakan nama kelas sebagai namespace-nya.
  * [module](/doc/guide/basics.module): module adalah unit software berdiri sendiri yang terdiri dari [model](/doc/guide/basics.model), [tampilan](/doc/guide/basics.view), [controller](/doc/guide/basics.controller) dan komponen pendukung lainnya. Dalam banyak aspek, module mirip dengan [aplikasi](/doc/guide/basics.application). Perbedaan utamanya adalah bahwa module ada di dalam aplikasi. Sebagai contoh, kita dapat memiliki module yang menyediakan fungsionalitas manajemen pengguna.
 
 Extension juga dapat berupa komponen yang tidak masuk ke dalam kategori

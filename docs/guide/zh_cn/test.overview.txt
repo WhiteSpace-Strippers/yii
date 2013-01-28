@@ -33,15 +33,15 @@ Yii 提供的测试支持需要 [PHPUnit](http://www.phpunit.de/) 3.5+ 和 [Sele
 
 ~~~
 testdrive/
-   protected/                包含了受保护的应用文件
-      tests/                 包含了应用测试
-         fixtures/           包含了数据 fixtures
-         functional/         包含了功能测试
-         unit/               包含了单元测试
-         report/             包含了 coverage 报告
-         bootstrap.php       这个脚本在一开始执行
-         phpunit.xml         PHPUnit 配置文件
-         WebTestCase.php     基于 Web 的功能测试基类
+	 protected/								包含了受保护的应用文件
+			tests/								 包含了应用测试
+				 fixtures/					 包含了数据 fixtures
+				 functional/				 包含了功能测试
+				 unit/							 包含了单元测试
+				 report/						 包含了 coverage 报告
+				 bootstrap.php			 这个脚本在一开始执行
+				 phpunit.xml				 PHPUnit 配置文件
+				 WebTestCase.php		 基于 Web 的功能测试基类
 ~~~
 
 如上所示的, 我们的测试代码主要放在 `fixtures`, `functional` 和 `unit` 这三个目录下, `report` 目录则用于存储生成的代码 coverage 报告.
@@ -50,8 +50,8 @@ testdrive/
 
 ~~~
 % cd testdrive/protected/tests
-% phpunit functional/PostTest.php    // 执行单个测试
-% phpunit --verbose functional       // 执行 'functional' 下的所有测试
+% phpunit functional/PostTest.php		// 执行单个测试
+% phpunit --verbose functional			 // 执行 'functional' 下的所有测试
 % phpunit --coverage-html ./report unit
 ~~~
 
@@ -61,7 +61,7 @@ testdrive/
 测试的引导脚本
 --------------------
 
-让我们来看看 `bootstrap.php` 文件里会有些什么. 首先这个文件有点特殊,因为它看起来很像是 [入口脚本](/doc/guide/basics.entry), 而它也正是我们执行一系列测试的入口. 
+让我们来看看 `bootstrap.php` 文件里会有些什么. 首先这个文件有点特殊,因为它看起来很像是 [入口脚本](/doc/guide/basics.entry), 而它也正是我们执行一系列测试的入口.
 
 ~~~
 [php]

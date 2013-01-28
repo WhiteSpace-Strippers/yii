@@ -18,7 +18,7 @@ ab. In ihr sind die Teile der Schnittstelle definiert, die beide Typen
 gemeinsam haben.
 
 > Note|Hinweis: Obwohl in den Beispielen dieses Abschnitts hauptsächlich
-Formularmodels vorkommen, kann man stattdessen genauso auch 
+Formularmodels vorkommen, kann man stattdessen genauso auch
 [ActiveRecords](/doc/guide/database.ar) verwenden. Die Verfahren sind bei
 beiden die selben.
 
@@ -43,11 +43,11 @@ class LoginForm extends CFormModel
 
 `LoginForm` hat die drei Attribute `$username`, `$password` und `$rememberMe`.
 Darin werden entpsrechend der Benutzername, das Passwort und die Option
-"Angemeldet bleiben" (engl.: Remember me) gespeichert. Da `$rememberMe` 
-bereits den Startwert `false` hat, wird die entsprechende Option beim ersten 
+"Angemeldet bleiben" (engl.: Remember me) gespeichert. Da `$rememberMe`
+bereits den Startwert `false` hat, wird die entsprechende Option beim ersten
 Anzeigen des Anmeldeformulars nicht markiert werden.
 
-> Info|Info: Für Modeleigenschaften verwenden wir den Begriff *Attribute*, 
+> Info|Info: Für Modeleigenschaften verwenden wir den Begriff *Attribute*,
 um sie von normalen Klasseneigenschaften zu unterscheiden. Attribute dienen
 also hautpsächlich dazu, Benutzerdaten oder Datenbankwerte abzulegen.
 
@@ -102,8 +102,8 @@ array('AttributListe', 'Validator', 'on'=>'SzenarienListe', ...Zusätzliche Opti
 ~~~
 
 `AttributListe` enthält eine Reihe von Attributnamen (mit Komma getrennt), für
-die diese Regel gelten soll. `Validator` (sinngem.: Gültigkeitsprüfer) gibt an, 
-welche Art der Prüfung durchgeführt werden soll. Der `on` Parameter ist optional 
+die diese Regel gelten soll. `Validator` (sinngem.: Gültigkeitsprüfer) gibt an,
+welche Art der Prüfung durchgeführt werden soll. Der `on` Parameter ist optional
 und gibt die Szenarien an, in denen diese Regel überhaupt verwendet werden
 soll. `Zusätzliche Optionen` können als Name-Wert-Paare angegeben werden um
 weitere Validatoreigenschaften zu konfigurieren.
@@ -128,60 +128,60 @@ Prüfung durchführt. Über die zusätzlichen Optionen können die
 Objekteigenschaften dieser Instanz konfiguriert werden. Eine solche Klasse
 muss von [CValidator] abgeleitet werden.
 
-Drittens kann `Validator` einem von mehreren vorgegebenen Aliasen entsprechen. 
+Drittens kann `Validator` einem von mehreren vorgegebenen Aliasen entsprechen.
 Im obigen Beispiel ist der Name `required` ein Alias für [CRequiredValidator].
 Dieser stellt sicher, dass der zu prüfende Attributwert nicht leer ist.
 
 Hier eine Übersicht aller verwendbaren Aliase:
 
-   - `boolean`: Alias für [CBooleanValidator]; prüft, ob der
+	 - `boolean`: Alias für [CBooleanValidator]; prüft, ob der
 Attributwert [CBooleanValidator::trueValue] oder [CBooleanValidator::falseValue] ist.
 
-   - `captcha`: Alias für [CCaptchaValidator]; prüft, ob der Attributwert mit dem 
+	 - `captcha`: Alias für [CCaptchaValidator]; prüft, ob der Attributwert mit dem
 angezeigten [CAPTCHA](http://de.wikipedia.org/wiki/Captcha)-Code übereinstimmt.
 
-   - `compare`: Alias für [CCompareValidator]; prüft, ob das Attribut mit einem anderen
+	 - `compare`: Alias für [CCompareValidator]; prüft, ob das Attribut mit einem anderen
 Attribut oder einer Konstanten übereinstimmt.
 
-   - `email`: Alias für [CEmailValidator]; prüft auf eine gültige E-Mail Adresse.
+	 - `email`: Alias für [CEmailValidator]; prüft auf eine gültige E-Mail Adresse.
 
-   - `date` : Alias für [CDateValidator]; stellt sicher, dass das Attribut
+	 - `date` : Alias für [CDateValidator]; stellt sicher, dass das Attribut
 ein gültiges Datum, eine Uhrzeit oder eine Datetime enthält.
 
-   - `default`: Alias für [CDefaultValueValidator]; weist dem Attribut einen
+	 - `default`: Alias für [CDefaultValueValidator]; weist dem Attribut einen
 Standardwert zu.
 
-   - `exist`: Alias für [CExistValidator]; stellt sicher, dass der Attributwert in 
+	 - `exist`: Alias für [CExistValidator]; stellt sicher, dass der Attributwert in
 einer bestimmten Tabellenspalte existiert
 
-   - `file`: Alias für [CFileValidator]; stellt sicher, dass das Attribut den Namen einer
+	 - `file`: Alias für [CFileValidator]; stellt sicher, dass das Attribut den Namen einer
 hochgeladenen Datei enthält.
 
-   - `filter`: Alias für [CFilterValidator]; wandelt den Attributwert mit
+	 - `filter`: Alias für [CFilterValidator]; wandelt den Attributwert mit
 einem Filter um.
 
-   - `in`: Alias für [CRangeValidator]; prüft, ob der Attributwert in einer
+	 - `in`: Alias für [CRangeValidator]; prüft, ob der Attributwert in einer
 vorgegebenen Liste von Werten enthalten ist.
 
-   - `length`: Alias für [CStringValidator]; stellt sicher, dass die Länge des
+	 - `length`: Alias für [CStringValidator]; stellt sicher, dass die Länge des
 Attributwerts innerhalb eines bestimmten Bereichs liegt.
 
-   - `match`: Alias für [CRegularExpressionValidator]; prüft, ob der
+	 - `match`: Alias für [CRegularExpressionValidator]; prüft, ob der
 Attributwert einem bestimmten regulären Ausdruck entsprechen.
 
-   - `numerical`: Alias für [CNumberValidator]; prüft, ob das Attribut
+	 - `numerical`: Alias für [CNumberValidator]; prüft, ob das Attribut
 eine gültige Zahl enthält.
 
-   - `required`: Alias für [CRequiredValidator]; stellt sicher, dass das Attribut nicht
+	 - `required`: Alias für [CRequiredValidator]; stellt sicher, dass das Attribut nicht
 leer ist.
 
-   - `type`: Alias für [CTypeValidator]; prüft, ob der Attributwert von einem
+	 - `type`: Alias für [CTypeValidator]; prüft, ob der Attributwert von einem
 bestimmten Datentyp ist.
 
-   - `unique`: Alias für [CUniqueValidator]; stellt sicher, dass der Attributwert nur
+	 - `unique`: Alias für [CUniqueValidator]; stellt sicher, dass der Attributwert nur
 einmal in einer bestimmten Tabellenspalte vorkommt.
 
-   - `url`: Alias für [CUrlValidator]; prüft, ob das Attribut eine gültige URL enthält.
+	 - `url`: Alias für [CUrlValidator]; prüft, ob das Attribut eine gültige URL enthält.
 
 Hier einige Beispiele, wie man diese Validatoren verwendet:
 
@@ -225,7 +225,7 @@ foreach($_POST['LoginForm'] as $name=>$value)
 ~~~
 
 Es ist sehr wichtig, festzulegen, welche Attribute als "sicher" gelten (also
-über eine Massenzuweisung beschrieben werden dürfen). Würde man zum Beispiel 
+über eine Massenzuweisung beschrieben werden dürfen). Würde man zum Beispiel
 auch das Attribut für den Primärschlüssel einer Tabelle als sicher
 definieren, könnte ein Angreifer diesen evtl. bei einem gegebenen
 Record verändern und sich so Zugang zu ansonsten geschützten Daten verschaffen.
@@ -268,11 +268,11 @@ mittels einer Regel überprüft wurde, worüber sollte man sich dann noch Sorgen
 Man bedenke, dass Validierungsregeln ohnehin nur dazu da sind, um Daten, die von
 "außen" (also von Besuchern) stammen, zu prüfen. Nicht aber die Daten, die man
 per eigenem Code generiert und in Attribute schreibt (z.B. Zeitstempel oder
-autogenerierte Primärschlüssel). Fügen Sie daher AUF KEINEN FALL Regeln für 
+autogenerierte Primärschlüssel). Fügen Sie daher AUF KEINEN FALL Regeln für
 jene Attribute hinzu, die nicht mit Daten von Besuchern befüllt werden müssen.
 
 Es kann vorkommen, dass ein Attribut sicher sein soll, obwohl es keine
-spezielle Regel dafür gibt. Zum Beispiel das Attribut für einen Artikeltext, 
+spezielle Regel dafür gibt. Zum Beispiel das Attribut für einen Artikeltext,
 bei dem jeglicher Inhalt erlaubt sein soll. In diesem Fall kann man die
 spezielle Regel `safe` verwenden:
 
@@ -306,13 +306,13 @@ Auslösen der Validierung
 
 Wurde ein Model mit gesendeten Daten befüllt, kann die Validierung mit
 [CModel::validate()] durchgeführt werden. Der Rückgabewert zeigt an, ob die
-Validierung erfolgreich war.  Bei einem [CActiveRecord]-Model wird die 
+Validierung erfolgreich war.	Bei einem [CActiveRecord]-Model wird die
 Validierung zudem automatisch ausgelöst, sobald man die Modelmethode
 [CActiveRecord::save()] ausführt.
 
-Die Validierung erfolgt immer im Rahmen eines bestimmten Szenarios. Über 
+Die Validierung erfolgt immer im Rahmen eines bestimmten Szenarios. Über
 [scenario|CModel::scenario] wird das aktuelle Szenario gesetzt und somit
-bestimmt, welche Regeln angewendet werden sollen. Bei einem Benutzermodel sollen 
+bestimmt, welche Regeln angewendet werden sollen. Bei einem Benutzermodel sollen
 z.B. im `login`-Szenario nur `username` und `password` überprüft werden. Im
 Szenario `register` hingegen sollen evtl. weitere Attribute validiert werden, z.B.
 `email`, `address`, etc. Die Validierung würde man dann wie folgt durchführen:
@@ -328,14 +328,14 @@ $model=new User('register');
 $model->attributes=$_POST['User'];
 
 // Führt die Validierung durch
-if($model->validate())   // falls Eingabewerte in Ordung ...
-    ...
+if($model->validate())	 // falls Eingabewerte in Ordung ...
+		...
 else
-    ...
+		...
 ~~~
 
 Um anzugeben, in welchem Szenario eine Regel verwendet werden soll, werden die
-Szenarien in der `on`-Option der Regel angegeben. Ist die `on`-Option nicht gesetzt, 
+Szenarien in der `on`-Option der Regel angegeben. Ist die `on`-Option nicht gesetzt,
 gilt die Validierungsregel in allen Szenarien. Ein Beispiel:
 
 ~~~
@@ -357,8 +357,8 @@ nur um Szenario `register`.
 Abfragen von Validierungsfehlern
 --------------------------------
 
-Bei der Validierung werden die auftretenden Fehler im Model gespeichert. 
-Mit den Modelmethoden [CModel::getErrors()] und [CModel::getError()] können 
+Bei der Validierung werden die auftretenden Fehler im Model gespeichert.
+Mit den Modelmethoden [CModel::getErrors()] und [CModel::getError()] können
 diese Fehler hinterher abgerufen werden. Die erste Methode liefert *alle*
 Fehler für das angegebene Attribut zurück, die zweite nur den *ersten* Fehler.
 
@@ -366,7 +366,7 @@ Fehler für das angegebene Attribut zurück, die zweite nur den *ersten* Fehler.
 Attributlabel
 --------------
 
-Jedes Eingabefeld in einem Formular benötigt normalerweise ein Label(Beschriftung), 
+Jedes Eingabefeld in einem Formular benötigt normalerweise ein Label(Beschriftung),
 um den Inhalt des Eingabefeldes zu beschreiben. Man kann ein
 Label zwar fest in einem View hinterlegen, aber die Labels im Model zu
 definieren lässt mehr Flexibilität zu und ist am Ende meist komfortabler.
@@ -374,7 +374,7 @@ definieren lässt mehr Flexibilität zu und ist am Ende meist komfortabler.
 Standardmäßig liefert [CModel] einfach den Attributnamen als Label zurück.
 Überschreibt man jedoch die Methode [attributeLabels()|CModel::attributeLabels],
 können die Labels angepasst werden. Wie wir in den nächsten Abschnitten sehen
-werden, ermöglicht die Labeldefinition innerhalb des Models, die 
+werden, ermöglicht die Labeldefinition innerhalb des Models, die
 zugehörigen Formulare schnell und effektiv zu erzeugen.
 
 <div class="revision">$Id: form.model.txt 3482 2011-12-13 09:41:36Z mdomba $</div>

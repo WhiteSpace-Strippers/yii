@@ -13,17 +13,17 @@ Module diatur sebagai direktori yang namanya bertindak sebagai [ID|CWebModule::i
 
 ~~~
 forum/
-   ForumModule.php            file kelas module
-   components/                berisi komponen yang bisa dipakai ulang
-      views/                  berisi file tampilan untuk widgets
-   controllers/               berisi file kelas controller
-      DefaultController.php   file kelas controller standar
-   extensions/                berisi extension pihak-ketiga
-   models/                    berisi file kelas model
-   views/                     berisi file tampilan controller dan tatat letak
-      layouts/                berisi file tampilan tata letak
-      default/                berisi file tampilan untuk DefaultController
-         index.php            file tampilan indeks
+	 ForumModule.php						file kelas module
+	 components/								berisi komponen yang bisa dipakai ulang
+			views/									berisi file tampilan untuk widgets
+	 controllers/							 berisi file kelas controller
+			DefaultController.php	 file kelas controller standar
+	 extensions/								berisi extension pihak-ketiga
+	 models/										berisi file kelas model
+	 views/										 berisi file tampilan controller dan tatat letak
+			layouts/								berisi file tampilan tata letak
+			default/								berisi file tampilan untuk DefaultController
+				 index.php						file tampilan indeks
 ~~~
 
 Module harus memiliki kelas module yang diturunkan dari [CWebModule]. Nama kelas ditentukan menggunakan `ucfirst($id).'Module'`, dengan `$id` merujuk pada ID module (atau nama direktori module). Kelas module bertindak sebagai pusat tempat penyimpanan informasi berbagi diantara kode module. Sebagai contoh, kita dapat menggunakan [CWebModule::params] untuk menyimpan parameter module, dan menggunakan [CWebModule::components] untuk berbagi [komponen aplikasi](/doc/guide/basics.application#application-component) pada tingkat module.
@@ -53,9 +53,9 @@ Module juga bisa dikonfigurasi dengan nilai properti awal. Pemakaian ini mirip d
 return array(
 	......
 	'modules'=>array(
-	    'forum'=>array(
-	        'postPerPage'=>20,
-	    ),
+			'forum'=>array(
+					'postPerPage'=>20,
+			),
 	),
 	......
 );

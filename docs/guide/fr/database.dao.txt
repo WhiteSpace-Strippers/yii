@@ -13,10 +13,10 @@ PDO et du pilote PDO spécifique pour le SGBD utilisé (par exemple `PDO_MYSQL`)
 
 Yii DAO est constitué des quatres classes suivantes:
 
-   - [CDbConnection]: représente une connection à une base.
-   - [CDbCommand]: représente une requête SQL.
-   - [CDbDataReader]: représente un flux de donnée résultant d'une requête.
-   - [CDbTransaction]: représente une transaction.
+	 - [CDbConnection]: représente une connection à une base.
+	 - [CDbCommand]: représente une requête SQL.
+	 - [CDbDataReader]: représente un flux de donnée résultant d'une requête.
+	 - [CDbTransaction]: représente une transaction.
 
 L'utilisation de Yii DAO dans différents cas de figure va maintenant être présenté.
 
@@ -35,7 +35,7 @@ $connection=new CDbConnection($dsn,$username,$password);
 // établit une connection. try...catch pour récupérer les éventuelles exceptions
 $connection->active=true;
 ......
-$connection->active=false;  // fermeture de la connection
+$connection->active=false;	// fermeture de la connection
 ~~~
 
 Le format du DSN varie selon le pilote PDO choisi. De manière générale, un DSN
@@ -45,11 +45,11 @@ PDO](http://www.php.net/manual/en/pdo.construct.php) pour plus d'information.
 
 Ci dessous une liste avec les formats courammant utilisés:
 
-   - SQLite: `sqlite:/path/to/dbfile`
-   - MySQL: `mysql:host=localhost;dbname=testdb`
-   - PostgreSQL: `pgsql:host=localhost;port=5432;dbname=testdb`
-   - SQL Server: `mssql:host=localhost;dbname=testdb`
-   - Oracle: `oci:dbname=//localhost:1521/testdb`
+	 - SQLite: `sqlite:/path/to/dbfile`
+	 - MySQL: `mysql:host=localhost;dbname=testdb`
+	 - PostgreSQL: `pgsql:host=localhost;port=5432;dbname=testdb`
+	 - SQL Server: `mssql:host=localhost;dbname=testdb`
+	 - Oracle: `oci:dbname=//localhost:1521/testdb`
 
 Comme [CDbConnection] hérite de [CApplicationComponent], il est aussi possible
 de l'utiliser comme un [application
@@ -69,7 +69,7 @@ array(
 			'connectionString'=>'mysql:host=localhost;dbname=testdb',
 			'username'=>'root',
 			'password'=>'password',
-			'emulatePrepare'=>true,  // requit pour certaines installations MySQL
+			'emulatePrepare'=>true,	// requit pour certaines installations MySQL
 		),
 	),
 )
@@ -89,7 +89,7 @@ en appelant [CDbConnection::createCommand()] et en spécifiant la requête SQL.
 
 ~~~
 [php]
-$connection=Yii::app()->db;   // vous devez avoir une connection "db"
+$connection=Yii::app()->db;	 // vous devez avoir une connection "db"
 // Sinon il est possible de créer cette connection explicitement:
 // $connection=new CDbConnection($dsn,$username,$password);
 $command=$connection->createCommand($sql);
@@ -99,11 +99,11 @@ $command=$connection->createCommand($sql);
 
 Une requete SQL est exécutée au travers de [CDbCommand] selon l'une des 2 méthodes suivantes:
 
-   - [execute()|CDbCommand::execute]: Exécute une requête SQL sans retour de données,
+	 - [execute()|CDbCommand::execute]: Exécute une requête SQL sans retour de données,
 tels que `INSERT`, `UPDATE` ou `DELETE`. Si la requête se déroule sans erreur,
 cette fonction retournera le nombre de ligne affectées.
 
-   - [query()|CDbCommand::query]: Exécute une requête SQL retournant des données
+	 - [query()|CDbCommand::query]: Exécute une requête SQL retournant des données
 tels que `SELECT`. Si la requête se déroule sans erreur, cette fonction retournera une
 instance de [CDbDataReader] dans laquelle on pourra parcourir les lignes. Dans un soucis de simplicité,
 plusieurs méthodes `queryXXX()` ont aussi été implémentées retournant directement les résultats.
@@ -112,12 +112,12 @@ Une exception sera levée si une erreur se produit durant l'exécution de la req
 
 ~~~
 [php]
-$rowCount=$command->execute();   // exécute une requête SQL sans reour de données
-$dataReader=$command->query();   // exécute une requête SQL
-$rows=$command->queryAll();      // exécute et retourne toutes les lignes
-$row=$command->queryRow();       // exécute et retourne la première ligne
+$rowCount=$command->execute();	 // exécute une requête SQL sans reour de données
+$dataReader=$command->query();	 // exécute une requête SQL
+$rows=$command->queryAll();			// exécute et retourne toutes les lignes
+$row=$command->queryRow();			 // exécute et retourne la première ligne
 $column=$command->queryColumn(); // exécute et retourne la première colonne
-$value=$command->queryScalar();  // exécute et retourne le premier champ de la première ligne
+$value=$command->queryScalar();	// exécute et retourne le premier champ de la première ligne
 ~~~
 
 Parcourir les résultats
@@ -151,10 +151,10 @@ il est important d'etre certain que la base ne sera pas laissée dans un état o
 toutes les requêtes n'ont pas été achevées. Une transaction, représentée comme une
 instance de [CDbTransaction] dans Yii, pourra être utilisée selon le schéma suivant:
 
-   - Début de la transaction.
-   - Exécution des requêtes une à une. Aucune modification à la base ne sera visible en dehors du contexte.
-   - Commit la transaction. Toutes les modifications sont alors visibles si la transaction se déroule sans erreur.
-   - Si une seule requête échoue, la transaction entière est annulée (roll back).
+	 - Début de la transaction.
+	 - Exécution des requêtes une à une. Aucune modification à la base ne sera visible en dehors du contexte.
+	 - Commit la transaction. Toutes les modifications sont alors visibles si la transaction se déroule sans erreur.
+	 - Si une seule requête échoue, la transaction entière est annulée (roll back).
 
 Le déroulement ci dessus peut etre implémenté comme suivant:
 
@@ -230,7 +230,7 @@ $dataReader->bindColumn(1,$username);
 $dataReader->bindColumn(2,$email);
 while($dataReader->read()!==false)
 {
-    // $username et $email contiennent les username et email de la ligne courante
+		// $username et $email contiennent les username et email de la ligne courante
 }
 ~~~
 

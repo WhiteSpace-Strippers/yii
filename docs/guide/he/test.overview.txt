@@ -33,15 +33,15 @@
 
 ~~~
 testdrive/
-   protected/                מכיל קבצים מוגנים של האפליקציה
-      tests/                 מכיל בדיקות לאפליקציה
-         fixtures/           מכיל טבלאות קבועות למסד נתונים
-         functional/         מכיל בדיקות פונקציונליות
-         unit/               מכיל בדיקות יחידה
-         report/             מכיל דוחות בדיקה
-         bootstrap.php       הסקריפט שרץ בהתחלה
-         phpunit.xml         קובץ הגדרות של PHPUnit
-         WebTestCase.php     מחלקת הבסיס לכל הבדיקות באפליקציה
+	 protected/								מכיל קבצים מוגנים של האפליקציה
+			tests/								 מכיל בדיקות לאפליקציה
+				 fixtures/					 מכיל טבלאות קבועות למסד נתונים
+				 functional/				 מכיל בדיקות פונקציונליות
+				 unit/							 מכיל בדיקות יחידה
+				 report/						 מכיל דוחות בדיקה
+				 bootstrap.php			 הסקריפט שרץ בהתחלה
+				 phpunit.xml				 קובץ הגדרות של PHPUnit
+				 WebTestCase.php		 מחלקת הבסיס לכל הבדיקות באפליקציה
 ~~~
 
 כפי שמוצג למעלה, קוד הבדיקות שנכתוב ימוקם בדרך כלל באחת משלושת התיקיות: `fixtures`, `functional` ו `unit`, והתיקיה `report` יכיל את הדוחות של הבדיקות שנעשו.
@@ -50,8 +50,8 @@ testdrive/
 
 ~~~
 % cd testdrive/protected/tests
-% phpunit functional/PostTest.php    // הרצת בדיקה אחת
-% phpunit --verbose functional       // הרצת כל הבדיקות תחת 'functional'
+% phpunit functional/PostTest.php		// הרצת בדיקה אחת
+% phpunit --verbose functional			 // הרצת כל הבדיקות תחת 'functional'
 % phpunit --coverage-html ./report unit
 ~~~
 
@@ -77,19 +77,19 @@ Yii::createWebApplication($config);
 ~~~
 [php]
 return CMap::mergeArray(
-    require(dirname(__FILE__).'/main.php'),
-    array(
-        'components'=»array(
-            'fixture'=»array(
-                'class'=»'system.test.CDbFixtureManager',
-            ),
-            /* הסר הערה זו בכדי להגדיר מסד נתונים לבדיקות
-            'db'=»array(
-                'connectionString'=»'DSN for test database',
-            ),
-            */
-        ),
-    )
+		require(dirname(__FILE__).'/main.php'),
+		array(
+				'components'=»array(
+						'fixture'=»array(
+								'class'=»'system.test.CDbFixtureManager',
+						),
+						/* הסר הערה זו בכדי להגדיר מסד נתונים לבדיקות
+						'db'=»array(
+								'connectionString'=»'DSN for test database',
+						),
+						*/
+				),
+		)
 );
 ~~~
 

@@ -59,10 +59,10 @@ http://www.example.com/blog/index.php?r=gii
 通过这一步，我们就有了如下新创建的文件：
 
  * `models/User.php` 包含了继承自 [CActiveRecord] 的 `User` 类，可用于访问 `tbl_user` 数据表；
- * `models/Post.php` 包含了继承自 [CActiveRecord] 的  `Post` 类，可用于访问 `tbl_post` 数据表；
- * `models/Tag.php` 包含了继承自 [CActiveRecord] 的  `Tag` 类，可用于访问 `tbl_tag` 数据表；
- * `models/Comment.php` 包含了继承自 [CActiveRecord] 的  `Comment` 类，可用于访问 `tbl_comment` 数据表；
- * `models/Lookup.php` 包含了继承自 [CActiveRecord] 的  `Lookup` 类，可用于访问 `tbl_lookup` 数据表；
+ * `models/Post.php` 包含了继承自 [CActiveRecord] 的	`Post` 类，可用于访问 `tbl_post` 数据表；
+ * `models/Tag.php` 包含了继承自 [CActiveRecord] 的	`Tag` 类，可用于访问 `tbl_tag` 数据表；
+ * `models/Comment.php` 包含了继承自 [CActiveRecord] 的	`Comment` 类，可用于访问 `tbl_comment` 数据表；
+ * `models/Lookup.php` 包含了继承自 [CActiveRecord] 的	`Lookup` 类，可用于访问 `tbl_lookup` 数据表；
 
 
 实现 CRUD 操作
@@ -110,7 +110,7 @@ http://www.example.com/blog/index.php?r=comment
  0. 用户请求访问这个 URL `http://www.example.com/blog/index.php?r=post`;
  1. [入口脚本](http://www.yiiframework.com/doc/guide/basics.entry) 被Web服务器执行，它创建并实例化了一个 [应用](http://www.yiiframework.com/doc/guide/basics.application) 实例来处理此请求；
  2. 应用创建并执行了 `PostController` 实例；
- 3. `PostController` 实例通过调用它的  `actionIndex()` 方法执行了 `index` 动作。注意，如果用户没有在URL中指定执行一个动作，则 `index` 就是默认的动作；
+ 3. `PostController` 实例通过调用它的	`actionIndex()` 方法执行了 `index` 动作。注意，如果用户没有在URL中指定执行一个动作，则 `index` 就是默认的动作；
  4. `actionIndex()` 方法查询数据库，带回最新的日志列表；
  5. `actionIndex()` 方法使用日志数据渲染 `index` 视图。
 

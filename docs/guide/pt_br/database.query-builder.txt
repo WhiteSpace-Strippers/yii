@@ -358,7 +358,7 @@ having(array('or', 'id=1', 'id=2'))
 function union($sql)
 ~~~
 
-O método [union()|CDbCommand::union() ] especifica a parte `UNION` de uma consulta. Ele adiciona `$sql` à consulta existente usando o operador  `UNION`. Chamar `union()` múltiplas vezes irá adicionar múltiplos SQLs ao SQL existente.
+O método [union()|CDbCommand::union() ] especifica a parte `UNION` de uma consulta. Ele adiciona `$sql` à consulta existente usando o operador	`UNION`. Chamar `union()` múltiplas vezes irá adicionar múltiplos SQLs ao SQL existente.
 
 Alguns exemplos abaixo:
 
@@ -429,7 +429,7 @@ Uma instância de [CDbCommand] pode ser reutilizada múltiplas vezes para constr
 [php]
 $command = Yii::app()->db->createCommand();
 $users = $command->select('*')->from('tbl_users')->queryAll();
-$command->reset();  // clean up the previous query
+$command->reset();	// clean up the previous query
 $posts = $command->select('*')->from('tbl_posts')->queryAll();
 ~~~
 
@@ -437,7 +437,7 @@ $posts = $command->select('*')->from('tbl_posts')->queryAll();
 Construindo Consultas de Manipulação de Dados
 ---------------------------------------------
 
-Consultas de manipulação de dados referem-se a comandos SQL para a inserção, atualização e remoção de dados em uma tabela do banco de dados. Para cada uma destas consultas, o Construtor de Consultas possui os métodos `insert`, `update` and `delete`, respectivamente. Diferentemente dos métodos de  consulta SELECT descritos acima,cada um destes métodos de manipulação de dados vai construir um comando SQL completo e executá-lo imediatamente.
+Consultas de manipulação de dados referem-se a comandos SQL para a inserção, atualização e remoção de dados em uma tabela do banco de dados. Para cada uma destas consultas, o Construtor de Consultas possui os métodos `insert`, `update` and `delete`, respectivamente. Diferentemente dos métodos de	consulta SELECT descritos acima,cada um destes métodos de manipulação de dados vai construir um comando SQL completo e executá-lo imediatamente.
 
 * [insert()|CDbCommand::insert]: insere uma linha em uma tabela
 * [update()|CDbCommand::update]: atualiza dados em uma tabela
@@ -566,9 +566,9 @@ Abaixo está um exemplo mostrando como criar uma tabela:
 ~~~
 [php]
 // CREATE TABLE `tbl_user` (
-//     `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-//     `username` varchar(255) NOT NULL,
-//     `location` point
+//		 `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+//		 `username` varchar(255) NOT NULL,
+//		 `location` point
 // ) ENGINE=InnoDB
 createTable('tbl_user', array(
 	'id' => 'pk',

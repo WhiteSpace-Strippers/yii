@@ -75,14 +75,14 @@ Gii 有一些默认的代码生成器。每个代码生成器负责生成特定�
 一个代码生成器存储在一个目录中，这个目录的名字被认为是生成器的名字。目录通常由如下内容组成：
 
 ~~~
-model/                       the model generator root folder
-   ModelCode.php             the code model used to generate code
-   ModelGenerator.php        the code generation controller
-   views/                    containing view scripts for the generator
-      index.php              the default view script
-   templates/                containing code template sets
-      default/               the 'default' code template set
-         model.php           the code template for generating model class code
+model/											 the model generator root folder
+	 ModelCode.php						 the code model used to generate code
+	 ModelGenerator.php				the code generation controller
+	 views/										containing view scripts for the generator
+			index.php							the default view script
+	 templates/								containing code template sets
+			default/							 the 'default' code template set
+				 model.php					 the code template for generating model class code
 ~~~
 
 ###生成器搜索路径
@@ -96,7 +96,7 @@ return array(
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
 			'generatorPaths'=>array(
-				'application.gii',   // a path alias
+				'application.gii',	 // a path alias
 			),
 		),
 	),
@@ -120,7 +120,7 @@ return array(
 
 复制文件 `framework/gii/generators/model/templates/default/model.php` 到 `protected/gii/model/templates/compact`。若我们再次尝试以 `compact` 模板生成，我们会成功。但是，生成的代码和以 `default` 模板集生成的代码没什么不同。
 
-现在是时候做点真正的工作了。打开文件 `protected/gii/model/templates/compact/model.php` 以编辑它。记得这个文件将作为类似一个视图文件被使用，意味着它可以包含 PHP 表达式和语句。让我们更改模板以便生成的代码里  `attributeLabels()` 方法使用 `Yii::t()` 来翻译属性标签：
+现在是时候做点真正的工作了。打开文件 `protected/gii/model/templates/compact/model.php` 以编辑它。记得这个文件将作为类似一个视图文件被使用，意味着它可以包含 PHP 表达式和语句。让我们更改模板以便生成的代码里	`attributeLabels()` 方法使用 `Yii::t()` 来翻译属性标签：
 
 ~~~
 [php]

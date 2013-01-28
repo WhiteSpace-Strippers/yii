@@ -4,10 +4,10 @@ Themes
 Themes (sinngem.: Thema, Leitmotiv) stellen eine Methode dar, das Aussehen einer Webseite
 systematisch anzupassen. Durch das Anwenden eines Themes kann man das komplette
 Erscheinungsbild einer Webanwendung praktisch auf Knopfdruck grundlegend
-verändern. 
+verändern.
 
 Jedes Theme wird in Yii von einem Verzeichnis dargestellt, das View-, Layout-
-und andere relevante Ressourcedateien, wie Bilder, CSS- und Javascript-Dateien 
+und andere relevante Ressourcedateien, wie Bilder, CSS- und Javascript-Dateien
 enthält. Der Name eines Themes entspricht dem Verzeichnisnamen. Alle Themes
 befinden sich unterhalb von `WebVerzeichnis/themes`. Es kann jeweils immer nur ein Theme
 aktiv sein.
@@ -22,27 +22,27 @@ Eigenschaften [basePath|CThemeManager::basePath] (Basispfad) und
 Verwenden von Themes
 --------------------
 
-Um ein Theme anzuwenden, setzt man die Eigenschaft [theme|CWebApplication::theme] 
+Um ein Theme anzuwenden, setzt man die Eigenschaft [theme|CWebApplication::theme]
 der Webanwendung auf den Namen des gewünschten Themes. Dies kann
 entweder in der
 [Anwendungskonfiguration](/doc/guide/basics.application#application-configuration)
-oder während der Laufzeit in einer Controller-Action geschehen. 
+oder während der Laufzeit in einer Controller-Action geschehen.
 
 > Note|Hinweis: Beim Namen eines Themes spielt die Groß-/Kleinschreibung eine
 > Rolle. Wenn man ein Theme konfiguriert, das es gar nicht gibt,
-> liefert `Yii::app()->theme` den Wert `null` zurück. 
+> liefert `Yii::app()->theme` den Wert `null` zurück.
 
 
 
 Erstellen eines Themes
 ----------------------
 
-Die Inhalte eines Themeverzeichnisses sollten genau wie im 
+Die Inhalte eines Themeverzeichnisses sollten genau wie im
 [Anwendungsverzeichnis](/doc/guide/basics.application#application-base-directory)
 abgelegt werden. Alle View-Dateien müssen sich zum Beispiel in `views`,
 Layout-Dateien in `views/layout` und System-View-Dateien unter `views/system`
 befinden. Möchte man z.B. den View `create` für `PostController` durch einen
-View des Themes `classic` ersetzen, sollte die neue Datei unter 
+View des Themes `classic` ersetzen, sollte die neue Datei unter
 `WebVerzeichnis/themes/classic/views/post/create.php` abgelegt werden.
 
 Für die View-Dateien eines Controllers, der in einem
@@ -52,20 +52,20 @@ werden. Wenn der genannte `PostController` zum Beispiel in einem Modul namens
 `forum` enthalten ist, sollte die View-Datei für `create` unter
 `WebVerzeichnis/themes/classic/views/forum/post/create.php` abgespeichert
 werden. Falls das
-`forum`-Modul selbst wiederum als verschachteltes Modul in einem Modul namens 
+`forum`-Modul selbst wiederum als verschachteltes Modul in einem Modul namens
 `support` enthalten ist, sollte die View-Datei unter
 `WebVerzeichnis/themes/classic/views/support/forum/post/create.php` liegen.
 
 > Note|Hinweis: Da das `views`-Verzeichnis sicherheitskritische Daten enthalten
-könnte, sollten Sie dafür sorgen, dass es nicht vom Web aus zugänglich ist. 
+könnte, sollten Sie dafür sorgen, dass es nicht vom Web aus zugänglich ist.
 
 Beim Aufruf von [render|CController::render] oder
 [renderPartial|CController::renderPartial] zum Anzeigen eines Views,
-werden die entsprechenden View- und Layout-Dateien im Verzeichnis des gerade 
+werden die entsprechenden View- und Layout-Dateien im Verzeichnis des gerade
 aktiven Themes gesucht und, falls dort vorgefunden, zum Rendern verwendet.
 Falls nicht, wird in den üblichen Verzeichnissen gesucht, wie mit
 [viewPath|CController::viewPath] und [layoutPath|CWebApplication::layoutPath]
-vorgegeben. 
+vorgegeben.
 
 > Tip|Tipp: Innerhalb eines Theme-Views muss evtl. öfter auf andere
 > Ressource-Dateien des Theme verlinkt werden. Zum Beispiel um eine
@@ -122,7 +122,7 @@ return array(
 ~~~
 
 wird das Theme `basic` verwendet. Das bedeutet, dass das Layout in
-`themes/basic/views/layouts` der Index-View in `themes/basics/views/site` 
+`themes/basic/views/layouts` der Index-View in `themes/basics/views/site`
 verwendet wird. Falls Yii dort keine Viewdatei findet, verwendet es die
 Datei in `protected/views`.
 
@@ -142,7 +142,7 @@ heißen. Man ersetzt in diesem Fall also die Namespace-Separatoren mit einem
 Unterstrich.
 
 Jetzt legt man die Viewdatei `xyz.php` in diesem Verzeichnis ab. Falls das
-aktuelle Theme `basic`ist, sollte man also nun eine Datei 
+aktuelle Theme `basic`ist, sollte man also nun eine Datei
 `themes/basic/views/Foo/xyz.php` haben, die dann vom Widget
 verwendet wird, um den ursprünglichen View zu ersetzen.
 
@@ -154,7 +154,7 @@ Widgets global anpassen
 
 Beim Arbeiten mit Widgets aus Yii oder von anderen Anbietern muss man diese
 häufig an spezifische Bedürfnisse anpassen. Etwa wenn der Wert von
-[CLinkPager::maxButtonCount] nicht 10 (Standard), sondern 5 sein soll. 
+[CLinkPager::maxButtonCount] nicht 10 (Standard), sondern 5 sein soll.
 Man kann diesen Startwert zwar beim Aufruf von [CBaseController::widget]
 setzen, allerdings muss das dann wiederholt an jeder Stelle geschehen, an der
 [CLinkPager] verwendet wird.
@@ -163,8 +163,8 @@ setzen, allerdings muss das dann wiederholt an jeder Stelle geschehen, an der
 [php]
 $this->widget('CLinkPager', array(
 	'pages'=>$pagination,
-    'maxButtonCount'=>5,
-    'cssFile'=>false,
+		'maxButtonCount'=>5,
+		'cssFile'=>false,
 ));
 ~~~
 
@@ -178,19 +178,19 @@ konfiguriert werden:
 ~~~
 [php]
 return array(
-    'components'=>array(
-        'widgetFactory'=>array(
-            'widgets'=>array(
-                'CLinkPager'=>array(
-                    'maxButtonCount'=>5,
-                    'cssFile'=>false,
-                ),
-                'CJuiDatePicker'=>array(
-                    'language'=>'ru',
-                ),
-            ),
-        ),
-    ),
+		'components'=>array(
+				'widgetFactory'=>array(
+						'widgets'=>array(
+								'CLinkPager'=>array(
+										'maxButtonCount'=>5,
+										'cssFile'=>false,
+								),
+								'CJuiDatePicker'=>array(
+										'language'=>'ru',
+								),
+						),
+				),
+		),
 );
 ~~~
 
@@ -236,17 +236,17 @@ ihren Namen identifiziert werden können. So kann es zum Beispiel eine Skin
 für das [CLinkPager]-Widget namens `classic` geben.
 
 Um Skins verwenden zu können, richtet man in der Anwendungskonfiguration die
-Komponente [widgetFactory|CWebApplication::widgetFactory] (sinngem.: Widget-Fabrik) 
+Komponente [widgetFactory|CWebApplication::widgetFactory] (sinngem.: Widget-Fabrik)
 ein:
 
 ~~~
 [php]
 return array(
-    'components'=>array(
-        'widgetFactory'=>array(
-            'enableSkin'=>true,
-        ),
-    ),
+		'components'=>array(
+				'widgetFactory'=>array(
+						'enableSkin'=>true,
+				),
+		),
 );
 ~~~
 
@@ -256,11 +256,11 @@ konfigurieren musste:
 ~~~
 [php]
 return array(
-    'components'=>array(
-        'widgetFactory'=>array(
-            'class'=>'CWidgetFactory',
-        ),
-    ),
+		'components'=>array(
+				'widgetFactory'=>array(
+						'class'=>'CWidgetFactory',
+				),
+		),
 );
 ~~~
 
@@ -276,14 +276,14 @@ folgendem Inhalt anlegen:
 [php]
 <?php
 return array(
-    'default'=>array(
-        'nextPageLabel'=>'&gt;&gt;',
-        'prevPageLabel'=>'&lt;&lt;',
-    ),
-    'classic'=>array(
-        'header'=>'',
-        'maxButtonCount'=>5,
-    ),
+		'default'=>array(
+				'nextPageLabel'=>'&gt;&gt;',
+				'prevPageLabel'=>'&lt;&lt;',
+		),
+		'classic'=>array(
+				'header'=>'',
+				'maxButtonCount'=>5,
+		),
 );
 ~~~
 
@@ -310,9 +310,9 @@ Viewcode erzeugt zum Beispiel einen Pager mit den Starteigenschaften
 ~~~
 [php]
 <?php $this->widget('CLinkPager', array(
-    'skin'=>'classic',
-    'maxButtonCount'=>6,
-    'cssFile'=>false,
+		'skin'=>'classic',
+		'maxButtonCount'=>6,
+		'cssFile'=>false,
 )); ?>
 ~~~
 
@@ -332,9 +332,9 @@ Widget wie gewohnt ohne Fehler.
 Skins ähneln dem Feature zur globalen Anpassung von Widgets. Die wesentlichen
 Unterschiede sind:
 
-   - Eine Skin ist eher zur Anpassung der Darstellungseigenschaften gedacht
-   - Ein Widget kan mehrere Skins haben
-   - Eine Skin kann mit einem Theme versehen werden
-   - Skins beeinflußen die Leistung mehr, als Widgets global anzupassen
+	 - Eine Skin ist eher zur Anpassung der Darstellungseigenschaften gedacht
+	 - Ein Widget kan mehrere Skins haben
+	 - Eine Skin kann mit einem Theme versehen werden
+	 - Skins beeinflußen die Leistung mehr, als Widgets global anzupassen
 
 <div class="revision">$Id: topics.theming.txt 2890 2011-01-18 15:58:34Z qiang.xue $</div>

@@ -28,7 +28,7 @@ W powyższym kodzie, określamy, że atrybuty: autor `author`, e-mail `email` or
 Dostosowywanie metody `attributeLabels()`
 --------------------------------------
 
-Następnie dostosowujemy metodę `attributeLabels()` aby zdefiniować etykiety wyświetlane dla każdego z atrybutów modelu. Metoda ta zwraca tablicę par nazwa-etykieta. 
+Następnie dostosowujemy metodę `attributeLabels()` aby zdefiniować etykiety wyświetlane dla każdego z atrybutów modelu. Metoda ta zwraca tablicę par nazwa-etykieta.
 
 ~~~
 [php]

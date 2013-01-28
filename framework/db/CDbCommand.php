@@ -32,10 +32,10 @@
  * that builds a SQL statement from code fragments. For example,
  * <pre>
  * $user = Yii::app()->db->createCommand()
- *     ->select('username, password')
- *     ->from('tbl_user')
- *     ->where('id=:id', array(':id'=>1))
- *     ->queryRow();
+ *		 ->select('username, password')
+ *		 ->from('tbl_user')
+ *		 ->where('id=:id', array(':id'=>1))
+ *		 ->queryRow();
  * </pre>
  *
  * @property string $text The SQL statement to be executed.
@@ -704,7 +704,7 @@ class CDbCommand extends CComponent
 			{
 				if(strpos($table,'(')===false)
 				{
-					if(preg_match('/^(.*?)(?i:\s+as\s+|\s+)(.*)$/',$table,$matches))  // with alias
+					if(preg_match('/^(.*?)(?i:\s+as\s+|\s+)(.*)$/',$table,$matches))	// with alias
 						$tables[$i]=$this->_connection->quoteTableName($matches[1]).' '.$this->_connection->quoteTableName($matches[2]);
 					else
 						$tables[$i]=$this->_connection->quoteTableName($table);
@@ -1559,7 +1559,7 @@ class CDbCommand extends CComponent
 	{
 		if(strpos($table,'(')===false)
 		{
-			if(preg_match('/^(.*?)(?i:\s+as\s+|\s+)(.*)$/',$table,$matches))  // with alias
+			if(preg_match('/^(.*?)(?i:\s+as\s+|\s+)(.*)$/',$table,$matches))	// with alias
 				$table=$this->_connection->quoteTableName($matches[1]).' '.$this->_connection->quoteTableName($matches[2]);
 			else
 				$table=$this->_connection->quoteTableName($table);

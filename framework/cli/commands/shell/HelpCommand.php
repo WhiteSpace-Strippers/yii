@@ -64,11 +64,11 @@ EOD;
 	{
 		return <<<EOD
 USAGE
-  help [command-name]
+	help [command-name]
 
 DESCRIPTION
-  Display the help information for the specified command.
-  If the command name is not given, all commands will be listed.
+	Display the help information for the specified command.
+	If the command name is not given, all commands will be listed.
 
 PARAMETERS
  * command-name: optional, the name of the command to show help information.

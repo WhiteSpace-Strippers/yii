@@ -3,7 +3,7 @@
 if(typeof(console)=='object')
 {
 	console.group("Profilowanie: raport podsumowujący");
-	console.log(" ilość   razem   średnia    min      max   ");
+	console.log(" ilość	 razem	 średnia		min			max	 ");
 <?php
 foreach($data as $index=>$entry)
 {
@@ -13,7 +13,7 @@ foreach($data as $index=>$entry)
 	$max=sprintf('%0.5f',$entry[3]);
 	$total=sprintf('%0.5f',$entry[4]);
 	$average=sprintf('%0.5f',$entry[4]/$entry[1]);
-	echo "\tconsole.log(\" $count  $total  $average  $min  $max    {$proc}\");\n";
+	echo "\tconsole.log(\" $count	$total	$average	$min	$max		{$proc}\");\n";
 }
 ?>
 	console.groupEnd();

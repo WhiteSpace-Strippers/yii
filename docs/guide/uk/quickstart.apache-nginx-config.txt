@@ -32,52 +32,52 @@ Yii можна використовувати із веб-сервером [Ngin
 
 ~~~
 server {
-    set $host_path "/www/mysite";
-    access_log  /www/mysite/log/access.log  main;
+		set $host_path "/www/mysite";
+		access_log	/www/mysite/log/access.log	main;
 
-    server_name  mysite;
-    root   $host_path/htdocs;
-    set $yii_bootstrap "index.php";
+		server_name	mysite;
+		root	 $host_path/htdocs;
+		set $yii_bootstrap "index.php";
 
-    charset utf-8;
+		charset utf-8;
 
-    location / {
-        index  index.html $yii_bootstrap;
-        try_files $uri $uri/ /$yii_bootstrap?$args;
-    }
+		location / {
+				index	index.html $yii_bootstrap;
+				try_files $uri $uri/ /$yii_bootstrap?$args;
+		}
 
-    location ~ ^/(protected|framework|themes/\w+/views) {
-        deny  all;
-    }
+		location ~ ^/(protected|framework|themes/\w+/views) {
+				deny	all;
+		}
 
-    # відключаємо обробку запитів фреймворком до неіснуючих статичних файлів
-    location ~ \.(js|css|png|jpg|gif|swf|ico|pdf|mov|fla|zip|rar)$ {
-        try_files $uri =404;
-    }
+		# відключаємо обробку запитів фреймворком до неіснуючих статичних файлів
+		location ~ \.(js|css|png|jpg|gif|swf|ico|pdf|mov|fla|zip|rar)$ {
+				try_files $uri =404;
+		}
 
-    # передаємо PHP-скрипт серверу FastCGI, який прослуховує адресу 127.0.0.1:9000
-    #
-    location ~ \.php {
-        fastcgi_split_path_info  ^(.+\.php)(.*)$;
+		# передаємо PHP-скрипт серверу FastCGI, який прослуховує адресу 127.0.0.1:9000
+		#
+		location ~ \.php {
+				fastcgi_split_path_info	^(.+\.php)(.*)$;
 
-        # дозволяємо yii перехоплювати запити до неіснуючих PHP-файлів
-        set $fsn /$yii_bootstrap;
-        if (-f $document_root$fastcgi_script_name){
-            set $fsn $fastcgi_script_name;
-        }
+				# дозволяємо yii перехоплювати запити до неіснуючих PHP-файлів
+				set $fsn /$yii_bootstrap;
+				if (-f $document_root$fastcgi_script_name){
+						set $fsn $fastcgi_script_name;
+				}
 
-        fastcgi_pass   127.0.0.1:9000;
-        include fastcgi_params;
-        fastcgi_param  SCRIPT_FILENAME  $document_root$fsn;
+				fastcgi_pass	 127.0.0.1:9000;
+				include fastcgi_params;
+				fastcgi_param	SCRIPT_FILENAME	$document_root$fsn;
 
-        #PATH_INFO та PATH_TRANSLATED можуть бути опущені, але стандарт RFC 3875 визначає для CGI
-        fastcgi_param  PATH_INFO        $fastcgi_path_info;
-        fastcgi_param  PATH_TRANSLATED  $document_root$fsn;
-    }
+				#PATH_INFO та PATH_TRANSLATED можуть бути опущені, але стандарт RFC 3875 визначає для CGI
+				fastcgi_param	PATH_INFO				$fastcgi_path_info;
+				fastcgi_param	PATH_TRANSLATED	$document_root$fsn;
+		}
 
-    location ~ /\.ht {
-        deny  all;
-    }
+		location ~ /\.ht {
+				deny	all;
+		}
 }
 ~~~
 Використовуючи дану конфігурацію, можна у файлі `php.ini` встановити опцію

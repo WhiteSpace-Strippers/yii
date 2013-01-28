@@ -15,8 +15,8 @@
  * {@link http://phplens.com/phpeverywhere/ ADOdb abstraction library}.
  * The original source code was released under both BSD and GNU Lesser GPL
  * library license, with the following copyright notice:
- *     Copyright (c) 2000, 2001, 2002, 2003, 2004 John Lim
- *     All rights reserved.
+ *		 Copyright (c) 2000, 2001, 2002, 2003, 2004 John Lim
+ *		 All rights reserved.
  *
  * This class is provided to support UNIX timestamp that is beyond the range
  * of 1901-2038 on Unix and1970-2038 on Windows. Except {@link getTimestamp},
@@ -67,18 +67,18 @@ class CTimestamp
 		}
 
 		if($month > 2)
-		    $month -= 2;
+				$month -= 2;
 		else
 		{
-		    $month += 10;
-		    $year--;
+				$month += 10;
+				$year--;
 		}
 
-		$day =  floor((13 * $month - 1) / 5) +
-		        $day + ($year % 100) +
-		        floor(($year % 100) / 4) +
-		        floor(($year / 100) / 4) - 2 *
-		        floor($year / 100) + 77 + $greg_correction;
+		$day =	floor((13 * $month - 1) / 5) +
+						$day + ($year % 100) +
+						floor(($year % 100) / 4) +
+						floor(($year / 100) / 4) - 2 *
+						floor($year / 100) + 77 + $greg_correction;
 
 		return $day - 7 * floor($day / 7);
 	}
@@ -254,7 +254,7 @@ class CTimestamp
 			case 'r': // Thu, 21 Dec 2000 16:01:07 +0200
 
 				// 4.3.11 uses '04 Jun 2004'
-				// 4.3.8 uses  ' 4 Jun 2004'
+				// 4.3.8 uses	' 4 Jun 2004'
 				$dates .= gmdate('D',$_day_power*(3+self::getDayOfWeek($year,$month,$day))).', '
 					. ($day<10?'0'.$day:$day) . ' '.date('M',mktime(0,0,0,$month,2,1971)).' '.$year.' ';
 

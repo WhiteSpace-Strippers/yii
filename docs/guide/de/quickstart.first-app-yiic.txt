@@ -2,7 +2,7 @@ Codegenerierung an der Kommandozeile (veraltet)
 ====================================
 
 > Note|Hinweis: Seit Version 1.1.2 wird die Codegenerierung mit `yiic shell`
-> nicht mehr empfohlen. Verwenden Sie stattdessen den leistungsfähigeren 
+> nicht mehr empfohlen. Verwenden Sie stattdessen den leistungsfähigeren
 > erweiterbaren Codegenerator in [Gii](/doc/guide/topics.gii).
 
 Öffnen Sie ein Befehlsfenster und geben Sie die folgenden Befehle ein:
@@ -13,50 +13,50 @@ Codegenerierung an der Kommandozeile (veraltet)
 Yii Interactive Tool v1.1
 Please type 'help' for help. Type 'exit' to quit.
 >> model User tbl_user
-   generate models/User.php
-   generate fixtures/tbl_user.php
-   generate unit/UserTest.php
+	 generate models/User.php
+	 generate fixtures/tbl_user.php
+	 generate unit/UserTest.php
 
 The following model classes are successfully generated:
-    User
+		User
 
 If you have a 'db' database connection, you can test these models now with:
-    $model=User::model()->find();
-    print_r($model);
+		$model=User::model()->find();
+		print_r($model);
 
 >> crud User
-   generate UserController.php
-   generate UserTest.php
-   mkdir D:/testdrive/protected/views/user
-   generate create.php
-   generate update.php
-   generate index.php
-   generate view.php
-   generate admin.php
-   generate _form.php
-   generate _view.php
+	 generate UserController.php
+	 generate UserTest.php
+	 mkdir D:/testdrive/protected/views/user
+	 generate create.php
+	 generate update.php
+	 generate index.php
+	 generate view.php
+	 generate admin.php
+	 generate _form.php
+	 generate _view.php
 
 
 Crud 'user' has been successfully created. You may access it via:
 http://hostname/path/to/index.php?r=user
 ~~~
 
-Mit obigem `yiic shell`-Kommando gelangt man an eine Eingabeaufforderung, 
-um Befehle an die Anwendung zu senden.  Mit dem Unterbefehl 
+Mit obigem `yiic shell`-Kommando gelangt man an eine Eingabeaufforderung,
+um Befehle an die Anwendung zu senden.	Mit dem Unterbefehl
 `model User tbl_user` wird zunächst die Modelklasse für die
 `tbl_user`-Tabelle erzeugt. `crud User` analysiert dann das eben
 erzeugte Model `User` und generiert anschließend den Code für die CRUD-Operationen.
 
 
-> Note|Hinweis: Falls Ihnen Fehler wie "...could not find driver" 
+> Note|Hinweis: Falls Ihnen Fehler wie "...could not find driver"
 > ("...konnte Treiber nicht finden") begegnen, obwohl Ihr Server
-> alle Voraussetzungen bzgl. PDO erfüllt,  können Sie versuchen, 
+> alle Voraussetzungen bzgl. PDO erfüllt,	können Sie versuchen,
 > `yiic` wie folgt aufzurufen:
 >
 > ~~~
 > % php -c pfad/zu/php.ini protected/yiic.php shell
 > ~~~
-> 
+>
 > wobei `pfad/zu/php.ini` auf die richtige INI-Datei verweist.
 
 Sie können nun die Früchte Ihrer Arbeit genießen, indem sie folgende URL

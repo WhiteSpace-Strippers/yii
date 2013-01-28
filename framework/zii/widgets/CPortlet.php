@@ -20,7 +20,7 @@
  *
  * <pre>
  * <?php $this->beginWidget('zii.widgets.CPortlet'); ?>
- *     ...insert content here...
+ *		 ...insert content here...
  * <?php $this->endWidget(); ?>
  * </pre>
  *

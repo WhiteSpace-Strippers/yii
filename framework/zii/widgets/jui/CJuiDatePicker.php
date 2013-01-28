@@ -19,14 +19,14 @@ Yii::import('zii.widgets.jui.CJuiInputWidget');
  * To use this widget, you may insert the following code in a view:
  * <pre>
  * $this->widget('zii.widgets.jui.CJuiDatePicker',array(
- *     'name'=>'publishDate',
- *     // additional javascript options for the date picker plugin
- *     'options'=>array(
- *         'showAnim'=>'fold',
- *     ),
- *     'htmlOptions'=>array(
- *         'style'=>'height:20px;'
- *     ),
+ *		 'name'=>'publishDate',
+ *		 // additional javascript options for the date picker plugin
+ *		 'options'=>array(
+ *				 'showAnim'=>'fold',
+ *		 ),
+ *		 'htmlOptions'=>array(
+ *				 'style'=>'height:20px;'
+ *		 ),
  * ));
  * </pre>
  *

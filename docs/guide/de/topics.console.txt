@@ -1,16 +1,16 @@
 Konsolenanwendungen
 ===================
 
-Konsolenanwendungen werden hauptsächlich für Offline-Arbeiten eingesetzt, 
+Konsolenanwendungen werden hauptsächlich für Offline-Arbeiten eingesetzt,
 z.B. zur Codegenerierung, um Suchindizes zu Erstellen oder auch um Emails zu
 versenden. Auch für sie bietet Yii ein objektorientiertes Framework.
-Damit können solche Anwendungen auf die selben Ressourcen (z.B. DB-Verbindungen) 
+Damit können solche Anwendungen auf die selben Ressourcen (z.B. DB-Verbindungen)
 zugreifen, wie die Webapplikation.
 
 Überblick
 ---------
 
-Verschiedene Konsolenarbeiten werden in Yii jeweils durch einen 
+Verschiedene Konsolenarbeiten werden in Yii jeweils durch einen
 [Befehl|CConsoleCommand] repräsentiert. Um einen Konsolenbefehl anzulegen, wird die Klasse
 [CConsoleCommand] erweitert.
 
@@ -20,7 +20,7 @@ Dateien im `protected`-Verzeichnis:
 * `yiic`: Eine ausführbare Scriptdatei für Linux/Unix;
 * `yiic.bat`: Eine Batch-Datei für Windows.
 
-Gibt man in einem Kommandozeilenfenster 
+Gibt man in einem Kommandozeilenfenster
 
 ~~~
 cd protected
@@ -49,24 +49,24 @@ yiic <Befehlsname> [Parameter...]
 Befehle erstellen
 -----------------
 
-Konsolenbefehle werden in Form einer Klasse in dem Verzeichnis abgelegt, 
+Konsolenbefehle werden in Form einer Klasse in dem Verzeichnis abgelegt,
 das unter [CConsoleApplication::commandPath] konfiguriert wurde. Standardmäßig
 verweist dieser Pfad auf `protected/commands`.
 
 Eine Klasse für einen Konsolenbefehl muss von [CConsoleCommand]
 abgeleitetet werden. Der Name dieser Klasse muss dem Format `XyzCommand`
-entsprechen, wobei `Xyz` dem großgeschriebenen Befehlsnamen entspricht. 
+entsprechen, wobei `Xyz` dem großgeschriebenen Befehlsnamen entspricht.
 Für einen `sitemap`-Befehl müsste die Klasse also `SitemapCommand` heißen.
-Bei der Bezeichnung von Konsolenbefehlen ist die Groß-/Kleinschreibung zu 
+Bei der Bezeichnung von Konsolenbefehlen ist die Groß-/Kleinschreibung zu
 berücksichtigen.
 
-> Tip|Tipp: Verwendet man [CConsoleApplication::commandMap], können 
+> Tip|Tipp: Verwendet man [CConsoleApplication::commandMap], können
 > Kommandoklassen auch anderen Namenskonventionen folgen und an anderen Orten liegen.
 
 Um einen neuen Befehl anzulegen, genügt es meistens, [CConsoleCommand::run()]
 zu überschreiben oder eine bzw. mehrere Actions (siehe unten) zu erstellen.
 
-Führt man einen Befehl aus, ruft die Konsolenanwendung dann [CConsoleCommand::run()] 
+Führt man einen Befehl aus, ruft die Konsolenanwendung dann [CConsoleCommand::run()]
 mit den übergebenen Parametern gemäß folgender Signatur auf:
 
 ~~~
@@ -78,12 +78,12 @@ wobei `$args` die Aufrufparameter enthält.
 
 Innerhalb eines Befehls kann das Anwendungsobjekt wie gewohnt über
 `Yii::app()` angesprochen werden. Auch die konfigurierten Komponenten, wie
-etwa die Datenbankverbindung, stehen wie bei einer Webanwendung zur Verfügung 
+etwa die Datenbankverbindung, stehen wie bei einer Webanwendung zur Verfügung
 (z.B. `Yii::app()->db`).
 
 > Info: Seit Version 1.1.1 ermöglicht Yii auch globale Befehle, die von
 allen Yii-Anwendungen auf einem Server verwendet werden können. Dazu muss die
-Umgebungsvariable `YII_CONSOLE_COMMANDS` auf ein existierendes Verzeichnis 
+Umgebungsvariable `YII_CONSOLE_COMMANDS` auf ein existierendes Verzeichnis
 mit Befehlsklassen verweisen. Alle Befehle in diesem Verzeichnis
 stehen dann bei jedem Aufruf von `yiic` zur Verfügung.
 
@@ -99,7 +99,7 @@ davon als Pflichtangaben, manche optional. Außerdem kann ein Befehl aus
 verschiedene Teilaufgaben bestehen, die man auch einzeln aufrufen können soll.
 Das lässt sich sehr einfach über (Befehls-)Actions bewerkstelligen.
 
-Eine solche Befehlsaction entspricht in der Befehlsklasse einer Methode, 
+Eine solche Befehlsaction entspricht in der Befehlsklasse einer Methode,
 deren Name dem Format `actionXyz` entspricht. `Xyz` entspricht dem
 großgeschriebenen Actionnamen. Eine Methode `actionIndex` definiert demzufolge
 eine Action namens `index`.
@@ -118,8 +118,8 @@ gesendet. Bei dieser Befehlsklasse zum Beispiel,
 [php]
 class SitemapCommand extends CConsoleCommand
 {
-    public function actionIndex($typ, $limit=5) { ... }
-    public function actionInit() { ... }
+		public function actionIndex($typ, $limit=5) { ... }
+		public function actionInit() { ... }
 }
 ~~~
 
@@ -160,7 +160,7 @@ yiic sitemap index --typen=News --typen=Article
 Dieser Befehl wird in den Aufruf `actionIndex(array('News','Article'))` übersetzt.
 
 Seit Version 1.1.6 unterstützt Yii auch "anonyme" Parameter, sowie globale
-Optionen. 
+Optionen.
 
 Als "anonyme" Parameter bezeichnet man jene, die nicht obigem Optionsformat
 entsprechen. Im Kommando `yiic sitemap index --limit=5 News` wäre `News` ein
@@ -218,7 +218,7 @@ Ein Beispiel:
 ~~~
 [php]
 if (/* Fehler */) {
-    return 1; // mit Fehlercode 1 beenden
+		return 1; // mit Fehlercode 1 beenden
 }
 // ... Aufgabe erledigen ...
 return 0; // mit Status "erfolgreich" beenden
@@ -235,7 +235,7 @@ sich die Konfigurationsdatei für Konsolenanwendungen in
 `protected/config/console.php`. Genau wie bei der Konfiguration für die
 Webanwendung, liefert auch diese PHP-Datei ein Array mit den zu
 konfigurierenden Eigenschaftswerten für das Anwendungsobjekt [CConsoleApplication]
-zurück. 
+zurück.
 
 Da auch Konsolenanwendungen meist auf die selben Komponenten wie die
 Webanwendung zugreifen müssen (z.B. die DB-Verbindung), können diese wie folgt

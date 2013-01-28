@@ -56,7 +56,7 @@ class CMarkdownParser extends MarkdownExtra_Parser
 	public $highlightCssClass='hl-code';
 	/**
 	 * @var mixed the options to be passed to {@link http://htmlpurifier.org HTML Purifier}.
-	 * This can be a HTMLPurifier_Config object,  an array of directives (Namespace.Directive => Value)
+	 * This can be a HTMLPurifier_Config object,	an array of directives (Namespace.Directive => Value)
 	 * or the filename of an ini file.
 	 * This property is used only when {@link safeTransform} is invoked.
 	 * @see http://htmlpurifier.org/live/configdoc/plain.html

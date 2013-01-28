@@ -3,15 +3,15 @@ Menggunakan Extension
 
 Menggunakan extension biasanya berkaitan dengan tiga langkah berikut:
 
-  1. Download extension dari
-     [repositori extension](http://www.yiiframework.com/extensions/) Yii.
-  2. Urai extension di bawah subdirektori `extensions/xyz` pada
-     [direktori basis aplikasi](/doc/guide/basics.application#application-base-directory),
-     di mana `xyz` adalah nama extension.
-  3. Impor, konfigurasi dan gunakan extension.
+	1. Download extension dari
+		 [repositori extension](http://www.yiiframework.com/extensions/) Yii.
+	2. Urai extension di bawah subdirektori `extensions/xyz` pada
+		 [direktori basis aplikasi](/doc/guide/basics.application#application-base-directory),
+		 di mana `xyz` adalah nama extension.
+	3. Impor, konfigurasi dan gunakan extension.
 
 Setiap extension memiliki nama yang secara identitas unik diantara semua extension.
-Extension diberi nama `xyz`, kita dapat menggunakan alias path `ext.xyz` untuk 
+Extension diberi nama `xyz`, kita dapat menggunakan alias path `ext.xyz` untuk
 menempatkannya pada basis direktori yang berisi semua file `xyz`.
 
 Extension yang berbeda memiliki persyaratan mengenai pengimporan,
@@ -50,15 +50,15 @@ lebih dulu dengan menambahkan entri baru pada properti `components`, seperti ber
 ~~~
 [php]
 return array(
-    // 'preload'=>array('xyz',...),
-    'components'=>array(
-        'xyz'=>array(
-            'class'=>'ext.xyz.XyzClass',
-            'property1'=>'value1',
-            'property2'=>'value2',
-        ),
-        // konfigurasi komponen lainnya
-    ),
+		// 'preload'=>array('xyz',...),
+		'components'=>array(
+				'xyz'=>array(
+						'class'=>'ext.xyz.XyzClass',
+						'property1'=>'value1',
+						'property2'=>'value2',
+				),
+				// konfigurasi komponen lainnya
+		),
 );
 ~~~
 
@@ -142,13 +142,13 @@ sebuah tampilan seperti berikut,
 [php]
 // widget yang tidak memerlukan konten body
 <?php $this->widget('application.extensions.xyz.XyzClass', array(
-    'property1'=>'value1',
-    'property2'=>'value2')); ?>
+		'property1'=>'value1',
+		'property2'=>'value2')); ?>
 
 // widget yang dapat berisi konten body
 <?php $this->beginWidget('application.extensions.xyz.XyzClass', array(
-    'property1'=>'value1',
-    'property2'=>'value2')); ?>
+		'property1'=>'value1',
+		'property2'=>'value2')); ?>
 
 ...konten body widget...
 
@@ -161,7 +161,7 @@ Action (Aksi)
 [Action](/doc/guide/basics.controller#action) dipakai oleh [controller](/doc/guide/basics.controller)
 untuk merespon permintaan spesifik pengguna. Kelas aksi `XyzClass` dimiliki oleh extension
 `xyz`, kita dapat menggunakannya dengan meng-override metode [CController::actions] dalam
-kelas controller  kita:
+kelas controller	kita:
 
 ~~~
 [php]

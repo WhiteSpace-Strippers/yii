@@ -4,7 +4,7 @@ Active Record relational
 Am aratat deja cu se foloseste Active Record (AR) pentru a selecta date dintr-o
 singura tabela a bazei de date. In aceasta sectiune, descriem cum se foloseste AR
 pentru a face join intre mai multe tabele din baza de date si pentru a intoarce
-setul de date compus. 
+setul de date compus.
 
 Pentru a folosi AR relational, estenecesar ca relatiile dintre cheile primare de
 tip foreign sa fie clar definite intre tabelele carora li se aplica join. AR
@@ -15,7 +15,7 @@ acestor tabele.
 > nu definim constrangeri intre cheile foreign in baza de date.
 
 Pentru simplicate, vom folosi schema bazei de date din diagrama ER (entity-relationship)
-de mai jos in exemplele din aceasta sectiune. 
+de mai jos in exemplele din aceasta sectiune.
 
 ![ER Diagram](er.png)
 
@@ -33,13 +33,13 @@ de mai jos in exemplele din aceasta sectiune.
 > [sql]
 > CREATE TABLE Foo
 > (
->   id INTEGER NOT NULL PRIMARY KEY
+>	 id INTEGER NOT NULL PRIMARY KEY
 > );
 > CREATE TABLE bar
 > (
->   id INTEGER NOT NULL PRIMARY KEY,
->   fooID INTEGER
->      COMMENT 'CONSTRAINT FOREIGN KEY (fooID) REFERENCES Foo(id)'
+>	 id INTEGER NOT NULL PRIMARY KEY,
+>	 fooID INTEGER
+>			COMMENT 'CONSTRAINT FOREIGN KEY (fooID) REFERENCES Foo(id)'
 > );
 > ~~~
 > In cele de mai sus, folosim cuvantul cheie `COMMENT` pentru a descrie constrangerea foreign
@@ -59,16 +59,16 @@ doua tabele A si B este de trei tipuri: one-to-many (ex. `User` si `Post`), one-
 `User` si `Profile`) si many-to-many (ex. `Category` si `Post`). In AR,
 exista patru tipuri de relatii:
 
-   - `BELONGS_TO`: Daca relatia dintre tabelele A si B este
+	 - `BELONGS_TO`: Daca relatia dintre tabelele A si B este
 one-to-many, atunci B apartine lui A (ex. `Post` apartine lui `User`);
 
-   - `HAS_MANY`: daca relatia dintre tabelele A si B este one-to-many,
+	 - `HAS_MANY`: daca relatia dintre tabelele A si B este one-to-many,
 atunci A are mai multi B (ex. `User` are multe `Post`);
 
-   - `HAS_ONE`: acesta este un caz special al lui `HAS_MANY`, in care A are cel mult un
+	 - `HAS_ONE`: acesta este un caz special al lui `HAS_MANY`, in care A are cel mult un
 B (ex. `User` are cel mult un `Profile`);
 
-   - `MANY_MANY`: acesta corespunde cu relatia many-to-many din baza de date.
+	 - `MANY_MANY`: acesta corespunde cu relatia many-to-many din baza de date.
 O tabela asociativa este necesara pentru a sparge o relatie many-to-many
 in relatii one-to-many, din moment ce majoritatea DBMS nu au suport pentru relatii
 many-to-many direct. In schema bazei de date din exemplul nostru,
@@ -91,7 +91,7 @@ relatiei, care poate fi unul din patru constante:
 `self::BELONGS_TO`, `self::HAS_ONE`, `self::HAS_MANY` si
 `self::MANY_MANY`; `ClassName` este numele clasei AR in relatie cu aceasta clasa AR;
 si `ForeignKey` precizeaza cheile foreign key implicate in relatie. Optiuni aditionale
-pot fi specificate la sfarsitul fiecarei relatii (se va descrie mai tarziu acest lucru). 
+pot fi specificate la sfarsitul fiecarei relatii (se va descrie mai tarziu acest lucru).
 
 Urmatorul cod arata cum declaram relatiile pentru clasele `User` si `Post`.
 
@@ -246,42 +246,42 @@ Am mentionat ca pot fi specificate optiuni aditionale in declaratia relatiei.
 Aceste optiuni, specificate intr-un array de perechi key-value, sunt folosite
 pentru a customiza cererea relationala. Avem un sumar mai jos.
 
-   - `select`: o lista de coloane care vor fi selectate pentru clasa AR de legatura.
+	 - `select`: o lista de coloane care vor fi selectate pentru clasa AR de legatura.
 Implicit, aceasta lista este '*', adica toate coloanele. Numele de coloane ar trebui
 sa fie diferentiate folosind `aliasToken` daca apar intr-o expresie (ex.
 `COUNT(??.name) AS nameCount`).
 
-   - `params`: parametrii care vor fi legati la instructiunea SQL.
+	 - `params`: parametrii care vor fi legati la instructiunea SQL.
 Ar trebui sa primeasca un array cu perechi nume-valoare. Aceasta optiune este disponibila
 incepand cu versiunea 1.0.3.
 
-   - `condition`: clauza `WHERE`. Implicit nu contine nimic, Referintele catre coloane
+	 - `condition`: clauza `WHERE`. Implicit nu contine nimic, Referintele catre coloane
 trebuie sa fie diferentiate folosind `aliasToken` (ex. `??.id=10`).
 
-   - `on`: clauza `ON`. Conditia specificata aici va fi adaugata la conditia join
+	 - `on`: clauza `ON`. Conditia specificata aici va fi adaugata la conditia join
 folosind operatorul `AND`. Aceasta optiune este disponibila incepand cu versiunea
 1.0.2 a Yii.
 
-   - `order`: clauza `ORDER BY`. implicit nu contine nimic. Referintele catre coloane
+	 - `order`: clauza `ORDER BY`. implicit nu contine nimic. Referintele catre coloane
 trebuie sa fie diferentiate folosind `aliasToken` (ex. `??.age DESC`).
 
-   - `with`: o lista cu obiectele inrudite care ar trebui incarcate impreuna cu acest obiect.
+	 - `with`: o lista cu obiectele inrudite care ar trebui incarcate impreuna cu acest obiect.
 Aceasta lista este creata doar prin abordarea lazy loading, nu eager loading.
 
-   - `joinType`: tipul de join pentru aceasta relatie. Implcit este `LEFT OUTER JOIN`.
+	 - `joinType`: tipul de join pentru aceasta relatie. Implcit este `LEFT OUTER JOIN`.
 
-   - `aliasToken`: placeholder pentru prefix de coloana. Va fi inlocuit
+	 - `aliasToken`: placeholder pentru prefix de coloana. Va fi inlocuit
 cu alias-ul tabelei corespunzatoare pentru a se putea discrimina referintele la
 coloane. Implicit este `'??.'`.
 
-   - `alias`: alias pentru tabela asociata cu aceasta relatie.
+	 - `alias`: alias pentru tabela asociata cu aceasta relatie.
 Aceasta optiune este disponibila din versiunea 1.0.1 a Yii. Implicit este null,
 adica alias-ul tabelei este generat automat. Este diferit fata de
 `aliasToken`. `aliasToken` este doar un placeholder si va fi inlocuit cu alias-ul
 tabelei in cauza.
 
-   - `together`: daca tabela asociata cu aceasta relatie should ar trebui sa faca un join fortat
-cu tabela primara. Aceasta optiune are sens pentru relatiile HAS_MANY si MANY_MANY. 
+	 - `together`: daca tabela asociata cu aceasta relatie should ar trebui sa faca un join fortat
+cu tabela primara. Aceasta optiune are sens pentru relatiile HAS_MANY si MANY_MANY.
 Daca optiunea nu este setata sau este false, fiecare relatie HAS_MANY sau MANY_MANY
 va avea instructiunea ei JOIN proprie pentru a imbunatati performanta.
 Aceasta optiune este disponibila incepand cu versiunea 1.0.3.
@@ -289,19 +289,19 @@ Aceasta optiune este disponibila incepand cu versiunea 1.0.3.
 In plus, sunt disponibile urmatoarele optiuni pentru anumite relatii
 in timpul abordarii lazy loading:
 
-   - `group`: clauza `GROUP BY`. Implicit nu contine nimic. De notat ca referintele
+	 - `group`: clauza `GROUP BY`. Implicit nu contine nimic. De notat ca referintele
 la coloane trebuie diferentiate folosind `aliasToken` (ex. `??.age`).
 Aceasta optiune este valabila doar in cazul relatiilor `HAS_MANY` si `MANY_MANY`.
 
-   - `having`: clauza `HAVING`. Implicit nu contine nimic.  De notat ca
+	 - `having`: clauza `HAVING`. Implicit nu contine nimic.	De notat ca
 referintele la coloane trebuie sa fie diferentiate folosind `aliasToken` (ex. `??.age`).
 Aceasta optiune este valabila doar in cazul relatiilor `HAS_MANY` si `MANY_MANY`. Este disponibila
 incepand cu versiunea 1.0.1 a Yii.
 
-   - `limit`: clauza limit pentru limitarea randurilor selectate. Aceasta optiune NU se aplica
+	 - `limit`: clauza limit pentru limitarea randurilor selectate. Aceasta optiune NU se aplica
 relatiei `BELONGS_TO`.
 
-   - `offset`: offset pentru randurile care vor fi selectate. Aceasta optiune NU se aplica
+	 - `offset`: offset pentru randurile care vor fi selectate. Aceasta optiune NU se aplica
 relatiei `BELONGS_TO`.
 
 Mai jos, modificam declaratia de relatie `posts` din `User` prin includerea unor
@@ -334,8 +334,8 @@ De exemplu, `id` devine `Team.id`. Totusi, in cererile relationale AR
 nu avem aceasta libertate deoarce instructiunile SQL sunt generate automat
 de catre AR, deci fiecare tabela va primi automat un alias.
 De aceea, pentru a evita eventuale conflicte dintre numele coloanelor,
-folosin un placeholder pentru a indica existenta unei coloane 
-care trebuie sa fie diferentiata fata de celelalte. AR va inlocui 
+folosin un placeholder pentru a indica existenta unei coloane
+care trebuie sa fie diferentiata fata de celelalte. AR va inlocui
 placeholder-ul cu un alias de tabela corespunzator pentru a diferentia corect coloana in cauza.
 
 Optiuni pentru cereri relationale dinamice

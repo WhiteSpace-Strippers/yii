@@ -108,16 +108,16 @@ echo $client->getPrice('GOOGLE');
 リモートから呼び出し可能なクラスメソッドとプロパティを定義する際に、入出力パラメータのデータ型を決める必要があります。
 以下の基本データ型が利用可能です。
 
-   - str/string: `xsd:string` に対応します;
-   - int/integer: `xsd:int` に対応します;
-   - float/double: `xsd:float` に対応します;
-   - bool/boolean: `xsd:boolean` に対応します;
-   - date: `xsd:date` に対応します;
-   - time: `xsd:time` に対応します;
-   - datetime: `xsd:dateTime` に対応します;
-   - array: `xsd:string` に対応します;
-   - object: `xsd:struct` に対応します;
-   - mixed: `xsd:anyType` に対応します.
+	 - str/string: `xsd:string` に対応します;
+	 - int/integer: `xsd:int` に対応します;
+	 - float/double: `xsd:float` に対応します;
+	 - bool/boolean: `xsd:boolean` に対応します;
+	 - date: `xsd:date` に対応します;
+	 - time: `xsd:time` に対応します;
+	 - datetime: `xsd:dateTime` に対応します;
+	 - array: `xsd:string` に対応します;
+	 - object: `xsd:struct` に対応します;
+	 - mixed: `xsd:anyType` に対応します.
 
 上記の基本型に当てはまらない場合は、複数のプロパティからなる複合型とみなされます。
 複合型はクラスの形式で表され、コメント (doc comment) で `@soap` のマークが付けられたパブリックなメンバ変数が、プロパティになります。
@@ -177,7 +177,7 @@ class PostController extends CController
 			'service'=>array(
 				'class'=>'CWebServiceAction',
 				'classMap'=>array(
-					'Post'=>'Post',  // あるいは単に'Post'
+					'Post'=>'Post',	// あるいは単に'Post'
 				),
 			),
 		);

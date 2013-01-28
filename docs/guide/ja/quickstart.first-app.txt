@@ -51,49 +51,49 @@ http://hostname/testdrive/index.php
 
 ~~~
 testdrive/
-   index.php                 ウェブアプリケーションのエントリスクリプト
-   index-test.php            機能テストのためのエントリスクリプト
-   assets/                   発行されたリソースファイルを含む
-   css/                      CSS ファイルを含む
-   images/                   イメージファイルを含む
-   themes/                   アプリケーションテーマを含む
-   protected/                保護されたアプリケーションファイルを含む
-      yiic                   Unix/Linux 用 yiic コマンドラインスクリプト
-      yiic.bat               ウインドウズ用 yiic コマンドラインスクリプト
-      yiic.php               yiic コマンドライン PHP スクリプト
-      commands/              カスタム化した 'yiic' コマンドを含む
-         shell/              カスタム化した 'yiic shell' コマンドを含む
-      components/            再利用可能なユーザコンポーネントを含む
-         Controller.php      全てのコントローラクラスの基本クラス
-         UserIdentity.php    認証のための 'UserIdentity' クラス
-      config/                アプリケーション初期構成ファイルを含む
-         console.php         コンソールアプリケーション初期構成ファイル
-         main.php            ウェブアプリケーション初期構成ファイル
-         test.php            機能テストのための初期構成ファイル
-      controllers/           コントローラクラスファイルを含む
-         SiteController.php  デフォルトコントローラクラスファイル
-      data/                  サンプルデータベースを含む
-         schema.mysql.sql    サンプルの MySQL データベースの DB スキーマ
-         schema.sqlite.sql   サンプルの SQLite データベースの DB スキーマ
-         testdrive.db        サンプルの SQLite データベースファイル
-      extensions/            サードパーティ拡張を含む
-      messages/              翻訳されたメッセージを含む
-      models/                モデルクラスファイルを含む
-         LoginForm.php       'login' アクションのためのフォームモデル
-         ContactForm.php     'contact' アクションのためのフォームモデル
-      runtime/               一時的に生成されたファイルを含む
-      views/                 コントローラビューとレイアウトを含む
-         layouts/            レイアウトビューファイルを含む
-            main.php         全てのページで共有される基本レイアウト
-            column1.php      単一カラムを使うページ用のレイアウト
-            column2.php      2カラムを使うページ用のレイアウト
-         site/               'site' コントローラのためのビューを含む
-            pages/           "静的" なページを含む
-               about.php     "について(about)" ページのビュー
-            contact.php      'contact' アクションのためのビュー
-            error.php        'error' アクションのためのビュー (外部エラーを表示)
-            index.php        'index' アクションのためのビュー
-            login.php        'login' アクションのためのビュー
+	 index.php								 ウェブアプリケーションのエントリスクリプト
+	 index-test.php						機能テストのためのエントリスクリプト
+	 assets/									 発行されたリソースファイルを含む
+	 css/											CSS ファイルを含む
+	 images/									 イメージファイルを含む
+	 themes/									 アプリケーションテーマを含む
+	 protected/								保護されたアプリケーションファイルを含む
+			yiic									 Unix/Linux 用 yiic コマンドラインスクリプト
+			yiic.bat							 ウインドウズ用 yiic コマンドラインスクリプト
+			yiic.php							 yiic コマンドライン PHP スクリプト
+			commands/							カスタム化した 'yiic' コマンドを含む
+				 shell/							カスタム化した 'yiic shell' コマンドを含む
+			components/						再利用可能なユーザコンポーネントを含む
+				 Controller.php			全てのコントローラクラスの基本クラス
+				 UserIdentity.php		認証のための 'UserIdentity' クラス
+			config/								アプリケーション初期構成ファイルを含む
+				 console.php				 コンソールアプリケーション初期構成ファイル
+				 main.php						ウェブアプリケーション初期構成ファイル
+				 test.php						機能テストのための初期構成ファイル
+			controllers/					 コントローラクラスファイルを含む
+				 SiteController.php	デフォルトコントローラクラスファイル
+			data/									サンプルデータベースを含む
+				 schema.mysql.sql		サンプルの MySQL データベースの DB スキーマ
+				 schema.sqlite.sql	 サンプルの SQLite データベースの DB スキーマ
+				 testdrive.db				サンプルの SQLite データベースファイル
+			extensions/						サードパーティ拡張を含む
+			messages/							翻訳されたメッセージを含む
+			models/								モデルクラスファイルを含む
+				 LoginForm.php			 'login' アクションのためのフォームモデル
+				 ContactForm.php		 'contact' アクションのためのフォームモデル
+			runtime/							 一時的に生成されたファイルを含む
+			views/								 コントローラビューとレイアウトを含む
+				 layouts/						レイアウトビューファイルを含む
+						main.php				 全てのページで共有される基本レイアウト
+						column1.php			単一カラムを使うページ用のレイアウト
+						column2.php			2カラムを使うページ用のレイアウト
+				 site/							 'site' コントローラのためのビューを含む
+						pages/					 "静的" なページを含む
+							 about.php		 "について(about)" ページのビュー
+						contact.php			'contact' アクションのためのビュー
+						error.php				'error' アクションのためのビュー (外部エラーを表示)
+						index.php				'index' アクションのためのビュー
+						login.php				'login' アクションのためのビュー
 ~~~
 
 上述されたアプリケーションジェネレータは、Git バージョン管理システムが必要とする

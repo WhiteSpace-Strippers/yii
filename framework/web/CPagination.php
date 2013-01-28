@@ -22,31 +22,31 @@
  * Controller action:
  * <pre>
  * function actionIndex(){
- *     $criteria=new CDbCriteria();
- *     $count=Article::model()->count($criteria);
- *     $pages=new CPagination($count);
+ *		 $criteria=new CDbCriteria();
+ *		 $count=Article::model()->count($criteria);
+ *		 $pages=new CPagination($count);
  *
- *     // results per page
- *     $pages->pageSize=10;
- *     $pages->applyLimit($criteria);
- *     $models=Article::model()->findAll($criteria);
+ *		 // results per page
+ *		 $pages->pageSize=10;
+ *		 $pages->applyLimit($criteria);
+ *		 $models=Article::model()->findAll($criteria);
  *
- *     $this->render('index', array(
- *     'models' => $models,
- *          'pages' => $pages
- *     ));
+ *		 $this->render('index', array(
+ *		 'models' => $models,
+ *					'pages' => $pages
+ *		 ));
  * }
  * </pre>
  *
  * View:
  * <pre>
  * <?php foreach($models as $model): ?>
- *     // display a model
+ *		 // display a model
  * <?php endforeach; ?>
  *
  * // display pagination
  * <?php $this->widget('CLinkPager', array(
- *     'pages' => $pages,
+ *		 'pages' => $pages,
  * )) ?>
  * </pre>
  *

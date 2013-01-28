@@ -1,15 +1,15 @@
 @echo off
 
 rem -------------------------------------------------------------
-rem  build script for Windows.
+rem	build script for Windows.
 rem
-rem  This is the bootstrap script for running build on Windows.
+rem	This is the bootstrap script for running build on Windows.
 rem
-rem  @author Qiang Xue <qiang.xue@gmail.com>
-rem  @link http://www.yiiframework.com/
-rem  @copyright 2008 Yii Software LLC
-rem  @license http://www.yiiframework.com/license/
-rem  @version $Id$
+rem	@author Qiang Xue <qiang.xue@gmail.com>
+rem	@link http://www.yiiframework.com/
+rem	@copyright 2008 Yii Software LLC
+rem	@license http://www.yiiframework.com/license/
+rem	@version $Id$
 rem -------------------------------------------------------------
 
 @setlocal

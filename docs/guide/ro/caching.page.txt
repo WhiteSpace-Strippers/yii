@@ -6,7 +6,7 @@ intregi pagini. Caching-ul de pagini poate aparea si in aplicatia server
 si in aplicatia client.
 
 De exemplu, prin alegerea unui header de pagina corespunzator, browser-ul clientului
-poate memora in cache pagina pentru o perioada limitata de timp. 
+poate memora in cache pagina pentru o perioada limitata de timp.
 
 Aplicatia web insasi poate memora continutului paginii in cache si in aceasta subsectiune
 ne referim la aceasta tehnica.
@@ -46,6 +46,6 @@ in sectiunea despre [filtre](/doc/guide/basics.controller#filter).
 din clasa [CFilterWidget], ceea ce inseamna ca este atat filtru cat si widget.
 De fapt, un widget functioneaza foarte asemanator cu un filtru: un widget incepe
 inainte de evaluarea continutului HTML care ii urmeaza, si apoi widget-ul se termina dupa
-ce continutul HTML a fost evaluat. 
+ce continutul HTML a fost evaluat.
 
 <div class="revision">$Id: caching.page.txt 162 2008-11-05 12:44:08Z weizhuo $</div>

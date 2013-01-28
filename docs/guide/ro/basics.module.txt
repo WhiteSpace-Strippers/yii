@@ -3,10 +3,10 @@ Module
 
 > Note|Nota: Suportul pentru module este disponibil incepand cu versiunea 1.0.3.
 
-Un modul este o unitate software de sine statatoare care este formata din [modele](/doc/guide/basics.model), 
+Un modul este o unitate software de sine statatoare care este formata din [modele](/doc/guide/basics.model),
 [view-uri](/doc/guide/basics.view), [controllere](/doc/guide/basics.controller) si alte
 componente suportate. In multe privinte, un modul seamana cu o [aplicatie](/doc/guide/basics.application).
-Principala diferenta este ca un modul nu poate fi decat in interiorul unei aplicatii. 
+Principala diferenta este ca un modul nu poate fi decat in interiorul unei aplicatii.
 Utilizatorii pot accesa controller-ele dintr-un modul la fel cum acceseaza controller-ele normale din aplicatie.
 
 Modulele sunt utile in cateva scenarii. Pentru o aplicatie complexa, putem alege sa o impartim
@@ -18,23 +18,23 @@ reutilizate usor in proiectele viitoare.
 Creare modul
 ------------
 
-Un modul este organizat ca un director al carui nume este [ID-ul|CWebModule::id] sau unic. 
+Un modul este organizat ca un director al carui nume este [ID-ul|CWebModule::id] sau unic.
 Strunctura directorului modulului este similara cu cea a [directorului de baza al aplicatiei](/doc/guide/basics.application#application-base-directory).
 Structura de directoare tipica a unui modul cu numele `forum` ar arata in felul urmator:
 
 ~~~
 forum/
-   ForumModule.php            fisierul clasei modulului
-   components/                contine componente utilizator reutilizabile
-      views/                  contine fisierele view ale widget-urilor
-   controllers/               contine fisierele claselor controller-elor
-      DefaultController.php   fisierul clasei controller-ului implicit
-   extensions/                contine extensii third-party
-   models/                    contine fisierele cu clasele modelelor
-   views/                     contine fisierele de layout si view-urile controller-elor
-      layouts/                contine fisierele layout pt view-uri
-      default/                contine fisierele view pentru DefaultController
-         index.php            view-ul index 
+	 ForumModule.php						fisierul clasei modulului
+	 components/								contine componente utilizator reutilizabile
+			views/									contine fisierele view ale widget-urilor
+	 controllers/							 contine fisierele claselor controller-elor
+			DefaultController.php	 fisierul clasei controller-ului implicit
+	 extensions/								contine extensii third-party
+	 models/										contine fisierele cu clasele modelelor
+	 views/										 contine fisierele de layout si view-urile controller-elor
+			layouts/								contine fisierele layout pt view-uri
+			default/								contine fisierele view pentru DefaultController
+				 index.php						view-ul index
 ~~~
 
 Un modul trebuie sa aiba o clasa de modul care sa fie derivata din [CWebModule].
@@ -61,10 +61,10 @@ intr-o linie de comanda:
 Folosirea modulului
 -------------------
 
-Pentru a folosi un modul, trebuie sa punem directorul modulului in directorul 
+Pentru a folosi un modul, trebuie sa punem directorul modulului in directorul
 `modules` din [directorul de baza al aplicatiei](/doc/guide/basics.application#application-base-directory).
 Apoi sa declaram ID-ul modulului in proprietatea [modules|CWebApplication::modules] a aplicatiei.
-De exemplu, pentru a folosi modulul `forum` de mai sus, putem folosi urmatoarea 
+De exemplu, pentru a folosi modulul `forum` de mai sus, putem folosi urmatoarea
 [configuratie de aplicatie](/doc/guide/basics.application#application-configuration):
 
 ~~~
@@ -86,9 +86,9 @@ in [configuratia aplicatiei](/doc/guide/basics.application#application-configura
 return array(
 	......
 	'modules'=>array(
-	    'forum'=>array(
-	        'postPerPage'=>20,
-	    ),
+			'forum'=>array(
+					'postPerPage'=>20,
+			),
 	),
 	......
 );
@@ -113,7 +113,7 @@ URL-ul corespunzator pentru aceasta ruta va fi `http://www.example.com/index.php
 
 > Tip|Sfat: Daca un controller este intr-un subdirector din `controllers`, inca
 > putem folosi formatul [rutei](/doc/guide/basics.controller#route) de mai sus. De exemplu,
-> presupunand ca `PostController` este sub `forum/controllers/admin`, putem sa apelam 
+> presupunand ca `PostController` este sub `forum/controllers/admin`, putem sa apelam
 > action-ul `create` folosind ruta `forum/admin/post/create`.
 
 

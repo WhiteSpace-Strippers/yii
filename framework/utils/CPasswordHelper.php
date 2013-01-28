@@ -41,9 +41,9 @@
  * To verify a password, fetch the user's saved hash from the database (into $hash) and:
  * <pre>
  * if (CPasswordHelper::verifyPassword($password, $hash)
- *     // password is good
+ *		 // password is good
  * else
- *     // password is bad
+ *		 // password is bad
  * </pre>
  *
  * @author Tom Worster <fsb@thefsb.org>
@@ -69,7 +69,7 @@ class CPasswordHelper
 				'{class} requires the Blowfish option of the PHP crypt() function. This system does not have it.',
 				array("{class}"=>__CLASS__)
 			));
-    }
+		}
 
 	/**
 	 * Generate a secure hash from a password and a random salt.
@@ -100,7 +100,7 @@ class CPasswordHelper
 			throw new CException(Yii::t('yii','Internal error while generating hash.'));
 
 		return $hash;
-    }
+		}
 
 	/**
 	 * Verify a password against a hash.
@@ -171,10 +171,10 @@ class CPasswordHelper
 	 *
 	 * The PHP {@link http://php.net/manual/en/function.crypt.php crypt()} built-in function
 	 * requires, for the Blowfish hash algorithm, a salt string in a specific format:
-	 *  "$2a$" (in which the "a" may be replaced by "x" or "y" see PHP manual for details),
-	 *  a two digit cost parameter,
-	 *  "$",
-	 *  22 characters from the alphabet "./0-9A-Za-z".
+	 *	"$2a$" (in which the "a" may be replaced by "x" or "y" see PHP manual for details),
+	 *	a two digit cost parameter,
+	 *	"$",
+	 *	22 characters from the alphabet "./0-9A-Za-z".
 	 *
 	 * @param $cost
 	 * @throws CException
@@ -190,7 +190,7 @@ class CPasswordHelper
 
 		$cost=(int)$cost;
 		if($cost<4 || $cost>30)
-		    throw new CException(Yii::t('yii',
+				throw new CException(Yii::t('yii',
 				'{class}::$cost must be between 4 and 31.',
 				array("{class}"=>__CLASS__)
 			));

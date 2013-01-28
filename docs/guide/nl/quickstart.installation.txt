@@ -3,8 +3,8 @@ Installatie
 
 De installatie van Yii betreft voornamelijk de volgende twee stappen:
 
-   1. Download het Yii-framework van [yiiframework.com](http://www.yiiframework.com/).
-   2. Pak het Yii-releasebestand uit naar een web-toegankelijke map.
+	 1. Download het Yii-framework van [yiiframework.com](http://www.yiiframework.com/).
+	 2. Pak het Yii-releasebestand uit naar een web-toegankelijke map.
 
 > Tip: Yii hoeft niet geinstalleerd te worden in een web-toegankelijke map.
 Een Yii-applicatie heeft één startscript, welke gebruikelijk het enige bestand

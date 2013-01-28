@@ -29,8 +29,8 @@
 abstract class CModel extends CComponent implements IteratorAggregate, ArrayAccess
 {
 	private $_errors=array();	// attribute name => array of errors
-	private $_validators;  		// validators
-	private $_scenario='';  	// scenario
+	private $_validators;			// validators
+	private $_scenario='';		// scenario
 
 	/**
 	 * Returns the list of attribute names of the model.
@@ -50,30 +50,30 @@ abstract class CModel extends CComponent implements IteratorAggregate, ArrayAcce
 	 * <ul>
 	 * <li>attribute list: specifies the attributes (separated by commas) to be validated;</li>
 	 * <li>validator name: specifies the validator to be used. It can be the name of a model class
-	 *   method, the name of a built-in validator, or a validator class (or its path alias).
-	 *   A validation method must have the following signature:
+	 *	 method, the name of a built-in validator, or a validator class (or its path alias).
+	 *	 A validation method must have the following signature:
 	 * <pre>
 	 * // $params refers to validation parameters given in the rule
 	 * function validatorName($attribute,$params)
 	 * </pre>
-	 *   A built-in validator refers to one of the validators declared in {@link CValidator::builtInValidators}.
-	 *   And a validator class is a class extending {@link CValidator}.</li>
+	 *	 A built-in validator refers to one of the validators declared in {@link CValidator::builtInValidators}.
+	 *	 And a validator class is a class extending {@link CValidator}.</li>
 	 * <li>on: this specifies the scenarios when the validation rule should be performed.
-	 *   Separate different scenarios with commas. If this option is not set, the rule
-	 *   will be applied in any scenario that is not listed in "except". Please see {@link scenario} for more details about this option.</li>
+	 *	 Separate different scenarios with commas. If this option is not set, the rule
+	 *	 will be applied in any scenario that is not listed in "except". Please see {@link scenario} for more details about this option.</li>
 	 * <li>except: this specifies the scenarios when the validation rule should not be performed.
-	 *   Separate different scenarios with commas. Please see {@link scenario} for more details about this option.</li>
+	 *	 Separate different scenarios with commas. Please see {@link scenario} for more details about this option.</li>
 	 * <li>additional parameters are used to initialize the corresponding validator properties.
-	 *   Please refer to individal validator class API for possible properties.</li>
+	 *	 Please refer to individal validator class API for possible properties.</li>
 	 * </ul>
 	 *
 	 * The following are some examples:
 	 * <pre>
 	 * array(
-	 *     array('username', 'required'),
-	 *     array('username', 'length', 'min'=>3, 'max'=>12),
-	 *     array('password', 'compare', 'compareAttribute'=>'password2', 'on'=>'register'),
-	 *     array('password', 'authenticate', 'on'=>'login'),
+	 *		 array('username', 'required'),
+	 *		 array('username', 'length', 'min'=>3, 'max'=>12),
+	 *		 array('password', 'compare', 'compareAttribute'=>'password2', 'on'=>'register'),
+	 *		 array('password', 'authenticate', 'on'=>'login'),
 	 * );
 	 * </pre>
 	 *
@@ -95,9 +95,9 @@ abstract class CModel extends CComponent implements IteratorAggregate, ArrayAcce
 	 * the behavior class or an array of the following structure:
 	 * <pre>
 	 * 'behaviorName'=>array(
-	 *     'class'=>'path.to.BehaviorClass',
-	 *     'property1'=>'value1',
-	 *     'property2'=>'value2',
+	 *		 'class'=>'path.to.BehaviorClass',
+	 *		 'property1'=>'value1',
+	 *		 'property2'=>'value2',
 	 * )
 	 * </pre>
 	 *
@@ -282,7 +282,7 @@ abstract class CModel extends CComponent implements IteratorAggregate, ArrayAcce
 		$validators=new CList;
 		foreach($this->rules() as $rule)
 		{
-			if(isset($rule[0],$rule[1]))  // attributes, validator name
+			if(isset($rule[0],$rule[1]))	// attributes, validator name
 				$validators->add(CValidator::createValidator($rule[1],$this,$rule[0],array_slice($rule,2)));
 			else
 				throw new CException(Yii::t('yii','{class} has an invalid validation rule. The rule must specify attributes to be validated and the validator name.',

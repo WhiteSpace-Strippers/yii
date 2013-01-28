@@ -28,26 +28,26 @@ array(
 Yii 提供了不同的快取元件，可以將快取資料儲存到不同的媒介中。例如， [CMemCache] 元件封裝了 PHP 的 memcache 擴充並使用記憶體作為快取儲存媒介。
 [CApcCache] 元件封裝了 PHP APC 擴充; 而 [CDbCache] 元件會將快取的資料存入資料庫。下面是可用的快取元件的列表：
 
-   - [CMemCache]: 使用 PHP [memcache 擴充](http://www.php.net/manual/en/book.memcache.php).
+	 - [CMemCache]: 使用 PHP [memcache 擴充](http://www.php.net/manual/en/book.memcache.php).
 
-   - [CApcCache]: 使用 PHP [APC 擴充](http://www.php.net/manual/en/book.apc.php).
+	 - [CApcCache]: 使用 PHP [APC 擴充](http://www.php.net/manual/en/book.apc.php).
 
-   - [CXCache]: 使用 PHP [XCache 擴充](http://xcache.lighttpd.net/)。注意，這個是從 1.0.1 版本開始支援的。
+	 - [CXCache]: 使用 PHP [XCache 擴充](http://xcache.lighttpd.net/)。注意，這個是從 1.0.1 版本開始支援的。
 
-   - [CEAcceleratorCache]: 使用 PHP [EAccelerator 擴充](http://eaccelerator.net/).
+	 - [CEAcceleratorCache]: 使用 PHP [EAccelerator 擴充](http://eaccelerator.net/).
 
-   - [CDbCache]: 使用一個資料表儲存快取資料。預設情況下，它將建立並使用在 runtime 目錄下的一個 SQLite3 資料庫。
-你也可以通過設置其  [connectionID|CDbCache::connectionID] 屬性指定一個給它使用的資料庫。
+	 - [CDbCache]: 使用一個資料表儲存快取資料。預設情況下，它將建立並使用在 runtime 目錄下的一個 SQLite3 資料庫。
+你也可以通過設置其	[connectionID|CDbCache::connectionID] 屬性指定一個給它使用的資料庫。
 
-   - [CZendDataCache]: 使用 Zend Data Cache 作為後台快取媒介。注意，這個是從 1.0.4 版本開始支援的。
+	 - [CZendDataCache]: 使用 Zend Data Cache 作為後台快取媒介。注意，這個是從 1.0.4 版本開始支援的。
 
-   - [CFileCache]: 使用文件儲存快取資料。這個特別適合用於儲存大塊資料（例如頁面）。注意，這個是從  1.0.6 版本開始支援的。
+	 - [CFileCache]: 使用文件儲存快取資料。這個特別適合用於儲存大塊資料（例如頁面）。注意，這個是從	1.0.6 版本開始支援的。
 
-   - [CDummyCache]: 目前 dummy 快取並不實現快取功能。此元件的目的是用於簡化那些需要檢查快取可用性的程式碼。
+	 - [CDummyCache]: 目前 dummy 快取並不實現快取功能。此元件的目的是用於簡化那些需要檢查快取可用性的程式碼。
 例如，在開發階段或者伺服器尚未支援實際的快取功能，我們可以使用此快取元件。當啟用了實際的快取支援後，我們可以切換到使用相應的快取元件。
-在這兩種情況中，我們可以使用同樣的程式碼 
+在這兩種情況中，我們可以使用同樣的程式碼
 `Yii::app()->cache->get($key)` 取得資料而不需要擔心
-`Yii::app()->cache` 可能會是  `null`。此元件從 1.0.5 版開始支援。
+`Yii::app()->cache` 可能會是	`null`。此元件從 1.0.5 版開始支援。
 
 > Tip|提示: 由於所有的這些快取元件均繼承自同樣的基礎類別
 [CCache]，因此無需改變使用快取的那些程式碼就可以切換到使用另一種快取方式。

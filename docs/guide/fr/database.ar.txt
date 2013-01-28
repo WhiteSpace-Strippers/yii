@@ -75,11 +75,11 @@ une valeur supérieure à 0.
 Le support pour AR est limité par le SGBD. Actuellement, seulement les SGBD suivant
 le supportent:
 
-   - [MySQL 4.1 ou plus](http://www.mysql.com)
-   - [PostgreSQL 7.3 or later](http://www.postgres.com)
-   - [SQLite 2 et 3](http://www.sqlite.org)
-   - [Microsoft SQL Server 2000 ou plus](http://www.microsoft.com/sqlserver/)
-   - [Oracle](http://www.oracle.com)
+	 - [MySQL 4.1 ou plus](http://www.mysql.com)
+	 - [PostgreSQL 7.3 or later](http://www.postgres.com)
+	 - [SQLite 2 et 3](http://www.sqlite.org)
+	 - [Microsoft SQL Server 2000 ou plus](http://www.microsoft.com/sqlserver/)
+	 - [Oracle](http://www.oracle.com)
 
 > Note: Le support de Microsoft SQL Server est disponible depuis la version 1.0.4;
 > et le support pour Oracle est disponible depuis la version 1.0.5.
@@ -142,7 +142,7 @@ chaque classe AR (explication peu après).
 > [php]
 > public function tableName()
 > {
->     return '{{post}}';
+>		 return '{{post}}';
 > }
 > ~~~
 > Ainsi, à la place de retourner le nom de la table complète, le nom de la table
@@ -220,7 +220,7 @@ class Post extends CActiveRecord
 }
 
 $post=new Post;
-echo $post->title;  // cela afficherait: veuillez entrer un titre
+echo $post->title;	// cela afficherait: veuillez entrer un titre
 ~~~
 
 A partir de la version 1.0.2, une valeur de type [CDbExpression] peut être
@@ -300,7 +300,7 @@ ce qui permettra de spécifier des conditions autres que la clause `WHERE`. Par 
 ~~~
 [php]
 $criteria=new CDbCriteria;
-$criteria->select='titre';  // selectionne seulement la colonne 'title'
+$criteria->select='titre';	// selectionne seulement la colonne 'title'
 $criteria->condition='postID=:postID';
 $criteria->params=array(':postID'=>10);
 $post=Post::model()->find($criteria); // $params n'est pas nécessaire
@@ -347,7 +347,7 @@ $posts=Post::model()->findAllByAttributes($attributes,$condition,$params);
 $posts=Post::model()->findAllBySql($sql,$params);
 ~~~
 
-Si aucun enregistrement ne correspond à la condition de la requête, `findAll` 
+Si aucun enregistrement ne correspond à la condition de la requête, `findAll`
 retournera un tableau vide. Ce comportement est différent en cela de `find` qui
 retournera null is aucun enregistrement ne correspond.
 
@@ -501,22 +501,22 @@ Cas spécifiques
 [CActiveRecord] fourni des méthodes qu'il est possible de surcharger pour modifier le
 comportement de la classe.
 
-   - [beforeValidate|CModel::beforeValidate] et
+	 - [beforeValidate|CModel::beforeValidate] et
 [afterValidate|CModel::afterValidate]: invoquées avant et après la validation.
 
-   - [beforeSave|CActiveRecord::beforeSave] and
+	 - [beforeSave|CActiveRecord::beforeSave] and
 [afterSave|CActiveRecord::afterSave]: invoquées avant et après l'enregistrement d'une instance AR.
 
-   - [beforeDelete|CActiveRecord::beforeDelete] and
+	 - [beforeDelete|CActiveRecord::beforeDelete] and
 [afterDelete|CActiveRecord::afterDelete]: invoquées avant et après la suppression d'une instance AR.
 
-   - [afterConstruct|CActiveRecord::afterConstruct]: invoquée pour chaque instance AR créée avec
+	 - [afterConstruct|CActiveRecord::afterConstruct]: invoquée pour chaque instance AR créée avec
 l'opérateur `new`.
 
-   - [beforeFind|CActiveRecord::beforeFind]: invoquée avant que le AR finder
+	 - [beforeFind|CActiveRecord::beforeFind]: invoquée avant que le AR finder
 exécute une requête (par exemple `find()`, `findAll()`). Disponible depuis la version 1.0.9.
 
-   - [afterFind|CActiveRecord::afterFind]: invoquée après chaque création d'instance AR
+	 - [afterFind|CActiveRecord::afterFind]: invoquée après chaque création d'instance AR
 issue du résultat d'une requête.
 
 

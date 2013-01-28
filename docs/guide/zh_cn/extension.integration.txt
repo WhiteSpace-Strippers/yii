@@ -15,7 +15,7 @@ Yii::import('application.vendors.*');
 require_once('Zend/Search/Lucene.php');
 ~~~
 
-上述代码包含类文件`Lucene.php`。因为我们使用的是相对路径，我们需要改变PHP的包含路径，以使文件可以正确定位。这是通过在`require_once`之前调用`Yii::import`做到。 
+上述代码包含类文件`Lucene.php`。因为我们使用的是相对路径，我们需要改变PHP的包含路径，以使文件可以正确定位。这是通过在`require_once`之前调用`Yii::import`做到。
 
 一旦上述设立准备就绪后，我们可以在controller action里使用`Lucene`类，类似如下：
 

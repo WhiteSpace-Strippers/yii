@@ -14,13 +14,13 @@
 [php]
 public function filters()
 {
-    return array(
-        array(
-            'COutputCache',
-            'duration'=»100,
-            'varyByParam'=»array('id'),
-        ),
-    );
+		return array(
+				array(
+						'COutputCache',
+						'duration'=»100,
+						'varyByParam'=»array('id'),
+				),
+		);
 }
 ~~~
 

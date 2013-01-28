@@ -38,26 +38,26 @@ Yii::trace($message, $category);
 ~~~
 [php]
 array(
-    ......
-    'preload'=»array('log'),
-    'components'=»array(
-        ......
-        'log'=»array(
-            'class'=»'CLogRouter',
-            'routes'=»array(
-                array(
-                    'class'=»'CFileLogRoute',
-                    'levels'=»'trace, info',
-                    'categories'=»'system.*',
-                ),
-                array(
-                    'class'=»'CEmailLogRoute',
-                    'levels'=»'error, warning',
-                    'emails'=»'admin@example.com',
-                ),
-            ),
-        ),
-    ),
+		......
+		'preload'=»array('log'),
+		'components'=»array(
+				......
+				'log'=»array(
+						'class'=»'CLogRouter',
+						'routes'=»array(
+								array(
+										'class'=»'CFileLogRoute',
+										'levels'=»'trace, info',
+										'categories'=»'system.*',
+								),
+								array(
+										'class'=»'CEmailLogRoute',
+										'levels'=»'error, warning',
+										'emails'=»'admin@example.com',
+								),
+						),
+				),
+		),
 )
 ~~~
 
@@ -67,13 +67,13 @@ array(
 
 
 
-   - [CDbLogRoute]: שומר את ההודעות בטבלה במסד הנתונים.
-   - [CEmailLogRoute]: שולח את ההודעות אל אימיילים שהוגדרו מראש.
-   - [CFileLogRoute]: שומר את ההודעות בקובץ תחת התיקיה הזמנית של האפליקציה.
-   - [CWebLogRoute]: מציג את ההודעות בסוף כל עמוד בדפדפן.
-   - [CProfileLogRoute]: מציג את הודעות הפרופיל בסוף כל עמוד בדפדפן.
+	 - [CDbLogRoute]: שומר את ההודעות בטבלה במסד הנתונים.
+	 - [CEmailLogRoute]: שולח את ההודעות אל אימיילים שהוגדרו מראש.
+	 - [CFileLogRoute]: שומר את ההודעות בקובץ תחת התיקיה הזמנית של האפליקציה.
+	 - [CWebLogRoute]: מציג את ההודעות בסוף כל עמוד בדפדפן.
+	 - [CProfileLogRoute]: מציג את הודעות הפרופיל בסוף כל עמוד בדפדפן.
 
-» Info|מידע: ניתוב הודעות מתבצע בסוף הבקשה הנוכחית כשהאירוע [onEndRequest|CApplication::onEndRequest] מתרחש. בכדי לעצור את טעינת הסקריפט וביצוע הבקשה במקום כלשהו, יש לקרוא למתודה [()CApplication::end] במקום `()die` או `()exit`, בגלל ש-[()CApplication::end]  יטען את האירוע [onEndRequest|CApplication::onEndRequest] כדי שיהיה ניתן לתעד ולנתב את ההודעות כראוי.
+» Info|מידע: ניתוב הודעות מתבצע בסוף הבקשה הנוכחית כשהאירוע [onEndRequest|CApplication::onEndRequest] מתרחש. בכדי לעצור את טעינת הסקריפט וביצוע הבקשה במקום כלשהו, יש לקרוא למתודה [()CApplication::end] במקום `()die` או `()exit`, בגלל ש-[()CApplication::end]	יטען את האירוע [onEndRequest|CApplication::onEndRequest] כדי שיהיה ניתן לתעד ולנתב את ההודעות כראוי.
 
 ### סינון הודעות
 
@@ -92,22 +92,22 @@ array(
 ~~~
 [php]
 array(
-    ......
-    'preload'=»array('log'),
-    'components'=»array(
-        ......
-        'log'=»array(
-            'class'=»'CLogRouter',
-            'routes'=»array(
-                array(
-                    'class'=»'CFileLogRoute',
-                    'levels'=»'error',
-                    'filter'=»'CLogFilter',
-                ),
-                ...נתבי הודעות נוספים...
-            ),
-        ),
-    ),
+		......
+		'preload'=»array('log'),
+		'components'=»array(
+				......
+				'log'=»array(
+						'class'=»'CLogRouter',
+						'routes'=»array(
+								array(
+										'class'=»'CFileLogRoute',
+										'levels'=»'error',
+										'filter'=»'CLogFilter',
+								),
+								...נתבי הודעות נוספים...
+						),
+				),
+		),
 )
 ~~~
 

@@ -134,8 +134,8 @@ class CHttpCacheFilter extends CFilter
 	}
 
 	/**
-	 *  Gets the ETag out of either {@link etagSeedExpression} or {@link etagSeed}
-	 *  @return string|boolean Either a quoted string serving as ETag or false if neither etagSeed nor etagSeedExpression have been set
+	 *	Gets the ETag out of either {@link etagSeedExpression} or {@link etagSeed}
+	 *	@return string|boolean Either a quoted string serving as ETag or false if neither etagSeed nor etagSeedExpression have been set
 	 */
 	protected function getEtagValue()
 	{

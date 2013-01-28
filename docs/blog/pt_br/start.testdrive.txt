@@ -1,7 +1,7 @@
 Iniciando com Yii
 =================
 
-Nesta seção, descrevemos como criar um esqueleto de aplicação, que servirá como ponto de partida. Para simplificar, vamos supor que o documento raiz do nosso servidor Web é  `/wwwroot` e a URL correspondente é `http://www.example.com/`.
+Nesta seção, descrevemos como criar um esqueleto de aplicação, que servirá como ponto de partida. Para simplificar, vamos supor que o documento raiz do nosso servidor Web é	`/wwwroot` e a URL correspondente é `http://www.example.com/`.
 
 
 Instalando o Yii

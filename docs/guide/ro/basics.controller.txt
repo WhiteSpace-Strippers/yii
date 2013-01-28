@@ -4,7 +4,7 @@ Controller
 Un `controller` este o instanta a clasei [CController] sau a unei clase derivate. Este
 creat de application atunci cand o cerere client are nevoie. Atunci cand ruleaza,
 un controller executa un action cerut de client. De obicei, action apeleaza
-modelele necesare si va genera un view corespunzator (rezultatul vazut de client). 
+modelele necesare si va genera un view corespunzator (rezultatul vazut de client).
 Un `action`, in cea mai simpla forma, este doar o metoda a clasei controllerului
 al carei nume incepe cu `action`.
 
@@ -59,19 +59,19 @@ Cand [CWebApplication] analizeaza o cerere de la client, atunci este creata o in
 Se primeste, prin ruta, ID-ul controller-ului, iar aplicatia va folosi urmatoarele reguli pentru a
 determina ce clasa controller este si unde este localizat fisierul fizic al clasei.
 
-   - Daca este specificat [CWebApplication::catchAllRequest], va fi creat un controller pe baza acestei
+	 - Daca este specificat [CWebApplication::catchAllRequest], va fi creat un controller pe baza acestei
 proprietati, iar ID-ul de controller primit de la client va fi ignorat. Aceasta este situatia cand dorim sa
-aducem aplicatia in modul de mentenanta, offline sau invizibila in Web in spatele unei pagini statice. 
+aducem aplicatia in modul de mentenanta, offline sau invizibila in Web in spatele unei pagini statice.
 
-   - Daca ID-ul este gasit in [CWebApplication::controllerMap], configuratia controller-ului care este precizata
-acolo va fi folosita pentru a crea instanta controller-ului. 
+	 - Daca ID-ul este gasit in [CWebApplication::controllerMap], configuratia controller-ului care este precizata
+acolo va fi folosita pentru a crea instanta controller-ului.
 
-   - Daca ID-ul este in formatul 'cale/catre/xyz'`, numele clasei controller-ului se presupune ca este
+	 - Daca ID-ul este in formatul 'cale/catre/xyz'`, numele clasei controller-ului se presupune ca este
 `XyzController` si fisierul fizic al clasei este `protected/controllers/cale/catre/XyzController.php`. De exemplu,
 un ID de controller `admin.user` ar conduce la clasa `UserController` si la fisierul fizic
 `protected/controllers/admin/UserController.php`. Daca fisierul fizic al clasei nu exista, atunci se genereaza [CHttpException] 404.
 
-In cazul in care [modulele](/doc/guide/basics.module) sunt folosite 
+In cazul in care [modulele](/doc/guide/basics.module) sunt folosite
 (posibil incepand cu versiunea 1.0.3), procesul de mai sus este un pic
 diferit. In particular, aplicatia va verifica daca ID-ul se refera la
 un controller din interiorul unui modul, si daca da, atunci va fi creata intai
@@ -122,18 +122,18 @@ De exemplu, urmatoarea structura de directoare poate fi folosita pentru a organi
 
 ~~~
 protected/
-    controllers/
-        PostController.php
-        UserController.php
-        post/
-            CreateAction.php
-            ReadAction.php
-            UpdateAction.php
-        user/
-            CreateAction.php
-            ListAction.php
-            ProfileAction.php
-            UpdateAction.php
+		controllers/
+				PostController.php
+				UserController.php
+				post/
+						CreateAction.php
+						ReadAction.php
+						UpdateAction.php
+				user/
+						CreateAction.php
+						ListAction.php
+						ProfileAction.php
+						UpdateAction.php
 ~~~
 
 Filter
@@ -146,11 +146,11 @@ action-ul cerut; sau un filtru de performanta poate fi folosit inainte si dupa e
 a masura timpul de executie al action-ului.
 
 Un action poate avea mai multe filtre. Filtrele sunt executate in ordinea in care apar in lista de filtre.
-Un filtru poate sa interzica executia celorlalte filtre ramase si a action-ului. 
+Un filtru poate sa interzica executia celorlalte filtre ramase si a action-ului.
 
 Un filtru poate fi definit ca metoda in clasa controller-ului. Numele metodei trebuie sa
 inceapa cu `filter`. De exemplu, daca exista metoda `filterAccessControl` atunci se defineste un filtru
-cu numele `accessControl`. Metoda filtru trebuie sa fie in forma urmatoare: 
+cu numele `accessControl`. Metoda filtru trebuie sa fie in forma urmatoare:
 
 ~~~
 [php]
@@ -215,7 +215,7 @@ initializa valorile proprietatilor. Aici, proprietatea `unit` din filtrul `Perfo
 va fi initializata cu `'microsecunde'`.
 
 Folosind operatorii plus si minus, putem specifica la ce action-uri ar trebui aplicat (sau nu) un filtru.
-In codul de mai sus, filtrul `postOnly` va fi aplicat action-urilor 
+In codul de mai sus, filtrul `postOnly` va fi aplicat action-urilor
 `edit` si `create`, in timp ce filtrul `PerformanceFilter` ar trebui aplicat la toate action-urile
 CU EXCEPTIA action-urilor `edit` si `create`. Daca nu apare nici plus nici minus in configuratia filtrului,
 atunci filtrul va fi aplicat tuturor action-urilor.

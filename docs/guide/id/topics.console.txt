@@ -79,7 +79,7 @@ console, melalui ini juga kita dapat mengakses sumber daya seperti koneksi datab
 (misalnya `Yii::app()->db`). Seperti yang bisa kita lihat, penggunaan ini sangat mirip
 dengan yang dilakukan pada aplikasi Web.
 
-> Info|Catatan: Mulai dari versi 1.1.1, kita juga dapat membuat perintah global 
+> Info|Catatan: Mulai dari versi 1.1.1, kita juga dapat membuat perintah global
 yang dapat dibagi oleh *semua* aplikasi Yii pada mesin yang sama. Untuk melakukannya,
 tentukan variabel environment bernama `YII_CONSOLE_COMMANDS` untuk menunjuk ke
 direktori yang ada. Maka kemudian kita dapat meletakkan file kelas command gobal kita
@@ -114,8 +114,8 @@ Misalnya, jika kita mendefinisikan kelas command berikut:
 [php]
 class SitemapCommand extends CConsoleCommand
 {
-    public function actionIndex($type, $limit=5) { ... }
-    public function actionInit() { ... }
+		public function actionIndex($type, $limit=5) { ... }
+		public function actionInit() { ... }
 }
 ~~~
 
@@ -219,7 +219,7 @@ return array(
 );
 ~~~
 
-Seperti yang Anda lihat, format konfigurasi sangat mirip dengan 
+Seperti yang Anda lihat, format konfigurasi sangat mirip dengan
 apa yang kita lakukan pada konfigurasi aplikasi Web. Ini dikarenakan kelas [CConsoleApplication] dan [CWebApplication]
 berbagi kelas dasar yang sama.
 

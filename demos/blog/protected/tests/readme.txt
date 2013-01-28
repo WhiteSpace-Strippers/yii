@@ -1,8 +1,8 @@
 This directory contains unit and functional tests for the blog demo.
 
  - fixtures: contains fixture data for relevant database tables.
-   Each file is used to set up the fixture data for a particular table.
-   The file name is the same as the table name.
+	 Each file is used to set up the fixture data for a particular table.
+	 The file name is the same as the table name.
 
  - functional: contains functional test cases.
 

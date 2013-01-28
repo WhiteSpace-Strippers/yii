@@ -121,39 +121,39 @@ public function ValidatorName($attribute,$params) { ... }
 上記の例では、`required` が [CRequiredValidator] のエイリアスで、これは検証される属性の値が、空の値ではないことを確認するものです。
 下記は、定義済みバリデータのエイリアスの完全なリストです:
 
-   - `boolean`: [CBooleanValidator] のエイリアスで、属性の値が [CBooleanValidator::trueValue] かまたは [CBooleanValidator::falseValue] である事を確認します。
+	 - `boolean`: [CBooleanValidator] のエイリアスで、属性の値が [CBooleanValidator::trueValue] かまたは [CBooleanValidator::falseValue] である事を確認します。
 
-   - `captcha`: [CCaptchaValidator] のエイリアスで、属性の値が [CAPTCHA](http://en.wikipedia.org/wiki/Captcha) で表示された検証コードと等しい事を確認します。
+	 - `captcha`: [CCaptchaValidator] のエイリアスで、属性の値が [CAPTCHA](http://en.wikipedia.org/wiki/Captcha) で表示された検証コードと等しい事を確認します。
 
-   - `compare`: [CCompareValidator] のエイリアスで、属性の値が、別の属性または定数と等しい事を確認します。
+	 - `compare`: [CCompareValidator] のエイリアスで、属性の値が、別の属性または定数と等しい事を確認します。
 
-   - `email`: [CEmailValidator] のエイリアスで、属性の値が正式なメールアドレスである事を確認します。
+	 - `email`: [CEmailValidator] のエイリアスで、属性の値が正式なメールアドレスである事を確認します。
 
-   - `date`: [CDateValidator] のエイリアスで、属性が正当な日付(date)、時刻(time)、または日付と時刻(datetime)を表していることを確認します。
+	 - `date`: [CDateValidator] のエイリアスで、属性が正当な日付(date)、時刻(time)、または日付と時刻(datetime)を表していることを確認します。
 
-   - `default`: [CDefaultValueValidator] のエイリアスで、指定した属性にデフォルト値を代入します。
+	 - `default`: [CDefaultValueValidator] のエイリアスで、指定した属性にデフォルト値を代入します。
 
-   - `exist`: [CExistValidator] のエイリアスで、属性値が指定されたテーブルのカラムに存在することを確認します。
+	 - `exist`: [CExistValidator] のエイリアスで、属性値が指定されたテーブルのカラムに存在することを確認します。
 
-   - `file`: [CFileValidator] のエイリアスで、属性の値にアップロードされたファイルの名前が入っている事を確認します。
+	 - `file`: [CFileValidator] のエイリアスで、属性の値にアップロードされたファイルの名前が入っている事を確認します。
 
-   - `filter`: [CFilterValidator] のエイリアスで、 属性の値をフィルタによって変形します。
+	 - `filter`: [CFilterValidator] のエイリアスで、 属性の値をフィルタによって変形します。
 
-   - `in`: [CRangeValidator] のエイリアスで、属性の値が、予め定めた値のリストの中にある事を確認します。
+	 - `in`: [CRangeValidator] のエイリアスで、属性の値が、予め定めた値のリストの中にある事を確認します。
 
-   - `length`: [CStringValidator] のエイリアスで、データの長さが特定の範囲内にある事を確認します。
+	 - `length`: [CStringValidator] のエイリアスで、データの長さが特定の範囲内にある事を確認します。
 
-   - `match`: [CRegularExpressionValidator] のエイリアスで、データが正規表現にマッチする事を確認します。
+	 - `match`: [CRegularExpressionValidator] のエイリアスで、データが正規表現にマッチする事を確認します。
 
-   - `numerical`: [CNumberValidator] のエイリアスで、データが数値として妥当であるかを確認します。
+	 - `numerical`: [CNumberValidator] のエイリアスで、データが数値として妥当であるかを確認します。
 
-   - `required`: [CRequiredValidator] のエイリアスで、属性が空でない事を確認します。
+	 - `required`: [CRequiredValidator] のエイリアスで、属性が空でない事を確認します。
 
-   - `type`: [CTypeValidator] のエイリアスで、データが特定の型である事を確認します。
+	 - `type`: [CTypeValidator] のエイリアスで、データが特定の型である事を確認します。
 
-   - `unique`: [CUniqueValidator] のエイリアスで、データがデータベースのテーブルのカラムで一意な値である事を確認します。
+	 - `unique`: [CUniqueValidator] のエイリアスで、データがデータベースのテーブルのカラムで一意な値である事を確認します。
 
-   - `url`: [CUrlValidator] のエイリアスで、データが妥当な URL である事を確認します。
+	 - `url`: [CUrlValidator] のエイリアスで、データが妥当な URL である事を確認します。
 
 下記は定義済みバリデータを使用した例です:
 
@@ -283,10 +283,10 @@ $model=new User('register');
 $model->attributes=$_POST['User'];
 
 // バリデーションを実行
-if($model->validate())   // 入力が正当であれば
-    ...
+if($model->validate())	 // 入力が正当であれば
+		...
 else
-    ...
+		...
 ~~~
 
 ルールが適用されるシナリオは、ルールの `on` オプションによって指定することが出来ます。

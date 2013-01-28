@@ -5,7 +5,7 @@ Upgrade von Version 1.0 auf 1.1
 ------------------------------
 
 - CModel::safeAttributes() wurde entfernt. Als sichere Attribute gelten jetzt
-all jene, die im entsprechenden Szenario durch eine Validierungsregel in CModel::rules() 
+all jene, die im entsprechenden Szenario durch eine Validierungsregel in CModel::rules()
 überprüft werden.
 
 - CModel::validate(), CModel::beforeValidate(), CModel::afterValidate(),
@@ -13,7 +13,7 @@ CModel::setAttributes() und CModel::getSafeAttributeNames() wurden geändert.
 Der Parameter 'szenario' wurde entfernt. Szenarien sollten über
 CModel::scenario gesetzt werden.
 
-- CModel::getValidator() wurde geändert und CModel::getValidatorsForAttributes() 
+- CModel::getValidator() wurde geändert und CModel::getValidatorsForAttributes()
 entfernt. CModel::getValidator() liefert jetzt nur jene Validatoren zurück, die im Szenario
 verwendet werden, das über die scenario-Eigenschaft des Models gesetzt wurde.
 
@@ -28,7 +28,7 @@ CModel gesetzte Szenario.
 Änderungen in der Eager Loading-Methode bei Relationalen ActiveRecords
 ----------------------------------------------------------------------
 
-- Standardmäßig wird für alle Verbundeigenschaften ein JOIN-Ausdruck generiert 
+- Standardmäßig wird für alle Verbundeigenschaften ein JOIN-Ausdruck generiert
 und ausgeführt. Falls für die Haupttabelle die `LIMIT`- oder `OFFSET`-Option
 gesetzt ist, wird diese zunächst gesondert abgefragt, gefolgt von einer
 weiteren SQL-Abfrage, die alle verbundenen Objekte zurückliefert. In Version

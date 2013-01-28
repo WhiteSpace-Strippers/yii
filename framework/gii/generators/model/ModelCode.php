@@ -324,7 +324,7 @@ class ModelCode extends CCodeModel
 				{
 					// Put table and key name in variables for easier reading
 					$refTable=$fkEntry[0]; // Table name that current fk references to
-					$refKey=$fkEntry[1];   // Key in that table being referenced
+					$refKey=$fkEntry[1];	 // Key in that table being referenced
 					$refClassName=$this->generateClassName($refTable);
 
 					// Add relation for this table
@@ -394,7 +394,7 @@ class ModelCode extends CCodeModel
 			$relationName=$this->pluralize($relationName);
 
 		$names=preg_split('/_+/',$relationName,-1,PREG_SPLIT_NO_EMPTY);
-		if(empty($names)) return $relationName;  // unlikely
+		if(empty($names)) return $relationName;	// unlikely
 		for($name=$names[0], $i=1;$i<count($names);++$i)
 			$name.=ucfirst($names[$i]);
 

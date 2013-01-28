@@ -19,12 +19,12 @@ Yii::import('zii.widgets.jui.CJuiWidget');
  * To use this widget, you may insert the following code in a view:
  * <pre>
  * $this->beginWidget('zii.widgets.jui.CJuiDroppable',array(
- *     // additional javascript options for the droppable plugin
- *     'options'=>array(
- *         'scope'=>'myScope',
- *     ),
+ *		 // additional javascript options for the droppable plugin
+ *		 'options'=>array(
+ *				 'scope'=>'myScope',
+ *		 ),
  * ));
- *     echo 'Your droppable content here';
+ *		 echo 'Your droppable content here';
  *
  * $this->endWidget();
  *

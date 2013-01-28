@@ -33,24 +33,24 @@ class ApiCommand extends CConsoleCommand
 	{
 		return <<<EOD
 USAGE
-  build api <output-path> [mode]
-  build api check
+	build api <output-path> [mode]
+	build api check
 
 DESCRIPTION
-  This command generates offline API documentation for the Yii framework.
+	This command generates offline API documentation for the Yii framework.
 
 PARAMETERS
-  * output-path: required, the directory where the generated documentation would be saved.
-  * mode: optional, either 'online' or 'offline' (default).
-          Indicates whether the generated documentation are for online or offline use.
+	* output-path: required, the directory where the generated documentation would be saved.
+	* mode: optional, either 'online' or 'offline' (default).
+					Indicates whether the generated documentation are for online or offline use.
 
-  * check: check PHPDoc for proper @param syntax
+	* check: check PHPDoc for proper @param syntax
 
 EXAMPLES
-  * build api yii/doc online - builds api ONLINE documentation in folder yii/doc
-  * build api yii/doc        - builds api OFFLINE (default) documentation in folder yii/doc
+	* build api yii/doc online - builds api ONLINE documentation in folder yii/doc
+	* build api yii/doc				- builds api OFFLINE (default) documentation in folder yii/doc
 
-  * build api check          - cheks PHPDoc @param directives
+	* build api check					- cheks PHPDoc @param directives
 
 EOD;
 	}
@@ -188,7 +188,7 @@ EOD;
 
 	public function highlight($code,$limit=20)
 	{
-		$code=preg_replace("/^    /m",'',rtrim(str_replace("\t","    ",$code)));
+		$code=preg_replace("/^		/m",'',rtrim(str_replace("\t","		",$code)));
 		$code=highlight_string("<?php\n".$code,true);
 		return preg_replace('/&lt;\\?php<br \\/>/','',$code,1);
 	}

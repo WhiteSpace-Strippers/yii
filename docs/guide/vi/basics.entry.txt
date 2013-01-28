@@ -1,7 +1,7 @@
 Mã khởi động
 ============
 
-Đây là mã PHP xử lý yêu cầu của người dùng từ ban đầu. Đây cũng là mã duy nhất mà 
+Đây là mã PHP xử lý yêu cầu của người dùng từ ban đầu. Đây cũng là mã duy nhất mà
 người dùng có thể truy cập.
 
 Trong hầu hết các trường hợp, mã khởi động của một ứng dụng Yii chỉ đơn giản như sau,

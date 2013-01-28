@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	if($('div.form.login').length) {  // in login page
+	if($('div.form.login').length) {	// in login page
 		$('input#LoginForm_password').focus();
 	}
 

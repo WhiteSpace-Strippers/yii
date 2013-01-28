@@ -23,23 +23,23 @@
  * To use CMemCache as the cache application component, configure the application as follows,
  * <pre>
  * array(
- *     'components'=>array(
- *         'cache'=>array(
- *             'class'=>'CMemCache',
- *             'servers'=>array(
- *                 array(
- *                     'host'=>'server1',
- *                     'port'=>11211,
- *                     'weight'=>60,
- *                 ),
- *                 array(
- *                     'host'=>'server2',
- *                     'port'=>11211,
- *                     'weight'=>40,
- *                 ),
- *             ),
- *         ),
- *     ),
+ *		 'components'=>array(
+ *				 'cache'=>array(
+ *						 'class'=>'CMemCache',
+ *						 'servers'=>array(
+ *								 array(
+ *										 'host'=>'server1',
+ *										 'port'=>11211,
+ *										 'weight'=>60,
+ *								 ),
+ *								 array(
+ *										 'host'=>'server2',
+ *										 'port'=>11211,
+ *										 'weight'=>40,
+ *								 ),
+ *						 ),
+ *				 ),
+ *		 ),
  * )
  * </pre>
  * In the above, two memcache servers are used: server1 and server2.
@@ -114,7 +114,7 @@ class CMemCache extends CCache
 			$extension=$this->useMemcached ? 'memcached' : 'memcache';
 			if(!extension_loaded($extension))
 				throw new CException(Yii::t('yii',"CMemCache requires PHP {extension} extension to be loaded.",
-                    array('{extension}'=>$extension)));
+										array('{extension}'=>$extension)));
 			return $this->_cache=$this->useMemcached ? new Memcached : new Memcache;
 		}
 	}

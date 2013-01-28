@@ -52,11 +52,11 @@ throw new CHttpException(404,'指定された記事が見つかりません。')
 
 [CErrorHandler] は下記の順序で対応するビューファイルを探します:
 
-   1. `WebRoot/themes/ThemeName/views/system`: 現在アクティブになっているテーマの中の `system` ビューディレクトリ
+	 1. `WebRoot/themes/ThemeName/views/system`: 現在アクティブになっているテーマの中の `system` ビューディレクトリ
 
-   2. `WebRoot/protected/views/system`: アプリケーションのデフォルトの `system` ビューディレクトリ
+	 2. `WebRoot/protected/views/system`: アプリケーションのデフォルトの `system` ビューディレクトリ
 
-   3. `yii/framework/views`: Yii フレームワークによって供給される標準のシステムビューディレクトリ
+	 3. `yii/framework/views`: Yii フレームワークによって供給される標準のシステムビューディレクトリ
 
 したがって、もしエラーの表示をカスタマイズしたい場合は、アプリケーションかテーマのシステムビューディレクトリーにエラービューファイルを作成する事で容易に実現可能です。
 それぞれのビューファイルは、大部分が HTML コードで成り立った通常の PHP スクリプトです。
@@ -116,7 +116,7 @@ public function actionError()
 
 エラーが発生した際、`error` レベルのメッセージは常に記録されます。
 もし PHP の warning か notice によってエラーが発生した場合、メッセージはカテゴリー `php` と共に記録されます。
-もしエラーがキャッチされていない例外として発生した際、カテゴリーは `exception.ExceptionClassName` の様になるでしょう ([CHttpException] における [statusCode|CHttpException::statusCode] もまたカテゴリーに追加されるでしょう)。 
+もしエラーがキャッチされていない例外として発生した際、カテゴリーは `exception.ExceptionClassName` の様になるでしょう ([CHttpException] における [statusCode|CHttpException::statusCode] もまたカテゴリーに追加されるでしょう)。
 このように、[ロギング](/doc/guide/topics.logging) 機能を利用して、アプリケーションの実行の間に起きるエラーをモニターすることが出来ます。
 
 <div class="revision">$Id$</div>

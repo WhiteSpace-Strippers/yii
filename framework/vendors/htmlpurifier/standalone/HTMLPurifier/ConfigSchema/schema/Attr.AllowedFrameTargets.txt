@@ -2,7 +2,7 @@ Attr.AllowedFrameTargets
 TYPE: lookup
 DEFAULT: array()
 --DESCRIPTION--
-Lookup table of all allowed link frame targets.  Some commonly used link
+Lookup table of all allowed link frame targets.	Some commonly used link
 targets include _blank, _self, _parent and _top. Values should be
 lowercase, as validation will be done in a case-sensitive manner despite
 W3C's recommendation. XHTML 1.0 Strict does not permit the target attribute

@@ -32,28 +32,28 @@ class CldrCommand extends CConsoleCommand
 	{
 		return <<<EOD
 USAGE
-  build cldr <data-path>
+	build cldr <data-path>
 
 DESCRIPTION
-  This command converts the locale data from the CLDR project
-  to PHP scripts so that they can be more easily used in PHP programming.
+	This command converts the locale data from the CLDR project
+	to PHP scripts so that they can be more easily used in PHP programming.
 
-  The script respects locale inheritance so that the PHP data for
-  a child locale will contain all its parent locale data if they are
-  not specified in the child locale. Therefore, to import the data
-  for a locale, only the PHP script for that particular locale needs
-  to be included.
+	The script respects locale inheritance so that the PHP data for
+	a child locale will contain all its parent locale data if they are
+	not specified in the child locale. Therefore, to import the data
+	for a locale, only the PHP script for that particular locale needs
+	to be included.
 
-  Note, only the data relevant to number and date formatting are extracted.
-  Each PHP script file is named as the corresponding locale ID in lower case.
+	Note, only the data relevant to number and date formatting are extracted.
+	Each PHP script file is named as the corresponding locale ID in lower case.
 
-  The resulting PHP scripts are created under the same directory that
-  contains the original CLDR data.
+	The resulting PHP scripts are created under the same directory that
+	contains the original CLDR data.
 
 PARAMETERS
  * data-path: required, the original CLDR data directory. This
-   directory should contain "main" subdirectory with hundreds of XML files
-   and "supplemental" subdirectory with "plurals.xml".
+	 directory should contain "main" subdirectory with hundreds of XML files
+	 and "supplemental" subdirectory with "plurals.xml".
 
 EOD;
 	}

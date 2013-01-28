@@ -14,10 +14,10 @@ PDO database driver (e.g. `PDO_MYSQL`) have to be installed.
 
 Yii DAO mainly consists of the following four classes:
 
-   - [CDbConnection]: represents a connection to a database.
-   - [CDbCommand]: represents an SQL statement to execute against a database.
-   - [CDbDataReader]: represents a forward-only stream of rows from a query result set.
-   - [CDbTransaction]: represents a DB transaction.
+	 - [CDbConnection]: represents a connection to a database.
+	 - [CDbCommand]: represents an SQL statement to execute against a database.
+	 - [CDbDataReader]: represents a forward-only stream of rows from a query result set.
+	 - [CDbTransaction]: represents a DB transaction.
 
 In the following, we introduce the usage of Yii DAO in different
 scenarios.
@@ -38,7 +38,7 @@ $connection=new CDbConnection($dsn,$username,$password);
 // establish connection. You may try...catch possible exceptions
 $connection->active=true;
 ......
-$connection->active=false;  // close connection
+$connection->active=false;	// close connection
 ~~~
 
 The format of DSN depends on the PDO database driver in use. In general, a
@@ -47,11 +47,11 @@ driver-specific connection syntax. See [PDO
 documentation](http://www.php.net/manual/en/pdo.construct.php) for complete
 information. Below is a list of commonly used DSN formats:
 
-   - SQLite: `sqlite:/path/to/dbfile`
-   - MySQL: `mysql:host=localhost;dbname=testdb`
-   - PostgreSQL: `pgsql:host=localhost;port=5432;dbname=testdb`
-   - SQL Server: `mssql:host=localhost;dbname=testdb`
-   - Oracle: `oci:dbname=//localhost:1521/testdb`
+	 - SQLite: `sqlite:/path/to/dbfile`
+	 - MySQL: `mysql:host=localhost;dbname=testdb`
+	 - PostgreSQL: `pgsql:host=localhost;port=5432;dbname=testdb`
+	 - SQL Server: `mssql:host=localhost;dbname=testdb`
+	 - Oracle: `oci:dbname=//localhost:1521/testdb`
 
 Because [CDbConnection] extends from [CApplicationComponent], we can also
 use it as an [application
@@ -70,7 +70,7 @@ array(
 			'connectionString'=>'mysql:host=localhost;dbname=testdb',
 			'username'=>'root',
 			'password'=>'password',
-			'emulatePrepare'=>true,  // needed by some MySQL installations
+			'emulatePrepare'=>true,	// needed by some MySQL installations
 		),
 	),
 )
@@ -90,7 +90,7 @@ using [CDbCommand]. One creates a [CDbCommand] instance by calling
 
 ~~~
 [php]
-$connection=Yii::app()->db;   // assuming you have configured a "db" connection
+$connection=Yii::app()->db;	 // assuming you have configured a "db" connection
 // If not, you may explicitly create a connection:
 // $connection=new CDbConnection($dsn,$username,$password);
 $command=$connection->createCommand($sql);
@@ -101,11 +101,11 @@ $command=$connection->createCommand($sql);
 A SQL statement is executed via [CDbCommand] in one of the following two
 ways:
 
-   - [execute()|CDbCommand::execute]: performs a non-query SQL statement,
+	 - [execute()|CDbCommand::execute]: performs a non-query SQL statement,
 such as `INSERT`, `UPDATE` and `DELETE`. If successful, it returns the
 number of rows that are affected by the execution.
 
-   - [query()|CDbCommand::query]: performs an SQL statement that returns
+	 - [query()|CDbCommand::query]: performs an SQL statement that returns
 rows of data, such as `SELECT`. If successful, it returns a [CDbDataReader]
 instance from which one can traverse the resulting rows of data. For
 convenience, a set of `queryXXX()` methods are also implemented which
@@ -116,12 +116,12 @@ statements.
 
 ~~~
 [php]
-$rowCount=$command->execute();   // execute the non-query SQL
-$dataReader=$command->query();   // execute a query SQL
-$rows=$command->queryAll();      // query and return all rows of result
-$row=$command->queryRow();       // query and return the first row of result
+$rowCount=$command->execute();	 // execute the non-query SQL
+$dataReader=$command->query();	 // execute a query SQL
+$rows=$command->queryAll();			// query and return all rows of result
+$row=$command->queryRow();			 // query and return the first row of result
 $column=$command->queryColumn(); // query and return the first column of result
-$value=$command->queryScalar();  // query and return the first field in the first row
+$value=$command->queryScalar();	// query and return the first field in the first row
 ~~~
 
 Fetching Query Results
@@ -156,10 +156,10 @@ is not left with only some of the queries carried out. A transaction,
 represented as a [CDbTransaction] instance in Yii, may be initiated in this
 case:
 
-   - Begin the transaction.
-   - Execute queries one by one. Any updates to the database are not visible to the outside world.
-   - Commit the transaction. Updates become visible if the transaction is successful.
-   - If one of the queries fails, the entire transaction is rolled back.
+	 - Begin the transaction.
+	 - Execute queries one by one. Any updates to the database are not visible to the outside world.
+	 - Commit the transaction. Updates become visible if the transaction is successful.
+	 - If one of the queries fails, the entire transaction is rolled back.
 
 The above workflow can be implemented using the following code:
 
@@ -237,7 +237,7 @@ $dataReader->bindColumn(1,$username);
 $dataReader->bindColumn(2,$email);
 while($dataReader->read()!==false)
 {
-    // $username and $email contain the username and email in the current row
+		// $username and $email contain the username and email in the current row
 }
 ~~~
 

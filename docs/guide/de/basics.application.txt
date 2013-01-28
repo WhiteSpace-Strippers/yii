@@ -150,57 +150,57 @@ verhalten einer Yii-Anwendung bereits in weiten Grenzen steuern.
 
 Dies sind die Kernkomponenten, die eine [CWebApplication] standardmäßig vorbelegt:
 
-   - [assetManager|CWebApplication::assetManager]: [CAssetManager] -
+	 - [assetManager|CWebApplication::assetManager]: [CAssetManager] -
 verwaltet die Veröffentlichung privater Asset-Dateien (sinngem.:
 Zusatzdateien).
 
-   - [authManager|CWebApplication::authManager]: [CAuthManager] - verwaltet
+	 - [authManager|CWebApplication::authManager]: [CAuthManager] - verwaltet
 die rollenbasierte Zugriffskontrolle (RBAC, engl.: role-based access control).
 
-   - [cache|CApplication::cache]: [CCache] - stellt Funktionalität
+	 - [cache|CApplication::cache]: [CCache] - stellt Funktionalität
 zum Cachen von Daten bereit. Beachten Sie, dass Sie eine existierende Klasse (z.B.
 [CMemCache], [CDbCache]) angeben müssen. Andernfalls wird null
 zurückgeliefert, wenn Sie auf diese Komponente zugreifen.
 
-   - [clientScript|CWebApplication::clientScript]: [CClientScript] -
+	 - [clientScript|CWebApplication::clientScript]: [CClientScript] -
 verwaltet Clientscripts (Javascripts und CSS).
 
-   - [coreMessages|CApplication::coreMessages]: [CPhpMessageSource] -
+	 - [coreMessages|CApplication::coreMessages]: [CPhpMessageSource] -
 stellt übersetzte Kernmeldungen für das Yii-Framework bereit.
 
-   - [db|CApplication::db]: [CDbConnection] - stellt eine Datenbankverbindung
-bereit.  Beachten Sie, dass sie deren
+	 - [db|CApplication::db]: [CDbConnection] - stellt eine Datenbankverbindung
+bereit.	Beachten Sie, dass sie deren
 [connectionString|CDbConnection::connectionString]-Eigenschaft konfigurieren
 müssen um diese Komponente zu verwenden.
 
-   - [errorHandler|CApplication::errorHandler]: [CErrorHandler] - bearbeitet
+	 - [errorHandler|CApplication::errorHandler]: [CErrorHandler] - bearbeitet
 nicht-abgefangene PHP-Fehler und -Exceptions.
 
-   - [format|CApplication::format]: [CFormatter] - formatiert Datenwerte für
+	 - [format|CApplication::format]: [CFormatter] - formatiert Datenwerte für
 die Anzeige.
 
-   - [messages|CApplication::messages]: [CPhpMessageSource] - stellt
+	 - [messages|CApplication::messages]: [CPhpMessageSource] - stellt
 übersetzte Textmeldungen für die Yii-Anwendung bereit.
 
-   - [request|CWebApplication::request]: [CHttpRequest] - stellt Informationen
+	 - [request|CWebApplication::request]: [CHttpRequest] - stellt Informationen
 über den HTTP-Request bereit
 
-   - [securityManager|CApplication::securityManager]: [CSecurityManager] -
+	 - [securityManager|CApplication::securityManager]: [CSecurityManager] -
 stellt Sicherheitsdienste bereit, wie z.B. Hashing, Verschlüsselung.
 
-   - [session|CWebApplication::session]: [CHttpSession] - stellt
+	 - [session|CWebApplication::session]: [CHttpSession] - stellt
 sessionbezogene Funktionen zur Verfügung.
 
-   - [statePersister|CApplication::statePersister]: [CStatePersister] -
+	 - [statePersister|CApplication::statePersister]: [CStatePersister] -
 stellt Methoden zur globalen beständigen Datenhaltung bereit.
 
-   - [urlManager|CWebApplication::urlManager]: [CUrlManager] - beinhaltet
+	 - [urlManager|CWebApplication::urlManager]: [CUrlManager] - beinhaltet
 Funktionen zur URL-Analyse und -Erstellung.
 
-   - [user|CWebApplication::user]: [CWebUser] - repräsentiert die
+	 - [user|CWebApplication::user]: [CWebUser] - repräsentiert die
 Idenitätsinformationen des aktuellen Benutzers.
 
-   - [themeManager|CWebApplication::themeManager]: [CThemeManager] -
+	 - [themeManager|CWebApplication::themeManager]: [CThemeManager] -
 verwaltet Themes.
 
 
@@ -209,25 +209,25 @@ Lebenszyklus einer Applikation
 
 Beim Bearbeiten eines Requests durchläuft eine Anwendung diesen Zyklus:
 
-   0. Vor-Initialisieren der Anwendung mit [CApplication::preinit()];
+	 0. Vor-Initialisieren der Anwendung mit [CApplication::preinit()];
 
-   1. Einrichten des Klassen-Autoloaders und der Fehlerbehandlung
+	 1. Einrichten des Klassen-Autoloaders und der Fehlerbehandlung
 
-   2. Registrieren der Kernkomponenten
+	 2. Registrieren der Kernkomponenten
 
-   3. Laden der Konfiguration
+	 3. Laden der Konfiguration
 
-   4. Initialisieren der Anwendung mit [CApplication::init()]
-       - Registrieren von Behaviors
-       - Laden von statischen Komponenten
+	 4. Initialisieren der Anwendung mit [CApplication::init()]
+			 - Registrieren von Behaviors
+			 - Laden von statischen Komponenten
 
-   5. Auslösen des [onBeginRequest|CApplication::onBeginRequest]-Events
+	 5. Auslösen des [onBeginRequest|CApplication::onBeginRequest]-Events
 
-   6. Bearbeiten des Benutzer-Requests:
-       - Informationen zum Request sammeln
-       - Einen Controller instanziieren
-       - Controller ausführen
+	 6. Bearbeiten des Benutzer-Requests:
+			 - Informationen zum Request sammeln
+			 - Einen Controller instanziieren
+			 - Controller ausführen
 
-   7. Auslösen des [onEndRequest|CApplication::onEndRequest]-Events
+	 7. Auslösen des [onEndRequest|CApplication::onEndRequest]-Events
 
 <div class="revision">$Id: basics.application.txt 3251 2011-06-01 00:24:06Z qiang.xue $</div>

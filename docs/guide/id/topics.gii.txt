@@ -75,14 +75,14 @@ Gii dapat ditingkatkan dengan dua cara: mengubah templat kode(code template) yan
 Sebuah code generator disimpan dalam sebuah direktori yang namanya diperlakukan sebagai nama generator. Direktori biasanya terdiri dari isi berikut:
 
 ~~~
-model/                       folder root dari model generator
-   ModelCode.php             kode model yang digunakan untuk menghasilkan kode
-   ModelGenerator.php        controller dari code generator
-   views/                    berisi skrip tilik(view) untuk generator
-      index.php              default dari skrip tilik
-   templates/                berisi kumpulan templat(template) kode
-      default/               kumpulan template kode 'default'
-         model.php           kode templat untuk menghasilkan kode kelas model
+model/											 folder root dari model generator
+	 ModelCode.php						 kode model yang digunakan untuk menghasilkan kode
+	 ModelGenerator.php				controller dari code generator
+	 views/										berisi skrip tilik(view) untuk generator
+			index.php							default dari skrip tilik
+	 templates/								berisi kumpulan templat(template) kode
+			default/							 kumpulan template kode 'default'
+				 model.php					 kode templat untuk menghasilkan kode kelas model
 ~~~
 
 ###Jalur Pencarian Generator(Generator Search Path)
@@ -96,7 +96,7 @@ return array(
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
 			'generatorPaths'=>array(
-				'application.gii',   // sebuah alias path
+				'application.gii',	 // sebuah alias path
 			),
 		),
 	),

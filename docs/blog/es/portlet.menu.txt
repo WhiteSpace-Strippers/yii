@@ -70,7 +70,7 @@ Es hora de hacer uso de nuestro recién creado portlet `UserMenu`. Modificamos e
 ......
 ~~~
 
-En lo anterior, llamamos al método `widget()` para generar y ejecutar una instancia de  la clase 'UserMenu'. Como el portlet debe ser mostrado solamente a usuarios autenticados, llamamos a `widget()` solamente cuando la propiedad `isGuest` del usuario actual es falsa (significando que el usuario está autenticado).
+En lo anterior, llamamos al método `widget()` para generar y ejecutar una instancia de	la clase 'UserMenu'. Como el portlet debe ser mostrado solamente a usuarios autenticados, llamamos a `widget()` solamente cuando la propiedad `isGuest` del usuario actual es falsa (significando que el usuario está autenticado).
 
 Probando el Portlet `UserMenu`
 ------------------------------

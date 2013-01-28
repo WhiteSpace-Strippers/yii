@@ -15,12 +15,12 @@
 - 刪除了 CHtml::scenario。 CHtml 將使用 model 的 scenario 屬性。
 
 
-與 Relational Active Record 的 Eager Loading 相關的改變 
+與 Relational Active Record 的 Eager Loading 相關的改變
 ---------------------------------------------------------------
 
-- 預設上，eager 載入涉及到的所有關聯，只有一條 JOIN 述句將被產生並執行。若主要資料表有它的 `LIMIT` 或 `OFFSET` 查詢選項，它將會單獨的事先查詢，然後執行其他 SQL 述句以取回其所有關聯物件 。在版本 1.0.x 之前，預設的行為是，若一個 eager 載入涉及到 `N` 個 `HAS_MANY` 或 `MANY_MANY` 關聯，將有 `N+1`  個 SQL 語句。
+- 預設上，eager 載入涉及到的所有關聯，只有一條 JOIN 述句將被產生並執行。若主要資料表有它的 `LIMIT` 或 `OFFSET` 查詢選項，它將會單獨的事先查詢，然後執行其他 SQL 述句以取回其所有關聯物件 。在版本 1.0.x 之前，預設的行為是，若一個 eager 載入涉及到 `N` 個 `HAS_MANY` 或 `MANY_MANY` 關聯，將有 `N+1`	個 SQL 語句。
 
-與 Relational Active Record 資料表別名相關的改變 
+與 Relational Active Record 資料表別名相關的改變
 ------------------------------------------------------------
 
 - 現在一個關聯表資料的預設別名和對應的關聯的名字相同。 在版本 1.0.x 之前，預設情況下 Yii 將自動為每個關聯資料表產生一個別名，我們必須使用前綴 `??.` 來指向自動產生的別名。

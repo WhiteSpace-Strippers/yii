@@ -348,7 +348,7 @@ class CErrorHandler extends CApplicationComponent
 	protected function getViewFile($view,$code)
 	{
 		$viewPaths=array(
-			Yii::app()->getTheme()===null ? null :  Yii::app()->getTheme()->getSystemViewPath(),
+			Yii::app()->getTheme()===null ? null :	Yii::app()->getTheme()->getSystemViewPath(),
 			Yii::app() instanceof CWebApplication ? Yii::app()->getSystemViewPath() : null,
 			YII_PATH.DIRECTORY_SEPARATOR.'views',
 		);
@@ -497,7 +497,7 @@ class CErrorHandler extends CApplicationComponent
 		for($i=$beginLine;$i<=$endLine;++$i)
 		{
 			$isErrorLine = $i===$errorLine;
-			$code=sprintf("<span class=\"ln".($isErrorLine?' error-ln':'')."\">%0{$lineNumberWidth}d</span> %s",$i+1,CHtml::encode(str_replace("\t",'    ',$lines[$i])));
+			$code=sprintf("<span class=\"ln".($isErrorLine?' error-ln':'')."\">%0{$lineNumberWidth}d</span> %s",$i+1,CHtml::encode(str_replace("\t",'		',$lines[$i])));
 			if(!$isErrorLine)
 				$output.=$code;
 			else

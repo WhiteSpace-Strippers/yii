@@ -31,8 +31,8 @@ if(!class_exists('HTMLPurifier_Bootstrap',false))
  * <pre>
  * $p = new CHtmlPurifier();
  * $p->options = array('URI.AllowedSchemes'=>array(
- *   'http' => true,
- *   'https' => true,
+ *	 'http' => true,
+ *	 'https' => true,
  * ));
  * $text = $p->purify($text);
  * </pre>
@@ -50,7 +50,7 @@ class CHtmlPurifier extends COutputProcessor
 {
 	/**
 	 * @var mixed the options to be passed to HTML Purifier instance.
-	 * This can be a HTMLPurifier_Config object,  an array of directives (Namespace.Directive => Value)
+	 * This can be a HTMLPurifier_Config object,	an array of directives (Namespace.Directive => Value)
 	 * or the filename of an ini file.
 	 * @see http://htmlpurifier.org/live/configdoc/plain.html
 	 */

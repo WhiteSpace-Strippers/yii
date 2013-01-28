@@ -75,14 +75,14 @@ Gii can be extended in two ways: customizing the code templates of the existing 
 A code generator is stored under a directory whose name is treated as the generator name. The directory usually consists of the following content:
 
 ~~~
-model/                       the model generator root folder
-   ModelCode.php             the code model used to generate code
-   ModelGenerator.php        the code generation controller
-   views/                    containing view scripts for the generator
-      index.php              the default view script
-   templates/                containing code template sets
-      default/               the 'default' code template set
-         model.php           the code template for generating model class code
+model/											 the model generator root folder
+	 ModelCode.php						 the code model used to generate code
+	 ModelGenerator.php				the code generation controller
+	 views/										containing view scripts for the generator
+			index.php							the default view script
+	 templates/								containing code template sets
+			default/							 the 'default' code template set
+				 model.php					 the code template for generating model class code
 ~~~
 
 ###Generator Search Path
@@ -96,7 +96,7 @@ return array(
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
 			'generatorPaths'=>array(
-				'application.gii',   // a path alias
+				'application.gii',	 // a path alias
 			),
 		),
 	),

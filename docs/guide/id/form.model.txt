@@ -5,7 +5,7 @@ Sebelum menulis kode HTML yang diperlukan oleh sebuah form, kita harus menetapka
 data apa yang diharapkan dari pengguna akhir dan aturan apa pada data ini harus
 diterapkan. Kelas model dapat dipakai guna menyimpan informasi ini. Model,
 seperti yang didefinisikan dalam subseksi [Model](/doc/guide/basics.model), adalah
-tempat utama untuk menyimpan  input pengguna dan memvalidasinya.
+tempat utama untuk menyimpan	input pengguna dan memvalidasinya.
 
 Tergantung pada bagaimana kita menggunakan input pengguna, kita bisa membuat dua jenis
 model. Jika input pengguna dikumpulkan, dipakai dan kemudian diabaikan, kita bisa
@@ -125,57 +125,57 @@ contoh di atas, nama `required` adalah alias untuk [CRequiredValidator]
 yang memastikan nilai atribut yang divalidasi tidak kosong. Di bawah ini
 adalah daftar lengkap alias pradefinisi validator aliases:
 
-   - `boolean`: alias [CBooleanValidator], memastikan atribut memiliki
+	 - `boolean`: alias [CBooleanValidator], memastikan atribut memiliki
 nilai baik berupa [CBooleanValidator::trueValue] ataupun
 [CBooleanValidator::falseValue].
 
-   - `captcha`: alias [CCaptchaValidator], memastikan atribut sama dengan
+	 - `captcha`: alias [CCaptchaValidator], memastikan atribut sama dengan
 kode verifikasi yang ditampilkan dalam
 [CAPTCHA](http://en.wikipedia.org/wiki/Captcha).
 
-   - `compare`: alias [CCompareValidator], memastikan atribut sama dengan
+	 - `compare`: alias [CCompareValidator], memastikan atribut sama dengan
 atribut atau konstan lain.
 
-   - `email`: alias [CEmailValidator], memastikan atribut berupa alamat
+	 - `email`: alias [CEmailValidator], memastikan atribut berupa alamat
 email yang benar.
 
-   - `date`: alias [CDateValidator], memastikan atribut mewakili nilai
+	 - `date`: alias [CDateValidator], memastikan atribut mewakili nilai
 tanggal, waktu atau tanggal waktu yang valid.
 
-   - `default`: alias [CDefaultValueValidator], menempatkan nilai standar
+	 - `default`: alias [CDefaultValueValidator], menempatkan nilai standar
 ke atribut yang ditetapkan.
 
-   - `exist`: alias [CExistValidator], memastikan nilai atribut dapat
+	 - `exist`: alias [CExistValidator], memastikan nilai atribut dapat
 ditemukan dalam kolom tabel.
 
-   - `file`: alias [CFileValidator], memastikan atribu berisi nama file
+	 - `file`: alias [CFileValidator], memastikan atribu berisi nama file
 yang di-upload.
 
-   - `filter`: alias [CFilterValidator], mengubah atribut dengan
+	 - `filter`: alias [CFilterValidator], mengubah atribut dengan
 filter.
 
-   - `in`: alias [CRangeValidator], memastikan data ada diantara
+	 - `in`: alias [CRangeValidator], memastikan data ada diantara
 daftar nilai yang sudah ditetapkan.
 
-   - `length`: alias [CStringValidator], memastikan panjang data
+	 - `length`: alias [CStringValidator], memastikan panjang data
 di dalam jangkauan tertentu.
 
-   - `match`: alias [CRegularExpressionValidator], memastikan data
+	 - `match`: alias [CRegularExpressionValidator], memastikan data
 sesuai dengan ekspresi reguler.
 
-   - `numerical`: alias [CNumberValidator], memastikan data adalah
+	 - `numerical`: alias [CNumberValidator], memastikan data adalah
 angka yang benar.
 
-   - `required`: alias [CRequiredValidator], memastikan atribut
+	 - `required`: alias [CRequiredValidator], memastikan atribut
 tidak kosong.
 
-   - `type`: alias [CTypeValidator], memastikan atribut adalah
+	 - `type`: alias [CTypeValidator], memastikan atribut adalah
 jenis data tertentu.
 
-   - `unique`: alias [CUniqueValidator], memastikan data adalah unik dalam
+	 - `unique`: alias [CUniqueValidator], memastikan data adalah unik dalam
 kolom tabel database.
 
-   - `url`: alias [CUrlValidator], memastikan data berupa URL yang benar.
+	 - `url`: alias [CUrlValidator], memastikan data berupa URL yang benar.
 
 Di bawah ini daftar beberapa contoh pemakaian validator pradefinisi:
 
@@ -237,7 +237,7 @@ array('email', 'required', 'on'=>'register'),
 ~~~
 
 Dalam contoh di atas, atribut `username` dan `password` diperlukan dalam skenario `login`
-sedangkan atribut `username`, `password` dan `email` diperlukan dalam skenario `register`. 
+sedangkan atribut `username`, `password` dan `email` diperlukan dalam skenario `register`.
 Sebagai hasilnya, jika kita melakukan penempatan massal (massive assign) di dalam skenario
 `login`, hanya `username` dan `password` yang akan ditempatkan secara massal karena
 hanya mereka yang muncul dalam aturan validasi untuk `login`. Di lain sisi, jika skenarionya adalah
@@ -328,10 +328,10 @@ $model=new User('register');
 $model->attributes=$_POST['User'];
 
 // performs the validation
-if($model->validate())   // if the inputs are valid
-    ...
+if($model->validate())	 // if the inputs are valid
+		...
 else
-    ...
+		...
 ~~~
 
 Skenario yang dapat diaplikasikan pada aturan bersangkutan dapat dispesifikasikan

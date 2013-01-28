@@ -134,8 +134,8 @@ return array(
 [php]
 $this->widget('CLinkPager', array(
 	'pages'=>$pagination,
-    'maxButtonCount'=>5,
-    'cssFile'=>false,
+		'maxButtonCount'=>5,
+		'cssFile'=>false,
 ));
 ~~~
 
@@ -146,19 +146,19 @@ $this->widget('CLinkPager', array(
 ~~~
 [php]
 return array(
-    'components'=>array(
-        'widgetFactory'=>array(
-            'widgets'=>array(
-                'CLinkPager'=>array(
-                    'maxButtonCount'=>5,
-                    'cssFile'=>false,
-                ),
-                'CJuiDatePicker'=>array(
-                    'language'=>'ru',
-                ),
-            ),
-        ),
-    ),
+		'components'=>array(
+				'widgetFactory'=>array(
+						'widgets'=>array(
+								'CLinkPager'=>array(
+										'maxButtonCount'=>5,
+										'cssFile'=>false,
+								),
+								'CJuiDatePicker'=>array(
+										'language'=>'ru',
+								),
+						),
+				),
+		),
 );
 ~~~
 
@@ -211,11 +211,11 @@ $this->widget('CLinkPager', array(
 ~~~
 [php]
 return array(
-    'components'=>array(
-        'widgetFactory'=>array(
-            'enableSkin'=>true,
-        ),
-    ),
+		'components'=>array(
+				'widgetFactory'=>array(
+						'enableSkin'=>true,
+				),
+		),
 );
 ~~~
 
@@ -224,11 +224,11 @@ return array(
 ~~~
 [php]
 return array(
-    'components'=>array(
-        'widgetFactory'=>array(
-            'class'=>'CWidgetFactory',
-        ),
-    ),
+		'components'=>array(
+				'widgetFactory'=>array(
+						'class'=>'CWidgetFactory',
+				),
+		),
 );
 ~~~
 
@@ -244,14 +244,14 @@ return array(
 [php]
 <?php
 return array(
-    'default'=>array(
-        'nextPageLabel'=>'&gt;&gt;',
-        'prevPageLabel'=>'&lt;&lt;',
-    ),
-    'classic'=>array(
-        'header'=>'',
-        'maxButtonCount'=>5,
-    ),
+		'default'=>array(
+				'nextPageLabel'=>'&gt;&gt;',
+				'prevPageLabel'=>'&lt;&lt;',
+		),
+		'classic'=>array(
+				'header'=>'',
+				'maxButtonCount'=>5,
+		),
 );
 ~~~
 
@@ -278,9 +278,9 @@ return array(
 ~~~
 [php]
 <?php $this->widget('CLinkPager', array(
-    'skin'=>'classic',
-    'maxButtonCount'=>6,
-    'cssFile'=>false,
+		'skin'=>'classic',
+		'maxButtonCount'=>6,
+		'cssFile'=>false,
 )); ?>
 ~~~
 
@@ -297,8 +297,8 @@ return array(
 Использование скинов очень похоже на глобальную конфигурацию виджетов. Главные
 отличия следующие:
 
-   - Скины в большей степени относятся к изменению свойств, отвечающих за внешний
-     вид виджета;
-   - У виджета может быть несколько скинов;
-   - Скин можно темизировать;
-   - Использование скинов более затратно, чем использование глобальной конфигурации.
+	 - Скины в большей степени относятся к изменению свойств, отвечающих за внешний
+		 вид виджета;
+	 - У виджета может быть несколько скинов;
+	 - Скин можно темизировать;
+	 - Использование скинов более затратно, чем использование глобальной конфигурации.

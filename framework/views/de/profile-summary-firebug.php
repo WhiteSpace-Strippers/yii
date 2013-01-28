@@ -3,7 +3,7 @@
 if(typeof(console)=='object')
 {
 	console.group("Ergebnis der Performance-Analyse");
-	console.log(" Anzahl Gesamt   Durschn.   Min      Max   ");
+	console.log(" Anzahl Gesamt	 Durschn.	 Min			Max	 ");
 <?php
 foreach($data as $index=>$entry)
 {
@@ -12,8 +12,8 @@ foreach($data as $index=>$entry)
 	$min=sprintf('%0.5f',$entry[2]); // 7 digits
 	$max=sprintf('%0.5f',$entry[3]); // 7 digits
 	$total=sprintf('%0.5f',$entry[4]); // 7 digits
-	$average=sprintf('%0.5f',$entry[4]/$entry[1]);  // 7 digits
-	echo "\tconsole.log(\" $count  $total  $average  $min  $max    {$proc}\");\n";
+	$average=sprintf('%0.5f',$entry[4]/$entry[1]);	// 7 digits
+	echo "\tconsole.log(\" $count	$total	$average	$min	$max		{$proc}\");\n";
 
 }
 ?>

@@ -18,25 +18,25 @@
  * The core application components provided by CApplication are the following:
  * <ul>
  * <li>{@link getErrorHandler errorHandler}: handles PHP errors and
- *   uncaught exceptions. This application component is dynamically loaded when needed.</li>
+ *	 uncaught exceptions. This application component is dynamically loaded when needed.</li>
  * <li>{@link getSecurityManager securityManager}: provides security-related
- *   services, such as hashing, encryption. This application component is dynamically
- *   loaded when needed.</li>
+ *	 services, such as hashing, encryption. This application component is dynamically
+ *	 loaded when needed.</li>
  * <li>{@link getStatePersister statePersister}: provides global state
- *   persistence method. This application component is dynamically loaded when needed.</li>
+ *	 persistence method. This application component is dynamically loaded when needed.</li>
  * <li>{@link getCache cache}: provides caching feature. This application component is
- *   disabled by default.</li>
+ *	 disabled by default.</li>
  * <li>{@link getMessages messages}: provides the message source for translating
- *   application messages. This application component is dynamically loaded when needed.</li>
+ *	 application messages. This application component is dynamically loaded when needed.</li>
  * <li>{@link getCoreMessages coreMessages}: provides the message source for translating
- *   Yii framework messages. This application component is dynamically loaded when needed.</li>
+ *	 Yii framework messages. This application component is dynamically loaded when needed.</li>
  * <li>{@link getUrlManager urlManager}: provides URL construction as well as parsing functionality.
- *   This application component is dynamically loaded when needed.</li>
+ *	 This application component is dynamically loaded when needed.</li>
  * <li>{@link getRequest request}: represents the current HTTP request by encapsulating
- *   the $_SERVER variable and managing cookies sent from and sent to the user.
- *   This application component is dynamically loaded when needed.</li>
+ *	 the $_SERVER variable and managing cookies sent from and sent to the user.
+ *	 This application component is dynamically loaded when needed.</li>
  * <li>{@link getFormat format}: provides a set of commonly used data formatting methods.
- *   This application component is dynamically loaded when needed.</li>
+ *	 This application component is dynamically loaded when needed.</li>
  * </ul>
  *
  * CApplication will undergo the following lifecycles when processing a user request:

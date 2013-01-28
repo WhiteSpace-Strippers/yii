@@ -5,7 +5,7 @@ Die Performance (oder Leistungsfähigkeit) einer Webanwendung wird von vielen Fa
 beeinflusst. Datenbankzugriffe, Operationen im Dateisystem und
 Netzwerkbandbreiten sind alles potentielle Einflussfaktoren. Yii versucht in
 jeder Hinsicht, die framework-bedingten Performanceeinbußen so gering wie
-möglich zu halten. Trotzdem gibt es bei einer Anwendung immer noch viele 
+möglich zu halten. Trotzdem gibt es bei einer Anwendung immer noch viele
 Stellen, an denen Verbesserungen im Sinne einer erhöhten
 Leistungsfähigkeit vorgenommen werden können.
 
@@ -16,8 +16,8 @@ Aktivieren der APC-Erweiterung
 Der wahrscheinlich einfachste Weg, um die Gesamtperformance einer Anwendung zu
 verbessern, ist die Aktivierung der
 [APC-Erweiterung](http://www.php.net/manual/de/book.apc.php) in PHP. Die
-Erweiterung cached und optimiert PHPs Zwischencode (engl.: intermediate code) 
-und spart somit die Zeit, die bei jedem eingehenden Request für das 
+Erweiterung cached und optimiert PHPs Zwischencode (engl.: intermediate code)
+und spart somit die Zeit, die bei jedem eingehenden Request für das
 Auswerten eines PHP-Scripts nötig wäre.
 
 Ausschalten des Debug-Modus
@@ -39,7 +39,7 @@ aktiviert wurde, können wir `yii.php` durch eine andere Startdatei namens
 `yiilite.php` ersetzen, um die Leistungsfähigkeit einer Yii-Anwendung weiter
 zu erhöhen.
 
-Die Datei `yiilite.php` ist in jeder Yii-Version enthalten. In ihr sind einige 
+Die Datei `yiilite.php` ist in jeder Yii-Version enthalten. In ihr sind einige
 häufig verwendete Klassendateien von Yii zusammengefasst. Sowohl Kommentare
 als auch trace-Anweisungen wurden entfernt. Der Einsatz von `yiilite.php`
 minimiert also die Anzahl einzubindender Dateien und verhindert die Ausführung
@@ -102,7 +102,7 @@ Für komplexe Abfragen empfiehlt es sich, einen Datenbank-View dafür zu
 erstellen, statt die Abfragen von PHP aus jedesmal erneut zu senden und das
 DBMS wiederholt mit der Auswertung zu beauftragen.
 
-Übertreiben Sie den Einsatz von [ActiveRecords](/doc/guide/database.ar) nicht. 
+Übertreiben Sie den Einsatz von [ActiveRecords](/doc/guide/database.ar) nicht.
 Obwohl [ActiveRecords](/doc/guide/database.ar) sich gut für die
 Datenmodellierung in OOP eignen, verringern sie auch die Performance.
 Dies liegt daran, dass für jede Zeile eines Abfrageergebnisses ein oder
@@ -120,7 +120,7 @@ Minimieren von Scriptdateien
 Komplexe Seiten müssen häufig viele externe JavaScript- und CSS-Dateien
 einbinden. Da jede Datei einen weiteren Abfragezyklus zum Server hervorrufen
 würde, sollten wir die Anzahl der Scriptdateien minimieren, indem wir sie in
-wenigen Dateien zusammenfassen. Wir sollten auch in Betracht ziehen, die Größe 
+wenigen Dateien zusammenfassen. Wir sollten auch in Betracht ziehen, die Größe
 jeder Scriptdatei zu verkleinern, um die Übertragungszeit über das Netzwerk zu
 verringern. Für diese zwei Aufgaben gibt es viele Hilfsprogramme.
 

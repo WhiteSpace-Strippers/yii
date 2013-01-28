@@ -37,7 +37,7 @@ Yii 推荐命名变量、函数和类时使用 驼峰风格，即每个单词的
 所有的 Yii 框架类名以 "C" 作前缀。
 
 一个针对控制器名字的特殊规则是它们必须以单词 `Controller` 结尾。那么控制器 ID 即类名的首字母小写并去掉单词 `Controller`。
-例如，`PageController` 类的 ID 就是  `page` 。这个规则使应用更加安全。它还使控制器相关的URL更加简单(例如 `/index.php?r=page/index` 而不是 
+例如，`PageController` 类的 ID 就是	`page` 。这个规则使应用更加安全。它还使控制器相关的URL更加简单(例如 `/index.php?r=page/index` 而不是
 `/index.php?r=PageController/index`)。
 
 配置
@@ -71,41 +71,41 @@ application', 'basePath'=>'./protected')` 初始化了 `name` 和
 
 Yii 假定了一系列默认的目录用于不同的场合。如果需要，每个目录都可以自定义。
 
-   - `WebRoot/protected`: 这是 [应用基础目录](/doc/guide/basics.application#application-base-directory)，
+	 - `WebRoot/protected`: 这是 [应用基础目录](/doc/guide/basics.application#application-base-directory)，
  是放置所有安全敏感的PHP脚本和数据文件的地方。Yii 有一个默认的 `application` 别名指向此目录。
 此目录及目录中的文件应该保护起来防止Web用户访问。它可以通过 [CWebApplication::basePath] 自定义。
 
-   - `WebRoot/protected/runtime`: 此目录放置应用在运行时产生的私有临时文件。
+	 - `WebRoot/protected/runtime`: 此目录放置应用在运行时产生的私有临时文件。
 此目录必须对 Web 服务器进程可写。它可以通过 [CApplication::runtimePath]自定义。
 
-   - `WebRoot/protected/extensions`: 此目录放置所有第三方扩展。
+	 - `WebRoot/protected/extensions`: 此目录放置所有第三方扩展。
 它可以通过 [CApplication::extensionPath] 自定义。
 
-   - `WebRoot/protected/modules`: 此目录放置所有的应用
+	 - `WebRoot/protected/modules`: 此目录放置所有的应用
 [模块](/doc/guide/basics.module)，每个模块使用一个子目录。
 
-   - `WebRoot/protected/controllers`: 此目录放置所有控制器类文件。
-它可以通过   [CWebApplication::controllerPath] 自定义。
+	 - `WebRoot/protected/controllers`: 此目录放置所有控制器类文件。
+它可以通过	 [CWebApplication::controllerPath] 自定义。
 
-   - `WebRoot/protected/views`: 此目录放置所有试图文件，
+	 - `WebRoot/protected/views`: 此目录放置所有试图文件，
 包含控制器视图，布局视图和系统视图。
 它可以通过 [CWebApplication::viewPath] 自定义。
 
-   - `WebRoot/protected/views/ControllerID`: 此目录放置单个控制器类中使用的视图文件。
+	 - `WebRoot/protected/views/ControllerID`: 此目录放置单个控制器类中使用的视图文件。
 此处的 `ControllerID` 是指控制器的 ID 。它可以通过 [CController::viewPath] 自定义。
 
-   - `WebRoot/protected/views/layouts`: 此目录放置所有布局视图文件。它可以通过
+	 - `WebRoot/protected/views/layouts`: 此目录放置所有布局视图文件。它可以通过
 [CWebApplication::layoutPath] 自定义。
 
-   - `WebRoot/protected/views/system`: 此目录放置所有系统视图文件。
+	 - `WebRoot/protected/views/system`: 此目录放置所有系统视图文件。
 系统视图文件是用于显示异常和错误的模板。它可以通过 [CWebApplication::systemViewPath]
 自定义。
 
-   - `WebRoot/assets`: 此目录放置公共资源文件。
+	 - `WebRoot/assets`: 此目录放置公共资源文件。
 资源文件是可以被发布的，可由Web用户访问的私有文件。此目录必须对 Web 服务器进程可写。
 它可以通过 [CAssetManager::basePath] 自定义
 
-   - `WebRoot/themes`: 此目录放置应用使用的不同的主题。每个子目录即一个主题，主题的名字即目录的名字。
+	 - `WebRoot/themes`: 此目录放置应用使用的不同的主题。每个子目录即一个主题，主题的名字即目录的名字。
 它可以通过 [CThemeManager::basePath] 自定义。
 
 数据库
@@ -114,14 +114,14 @@ Yii 假定了一系列默认的目录用于不同的场合。如果需要，每�
 多数Web 应用是由数据库驱动的。为了最佳时间，我们
 推荐在对表和列命名时使用如下命名规范。注意，这些规范并不是 Yii 所必须的。
 
-   - 数据库表名和列名都使用小写命名。
+	 - 数据库表名和列名都使用小写命名。
 
-   - 名字中的单词应使用下划线分割 (例如 `product_order`)。
+	 - 名字中的单词应使用下划线分割 (例如 `product_order`)。
 
-   - 对于表名，你既可以使用单数也可以使用复数。但
+	 - 对于表名，你既可以使用单数也可以使用复数。但
 不要 同时使用两者。为简单起见，我们推荐使用单数名字。
 
-   - 表名可以使用一个通用前缀，例如 `tbl_` 。这样当应用所使用的表和另一个应用说使用的表共存于同一个数据库中时就特别有用。
+	 - 表名可以使用一个通用前缀，例如 `tbl_` 。这样当应用所使用的表和另一个应用说使用的表共存于同一个数据库中时就特别有用。
 这两个应用的表可以通过使用不同的表前缀很容易地区别开。
 
 

@@ -21,7 +21,7 @@ p {font-family:"Verdana";font-weight:normal;color:black;font-size:9pt;margin-top
 <h2><?php echo nl2br(CHtml::encode($data['message'])); ?></h2>
 <p>
 Užklaustas puslapis serveryje nerastas.
-Jeigu adresą suvedėte rankiniu būdu, prašytume pasitikslinti rašybą ir bandyti dar kartą. 
+Jeigu adresą suvedėte rankiniu būdu, prašytume pasitikslinti rašybą ir bandyti dar kartą.
 </p>
 <p>
 Jeigu manote, kad tai serverio klaida, prašytume apie ją pranešti <?php echo $data['admin']; ?>.

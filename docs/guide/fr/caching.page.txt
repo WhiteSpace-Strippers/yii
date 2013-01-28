@@ -1,14 +1,14 @@
 Cache de page
 =============
 
-Le cache de page sert à mettre en cache l'intégralité d'une page. Le cache de page 
+Le cache de page sert à mettre en cache l'intégralité d'une page. Le cache de page
 peut être mis en oeuvre à différents niveaux.
-Par exemple, en utilisant un header approprié, le navigateur peut mettre en 
+Par exemple, en utilisant un header approprié, le navigateur peut mettre en
 cache la page en cours pour une durée définie ou encore, l'application web peut
 prendre en charge la mise en cache du contenu de la page.
 Dans cette section, nous présenterons cette dernière méthode.
 
-Le cache de page peut être considéré comme une extension du [cache par 
+Le cache de page peut être considéré comme une extension du [cache par
 fragments](/doc/guide/caching.fragment). Sachant que généralement
 la génération d'une page fait intervenir un layout et une vue, il n'est
 pas possible d'appeler les méthodes [beginCache()|CBaseController::beginCache] et
@@ -18,7 +18,7 @@ une fois que la vue a été évaluée.
 
 Pour cacher l'intégralité d'une page, il faut éviter l'exécution de
 l'action qui génère le contenu de la page. Pour ce faire,
-nous pouvons utiliser [COutputCache] en tant que 
+nous pouvons utiliser [COutputCache] en tant que
 [filtre](/doc/guide/basics.controller#filter). Le code suivant montre
 comment configurer le filtre de cache :
 

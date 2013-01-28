@@ -33,15 +33,15 @@ Ketika kita menggunakan perintah konsol `yiic webapp` untuk membuat aplikasi Yii
 
 ~~~
 testdrive/
-   protected/                berisi file-file aplikasi yang terproteksi
-      tests/                 berisi uji coba-uji coba untuk aplikasi
-         fixtures/           berisi fixture database
-         functional/         berisi uji coba fungsional
-         unit/               berisi uji coba unit
-         report/             berisi laporan code-coverage
-         bootstrap.php       script yang dijalankan pada saat paling awal
-         phpunit.xml         file konfigurasi PHPUnit
-         WebTestCase.php     kelas dasar untuk uji coba fungsional berbasis Web
+	 protected/								berisi file-file aplikasi yang terproteksi
+			tests/								 berisi uji coba-uji coba untuk aplikasi
+				 fixtures/					 berisi fixture database
+				 functional/				 berisi uji coba fungsional
+				 unit/							 berisi uji coba unit
+				 report/						 berisi laporan code-coverage
+				 bootstrap.php			 script yang dijalankan pada saat paling awal
+				 phpunit.xml				 file konfigurasi PHPUnit
+				 WebTestCase.php		 kelas dasar untuk uji coba fungsional berbasis Web
 ~~~
 
 Seperti yang tertampil diatas, kode uji coba kita akan diletakkan dalam 3 direktori: `fixtures`, `functional` dan `unit`. Direktori `report` akan digunakan untuk menyimpan laporan code-coverage yang dihasilkan.
@@ -50,8 +50,8 @@ Untuk menjalankan uji coba (baik unit maupun fungsional), kita dapat menjalankan
 
 ~~~
 % cd testdrive/protected/tests
-% phpunit functional/PostTest.php    // menjalankan uji coba individual
-% phpunit --verbose functional       // menjalankan seluruh uji coba di `functional`
+% phpunit functional/PostTest.php		// menjalankan uji coba individual
+% phpunit --verbose functional			 // menjalankan seluruh uji coba di `functional`
 % phpunit --coverage-html ./report unit
 ~~~
 

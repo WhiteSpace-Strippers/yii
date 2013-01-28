@@ -58,48 +58,48 @@ Erläuterungen dazu finden Sie in den [Konventionen](/doc/guide/basics.conventio
 
 ~~~
 testdrive/
-   index.php                 Startscript der Anwendung
-   index-test.php            Startscript für die Funktionstests
-   assets/                   enthält veröffentlichte Zusatzdateien
-   css/                      enthält CSS-Dateien
-   images/                   enthält Bilddateien
-   themes/                   enthält Themes
-   protected/                enthält die geschützten Dateien dieser Anwendung
-      yiic                   yiic-Script für die Kommandozeile unter Linux/Unix
-      yiic.bat               yiic-Script für die Kommandozeile unter Windows
-      yiic.php               PHP-Script für yiic
-      commands/              enthält selbst erstellte 'yiic'-Kommandos
-         shell/              enthält selbst erstellte 'yiic shell'-Kommandos
-      components/            enthält wiederverwendbare Benutzerkomponenten
-         Controller.php      die Basisklasse für alle Controller
-         UserIdentity.php    die Klasse 'UserIdentity' (Benutzer-Identität) für die Authentifizierung
-      config/                enthält Konfigurationsdateien
-         console.php         die Konfiguration für Konsolenanwendungen
-         main.php            die Konfiguration für Webanwendungen
-         test.php            die Konfiguration für Funktionstests
-      controllers/           enthält Controllerklassen
-         SiteController.php  der Standardcontroller
-      data/                  enthält die Beispieldatenbank
-         schema.mysql.sql    das DB-Schema für MySQL
-         schema.sqlite.sql   das DB-Schema für SQLite
-         testdrive.db        die SQLite-Beispieldatenbank
-      extensions/            enthält Erweiterungen von Drittanbietern
-      messages/              enthält übersetzte Textmeldungen
-      models/                enthält Modelklassen
-         LoginForm.php       das Form-Model für die 'login'-Action
-         ContactForm.php     das Form-Model für die 'contact'-Action
-      runtime/               enthält temporäre Dateien
-      tests/                 enthält Testscripts
-      views/                 enthält Controller-Views und Layout-Dateien
-         layouts/            enthält Views für das Layout
-            main.php         das Standardlayout für alle Views
-         site/               enthält Views für den SiteController
-            pages/           enthält "statische" Seiten
-                about.php    View für die 'about'-Seite
-            contact.php      View für die 'contact'-Action
-            error.php        View für die 'error'-Action (zur Anzeige externer Fehler)
-            index.php        View für ide 'index'-Action
-            login.php        View für die 'login'-Action
+	 index.php								 Startscript der Anwendung
+	 index-test.php						Startscript für die Funktionstests
+	 assets/									 enthält veröffentlichte Zusatzdateien
+	 css/											enthält CSS-Dateien
+	 images/									 enthält Bilddateien
+	 themes/									 enthält Themes
+	 protected/								enthält die geschützten Dateien dieser Anwendung
+			yiic									 yiic-Script für die Kommandozeile unter Linux/Unix
+			yiic.bat							 yiic-Script für die Kommandozeile unter Windows
+			yiic.php							 PHP-Script für yiic
+			commands/							enthält selbst erstellte 'yiic'-Kommandos
+				 shell/							enthält selbst erstellte 'yiic shell'-Kommandos
+			components/						enthält wiederverwendbare Benutzerkomponenten
+				 Controller.php			die Basisklasse für alle Controller
+				 UserIdentity.php		die Klasse 'UserIdentity' (Benutzer-Identität) für die Authentifizierung
+			config/								enthält Konfigurationsdateien
+				 console.php				 die Konfiguration für Konsolenanwendungen
+				 main.php						die Konfiguration für Webanwendungen
+				 test.php						die Konfiguration für Funktionstests
+			controllers/					 enthält Controllerklassen
+				 SiteController.php	der Standardcontroller
+			data/									enthält die Beispieldatenbank
+				 schema.mysql.sql		das DB-Schema für MySQL
+				 schema.sqlite.sql	 das DB-Schema für SQLite
+				 testdrive.db				die SQLite-Beispieldatenbank
+			extensions/						enthält Erweiterungen von Drittanbietern
+			messages/							enthält übersetzte Textmeldungen
+			models/								enthält Modelklassen
+				 LoginForm.php			 das Form-Model für die 'login'-Action
+				 ContactForm.php		 das Form-Model für die 'contact'-Action
+			runtime/							 enthält temporäre Dateien
+			tests/								 enthält Testscripts
+			views/								 enthält Controller-Views und Layout-Dateien
+				 layouts/						enthält Views für das Layout
+						main.php				 das Standardlayout für alle Views
+				 site/							 enthält Views für den SiteController
+						pages/					 enthält "statische" Seiten
+								about.php		View für die 'about'-Seite
+						contact.php			View für die 'contact'-Action
+						error.php				View für die 'error'-Action (zur Anzeige externer Fehler)
+						index.php				View für ide 'index'-Action
+						login.php				View für die 'login'-Action
 ~~~
 
 Verbindung zu einer Datenbank

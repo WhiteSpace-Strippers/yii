@@ -58,40 +58,40 @@ a struktúra miértjéről a [Konvenciók](/doc/guide/basics.convention#director
 
 ~~~
 testdrive/
-   index.php                 a webalkalmazás belépési parancsfájlja
-   assets/                   közzétett forrásfájlokat tartalmaz
-   css/                      CSS fájlokat tartalmaz
-   images/                   képfájlokat tartalmaz
-   themes/                   alkalmazás témákat tartalmaz
-   protected/                az alkalamazás védett fájljait tartalmazza
-      yiic                   yiic parancssori szkript
-      yiic.bat               yiic parancssori szkript Windows-hoz
-      commands/              egyéni 'yiic' parancsok tárolására
-         shell/              egyéni 'yiic shell' parancsok tárolására
-      components/            újrahasznosítható felhasználói komponensek
-         MainMenu.php        a 'MainMenu' widget osztály
-         Identity.php        az azonosításra használt 'Identity' osztály
-         views/              a widget-ek nézet fájljainak tárolására
-            mainMenu.php     nézet fájl a 'MainMenu' widget-hez
-      config/                konfigurációs fájlok tárolására
-         console.php         a parancssori alkalmazás beállításai
-         main.php            a webalkalmazás beállításai
-      controllers/           kontroller osztályok tárolására
-         SiteController.php  alapértelmezett kontroller osztály
-      extensions/            harmadik féltől származó kiterjesztések
-      messages/              lefordított üzenetek tárolására
-      models/                modell osztályok tárolására
-         LoginForm.php       űrlap modell a 'login' tevékenységhez
-         ContactForm.php     űrlap modell a 'contact' tevékenységhez
-      runtime/               ideiglenes fájlok tárolására
-      views/                 kontrollerek nézet és elrendezés fájljainak tárolására
-         layouts/            elrendezés fájlok tárolására
-            main.php         az alapértelmezett elrendezés a nézetekhez
-         site/               a 'site' kontrollerhez tartozó nézet fájlok
-            contact.php      a 'contact' tevékenységehez tartozó nézet
-            index.php        az 'index' tevékenységhez tartozó nézet
-            login.php        a 'login' tevékenységhez tartozó nézet
-         system/             rendszerszintű nézet fájlok tárolására
+	 index.php								 a webalkalmazás belépési parancsfájlja
+	 assets/									 közzétett forrásfájlokat tartalmaz
+	 css/											CSS fájlokat tartalmaz
+	 images/									 képfájlokat tartalmaz
+	 themes/									 alkalmazás témákat tartalmaz
+	 protected/								az alkalamazás védett fájljait tartalmazza
+			yiic									 yiic parancssori szkript
+			yiic.bat							 yiic parancssori szkript Windows-hoz
+			commands/							egyéni 'yiic' parancsok tárolására
+				 shell/							egyéni 'yiic shell' parancsok tárolására
+			components/						újrahasznosítható felhasználói komponensek
+				 MainMenu.php				a 'MainMenu' widget osztály
+				 Identity.php				az azonosításra használt 'Identity' osztály
+				 views/							a widget-ek nézet fájljainak tárolására
+						mainMenu.php		 nézet fájl a 'MainMenu' widget-hez
+			config/								konfigurációs fájlok tárolására
+				 console.php				 a parancssori alkalmazás beállításai
+				 main.php						a webalkalmazás beállításai
+			controllers/					 kontroller osztályok tárolására
+				 SiteController.php	alapértelmezett kontroller osztály
+			extensions/						harmadik féltől származó kiterjesztések
+			messages/							lefordított üzenetek tárolására
+			models/								modell osztályok tárolására
+				 LoginForm.php			 űrlap modell a 'login' tevékenységhez
+				 ContactForm.php		 űrlap modell a 'contact' tevékenységhez
+			runtime/							 ideiglenes fájlok tárolására
+			views/								 kontrollerek nézet és elrendezés fájljainak tárolására
+				 layouts/						elrendezés fájlok tárolására
+						main.php				 az alapértelmezett elrendezés a nézetekhez
+				 site/							 a 'site' kontrollerhez tartozó nézet fájlok
+						contact.php			a 'contact' tevékenységehez tartozó nézet
+						index.php				az 'index' tevékenységhez tartozó nézet
+						login.php				a 'login' tevékenységhez tartozó nézet
+				 system/						 rendszerszintű nézet fájlok tárolására
 ~~~
 
 Kapcsolódás adatbázishoz
@@ -140,7 +140,7 @@ CREATE TABLE User (
 ~~~
 
 > Note|Figyelem: Ha MySQL adatbázist használunk, a fenti SQL-ben le kell cserélnünk
-> az `AUTOINCREMENT` kifejezést `AUTO_INCREMENT`-re. 
+> az `AUTOINCREMENT` kifejezést `AUTO_INCREMENT`-re.
 
 Az egyszerűség kedvéért csak egy, `User` nevű táblát hozunk létre az adatbázisban.
 Az SQLite adatbázis a `WebRoot/testdrive/protected/data/source.db` helyen van elmentve.
@@ -166,22 +166,22 @@ ablakot és hajtsuk végre a következőkben felsorolt parancsokat:
 Yii Interactive Tool v1.0
 Please type 'help' for help. Type 'exit' to quit.
 >> model User
-   generate User.php
+	 generate User.php
 
 The 'User' class has been successfully created in the following file:
-    D:\wwwroot\testdrive\protected\models\User.php
+		D:\wwwroot\testdrive\protected\models\User.php
 
 If you have a 'db' database connection, you can test it now with:
-    $model=User::model()->find();
-    print_r($model);
+		$model=User::model()->find();
+		print_r($model);
 
 >> crud User
-   generate UserController.php
-   generate create.php
-      mkdir D:/wwwroot/testdrive/protected/views/user
-   generate update.php
-   generate list.php
-   generate show.php
+	 generate UserController.php
+	 generate create.php
+			mkdir D:/wwwroot/testdrive/protected/views/user
+	 generate update.php
+	 generate list.php
+	 generate show.php
 
 Crud 'user' has been successfully created. You may access it via:
 http://hostname/path/to/index.php?r=user

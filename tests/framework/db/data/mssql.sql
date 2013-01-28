@@ -48,17 +48,17 @@ IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[types]
 BEGIN
 CREATE TABLE [dbo].[types](
 	[int_col] [int] NOT NULL,
-	[int_col2] [int] NULL CONSTRAINT [DF_types_int_col2]  DEFAULT (1),
+	[int_col2] [int] NULL CONSTRAINT [DF_types_int_col2]	DEFAULT (1),
 	[char_col] [char](100) NOT NULL,
-	[char_col2] [varchar](100) NULL CONSTRAINT [DF_types_char_col2]  DEFAULT ('something'),
+	[char_col2] [varchar](100) NULL CONSTRAINT [DF_types_char_col2]	DEFAULT ('something'),
 	[char_col3] [text] NULL,
 	[float_col] [real] NOT NULL,
-	[float_col2] [float] NULL CONSTRAINT [DF_types_float_col2]  DEFAULT (1.23),
+	[float_col2] [float] NULL CONSTRAINT [DF_types_float_col2]	DEFAULT (1.23),
 	[blob_col] [image] NULL,
-	[numeric_col] [numeric](5, 2) NULL CONSTRAINT [DF_types_numeric_col]  DEFAULT (33.22),
-	[time] [datetime] NULL CONSTRAINT [DF_types_time]  DEFAULT ('2002-01-01 00:00:00'),
+	[numeric_col] [numeric](5, 2) NULL CONSTRAINT [DF_types_numeric_col]	DEFAULT (33.22),
+	[time] [datetime] NULL CONSTRAINT [DF_types_time]	DEFAULT ('2002-01-01 00:00:00'),
 	[bool_col] [bit] NOT NULL,
-	[bool_col2] [bit] NOT NULL CONSTRAINT [DF_types_bool_col2]  DEFAULT (1)
+	[bool_col2] [bit] NOT NULL CONSTRAINT [DF_types_bool_col2]	DEFAULT (1)
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 END
 GO
@@ -183,19 +183,19 @@ GO
 
 -- 'categories' table foreign keys
 IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[FK_categories_categories]') AND type = 'F')
-ALTER TABLE [dbo].[categories]  WITH CHECK ADD  CONSTRAINT [FK_categories_categories] FOREIGN KEY([parent_id])
+ALTER TABLE [dbo].[categories]	WITH CHECK ADD	CONSTRAINT [FK_categories_categories] FOREIGN KEY([parent_id])
 REFERENCES [dbo].[categories] ([id])
 GO
 
 -- 'post_category' table foreign keys
 IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[FK_post_category_categories]') AND type = 'F')
-ALTER TABLE [dbo].[post_category]  WITH CHECK ADD  CONSTRAINT [FK_post_category_categories] FOREIGN KEY([category_id])
+ALTER TABLE [dbo].[post_category]	WITH CHECK ADD	CONSTRAINT [FK_post_category_categories] FOREIGN KEY([category_id])
 REFERENCES [dbo].[categories] ([id])
 ON DELETE CASCADE
 GO
 
 IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[FK_post_category_posts]') AND type = 'F')
-ALTER TABLE [dbo].[post_category]  WITH NOCHECK ADD  CONSTRAINT [FK_post_category_posts] FOREIGN KEY([post_id])
+ALTER TABLE [dbo].[post_category]	WITH NOCHECK ADD	CONSTRAINT [FK_post_category_posts] FOREIGN KEY([post_id])
 REFERENCES [dbo].[posts] ([id])
 ON DELETE CASCADE
 GO
@@ -204,14 +204,14 @@ GO
 
 -- 'items' table foreign keys
 IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[FK_items_orders]') AND type = 'F')
-ALTER TABLE [dbo].[items]  WITH CHECK ADD  CONSTRAINT [FK_items_orders] FOREIGN KEY([col1], [col2])
+ALTER TABLE [dbo].[items]	WITH CHECK ADD	CONSTRAINT [FK_items_orders] FOREIGN KEY([col1], [col2])
 REFERENCES [dbo].[orders] ([key1], [key2])
 ON DELETE CASCADE
 GO
 
 -- 'comments' table foreign keys
 IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[FK_comments_users]') AND type = 'F')
-ALTER TABLE [dbo].[comments]  WITH NOCHECK ADD  CONSTRAINT [FK_comments_users] FOREIGN KEY([author_id])
+ALTER TABLE [dbo].[comments]	WITH NOCHECK ADD	CONSTRAINT [FK_comments_users] FOREIGN KEY([author_id])
 REFERENCES [dbo].[users] ([id])
 ON DELETE CASCADE
 GO
@@ -219,7 +219,7 @@ ALTER TABLE [dbo].[comments] CHECK CONSTRAINT [FK_comments_users]
 GO
 
 IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[FK_post_comment]') AND type = 'F')
-ALTER TABLE [dbo].[comments]  WITH NOCHECK ADD  CONSTRAINT [FK_post_comment] FOREIGN KEY([post_id])
+ALTER TABLE [dbo].[comments]	WITH NOCHECK ADD	CONSTRAINT [FK_post_comment] FOREIGN KEY([post_id])
 REFERENCES [dbo].[posts] ([id])
 ON DELETE CASCADE
 GO
@@ -228,7 +228,7 @@ GO
 
 -- 'posts' table foreign keys
 IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[FK_posts_users]') AND type = 'F')
-ALTER TABLE [dbo].[posts]  WITH NOCHECK ADD  CONSTRAINT [FK_posts_users] FOREIGN KEY([author_id])
+ALTER TABLE [dbo].[posts]	WITH NOCHECK ADD	CONSTRAINT [FK_posts_users] FOREIGN KEY([author_id])
 REFERENCES [dbo].[users] ([id])
 GO
 ALTER TABLE [dbo].[posts] CHECK CONSTRAINT [FK_posts_users]
@@ -236,7 +236,7 @@ GO
 
 -- 'profiles' table foreign keys
 IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[dbo].[FK_profile_user]') AND type = 'F')
-ALTER TABLE [dbo].[profiles]  WITH NOCHECK ADD  CONSTRAINT [FK_profile_user] FOREIGN KEY([user_id])
+ALTER TABLE [dbo].[profiles]	WITH NOCHECK ADD	CONSTRAINT [FK_profile_user] FOREIGN KEY([user_id])
 REFERENCES [dbo].[users] ([id])
 ON DELETE CASCADE
 GO

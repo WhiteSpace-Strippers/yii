@@ -17,7 +17,7 @@
 <div id="content">
 <h2>Beskrivelse</h2>
 <p>
-Dette skriptet sjekker om serverkonfigurasjonen oppfyller kravene for å kjøre 
+Dette skriptet sjekker om serverkonfigurasjonen oppfyller kravene for å kjøre
 <a href="http://www.yiiframework.com/">Yii</a>-applikasjoner.
 Det sjekker om serveren kjører riktig versjon av PHP, om nødvendige extensions
 er lastet og om PHP-innstillingene i php.ini er korrekt.
@@ -29,7 +29,7 @@ er lastet og om PHP-innstillingene i php.ini er korrekt.
 Gratulerer! Konfigurasjonen på serveren tilfredstiller alle krav for å kjøre Yii.
 <?php elseif($result<0): ?>
 Konfigurasjonen på serveren tilfredstiller minimumskravene til Yii. Vær oppmerksom
-på advarslene listet nedenfor dersom applikasjonen din trenger noe av denne 
+på advarslene listet nedenfor dersom applikasjonen din trenger noe av denne
 funksjonaliteten.
 <?php else: ?>
 Desverre tilfredstiller ikke konfigurasjonen av serveren minimumskravene til Yii.

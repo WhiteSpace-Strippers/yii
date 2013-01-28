@@ -6,8 +6,8 @@
  * Copyright (c) 2007 Jörn Zaefferer
  *
  * Dual licensed under the MIT and GPL licenses:
- *   http://www.opensource.org/licenses/mit-license.php
- *   http://www.gnu.org/licenses/gpl.html
+ *	 http://www.opensource.org/licenses/mit-license.php
+ *	 http://www.gnu.org/licenses/gpl.html
  *
  * Revision: $Id$
  *
@@ -48,8 +48,8 @@ function load(settings, root, child, container) {
 		success: function(response) {
 			child.empty();
 			$.each(response, createNode, [child]);
-	        $(container).treeview({add: child});
-	    }
+					$(container).treeview({add: child});
+			}
 	}, settings.ajax));
 	/*
 	$.getJSON(settings.url, {root: root}, function(response) {
@@ -78,9 +78,9 @@ function load(settings, root, child, container) {
 		}
 		child.empty();
 		$.each(response, createNode, [child]);
-        $(container).treeview({add: child});
-    });
-    */
+				$(container).treeview({add: child});
+		});
+		*/
 }
 
 var proxied = $.fn.treeview;

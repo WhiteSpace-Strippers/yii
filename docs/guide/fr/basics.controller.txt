@@ -69,16 +69,16 @@ une demande entrante. Compte tenu de l'ID du contrôleur, l'application utilise
 les règles suivantes pour déterminer quelle est la classe de contrôleur et
 où le fichier de classe est situé.
 
-   - Si [CWebApplication::catchAllRequest] est spécifié, un contrôleur
+	 - Si [CWebApplication::catchAllRequest] est spécifié, un contrôleur
 sera créé sur la base de cette propriété, et l'ID du contrôleur spécifié par l'utilisateur
 seront ignorés. Elle est principalement utilisée pour mettre l'application
 en mode de maintenance et d'afficher une page d'avis statique.
 
-   - Si l'ID se trouve dans [CWebApplication::controllerMap], la
+	 - Si l'ID se trouve dans [CWebApplication::controllerMap], la
 configuration du contrôleur correspondant sera utilisé pour créer
 l'instance du contrôleur.
 
-   - Si l'ID est au format `path/to/xyz`, le nom de la classe contrôleur
+	 - Si l'ID est au format `path/to/xyz`, le nom de la classe contrôleur
 est supposé être `XyzController` et le fichier de classe correspondante est
 `protected/controllers/path/to/XyzController.php`. Par exemple, un ID de contrôleur
 `admin/user` devrait être mappé à la classe contrôleur `UserController`
@@ -139,18 +139,18 @@ organiser le code pour les contrôleurs :
 
 ~~~
 protected/
-    controllers/
-        PostController.php
-        UserController.php
-        post/
-            CreateAction.php
-            ReadAction.php
-            UpdateAction.php
-        user/
-            CreateAction.php
-            ListAction.php
-            ProfileAction.php
-            UpdateAction.php
+		controllers/
+				PostController.php
+				UserController.php
+				post/
+						CreateAction.php
+						ReadAction.php
+						UpdateAction.php
+				user/
+						CreateAction.php
+						ListAction.php
+						ProfileAction.php
+						UpdateAction.php
 ~~~
 
 ### Paramètre Action reliure
@@ -163,7 +163,7 @@ Pour illustrer ce fonctionnement, supposons que nous devons écrire une action `
 `PostController`. L'action requiert deux paramètres :
 
 * `category` : un entier indiquant l'ID de catégorie en vertu de laquelle le nouveau poste
-   sera créé;
+	 sera créé;
 * `language` : une chaîne indiquant le code de langue que le nouveau post sera dedans.
 
 Nous pouvons finir avec le code suivant ennuyeux dans le but de récupérer les valeurs des paramètres

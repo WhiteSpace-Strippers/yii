@@ -1,7 +1,7 @@
 Mempercantik URL
 ================
 
-URL yang menghubungkan berbagai halaman untuk aplikasi blog kita masih terlihat kurang  bagus. Misalnya, untuk URL halaman yang menampilkan sebuah post terlihat sebagai berikut:
+URL yang menghubungkan berbagai halaman untuk aplikasi blog kita masih terlihat kurang	bagus. Misalnya, untuk URL halaman yang menampilkan sebuah post terlihat sebagai berikut:
 
 ~~~
 /index.php?r=post/show&id=1&title=A+Test+Post
@@ -26,9 +26,9 @@ return array(
 		'urlManager'=>array(
 			'urlFormat'=>'path',
 			'rules'=>array(
-        		'post/<id:\d+>/<title:.*?>'=>'post/view',
-        		'posts/<tag:.*?>'=>'post/index',
-        		'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
+						'post/<id:\d+>/<title:.*?>'=>'post/view',
+						'posts/<tag:.*?>'=>'post/index',
+						'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
 			),
 		),
 	),

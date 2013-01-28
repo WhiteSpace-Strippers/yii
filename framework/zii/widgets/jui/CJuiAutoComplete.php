@@ -19,15 +19,15 @@ Yii::import('zii.widgets.jui.CJuiInputWidget');
  * To use this widget, you may insert the following code in a view:
  * <pre>
  * $this->widget('zii.widgets.jui.CJuiAutoComplete',array(
- *     'name'=>'city',
- *     'source'=>array('ac1','ac2','ac3'),
- *     // additional javascript options for the autocomplete plugin
- *     'options'=>array(
- *         'minLength'=>'2',
- *     ),
- *     'htmlOptions'=>array(
- *         'style'=>'height:20px;',
- *     ),
+ *		 'name'=>'city',
+ *		 'source'=>array('ac1','ac2','ac3'),
+ *		 // additional javascript options for the autocomplete plugin
+ *		 'options'=>array(
+ *				 'minLength'=>'2',
+ *		 ),
+ *		 'htmlOptions'=>array(
+ *				 'style'=>'height:20px;',
+ *		 ),
  * ));
  * </pre>
  *

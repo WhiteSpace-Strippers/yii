@@ -179,7 +179,7 @@ class CMysqlTest extends CTestCase
 			'condition'=>'id=:id',
 			'params'=>array('id'=>5))));
 		$this->assertEquals('new post 5',$c->queryScalar());
-		
+
 		$c=$builder->createSqlCommand('SELECT title FROM posts WHERE id=:id',array(':id'=>3));
 		$this->assertEquals('post 3',$c->queryScalar());
 
@@ -200,7 +200,7 @@ class CMysqlTest extends CTestCase
 				'condition'=>'id=:id',
 				'params'=>array('id'=>1))));
 		$this->assertEquals('new post 1',$c->queryScalar());
-		
+
 		$c=$builder->createUpdateCounterCommand($table,array('author_id'=>-1),new CDbCriteria(array(
 				'condition'=>'u.`username`="user2"',
 				'join'=>'JOIN `users` u ON `author_id`=u.`id`')));
@@ -208,7 +208,7 @@ class CMysqlTest extends CTestCase
 		$c->execute();
 		$c=$builder->createSqlCommand('SELECT author_id FROM posts WHERE id=2');
 		$this->assertEquals(1,$c->queryScalar());
-		
+
 		// test bind by position
 		$c=$builder->createFindCommand($table,new CDbCriteria(array(
 			'select'=>'title',

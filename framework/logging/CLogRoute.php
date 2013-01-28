@@ -39,7 +39,7 @@ abstract class CLogRoute extends CComponent
 	 */
 	public $levels='';
 	/**
-	 * @var mixed array of categories, or string list separated by comma or space. 
+	 * @var mixed array of categories, or string list separated by comma or space.
 	 * Defaults to empty array, meaning all categories.
 	 */
 	public $categories=array();
@@ -112,10 +112,10 @@ abstract class CLogRoute extends CComponent
 	 * @param array $logs list of messages. Each array element represents one message
 	 * with the following structure:
 	 * array(
-	 *   [0] => message (string)
-	 *   [1] => level (string)
-	 *   [2] => category (string)
-	 *   [3] => timestamp (float, obtained by microtime(true));
+	 *	 [0] => message (string)
+	 *	 [1] => level (string)
+	 *	 [2] => category (string)
+	 *	 [3] => timestamp (float, obtained by microtime(true));
 	 */
 	abstract protected function processLogs($logs);
 }

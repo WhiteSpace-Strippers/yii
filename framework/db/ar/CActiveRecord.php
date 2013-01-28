@@ -371,7 +371,7 @@ abstract class CActiveRecord extends CModel
 	 * <pre>
 	 * public static function model($className=__CLASS__)
 	 * {
-	 *     return parent::model($className);
+	 *		 return parent::model($className);
 	 * }
 	 * </pre>
 	 *
@@ -478,35 +478,35 @@ abstract class CActiveRecord extends CModel
 	 * Additional options may be specified as name-value pairs in the rest array elements:
 	 * <ul>
 	 * <li>'select': string|array, a list of columns to be selected. Defaults to '*', meaning all columns.
-	 *   Column names should be disambiguated if they appear in an expression (e.g. COUNT(relationName.name) AS name_count).</li>
+	 *	 Column names should be disambiguated if they appear in an expression (e.g. COUNT(relationName.name) AS name_count).</li>
 	 * <li>'condition': string, the WHERE clause. Defaults to empty. Note, column references need to
-	 *   be disambiguated with prefix 'relationName.' (e.g. relationName.age&gt;20)</li>
+	 *	 be disambiguated with prefix 'relationName.' (e.g. relationName.age&gt;20)</li>
 	 * <li>'order': string, the ORDER BY clause. Defaults to empty. Note, column references need to
-	 *   be disambiguated with prefix 'relationName.' (e.g. relationName.age DESC)</li>
+	 *	 be disambiguated with prefix 'relationName.' (e.g. relationName.age DESC)</li>
 	 * <li>'with': string|array, a list of child related objects that should be loaded together with this object.
-	 *   Note, this is only honored by lazy loading, not eager loading.</li>
+	 *	 Note, this is only honored by lazy loading, not eager loading.</li>
 	 * <li>'joinType': type of join. Defaults to 'LEFT OUTER JOIN'.</li>
 	 * <li>'alias': the alias for the table associated with this relationship.
-	 *   It defaults to null,
-	 *   meaning the table alias is the same as the relation name.</li>
+	 *	 It defaults to null,
+	 *	 meaning the table alias is the same as the relation name.</li>
 	 * <li>'params': the parameters to be bound to the generated SQL statement.
-	 *   This should be given as an array of name-value pairs.</li>
+	 *	 This should be given as an array of name-value pairs.</li>
 	 * <li>'on': the ON clause. The condition specified here will be appended
-	 *   to the joining condition using the AND operator.</li>
+	 *	 to the joining condition using the AND operator.</li>
 	 * <li>'index': the name of the column whose values should be used as keys
-	 *   of the array that stores related objects. This option is only available to
-	 *   HAS_MANY and MANY_MANY relations.</li>
+	 *	 of the array that stores related objects. This option is only available to
+	 *	 HAS_MANY and MANY_MANY relations.</li>
 	 * <li>'scopes': scopes to apply. In case of a single scope can be used like 'scopes'=>'scopeName',
-	 *   in case of multiple scopes can be used like 'scopes'=>array('scopeName1','scopeName2').
-	 *   This option has been available since version 1.1.9.</li>
+	 *	 in case of multiple scopes can be used like 'scopes'=>array('scopeName1','scopeName2').
+	 *	 This option has been available since version 1.1.9.</li>
 	 * </ul>
 	 *
 	 * The following options are available for certain relations when lazy loading:
 	 * <ul>
 	 * <li>'group': string, the GROUP BY clause. Defaults to empty. Note, column references need to
-	 *   be disambiguated with prefix 'relationName.' (e.g. relationName.age). This option only applies to HAS_MANY and MANY_MANY relations.</li>
+	 *	 be disambiguated with prefix 'relationName.' (e.g. relationName.age). This option only applies to HAS_MANY and MANY_MANY relations.</li>
 	 * <li>'having': string, the HAVING clause. Defaults to empty. Note, column references need to
-	 *   be disambiguated with prefix 'relationName.' (e.g. relationName.age). This option only applies to HAS_MANY and MANY_MANY relations.</li>
+	 *	 be disambiguated with prefix 'relationName.' (e.g. relationName.age). This option only applies to HAS_MANY and MANY_MANY relations.</li>
 	 * <li>'limit': limit of the rows to be selected. This option does not apply to BELONGS_TO relation.</li>
 	 * <li>'offset': offset of the rows to be selected. This option does not apply to BELONGS_TO relation.</li>
 	 * <li>'through': name of the model's relation that will be used as a bridge when getting related data. Can be set only for HAS_ONE and HAS_MANY. This option has been available since version 1.1.7.</li>
@@ -515,9 +515,9 @@ abstract class CActiveRecord extends CModel
 	 * Below is an example declaring related objects for 'Post' active record class:
 	 * <pre>
 	 * return array(
-	 *     'author'=>array(self::BELONGS_TO, 'User', 'author_id'),
-	 *     'comments'=>array(self::HAS_MANY, 'Comment', 'post_id', 'with'=>'author', 'order'=>'create_time DESC'),
-	 *     'tags'=>array(self::MANY_MANY, 'Tag', 'post_tag(post_id, tag_id)', 'order'=>'name'),
+	 *		 'author'=>array(self::BELONGS_TO, 'User', 'author_id'),
+	 *		 'comments'=>array(self::HAS_MANY, 'Comment', 'post_id', 'with'=>'author', 'order'=>'create_time DESC'),
+	 *		 'tags'=>array(self::MANY_MANY, 'Tag', 'post_tag(post_id, tag_id)', 'order'=>'name'),
 	 * );
 	 * </pre>
 	 *
@@ -537,13 +537,13 @@ abstract class CActiveRecord extends CModel
 	 * 'published'.
 	 * <pre>
 	 * return array(
-	 *     'published'=>array(
-	 *           'condition'=>'status=1',
-	 *     ),
-	 *     'recently'=>array(
-	 *           'order'=>'create_time DESC',
-	 *           'limit'=>5,
-	 *     ),
+	 *		 'published'=>array(
+	 *					 'condition'=>'status=1',
+	 *		 ),
+	 *		 'recently'=>array(
+	 *					 'order'=>'create_time DESC',
+	 *					 'limit'=>5,
+	 *		 ),
 	 * );
 	 * </pre>
 	 * If the above scopes are declared in a 'Post' model, we can perform the following
@@ -1639,8 +1639,8 @@ abstract class CActiveRecord extends CModel
 	 * For example,
 	 * <pre>
 	 * Post::model()->with(array(
-	 *     'author'=>array('select'=>'id, name'),
-	 *     'comments'=>array('condition'=>'approved=1', 'order'=>'create_time'),
+	 *		 'author'=>array('select'=>'id, name'),
+	 *		 'comments'=>array('condition'=>'approved=1', 'order'=>'create_time'),
 	 * ))->findAll();
 	 * </pre>
 	 *
@@ -1651,7 +1651,7 @@ abstract class CActiveRecord extends CModel
 		if(func_num_args()>0)
 		{
 			$with=func_get_args();
-			if(is_array($with[0]))  // the parameter is given as an array
+			if(is_array($with[0]))	// the parameter is given as an array
 				$with=$with[0];
 			if(!empty($with))
 				$this->getDbCriteria()->mergeWith(array('with'=>$with));
@@ -2348,12 +2348,12 @@ class CActiveRecordMetaData
 	 * @throws CDbException
 	 * @param string $name $name Name of the relation.
 	 * @param array $config $config Relation parameters.
-     * @return void
+		 * @return void
 	 * @since 1.1.2
 	 */
 	public function addRelation($name,$config)
 	{
-		if(isset($config[0],$config[1],$config[2]))  // relation class, AR class, FK
+		if(isset($config[0],$config[1],$config[2]))	// relation class, AR class, FK
 			$this->relations[$name]=new $config[0]($name,$config[1],$config[2],array_slice($config,3));
 		else
 			throw new CDbException(Yii::t('yii','Active record "{class}" has an invalid configuration for relation "{relation}". It must specify the relation type, the related active record class and the foreign key.', array('{class}'=>get_class($this->_model),'{relation}'=>$name)));

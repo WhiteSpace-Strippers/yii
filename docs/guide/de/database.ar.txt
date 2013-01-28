@@ -2,7 +2,7 @@
 ============
 
 Man kann so gut wie alle Datenbankaufgaben mit Yii-DAO lösen. In 90% der Fälle
-führt man aber immer wieder die gleichen Anweisungen  zum Lesen, Schreiben,
+führt man aber immer wieder die gleichen Anweisungen	zum Lesen, Schreiben,
 Aktualisieren und Löschen von Datensätzen (CRUD) aus. Außerdem erschwert
 es die Codewartung, wenn zu viele SQL-Anweisungen darin vorkommen.
 Als Alternative bieten sich daher oft ActiveRecords an.
@@ -60,7 +60,7 @@ return array(
 		'db'=>array(
 			'class'=>'system.db.CDbConnection',
 			'connectionString'=>'sqlite:path/to/dbfile',
-            // Schema Caching einschalten, um die Performance zu verbessern
+						// Schema Caching einschalten, um die Performance zu verbessern
 			// 'schemaCachingDuration'=>3600,
 		),
 	),
@@ -77,11 +77,11 @@ einen Wert größer 0 setzen.
 Die AR-Unterstützung ist auf bestimmte Datenbankmanagementsysteme (DBMS) begrenzt.
 Derzeit werden folgende DBMS unterstützt:
 
-   - [MySQL 4.1 oder später](http://www.mysql.com)
-   - [PostgreSQL 7.3 oder später](http://www.postgres.com)
-   - [SQLite 2 und 3](http://www.sqlite.org)
-   - [Microsoft SQL Server 2000 oder höher](http://www.microsoft.com/sqlserver/)
-   - [Oracle](http://www.oracle.com)
+	 - [MySQL 4.1 oder später](http://www.mysql.com)
+	 - [PostgreSQL 7.3 oder später](http://www.postgres.com)
+	 - [SQLite 2 und 3](http://www.sqlite.org)
+	 - [Microsoft SQL Server 2000 oder höher](http://www.microsoft.com/sqlserver/)
+	 - [Oracle](http://www.oracle.com)
 
 Falls Sie statt `db` eine andere Verbindungskomponente verwenden möchten oder
 Sie mit AR auf mehreren Datenbanken arbeiten, können Sie
@@ -134,13 +134,13 @@ Die [model()|CActiveRecord::model]-Methode muss in jeder AR-Klasse definiert
 werden, worauf wir in Kürze noch näher eingehen werden.
 
 > Info: Um ein [Tabellenpräfix](/doc/guide/database.dao#using-table-prefix) zu
-> verwenden, kann man die  [tableName()|CActiveRecord::tableName]-Methode auch
+> verwenden, kann man die	[tableName()|CActiveRecord::tableName]-Methode auch
 > wie folgt überschreiben:
 > ~~~
 > [php]
 > public function tableName()
 > {
->     return '{{post}}';
+>		 return '{{post}}';
 > }
 > ~~~
 > Statt eines vollständigen Tabellennamens, gibt man den Namen der
@@ -222,7 +222,7 @@ class Post extends CActiveRecord
 }
 
 $post=new Post;
-echo $post->title;  // Dies führt zur Anzeige von: Bitte den Titel eingeben
+echo $post->title;	// Dies führt zur Anzeige von: Bitte den Titel eingeben
 ~~~
 
 Man kann einem Attribut auch einen Wert vom Typ
@@ -244,7 +244,7 @@ $post->save();
 > im Hintergrund verwendeten SQL-Befehle zu untersuchen. Das geht mit
 > Hilfe des [Log-Features](/doc/guide/topics.logging) von Yii. Konfiguriert
 > man zum Beispiel eine [CWebLogRoute], werden die ausgeführten SQL-Befehle
-> am Ende der Seite angezeigt.  Setzt man [CDbConnection::enableParamLogging]
+> am Ende der Seite angezeigt.	Setzt man [CDbConnection::enableParamLogging]
 > auf `true`, werden dort auch die gebundenen Parameterwerte angezeigt.
 
 
@@ -303,7 +303,7 @@ weitere Kriterien angegeben werden:
 ~~~
 [php]
 $criteria=new CDbCriteria;
-$criteria->select='title';  // Nur die 'title' Spalte wird ausgewählt
+$criteria->select='title';	// Nur die 'title' Spalte wird ausgewählt
 $criteria->condition='postID=:postID';
 $criteria->params=array(':postID'=>10);
 $post=Post::model()->find($criteria); // $params ist nicht nötig
@@ -329,7 +329,7 @@ $post=Post::model()->find(array(
 > Info|Info: Soll nach bestimmten Spaltenwerten in einer Tabelle gesucht
 > werden, kann man dazu [findByAttributes()|CActiveRecord::findByAttributes]
 > verwenden. `$attributes` ist ein Array mit Spaltennamen als Schlüsseln und
-> den gesuchten Werten als Arraywerten.  In einigen Frameworks wird dies über
+> den gesuchten Werten als Arraywerten.	In einigen Frameworks wird dies über
 > Methoden wie z.B. `findByNameAndTitle` gelöst. Obwohl diese Herangehensweise
 > ihre Reize besitzt, sorgt sie oft für Verwirrung und Konflikte bzw.
 > Problemen im Zusammenhang mit der Groß-/Kleinschreibung von Spaltennamen.
@@ -507,22 +507,22 @@ Anpassung
 Zur Anpassung an bestimmte Abläufe, sind in [CActiveRecord] einige Methoden
 als Platzhalter implementiert, die man in eigenen AR-Klassen einfach überschreiben kann.
 
-   - [beforeValidate|CModel::beforeValidate] und [afterValidate|CModel::afterValidate]:
+	 - [beforeValidate|CModel::beforeValidate] und [afterValidate|CModel::afterValidate]:
 werden vor bzw. nach der Validierung aufgerufen
 
-   - [beforeSave|CActiveRecord::beforeSave] und [afterSave|CActiveRecord::afterSave]:
+	 - [beforeSave|CActiveRecord::beforeSave] und [afterSave|CActiveRecord::afterSave]:
 werden vor bzw. nach dem Speichern aufgerufen
 
-   - [beforeDelete|CActiveRecord::beforeDelete] und [afterDelete|CActiveRecord::afterDelete]:
+	 - [beforeDelete|CActiveRecord::beforeDelete] und [afterDelete|CActiveRecord::afterDelete]:
 werden vor bzw. nach dem Löschen einer AR-Instanz aufgerufen
 
-   - [afterConstruct|CActiveRecord::afterConstruct]: wird nach dem Erzeugen
+	 - [afterConstruct|CActiveRecord::afterConstruct]: wird nach dem Erzeugen
 einer neuen Instanz aufgerufen
 
-   - [beforeFind|CActiveRecord::beforeFind]: werden vor einer Suchabfrage
+	 - [beforeFind|CActiveRecord::beforeFind]: werden vor einer Suchabfrage
 (z.B. `find()`, `findAll()`) ausgeführt.
 
-   - [afterFind|CActiveRecord::afterFind]: wird aufgerufen, nachdem eine
+	 - [afterFind|CActiveRecord::afterFind]: wird aufgerufen, nachdem eine
 Instanz aus einem Suchergebnis erzeugt wurde.
 
 

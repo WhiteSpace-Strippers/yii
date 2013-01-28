@@ -3,11 +3,11 @@
 
 Usar una extensión frecuentemente involucra los siguientes tres pasos:
 
-  1. Descargar la extensión desde el [repositorio de extensiones](http://www.yiiframework.com/extensions/) de Yii.
-  2. Desempaquetar la extensión bajo el subdirectorio `extensions/xyz` de
-     [directorio base de la aplicación](/doc/guide/basics.application#application-base-directory),
-     donde `xyz` es el nombre de la extensión.
-  3. Importar, configurar y usar la extensión.
+	1. Descargar la extensión desde el [repositorio de extensiones](http://www.yiiframework.com/extensions/) de Yii.
+	2. Desempaquetar la extensión bajo el subdirectorio `extensions/xyz` de
+		 [directorio base de la aplicación](/doc/guide/basics.application#application-base-directory),
+		 donde `xyz` es el nombre de la extensión.
+	3. Importar, configurar y usar la extensión.
 
 Cada extensión tiene un nombre que la identifica de manera única contra otras extensiones.
 Dada una extensión llamada `xyz`, podemos siempre usar el alias de ruta `application.extensions.xyz`
@@ -27,15 +27,15 @@ agregando una nueva entrada a la propiedad `components`, como la siguiente:
 ~~~
 [php]
 return array(
-    // 'preload'=>array('xyz',...),
-    'components'=>array(
-        'xyz'=>array(
-            'class'=>'application.extensions.xyz.XyzClass',
-            'property1'=>'value1',
-            'property2'=>'value2',
-        ),
-        // otras configuraciones de components
-    ),
+		// 'preload'=>array('xyz',...),
+		'components'=>array(
+				'xyz'=>array(
+						'class'=>'application.extensions.xyz.XyzClass',
+						'property1'=>'value1',
+						'property2'=>'value2',
+				),
+				// otras configuraciones de components
+		),
 );
 ~~~
 
@@ -53,13 +53,13 @@ Dada una clase widget `XyzClass` pertenceciente a la extensión `xyz`, podemos u
 [php]
 // widget que no necestia contenido del cuerpo
 <?php $this->widget('application.extensions.xyz.XyzClass', array(
-    'property1'=>'value1',
-    'property2'=>'value2')); ?>
+		'property1'=>'value1',
+		'property2'=>'value2')); ?>
 
 // widget que puede obtener contenido del cuerpo
 <?php $this->beginWidget('application.extensions.xyz.XyzClass', array(
-    'property1'=>'value1',
-    'property2'=>'value2')); ?>
+		'property1'=>'value1',
+		'property2'=>'value2')); ?>
 
 ...contenido del cuerpo del widget...
 
@@ -228,4 +228,4 @@ Entonces, podemos crear una instancia de la clase, configurar sus propiedades,
 y llamar a sus métodos. Podemos tambien heredar de ella para crear nuevas clases
 hijas.
 
-<div class="revision">$Id: extension.use.txt 750 2009-02-26 02:11:31Z freakpol $</div> 
+<div class="revision">$Id: extension.use.txt 750 2009-02-26 02:11:31Z freakpol $</div>

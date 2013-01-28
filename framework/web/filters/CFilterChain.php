@@ -60,7 +60,7 @@ class CFilterChain extends CList
 		$actionID=$action->getId();
 		foreach($filters as $filter)
 		{
-			if(is_string($filter))  // filterName [+|- action1 action2]
+			if(is_string($filter))	// filterName [+|- action1 action2]
 			{
 				if(($pos=strpos($filter,'+'))!==false || ($pos=strpos($filter,'-'))!==false)
 				{
@@ -71,7 +71,7 @@ class CFilterChain extends CList
 				else
 					$filter=CInlineFilter::create($controller,$filter);
 			}
-			elseif(is_array($filter))  // array('path.to.class [+|- action1, action2]','param1'=>'value1',...)
+			elseif(is_array($filter))	// array('path.to.class [+|- action1, action2]','param1'=>'value1',...)
 			{
 				if(!isset($filter[0]))
 					throw new CException(Yii::t('yii','The first element in a filter configuration must be the filter class.'));

@@ -90,23 +90,23 @@
  *
  * <pre>
  * <?php $form = $this->beginWidget('CActiveForm', array(
- *     'id'=>'user-form',
- *     'enableAjaxValidation'=>true,
- *     'enableClientValidation'=>true,
- *     'focus'=>array($model,'firstName'),
+ *		 'id'=>'user-form',
+ *		 'enableAjaxValidation'=>true,
+ *		 'enableClientValidation'=>true,
+ *		 'focus'=>array($model,'firstName'),
  * )); ?>
  *
  * <?php echo $form->errorSummary($model); ?>
  *
  * <div class="row">
- *     <?php echo $form->labelEx($model,'firstName'); ?>
- *     <?php echo $form->textField($model,'firstName'); ?>
- *     <?php echo $form->error($model,'firstName'); ?>
+ *		 <?php echo $form->labelEx($model,'firstName'); ?>
+ *		 <?php echo $form->textField($model,'firstName'); ?>
+ *		 <?php echo $form->error($model,'firstName'); ?>
  * </div>
  * <div class="row">
- *     <?php echo $form->labelEx($model,'lastName'); ?>
- *     <?php echo $form->textField($model,'lastName'); ?>
- *     <?php echo $form->error($model,'lastName'); ?>
+ *		 <?php echo $form->labelEx($model,'lastName'); ?>
+ *		 <?php echo $form->textField($model,'lastName'); ?>
+ *		 <?php echo $form->error($model,'lastName'); ?>
  * </div>
  *
  * <?php $this->endWidget(); ?>
@@ -116,24 +116,24 @@
  * <pre>
  * public function actionCreate()
  * {
- *     $model=new User;
- *     $this->performAjaxValidation($model);
- *     if(isset($_POST['User']))
- *     {
- *         $model->attributes=$_POST['User'];
- *         if($model->save())
- *             $this->redirect('index');
- *     }
- *     $this->render('create',array('model'=>$model));
+ *		 $model=new User;
+ *		 $this->performAjaxValidation($model);
+ *		 if(isset($_POST['User']))
+ *		 {
+ *				 $model->attributes=$_POST['User'];
+ *				 if($model->save())
+ *						 $this->redirect('index');
+ *		 }
+ *		 $this->render('create',array('model'=>$model));
  * }
  *
  * protected function performAjaxValidation($model)
  * {
- *     if(isset($_POST['ajax']) && $_POST['ajax']==='user-form')
- *     {
- *         echo CActiveForm::validate($model);
- *         Yii::app()->end();
- *     }
+ *		 if(isset($_POST['ajax']) && $_POST['ajax']==='user-form')
+ *		 {
+ *				 echo CActiveForm::validate($model);
+ *				 Yii::app()->end();
+ *		 }
  * }
  * </pre>
  *
@@ -255,13 +255,13 @@ class CActiveForm extends CWidget
 	 * <pre>
 	 * public function actionCreate()
 	 * {
-	 *     $model=new User;
-	 *     if(isset($_POST['ajax']) && $_POST['ajax']==='user-form')
-	 *     {
-	 *         echo CActiveForm::validate($model);
-	 *         Yii::app()->end();
-	 *     }
-	 *     ......
+	 *		 $model=new User;
+	 *		 if(isset($_POST['ajax']) && $_POST['ajax']==='user-form')
+	 *		 {
+	 *				 echo CActiveForm::validate($model);
+	 *				 Yii::app()->end();
+	 *		 }
+	 *		 ......
 	 * }
 	 * </pre>
  	 */
@@ -365,7 +365,7 @@ class CActiveForm extends CWidget
 
 		if(!empty(CHtml::$errorCss))
 			$options['errorCss']=CHtml::$errorCss;
-		
+
 		$options=CJavaScript::encode($options);
 		$cs->registerCoreScript('yiiactiveform');
 		$id=$this->id;

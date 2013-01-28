@@ -19,14 +19,14 @@
  * CActiveDataProvider may be used in the following way:
  * <pre>
  * $dataProvider=new CActiveDataProvider('Post', array(
- *     'criteria'=>array(
- *         'condition'=>'status=1',
- *         'order'=>'create_time DESC',
- *         'with'=>array('author'),
- *     ),
- *     'pagination'=>array(
- *         'pageSize'=>20,
- *     ),
+ *		 'criteria'=>array(
+ *				 'condition'=>'status=1',
+ *				 'order'=>'create_time DESC',
+ *				 'with'=>array('author'),
+ *		 ),
+ *		 'pagination'=>array(
+ *				 'pageSize'=>20,
+ *		 ),
  * ));
  * // $dataProvider->getData() will return a list of Post objects
  * </pre>
@@ -148,7 +148,7 @@ class CActiveDataProvider extends CDataProvider
 
 		$this->model->setDbCriteria($baseCriteria!==null ? clone $baseCriteria : null);
 		$data=$this->model->findAll($criteria);
-		$this->model->setDbCriteria($baseCriteria);  // restore original criteria
+		$this->model->setDbCriteria($baseCriteria);	// restore original criteria
 		return $data;
 	}
 

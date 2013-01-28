@@ -48,42 +48,42 @@
  * The following is an example declaring a remote invokable method:
  * <pre>
  * / **
- *   * A foo method.
- *   * @param string name of something
- *   * @param string value of something
- *   * @return string[] some array
- *   * @soap
- *   * /
+ *	 * A foo method.
+ *	 * @param string name of something
+ *	 * @param string value of something
+ *	 * @return string[] some array
+ *	 * @soap
+ *	 * /
  * public function foo($name,$value) {...}
  * </pre>
  *
  * And the following is an example declaring a class with remote accessible properties:
  * <pre>
  * class Foo {
- *     / **
- *       * @var string name of foo {nillable = 1, minOccurs=0, maxOccurs = 2}
- *       * @soap
- *       * /
- *     public $name;
- *     / **
- *       * @var Member[] members of foo
- *       * @soap
- *       * /
- *     public $members;
+ *		 / **
+ *			 * @var string name of foo {nillable = 1, minOccurs=0, maxOccurs = 2}
+ *			 * @soap
+ *			 * /
+ *		 public $name;
+ *		 / **
+ *			 * @var Member[] members of foo
+ *			 * @soap
+ *			 * /
+ *		 public $members;
  * }
  * </pre>
  * In the above, the 'members' property is an array of 'Member' objects. Since 'Member' is not
  * a primitive type, CWsdlGenerator will look further to find the definition of 'Member'.
- * 
- * Optionally, extra attributes (nillable, minOccurs, maxOccurs) can be defined for each 
- * property by enclosing definitions into curly brackets and separated by comma like so: 
- * 
+ *
+ * Optionally, extra attributes (nillable, minOccurs, maxOccurs) can be defined for each
+ * property by enclosing definitions into curly brackets and separated by comma like so:
+ *
  * {[attribute1 = value1], [attribute2 = value2], ...}
- * 
+ *
  * where the attribute can be one of following:
- *  nillable = [0|1|true|false]
- *  minOccurs = n; where n>=0
- *  maxOccurs = n; where n>=0
+ *	nillable = [0|1|true|false]
+ *	minOccurs = n; where n>=0
+ *	maxOccurs = n; where n>=0
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @package system.web.services
@@ -206,7 +206,7 @@ class CWsdlGenerator extends CComponent
 			$type=Yii::import($type,true);
 			$this->types[$type]=array();
 			$class=new ReflectionClass($type);
-			
+
 			foreach($class->getProperties() as $property)
 			{
 				$comment=$property->getDocComment();
@@ -254,12 +254,12 @@ class CWsdlGenerator extends CComponent
 	{
 		$xml="<?xml version=\"1.0\" encoding=\"$encoding\"?>
 <definitions name=\"{$this->serviceName}\" targetNamespace=\"{$this->namespace}\"
-     xmlns=\"http://schemas.xmlsoap.org/wsdl/\"
-     xmlns:tns=\"{$this->namespace}\"
-     xmlns:soap=\"http://schemas.xmlsoap.org/wsdl/soap/\"
-     xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"
+		 xmlns=\"http://schemas.xmlsoap.org/wsdl/\"
+		 xmlns:tns=\"{$this->namespace}\"
+		 xmlns:soap=\"http://schemas.xmlsoap.org/wsdl/soap/\"
+		 xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"
 	 xmlns:wsdl=\"http://schemas.xmlsoap.org/wsdl/\"
-     xmlns:soap-enc=\"http://schemas.xmlsoap.org/soap/encoding/\"></definitions>";
+		 xmlns:soap-enc=\"http://schemas.xmlsoap.org/soap/encoding/\"></definitions>";
 
 		$dom=new DOMDocument();
 		$dom->formatOutput=true;
@@ -287,7 +287,7 @@ class CWsdlGenerator extends CComponent
 		foreach($this->types as $phpType=>$xmlType)
 		{
 			if(is_string($xmlType) && strrpos($xmlType,'Array')!==strlen($xmlType)-5)
-				continue;  // simple type
+				continue;	// simple type
 			$complexType=$dom->createElement('xsd:complexType');
 			if(is_string($xmlType))
 			{

@@ -34,7 +34,7 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
 	public function accessRules()
 	{
 		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
+			array('allow',	// allow all users to perform 'index' and 'view' actions
 				'actions'=>array('index','view'),
 				'users'=>array('*'),
 			),
@@ -46,7 +46,7 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
 				'actions'=>array('admin','delete'),
 				'users'=>array('admin'),
 			),
-			array('deny',  // deny all users
+			array('deny',	// deny all users
 				'users'=>array('*'),
 			),
 		);
@@ -141,7 +141,7 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
 	public function actionAdmin()
 	{
 		$model=new <?php echo $this->modelClass; ?>('search');
-		$model->unsetAttributes();  // clear any default values
+		$model->unsetAttributes();	// clear any default values
 		if(isset($_GET['<?php echo $this->modelClass; ?>']))
 			$model->attributes=$_GET['<?php echo $this->modelClass; ?>'];
 

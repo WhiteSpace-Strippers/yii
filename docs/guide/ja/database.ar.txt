@@ -68,11 +68,11 @@ return array(
 AR に対するサポートは、DBMS によって制限されます。
 現在、以下の DBMS だけがサポートされています。
 
-   - [MySQL 4.1 以降](http://www.mysql.com)
-   - [PostgreSQL 7.3 以降](http://www.postgres.com)
-   - [SQLite 2 または 3](http://www.sqlite.org)
-   - [Microsoft SQL Server 2000 以降](http://www.microsoft.com/sqlserver/)
-   - [Oracle](http://www.oracle.com)
+	 - [MySQL 4.1 以降](http://www.mysql.com)
+	 - [PostgreSQL 7.3 以降](http://www.postgres.com)
+	 - [SQLite 2 または 3](http://www.sqlite.org)
+	 - [Microsoft SQL Server 2000 以降](http://www.microsoft.com/sqlserver/)
+	 - [Oracle](http://www.oracle.com)
 
 `db` 以外のアプリケーションコンポーネントを使いたいか、あるいは複数のデータベースで AR を使いたい場合は、[CActiveRecord::getDbConnection()] をオーバライドしなければなりません。
 [CActiveRecord] クラスは、すべての AR クラスのための基底クラスです。
@@ -126,7 +126,7 @@ class Post extends CActiveRecord
 > [php]
 > public function tableName()
 > {
->     return '{{post}}';
+>		 return '{{post}}';
 > }
 > ~~~
 > すなわち、フルに定義されたテーブル名を返す代わりに、プレフィックスを除いたテーブル名を使い、二重波括弧で囲んで返します。
@@ -192,7 +192,7 @@ class Post extends CActiveRecord
 }
 
 $post=new Post;
-echo $post->title;  // 'please enter a title'と表示される
+echo $post->title;	// 'please enter a title'と表示される
 ~~~
 
 レコードがデータベースに保存 (挿入または更新) される前に、アトリビュートに [CDbExpression] タイプの値を割り当てることができます。
@@ -260,7 +260,7 @@ $post=Post::model()->find('postID=:postID', array(':postID'=>10));
 ~~~
 [php]
 $criteria=new CDbCriteria;
-$criteria->select='title';  // 'title' カラムのみを選択
+$criteria->select='title';	// 'title' カラムのみを選択
 $criteria->condition='postID=:postID';
 $criteria->params=array(':postID'=>10);
 $post=Post::model()->find($criteria); // $params は不要
@@ -439,17 +439,17 @@ $post->save();
 
 [CActiveRecord] クラスは、ワークフローをカスタマイズするために子クラスでオーバーライド出来る、いくつかのプレースホルダメソッドを持っています。
 
-   - [beforeValidate|CModel::beforeValidate] と [afterValidate|CModel::afterValidate]: これらは検証の実行前と実行後に呼び出されます。
+	 - [beforeValidate|CModel::beforeValidate] と [afterValidate|CModel::afterValidate]: これらは検証の実行前と実行後に呼び出されます。
 
-   - [beforeSave|CActiveRecord::beforeSave] と [afterSave|CActiveRecord::afterSave]: これらは AR インスタンスの保存の実行前と実行後に呼び出されます。
+	 - [beforeSave|CActiveRecord::beforeSave] と [afterSave|CActiveRecord::afterSave]: これらは AR インスタンスの保存の実行前と実行後に呼び出されます。
 
-   - [beforeDelete|CActiveRecord::beforeDelete] と [afterDelete|CActiveRecord::afterDelete]: これらは AR インスタンスの削除の実行前と実行後に呼び出されます。
+	 - [beforeDelete|CActiveRecord::beforeDelete] と [afterDelete|CActiveRecord::afterDelete]: これらは AR インスタンスの削除の実行前と実行後に呼び出されます。
 
-   - [afterConstruct|CActiveRecord::afterConstruct]: これは `new` 演算子により新な AR インスタンスが作成されるたびに呼び出されます。
+	 - [afterConstruct|CActiveRecord::afterConstruct]: これは `new` 演算子により新な AR インスタンスが作成されるたびに呼び出されます。
 
-   - [beforeFind|CActiveRecord::beforeFind]: これは AR ファインダがクエリ (`find()` や `findAll()`) を実行する前に呼び出されます。
+	 - [beforeFind|CActiveRecord::beforeFind]: これは AR ファインダがクエリ (`find()` や `findAll()`) を実行する前に呼び出されます。
 
-   - [afterFind|CActiveRecord::afterFind]: これはクエリの結果により AR インスタンスが作成された後に呼び出されます。
+	 - [afterFind|CActiveRecord::afterFind]: これはクエリの結果により AR インスタンスが作成された後に呼び出されます。
 
 
 AR でトランザクションを使う

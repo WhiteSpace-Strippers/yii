@@ -34,7 +34,7 @@ http://hostname/testdrive/index.php
 ~~~
 
 Som vi kan se har applikasjonen fire sider: hjem, om, kontakt og login. Kontaktsiden viser
-et kontaktskjema som brukere kan fylle ut for å sende forespørsler til webmaster, 
+et kontaktskjema som brukere kan fylle ut for å sende forespørsler til webmaster,
 og login siden lar brukere autentisere seg før de får tilgang til priviligert
 innhold. Se følgende skjermbilder for flere detaljer.
 
@@ -49,62 +49,62 @@ innhold. Se følgende skjermbilder for flere detaljer.
 ![Login page](first-app5.png)
 
 
-Det følgende diagrammet viser katalogstrukturen for applikasjonen vår. 
+Det følgende diagrammet viser katalogstrukturen for applikasjonen vår.
 Se [Konvensjoner](/doc/guide/basics.convention#directory) for en detaljert
 forklaring av denne strukturen.
 
 ~~~
 testdrive/
-   index.php                 Webapplikasjonens inngangspunkt
-   index-test.php            inngangspunkt for funksjonelle tester
-   assets/                   inneholder published resource files
-   css/                      inneholder CSS filer
-   images/                   inneholder bilder
-   themes/                   inneholder tema for applikasjonen
-   protected/                inneholder beskyttede applikasjonsfiler
-      yiic                   yiic kommandolinje skript for Unix/Linux
-      yiic.bat               yiic kommandolinje skript for Windows
-      yiic.php               yiic kommandolinje skript PHP skript
-      commands/              inneholder egendefinerte 'yiic' kommandoer
-         shell/              inneholder egendefinerte 'yiic shell' kommandoer
-      components/            inneholder gjennbrukbare brukerkonponenter
-         Controller.php      baseklassen for alle kontrollerklasser
-         Identity.php        'Identity' klasse brukt for autentikasjon
-      config/                inneholder konfigurasjonsfiler
-         console.php         konfigurasjon for terminal-applikasjonen
-         main.php            konfigurasjon for web applikasjonen
-         test.php            konfigurasjon for de funksjonelle testene
-      controllers/           inneholder kontroller klassefiler
-         SiteController.php  standard kontroller klasse
-      data/                  inneholder eksempel database
-         schema.mysql.sql    DB skjema for MySQL database eksempel
-         schema.sqlite.sql   DB skjema for SQLite database eksempel
-         testdrive.db        SQLite database eksempelsfil
-      extensions/            inneholder tredjeparts utvidelser
-      messages/              inneholder oversatte meldinger og beskjeder
-      models/                inneholder modell-klassefiler
-         LoginForm.php       skjema-modellen for 'login' handlingen
-         ContactForm.php     skjema-modellen for 'contact' handlingen
-      runtime/               inneholder middlertidig genererte filer
-      tests/                 inneholder test skript
-      views/                 inneholder kontrollersider ("view") og layout filer
-         layouts/            inneholder layout sider ("view") filer
-            main.php         grunnleggende layout delt for alle sider
-            column1.php      layout for sider med en enkelt kolonne
-            column2.php      layout for sider med to kolonner
-         site/               inneholder sider ("view") for kontrolleren 'site'
-       	 pages/              inneholder "statiske" sider
-            about.php        inneholder side ("view") for "about" siden
-            contact.php      inneholder side ("view") for 'contact' handlingen
-            error.php        inneholder side ("view") for 'error' handlingen (viser eksterne feil)
-            index.php        inneholder side ("view") for 'index' handlingen
-            login.php        inneholder side ("view") for 'login' handlingen
+	 index.php								 Webapplikasjonens inngangspunkt
+	 index-test.php						inngangspunkt for funksjonelle tester
+	 assets/									 inneholder published resource files
+	 css/											inneholder CSS filer
+	 images/									 inneholder bilder
+	 themes/									 inneholder tema for applikasjonen
+	 protected/								inneholder beskyttede applikasjonsfiler
+			yiic									 yiic kommandolinje skript for Unix/Linux
+			yiic.bat							 yiic kommandolinje skript for Windows
+			yiic.php							 yiic kommandolinje skript PHP skript
+			commands/							inneholder egendefinerte 'yiic' kommandoer
+				 shell/							inneholder egendefinerte 'yiic shell' kommandoer
+			components/						inneholder gjennbrukbare brukerkonponenter
+				 Controller.php			baseklassen for alle kontrollerklasser
+				 Identity.php				'Identity' klasse brukt for autentikasjon
+			config/								inneholder konfigurasjonsfiler
+				 console.php				 konfigurasjon for terminal-applikasjonen
+				 main.php						konfigurasjon for web applikasjonen
+				 test.php						konfigurasjon for de funksjonelle testene
+			controllers/					 inneholder kontroller klassefiler
+				 SiteController.php	standard kontroller klasse
+			data/									inneholder eksempel database
+				 schema.mysql.sql		DB skjema for MySQL database eksempel
+				 schema.sqlite.sql	 DB skjema for SQLite database eksempel
+				 testdrive.db				SQLite database eksempelsfil
+			extensions/						inneholder tredjeparts utvidelser
+			messages/							inneholder oversatte meldinger og beskjeder
+			models/								inneholder modell-klassefiler
+				 LoginForm.php			 skjema-modellen for 'login' handlingen
+				 ContactForm.php		 skjema-modellen for 'contact' handlingen
+			runtime/							 inneholder middlertidig genererte filer
+			tests/								 inneholder test skript
+			views/								 inneholder kontrollersider ("view") og layout filer
+				 layouts/						inneholder layout sider ("view") filer
+						main.php				 grunnleggende layout delt for alle sider
+						column1.php			layout for sider med en enkelt kolonne
+						column2.php			layout for sider med to kolonner
+				 site/							 inneholder sider ("view") for kontrolleren 'site'
+			 	 pages/							inneholder "statiske" sider
+						about.php				inneholder side ("view") for "about" siden
+						contact.php			inneholder side ("view") for 'contact' handlingen
+						error.php				inneholder side ("view") for 'error' handlingen (viser eksterne feil)
+						index.php				inneholder side ("view") for 'index' handlingen
+						login.php				inneholder side ("view") for 'login' handlingen
 ~~~
 
 Koble til en database
 ----------------------
 
-De fleste webapplikasjoner er drevet av en database. Vår test-drive applikasjon er 
+De fleste webapplikasjoner er drevet av en database. Vår test-drive applikasjon er
 ikke et unntak. for å bruke en database må vi fortelle applikasjonen hvordan den skal koble seg til databasen.
 Dette er gjort i applikasjonens konfigurasjonsfil `WebRoot/testdrive/protected/config/main.php`,
 uthevet som følger,
@@ -142,7 +142,7 @@ Om du ønsker å prøve en MySQL database i steden så kan du bruke den inkluder
 `WebRoot/testdrive/protected/data/schema.mysql.sql` for å opprette databasen.
 
 > Note|Merk: For å bruke Yii's databasefunksjonalitet så må vi aktivere PHP PDO tillegget og det
-driver-spesifikke PDO-tillegget. For test-drive applikasjonen må vi skru på både  `php_pdo` og `php_pdo_sqlite`
+driver-spesifikke PDO-tillegget. For test-drive applikasjonen må vi skru på både	`php_pdo` og `php_pdo_sqlite`
 tilleggene.
 
 
@@ -150,7 +150,7 @@ tilleggene.
 Implementere typiske dataoperasjoner
 ----------------------------
 Nå begynner moroa. Vi vil nå implementere typiske dataoperasjoner
-(opprett, les, oppdater og slett) for  `User` tabellen som vi netopp laget.
+(opprett, les, oppdater og slett) for	`User` tabellen som vi netopp laget.
 
 Dette er også ofte nødvendig i praktiske applikasjoner. I stedet for å ta seg bryet med
 å skrive selve koden, vil vi bruke Gii - en kraftig web-basert kode generator.
@@ -217,7 +217,7 @@ klikk på `Create`-knappen. Hvis det er noen inndatafeil vil en fin en feilmeldi
 opp som hindrer oss fra å lagre oppføringen. Tilbake i siden med brukerlisten bør vi se den nye brukeren i listen
 
 Gjenta trinnene over for å legge til flere brukere. Legg merke til at siden med brukerlisten
-vil automatisk lage navigerbare sider om det er for mange brukere i listen til å vises på en side. 
+vil automatisk lage navigerbare sider om det er for mange brukere i listen til å vises på en side.
 
 Om vi logger på som en administrator-bruker med `admin / admin`, kan vi vise brukeren
 adminsidene med følgende URL:

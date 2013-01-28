@@ -166,7 +166,7 @@ class MyCommand extends CConsoleCommand
 
 模組
 ------
-請參閱 [modules](/doc/guide/basics.module#creating-module) 一節中關於就如何建立一個模組。 
+請參閱 [modules](/doc/guide/basics.module#creating-module) 一節中關於就如何建立一個模組。
 
 一般準則制訂一個模組，它應該是獨立的。模組所使用的資源檔案（如 CSS、JavaScript、圖片），應該和模組一起分發。還有模組應發佈它們，以便可以網路存取它們。
 

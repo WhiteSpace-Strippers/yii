@@ -13,7 +13,7 @@ Execute o `yiic` pela linha de comando, como no exemplo a seguir:
 % YiiRoot/framework/yiic webapp WebRoot/testdrive
 ~~~
 
-> Note|Nota: Quando executamos o `yiic` no Mac OS, Linux ou Unix, devemos 
+> Note|Nota: Quando executamos o `yiic` no Mac OS, Linux ou Unix, devemos
 > alterar a permissão do arquivo `yiic` para torna-lo executável.
 >
 > Como forma alternativa, você pode executa-lo da seguinte maneira:
@@ -23,11 +23,11 @@ Execute o `yiic` pela linha de comando, como no exemplo a seguir:
 > % php YiiRoot/framework/yiic.php webapp WebRoot/testdrive
 > ~~~
 
-Esse comando irá criar o esquele de uma aplicação Yii, no diretório `WebRoot/testdrive`. 
-A aplicação tem um estrutura de diretórios que é a necessária para a maioria das 
+Esse comando irá criar o esquele de uma aplicação Yii, no diretório `WebRoot/testdrive`.
+A aplicação tem um estrutura de diretórios que é a necessária para a maioria das
 aplicações feitas no Yii.
 
-Sem ter escrito uma única linha de código, ja podemos testar nossa primeira aplicação Yii, 
+Sem ter escrito uma única linha de código, ja podemos testar nossa primeira aplicação Yii,
 acessando a seguinte URL:
 
 ~~~
@@ -35,9 +35,9 @@ http://nomedoservidor/testdrive/index.php
 ~~~
 
 Como podemos ver, a aplicação tem três páginas: a página inicial, a página de contato e a página
-de login. A página principal mostra algumas informações sobre a aplicação, como o login do 
-usuário ativo, a página de contato exibe um formulário de contato que os usuários podem preencher 
-e enviar suas mensagens, a página de login permite que os usuários se autentiquem antes de acessar 
+de login. A página principal mostra algumas informações sobre a aplicação, como o login do
+usuário ativo, a página de contato exibe um formulário de contato que os usuários podem preencher
+e enviar suas mensagens, a página de login permite que os usuários se autentiquem antes de acessar
 o conteúdo privilegiado. Veja as imagens a seguir para mais detalhes:
 
 
@@ -58,40 +58,40 @@ obter explicações detalhadas sobre essa estrutura.
 
 ~~~
 testdrive/
-   index.php                 Script de entrada da aplicação Web
-   assets/                   Contém arquivos de recurso publicados
-   css/                      Contém arquivos CSS
-   images/                   Contém arquivos de imagem
-   themes/                   Contém temas da aplicação
-   protected/                Contém arquivos protegidos da aplicação
-      yiic                   Script de linha de comando yiic
-      yiic.bat               Script de linha de comando yiic para o Windows
-      commands/              Contém comandos 'yiic' customizados
-         shell/              Contém comandos 'yiic shell' customizados
-      components/            Contém componentes reutilizáveis do usuário
-         MainMenu.php        A classe widget 'MainMenu' (Menu Principal)
-         Identity.php        A classe 'Identity' usada nas autenticações
-         views/              Contém arquivos de visão dos widgets
-            mainMenu.php     O arquivo de visão do widget 'MainMenu'
-      config/                Contém arquivos de configurações
-         console.php         Configuração da aplicação console
-         main.php            Configuração da aplicação Web
-      controllers/           Contém arquivos das classes de controle
-         SiteController.php  Classes de controle padrão
-      extensions/            Contém extensões de terceiros
-      messages/              Contém mensagens traduzidas
-      models/                Contém arquivos das classes de modelo
-         LoginForm.php       Modelo do formulário para a ação 'login'
-         ContactForm.php     Modelo do formulário para a ação 'contact'
-      runtime/               Contém arquivos gerados temporariamente
-      views/                 Contém arquivos de visão dos controles e layouts
-         layouts/            Contém arquivos de visão do layout
-            main.php         O layout padrão para todas as visões
-         site/               Contém arquivos de visão para o controle 'site'
-            contact.php      Visão para a ação 'contact'
-            index.php        Visão para a ação 'index' 
-            login.php        Visão para a ação 'login' 
-         system/             Contém arquivos de visão do sistema
+	 index.php								 Script de entrada da aplicação Web
+	 assets/									 Contém arquivos de recurso publicados
+	 css/											Contém arquivos CSS
+	 images/									 Contém arquivos de imagem
+	 themes/									 Contém temas da aplicação
+	 protected/								Contém arquivos protegidos da aplicação
+			yiic									 Script de linha de comando yiic
+			yiic.bat							 Script de linha de comando yiic para o Windows
+			commands/							Contém comandos 'yiic' customizados
+				 shell/							Contém comandos 'yiic shell' customizados
+			components/						Contém componentes reutilizáveis do usuário
+				 MainMenu.php				A classe widget 'MainMenu' (Menu Principal)
+				 Identity.php				A classe 'Identity' usada nas autenticações
+				 views/							Contém arquivos de visão dos widgets
+						mainMenu.php		 O arquivo de visão do widget 'MainMenu'
+			config/								Contém arquivos de configurações
+				 console.php				 Configuração da aplicação console
+				 main.php						Configuração da aplicação Web
+			controllers/					 Contém arquivos das classes de controle
+				 SiteController.php	Classes de controle padrão
+			extensions/						Contém extensões de terceiros
+			messages/							Contém mensagens traduzidas
+			models/								Contém arquivos das classes de modelo
+				 LoginForm.php			 Modelo do formulário para a ação 'login'
+				 ContactForm.php		 Modelo do formulário para a ação 'contact'
+			runtime/							 Contém arquivos gerados temporariamente
+			views/								 Contém arquivos de visão dos controles e layouts
+				 layouts/						Contém arquivos de visão do layout
+						main.php				 O layout padrão para todas as visões
+				 site/							 Contém arquivos de visão para o controle 'site'
+						contact.php			Visão para a ação 'contact'
+						index.php				Visão para a ação 'index'
+						login.php				Visão para a ação 'login'
+				 system/						 Contém arquivos de visão do sistema
 ~~~
 
 Conectando ao Banco de Dados
@@ -100,7 +100,7 @@ Conectando ao Banco de Dados
 A maioria das aplicações Web são auxiliadas com o uso de banco de dados.
 Nossa aplicação de test-drive não é uma exceção. Para usar banco de dados,
 primeiro precisamos dizer à aplicação como se conectar a ele. Isto é feito
-alterando o arquivo de configuração `WebRoot/testdrive/protected/config/main.php`, 
+alterando o arquivo de configuração `WebRoot/testdrive/protected/config/main.php`,
 como mostrado abaixo:
 
 ~~~
@@ -118,7 +118,7 @@ return array(
 ~~~
 
 Acima, nós adicionamos uma entrada para `db` ao array `components`, que instrui a
-aplicação para se conectar ao banco de dados SQLite `WebRoot/testdrive/protected/data/source.db` 
+aplicação para se conectar ao banco de dados SQLite `WebRoot/testdrive/protected/data/source.db`
 quando for preciso.
 
 > Note|Nota: Para utilizar os recursos de banco de dados do Yii, precisamos ativar
@@ -139,7 +139,7 @@ CREATE TABLE User (
 );
 ~~~
 
-> Note|Nota: Se estiver utilizando um banco de dados MySQL, você deve substituir o 
+> Note|Nota: Se estiver utilizando um banco de dados MySQL, você deve substituir o
 `AUTOINCREMENT`, utilizado no código acima, por `AUTO_INCREMENT`.
 
 Por simplicidade, criamos somente uma única tabela: `User` no nosso banco de dados.
@@ -152,7 +152,7 @@ Implementando operações do tipo CRUD
 ----------------------------
 
 Agora começa a parte divertida. Iremos implementar operações CRUD (create, read,
-update and delete) quer realizará inserções, leituras, edições e deleções na 
+update and delete) quer realizará inserções, leituras, edições e deleções na
 tabela `User` que acabamos de criar. Este tipo de operação é frequetemente necessário
 em aplicações reais.
 
@@ -166,24 +166,24 @@ Abra a linha de comando e execute os comandos listados a seguir:
 Yii Interactive Tool v1.0
 Please type 'help' for help. Type 'exit' to quit.
 >> model User
-   generate User.php
+	 generate User.php
 
 The 'User' class has been successfully created in the following file:
-    D:\wwwroot\testdrive\protected\models\User.php
+		D:\wwwroot\testdrive\protected\models\User.php
 
 If you have a 'db' database connection, you can test it now with:
-    $model=User::model()->find();
-    print_r($model);
+		$model=User::model()->find();
+		print_r($model);
 
 >> crud User
-   generate UserController.php
-   mkdir D:/wwwroot/testdrive/protected/views/user
-   generate create.php
-   generate update.php
-   generate list.php
-   generate show.php
-   generate admin.php
-   generate _form.php
+	 generate UserController.php
+	 mkdir D:/wwwroot/testdrive/protected/views/user
+	 generate create.php
+	 generate update.php
+	 generate list.php
+	 generate show.php
+	 generate admin.php
+	 generate _form.php
 
 Crud 'user' has been successfully created. You may access it via:
 http://hostname/path/to/index.php?r=user
@@ -192,10 +192,10 @@ http://hostname/path/to/index.php?r=user
 Acima, utilizamos o comando `yiic shell` para interagir com nossa
 aplicação esqueleto. Na linha de comando, podemos digitar dois subcomandos:
 `model User` e `crud User`. O primeiro gera a classe modelo para a tabela
-`User`, enquanto que o segundo comando lê a classe modelo `User` e gera 
+`User`, enquanto que o segundo comando lê a classe modelo `User` e gera
 o código necessário para as operações do tipo CRUD.
 
-> Note|Nota: Você poderá encontrar erros como "...could not find driver" ou "...driver não encontrado", 
+> Note|Nota: Você poderá encontrar erros como "...could not find driver" ou "...driver não encontrado",
 > mesmo que o verificador de requisitos mostre que você já tem o PDO ativado e o driver PDO
 > correspondente ao Banco de Dados. Caso isso ocorra, você deve tentar rodar a ferramenta
 > `yiic` do seguinte modo:
@@ -218,7 +218,7 @@ Se tabela estiver vazia, nada será exibido.
 Clique no link `New User` da página. Caso não esteja autenticado seremos
 levados à página de login. Uma vez logado, será exibido um formulário
 de entrada que permite adicionar um novo usuário. Preencha o formulário e
-clique sobre o botão `Create`. Se houver qualquer erro de entrada, um 
+clique sobre o botão `Create`. Se houver qualquer erro de entrada, um
 erro será mostrado, o que nos impede de salvar os dados. Voltando à lista
 de usuários, iremos ver o recém adicionado usuário aparecendo na lista.
 
@@ -233,7 +233,7 @@ a página de administração de usuários pela seguinte URL:
 http://hostname/testdrive/index.php?r=user/admin
 ~~~
 
-Será mostrada uma tabela de usuários. Podemos clicar nas células do cabeçalho 
+Será mostrada uma tabela de usuários. Podemos clicar nas células do cabeçalho
 para ordenar as colunas correspondentes. E como na página de listagem dos usuários,
 a página de administração dos usuários também realiza a paginação quando existem
 muitos usuários a serem exibidos.

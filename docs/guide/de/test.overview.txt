@@ -2,7 +2,7 @@
 =========
 
 Testen ist ein unverzichtbarer Bestandteil der Softwareentwicklung. Ob wir uns
-dessen bewusst sind oder nicht: wir führen während der Entwicklung andauernd Tests durch. 
+dessen bewusst sind oder nicht: wir führen während der Entwicklung andauernd Tests durch.
 Wenn wir zum Beispiel eine PHP-Klasse schreiben und dort `echo`- oder `die`-Anweisungen
 verwenden, um zu prüfen, ob wir eine Methode richtig umgesetzt haben. Oder
 wenn wir eine Webseite mit einem komplexen Formular erstellen und dort
@@ -19,7 +19,7 @@ Ein Unittest prüft, ob eine einzelne Einheit (engl.: Unit) eines Codes wie
 erwartet arbeitet. Beim objektorientierten Programmieren entspricht die
 einfachste Codeeinheit einer Klasse. Ein Unittest muss daher im Wesentlichen
 prüfen, dass jede Interfacemethode der Klasse ordentlich arbeitet. Das
-bedeutet, der Test überprüft ob die Klasse für verschiedene Eingabeparameter 
+bedeutet, der Test überprüft ob die Klasse für verschiedene Eingabeparameter
 die erwarteten Ergebnisse zurückliefert. Unittests werden in der Regel vom
 gleichen Programmierer erstellt, der auch die zu testende Klasse geschrieben
 hat.
@@ -67,15 +67,15 @@ Dateien und Verzeichnisse für automatisierte Tests erzeugt:
 
 ~~~
 testdrive/
-   protected/                enthält geschützte Anwendungsdateien
-      tests/                 enthält Tests für die Anwendung
-         fixtures/           enthält Datenbank-Fixtures (s.u.)
-         functional/         enthält Funktionstests
-         unit/               enthält Unittests
-         report/             enthält Reports zur Codeabdeckung
-         bootstrap.php       das ganz zu Beginn ausgeführte Script
-         phpunit.xml         die Konfigurationsdatei für PHPUnit
-         WebTestCase.php     die Basisklasse für webbasierte Funktionstests
+	 protected/								enthält geschützte Anwendungsdateien
+			tests/								 enthält Tests für die Anwendung
+				 fixtures/					 enthält Datenbank-Fixtures (s.u.)
+				 functional/				 enthält Funktionstests
+				 unit/							 enthält Unittests
+				 report/						 enthält Reports zur Codeabdeckung
+				 bootstrap.php			 das ganz zu Beginn ausgeführte Script
+				 phpunit.xml				 die Konfigurationsdatei für PHPUnit
+				 WebTestCase.php		 die Basisklasse für webbasierte Funktionstests
 ~~~
 
 Wie wir sehen, wird unser Testcode hauptsächlich in den drei
@@ -83,18 +83,18 @@ Verzeichnissen `fixtures`, `functional` und `unit` abgelegt. Im Ordner
 `report` werden die erstellten Reports zur Codeabdeckung (engl.: code
 coverage) gespeichert.
 
-Um die Tests zu starten (egal ob Unittest oder Funktionstest), können wir 
+Um die Tests zu starten (egal ob Unittest oder Funktionstest), können wir
 an der Textkonsole folgende Befehle ausführen:
 
 ~~~
 % cd testdrive/protected/tests
-% phpunit functional/PostTest.php    // führt einen bestimmten Test aus
-% phpunit --verbose functional       // führt alle Tests unter 'functional' aus
+% phpunit functional/PostTest.php		// führt einen bestimmten Test aus
+% phpunit --verbose functional			 // führt alle Tests unter 'functional' aus
 % phpunit --coverage-html ./report unit
 ~~~
 
 Der letzte Befehl führt alle Tests im Verzeichnis `unit` aus und erzeugt einen
-Report zur Codeabdeckung im `report`-Verzeichnis. Beachten Sie, dass die 
+Report zur Codeabdeckung im `report`-Verzeichnis. Beachten Sie, dass die
 [xdebug-Erweiterung](http://www.xdebug.org/) installiert und aktiviert sein
 muss, damit Reports zur Codeabdeckung erstellt werden können.
 
@@ -103,7 +103,7 @@ Test Bootstrap-Script
 ---------------------
 
 Werfen wir einen Blick auf die Datei `bootstrap.php`. Diese Datei ist ebenso
-besonders wie das [Startscript](/doc/guide/basics.entry) unserer Anwendung. 
+besonders wie das [Startscript](/doc/guide/basics.entry) unserer Anwendung.
 Sie stellt den Startpunkt bei der Ausführung aller Tests dar.
 
 ~~~
@@ -143,7 +143,7 @@ return CMap::mergeArray(
 ~~~
 
 Wenn wir Tests im Zusammenhang mit Datenbanken ausführen, sollten wir eine
-Testdatenbank bereitstellen, damit beim Ausführen der Tests keine Konflikte 
+Testdatenbank bereitstellen, damit beim Ausführen der Tests keine Konflikte
 mit dem Entwicklungs- oder Produktivsystem auftreten. Dazu müssen wir nur die
 `db`-Konfiguration im obigen Beispiel aktivieren und die DSN zur Testdatenbank
 unter `connectionString` eintragen.

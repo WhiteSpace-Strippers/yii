@@ -11,7 +11,7 @@
 應用程式配置
 -------------------------
 
-預設情況下，應用程式是一個  [CWebApplication] 的實體。要自定它，我們通常需要提供一個設定檔
+預設情況下，應用程式是一個	[CWebApplication] 的實體。要自定它，我們通常需要提供一個設定檔
 （或陣列） 以建立應用程式實體時初始化的屬性值。自定應用程式的另一種方式是繼承 [CWebApplication]。
 
 配置是一個鍵值配對陣列。每個鍵代表應用程式實體中某屬性的名字，每個值即相應屬性的初始值。
@@ -108,43 +108,43 @@ Yii 預定義了一系列核心應用程式元件，提供常見 Web 應用程�
 
 下面我們列出了由 [CWebApplication] 預定義的核心元件。
 
-   - [assetManager|CWebApplication::assetManager]: [CAssetManager] -
+	 - [assetManager|CWebApplication::assetManager]: [CAssetManager] -
 管理私有資源文件的發佈。
 
-   - [authManager|CWebApplication::authManager]: [CAuthManager] - 管理角色的存取控制 (RBAC).
+	 - [authManager|CWebApplication::authManager]: [CAuthManager] - 管理角色的存取控制 (RBAC).
 
-   - [cache|CApplication::cache]: [CCache] - 提供資料快取功能。注意，你必須指定實際的類別（例如[CMemCache], [CDbCache]）。
+	 - [cache|CApplication::cache]: [CCache] - 提供資料快取功能。注意，你必須指定實際的類別（例如[CMemCache], [CDbCache]）。
 否則，當你存取此元件時將返回 NULL。
 
-   - [clientScript|CWebApplication::clientScript]: [CClientScript] -
+	 - [clientScript|CWebApplication::clientScript]: [CClientScript] -
 管理客戶端腳本 (javascripts 和 CSS).
 
-   - [coreMessages|CApplication::coreMessages]: [CPhpMessageSource] -
+	 - [coreMessages|CApplication::coreMessages]: [CPhpMessageSource] -
 提供 Yii 框架用到的核心訊息的翻譯。
 
-   - [db|CApplication::db]: [CDbConnection] - 提供資料庫連接。注意，使用此元件你必須配置其
+	 - [db|CApplication::db]: [CDbConnection] - 提供資料庫連接。注意，使用此元件你必須配置其
 [connectionString|CDbConnection::connectionString] 屬性。
 
-   - [errorHandler|CApplication::errorHandler]: [CErrorHandler] - 處理未擷取的 PHP 錯誤和異常。
+	 - [errorHandler|CApplication::errorHandler]: [CErrorHandler] - 處理未擷取的 PHP 錯誤和異常。
 
-   - [format|CApplication::format]: [CFormatter] - 正規畫數值顯示。此功能從版本 1.1.0 起開始提供。
+	 - [format|CApplication::format]: [CFormatter] - 正規畫數值顯示。此功能從版本 1.1.0 起開始提供。
 
-   - [messages|CApplication::messages]: [CPhpMessageSource] - 提供Yii應用程式中使用的訊息翻譯。
+	 - [messages|CApplication::messages]: [CPhpMessageSource] - 提供Yii應用程式中使用的訊息翻譯。
 
-   - [request|CWebApplication::request]: [CHttpRequest] - 提供關於用戶請求的訊息。
+	 - [request|CWebApplication::request]: [CHttpRequest] - 提供關於用戶請求的訊息。
 
-   - [securityManager|CApplication::securityManager]: [CSecurityManager] -
+	 - [securityManager|CApplication::securityManager]: [CSecurityManager] -
 提供安全相關的服務，例如散列，加密。
 
-   - [session|CWebApplication::session]: [CHttpSession] - 提供 session 相關的功能。
+	 - [session|CWebApplication::session]: [CHttpSession] - 提供 session 相關的功能。
 
-   - [statePersister|CApplication::statePersister]: [CStatePersister] - 提供全域狀態持續的方法。
+	 - [statePersister|CApplication::statePersister]: [CStatePersister] - 提供全域狀態持續的方法。
 
-   - [urlManager|CWebApplication::urlManager]: [CUrlManager] - 提供 URL 解析和建立相關功能
+	 - [urlManager|CWebApplication::urlManager]: [CUrlManager] - 提供 URL 解析和建立相關功能
 
-   - [user|CWebApplication::user]: [CWebUser] - 提供當前用戶的識別訊息。
+	 - [user|CWebApplication::user]: [CWebUser] - 提供當前用戶的識別訊息。
 
-   - [themeManager|CWebApplication::themeManager]: [CThemeManager] - 管理主題。
+	 - [themeManager|CWebApplication::themeManager]: [CThemeManager] - 管理主題。
 
 
 應用程式的生命週期
@@ -152,25 +152,25 @@ Yii 預定義了一系列核心應用程式元件，提供常見 Web 應用程�
 
 當處理用戶請求時，應用程式將經歷如下聲明週期：
 
-   0. 通過 [CApplication::preinit()] 預初始化應用程式；
+	 0. 通過 [CApplication::preinit()] 預初始化應用程式；
 
-   1. 設置類別的自動載入器和錯誤處理；
+	 1. 設置類別的自動載入器和錯誤處理；
 
-   2. 註冊核心類別元件；
+	 2. 註冊核心類別元件；
 
-   3. 載入應用程式配置；
+	 3. 載入應用程式配置；
 
-   4. 通過 [CApplication::init()] 初始化應用程式:
-      - 註冊應用程式行為；
-	   - 載入靜態應用程式元件；
+	 4. 通過 [CApplication::init()] 初始化應用程式:
+			- 註冊應用程式行為；
+		 - 載入靜態應用程式元件；
 
-   5. 觸發 [onBeginRequest|CApplication::onBeginRequest] 事件；
+	 5. 觸發 [onBeginRequest|CApplication::onBeginRequest] 事件；
 
-   6. 處理用戶請求：
-	   - 解析用戶請求；
-	   - 建立控制器；
-	   - 運行控制器；
+	 6. 處理用戶請求：
+		 - 解析用戶請求；
+		 - 建立控制器；
+		 - 運行控制器；
 
-   7. 觸發 [onEndRequest|CApplication::onEndRequest] 事件。
+	 7. 觸發 [onEndRequest|CApplication::onEndRequest] 事件。
 
 <div class="revision">$Id$</div>

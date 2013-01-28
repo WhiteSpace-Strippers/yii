@@ -311,10 +311,10 @@
 						settings.beforeAjaxUpdate(id, options);
 					}
 					$.ajax(options);
-				} else {  // non-ajax mode
+				} else {	// non-ajax mode
 					if (options.type === 'GET') {
 						window.location.href = options.url;
-					} else {  // POST mode
+					} else {	// POST mode
 						$form = $('<form action="' + options.url + '" method="post"></form>').appendTo('body');
 						if (options.data === undefined) {
 							options.data = {};
@@ -368,7 +368,7 @@
 			});
 			return checked;
 		}
-		
+
 	};
 
 	$.fn.yiiGridView = function (method) {

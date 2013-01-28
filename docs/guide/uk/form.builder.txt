@@ -50,26 +50,26 @@ public function actionLogin()
 return array(
 	'title'=>'Будь ласка, представтесь',
 
-    'elements'=>array(
-        'username'=>array(
-            'type'=>'text',
-            'maxlength'=>32,
-        ),
-        'password'=>array(
-            'type'=>'password',
-            'maxlength'=>32,
-        ),
-        'rememberMe'=>array(
-            'type'=>'checkbox',
-        )
-    ),
+		'elements'=>array(
+				'username'=>array(
+						'type'=>'text',
+						'maxlength'=>32,
+				),
+				'password'=>array(
+						'type'=>'password',
+						'maxlength'=>32,
+				),
+				'rememberMe'=>array(
+						'type'=>'checkbox',
+				)
+		),
 
-    'buttons'=>array(
-        'login'=>array(
-            'type'=>'submit',
-            'label'=>'Вхід',
-        ),
-    ),
+		'buttons'=>array(
+				'login'=>array(
+						'type'=>'submit',
+						'label'=>'Вхід',
+				),
+		),
 );
 ~~~
 
@@ -105,8 +105,8 @@ return array(
 ~~~
 [php]
 'username'=>array(
-    'type'=>'text',
-    'maxlength'=>32,
+		'type'=>'text',
+		'maxlength'=>32,
 ),
 ~~~
 
@@ -134,9 +134,9 @@ return array(
 ~~~
 [php]
 'gender'=>array(
-    'type'=>'dropdownlist',
-    'items'=>User::model()->getGenderOptions(),
-    'prompt'=>'Оберіть значення:',
+		'type'=>'dropdownlist',
+		'items'=>User::model()->getGenderOptions(),
+		'prompt'=>'Оберіть значення:',
 ),
 
 …
@@ -166,19 +166,19 @@ class User extends CActiveRecord
 ~~~
 [php]
 return array(
-    'elements'=>array(
+		'elements'=>array(
 		......
-        'password'=>array(
-            'type'=>'password',
-            'maxlength'=>32,
-        ),
+				'password'=>array(
+						'type'=>'password',
+						'maxlength'=>32,
+				),
 
-        '<hr />',
+				'<hr />',
 
-        'rememberMe'=>array(
-            'type'=>'checkbox',
-        )
-    ),
+				'rememberMe'=>array(
+						'type'=>'checkbox',
+				)
+		),
 	......
 );
 ~~~
@@ -198,37 +198,37 @@ return array(
 ~~~
 [php]
 return array(
-    'elements'=>array(
+		'elements'=>array(
 		......
-        'user'=>array(
-            'type'=>'form',
-            'title'=>'Дані для входу',
-            'elements'=>array(
-            	'username'=>array(
-            		'type'=>'text',
-            	),
-            	'password'=>array(
-            		'type'=>'password',
-            	),
-            	'email'=>array(
-            		'type'=>'text',
-            	),
-            ),
-        ),
+				'user'=>array(
+						'type'=>'form',
+						'title'=>'Дані для входу',
+						'elements'=>array(
+							'username'=>array(
+								'type'=>'text',
+							),
+							'password'=>array(
+								'type'=>'password',
+							),
+							'email'=>array(
+								'type'=>'text',
+							),
+						),
+				),
 
-        'profile'=>array(
-        	'type'=>'form',
-        	......
-        ),
-        ......
-    ),
+				'profile'=>array(
+					'type'=>'form',
+					......
+				),
+				......
+		),
 	......
 );
 ~~~
 
 Так само, як і у головної форми, у вкладеної форми необхідно задати властивість [CForm::elements]. Якщо вкладеній формі необхідно зіставити модель даних, можна зробити це задавши властивість [CForm::model].
 
-У деяких випадках буває корисно визначити форму в обʼєкті класу, відмінного від [CForm]. Приміром, як буде показано нижче, можна розширити [CForm] для реалізації свого алгоритму побудови розмітки. 
+У деяких випадках буває корисно визначити форму в обʼєкті класу, відмінного від [CForm]. Приміром, як буде показано нижче, можна розширити [CForm] для реалізації свого алгоритму побудови розмітки.
 При зазначенні типу елемента `form`, вкладена форма буде автоматично використовувати обʼєкт того ж класу, що і у головній формі. Якщо вказати тип елемента як, наприклад, `XyzForm` (рядок, що закінчується на `Form`), то вкладена форма буде використовувати обʼєкт класу `XyzForm`.
 
 
@@ -295,43 +295,43 @@ public function actionRegister()
 ~~~
 [php]
 return array(
-    'elements'=>array(
-        'user'=>array(
-            'type'=>'form',
-            'title'=>'Дані для входу',
-            'elements'=>array(
-                'username'=>array(
-                    'type'=>'text',
-                ),
-                'password'=>array(
-                    'type'=>'password',
-                ),
-                'email'=>array(
-                    'type'=>'text',
-                )
-            ),
-        ),
+		'elements'=>array(
+				'user'=>array(
+						'type'=>'form',
+						'title'=>'Дані для входу',
+						'elements'=>array(
+								'username'=>array(
+										'type'=>'text',
+								),
+								'password'=>array(
+										'type'=>'password',
+								),
+								'email'=>array(
+										'type'=>'text',
+								)
+						),
+				),
 
-        'profile'=>array(
-            'type'=>'form',
-            'title'=>'Профіль',
-            'elements'=>array(
-                'firstName'=>array(
-                    'type'=>'text',
-                ),
-                'lastName'=>array(
-                    'type'=>'text',
-                ),
-            ),
-        ),
-    ),
+				'profile'=>array(
+						'type'=>'form',
+						'title'=>'Профіль',
+						'elements'=>array(
+								'firstName'=>array(
+										'type'=>'text',
+								),
+								'lastName'=>array(
+										'type'=>'text',
+								),
+						),
+				),
+		),
 
-    'buttons'=>array(
-        'register'=>array(
-            'type'=>'submit',
-            'label'=>'Зареєструватися',
-        ),
-    ),
+		'buttons'=>array(
+				'register'=>array(
+						'type'=>'submit',
+						'label'=>'Зареєструватися',
+				),
+		),
 );
 ~~~
 

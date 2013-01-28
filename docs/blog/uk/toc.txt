@@ -22,7 +22,7 @@
 	- [Управління коментарями](comment.admin)
 
 * Портлети
-	- [Меню користувача](portlet.menu)	
+	- [Меню користувача](portlet.menu)
 	- [Хмара тегів](portlet.tags)
 	- [Останні коментарі](portlet.comments)
 

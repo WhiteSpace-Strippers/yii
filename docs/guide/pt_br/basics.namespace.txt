@@ -8,27 +8,27 @@ ao caminho de um diretório ou arquivo. Um path alias utiliza a sintaxe de ponto
 RootAlias.path.to.target
 ~~~
 
-Onde `RootAlias` é o nome de um diretório existente. 
+Onde `RootAlias` é o nome de um diretório existente.
 
-Ao usar o método [YiiBase::getPathOfAlias()], um apelido pode ser traduzido para o seu 
-caminho correspondente. Por exemplo, `system.web.CController` seria 
+Ao usar o método [YiiBase::getPathOfAlias()], um apelido pode ser traduzido para o seu
+caminho correspondente. Por exemplo, `system.web.CController` seria
 traduzido para `yii/framework/web/CController`.
 
-Ao executar o método [YiiBase::setPathOfAlias()], podemos definir novos apelidos para caminhos. 
+Ao executar o método [YiiBase::setPathOfAlias()], podemos definir novos apelidos para caminhos.
 
 Apelidos de Diretórios Raizes
 -----------------------------
 
-Por conveniência, o Yii já possui predefinidos os seguintes apelidos: 
+Por conveniência, o Yii já possui predefinidos os seguintes apelidos:
 
  - `system`: refere-se ao diretório do Yii framework;
  - `zii`: refere-se ao diretório da [biblioteca Zii](/doc/guide/extension.use#zii-extensions);
  - `application`: refere-se ao [diretório base](/doc/guide/basics.application#application-base-directory) da aplicação;
- - `webroot`: refere-se ao diretório que contém o arquivo do [script de entrada](/doc/guide/basics.entry). 
- - `ext`: refere-se ao diretório que contém todas as [extensões](/doc/guide/extension.overview) de terceiros. 
+ - `webroot`: refere-se ao diretório que contém o arquivo do [script de entrada](/doc/guide/basics.entry).
+ - `ext`: refere-se ao diretório que contém todas as [extensões](/doc/guide/extension.overview) de terceiros.
 
-Além disso, se a aplicação utiliza [módulos](/doc/guide/basics.module), 
-um apelido de diretório raiz (root alias) é predefinido para cada módulo, 
+Além disso, se a aplicação utiliza [módulos](/doc/guide/basics.module),
+um apelido de diretório raiz (root alias) é predefinido para cada módulo,
 apontando para o diretório base do módulo correspondente.
 Por exemplo, se uma aplicação usa um módulo com ID `users`, o apelido de diretório raiz chamado `users`
 será definido.
@@ -46,12 +46,12 @@ Yii::import('system.web.CController');
 ~~~
 
 O método [import|YiiBase::import] é mais eficiente que o `include` e o `require` do PHP.
-Com ele, a definição da classe que está sendo importada 
+Com ele, a definição da classe que está sendo importada
 não é incluída até que seja referenciada pela primeira vez (Implementado pelo mecanismo auto carregamento do PHP).
 Importar o mesmo namespace várias vezes, também é muito mais rápido do que utilizar o `include_once`
 e o `require_once`.
 
-> Tip|Dica: Quando referenciamos uma das classes do Yii Framework, não precisamos 
+> Tip|Dica: Quando referenciamos uma das classes do Yii Framework, não precisamos
 importa-la ou inclui-la. Todas as classes Yii são pré-importadas.
 
 ###Usando mapa de Class
@@ -59,7 +59,7 @@ importa-la ou inclui-la. Todas as classes Yii são pré-importadas.
 A partir da versão 1.1.5, o Yii permite que as classes possam ser pré-importadas através de um mecanismo
 de mapeamento de classe que também é usado por classes Yii.
 As classes pré-importadas podem ser usadas em qualquer lugar na aplicação Yii sem ser
-explicitamente importadas ou incluídas. Este recurso é muito útil para uma biblioteca ou framework 
+explicitamente importadas ou incluídas. Este recurso é muito útil para uma biblioteca ou framework
 que é construído em cima do Yii.
 
 Para pré-importar um conjunto de classes, o seguinte código deve ser executado antes
@@ -77,7 +77,7 @@ Yii::$classMap=array(
 Importando Diretórios
 ---------------------
 
-Podemos também utilizar a seguinte sintaxe para importar todo um diretório de uma só vez, de forma que 
+Podemos também utilizar a seguinte sintaxe para importar todo um diretório de uma só vez, de forma que
 os arquivos de classe dentro dele sejam automaticamente incluídos, quando necessário.
 
 
@@ -86,8 +86,8 @@ os arquivos de classe dentro dele sejam automaticamente incluídos, quando neces
 Yii::import('system.web.*');
 ~~~
 
-Além do método [import|YiiBase::import], apelidos são utilizados em vários outros 
-locais para se referir a classes. Por exemplo, um apelido pode ser passado para o método 
+Além do método [import|YiiBase::import], apelidos são utilizados em vários outros
+locais para se referir a classes. Por exemplo, um apelido pode ser passado para o método
 [Yii::createComponent()] para criar uma instância da classe informada,
 mesmo que o arquivo da classe ainda não tenha sido incluído.
 
@@ -95,17 +95,17 @@ Namespace
 ---------
 
 Não confunda um path alias com um namespace. Um namespace refere-se a um agrupamento lógico
-de nomes de classes para que eles possam ser diferenciadas de outros 
-nomes das classes, mesmo que eles sejam iguais. Já um path alias é utilizado para 
-referenciar um arquivo de classe ou um diretório. Um path alias não conflita com um 
+de nomes de classes para que eles possam ser diferenciadas de outros
+nomes das classes, mesmo que eles sejam iguais. Já um path alias é utilizado para
+referenciar um arquivo de classe ou um diretório. Um path alias não conflita com um
 namespace.
 
-> Tip|Dica: Como o PHP, antes da versão 5.3.0, não dá suporte a namespaces, 
-você não pode criar instâncias de duas classes que tenham o mesmo 
-nome, mas definições diferentes. Por isso, todas as classes do Yii framework 
-são prefixadas com uma letra "C" (que significa 'class'), de modo que elas possam 
-ser diferenciadas das classes definidas pelo usuário. Recomenda-se que o 
-prefixo "C" seja reservado somente para utilização do Yii framework, e que classes criadas pelos usuário 
+> Tip|Dica: Como o PHP, antes da versão 5.3.0, não dá suporte a namespaces,
+você não pode criar instâncias de duas classes que tenham o mesmo
+nome, mas definições diferentes. Por isso, todas as classes do Yii framework
+são prefixadas com uma letra "C" (que significa 'class'), de modo que elas possam
+ser diferenciadas das classes definidas pelo usuário. Recomenda-se que o
+prefixo "C" seja reservado somente para utilização do Yii framework, e que classes criadas pelos usuário
 sejam prefixadas com outras letras.
 
 
@@ -117,17 +117,17 @@ Por exemplo, a classe `application\components\GoogleMap` é declarada dentro do 
 `application\components`. O uso das classes com namespace requer PHP 5.3.0 ou superior.
 
 A partir da versão 1.1.5, é possível a utilização de uma classe namespaced sem
-incluir explicitamente. Por exemplo, podemos criar uma nova instância do 
+incluir explicitamente. Por exemplo, podemos criar uma nova instância do
 `application\components\GoogleMap` sem incluir o arquivo de classe correspondente
 explicitamente. Isso é possível com o mecanismo de auto carregamento das classes Yii.
 
-Afim de ser capaz de carregar automaticamente uma classe com namespace, o namespace 
-deve ser nomeado de forma semelhante a nomear um path alias. 
-Por exemplo, a classe `application\components\GoogleMap` deve ser armazenada em um 
+Afim de ser capaz de carregar automaticamente uma classe com namespace, o namespace
+deve ser nomeado de forma semelhante a nomear um path alias.
+Por exemplo, a classe `application\components\GoogleMap` deve ser armazenada em um
 arquivo que pode ser apelidado como `application.components.GoogleMap`
 
 Então, para usar namespace personalizado começando com, por exemplo `\mynamespace` aonde
-as classes são localizadas em  `/var/www/common/mynamespace/`
+as classes são localizadas em	`/var/www/common/mynamespace/`
 a única coisa que você deve fazer é definir um path alias, como o seguinte:
 
 
@@ -140,10 +140,10 @@ Yii::setPathOfAlias('mynamespace', '/var/www/common/mynamespace/');
 Controles com Namespace
 -----------------------
 
-Por padrão Yii usa controladores do namespace global. Essas classes estão localizados sob 
+Por padrão Yii usa controladores do namespace global. Essas classes estão localizados sob
 `protected/controllers`. Você pode alterar esse comportamento de duas maneiras diferentes:
-usando `controllerMap` e usando `controllerNamespace`. O primeiro permite que você use 
-controles com namespaces diferentes. O último requer menos configuração para definir um namespace 
+usando `controllerMap` e usando `controllerNamespace`. O primeiro permite que você use
+controles com namespaces diferentes. O último requer menos configuração para definir um namespace
 para todos os controles.
 
 ### Usando `controllerMap`
@@ -195,20 +195,20 @@ da mesma maneira como descrita em "Módulos com namespace" logo abaixo.
 Módulos com namespace
 ---------------------
 
-Às vezes é útil utilizar namespace para o módulo completo. Por exemplo, se você quiser colocar 
+Às vezes é útil utilizar namespace para o módulo completo. Por exemplo, se você quiser colocar
 `testmodule` em `\mynamespace\modules\testmodule` apontando para
-`/var/www/common/mynamespace/modules/testmodule` você deveria primeiro criar a seguinte 
+`/var/www/common/mynamespace/modules/testmodule` você deveria primeiro criar a seguinte
 estrutura de arquivo:
 
 ~~~
 /var/www/common/mynamespace/modules
-  testmodule
-    controllers
-      DefaultController.php
-    views
-      default
-        index.php
-    TestmoduleModule.php
+	testmodule
+		controllers
+			DefaultController.php
+		views
+			default
+				index.php
+		TestmoduleModule.php
 ~~~
 
 `index.php` é mesma visão que no modulo normal. `TestmoduleModule.php` e

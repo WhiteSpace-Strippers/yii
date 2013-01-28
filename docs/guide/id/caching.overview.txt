@@ -36,32 +36,32 @@ PHP memcache dan menggunakan memori sebagai media penyimpanan cache; komponen
 [CDbCache] menyimpan data cache di dalam database. Berikut ini adalah
 komponen-komponen cache yang tersedia:
 
-   - [CMemCache]: menggunakan [extension memcache](http://www.php.net/manual/en/book.memcache.php) PHP.
+	 - [CMemCache]: menggunakan [extension memcache](http://www.php.net/manual/en/book.memcache.php) PHP.
 
-   - [CApcCache]: menggunakan [extension APC](http://www.php.net/manual/en/book.apc.php) PHP.
+	 - [CApcCache]: menggunakan [extension APC](http://www.php.net/manual/en/book.apc.php) PHP.
 
-   - [CXCache]: menggunakan [extension XCache](http://xcache.lighttpd.net/) PHP.
+	 - [CXCache]: menggunakan [extension XCache](http://xcache.lighttpd.net/) PHP.
 
-   - [CEAcceleratorCache]: menggunakan PHP [EAccelerator extension](http://eaccelerator.net/).
+	 - [CEAcceleratorCache]: menggunakan PHP [EAccelerator extension](http://eaccelerator.net/).
 
-   - [CDbCache]: menggunakan tabel database untuk menyimpan data cache. Secara default,
+	 - [CDbCache]: menggunakan tabel database untuk menyimpan data cache. Secara default,
 komponen ini akan membuat serta menggunakan database SQLite3 di direktori runtime. Anda
 dapat menetapkan database yang ingin dipakai secara eksplisit dengan mengatur properti
 [connectionID|CDbCache::connectionID].
 
-   - [CZendDataCache]: menggunakan Zend Data Cacheuses [Zend Data Cache](http://files.zend.com/help/Zend-Server-Community-Edition/data_cache_component.htm)
+	 - [CZendDataCache]: menggunakan Zend Data Cacheuses [Zend Data Cache](http://files.zend.com/help/Zend-Server-Community-Edition/data_cache_component.htm)
  sebagai media pokok caching.
 
-   - [CFileCache]: menggunakan file untuk menyimpan data cache. Komponen ini biasanya seringkali cocok untuk
+	 - [CFileCache]: menggunakan file untuk menyimpan data cache. Komponen ini biasanya seringkali cocok untuk
 menembolok potongan data yang besar(misalnya halaman).
 
-   - [CDummyCache]: menyajikan cache tiruan(cache dummy) yang tidak melakukan caching sama sekali. Tujuan
+	 - [CDummyCache]: menyajikan cache tiruan(cache dummy) yang tidak melakukan caching sama sekali. Tujuan
 komponen ini adalah menyederhanakan kode yang perlu memeriksa ketersediaan cache.
 Misalnya, selama pengembangan atau jika server tidak memiliki dukungan cache yang sebenarnya, kita
 dapat menggunakan komponen cache ini. Seandainya dukungan cache yang sebenarnya dihidupkan, kita dapat beralih
 ke penggunaan komponen cache yang terkait. Dalam kedua kasus tersebut, kita dapat menggunakan kode yang sama
 `Yii::app()->cache->get($key)` untuk mencoba mengambil bagian data tanpa perlu mencemaskan
-apakah `Yii::app()->cache` mungkin bernilai `null`. 
+apakah `Yii::app()->cache` mungkin bernilai `null`.
 
 > Tip: Karena semua komponen cache ini diturunkan dari basis kelas yang sama, yakni
 [CCache], Anda bisa beralih untuk menggunakan tipe cache yang lain tanpa perlu mengubah

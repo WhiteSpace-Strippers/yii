@@ -18,22 +18,22 @@
  * This validator will attempt to fetch uploaded data if attribute is not
  * previously set. Please note that this cannot be done if input is tabular:
  * <pre>
- *  foreach($models as $i=>$model)
- *     $model->attribute = CUploadedFile::getInstance($model, "[$i]attribute");
+ *	foreach($models as $i=>$model)
+ *		 $model->attribute = CUploadedFile::getInstance($model, "[$i]attribute");
  * </pre>
  * Please note that you must use {@link CUploadedFile::getInstances} for multiple
  * file uploads.
  *
  * When using CFileValidator with an active record, the following code is often used:
  * <pre>
- *  if($model->save())
- *  {
- *     // single upload
- *     $model->attribute->saveAs($path);
- *     // multiple upload
- *     foreach($model->attribute as $file)
- *        $file->saveAs($path);
- *  }
+ *	if($model->save())
+ *	{
+ *		 // single upload
+ *		 $model->attribute->saveAs($path);
+ *		 // multiple upload
+ *		 foreach($model->attribute as $file)
+ *				$file->saveAs($path);
+ *	}
  * </pre>
  *
  * You can use {@link CFileValidator} to validate the file attribute.
@@ -194,7 +194,7 @@ class CFileValidator extends CValidator
 			throw new CException(Yii::t('yii','Missing the temporary folder to store the uploaded file "{file}".',array('{file}'=>$file->getName())));
 		elseif($error==UPLOAD_ERR_CANT_WRITE)
 			throw new CException(Yii::t('yii','Failed to write the uploaded file "{file}" to disk.',array('{file}'=>$file->getName())));
-		elseif(defined('UPLOAD_ERR_EXTENSION') && $error==UPLOAD_ERR_EXTENSION)  // available for PHP 5.2.0 or above
+		elseif(defined('UPLOAD_ERR_EXTENSION') && $error==UPLOAD_ERR_EXTENSION)	// available for PHP 5.2.0 or above
 			throw new CException(Yii::t('yii','File upload was stopped by extension.'));
 
 		if($this->minSize!==null && $file->getSize()<$this->minSize)

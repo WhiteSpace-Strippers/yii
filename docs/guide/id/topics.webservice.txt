@@ -28,8 +28,8 @@ Mendefinisikan Penyedia Layanan
 -------------------------------
 
 Seperti sudah disebutkan di atas, penyedia layanan adalah kelas yang mendefinisikan metode
-yang dapat secara remote (jarak jauh) dipanggil. Yii bergantung pada [komentar 
-dokumen](http://java.sun.com/j2se/javadoc/writingdoccomments/) dan [kelas 
+yang dapat secara remote (jarak jauh) dipanggil. Yii bergantung pada [komentar
+dokumen](http://java.sun.com/j2se/javadoc/writingdoccomments/) dan [kelas
 refleksi](http://www.php.net/manual/en/language.oop5.reflection.php) dalam
 mengidentifikasi metode mana yang bisa dipanggil secara remote dan parameter
 apa serta nilai balik.
@@ -53,7 +53,7 @@ class StockController extends CController
 	{
 		$prices=array('IBM'=>100, 'GOOGLE'=>350);
 		return isset($prices[$symbol])?$prices[$symbol]:0;
-	    //...return stock price for $symbol
+			//...return stock price for $symbol
 	}
 }
 ~~~
@@ -92,7 +92,7 @@ class StockController extends CController
 	 */
 	public function getPrice($symbol)
 	{
-	    //...kembalikan harga stok untuk simbol $symbol
+			//...kembalikan harga stok untuk simbol $symbol
 	}
 }
 ~~~
@@ -129,16 +129,16 @@ Ketika mendeklarasikan metode kelas dan properti yang akan diakses secara remote
 harus menetapkan tipe data atas parameter input dan output. Tipe data
 primitif berikut bisa dipakai:
 
-   - str/string: dipetakan ke `xsd:string`;
-   - int/integer: dipetakan ke `xsd:int`;
-   - float/double: dipetakan ke `xsd:float`;
-   - bool/boolean: dipetakan ke `xsd:boolean`;
-   - date: dipetakan ke `xsd:date`;
-   - time: dipetakan ke `xsd:time`;
-   - datetime: dipetakan ke `xsd:dateTime`;
-   - array: dipetakan ke `xsd:string`;
-   - object: dipetakan ke `xsd:struct`;
-   - mixed: dipetakan ke `xsd:anyType`.
+	 - str/string: dipetakan ke `xsd:string`;
+	 - int/integer: dipetakan ke `xsd:int`;
+	 - float/double: dipetakan ke `xsd:float`;
+	 - bool/boolean: dipetakan ke `xsd:boolean`;
+	 - date: dipetakan ke `xsd:date`;
+	 - time: dipetakan ke `xsd:time`;
+	 - datetime: dipetakan ke `xsd:dateTime`;
+	 - array: dipetakan ke `xsd:string`;
+	 - object: dipetakan ke `xsd:struct`;
+	 - mixed: dipetakan ke `xsd:anyType`.
 
 Jika tipe bukan salah satupun dari tipe primitif di atas, ia dianggap sebagai
 tipe composite yang terdiri dari properti. Tipe composite disajikan dalam
@@ -189,7 +189,7 @@ Pemetaan Kelas
 --------------
 
 Agar bisa menerima parameter tipe composite dari klien, aplikasi
-harus mendeklarasikan pemetaan dari tipe  WSDL ke kelas PHP
+harus mendeklarasikan pemetaan dari tipe	WSDL ke kelas PHP
 terkait. Ini dilakukan dengan mengkonfigurasi properti
 [classMap|CWebServiceAction::classMap] pada [CWebServiceAction].
 
@@ -203,7 +203,7 @@ class PostController extends CController
 			'service'=>array(
 				'class'=>'CWebServiceAction',
 				'classMap'=>array(
-					'Post'=>'Post',  // atau cukup 'Post'
+					'Post'=>'Post',	// atau cukup 'Post'
 				),
 			),
 		);

@@ -2,10 +2,10 @@ Webservice
 ===========
 
 [Webservices](http://de.wikipedia.org/wiki/Webservice) bilden ein
-Softwaresystem, das entwickelt wurde, um kompatible 
-Interaktion zwischen Maschinen über ein Netzwerk zu unterstützen. 
+Softwaresystem, das entwickelt wurde, um kompatible
+Interaktion zwischen Maschinen über ein Netzwerk zu unterstützen.
 Im Zusammenhang mit Webanwendungen beziehen sie sich in der Regel
-auf eine Reihe von APIs, die über das Internet zugänglich sind und 
+auf eine Reihe von APIs, die über das Internet zugänglich sind und
 auf einem entfernten Rechner ausgeführt werden können, der den angeforderten
 Dienst beherbergt. Ein [flex](http://www.adobe.com/products/flex/)-basierter
 Client könnte zum Beispiel serverseitig Funktionen einer PHP-basierten
@@ -13,7 +13,7 @@ Webanwendung aufrufen. Webservices bauen auf
 [SOAP](http://de.wikipedia.org/wiki/SOAP) als grundlegendem
 Kommunikations-Protokollstapel auf.
 
-Um die Verwirklichung von Webservices in einer Webanwendung zu 
+Um die Verwirklichung von Webservices in einer Webanwendung zu
 vereinfachen, beinhaltet Yii [CWebService] und [CWebServiceAction]. Die APIs
 werden zu Klassen gruppiert, den sogenannten *Dienstanbietern* (engl.: service
 provider). Für jede Klasse erzeugt Yii eine
@@ -22,7 +22,7 @@ deren Aufruf von Clientseite beschreibt. Wenn eine API von einem Client
 aufgerufen wird, instanziiert Yii den enstprechenden Dienstanbieter und ruft
 die angeforderte API auf, um die Anfrage zu verarbeiten.
 
-> Note|Hinweis: [CWebService] basiert auf der 
+> Note|Hinweis: [CWebService] basiert auf der
 [SOAP-Erweiterung](http://www.php.net/manual/de/ref.soap.php) von PHP. Stellen
 Sie sicher, dass diese Erweiterung aktiviert wurde, bevor Sie die Beispiele in
 diesem Abschnitt ausprobieren.
@@ -56,13 +56,13 @@ class StockController extends CController
 	{
 		$prices=array('IBM'=>100, 'GOOGLE'=>350);
 		return isset($prices[$symbol])?$prices[$symbol]:0;
-	    //...Aktienpreis für $symbol zurückliefern
+			//...Aktienpreis für $symbol zurückliefern
 	}
 }
 ~~~
 
 In diesem Beispiel deklarieren wir die Methode `getPrice` als API eines
-Webservices, indem wir sie in ihrem Doc Comment mit dem Tag `@soap` markieren. 
+Webservices, indem wir sie in ihrem Doc Comment mit dem Tag `@soap` markieren.
 Wir stützen uns auf die Angaben im Doc Comment, um die Datentypen der
 Eingangsparameter und des Rückgabewerts zu bestimmen. Weitere APIs können auf
 ähnliche weise deklariert werden.
@@ -97,7 +97,7 @@ class StockController extends CController
 	 */
 	public function getPrice($symbol)
 	{
-	    //...Aktienpreis für $symbol zurückliefern
+			//...Aktienpreis für $symbol zurückliefern
 	}
 }
 ~~~
@@ -134,20 +134,20 @@ Beim deklarieren der Klassenmethoden und -eigenschaften, die von Ferne
 verfügbar gemacht werden sollen, müssen wir die Datentypen der Ein- und
 Ausgangsparameter angeben. Die folgenden Grundtypen können verwendet werden:
 
-   - str/string: wird abgebildet auf `xsd:string`;
-   - int/integer: wird abgebildet auf `xsd:int`;
-   - float/double: wird abgebildet auf `xsd:float`;
-   - bool/boolean: wird abgebildet auf `xsd:boolean`;
-   - date: wird abgebildet auf `xsd:date`;
-   - time: wird abgebildet auf `xsd:time`;
-   - datetime: wird abgebildet auf `xsd:dateTime`;
-   - array: wird abgebildet auf `xsd:string`;
-   - object: wird abgebildet auf `xsd:struct`;
-   - mixed: wird abgebildet auf `xsd:anyType`.
+	 - str/string: wird abgebildet auf `xsd:string`;
+	 - int/integer: wird abgebildet auf `xsd:int`;
+	 - float/double: wird abgebildet auf `xsd:float`;
+	 - bool/boolean: wird abgebildet auf `xsd:boolean`;
+	 - date: wird abgebildet auf `xsd:date`;
+	 - time: wird abgebildet auf `xsd:time`;
+	 - datetime: wird abgebildet auf `xsd:dateTime`;
+	 - array: wird abgebildet auf `xsd:string`;
+	 - object: wird abgebildet auf `xsd:struct`;
+	 - mixed: wird abgebildet auf `xsd:anyType`.
 
 Falls ein Typ nicht in der Liste dieser Grundtypen vorkommt, wird von einem
-aus Eigenschaften zusammengesetzten Typ (engl.: composite type) ausgegangen. 
-Ein zusammengesetzter Typ wird als Klasse dargestellt, seine Eigenschaften 
+aus Eigenschaften zusammengesetzten Typ (engl.: composite type) ausgegangen.
+Ein zusammengesetzter Typ wird als Klasse dargestellt, seine Eigenschaften
 als öffentliche und in den Doc Comments mit `@soap` markierte Eigenschaften
 dieser Klasse.
 
@@ -211,7 +211,7 @@ class PostController extends CController
 			'service'=>array(
 				'class'=>'CWebServiceAction',
 				'classMap'=>array(
-					'Post'=>'Post',  // oder einfach nur 'Post'
+					'Post'=>'Post',	// oder einfach nur 'Post'
 				),
 			),
 		);

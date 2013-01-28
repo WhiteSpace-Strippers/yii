@@ -3,12 +3,12 @@ Using Extensions
 
 Using an extension usually involves the following three steps:
 
-  1. Download the extension from Yii's
-     [extension repository](http://www.yiiframework.com/extensions/).
-  2. Unpack the extension under the `extensions/xyz` subdirectory of
-     [application base directory](/doc/guide/basics.application#application-base-directory),
-     where `xyz` is the name of the extension.
-  3. Import, configure and use the extension.
+	1. Download the extension from Yii's
+		 [extension repository](http://www.yiiframework.com/extensions/).
+	2. Unpack the extension under the `extensions/xyz` subdirectory of
+		 [application base directory](/doc/guide/basics.application#application-base-directory),
+		 where `xyz` is the name of the extension.
+	3. Import, configure and use the extension.
 
 Each extension has a name that uniquely identifies it among all extensions.
 Given an extension named as `xyz`, we can always use the path alias
@@ -50,15 +50,15 @@ by adding a new entry to its `components` property, like the following:
 ~~~
 [php]
 return array(
-    // 'preload'=>array('xyz',...),
-    'components'=>array(
-        'xyz'=>array(
-            'class'=>'ext.xyz.XyzClass',
-            'property1'=>'value1',
-            'property2'=>'value2',
-        ),
-        // other component configurations
-    ),
+		// 'preload'=>array('xyz',...),
+		'components'=>array(
+				'xyz'=>array(
+						'class'=>'ext.xyz.XyzClass',
+						'property1'=>'value1',
+						'property2'=>'value2',
+				),
+				// other component configurations
+		),
 );
 ~~~
 
@@ -142,13 +142,13 @@ a view as follows,
 [php]
 // widget that does not need body content
 <?php $this->widget('ext.xyz.XyzClass', array(
-    'property1'=>'value1',
-    'property2'=>'value2')); ?>
+		'property1'=>'value1',
+		'property2'=>'value2')); ?>
 
 // widget that can contain body content
 <?php $this->beginWidget('ext.xyz.XyzClass', array(
-    'property1'=>'value1',
-    'property2'=>'value2')); ?>
+		'property1'=>'value1',
+		'property2'=>'value2')); ?>
 
 ...body content of the widget...
 

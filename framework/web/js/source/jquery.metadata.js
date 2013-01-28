@@ -4,8 +4,8 @@
  * Copyright (c) 2006 John Resig, Yehuda Katz, J�örn Zaefferer, Paul McLanahan
  *
  * Dual licensed under the MIT and GPL licenses:
- *   http://www.opensource.org/licenses/mit-license.php
- *   http://www.gnu.org/licenses/gpl.html
+ *	 http://www.opensource.org/licenses/mit-license.php
+ *	 http://www.gnu.org/licenses/gpl.html
  *
  * Revision: $Id: jquery.metadata.js 3640 2007-10-11 18:34:38Z pmclanahan $
  *
@@ -17,13 +17,13 @@
  *
  * There are four supported types of metadata storage:
  *
- *   attr:  Inside an attribute. The name parameter indicates *which* attribute.
+ *	 attr:	Inside an attribute. The name parameter indicates *which* attribute.
  *
- *   class: Inside the class attribute, wrapped in curly braces: { }
+ *	 class: Inside the class attribute, wrapped in curly braces: { }
  *
- *   elem:  Inside a child element (e.g. a script tag). The
- *          name parameter indicates *which* element.
- *   html5: Values are stored in data-* attributes.
+ *	 elem:	Inside a child element (e.g. a script tag). The
+ *					name parameter indicates *which* element.
+ *	 html5: Values are stored in data-* attributes.
  *
  * The metadata for an element is loaded the first time the element is accessed via jQuery.
  *
@@ -63,73 +63,73 @@
 (function($) {
 
 $.extend({
-  metadata : {
-    defaults : {
-      type: 'class',
-      name: 'metadata',
-      cre: /({.*})/,
-      single: 'metadata'
-    },
-    setType: function( type, name ){
-      this.defaults.type = type;
-      this.defaults.name = name;
-    },
-    get: function( elem, opts ){
-      var settings = $.extend({},this.defaults,opts);
-      // check for empty string in single property
-      if ( !settings.single.length ) settings.single = 'metadata';
+	metadata : {
+		defaults : {
+			type: 'class',
+			name: 'metadata',
+			cre: /({.*})/,
+			single: 'metadata'
+		},
+		setType: function( type, name ){
+			this.defaults.type = type;
+			this.defaults.name = name;
+		},
+		get: function( elem, opts ){
+			var settings = $.extend({},this.defaults,opts);
+			// check for empty string in single property
+			if ( !settings.single.length ) settings.single = 'metadata';
 
-      var data = $.data(elem, settings.single);
-      // returned cached data if it already exists
-      if ( data ) return data;
+			var data = $.data(elem, settings.single);
+			// returned cached data if it already exists
+			if ( data ) return data;
 
-      data = "{}";
+			data = "{}";
 
-      var getData = function(data) {
-        if(typeof data != "string") return data;
+			var getData = function(data) {
+				if(typeof data != "string") return data;
 
-        if( data.indexOf('{') < 0 ) {
-          data = eval("(" + data + ")");
-        }
-      };
+				if( data.indexOf('{') < 0 ) {
+					data = eval("(" + data + ")");
+				}
+			};
 
-      var getObject = function(data) {
-        if(typeof data != "string") return data;
+			var getObject = function(data) {
+				if(typeof data != "string") return data;
 
-        data = eval("(" + data + ")");
-        return data;
-      };
+				data = eval("(" + data + ")");
+				return data;
+			};
 
-      if ( settings.type == "html5" ) {
-        var object = {};
-        $( elem.attributes ).each(function() {
-          var name = this.nodeName;
-          if(name.match(/^data-/)) name = name.replace(/^data-/, '');
-          else return true;
-          object[name] = getObject(this.nodeValue);
-        });
-      } else {
-        if ( settings.type == "class" ) {
-          var m = settings.cre.exec( elem.className );
-          if ( m )
-            data = m[1];
-        } else if ( settings.type == "elem" ) {
-          if( !elem.getElementsByTagName ) return;
-          var e = elem.getElementsByTagName(settings.name);
-          if ( e.length )
-            data = $.trim(e[0].innerHTML);
-        } else if ( elem.getAttribute != undefined ) {
-          var attr = elem.getAttribute( settings.name );
-          if ( attr )
-            data = attr;
-        }
-        object = getObject(data.indexOf("{") < 0 ? "{" + data + "}" : data);
-      }
+			if ( settings.type == "html5" ) {
+				var object = {};
+				$( elem.attributes ).each(function() {
+					var name = this.nodeName;
+					if(name.match(/^data-/)) name = name.replace(/^data-/, '');
+					else return true;
+					object[name] = getObject(this.nodeValue);
+				});
+			} else {
+				if ( settings.type == "class" ) {
+					var m = settings.cre.exec( elem.className );
+					if ( m )
+						data = m[1];
+				} else if ( settings.type == "elem" ) {
+					if( !elem.getElementsByTagName ) return;
+					var e = elem.getElementsByTagName(settings.name);
+					if ( e.length )
+						data = $.trim(e[0].innerHTML);
+				} else if ( elem.getAttribute != undefined ) {
+					var attr = elem.getAttribute( settings.name );
+					if ( attr )
+						data = attr;
+				}
+				object = getObject(data.indexOf("{") < 0 ? "{" + data + "}" : data);
+			}
 
-      $.data( elem, settings.single, object );
-      return object;
-    }
-  }
+			$.data( elem, settings.single, object );
+			return object;
+		}
+	}
 });
 
 /**
@@ -142,7 +142,7 @@ $.extend({
  * @cat Plugins/Metadata
  */
 $.fn.metadata = function( opts ){
-  return $.metadata.get( this[0], opts );
+	return $.metadata.get( this[0], opts );
 };
 
 })(jQuery);

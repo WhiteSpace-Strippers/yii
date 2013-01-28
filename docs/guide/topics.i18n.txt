@@ -8,10 +8,10 @@ importance because the potential users may be worldwide.
 
 Yii provides support for I18N in several aspects.
 
-   - It provides the locale data for each possible language and variant.
-   - It provides message and file translation service.
-   - It provides locale-dependent date and time formatting.
-   - It provides locale-dependent number formatting.
+	 - It provides the locale data for each possible language and variant.
+	 - It provides message and file translation service.
+	 - It provides locale-dependent date and time formatting.
+	 - It provides locale-dependent number formatting.
 
 In the following subsections, we will elaborate each of the above aspects.
 
@@ -54,7 +54,7 @@ are written in. Internationalization occurs only when the two languages are
 different.
 
 > Tip: It's better to leave English as a source language since it will be easier
-  to find people translating from English to any other language.
+	to find people translating from English to any other language.
 
 One can configure [target language|CApplication::language] in the
 [application configuration](/doc/guide/basics.application#application-configuration), or
@@ -118,7 +118,7 @@ translated version if it is found.
 Yii comes with the following types of message sources. You may also extend
 [CMessageSource] to create your own message source type.
 
-   - [CPhpMessageSource]: the message translations are stored as key-value
+	 - [CPhpMessageSource]: the message translations are stored as key-value
 pairs in a PHP array. The original message is the key and the translated
 message is the value. Each array represents the translations for a
 particular category of messages and is stored in a separate PHP script file
@@ -127,10 +127,10 @@ language are stored under the same directory named as the locale ID. And
 all these directories are located under the directory specified by
 [basePath|CPhpMessageSource::basePath].
 
-   - [CGettextMessageSource]: the message translations are stored as [GNU
+	 - [CGettextMessageSource]: the message translations are stored as [GNU
 Gettext](http://www.gnu.org/software/gettext/) files.
 
-   - [CDbMessageSource]: the message translations are stored in database
+	 - [CDbMessageSource]: the message translations are stored in database
 tables. For more details, see the API documentation for [CDbMessageSource].
 
 A message source is loaded as an [application
@@ -143,14 +143,14 @@ translation files is `protected/messages`.
 In summary, in order to use message translation, the following steps are
 needed:
 
-   1. Call [Yii::t()|YiiBase::t] at appropriate places;
+	 1. Call [Yii::t()|YiiBase::t] at appropriate places;
 
-   2. Create PHP translation files as
+	 2. Create PHP translation files as
 `protected/messages/LocaleID/CategoryName.php`. Each file simply returns an
 array of message translations. Note, this assumes you are using the default
 [CPhpMessageSource] to store the translated messages.
 
-   3. Configure [CApplication::sourceLanguage] and [CApplication::language].
+	 3. Configure [CApplication::sourceLanguage] and [CApplication::language].
 
 > Tip: The `yiic` tool in Yii can be used to manage message translations
 when [CPhpMessageSource] is used as the message source. Its `message` command
@@ -159,9 +159,9 @@ and merge them with existing translations if necessary. For more details of usin
 the `message` command, please run `yiic help message`.
 
 When using [CPhpMessageSource] to manage message source,
-messages for an extension class (e.g. a widget, a module) can be specially managed 
-and used. In particular, if a message belongs to an extension whose class name is `Xyz`, 
-then the message category can be specified in the format of `Xyz.categoryName`. 
+messages for an extension class (e.g. a widget, a module) can be specially managed
+and used. In particular, if a message belongs to an extension whose class name is `Xyz`,
+then the message category can be specified in the format of `Xyz.categoryName`.
 The corresponding message file will be assumed to be
 `BasePath/messages/LanguageID/categoryName.php`, where `BasePath` refers to
 the directory that contains the extension class file. And when using `Yii::t()` to
@@ -340,11 +340,11 @@ property of the application.
 The [CDateFormatter] class mainly provides two methods to format a UNIX
 timestamp.
 
-   - [format|CDateFormatter::format]: this method formats the given UNIX
+	 - [format|CDateFormatter::format]: this method formats the given UNIX
 timestamp into a string according to a customized date-time pattern (e.g.
 `$dateFormatter->format('yyyy-MM-dd',$timestamp)`).
 
-   - [formatDateTime|CDateFormatter::formatDateTime]: this method formats
+	 - [formatDateTime|CDateFormatter::formatDateTime]: this method formats
 the given UNIX timestamp into a string according to a pattern predefined in
 the target locale data (e.g. `short` format of date, `long` format of
 time).
@@ -365,19 +365,19 @@ application.
 The following methods are provided by [CNumberFormatter] to format an
 integer or double value.
 
-   - [format|CNumberFormatter::format]: this method formats the given
+	 - [format|CNumberFormatter::format]: this method formats the given
 number into a string according to a customized pattern (e.g.
 `$numberFormatter->format('#,##0.00',$number)`).
 
-   - [formatDecimal|CNumberFormatter::formatDecimal]: this method formats
+	 - [formatDecimal|CNumberFormatter::formatDecimal]: this method formats
 the given number using the decimal pattern predefined in the target locale
 data.
 
-   - [formatCurrency|CNumberFormatter::formatCurrency]: this method
+	 - [formatCurrency|CNumberFormatter::formatCurrency]: this method
 formats the given number and currency code using the currency pattern
 predefined in the target locale data.
 
-   - [formatPercentage|CNumberFormatter::formatPercentage]: this method
+	 - [formatPercentage|CNumberFormatter::formatPercentage]: this method
 formats the given number using the percentage pattern predefined in the
 target locale data.
 

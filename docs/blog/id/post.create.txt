@@ -7,7 +7,7 @@ Dengan model `Post` yang siap, kita perlu mengatur action dan view dari controll
 Mengkustomisasi Access Control
 --------------------------
 
-Hal pertama yang ingin kita lakukan adalah mengkustomisasi  [access control](http://www.yiiframework.com/doc/guide/topics.auth#access-control-filter dikarenakan kode yang di-generate `yiic` tidak sesuai dengan keperluannya.
+Hal pertama yang ingin kita lakukan adalah mengkustomisasi	[access control](http://www.yiiframework.com/doc/guide/topics.auth#access-control-filter dikarenakan kode yang di-generate `yiic` tidak sesuai dengan keperluannya.
 
 Kita memodifikasi metode `accessRule()` di dalam file `/wwwroott/blog/protected/controllers/PostController.php` sebagai berikut,
 
@@ -16,21 +16,21 @@ Kita memodifikasi metode `accessRule()` di dalam file `/wwwroott/blog/protected/
 public function accessRules()
 {
 	return array(
-		array('allow',  // memungkinkan semua user melakukan action `list` dan `show`
+		array('allow',	// memungkinkan semua user melakukan action `list` dan `show`
 			'actions'=>array('index', 'view'),
 			'users'=>array('*'),
 		),
 		array('allow', // memungkinkan user yang terotentikasi ke dalam melakukan action apapun
 			'users'=>array('@'),
 		),
-		array('deny',  // tolak seluruh user.
+		array('deny',	// tolak seluruh user.
 			'users'=>array('*'),
 		),
 	);
 }
 ~~~
 
-Pada aturan di atas menetapkan bahwa semua user dapat mengakses aksi `index` dan `view` dan user yang terotentikasi pada action manapun saja,  termasuk kelas`admin`. User harus dilaran mengakses di scenario lain. Harap catat bahwa aturan-aturan ini dievaluasi dalam cara  evaluasi aturan order sekarang. Aturan pertama cocok dengan konteks sekarang dalam membuat keputusan akses. Misalnya, jika user sekarang adalah pemilik sistem yang ingin mengunjungi halaman pembuatan post, aturan kedua akan cocok dan memberikan akses kepada user.
+Pada aturan di atas menetapkan bahwa semua user dapat mengakses aksi `index` dan `view` dan user yang terotentikasi pada action manapun saja,	termasuk kelas`admin`. User harus dilaran mengakses di scenario lain. Harap catat bahwa aturan-aturan ini dievaluasi dalam cara	evaluasi aturan order sekarang. Aturan pertama cocok dengan konteks sekarang dalam membuat keputusan akses. Misalnya, jika user sekarang adalah pemilik sistem yang ingin mengunjungi halaman pembuatan post, aturan kedua akan cocok dan memberikan akses kepada user.
 
 
 Kustomisasi Operasi `create` dan `update` Operations

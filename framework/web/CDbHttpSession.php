@@ -20,9 +20,9 @@
  * <pre>
  * CREATE TABLE YiiSession
  * (
- *     id CHAR(32) PRIMARY KEY,
- *     expire INTEGER,
- *     data BLOB
+ *		 id CHAR(32) PRIMARY KEY,
+ *		 expire INTEGER,
+ *		 data BLOB
  * )
  * </pre>
  * Where 'BLOB' refers to the BLOB-type of your preffered database.

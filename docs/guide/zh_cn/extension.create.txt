@@ -178,7 +178,7 @@ class MyCommand extends CConsoleCommand
 
 Module（模块）
 ------
-请参阅[modules](/doc/guide/basics.module#creating-module)一节中关于就如何创建一个模块。 
+请参阅[modules](/doc/guide/basics.module#creating-module)一节中关于就如何创建一个模块。
 
 一般准则制订一个模块，它应该是独立的。模块所使用的资源文件（如CSS ， JavaScript ，图片），应该和模块一起分发。还有模块应发布它们，以便可以Web访问它们 。
 

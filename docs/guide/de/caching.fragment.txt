@@ -31,12 +31,12 @@ und gecacht, wenn [endCache()|CBaseController::endCache()] aufgerufen wird.
 Cache-Optionen
 --------------
 
-Die Cache-Optionen können angepasst werden, indem man als zweiten Parameter 
-ein Array beim Aufruf von [beginCache()|CBaseController::beginCache()] angibt. 
+Die Cache-Optionen können angepasst werden, indem man als zweiten Parameter
+ein Array beim Aufruf von [beginCache()|CBaseController::beginCache()] angibt.
 Eigentlich sind die Methoden
-[beginCache()|CBaseController::beginCache()]  und
+[beginCache()|CBaseController::beginCache()]	und
 [endCache()|CBaseController::endCache()] nur praktische Wrapper (
-sinngem.: Hülle, Umschlag) für das [COutputCache]-Widget. Die verfügbaren 
+sinngem.: Hülle, Umschlag) für das [COutputCache]-Widget. Die verfügbaren
 Cache-Optionen entsprechen daher den Eigenschaften von [COutputCache].
 
 ### Cachedauer
@@ -96,29 +96,29 @@ Ein Benutzerprofil kann zum Beispiel für verschiedene Benutzer unterschiedlich
 aussehen. Um den Inhalt des Profils zu cachen, soll die gecachte Kopie
 entsprechend der Benutzer-ID variieren. Das bedeuted im Wesentlichen, dass man
 beim Aufruf von [beginCache()|CBaseController::beginCache()] unterschiedliche
-IDs verwenden sollten. 
+IDs verwenden sollten.
 
 Statt vom Entwickler zu erwarten, IDs nach einem bestimmten Schema zu
 variieren, hat [COutputCache] ein solches Feature schon eingebaut. Hier eine
 Übersicht:
 
-   - [varyByRoute|COutputCache::varyByRoute]: Falls true, wird der gecachte Inhalt entsprechend der 
+	 - [varyByRoute|COutputCache::varyByRoute]: Falls true, wird der gecachte Inhalt entsprechend der
 [Route](/doc/guide/basics.controller#route) variiert. Dadurch führt jede
 Kombination aus angefordertem Controller und Action zu einem anderen
 Cache-Inhalt.
 
-   - [varyBySession|COutputCache::varyBySession]: Falls true, wird der gecachte 
+	 - [varyBySession|COutputCache::varyBySession]: Falls true, wird der gecachte
 Inhalt entsprechend der session ID variiert.
 Dadurch kann für jede Benutzer-Session unterschiedlicher Inhalt angezeigt
 werden, der jeweils vom Cache geliefert wird.
 
-   - [varyByParam|COutputCache::varyByParam]: Falls true, wird der gecachte Inhalt entsprechend den Werten der angegebenen
+	 - [varyByParam|COutputCache::varyByParam]: Falls true, wird der gecachte Inhalt entsprechend den Werten der angegebenen
 GET-Parameter variiert. Wenn eine Seite z.B. einen Beitrag entsprechend dem
 GET-Parameter `id` anzeigt, können wir [varyByParam|COutputCache::varyByParam]
 auf `array('id')` setzen, so dass der Inhalt jedes Beitrags gecacht wird.
 Ohne diese Variation könnten wir nur einen einzelnen Beitrag cachen.
 
-   - [varyByExpression|COutputCache::varyByExpression]: Indem diese Option auf
+	 - [varyByExpression|COutputCache::varyByExpression]: Indem diese Option auf
 einen PHP-Ausdruck gesetzt wird, kann der geachte Inhalt entsprechend dem
 Ergebnis dieses Ausdrucks variiert werden.
 
@@ -128,7 +128,7 @@ Manchmal möchte man Fragmente nur bei bestimmten Requests cachen.
 Bei einer Seite, die ein Formular anzeigt, soll
 dieses z.B. nur beim ersten Request (per GET-Request) gecacht werden. Bei allen
 weiteren Anfragen (per POST-Request) soll das Formular nicht gecacht werden,
-weil es evtl. Benutzereingaben enthält. Um dies zu erreichen, kann man 
+weil es evtl. Benutzereingaben enthält. Um dies zu erreichen, kann man
 [requestTypes|COutputCache::requestTypes] verwenden:
 
 ~~~

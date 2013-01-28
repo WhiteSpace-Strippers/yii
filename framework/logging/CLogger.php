@@ -17,10 +17,10 @@
  * @property array $logs List of messages. Each array element represents one message
  * with the following structure:
  * array(
- *   [0] => message (string)
- *   [1] => level (string)
- *   [2] => category (string)
- *   [3] => timestamp (float, obtained by microtime(true));.
+ *	 [0] => message (string)
+ *	 [1] => level (string)
+ *	 [2] => category (string)
+ *	 [3] => timestamp (float, obtained by microtime(true));.
  * @property float $executionTime The total time for serving the current request.
  * @property integer $memoryUsage Memory usage of the application (in bytes).
  * @property array $profilingResults The profiling results.
@@ -124,10 +124,10 @@ class CLogger extends CComponent
 	 * @return array list of messages. Each array element represents one message
 	 * with the following structure:
 	 * array(
-	 *   [0] => message (string)
-	 *   [1] => level (string)
-	 *   [2] => category (string)
-	 *   [3] => timestamp (float, obtained by microtime(true));
+	 *	 [0] => message (string)
+	 *	 [1] => level (string)
+	 *	 [2] => category (string)
+	 *	 [3] => timestamp (float, obtained by microtime(true));
 	 */
 	public function getLogs($levels='',$categories=array(), $except=array())
 	{
@@ -247,7 +247,7 @@ class CLogger extends CComponent
 			{
 				$pid=getmypid();
 				exec("ps -eo%mem,rss,pid | grep $pid", $output);
-				$output=explode("  ",$output[0]);
+				$output=explode("	",$output[0]);
 				return isset($output[1]) ? $output[1]*1024 : 0;
 			}
 		}

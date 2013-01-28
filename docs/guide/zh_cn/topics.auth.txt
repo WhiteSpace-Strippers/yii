@@ -52,7 +52,7 @@ class UserIdentity extends CUserIdentity
 			$this->errorCode=self::ERROR_NONE;
 		}
 		return !$this->errorCode;
-    }
+		}
 
 	public function getId()
 	{
@@ -200,43 +200,43 @@ class PostController extends CController
 > ~~~
 > [php]
 > return array(
->     // ... 别的规则...
->     // 以下匹配所有人规则拒绝'delete'动作
->     array('deny',
->         'action'=>'delete',
->     ),
+>		 // ... 别的规则...
+>		 // 以下匹配所有人规则拒绝'delete'动作
+>		 array('deny',
+>				 'action'=>'delete',
+>		 ),
 > );
 > ~~~
 > 因为如果没有设置规则匹配动作，动作缺省会被执行。
 
 访问规则通过如下的上下文参数设置：
 
-   - [actions|CAccessRule::actions]: 设置哪个动作匹配此规则。
+	 - [actions|CAccessRule::actions]: 设置哪个动作匹配此规则。
 
-   - [users|CAccessRule::users]: 设置哪个用户匹配此规则。
+	 - [users|CAccessRule::users]: 设置哪个用户匹配此规则。
 此当前用户的[name|CWebUser::name] 被用来匹配. 三种设定字符在这里可以用：
 
-	   - `*`: 任何用户，包括匿名和验证通过的用户。
-	   - `?`: 匿名用户。
-	   - `@`: 验证通过的用户。
+		 - `*`: 任何用户，包括匿名和验证通过的用户。
+		 - `?`: 匿名用户。
+		 - `@`: 验证通过的用户。
 
-   - [roles|CAccessRule::roles]: 设定哪个角色匹配此规则。
+	 - [roles|CAccessRule::roles]: 设定哪个角色匹配此规则。
 这里用到了将在后面描述的[role-based access control](#role-based-access-control)技术。In particular, the rule is applied if [CWebUser::checkAccess] returns true for one of the roles.提示，用户角色应该被设置成`allow`规则，因为角色代表能做某些事情。
 
-   - [ips|CAccessRule::ips]: 设定哪个客户端IP匹配此规则。
+	 - [ips|CAccessRule::ips]: 设定哪个客户端IP匹配此规则。
 
-   - [verbs|CAccessRule::verbs]: 设定哪种请求类型(例如：`GET`, `POST`)匹配此规则。
+	 - [verbs|CAccessRule::verbs]: 设定哪种请求类型(例如：`GET`, `POST`)匹配此规则。
 
-   - [expression|CAccessRule::expression]: 设定一个PHP表达式。它的值用来表明这条规则是否适用。在表达式，你可以使用一个叫`$user`的变量，它代表的是`Yii::app()->user`。这个选项是在1.0.3版本里引入的。
+	 - [expression|CAccessRule::expression]: 设定一个PHP表达式。它的值用来表明这条规则是否适用。在表达式，你可以使用一个叫`$user`的变量，它代表的是`Yii::app()->user`。这个选项是在1.0.3版本里引入的。
 
 
 ### 授权处理结果（Handling Authorization Result）
 
 当授权失败，即，用户不允许执行此动作，以下的两种可能将会产生：
 
-   - 如果用户没有登录和在用户部件中配置了[loginUrl|CWebUser::loginUrl]，浏览器将重定位网页到此配置URL。
+	 - 如果用户没有登录和在用户部件中配置了[loginUrl|CWebUser::loginUrl]，浏览器将重定位网页到此配置URL。
 
-   - 否则一个错误代码401的HTTP例外将显示。
+	 - 否则一个错误代码401的HTTP例外将显示。
 
 当配置[loginUrl|CWebUser::loginUrl] 属性，可以用相对和绝对URL。还可以使用数组通过[CWebApplication::createUrl]来生成URL。第一个元素将设置[route](/doc/guide/basics.controller#route) 为登录控制器动作，其他为名-值成对形式的GET参数。如下，
 
@@ -315,7 +315,7 @@ if(Yii::app()->user->checkAccess('deletePost'))
 
 在我们准备定义一个授权等级体系并执行访问权限检查之前，
 我们需要配置一下 [authManager|CWebApplication::authManager] 应用组件。
-Yii 提供了两种授权管理器：  [CPhpAuthManager] 和
+Yii 提供了两种授权管理器：	[CPhpAuthManager] 和
 [CDbAuthManager]。前者将授权数据存储在一个 PHP 脚本文件中而后者存储在数据库中。
 配置 [authManager|CWebApplication::authManager] 应用组件时，我们需要指定使用哪个授权管理器组件类，
 以及所选授权管理器组件的初始化属性值。例如：
@@ -347,21 +347,21 @@ return array(
 
 要定义一个授权项目，可调用下列方法之一，具体取决于项目的类型：
 
-   - [CAuthManager::createRole]
-   - [CAuthManager::createTask]
-   - [CAuthManager::createOperation]
+	 - [CAuthManager::createRole]
+	 - [CAuthManager::createTask]
+	 - [CAuthManager::createOperation]
 
 建立授权项目之后，我们就可以调用下列方法建立授权项目之间的关系：
 
-   - [CAuthManager::addItemChild]
-   - [CAuthManager::removeItemChild]
-   - [CAuthItem::addChild]
-   - [CAuthItem::removeChild]
+	 - [CAuthManager::addItemChild]
+	 - [CAuthManager::removeItemChild]
+	 - [CAuthItem::addChild]
+	 - [CAuthItem::removeChild]
 
 最后，我们调用下列方法将角色分配给用户。
 
-   - [CAuthManager::assign]
-   - [CAuthManager::revoke]
+	 - [CAuthManager::assign]
+	 - [CAuthManager::revoke]
 
 下面的代码演示了使用 Yii 提供的 API 构建一个授权体系的例子：
 

@@ -52,7 +52,7 @@ class UserIdentity extends CUserIdentity
 ユーザが入力したパスワードを検証する際は、パスワードではなくハッシュの結果を比較することになります。
 パスワードのハッシュと検証には、PHP の組み込み関数である `crypt()` を使います。
 詳細な解説としては、Wiki 記事 [Use crypt() for password storage](http://www.yiiframework.com/wiki/425) を参照して下さい。
- 
+
 
 ~~~
 [php]
@@ -80,12 +80,12 @@ class User extends CActiveRecord
 > ~~~
 > [php]
 > return array(
->     ......
->     'import'=>array(
->         'application.models.*',
->         'application.components.*',
->     ),
->     ......
+>		 ......
+>		 'import'=>array(
+>				 'application.models.*',
+>				 'application.components.*',
+>		 ),
+>		 ......
 > );
 > ~~~
 >

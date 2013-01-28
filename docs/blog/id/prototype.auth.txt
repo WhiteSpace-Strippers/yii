@@ -72,12 +72,12 @@ Di dalam kelas `UserIdentity`, kita juga meng-override method `getId()` yang men
 > ~~~
 > [php]
 > return array(
->     ......
->     'import'=>array(
->         'application.models.*',
->         'application.components.*',
->     ),
->     ......
+>		 ......
+>		 'import'=>array(
+>				 'application.models.*',
+>				 'application.components.*',
+>		 ),
+>		 ......
 > );
 > ~~~
 >

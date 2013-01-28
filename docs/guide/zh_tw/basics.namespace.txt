@@ -44,9 +44,9 @@ RootAlias.path.to.target
 Yii::import('system.web.CController');
 ~~~
 
-[import|YiiBase::import] 方法跟  `include` 和 `require` 不同，它更加有效率。
+[import|YiiBase::import] 方法跟	`include` 和 `require` 不同，它更加有效率。
 導入（import）的類別定義並不會真正被包含進來，直到它第一次被引用。
-多次導入同樣的命名空間也會比  `include_once` 和 `require_once` 快得多。
+多次導入同樣的命名空間也會比	`include_once` 和 `require_once` 快得多。
 
 > Tip|提示: 當引用 Yii 框架定義的類別時，我們不需要導入或包含它。所有的核心 Yii
 類別都已被提前導入了。
@@ -100,10 +100,10 @@ Yii::import('system.web.*');
 使用命名空間的類別是指一個在非全域命名空間下宣告的類別。比如說，類別 `application\components\GoogleMap`
 是在命名空間 `application\components` 下的類別。使用命名空間需要 PHP 5.3.0 或者以上版本。
 
-從 1.1.5 開始，可以無需清楚的載入而使用一個包含命名空間的類別。比如說，我們可以建立一個 `application\components\GoogleMap` 
+從 1.1.5 開始，可以無需清楚的載入而使用一個包含命名空間的類別。比如說，我們可以建立一個 `application\components\GoogleMap`
 的實體而無需去處理載入的路徑，這樣就增強了 Yii 的自動導入機制。
 
-若要自動導入使用命名空間的類別，命名空間的格式必須和路徑別名相似。比如說，類別 `application\components\GoogleMap` 
+若要自動導入使用命名空間的類別，命名空間的格式必須和路徑別名相似。比如說，類別 `application\components\GoogleMap`
 所對應的路徑必須和別名 `application.components.GoogleMap` 一致。
 
 所以，要使用自訂的命名空間，其開頭是 `\mynamespace` 且位於 `/var/www/common/mynamespace/` 的類別，你只需要定義他的路徑別名如下：
@@ -117,7 +117,7 @@ Yii::setPathOfAlias('mynamespace', '/var/www/common/mynamespace/');
 命名空間的控制器
 ----------------------
 
-Yii 預設是使用全域命名空間的控制器，這些類別位於 `protected/controllers`，有兩種方式可以改變他的行為：使用  `controllerMap` 或是 `controllerNamespace`。前者允許在不同的命名空間使用控制器，後者則需要在為所有控制器設定一個共同的命名空間時做一些額外的設定。
+Yii 預設是使用全域命名空間的控制器，這些類別位於 `protected/controllers`，有兩種方式可以改變他的行為：使用	`controllerMap` 或是 `controllerNamespace`。前者允許在不同的命名空間使用控制器，後者則需要在為所有控制器設定一個共同的命名空間時做一些額外的設定。
 
 ### 使用 `controllerMap`
 
@@ -138,7 +138,7 @@ return array(
 	),
 ~~~
 
-當使用者試著載入 `controllerMap` 中定義的任一個控制器，Yii 不會透過一般控制器的載入方式來載入類別。在 `test` 情況下，Yii 會載入位於 `/var/www/common/mynamespace/controllers/TestController.php` 這個命名空間的類別 `\mynamespace\controllers\TestController`。 
+當使用者試著載入 `controllerMap` 中定義的任一個控制器，Yii 不會透過一般控制器的載入方式來載入類別。在 `test` 情況下，Yii 會載入位於 `/var/www/common/mynamespace/controllers/TestController.php` 這個命名空間的類別 `\mynamespace\controllers\TestController`。
 
 注意控制器的程式碼必須正確的給予命名空間：
 
@@ -170,13 +170,13 @@ class TestController extends \CController
 
 ~~~
 /var/www/common/mynamespace/modules
-  testmodule
-    controllers
-      DefaultController.php
-    views
-      default
-        index.php
-    TestmoduleModule.php
+	testmodule
+		controllers
+			DefaultController.php
+		views
+			default
+				index.php
+		TestmoduleModule.php
 ~~~
 
 `index.php` 視圖跟在一般的模組裡一樣。 `TestmoduleModule.php` 和 `DefaultController.php` 則是被置於命名空間。

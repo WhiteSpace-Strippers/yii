@@ -9,7 +9,7 @@ schimbarea sistemului DBMS. Mai mult, Yii AR (Active Record), o abordare ORM foa
 simplifica si mai mult programarea cu bazele de date. Prin reprezentarea unei tabele ca fiind
 o clasa, si prin reprezentarea unui rand din aceasta tabela ca fiind o instanta a clasei,
 Yii AR elimina task-ul repetitiv de a scrie acele instructiuni SQL care in majoritatea cazurilor
-sunt doar instructiuni CRUD (create, read, update si delete). 
+sunt doar instructiuni CRUD (create, read, update si delete).
 
 Desi Yii DAO si Yii AR se pot descurca in aproape toate situatiile, putem totusi
 folosi propriile noastre biblioteci de acces la baze de date. De fapt, platforma Yii

@@ -20,11 +20,11 @@
  * we should have the following application configuration:
  * <pre>
  * return array(
- *     'components'=>array(
- *         'widgetFactory'=>array(
- *             'class'=>'CWidgetFactory',
- *         ),
- *     ),
+ *		 'components'=>array(
+ *				 'widgetFactory'=>array(
+ *						 'class'=>'CWidgetFactory',
+ *				 ),
+ *		 ),
  * )
  * </pre>
  *
@@ -48,14 +48,14 @@
  * the {@link CLinkPager} widget:
  * <pre>
  * return array(
- *     'default'=>array(
- *         'nextPageLabel'=>'&gt;&gt;',
- *         'prevPageLabel'=>'&lt;&lt;',
- *     ),
- *     'short'=>array(
- *         'header'=>'',
- *         'maxButtonCount'=>5,
- *     ),
+ *		 'default'=>array(
+ *				 'nextPageLabel'=>'&gt;&gt;',
+ *				 'prevPageLabel'=>'&lt;&lt;',
+ *		 ),
+ *		 'short'=>array(
+ *				 'header'=>'',
+ *				 'maxButtonCount'=>5,
+ *		 ),
  * );
  * </pre>
  * In the above, there are two skins. The first one is the default skin which is indexed by the string "default".
@@ -90,13 +90,13 @@ class CWidgetFactory extends CApplicationComponent implements IWidgetFactory
 	 * property value array. For example,
 	 * <pre>
 	 * array(
-	 *     'CLinkPager'=>array(
-	 *         'maxButtonCount'=>5,
-	 *         'cssFile'=>false,
-	 *     ),
-	 *     'CJuiDatePicker'=>array(
-	 *         'language'=>'ru',
-	 *     ),
+	 *		 'CLinkPager'=>array(
+	 *				 'maxButtonCount'=>5,
+	 *				 'cssFile'=>false,
+	 *		 ),
+	 *		 'CJuiDatePicker'=>array(
+	 *				 'language'=>'ru',
+	 *		 ),
 	 * )
 	 * </pre>
 	 *
@@ -120,7 +120,7 @@ class CWidgetFactory extends CApplicationComponent implements IWidgetFactory
 	 */
 	public $skinPath;
 
-	private $_skins=array();  // class name, skin name, property name => value
+	private $_skins=array();	// class name, skin name, property name => value
 
 	/**
 	 * Initializes the application component.

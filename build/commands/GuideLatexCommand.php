@@ -6,11 +6,11 @@ class GuideLatexCommand extends CConsoleCommand
 	{
 		return <<<EOD
 USAGE
-  yiic guidelatex
+	yiic guidelatex
 
 DESCRIPTION
-  This command generates latex files for the definitive guide.
-  The generated latex files are stored in the guide directory.
+	This command generates latex files for the definitive guide.
+	The generated latex files are stored in the guide directory.
 
 EOD;
 	}

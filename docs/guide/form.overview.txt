@@ -10,9 +10,9 @@ MVC architecture.
 
 The following steps are typically needed when dealing with forms in Yii:
 
-   1. Create a model class representing the data fields to be collected;
-   1. Create a controller action with code that responds to form submission.
-   1. Create a form in the view script file associated with the controller action.
+	 1. Create a model class representing the data fields to be collected;
+	 1. Create a controller action with code that responds to form submission.
+	 1. Create a form in the view script file associated with the controller action.
 
 In the next subsections, we describe each of these steps in detail.
 

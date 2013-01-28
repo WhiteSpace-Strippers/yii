@@ -143,30 +143,30 @@ class CMssqlCommandBuilder extends CDbCommandBuilder
 	 *
 	 * <code>
 	 * SELECT * FROM (
-	 *  SELECT TOP n * FROM (
-	 *    SELECT TOP z columns      -- (z=n+skip)
-	 *    FROM tablename
-	 *    ORDER BY key ASC
-	 *  ) AS FOO ORDER BY key DESC -- ('FOO' may be anything)
-	 * ) AS BAR ORDER BY key ASC    -- ('BAR' may be anything)
+	 *	SELECT TOP n * FROM (
+	 *		SELECT TOP z columns			-- (z=n+skip)
+	 *		FROM tablename
+	 *		ORDER BY key ASC
+	 *	) AS FOO ORDER BY key DESC -- ('FOO' may be anything)
+	 * ) AS BAR ORDER BY key ASC		-- ('BAR' may be anything)
 	 * </code>
 	 *
 	 * <b>Regular expressions are used to alter the SQL query. The resulting SQL query
 	 * may be malformed for complex queries.</b> The following restrictions apply
 	 *
 	 * <ul>
-	 *   <li>
+	 *	 <li>
 	 * In particular, <b>commas</b> should <b>NOT</b>
 	 * be used as part of the ordering expression or identifier. Commas must only be
 	 * used for separating the ordering clauses.
-	 *   </li>
-	 *   <li>
+	 *	 </li>
+	 *	 <li>
 	 * In the ORDER BY clause, the column name should NOT be be qualified
 	 * with a table name or view name. Alias the column names or use column index.
-	 *   </li>
-	 *   <li>
+	 *	 </li>
+	 *	 <li>
 	 * No clauses should follow the ORDER BY clause, e.g. no COMPUTE or FOR clauses.
-	 *   </li>
+	 *	 </li>
 	 * </ul>
 	 *
 	 * @param string $sql SQL query string.

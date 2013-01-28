@@ -96,13 +96,13 @@ array(
 
 上述，該陣列包含了一些客製化的選項。版本 1.1.0 後，有這些選項可供選擇：
 
-   - [urlSuffix|CUrlRule::urlSuffix]: URL 規則的後綴。預設是 null，表示使用 [CUrlManager::urlSuffix] 的值。
+	 - [urlSuffix|CUrlRule::urlSuffix]: URL 規則的後綴。預設是 null，表示使用 [CUrlManager::urlSuffix] 的值。
 
-   - [caseSensitive|CUrlRule::caseSensitive]: 是否大小寫敏感。預設是 null，表示使用 [CUrlManager::caseSensitive] 的值。
+	 - [caseSensitive|CUrlRule::caseSensitive]: 是否大小寫敏感。預設是 null，表示使用 [CUrlManager::caseSensitive] 的值。
 
-   - [defaultParams|CUrlRule::defaultParams]: 預設的 GET 參數 (name=>value) 規則。當這個規則被用來剖析傳入的需求時，這屬性的值將會被置入 $_GET。
+	 - [defaultParams|CUrlRule::defaultParams]: 預設的 GET 參數 (name=>value) 規則。當這個規則被用來剖析傳入的需求時，這屬性的值將會被置入 $_GET。
 
-   - [matchValue|CUrlRule::matchValue]: 當建立的 URL 時，GET 參數的值是否與規則的子樣式匹配。預設是空值，代表使用 [CUrlManager::matchValue] 的值。如果這個屬性是 false，代表一個規則會被用來建立 URL ，如果他的路由和給定的參數相互對應。如果這個屬性是 true，納給定的參數值必須和子模式的參數相對應。注意一點，將這個屬性設為 true 會降低效能。
+	 - [matchValue|CUrlRule::matchValue]: 當建立的 URL 時，GET 參數的值是否與規則的子樣式匹配。預設是空值，代表使用 [CUrlManager::matchValue] 的值。如果這個屬性是 false，代表一個規則會被用來建立 URL ，如果他的路由和給定的參數相互對應。如果這個屬性是 true，納給定的參數值必須和子模式的參數相對應。注意一點，將這個屬性設為 true 會降低效能。
 
 
 ### 使用命名的參數
@@ -126,19 +126,19 @@ array(
 )
 ~~~
 
-   - 調用 `$this->createUrl('post/list')` 產生 `/index.php/posts`。第一個規則適用。
+	 - 調用 `$this->createUrl('post/list')` 產生 `/index.php/posts`。第一個規則適用。
 
-   - 調用 `$this->createUrl('post/read',array('id'=>100))` 產生 `/index.php/post/100`。第二個規則適用。
+	 - 調用 `$this->createUrl('post/read',array('id'=>100))` 產生 `/index.php/post/100`。第二個規則適用。
 
-   - 調用 `$this->createUrl('post/read',array('year'=>2008,'title'=>'a sample post'))` 產生 `/index.php/post/2008/a%20sample%20post`。第三個規則適用。
+	 - 調用 `$this->createUrl('post/read',array('year'=>2008,'title'=>'a sample post'))` 產生 `/index.php/post/2008/a%20sample%20post`。第三個規則適用。
 
-   - 調用 `$this->createUrl('post/read')` 產生 `/index.php/post/read`。請注意，沒有規則適用。
+	 - 調用 `$this->createUrl('post/read')` 產生 `/index.php/post/read`。請注意，沒有規則適用。
 
 總之，當使用 [createUrl|CController::createUrl] 產生網址，路由和傳遞給該方法的 GET 參數被用來決定哪些網址規則適用。如果關聯規則中的每個參數可以在 GET 參數找到的，將被傳遞給 [createUrl|CController::createUrl]，如果路由的規則也匹配路由參數，規則將用來產生網址。
 
 如果 GET 參數傳遞到[createUrl|CController::createUrl]是以上所要求的一項規則，其他參數將出現在查詢字串。例如，如果我們調用 `$this->createUrl('post/read',array('id'=>100,'year'=>2008))` ，我們將獲得 `/index.php/post/100?year=2008`。為了使這些額外參數出現在路徑訊息的一部分，我們應該給規則附加 `/*`。 因此，該規則 `post/<id:\d+>/*`，我們可以取得網址 `/index.php/post/100/year/2008`。
 
-正如我們提到的，URL 規則的其他用途是解析請求網址。當然，這是 URL 產生的一個逆向過程。例如， 
+正如我們提到的，URL 規則的其他用途是解析請求網址。當然，這是 URL 產生的一個逆向過程。例如，
 當使用者請求 `/index.php/post/100`，上面例子的第二個規則將適用來解析路由 `post/read` 和 GET 參數 `array('id'=>100)`（可通過 `$_GET` 獲得）。
 
 > 註：使用的URL規則將降低應用程式的性能。這是因為當解析請求的 URL，[ CUrlManager ]嘗試使用每個規則來匹配它，直到某個規則可以適用。因此，高流量網站應用程式應盡量減少其使用的 URL 規則。
@@ -233,8 +233,8 @@ array(
 
 	// 一個自定 URL 規則，用來處理 '/Manufacturer/Model'
 	array(
-	    'class' => 'application.components.CarUrlRule',
-	    'connectionID' => 'db',
+			'class' => 'application.components.CarUrlRule',
+			'connectionID' => 'db',
 	),
 
 	// 一個標準的 URL 規則，用來處理 'post/update' 等
@@ -260,7 +260,7 @@ class CarUrlRule extends CBaseUrlRule
 			else if (isset($params['manufacturer']))
 				return $params['manufacturer'];
 		}
-		return false;  // 這個規則沒套用
+		return false;	// 這個規則沒套用
 	}
 
 	public function parseUrl($manager,$request,$pathInfo,$rawPathInfo)
@@ -272,7 +272,7 @@ class CarUrlRule extends CBaseUrlRule
 			// 如果有，設定 $_GET['manufacturer'] 和/或 $_GET['model']
 			// 並回傳 'car/index'
 		}
-		return false;  // 這個規則沒套用
+		return false;	// 這個規則沒套用
 	}
 }
 ~~~

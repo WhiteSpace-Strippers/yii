@@ -30,7 +30,7 @@ return array(
 );
 ~~~
 
-Kode di atas menginstalasi sebuah module bernama `gii`, yang memungkinkan kita mengakses module Gii  lewat browser dengan membuka URL berikut ini:
+Kode di atas menginstalasi sebuah module bernama `gii`, yang memungkinkan kita mengakses module Gii	lewat browser dengan membuka URL berikut ini:
 
 ~~~
 http://www.example.com/blog/index.php?r=gii
@@ -77,7 +77,7 @@ Ulangi langkah yang sama untuk model `Comment`.
 Mari lihat file-file yang dihasilkan oleh generator CRUD. Semua file yang dihasilkan berada di dalam `/wwwroot/blog/protected`. Untuk kemudahan, kita mengelompokkan mereka ke dalam file [controller](http://www.yiiframework.com/doc/guide/basics.controller) dan [view](http://www.yiiframework.com/doc/guide/basics.view):
 
  - file controller:
-         * `controllers/PostController.php` berisi kelas `PostController` yang bertanggung jawab atas seluruh operasi CRUD pada post;
+				 * `controllers/PostController.php` berisi kelas `PostController` yang bertanggung jawab atas seluruh operasi CRUD pada post;
 	 * `controllers/CommentController.php` berisi kelas `CommentController` yang bertanggung jawab atas seluruh operasi CRUD pada komentar;
 
  - file view::
@@ -108,7 +108,7 @@ Perhatikan bahwa kode yang di-generate mengimplementasikan fitur post dan koment
 Guna memahami lebih baik bagaimana file-file di atas digunakan, kita tampilkan alur kerja yang terjadi pada aplikasi blog ketika menampilkan sebuah daftar post:
 
  0. User me-request URL `http://www.example.com/blog/index.php?r=post`;
- 1. Server Web menjalankan [entry script](http://www.yiiframework.com/doc/guide/basics.entry) , yang  membuat dan menginisialisasi sebuah instance [aplikasi](http://www.yiiframework.com/doc/guide/basics.application) untuk menangani request tersebut;
+ 1. Server Web menjalankan [entry script](http://www.yiiframework.com/doc/guide/basics.entry) , yang	membuat dan menginisialisasi sebuah instance [aplikasi](http://www.yiiframework.com/doc/guide/basics.application) untuk menangani request tersebut;
  2. Aplikasi membuat sebuah instance `PostController` dan mejalankannya;
  3. Instance dari `PostController` menjalankan action `index` dengan memanggil method `actionIndex()`. Harap diperhatikan bawah `index` merupakan action default jika user tidak menentukan action apa yang dijalankan di URL;
  4. Method `actionIndex()` meng-query database untuk mendapatkan daftar post terbaru;

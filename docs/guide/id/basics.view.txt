@@ -7,7 +7,7 @@ tidak mengubah model data dan harus tetap relatif sederhana. Guna mempertahankan
 pemisahan logika dan penampilan, bagian besar dari logika harus ditempatkan
 dalam controller ataupun model alih-alih view.
 
-View  memiliki nama yang dipakai untuk mengidentifikasi file skrip tampilan
+View	memiliki nama yang dipakai untuk mengidentifikasi file skrip tampilan
 saat me-render. Nama view sama seperti nama file skrip view-nya.
 Sebagai contoh, file view `edit` merujuk pada file skrip bernama
 `edit.php`. Untuk me-render view, pangil [CController::render()] dengan
@@ -28,7 +28,7 @@ $this->render('edit', array(
 ));
 ~~~
 
-Dalam contoh di atas, metode [render()|CController::render] akan mengurai parameter array 
+Dalam contoh di atas, metode [render()|CController::render] akan mengurai parameter array
 kedua ke dalam variabel. Hasilnya, dalam skrip view kita dapat mengakses
 variabel lokal `$var1` dan `$var2`.
 
@@ -61,8 +61,8 @@ Widget
 Widget adalah istance dari [CWidget] atau anak kelas dari [CWidget]. Komponen yang
 terutama ditujukan guna keperluan penampilan. Widget biasanya disertakan dalam skrip
 view untuk menghasilkan beberapa antar muka pengguna yang kompleks dan berdiri sendiri. Sebagai
-contoh, widget kalender bisa dipakai untuk menyiapkan antar muka kalender pengguna yang 
-kompleks. Widget memungkinkan reusability (pemakaian kembali) yang 
+contoh, widget kalender bisa dipakai untuk menyiapkan antar muka kalender pengguna yang
+kompleks. Widget memungkinkan reusability (pemakaian kembali) yang
 lebih baik dalam antar muka pengguna.
 
 Untuk menggunakan widget, lakukan seperti berikut dalam skrip view:
@@ -131,7 +131,7 @@ View Sistem
 ---------------
 
 View(tampilan) sistem merujuk pada tampilan yang dipakai oleh Yii untuk menampilkan kesalahan dan pencatatan(logging)
-informasi. Sebagai contoh, ketika permintaan pengguna untuk controller atau aksi 
+informasi. Sebagai contoh, ketika permintaan pengguna untuk controller atau aksi
 yang tidak ada, Yii akan memunculkan exception yang menjelaskan kesalahan. Yii menampilkan
 exception menggunakan tampilan sistem tertentu.
 
@@ -140,7 +140,7 @@ tampilan untuk menampilkan [CHttpException] dengan kode kesalahan `XXX`. Sebagai
 akan ditampilkan.
 
 Yii menyediakan satu set tampilan sistem default yang ditempatkan di bawah
-`framework/views`. View-view ini bisa dikustomisasi dengan membuat file tampilan 
+`framework/views`. View-view ini bisa dikustomisasi dengan membuat file tampilan
 yang sama dengan nama yang sama di bawah `protected/views/system`.
 
 <div class="revision">$Id: basics.view.txt 3251 2011-06-01 00:24:06Z qiang.xue $</div>

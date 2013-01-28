@@ -266,7 +266,7 @@ function renderFile($_file_,$_params_=array())
 	require($_file_);
 }
 
-$result=1;  // 1: all pass, 0: fail, -1: pass with warnings
+$result=1;	// 1: all pass, 0: fail, -1: pass with warnings
 
 foreach($requirements as $i=>$requirement)
 {

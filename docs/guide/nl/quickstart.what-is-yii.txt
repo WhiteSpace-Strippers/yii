@@ -33,7 +33,7 @@ Hoe is Yii vergeleken met andere frameworks?
 Zoals de meeste PHP-frameworks is Yii een MVC-framework.
 
 Yii blinkt uit ten opzichte van andere PHP-frameworks doordat het efficiënt,
-rijk aan features en duidelijk gedocumenteerd is. Van het begin af aan is Yii 
+rijk aan features en duidelijk gedocumenteerd is. Van het begin af aan is Yii
 zorgvuldig ontworpen voor serieuze webapplicatieontwikkeling. Het is noch een
 bijproduct van een of ander project, noch een samengesteld product uit werk
 van derden. Het is het resultaat van de rijke ervaring van de auteur op het

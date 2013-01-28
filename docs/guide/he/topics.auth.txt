@@ -23,27 +23,27 @@ Yii מגיעה עם מערכת אימות וניהול משתמשים מובנת
 [php]
 class UserIdentity extends CUserIdentity
 {
-    private $_id;
-    public function authenticate()
-    {
-        $record=User::model()-»findByAttributes(array('username'=»$this-»username));
-        if($record===null)
-            $this-»errorCode=self::ERROR_USERNAME_INVALID;
-        else if($record-»password!==md5($this-»password))
-            $this-»errorCode=self::ERROR_PASSWORD_INVALID;
-        else
-        {
-            $this-»_id=$record-»id;
-            $this-»setState('title', $record-»title);
-            $this-»errorCode=self::ERROR_NONE;
-        }
-        return !$this-»errorCode;
-    }
+		private $_id;
+		public function authenticate()
+		{
+				$record=User::model()-»findByAttributes(array('username'=»$this-»username));
+				if($record===null)
+						$this-»errorCode=self::ERROR_USERNAME_INVALID;
+				else if($record-»password!==md5($this-»password))
+						$this-»errorCode=self::ERROR_PASSWORD_INVALID;
+				else
+				{
+						$this-»_id=$record-»id;
+						$this-»setState('title', $record-»title);
+						$this-»errorCode=self::ERROR_NONE;
+				}
+				return !$this-»errorCode;
+		}
 
-    public function getId()
-    {
-        return $this-»_id;
-    }
+		public function getId()
+		{
+				return $this-»_id;
+		}
 }
 ~~~
 
@@ -61,9 +61,9 @@ class UserIdentity extends CUserIdentity
 // חיבור משתמש עם שם המשתמש והסיסמא
 $identity=new UserIdentity($username,$password);
 if($identity-»authenticate())
-    Yii::app()-»user-»login($identity);
+		Yii::app()-»user-»login($identity);
 else
-    echo $identity-»errorMessage;
+		echo $identity-»errorMessage;
 ......
 // ניתוק המשתמש הנוכחי
 Yii::app()-»user-»logout();
@@ -94,13 +94,13 @@ Yii::app()-»user-»login($identity,3600*24*7);
 [php]
 class PostController extends CController
 {
-    ......
-    public function filters()
-    {
-        return array(
-            'accessControl',
-        );
-    }
+		......
+		public function filters()
+		{
+				return array(
+						'accessControl',
+				);
+		}
 }
 ~~~
 
@@ -110,24 +110,24 @@ class PostController extends CController
 [php]
 class PostController extends CController
 {
-    ......
-    public function accessRules()
-    {
-        return array(
-            array('deny',
-                'actions'=»array('create', 'edit'),
-                'users'=»array('?'),
-            ),
-            array('allow',
-                'actions'=»array('delete'),
-                'roles'=»array('admin'),
-            ),
-            array('deny',
-                'actions'=»array('delete'),
-                'users'=»array('*'),
-            ),
-        );
-    }
+		......
+		public function accessRules()
+		{
+				return array(
+						array('deny',
+								'actions'=»array('create', 'edit'),
+								'users'=»array('?'),
+						),
+						array('allow',
+								'actions'=»array('delete'),
+								'roles'=»array('admin'),
+						),
+						array('deny',
+								'actions'=»array('delete'),
+								'users'=»array('*'),
+						),
+				);
+		}
 }
 ~~~
 
@@ -139,11 +139,11 @@ class PostController extends CController
 » ~~~
 » [php]
 » return array(
-»     // ...חוקים נוספים....
-»     // החוק הבא מונע גישה לפעולה של מחיקה `delete` בכל ההקשרים
-»     array('deny',
-»         'actions'=»array('delete'),
-»     ),
+»		 // ...חוקים נוספים....
+»		 // החוק הבא מונע גישה לפעולה של מחיקה `delete` בכל ההקשרים
+»		 array('deny',
+»				 'actions'=»array('delete'),
+»		 ),
 » );
 » ~~~
 » הסיבה שאנו מוסיפים את החוק הזה בסוף הוא כדי למנוע הרצה של הפעולה `delete` במידה ולא נמצא שום הקשר למשתמש הנוכחי. אחרת הפעולה תרוץ אם לאף אחד מהחוקים שמעליו לא נמצאה התאמה.
@@ -156,9 +156,9 @@ class PostController extends CController
 
 - [users|CAccessRule::users]: מציין אילו משתמשים החוק הזה תקף לגביהם ויהיה ניסיון התאמה. הערך שעליו תתבצע ההשואה הוא שם המשתמש - [name|CWebUser::name] ברכיב המשתמשים. ההשוואה בין השמות אינה רגישה לאותיות גדולות-קטנות. ניתן להשתמש כאן בשלושה תווים מיוחדים:
 
-  - `*`: כל משתמש, הכולל גם את המשתמשים האנונימיים והמשתמשים שפרטיהם אומתו (מחוברים).
-  - `?`: משתמשים אנונימים.
-  - `@`: משתמשים אשר פרטיהם אומתו (מחוברים).
+	- `*`: כל משתמש, הכולל גם את המשתמשים האנונימיים והמשתמשים שפרטיהם אומתו (מחוברים).
+	- `?`: משתמשים אנונימים.
+	- `@`: משתמשים אשר פרטיהם אומתו (מחוברים).
 
 - [roles|CAccessRule::roles]: מציין אילו תפקידים (קבוצות) החוק הזה תקף לגביהם ויהיה ניסיון התאמה. אפשרות זו נעזרת [בניהול גישות המבוססת על תפקידים (קבוצות)](#role-based-access-control) אשר מתוארת בחלק הבא. חוק זה מצורף אם [CWebUser::checkAccess] מחזיר ערך true לאחד התפקידים. זכור, רצוי להשתמש בתפקידים בחוק שהוא מוגדר כ `allow` ולא `deny` מאחר ועל פי ההגדרה, תפקיד מייצג הרשאה לבצע פעולה מסויימת. כמו כן, רצוי לזכור שלמרות שאנו משתמשים במונח תפקידים (`roles`) במקרה הזה, הערך שלו יכול להיות כל ערך הרשאתי, הכולל תפקידים, משימות ופעולות.
 
@@ -181,13 +181,13 @@ class PostController extends CController
 ~~~
 [php]
 array(
-    ......
-    'components'=»array(
-        'user'=»array(
-            // זהו בעצם ערך ברירת המחדל
-            'loginUrl'=»array('site/login'),
-        ),
-    ),
+		......
+		'components'=»array(
+				'user'=»array(
+						// זהו בעצם ערך ברירת המחדל
+						'loginUrl'=»array('site/login'),
+				),
+		),
 )
 ~~~
 
@@ -223,7 +223,7 @@ Yii מיישם תכנית RBAC היררכי בעזרת הרכיב [authManager|C
 [php]
 if(Yii::app()-»user-»checkAccess('deletePost'))
 {
-    // מחיקת ההודעה
+		// מחיקת ההודעה
 }
 ~~~
 
@@ -235,16 +235,16 @@ if(Yii::app()-»user-»checkAccess('deletePost'))
 ~~~
 [php]
 return array(
-    'components'=»array(
-        'db'=»array(
-            'class'=»'CDbConnection',
-            'connectionString'=»'sqlite:path/to/file.db',
-        ),
-        'authManager'=»array(
-            'class'=»'CDbAuthManager',
-            'connectionID'=»'db',
-        ),
-    ),
+		'components'=»array(
+				'db'=»array(
+						'class'=»'CDbConnection',
+						'connectionString'=»'sqlite:path/to/file.db',
+				),
+				'authManager'=»array(
+						'class'=»'CDbAuthManager',
+						'connectionID'=»'db',
+				),
+		),
 );
 ~~~
 
@@ -256,21 +256,21 @@ return array(
 
 כדי להגדיר פריט הרשאה, יש לקרוא לאחת מהמתודות הבאות, תלוי בסוג הפריט:
 
-   - [CAuthManager::createRole]
-   - [CAuthManager::createTask]
-   - [CAuthManager::createOperation]
+	 - [CAuthManager::createRole]
+	 - [CAuthManager::createTask]
+	 - [CAuthManager::createOperation]
 
 ברגע שיש לנו סט של פריטי הרשאה, אנו יכולים לקרוא למתודות הבאות בכדי ליצור קשרים בין פריטי ההרשאה השונים:
 
-   - [CAuthManager::addItemChild]
-   - [CAuthManager::removeItemChild]
-   - [CAuthItem::addChild]
-   - [CAuthItem::removeChild]
+	 - [CAuthManager::addItemChild]
+	 - [CAuthManager::removeItemChild]
+	 - [CAuthItem::addChild]
+	 - [CAuthItem::removeChild]
 
 ולבסוף, אנו קוראים למתודות הבאות כדי להקצות תפקידים למשתמשים בודדים:
 
-   - [CAuthManager::assign]
-   - [CAuthManager::revoke]
+	 - [CAuthManager::assign]
+	 - [CAuthManager::revoke]
 
 למטה אנו מציגים דוגמא ליצירת היררכית הרשאות עם המתודות שהוצגו קודם לכן:
 
@@ -324,7 +324,7 @@ $auth-»assign('admin','adminD');
 [php]
 if(Yii::app()-»user-»checkAccess('createPost'))
 {
-    // יצירת הודעה
+		// יצירת הודעה
 }
 ~~~
 
@@ -335,7 +335,7 @@ if(Yii::app()-»user-»checkAccess('createPost'))
 $params=array('post'=»$post);
 if(Yii::app()-»user-»checkAccess('updateOwnPost',$params))
 {
-    // עדכון הודעה
+		// עדכון הודעה
 }
 ~~~
 
@@ -348,17 +348,17 @@ if(Yii::app()-»user-»checkAccess('updateOwnPost',$params))
 
 תפקיד ברירת מחדל הינו תפקיד אשר הוקצה לכל משתמש, הכוללים את האורחים והמשתמשים כאחד. אנו לא צריכים להקצות תפקידים אלו עבור כל משתמש בנפרד. ברגע שמתבצעת קריאה של [CWebUser::checkAccess], תפקידי ברירת המחדל נבדקים ראשונים במידה והם הוקצו למשתמש.
 
-תפקידי ברירת מחדל צריכים להיות מוגדרים במאפיין [CAuthManager::defaultRoles]. לדוגמא, הקוד הבא מגדיר שני תפקידים כתפקידים ברירת מחדל:  `authenticated` ו `guest`.
+תפקידי ברירת מחדל צריכים להיות מוגדרים במאפיין [CAuthManager::defaultRoles]. לדוגמא, הקוד הבא מגדיר שני תפקידים כתפקידים ברירת מחדל:	`authenticated` ו `guest`.
 
 ~~~
 [php]
 return array(
-    'components'=»array(
-        'authManager'=»array(
-            'class'=»'CDbAuthManager',
-            'defaultRoles'=»array('authenticated', 'guest'),
-        ),
-    ),
+		'components'=»array(
+				'authManager'=»array(
+						'class'=»'CDbAuthManager',
+						'defaultRoles'=»array('authenticated', 'guest'),
+				),
+		),
 );
 ~~~
 

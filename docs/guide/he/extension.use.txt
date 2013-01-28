@@ -24,7 +24,7 @@
 ~~~
 [php]
 $this-»widget('zii.widgets.grid.CGridView', array(
-    'dataProvider'=»$dataProvider,
+		'dataProvider'=»$dataProvider,
 ));
 ~~~
 
@@ -37,15 +37,15 @@ $this-»widget('zii.widgets.grid.CGridView', array(
 ~~~
 [php]
 return array(
-    // 'preload'=»array('xyz',...),
-    'components'=»array(
-        'xyz'=»array(
-            'class'=»'ext.xyz.XyzClass',
-            'property1'=»'value1',
-            'property2'=»'value2',
-        ),
-        // הגדרות רכיבים נוספים
-    ),
+		// 'preload'=»array('xyz',...),
+		'components'=»array(
+				'xyz'=»array(
+						'class'=»'ext.xyz.XyzClass',
+						'property1'=»'value1',
+						'property2'=»'value2',
+				),
+				// הגדרות רכיבים נוספים
+		),
 );
 ~~~
 
@@ -69,19 +69,19 @@ $component-»test();
 ~~~
 [php]
 return array(
-    'components'=»array(
-        'db'=»array(
-            'class'=»'CDbConnection',
-            'behaviors'=»array(
-                'xyz'=»array(
-                    'class'=»'ext.xyz.XyzBehavior',
-                    'property1'=»'value1',
-                    'property2'=»'value2',
-                ),
-            ),
-        ),
-        //....
-    ),
+		'components'=»array(
+				'db'=»array(
+						'class'=»'CDbConnection',
+						'behaviors'=»array(
+								'xyz'=»array(
+										'class'=»'ext.xyz.XyzBehavior',
+										'property1'=»'value1',
+										'property2'=»'value2',
+								),
+						),
+				),
+				//....
+		),
 );
 ~~~
 
@@ -93,13 +93,13 @@ return array(
 [php]
 public function behaviors()
 {
-    return array(
-        'xyz'=»array(
-            'class'=»'ext.xyz.XyzBehavior',
-            'property1'=»'value1',
-            'property2'=»'value2',
-        ),
-    );
+		return array(
+				'xyz'=»array(
+						'class'=»'ext.xyz.XyzBehavior',
+						'property1'=»'value1',
+						'property2'=»'value2',
+				),
+		);
 }
 ~~~
 
@@ -113,13 +113,13 @@ public function behaviors()
 [php]
 // וידג'ט שאינו דורש תוכן
 «?php $this-»widget('ext.xyz.XyzClass', array(
-    'property1'=»'value1',
-    'property2'=»'value2')); ?»
+		'property1'=»'value1',
+		'property2'=»'value2')); ?»
 
 // וידג'ט שדורש תוכן
 «?php $this-»beginWidget('ext.xyz.XyzClass', array(
-    'property1'=»'value1',
-    'property2'=»'value2')); ?»
+		'property1'=»'value1',
+		'property2'=»'value2')); ?»
 
 ...תוכן הוידג'ט....
 
@@ -135,17 +135,17 @@ public function behaviors()
 [php]
 class TestController extends CController
 {
-    public function actions()
-    {
-        return array(
-            'xyz'=»array(
-                'class'=»'ext.xyz.XyzClass',
-                'property1'=»'value1',
-                'property2'=»'value2',
-            ),
-            // פעולות נוספות
-        );
-    }
+		public function actions()
+		{
+				return array(
+						'xyz'=»array(
+								'class'=»'ext.xyz.XyzClass',
+								'property1'=»'value1',
+								'property2'=»'value2',
+						),
+						// פעולות נוספות
+				);
+		}
 }
 ~~~
 
@@ -160,17 +160,17 @@ class TestController extends CController
 [php]
 class TestController extends CController
 {
-    public function filters()
-    {
-        return array(
-            array(
-                'ext.xyz.XyzClass',
-                'property1'=»'value1',
-                'property2'=»'value2',
-            ),
-            // פילטרים נוספים
-        );
-    }
+		public function filters()
+		{
+				return array(
+						array(
+								'ext.xyz.XyzClass',
+								'property1'=»'value1',
+								'property2'=»'value2',
+						),
+						// פילטרים נוספים
+				);
+		}
 }
 ~~~
 
@@ -184,14 +184,14 @@ class TestController extends CController
 ~~~
 [php]
 return array(
-    'controllerMap'=»array(
-        'xyz'=»array(
-            'class'=»'ext.xyz.XyzClass',
-            'property1'=»'value1',
-            'property2'=»'value2',
-        ),
-        // קונטרולרים נוספים
-    ),
+		'controllerMap'=»array(
+				'xyz'=»array(
+						'class'=»'ext.xyz.XyzClass',
+						'property1'=»'value1',
+						'property2'=»'value2',
+				),
+				// קונטרולרים נוספים
+		),
 );
 ~~~
 
@@ -207,18 +207,18 @@ return array(
 [php]
 class MyModel extends CActiveRecord // or CFormModel
 {
-    public function rules()
-    {
-        return array(
-            array(
-                'attr1, attr2',
-                'ext.xyz.XyzClass',
-                'property1'=»'value1',
-                'property2'=»'value2',
-            ),
-            // חוקי אימות נתונים נוספים
-        );
-    }
+		public function rules()
+		{
+				return array(
+						array(
+								'attr1, attr2',
+								'ext.xyz.XyzClass',
+								'property1'=»'value1',
+								'property2'=»'value2',
+						),
+						// חוקי אימות נתונים נוספים
+				);
+		}
 }
 ~~~
 
@@ -230,14 +230,14 @@ class MyModel extends CActiveRecord // or CFormModel
 ~~~
 [php]
 return array(
-    'commandMap'=»array(
-        'xyz'=»array(
-            'class'=»'ext.xyz.XyzClass',
-            'property1'=»'value1',
-            'property2'=»'value2',
-        ),
-        // פקודות נוספות
-    ),
+		'commandMap'=»array(
+				'xyz'=»array(
+						'class'=»'ext.xyz.XyzClass',
+						'property1'=»'value1',
+						'property2'=»'value2',
+				),
+				// פקודות נוספות
+		),
 );
 ~~~
 

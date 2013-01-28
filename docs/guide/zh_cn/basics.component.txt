@@ -11,8 +11,8 @@ Yii 应用建立于组件之上。组件是 [CComponent] 或其子类的实例�
 
 ~~~
 [php]
-$width=$component->textWidth;     // 获取 textWidth 属性
-$component->enableCaching=true;   // 设置 enableCaching 属性
+$width=$component->textWidth;		 // 获取 textWidth 属性
+$component->enableCaching=true;	 // 设置 enableCaching 属性
 ~~~
 
 要定义一个组件属性，我们只需在组件类中定义一个公共成员变量即可。更灵活的方式是定义其 getter 和 setter 方法，例如：
@@ -21,12 +21,12 @@ $component->enableCaching=true;   // 设置 enableCaching 属性
 [php]
 public function getTextWidth()
 {
-    return $this->_textWidth;
+		return $this->_textWidth;
 }
 
 public function setTextWidth($value)
 {
-    $this->_textWidth=$value;
+		$this->_textWidth=$value;
 }
 ~~~
 
@@ -75,7 +75,7 @@ $component->onClicked=$callback;
 [php]
 function methodName($event)
 {
-    ......
+		......
 }
 ~~~
 

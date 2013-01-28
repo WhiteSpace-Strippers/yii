@@ -14,17 +14,17 @@
 
 ~~~
 forum/
-   ForumModule.php            קובץ המחלקה של המודול
-   components/                מכיל רכיבים אשר ניתן להשתמש בכל מקום במודול
-      views/                  מכיל קבצי וידג'טים
-   controllers/               מכיל קבצי מחלקות הקונטרולרים
-      DefaultController.php   קונטרולר ברירת המחדל
-   extensions/                מכיל תוספות צד שלישי
-   models/                    מכיל את קבצי המודלים
-   views/                     מכיל את קבצי התצוגה
-      layouts/                מכיל את תבניות התצוגה
-      default/                DefaultController מכיל קבצי תצוגה השייכים ל
-         index.php            קובץ תצוגה
+	 ForumModule.php						קובץ המחלקה של המודול
+	 components/								מכיל רכיבים אשר ניתן להשתמש בכל מקום במודול
+			views/									מכיל קבצי וידג'טים
+	 controllers/							 מכיל קבצי מחלקות הקונטרולרים
+			DefaultController.php	 קונטרולר ברירת המחדל
+	 extensions/								מכיל תוספות צד שלישי
+	 models/										מכיל את קבצי המודלים
+	 views/										 מכיל את קבצי התצוגה
+			layouts/								מכיל את תבניות התצוגה
+			default/								DefaultController מכיל קבצי תצוגה השייכים ל
+				 index.php						קובץ תצוגה
 ~~~
 
 מודול חייב להכיל מחלקה אשר יורשת מהמחלקה [CWebModule]. שם המחלקה נקבע על פי הביטוי `ucfirst($id).'Module'`, איפה ש `id$` מתייחס למזהה היחודי של המודול (או שמה של התיקיה של המודול). מחלקת המודול משרתת כמקום מרכזי לאחסון ושיתוף המידע לאורך כל קוד המודול. לדוגמא, ניתן להשתמש ב [CWebModule::params] כדי לשמור פרמטרים של המודול, ולהשתמש ב [CWebModule::components] כדי לשתף [רכיבי אפליקציה](/doc/guide/basics.application#application-component) ברמת המודול.
@@ -39,9 +39,9 @@ forum/
 ~~~
 [php]
 return array(
-    ......
-    'modules'=»array('forum',...),
-    ......
+		......
+		'modules'=»array('forum',...),
+		......
 );
 ~~~
 
@@ -50,13 +50,13 @@ return array(
 ~~~
 [php]
 return array(
-    ......
-    'modules'=»array(
-        'forum'=»array(
-            'postPerPage'=»20,
-        ),
-    ),
-    ......
+		......
+		'modules'=»array(
+				'forum'=»array(
+						'postPerPage'=»20,
+				),
+		),
+		......
 );
 ~~~
 
@@ -69,7 +69,7 @@ $postPerPage=Yii::app()-»controller-»module-»postPerPage;
 // $postPerPage=$this-»module-»postPerPage;
 ~~~
 
-ניתן לגשת לפעולה בקונטרולר בתוך מודול על ידי [הניתוב](/doc/guide/basics.controller#route) `moduleID/controllerID/actionID`. לדוגמא, נניח שלמודול `forum` המוצג למעלה ישנו קונטרולר בשם `PostController`, ניתן להשתמש [בניתוב](/doc/guide/basics.controller#route) `forum/post/create`  כדי לנתב את הבקשה אל הפעולה `create` אשר נמצאת בקונטרולר. הקישור המתאים לניתוב זה יהיה `http://www.example.com/index.php?r=forum/post/create`.
+ניתן לגשת לפעולה בקונטרולר בתוך מודול על ידי [הניתוב](/doc/guide/basics.controller#route) `moduleID/controllerID/actionID`. לדוגמא, נניח שלמודול `forum` המוצג למעלה ישנו קונטרולר בשם `PostController`, ניתן להשתמש [בניתוב](/doc/guide/basics.controller#route) `forum/post/create`	כדי לנתב את הבקשה אל הפעולה `create` אשר נמצאת בקונטרולר. הקישור המתאים לניתוב זה יהיה `http://www.example.com/index.php?r=forum/post/create`.
 
 » Tip|טיפ: במידה והקונטרולר הוא בתת תיקיה תחת `controllers`, אנו עדיין יכולים להשתמש בפורמט של [הניתוב](/doc/guide/basics.controller#route) המוצג למעלה. לדוגמא, נניח ש `PostController` נמצא תחת `forum/controllers/admin`, ניתן לגשת לפעולה `create` על ידי שימוש ב `forum/admin/post/create`.
 

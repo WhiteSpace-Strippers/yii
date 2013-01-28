@@ -43,7 +43,7 @@ Versie 1.1.1
  * CActiveForm toegevoegd, welke het schrijven van formuliergerelateerde code
  eenvoudiger maakt, en ondersteund naadloze en consistente validatie aan
  client- en server-zijde.
- 
+
  * Code gegenereerd door de yiic-tool is gerefactoreerd. In het bijzonder is de
  raamwerkapplicatie nu gegenereerd met meerdere layouts; Het menu met bewerkingen is
  geherorganiseerd voor CRUD-pagina's; zoek- en filteropties zijn toegevoegd aan de

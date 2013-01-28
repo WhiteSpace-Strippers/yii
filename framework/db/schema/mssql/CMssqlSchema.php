@@ -24,20 +24,20 @@ class CMssqlSchema extends CDbSchema
 	 * @var array the abstract column types mapped to physical column types.
 	 * @since 1.1.6
 	 */
-    public $columnTypes=array(
-        'pk' => 'int IDENTITY PRIMARY KEY',
-        'string' => 'varchar(255)',
-        'text' => 'text',
-        'integer' => 'int',
-        'float' => 'float',
-        'decimal' => 'decimal',
-        'datetime' => 'datetime',
-        'timestamp' => 'timestamp',
-        'time' => 'time',
-        'date' => 'date',
-        'binary' => 'binary',
-        'boolean' => 'bit',
-    );
+		public $columnTypes=array(
+				'pk' => 'int IDENTITY PRIMARY KEY',
+				'string' => 'varchar(255)',
+				'text' => 'text',
+				'integer' => 'int',
+				'float' => 'float',
+				'decimal' => 'decimal',
+				'datetime' => 'datetime',
+				'timestamp' => 'timestamp',
+				'time' => 'time',
+				'date' => 'date',
+				'binary' => 'binary',
+				'boolean' => 'bit',
+		);
 
 	/**
 	 * Quotes a table name for use in a query.
@@ -100,7 +100,7 @@ class CMssqlSchema extends CDbSchema
 		}
 	}
 
-	private $_normalTables=array();  // non-view tables
+	private $_normalTables=array();	// non-view tables
 	/**
 	 * Enables or disables integrity check.
 	 * @param boolean $check whether to turn on or off the integrity check.
@@ -191,11 +191,11 @@ class CMssqlSchema extends CDbSchema
 		$sql = <<<EOD
 		SELECT k.column_name field_name
 			FROM {$this->quoteTableName($kcu)} k
-		    LEFT JOIN {$this->quoteTableName($tc)} c
-		      ON k.table_name = c.table_name
-		     AND k.constraint_name = c.constraint_name
-		   WHERE c.constraint_type ='PRIMARY KEY'
-		   	    AND k.table_name = :table
+				LEFT JOIN {$this->quoteTableName($tc)} c
+					ON k.table_name = c.table_name
+				 AND k.constraint_name = c.constraint_name
+			 WHERE c.constraint_type ='PRIMARY KEY'
+			 			AND k.table_name = :table
 				AND k.table_schema = :schema
 EOD;
 		$command = $this->getDbConnection()->createCommand($sql);
@@ -232,27 +232,27 @@ EOD;
 		//From http://msdn2.microsoft.com/en-us/library/aa175805(SQL.80).aspx
 		$sql = <<<EOD
 		SELECT
-		     KCU1.CONSTRAINT_NAME AS 'FK_CONSTRAINT_NAME'
-		   , KCU1.TABLE_NAME AS 'FK_TABLE_NAME'
-		   , KCU1.COLUMN_NAME AS 'FK_COLUMN_NAME'
-		   , KCU1.ORDINAL_POSITION AS 'FK_ORDINAL_POSITION'
-		   , KCU2.CONSTRAINT_NAME AS 'UQ_CONSTRAINT_NAME'
-		   , KCU2.TABLE_NAME AS 'UQ_TABLE_NAME'
-		   , KCU2.COLUMN_NAME AS 'UQ_COLUMN_NAME'
-		   , KCU2.ORDINAL_POSITION AS 'UQ_ORDINAL_POSITION'
+				 KCU1.CONSTRAINT_NAME AS 'FK_CONSTRAINT_NAME'
+			 , KCU1.TABLE_NAME AS 'FK_TABLE_NAME'
+			 , KCU1.COLUMN_NAME AS 'FK_COLUMN_NAME'
+			 , KCU1.ORDINAL_POSITION AS 'FK_ORDINAL_POSITION'
+			 , KCU2.CONSTRAINT_NAME AS 'UQ_CONSTRAINT_NAME'
+			 , KCU2.TABLE_NAME AS 'UQ_TABLE_NAME'
+			 , KCU2.COLUMN_NAME AS 'UQ_COLUMN_NAME'
+			 , KCU2.ORDINAL_POSITION AS 'UQ_ORDINAL_POSITION'
 		FROM {$this->quoteTableName($rc)} RC
 		JOIN {$this->quoteTableName($kcu)} KCU1
 		ON KCU1.CONSTRAINT_CATALOG = RC.CONSTRAINT_CATALOG
-		   AND KCU1.CONSTRAINT_SCHEMA = RC.CONSTRAINT_SCHEMA
-		   AND KCU1.CONSTRAINT_NAME = RC.CONSTRAINT_NAME
+			 AND KCU1.CONSTRAINT_SCHEMA = RC.CONSTRAINT_SCHEMA
+			 AND KCU1.CONSTRAINT_NAME = RC.CONSTRAINT_NAME
 		JOIN {$this->quoteTableName($kcu)} KCU2
 		ON KCU2.CONSTRAINT_CATALOG =
 		RC.UNIQUE_CONSTRAINT_CATALOG
-		   AND KCU2.CONSTRAINT_SCHEMA =
+			 AND KCU2.CONSTRAINT_SCHEMA =
 		RC.UNIQUE_CONSTRAINT_SCHEMA
-		   AND KCU2.CONSTRAINT_NAME =
+			 AND KCU2.CONSTRAINT_NAME =
 		RC.UNIQUE_CONSTRAINT_NAME
-		   AND KCU2.ORDINAL_POSITION = KCU1.ORDINAL_POSITION
+			 AND KCU2.ORDINAL_POSITION = KCU1.ORDINAL_POSITION
 		WHERE KCU1.TABLE_NAME = :table
 EOD;
 		$command = $this->getDbConnection()->createCommand($sql);

@@ -77,13 +77,13 @@ cause of an error.
 [CErrorHandler] searches for the view file corresponding to a view in the
 following order:
 
-   1. `WebRoot/themes/ThemeName/views/system`: this is the `system` view
+	 1. `WebRoot/themes/ThemeName/views/system`: this is the `system` view
 directory under the currently active theme.
 
-   2. `WebRoot/protected/views/system`: this is the default `system` view
+	 2. `WebRoot/protected/views/system`: this is the default `system` view
 directory for an application.
 
-   3. `yii/framework/views`: this is the standard system view directory
+	 3. `yii/framework/views`: this is the standard system view directory
 provided by the Yii framework.
 
 Therefore, if we want to customize the error display, we can simply create

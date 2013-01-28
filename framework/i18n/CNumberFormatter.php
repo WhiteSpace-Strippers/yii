@@ -138,16 +138,16 @@ class CNumberFormatter extends CComponent
 	 * @param array $format format with the following structure:
 	 * <pre>
 	 * array(
-	 * 	'decimalDigits'=>2,     // number of required digits after decimal point; 0s will be padded if not enough digits; if -1, it means we should drop decimal point
-	 *  'maxDecimalDigits'=>3,  // maximum number of digits after decimal point. Additional digits will be truncated.
-	 * 	'integerDigits'=>1,     // number of required digits before decimal point; 0s will be padded if not enough digits
-	 * 	'groupSize1'=>3,        // the primary grouping size; if 0, it means no grouping
-	 * 	'groupSize2'=>0,        // the secondary grouping size; if 0, it means no secondary grouping
-	 * 	'positivePrefix'=>'+',  // prefix to positive number
-	 * 	'positiveSuffix'=>'',   // suffix to positive number
-	 * 	'negativePrefix'=>'(',  // prefix to negative number
-	 * 	'negativeSuffix'=>')',  // suffix to negative number
-	 * 	'multiplier'=>1,        // 100 for percent, 1000 for per mille
+	 * 	'decimalDigits'=>2,		 // number of required digits after decimal point; 0s will be padded if not enough digits; if -1, it means we should drop decimal point
+	 *	'maxDecimalDigits'=>3,	// maximum number of digits after decimal point. Additional digits will be truncated.
+	 * 	'integerDigits'=>1,		 // number of required digits before decimal point; 0s will be padded if not enough digits
+	 * 	'groupSize1'=>3,				// the primary grouping size; if 0, it means no grouping
+	 * 	'groupSize2'=>0,				// the secondary grouping size; if 0, it means no secondary grouping
+	 * 	'positivePrefix'=>'+',	// prefix to positive number
+	 * 	'positiveSuffix'=>'',	 // suffix to positive number
+	 * 	'negativePrefix'=>'(',	// prefix to negative number
+	 * 	'negativeSuffix'=>')',	// suffix to negative number
+	 * 	'multiplier'=>1,				// 100 for percent, 1000 for per mille
 	 * );
 	 * </pre>
 	 * @param mixed $value the number to be formatted
@@ -223,7 +223,7 @@ class CNumberFormatter extends CComponent
 			$format['positiveSuffix']=$matches[2];
 		}
 
-		if(isset($patterns[1]) && preg_match('/^(.*?)[#,\.0]+(.*?)$/',$patterns[1],$matches))  // with a negative pattern
+		if(isset($patterns[1]) && preg_match('/^(.*?)[#,\.0]+(.*?)$/',$patterns[1],$matches))	// with a negative pattern
 		{
 			$format['negativePrefix']=$matches[1];
 			$format['negativeSuffix']=$matches[2];
@@ -256,7 +256,7 @@ class CNumberFormatter extends CComponent
 				$format['maxDecimalDigits']=$format['decimalDigits'];
 			$pat=substr($pat,0,$pos);
 		}
-		else   // no decimal part
+		else	 // no decimal part
 		{
 			$format['decimalDigits']=0;
 			$format['maxDecimalDigits']=0;

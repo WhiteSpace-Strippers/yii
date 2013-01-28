@@ -9,7 +9,7 @@ dibutuhkan dalam membuatnya untuk setiap permintaan.
 Untuk menggunakan caching fragmen, kita memanggil
 [CController::beginCache()|CBaseController::beginCache()] dan
 [CController::endCache()|CBaseController::endCache()] dalam skrip tampilan
-controller. Masing-masing dari dua metode menandai awal dan akhir konten halaman 
+controller. Masing-masing dari dua metode menandai awal dan akhir konten halaman
 yang harus di-cache. Seperti [caching data](/doc/guide/caching.data), kita memerlukan
 ID guna mengidentifikasi fragmen yang sedang ditembolok.
 
@@ -22,7 +22,7 @@ ID guna mengidentifikasi fragmen yang sedang ditembolok.
 ...konten HTML lain...
 ~~~
 
-Dalam contoh di atas, jika [beginCache()|CBaseController::beginCache()] 
+Dalam contoh di atas, jika [beginCache()|CBaseController::beginCache()]
 mengembalikan false, konten yang di-cache akan disisipkan secara otomatis;
 sebaliknya, konten di dalam pernyataan-`if` yang akan dijalankan dan di-cache
 saat [endCache()|CBaseController::endCache()] dipanggil.
@@ -30,11 +30,11 @@ saat [endCache()|CBaseController::endCache()] dipanggil.
 Opsi Caching
 ----------
 
-Ketika memanggil [beginCache()|CBaseController::beginCache()], kita dapat 
+Ketika memanggil [beginCache()|CBaseController::beginCache()], kita dapat
 menyediakan array sebagai parameter kedua yang terdiri dari opsi cache untuk
 mengkustomisasi cache fragmen. Bahkan pada dasarnya, metode
-[beginCache()|CBaseController::beginCache()] dan 
-metode [endCache()|CBaseController::endCache()] 
+[beginCache()|CBaseController::beginCache()] dan
+metode [endCache()|CBaseController::endCache()]
 adalah pembungkus untuk widget [COutputCache]. Oleh karenanya, opsi
 cache dapat bernilai awal untuk setiap properti [COutputCache].
 
@@ -42,7 +42,7 @@ cache dapat bernilai awal untuk setiap properti [COutputCache].
 
 Barangkali, opsi paling umum adalah [duration|COutputCache::duration]
 yang menetapkan berapa lama konten tetap benar dalam cache. Opsi ini mirip
-dengan parameter masa hidup [CCache::set()]. Kode berikut melakukan 
+dengan parameter masa hidup [CCache::set()]. Kode berikut melakukan
 caching fragmen konten untuk satu jam:
 
 ~~~
@@ -69,9 +69,9 @@ sedang di-cache juga bisa memiliki ketergantungan. Sebagai contoh, konten
 tulisan yang sedang ditampilkan tergantung apakah tulisan dimodifikasi atau tidak.
 
 Untuk menetapkan ketergantungan, kita menyetel opsi [dependency|COutputCache::dependency],
-yang bisa berupa obyek yang mengimplementasi [ICacheDependency] atau array 
-konfigurasi yang dapat dipakai guna menghasilkan obyek dependensi. Kode berikut 
-menetapkan konten fragmen yang tergantung pada perubahan nilai kolom 
+yang bisa berupa obyek yang mengimplementasi [ICacheDependency] atau array
+konfigurasi yang dapat dipakai guna menghasilkan obyek dependensi. Kode berikut
+menetapkan konten fragmen yang tergantung pada perubahan nilai kolom
 `lastModified`:
 
 ~~~
@@ -88,7 +88,7 @@ menetapkan konten fragmen yang tergantung pada perubahan nilai kolom
 ### Variasi
 
 Konten yang sedang ditembolok dapat divariasikan berdasarkan pada beberapa parameter.
-Sebagai contoh, profil personal bisa terlihat berbeda bagi pengguna yang berbeda. 
+Sebagai contoh, profil personal bisa terlihat berbeda bagi pengguna yang berbeda.
 Untuk menembolok konten profil, kita ingin duplikat yang ditembolok divariasikan
 berdasarkan ID pengguna. Pada dasarnya, kita harus menggunakan ID berbeda saat memanggil
 [beginCache()|CBaseController::beginCache()].
@@ -96,25 +96,25 @@ berdasarkan ID pengguna. Pada dasarnya, kita harus menggunakan ID berbeda saat m
 Alih-alih meminta para pengembang untuk memvariasikan ID berdasarkan pada beberapa skema,
 [COutputCache] adalah fitur built-in untuk hal itu. Di bawah ini ringkasannya.
 
-   - [varyByRoute|COutputCache::varyByRoute]: dengan menyetel opsi ini
+	 - [varyByRoute|COutputCache::varyByRoute]: dengan menyetel opsi ini
 menjadi true, konten yang di-cache kan divariasikan berdasarkan
 [rute](/doc/guide/basics.controller#route). Oleh karena itu, setiap kombinasi
 controller dan aksi yang diminta akan memiliki konten di-cache terpisah.
 
-   - [varyBySession|COutputCache::varyBySession]: dengan menyetel opsi ini
+	 - [varyBySession|COutputCache::varyBySession]: dengan menyetel opsi ini
 menjadi true, kita bisa membuat konten di-cache divariasikan berdasarkan ID
-sesi. Oleh karena itu, setiap sesi pengguna dapat melihat konten secara berbeda 
+sesi. Oleh karena itu, setiap sesi pengguna dapat melihat konten secara berbeda
 dan semuanya dilayani dari cache.
 
-   - [varyByParam|COutputCache::varyByParam]: dengan menyetel opsi ini
+	 - [varyByParam|COutputCache::varyByParam]: dengan menyetel opsi ini
 menjadi array nama, kita dapat membuat konten ditembolok divariasikan
 berdasarkan nilai yang ditetapkan parameter GET. Sebagai contoh, jika halaman
 menampilkan konten tulisan berdasarkan parameter GET `id`, kita bisa menetapkan
-[varyByParam|COutputCache::varyByParam] menjadi `array('id')` dengan demikian 
+[varyByParam|COutputCache::varyByParam] menjadi `array('id')` dengan demikian
 kita dapat men-cache konten untuk setiap tulisan. Tanpa variasi seperti ini,
 kita hanya bisa men-cache satu tulisan.
 
-   - [varyByExpression|COutputCache::varyByExpression]: dengan menyetel opsi ini
+	 - [varyByExpression|COutputCache::varyByExpression]: dengan menyetel opsi ini
 menjadi ekspresi PHP, kita dapat membuat isi cache bervariasi sesuai dengan
 hasil ekspresi PHP.
 

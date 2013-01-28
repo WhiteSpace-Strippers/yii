@@ -4,7 +4,7 @@
 * format. It is easy for humans to read and write. It is easy for machines
 * to parse and generate. It is based on a subset of the JavaScript
 * Programming Language, Standard ECMA-262 3rd Edition - December 1999.
-* This feature can also be found in  Python. JSON is a text format that is
+* This feature can also be found in	Python. JSON is a text format that is
 * completely language independent but uses conventions that are familiar
 * to programmers of the C-family of languages, including C, C++, C#, Java,
 * JavaScript, Perl, TCL, and many others. These properties make JSON an
@@ -41,10 +41,10 @@
 * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH
 * DAMAGE.
 *
-* @author	  Michal Migurski <mike-json@teczno.com>
-* @author	  Matt Knapp <mdknapp[at]gmail[dot]com>
-* @author	  Brett Stimmerman <brettstimmerman[at]gmail[dot]com>
-* @copyright   2005 Michal Migurski
+* @author		Michal Migurski <mike-json@teczno.com>
+* @author		Matt Knapp <mdknapp[at]gmail[dot]com>
+* @author		Brett Stimmerman <brettstimmerman[at]gmail[dot]com>
+* @copyright	 2005 Michal Migurski
 * @license	 http://www.opensource.org/licenses/bsd-license.php
 * @link		http://pear.php.net/pepr/pepr-proposal-show.php?id=198
 */
@@ -119,7 +119,7 @@ class CJSON
 				$ascii = '';
 				$strlen_var = strlen($var);
 
-			   /*
+				 /*
 				* Iterate over every character in the string,
 				* escaping with a slash or encoding to UTF-8 where necessary
 				*/
@@ -161,7 +161,7 @@ class CJSON
 							// see http://www.cl.cam.ac.uk/~mgk25/unicode.html#utf-8
 							$char = pack('C*', $ord_var_c, ord($var{$c+1}));
 							$c+=1;
-							$utf16 =  self::utf8ToUTF16BE($char);
+							$utf16 =	self::utf8ToUTF16BE($char);
 							$ascii .= sprintf('\u%04s', bin2hex($utf16));
 							break;
 
@@ -220,7 +220,7 @@ class CJSON
 				return '"'.$ascii.'"';
 
 			case 'array':
-			   /*
+				 /*
 				* As per JSON spec if any array key is not an integer
 				* we must treat the the whole array as an object. We
 				* also try to catch a sparsely populated associative
@@ -241,10 +241,10 @@ class CJSON
 				// treat as a JSON object
 				if (is_array($var) && count($var) && (array_keys($var) !== range(0, sizeof($var) - 1))) {
 					return '{' .
-						   join(',', array_map(array('CJSON', 'nameValue'),
-											   array_keys($var),
-											   array_values($var)))
-						   . '}';
+							 join(',', array_map(array('CJSON', 'nameValue'),
+												 array_keys($var),
+												 array_values($var)))
+							 . '}';
 				}
 
 				// treat it like a regular array
@@ -260,10 +260,10 @@ class CJSON
 				else
 					$vars = get_object_vars($var);
 				return '{' .
-					   join(',', array_map(array('CJSON', 'nameValue'),
-										   array_keys($vars),
-										   array_values($vars)))
-					   . '}';
+						 join(',', array_map(array('CJSON', 'nameValue'),
+											 array_keys($vars),
+											 array_values($vars)))
+						 . '}';
 
 			default:
 				return '';
@@ -273,11 +273,11 @@ class CJSON
 	/**
 	 * array-walking function for use in generating JSON-formatted name-value pairs
 	 *
-	 * @param string $name  name of key to use
+	 * @param string $name	name of key to use
 	 * @param mixed $value reference to an array element to be encoded
 	 *
-	 * @return   string  JSON-formatted name-value pair, like '"name":value'
-	 * @access   private
+	 * @return	 string	JSON-formatted name-value pair, like '"name":value'
+	 * @access	 private
 	 */
 	protected static function nameValue($name, $value)
 	{
@@ -290,7 +290,7 @@ class CJSON
 	 * @param string $str string value to strip of comments and whitespace
 	 *
 	 * @return string string value stripped of comments and whitespace
-	 * @access   private
+	 * @access	 private
 	 */
 	protected static function reduceString($str)
 	{
@@ -314,11 +314,11 @@ class CJSON
 	/**
 	 * decodes a JSON string into appropriate variable
 	 *
-	 * @param string $str  JSON-formatted string
-	 * @param boolean $useArray  whether to use associative array to represent object data
-	 * @return mixed   number, boolean, string, array, or object corresponding to given JSON input string.
-	 *    Note that decode() always returns strings in ASCII or UTF-8 format!
-	 * @access   public
+	 * @param string $str	JSON-formatted string
+	 * @param boolean $useArray	whether to use associative array to represent object data
+	 * @return mixed	 number, boolean, string, array, or object corresponding to given JSON input string.
+	 *		Note that decode() always returns strings in ASCII or UTF-8 format!
+	 * @access	 public
 	 */
 	public static function decode($str, $useArray=true)
 	{
@@ -397,7 +397,7 @@ class CJSON
 							case $substr_chrs_c_2 == '\\\\':
 							case $substr_chrs_c_2 == '\\/':
 								if (($delim == '"' && $substr_chrs_c_2 != '\\\'') ||
-								   ($delim == "'" && $substr_chrs_c_2 != '\\"')) {
+									 ($delim == "'" && $substr_chrs_c_2 != '\\"')) {
 									$utf8 .= $chrs{++$c};
 								}
 								break;
@@ -405,7 +405,7 @@ class CJSON
 							case preg_match('/\\\u[0-9A-F]{4}/i', substr($chrs, $c, 6)):
 								// single, escaped unicode character
 								$utf16 = chr(hexdec(substr($chrs, ($c+2), 2)))
-									   . chr(hexdec(substr($chrs, ($c+4), 2)));
+										 . chr(hexdec(substr($chrs, ($c+4), 2)));
 								$utf8 .= self::utf16beToUTF8($utf16);
 								$c+=5;
 								break;
@@ -609,7 +609,7 @@ class CJSON
 	 * @param string $str string to convert
 	 * @return string
 	 * @author Scott Michael Reynen <scott@randomchaos.com>
-	 * @link   http://www.randomchaos.com/document.php?source=php_and_unicode
+	 * @link	 http://www.randomchaos.com/document.php?source=php_and_unicode
 	 * @see	unicodeToUTF8()
 	 */
 	protected static function utf8ToUnicode( &$str )
@@ -647,7 +647,7 @@ class CJSON
 	 * @param string $str string to convert
 	 * @return string
 	 * @author Scott Michael Reynen <scott@randomchaos.com>
-	 * @link   http://www.randomchaos.com/document.php?source=php_and_unicode
+	 * @link	 http://www.randomchaos.com/document.php?source=php_and_unicode
 	 * @see	utf8ToUnicode()
 	 */
 	protected static function unicodeToUTF8( &$str )
@@ -661,7 +661,7 @@ class CJSON
 			}
 			elseif ( $unicode < 2048 )
 			{
-				$utf8.= chr( 192 +  ( ( $unicode - ( $unicode % 64 ) ) / 64 ) );
+				$utf8.= chr( 192 +	( ( $unicode - ( $unicode % 64 ) ) / 64 ) );
 				$utf8.= chr( 128 + ( $unicode % 64 ) );
 			}
 			else

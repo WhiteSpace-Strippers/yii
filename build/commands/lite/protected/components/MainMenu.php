@@ -11,11 +11,11 @@
  * - visible: boolean, whether this item is visible;
  * - label: string, label of this menu item. Make sure you HTML-encode it if needed;
  * - url: string|array, the URL that this item leads to. Use a string to
- *   represent a static URL, while an array for constructing a dynamic one.
+ *	 represent a static URL, while an array for constructing a dynamic one.
  * - pattern: array, optional. This is used to determine if the item is active.
- *   The first element refers to the route of the request, while the rest
- *   name-value pairs representing the GET parameters to be matched with.
- *   If pattern is not given, the url array will be used instead.
+ *	 The first element refers to the route of the request, while the rest
+ *	 name-value pairs representing the GET parameters to be matched with.
+ *	 If pattern is not given, the url array will be used instead.
  */
 class MainMenu extends CWidget
 {

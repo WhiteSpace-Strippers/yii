@@ -135,50 +135,50 @@ szinte minden tekintetben testreszabhatjuk Yii alap viselkedését.
 
 Következzék a [CWebApplication] által előre meghatározott komponensek listája:
 
-   - [assetManager|CWebApplication::assetManager]: [CAssetManager] -
+	 - [assetManager|CWebApplication::assetManager]: [CAssetManager] -
 manages the publishing of private asset files.
 
-   - [authManager|CWebApplication::authManager]: [CAuthManager] - manages role-based access control (RBAC).
+	 - [authManager|CWebApplication::authManager]: [CAuthManager] - manages role-based access control (RBAC).
 
-   - [cache|CApplication::cache]: [CCache] - adat gyorstárazási lehetőséget
+	 - [cache|CApplication::cache]: [CCache] - adat gyorstárazási lehetőséget
 biztosít. Megjegyzendő: meg kell határozni a tényleges osztályát (pl.: [CMemCache],
 [CDbCache]), különben `null` kerül visszaadásra a komponens elérésekor.
 
-   - [clientScript|CWebApplication::clientScript]: [CClientScript] -
+	 - [clientScript|CWebApplication::clientScript]: [CClientScript] -
 kliens szkripteket kezel (JavaScript és CSS).
 
-   - [coreMessages|CApplication::coreMessages]: [CPhpMessageSource] -
+	 - [coreMessages|CApplication::coreMessages]: [CPhpMessageSource] -
 a Yii keretrendszer alap üzeneteinek lefordított változatát biztosítja.
 
-   - [db|CApplication::db]: [CDbConnection] - adatbázis kapcsolatot biztosít.
+	 - [db|CApplication::db]: [CDbConnection] - adatbázis kapcsolatot biztosít.
 Megjegyzendő: be kell állítani a [connectionString|CDbConnection::connectionString]
 tulajdonságát, hogy használható legyen.
 
-   - [errorHandler|CApplication::errorHandler]: [CErrorHandler] -
+	 - [errorHandler|CApplication::errorHandler]: [CErrorHandler] -
 nem kezelt PHP hibákat és kivételeket kezel.
 
-   - [messages|CApplication::messages]: [CPhpMessageSource] -
+	 - [messages|CApplication::messages]: [CPhpMessageSource] -
 a Yii alklamazás által használt üzenetek lefordított változatát biztosítja.
 
-   - [request|CWebApplication::request]: [CHttpRequest] -
+	 - [request|CWebApplication::request]: [CHttpRequest] -
 felhasználói kérésekkel kapcsolatos információkat biztosít.
 
-   - [securityManager|CApplication::securityManager]: [CSecurityManager] -
+	 - [securityManager|CApplication::securityManager]: [CSecurityManager] -
 biztonsággal kapcsolatos szolgáltatásokat biztosít, mint pl. hash-elés, titkosítás.
 
-   - [session|CWebApplication::session]: [CHttpSession] - munkamenet-kezeléssel
+	 - [session|CWebApplication::session]: [CHttpSession] - munkamenet-kezeléssel
 kapcsolatos képességeket biztosít.
 
-   - [statePersister|CApplication::statePersister]: [CStatePersister] -
+	 - [statePersister|CApplication::statePersister]: [CStatePersister] -
 provides global state persistence method.
 
-   - [urlManager|CWebApplication::urlManager]: [CUrlManager] -
+	 - [urlManager|CWebApplication::urlManager]: [CUrlManager] -
 URL elemzéssel és létrehozással kapcsolatos képességeket biztosít.
 
-   - [user|CWebApplication::user]: [CWebUser] - felhasználó azonosítási információkat
+	 - [user|CWebApplication::user]: [CWebUser] - felhasználó azonosítási információkat
 képvisel.
 
-   - [themeManager|CWebApplication::themeManager]: [CThemeManager] - témákat kezel.
+	 - [themeManager|CWebApplication::themeManager]: [CThemeManager] - témákat kezel.
 
 
 Alkalmazás életciklus
@@ -186,25 +186,25 @@ Alkalmazás életciklus
 
 Egy felhasználói kérés kezelése során az alkalmazás a következő életciklust járja be:
 
-   0. Alkalmazás előkészítése [CApplication::preinit()] segítségével;
+	 0. Alkalmazás előkészítése [CApplication::preinit()] segítségével;
 
-   1. Osztály autoloader és hibakezelés beállítása;
+	 1. Osztály autoloader és hibakezelés beállítása;
 
-   2. Alap alkalmazás komponensek regsiztrálása;
+	 2. Alap alkalmazás komponensek regsiztrálása;
 
-   3. Alkalmazás beállítás betöltése;
+	 3. Alkalmazás beállítás betöltése;
 
-   4. Alkalmazás inicializálása [CApplication::init()] segítségével
-       - Alkalmazás viselkedések regisztrálása;
-	   - Statikus alkalmazás komponensek betöltése;
+	 4. Alkalmazás inicializálása [CApplication::init()] segítségével
+			 - Alkalmazás viselkedések regisztrálása;
+		 - Statikus alkalmazás komponensek betöltése;
 
-   5. [onBeginRequest|CApplication::onBeginRequest] esemény létrehozása;
+	 5. [onBeginRequest|CApplication::onBeginRequest] esemény létrehozása;
 
-   6. Felhasználói kérés feldolgozása:
-	   - a kérés feloldása;
-	   - kontrolelr létrehozása;
-	   - kontroller futtatása;
+	 6. Felhasználói kérés feldolgozása:
+		 - a kérés feloldása;
+		 - kontrolelr létrehozása;
+		 - kontroller futtatása;
 
-   7. [onEndRequest|CApplication::onEndRequest] esemény létrehozása;
+	 7. [onEndRequest|CApplication::onEndRequest] esemény létrehozása;
 
 <div class="revision">$Id: basics.application.txt 857 2009-03-20 17:31:09Z qiang.xue $</div>

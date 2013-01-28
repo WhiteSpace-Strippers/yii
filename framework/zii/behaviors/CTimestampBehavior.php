@@ -42,19 +42,19 @@
 
 class CTimestampBehavior extends CActiveRecordBehavior {
 	/**
-	* @var mixed The name of the attribute to store the creation time.  Set to null to not
-	* use a timestamp for the creation attribute.  Defaults to 'create_time'
+	* @var mixed The name of the attribute to store the creation time.	Set to null to not
+	* use a timestamp for the creation attribute.	Defaults to 'create_time'
 	*/
 	public $createAttribute = 'create_time';
 	/**
-	* @var mixed The name of the attribute to store the modification time.  Set to null to not
-	* use a timestamp for the update attribute.  Defaults to 'update_time'
+	* @var mixed The name of the attribute to store the modification time.	Set to null to not
+	* use a timestamp for the update attribute.	Defaults to 'update_time'
 	*/
 	public $updateAttribute = 'update_time';
 
 	/**
 	* @var bool Whether to set the update attribute to the creation timestamp upon creation.
-	* Otherwise it will be left alone.  Defaults to false.
+	* Otherwise it will be left alone.	Defaults to false.
 	*/
 	public $setUpdateOnCreate = false;
 

@@ -31,12 +31,12 @@ Yii::import('zii.widgets.CBaseListView');
  * $dataProvider=new CActiveDataProvider('Post');
  *
  * $this->widget('zii.widgets.CListView', array(
- *     'dataProvider'=>$dataProvider,
- *     'itemView'=>'_post',   // refers to the partial view named '_post'
- *     'sortableAttributes'=>array(
- *         'title',
- *         'create_time'=>'Post Time',
- *     ),
+ *		 'dataProvider'=>$dataProvider,
+ *		 'itemView'=>'_post',	 // refers to the partial view named '_post'
+ *		 'sortableAttributes'=>array(
+ *				 'title',
+ *				 'create_time'=>'Post Time',
+ *		 ),
  * ));
  * </pre>
  *
@@ -139,9 +139,9 @@ class CListView extends CBaseListView
 	 *
 	 * Example (add in a call to CGridView):
 	 * <pre>
-	 *  ...
-	 *  'ajaxUpdateError'=>'function(xhr,ts,et,err){ $("#myerrordiv").text(err); }',
-	 *  ...
+	 *	...
+	 *	'ajaxUpdateError'=>'function(xhr,ts,et,err){ $("#myerrordiv").text(err); }',
+	 *	...
 	 * </pre>
 	 */
 	public $ajaxUpdateError;
@@ -184,8 +184,8 @@ class CListView extends CBaseListView
 	public $itemsTagName='div';
 
 	/**
-	 * @var boolean whether to leverage the {@link https://developer.mozilla.org/en/DOM/window.history DOM history object}.  Set this property to true
-	 * to persist state of list across page revisits.  Note, there are two limitations for this feature:
+	 * @var boolean whether to leverage the {@link https://developer.mozilla.org/en/DOM/window.history DOM history object}.	Set this property to true
+	 * to persist state of list across page revisits.	Note, there are two limitations for this feature:
 	 * - this feature is only compatible with browsers that support HTML5.
 	 * - expect unexpected functionality (e.g. multiple ajax calls) if there is more than one grid/list on a single page with enableHistory turned on.
 	 * @since 1.1.11

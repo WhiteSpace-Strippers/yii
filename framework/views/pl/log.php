@@ -6,7 +6,7 @@
 		</th>
 	</tr>
 	<tr style="background-color: #ccc;">
-	    <th style="width:120px">Znacznik czasu</th>
+			<th style="width:120px">Znacznik czasu</th>
 		<th>Poziom</th>
 		<th>Kategoria</th>
 		<th>Wiadomość</th>
@@ -23,7 +23,7 @@ foreach($data as $index=>$log)
 	$color=($index%2)?'#F5F5F5':'#FFFFFF';
 	$color=($index%2)?'#F5F5F5':'#FFFFFF';
 	if(isset($colors[$log[1]]))
-		$color=$colors[$log[1]];	
+		$color=$colors[$log[1]];
 	$message='<pre>'.CHtml::encode(wordwrap($log[0])).'</pre>';
 	$time=date('H:i:s.',$log[3]).(int)(($log[3]-(int)$log[3])*1000000);
 

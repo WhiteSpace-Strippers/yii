@@ -223,7 +223,7 @@ class CLocale extends CComponent
 
 	/**
 	 * @param integer $day weekday (0-7, 0 and 7 means Sunday)
-	 * @param string $width weekday name width.  It can be 'wide', 'abbreviated' or 'narrow'.
+	 * @param string $width weekday name width.	It can be 'wide', 'abbreviated' or 'narrow'.
 	 * @param boolean $standAlone whether the week day name should be returned in stand-alone format
 	 * @return string the weekday name
 	 */
@@ -238,7 +238,7 @@ class CLocale extends CComponent
 
 	/**
 	 * Returns the week day names in the specified width.
-	 * @param string $width weekday name width.  It can be 'wide', 'abbreviated' or 'narrow'.
+	 * @param string $width weekday name width.	It can be 'wide', 'abbreviated' or 'narrow'.
 	 * @param boolean $standAlone whether the week day name should be returned in stand-alone format
 	 * @return array the weekday names indexed by weekday values (0-6, 0 means Sunday, 1 Monday, etc.)
 	 */
@@ -252,7 +252,7 @@ class CLocale extends CComponent
 
 	/**
 	 * @param integer $era era (0,1)
-	 * @param string $width era name width.  It can be 'wide', 'abbreviated' or 'narrow'.
+	 * @param string $width era name width.	It can be 'wide', 'abbreviated' or 'narrow'.
 	 * @return string the era name
 	 */
 	public function getEraName($era,$width='wide')

@@ -5,7 +5,7 @@ Veranderingen gerelateerd aan Modelscenario's
 ---------------------------------------------
 
 - CModel::safeAttributes() is verwijderd. Veilig attributen worden nu
-gedefinieerd als de attributen waarvoor validatieregels zijn opgesteld, 
+gedefinieerd als de attributen waarvoor validatieregels zijn opgesteld,
 zoals in CModel::rules() voor het specifieke scenario.
 
 - CModel::validate(), CModel::beforeValidate(), CModel::afterValidate(),
@@ -13,9 +13,9 @@ CModel::setAttributes() en CModel::getSafeAttributeNames() zijn gewijzigd.
 De 'scenario'-parameter is verwijderd. Het getten en setten van een
 modelscenario moet via CModel::scenario.
 
-- CModel::getValidators() is gewijzigd, en CModel::getValidatorsForAttribute() 
-is verwijderd. CModel::getValidators() geeft alleen validators terug die van 
-toepassing zijn op het scenario zoals gespecificeerd door de scenario-property 
+- CModel::getValidators() is gewijzigd, en CModel::getValidatorsForAttribute()
+is verwijderd. CModel::getValidators() geeft alleen validators terug die van
+toepassing zijn op het scenario zoals gespecificeerd door de scenario-property
 van een model.
 
 - CModel::isAttributeRequired() en CModel::getValidatorsForAttribute() zijn

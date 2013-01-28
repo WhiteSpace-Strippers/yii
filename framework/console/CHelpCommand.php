@@ -51,7 +51,7 @@ class CHelpCommand extends CConsoleCommand
 				sort($commandNames);
 				echo ' - '.implode("\n - ",$commandNames);
 				echo "\n\nTo see individual command help, use the following:\n";
-				echo "   ".$runner->getScriptName()." help <command-name>\n";
+				echo "	 ".$runner->getScriptName()." help <command-name>\n";
 			}
 			else
 			{

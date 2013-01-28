@@ -103,7 +103,7 @@ Yii::import('system.web.*');
 
 > Tip|Підказка: Так як версії PHP до 5.3.0 не підтримують простори імен, ви не можете створити
 екземпляри класів з однаковими іменами, аде різними описами. По цій причині всі назви
-класів  Yii-фреймворка мають префікс 'C' (який означає 'class'), щоб їх можна було відрізнити від
+класів	Yii-фреймворка мають префікс 'C' (який означає 'class'), щоб їх можна було відрізнити від
 користувальницьких класів. Для користувальницьких класів рекомендується використовувати інші префікси,
 зберігши префікс 'C' зарезервованим для Yii-фреймворка.
 
@@ -197,13 +197,13 @@ class TestController extends \CController
 
 ~~~
 /var/www/common/mynamespace/modules
-  testmodule
-    controllers
-      DefaultController.php
-    views
-      default
-        index.php
-    TestmoduleModule.php
+	testmodule
+		controllers
+			DefaultController.php
+		views
+			default
+				index.php
+		TestmoduleModule.php
 ~~~
 
 Представлення `index.php` таке саме, як і у звичайного модуля.

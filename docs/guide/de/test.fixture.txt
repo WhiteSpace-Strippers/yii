@@ -11,7 +11,7 @@ allgemeine Einrichten von Fixtures genau beschrieben. In diesem Abschnitt
 beschreiben wir, wie wir die eben beschriebenen Datenbankfixtures einrichten.
 
 Das Anlegen von Datenbankfixtures ist wohl eine der zeitintensivesten
-Tätigkeiten beim Testen datenbankgestützter Webanwendungen. Zur Erleichterung 
+Tätigkeiten beim Testen datenbankgestützter Webanwendungen. Zur Erleichterung
 führt Yii daher die [CDbFixtureManager]-Anwendungskomponente ein. Sie kümmert
 sich hauptsächlich um diese Punkte:
 
@@ -78,7 +78,7 @@ setzt den Autoinkrement-Wert für den Primärschlüssel zurück und fügt dann d
 Zeilen aus der Fixturedatei in die Tabelle ein.
 
 Manchmal wollen wir vor dem Ausführen aller Tests evtl. nicht alle Tabellen mit einer Fixturedatei
-zurücksetzen, da dies sehr lang dauern könnte. In diesem Fall können wir 
+zurücksetzen, da dies sehr lang dauern könnte. In diesem Fall können wir
 das Einfügen der Fixtures über ein eigenes PHP-Script anpassen. Dieses Script
 sollte in einer Datei namens `init.php` im Fixtureverzeichnis abgelegt werden.
 Falls [CDbFixtureManager] eine solche Datei findet, wird dieses Script
@@ -93,7 +93,7 @@ enden. Zum Initalisieren der Tabelle `Post` müsste das Script also
 vorfindet, wird dieses statt der Standardmethode zum Zurücksetzen der Tabelle
 ausgeführt.
 
-> Tip|Tipp: Zu viele Fixturedateien können die Testlaufzeit wesentlich verlängern. 
+> Tip|Tipp: Zu viele Fixturedateien können die Testlaufzeit wesentlich verlängern.
 Daher sollten Sie nur Fixtures für die Tabellen verwenden, deren Inhalt sich
 während des Tests verändern kann. Tabellen die zum Nachschlagen dienen, ändern
 sich nicht und benötigen daher keine Fixturedateien.

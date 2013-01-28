@@ -28,7 +28,7 @@ class PostController extends CController
 	public function accessRules()
 	{
 		return array(
-			array('deny',  // deny access to CUD for guest users
+			array('deny',	// deny access to CUD for guest users
 				'actions'=>array('delete'),
 				'users'=>array('?'),
 			),

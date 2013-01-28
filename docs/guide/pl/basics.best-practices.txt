@@ -8,9 +8,9 @@ Aby lepiej wytłumaczyć te wskazówki, załóżmy, że aplikacja zawiera kilka 
 * front end: strona upubliczniona dla zwykłego użytkownika;
 * back end: strona udostępniająca funkcje administracyjne służące zarządzaniu aplikacją. Z reguły z dostępem dla personelu adminstrującego;
 * konsola (ang. console): aplikacja składająca się z poleceń konsoli wywoływanych w oknie terminala lub też zaplanowanych zadań wspierających całą aplikację;
-* API sieciowe (ang. Web API): dostarcza interfejsów systemom zewnętrznym (ang. third parties) w celu integracji z aplikacją. 
+* API sieciowe (ang. Web API): dostarcza interfejsów systemom zewnętrznym (ang. third parties) w celu integracji z aplikacją.
 
-Podaplikacje mogą być zaimplementowane jako [moduły](/doc/guide/basics.module), lub też jako aplikacje Yii, które współdzielą pewien kod z innymi podaplikacjami. 
+Podaplikacje mogą być zaimplementowane jako [moduły](/doc/guide/basics.module), lub też jako aplikacje Yii, które współdzielą pewien kod z innymi podaplikacjami.
 
 
 Model
@@ -36,7 +36,7 @@ Ogólnie rzecz biorąc, modele nie powinny zawierać logiki, która bezpośredni
 
 * nie powinien używać zmiennych `$_GET`, `$_POST`, lub innych tym podobnym zmiennych, które są powiązane z żądaniem użytkownika. Zapamiętaj, że model może zostać użyty przez zupełnie inną podaplikację (np. testy jednostkowe, WEB API), które to mogą nie używać tych zmiennych w celu reprezentacji żądania użytkownika. Zmienne te, odnoszące się do żądania użytkownika końcowego powinny być obsługiwane przez kontroler.
 
-* powinien unikać osadzania kodu HTML lub też kodu prezentacji. Ponieważ ten ostatni rożni się w zależności od zapotrzebowań użytkownika końcowego. Lepiej w tym celu używać widoków. 
+* powinien unikać osadzania kodu HTML lub też kodu prezentacji. Ponieważ ten ostatni rożni się w zależności od zapotrzebowań użytkownika końcowego. Lepiej w tym celu używać widoków.
 
 
 Widok

@@ -2,7 +2,7 @@ Analiza wymagań
 =====================
 
 System blogowy, który zamierzamy utworzyć jest systemem przeznaczonym dla jednego użytkownika. Właściciel systemu będzie mógł wykonywać następujące akcje:
- 
+
  * zalogowania i wylogowania;
  * tworzenia, aktualizowania i usuwania wiadomości;
  * publikowania, zdejmowania i archiwizowania wiadomości;
@@ -15,9 +15,9 @@ Wszyscy pozostali użytkownicy są gośćmi, którzy mogą wykonywać następuj�
 
 Dodatkowe wymagania dla tego systemu:
 
- * Strona domowa tego systemu powinna wyświetlać listę najnowszych wiadomości. 
+ * Strona domowa tego systemu powinna wyświetlać listę najnowszych wiadomości.
  * Jeżeli strona posiada więcej niż 10 wiadomości, powinny być one wyświetlane za pomocą podstron.
- * System powinien wyświetlać wiadomości wraz z komentarzami do nich; 
+ * System powinien wyświetlać wiadomości wraz z komentarzami do nich;
  * System powinien być w stanie wyświetlić wiadomości o konkretnym otagowaniu.
  * System powinien pokazać chmurkę tagów, uwzględniającą ich częstotliwość występowania.
  * System powinien pokazać listę najnowszych komentarzy.

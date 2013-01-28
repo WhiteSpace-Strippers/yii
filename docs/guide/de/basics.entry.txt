@@ -25,13 +25,13 @@ gestartet.
 Debug-Modus
 -----------
 
-Über die Konstante `YII_DEBUG` kann eine Yii-Anwendung entweder in den Debug- 
-oder in den Produktivmodus versetzt werden. In der Standardeinstellung wird `YII-DEBUG` 
+Über die Konstante `YII_DEBUG` kann eine Yii-Anwendung entweder in den Debug-
+oder in den Produktivmodus versetzt werden. In der Standardeinstellung wird `YII-DEBUG`
 auf `false` gesetzt und die Anwendung läuft im Produktivmodus.
 Um in den Debugmodus umzuschalten muss die Konstante auf `true` gesetzt
 werden, bevor `yii.php` eingebunden wird. Im Debugmodus läuft die Anwendung
-langsamer, da intern eine wesentlich größere Menge an Logmeldungen anfällt. 
-In der Entwicklungsphase ist der Debugmodus allerdings sehr hilfreich, da 
+langsamer, da intern eine wesentlich größere Menge an Logmeldungen anfällt.
+In der Entwicklungsphase ist der Debugmodus allerdings sehr hilfreich, da
 im Fehlerfall umfangreiche Debuginformationen angezeigt werden können.
 
 <div class="revision">$Id: basics.entry.txt 3251 2011-06-01 00:24:06Z qiang.xue $</div>

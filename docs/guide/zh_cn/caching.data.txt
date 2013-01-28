@@ -12,7 +12,7 @@ Yii::app()->cache->set($id, $value);
 ~~~
 
 缓存的数据将一直留在缓存中，除非它由于某些缓存策略（例如缓存空间已满，旧的数据被删除）而被清除。
-要改变这种行为，我们可以在调用  [set()|CCache::set]  的同时提供一个过期参数，这样在设定的时间段之后，缓存数据将被清除：
+要改变这种行为，我们可以在调用	[set()|CCache::set]	的同时提供一个过期参数，这样在设定的时间段之后，缓存数据将被清除：
 
 ~~~
 [php]
@@ -38,7 +38,7 @@ if($value===false)
 而在不同的应用之间，这个 ID 不需要是唯一的。缓存组件具有足够的智慧区分不同应用中的 ID。
 
 一些缓存存储器，例如 MemCache, APC, 支持以批量模式获取多个缓存值。这可以减少获取缓存数据时带来的开销。
-从版本  1.0.8 起，Yii 提供了一个新的名为
+从版本	1.0.8 起，Yii 提供了一个新的名为
 [mget()|CCache::mget] 的方法。它可以利用此功能。如果底层缓存存储器不支持此功能，[mget()|CCache::mget] 依然可以模拟实现它。
 
 要从缓存中清除一个缓存值，调用 [delete()|CCache::delete]; 要清楚缓存中的所有数据，调用 [flush()|CCache::flush]。
@@ -48,8 +48,8 @@ if($value===false)
 > ~~~
 > [php]
 > $cache=Yii::app()->cache;
-> $cache['var1']=$value1;  // 相当于: $cache->set('var1',$value1);
-> $value2=$cache['var2'];  // 相当于: $value2=$cache->get('var2');
+> $cache['var1']=$value1;	// 相当于: $cache->set('var1',$value1);
+> $value2=$cache['var2'];	// 相当于: $value2=$cache->get('var2');
 > ~~~
 
 缓存依赖
@@ -59,7 +59,7 @@ if($value===false)
 并从文件中读取最新内容而不是从缓存中读取。
 
 我们将一个依赖关系表现为一个 [CCacheDependency] 或其子类的实例。
-当调用   [set()|CCache::set] 时，我们连同要缓存的数据将其一同传入。
+当调用	 [set()|CCache::set] 时，我们连同要缓存的数据将其一同传入。
 
 ~~~
 [php]
@@ -72,16 +72,16 @@ Yii::app()->cache->set($id, $value, 30, new CFileCacheDependency('FileName'));
 
 如下是可用的缓存依赖的简要说明：
 
-   - [CFileCacheDependency]: 如果文件的最后修改时间发生改变，则依赖改变。
+	 - [CFileCacheDependency]: 如果文件的最后修改时间发生改变，则依赖改变。
 
-   - [CDirectoryCacheDependency]: 如果目录和其子目录中的文件发生改变，则依赖改变。
+	 - [CDirectoryCacheDependency]: 如果目录和其子目录中的文件发生改变，则依赖改变。
 
-   - [CDbCacheDependency]: 如果指定 SQL 语句的查询结果发生改变，则依赖改变。
+	 - [CDbCacheDependency]: 如果指定 SQL 语句的查询结果发生改变，则依赖改变。
 
-   - [CGlobalStateCacheDependency]: 如果指定的全局状态发生改变，则依赖改变。全局状态是应用中的一个跨请求，跨会话的变量。它是通过 [CApplication::setGlobalState()] 定义的。
+	 - [CGlobalStateCacheDependency]: 如果指定的全局状态发生改变，则依赖改变。全局状态是应用中的一个跨请求，跨会话的变量。它是通过 [CApplication::setGlobalState()] 定义的。
 
-   - [CChainedCacheDependency]: 如果链中的任何依赖发生改变，则此依赖改变。
+	 - [CChainedCacheDependency]: 如果链中的任何依赖发生改变，则此依赖改变。
 
-   - [CExpressionDependency]: 如果指定的 PHP 表达式的结果发生改变，则依赖改变。此类从版本 1.0.4 起可用。
+	 - [CExpressionDependency]: 如果指定的 PHP 表达式的结果发生改变，则依赖改变。此类从版本 1.0.4 起可用。
 
 <div class="revision">$Id: caching.data.txt 1855 2010-03-04 22:42:32Z qiang.xue, translated by riverlet $</div>

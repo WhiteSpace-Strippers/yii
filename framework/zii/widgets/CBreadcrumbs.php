@@ -20,10 +20,10 @@
  *
  * <pre>
  * $this->widget('zii.widgets.CBreadcrumbs', array(
- *     'links'=>array(
- *         'Sample post'=>array('post/view', 'id'=>12),
- *         'Edit',
- *     ),
+ *		 'links'=>array(
+ *				 'Sample post'=>array('post/view', 'id'=>12),
+ *				 'Edit',
+ *		 ),
  * ));
  * </pre>
  *
@@ -33,7 +33,7 @@
  *
  * <pre>
  * $this->widget('zii.widgets.CBreadcrumbs', array(
- *     'links'=>$this->breadcrumbs,
+ *		 'links'=>$this->breadcrumbs,
  * ));
  * </pre>
  *
@@ -77,8 +77,8 @@ class CBreadcrumbs extends CWidget
 	 *
 	 * <pre>
 	 * array(
-	 *     'Sample post'=>array('post/view', 'id'=>12),
-	 *     'Edit',
+	 *		 'Sample post'=>array('post/view', 'id'=>12),
+	 *		 'Edit',
 	 * )
 	 * </pre>
 	 */

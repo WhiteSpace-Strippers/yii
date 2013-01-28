@@ -8,10 +8,10 @@ Yii DAO є надбудовою над [PHP Data Objects (PDO)](http://php.net/m
 
 Yii DAO складається із чотирьох основних класів:
 
-   - [CDbConnection]: представляє підключення до бази даних;
-   - [CDbCommand]: представляє вираз SQL та його виконання;
-   - [CDbDataReader]: представляє односпрямований потік рядків з даних, що повертаються у відповідь на SQL-запит;
-   - [CDbTransaction]: представляє транзакції бази даних.
+	 - [CDbConnection]: представляє підключення до бази даних;
+	 - [CDbCommand]: представляє вираз SQL та його виконання;
+	 - [CDbDataReader]: представляє односпрямований потік рядків з даних, що повертаються у відповідь на SQL-запит;
+	 - [CDbTransaction]: представляє транзакції бази даних.
 
 Нижче ми проілюструємо використання Yii DAO.
 
@@ -26,7 +26,7 @@ $connection=new CDbConnection($dsn,$username,$password);
 // встановлюємо зʼєднання. Можна спробувати try…catch можливих виключень
 $connection->active=true;
 …
-$connection->active=false;  // close connection
+$connection->active=false;	// close connection
 ~~~
 
 Формат DSN залежить від використовуваного драйвера PDO. Як правило, DSN складається із імені драйвера PDO,
@@ -34,11 +34,11 @@ $connection->active=false;  // close connection
 використовуваного драйвера. Докладніше з цим можна ознайомитися в [документації по PDO](http://php.net/manual/en/pdo.construct.php).
 Нижче представлені кілька основних форматів DSN:
 
-   - SQLite: `sqlite:/path/to/dbfile`
-   - MySQL: `mysql:host=localhost;dbname=testdb`
-   - PostgreSQL: `pgsql:host=localhost;port=5432;dbname=testdb`
-   - SQL Server: `mssql:host=localhost;dbname=testdb`
-   - Oracle: `oci:dbname=//localhost:1521/testdb`
+	 - SQLite: `sqlite:/path/to/dbfile`
+	 - MySQL: `mysql:host=localhost;dbname=testdb`
+	 - PostgreSQL: `pgsql:host=localhost;port=5432;dbname=testdb`
+	 - SQL Server: `mssql:host=localhost;dbname=testdb`
+	 - Oracle: `oci:dbname=//localhost:1521/testdb`
 
 Оскільки [CDbConnection] є підкласом [CApplicationComponent], то ми можемо використовувати його у якості [компонента](/doc/guide/basics.application#application-component). Для цього потрібно налаштувати
 компонент `db` у [конфігурації додатка](/doc/guide/basics.application#application-configuration)
@@ -55,7 +55,7 @@ array(
 			'connectionString'=>'mysql:host=localhost;dbname=testdb',
 			'username'=>'root',
 			'password'=>'password',
-			'emulatePrepare'=>true,  // необхідно для деяких версій MySQL
+			'emulatePrepare'=>true,	// необхідно для деяких версій MySQL
 		),
 	),
 )
@@ -80,20 +80,20 @@ $command=$connection->createCommand($sql);
 
 Існує два варіанти виконання SQL-виразу з використанням [CDbCommand]:
 
-   - [execute()|CDbCommand::execute]: виконує SQL-вирази типу `INSERT`, `UPDATE` і `DELETE`. У разі успішного виконання, повертає кількість оброблених рядків;
+	 - [execute()|CDbCommand::execute]: виконує SQL-вирази типу `INSERT`, `UPDATE` і `DELETE`. У разі успішного виконання, повертає кількість оброблених рядків;
 
-   - [query()|CDbCommand::query]: виконує SQL-вирази, які повертають набори даних, наприклад, типу `SELECT`. У разі успішного виконання, повертає екземпляр класу [CDbDataReader], через який доступні отримані дані. Для зручності також реалізовані методи `queryXXX ()`, повертають результати запиту напряму.
+	 - [query()|CDbCommand::query]: виконує SQL-вирази, які повертають набори даних, наприклад, типу `SELECT`. У разі успішного виконання, повертає екземпляр класу [CDbDataReader], через який доступні отримані дані. Для зручності також реалізовані методи `queryXXX ()`, повертають результати запиту напряму.
 
 Якщо в процесі виконання SQL-виразу виникне помилка, буде викликано виключення.
 
 ~~~
 [php]
-$rowCount=$command->execute();   // виконання вирази типу `INSERT`, `UPDATE` та `DELETE`
-$dataReader=$command->query();   // виконання вирази типу `SELECT`
-$rows=$command->queryAll();      // запит і повернення всіх рядків результату
-$row=$command->queryRow();       // запит і повернення першого рядка результату
+$rowCount=$command->execute();	 // виконання вирази типу `INSERT`, `UPDATE` та `DELETE`
+$dataReader=$command->query();	 // виконання вирази типу `SELECT`
+$rows=$command->queryAll();			// запит і повернення всіх рядків результату
+$row=$command->queryRow();			 // запит і повернення першого рядка результату
 $column=$command->queryColumn(); // запит і повернення першого стовпця результату
-$value=$command->queryScalar();  // запит і повернення першого поля в першому рядку
+$value=$command->queryScalar();	// запит і повернення першого поля в першому рядку
 ~~~
 
 Обробка результатів запиту
@@ -120,10 +120,10 @@ $rows=$dataReader->readAll();
 
 У випадку, коли додаток виконує декілька запитів, кожен з яких щось пише або читає з БД, важливо пересвідчитися, що набір запитів виконано повністю, а не наполовину. У цій ситуації можна скористатися транзакціями, що надаються екземпляром класу [CDbTransaction]:
 
-   - початок транзакції;
-   - виконання запитів по черзі, всі зміни даних у БД недоступні поза базою;
-   - підтвердження транзакції, якщо результат транзакції позитивний, то зміни стають доступні;
-   - якщо виникає помилка при виконанні будь-якого запиту, то вся транзація відкочується назад.
+	 - початок транзакції;
+	 - виконання запитів по черзі, всі зміни даних у БД недоступні поза базою;
+	 - підтвердження транзакції, якщо результат транзакції позитивний, то зміни стають доступні;
+	 - якщо виникає помилка при виконанні будь-якого запиту, то вся транзація відкочується назад.
 
 Цю послідовність дій можна реалізувати наступним чином:
 
@@ -186,7 +186,7 @@ $dataReader->bindColumn(1,$username);
 $dataReader->bindColumn(2,$email);
 while($dataReader->read()!==false)
 {
-    // змінні $username та $email отримують значення полів username і email поточного рядка
+		// змінні $username та $email отримують значення полів username і email поточного рядка
 }
 ~~~
 

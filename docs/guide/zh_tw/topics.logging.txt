@@ -25,16 +25,16 @@ Yii::trace($message, $category);
 例如，如果一條訊息是在 [CController] 中記錄的，我們可以使用 `system.web.CController`
 作為分類。訊息級別應該是下列值中的一種：
 
-   - `trace`: 這是在  [Yii::trace] 中使用的級別。它用於在開發中
+	 - `trace`: 這是在	[Yii::trace] 中使用的級別。它用於在開發中
 追蹤程式的執行流程。
 
-   - `info`: 這個用於記錄普通的訊息。
+	 - `info`: 這個用於記錄普通的訊息。
 
-   - `profile`: 這個是性能分析。下面馬上會有更詳細的說明。
+	 - `profile`: 這個是性能分析。下面馬上會有更詳細的說明。
 
-   - `warning`: 這個用於警告訊息。
+	 - `warning`: 這個用於警告訊息。
 
-   - `error`: 這個用於致命錯誤訊息。
+	 - `error`: 這個用於致命錯誤訊息。
 
 
 訊息路由
@@ -50,10 +50,10 @@ Yii::trace($message, $category);
 代表一個單獨的日誌目的地。通過一個日誌路由發送的訊息會被他們的級別和分類篩選。
 
 要使用訊息路由，我們需要安裝並預先加載一個 [CLogRouter]
-應用程式元件。我們也還需要配置它的 
+應用程式元件。我們也還需要配置它的
 [routes|CLogRouter::routes] 屬性為我們想要的那些日誌路由。
-下面的程式碼展示了一個所需的  [應用程式配置](/doc/guide/basics.application#application-configuration)
-範例: 
+下面的程式碼展示了一個所需的	[應用程式配置](/doc/guide/basics.application#application-configuration)
+範例:
 
 ~~~
 [php]
@@ -83,21 +83,21 @@ array(
 
 在上面的例子中，我們定義了兩個日誌路由。第一個是
 [CFileLogRoute] ，它會把訊息儲存在位於應用程式程式 runtime 目錄中的一個檔案中。
-而且只有級別為 `trace` 或 `info` 、分類以 `system.` 開頭的訊息才會被儲存。 
+而且只有級別為 `trace` 或 `info` 、分類以 `system.` 開頭的訊息才會被儲存。
 第二個路由是
-[CEmailLogRoute] ，它會將訊息發送到指定的 email 地址，且只有級別為  `error` 
+[CEmailLogRoute] ，它會將訊息發送到指定的 email 地址，且只有級別為	`error`
 或 `warning` 的才會發送。
 
 在 Yii 中，有下列幾種日誌路由可用：
 
-   - [CDbLogRoute]: 將訊息儲存到資料庫的表中。
-   - [CEmailLogRoute]: 發送訊息到指定的 Email 地址。
-   - [CFileLogRoute]: 儲存訊息到應用程式程式 runtime 目錄中的一個檔案中。
-   - [CWebLogRoute]: 將訊息顯示在當前頁面的底部。
-   - [CProfileLogRoute]: 在頁面的底部顯示分析訊息。
+	 - [CDbLogRoute]: 將訊息儲存到資料庫的表中。
+	 - [CEmailLogRoute]: 發送訊息到指定的 Email 地址。
+	 - [CFileLogRoute]: 儲存訊息到應用程式程式 runtime 目錄中的一個檔案中。
+	 - [CWebLogRoute]: 將訊息顯示在當前頁面的底部。
+	 - [CProfileLogRoute]: 在頁面的底部顯示分析訊息。
 
 > Info|訊息: 訊息路由發生在當前請求週期最後的 [onEndRequest|CApplication::onEndRequest] 事件觸發時。
-要終止當前請求過程，請調用 [CApplication::end()] 而不是使用 `die()` 或 `exit()`，因為 
+要終止當前請求過程，請調用 [CApplication::end()] 而不是使用 `die()` 或 `exit()`，因為
 [CApplication::end()] 將會觸發 [onEndRequest|CApplication::onEndRequest] 事件，
 這樣訊息才會被順利地記錄。
 

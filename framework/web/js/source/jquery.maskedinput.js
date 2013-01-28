@@ -1,7 +1,7 @@
 /*
 	Masked Input plugin for jQuery
 	Copyright (c) 2007-2011 Josh Bush (digitalbush.com)
-	Licensed under the MIT license (http://digitalbush.com/projects/masked-input-plugin/#license) 
+	Licensed under the MIT license (http://digitalbush.com/projects/masked-input-plugin/#license)
 	Version: 1.3
 */
 (function($) {
@@ -71,7 +71,7 @@
 				} else if (defs[c]) {
 					tests.push(new RegExp(defs[c]));
 					if(firstNonMaskPos==null)
-						firstNonMaskPos =  tests.length - 1;
+						firstNonMaskPos =	tests.length - 1;
 				} else {
 					tests.push(null);
 				}
@@ -93,7 +93,7 @@
 
 				function shiftL(begin,end) {
 					if(begin<0)
-					   return;
+						 return;
 					for (var i = begin,j = seekNext(end); i < len; i++) {
 						if (tests[i]) {
 							if (j < len && tests[i].test(buffer[j])) {
@@ -130,7 +130,7 @@
 						var pos = input.caret(),
 							begin = pos.begin,
 							end = pos.end;
-						
+
 						if(end-begin==0){
 							begin=k!=46?seekPrev(begin):(end=seekNext(begin-1));
 							end=k==46?seekNext(end):end;

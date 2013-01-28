@@ -4,12 +4,12 @@ Verwenden von Erweiterungen
 Um eine Erweiterung (engl.: Extension) einzusetzen, sind normalerweise
 folgende Schritte erforderlich:
 
-  1. Erweiterung aus dem [Extension
-  repository](http://www.yiiframework.com/extensions/) von Yii herunterladen
-  2. Ins Unterverzeichnis `extensions/xyz` des 
-  [Anwendungsverzeichnisses](/doc/guide/basics.application#application-base-directory)
-  entpacken, wobei `xyz` für den Namen der Erweiterung steht.
-  3. Importieren, Konfigurieren und Verwenden der Erweiterung
+	1. Erweiterung aus dem [Extension
+	repository](http://www.yiiframework.com/extensions/) von Yii herunterladen
+	2. Ins Unterverzeichnis `extensions/xyz` des
+	[Anwendungsverzeichnisses](/doc/guide/basics.application#application-base-directory)
+	entpacken, wobei `xyz` für den Namen der Erweiterung steht.
+	3. Importieren, Konfigurieren und Verwenden der Erweiterung
 
 Jede Erweiterung hat einen eindeutigen Namen, um sie klar von anderen
 Erweiterungen zu unterscheiden. Heißt eine Erweiterung `xyz`, kann
@@ -17,7 +17,7 @@ man über den Pfadalias `ext.xyz` von überallher auf Dateien dieser Erweiterung
 zugreifen.
 
 Jede Erweiterung muss anders importiert, konfiguriert bzw. angewendet werden.
-Wir zeigen hier einige typische Anwendungsfälle für die in der 
+Wir zeigen hier einige typische Anwendungsfälle für die in der
 [Übersicht](/doc/guide/extension.overview) beschriebenen Kategorien.
 
 Zii Erweiterungen
@@ -26,7 +26,7 @@ Zii Erweiterungen
 Bevor wir auf andere Erweiterungen eingehen, möchten wir an dieser Stelle kurz
 die Zii-Erweiterungsbibliothek vorstellen. Dabei handelt es sich um eine Reihe von
 Erweiterungen, die vom Yii-Entwicklerteam erstellt wurden und die seit Version
-1.1.0 in jedem Release enthalten sind. 
+1.1.0 in jedem Release enthalten sind.
 
 Um eine Zii-Erweiterung zu verwenden, muss die entsprechende Klasse mit einem
 Pfadalias der Form `zii.pfad.zur.Klasse` referenziert werden. Der Rootalias
@@ -45,21 +45,21 @@ Anwendungskomponente
 --------------------
 
 Um eine [Anwendungskomponente](/doc/guide/basics.application#application-component) zu
-verwenden, muss in der [Konfiguration](/doc/guide/basics.application#application-configuration) 
+verwenden, muss in der [Konfiguration](/doc/guide/basics.application#application-configuration)
 ein Eintrag in der `components`-Eigenschaft hinzugefügt werden:
 
 ~~~
 [php]
 return array(
-    // 'preload'=>array('xyz',...),
-    'components'=>array(
-        'xyz'=>array(
-            'class'=>'ext.xyz.XyzClass',
-            'property1'=>'value1',
-            'property2'=>'value2',
-        ),
-        // Andere Konfigurationen für Komponenten
-    ),
+		// 'preload'=>array('xyz',...),
+		'components'=>array(
+				'xyz'=>array(
+						'class'=>'ext.xyz.XyzClass',
+						'property1'=>'value1',
+						'property2'=>'value2',
+				),
+				// Andere Konfigurationen für Komponenten
+		),
 );
 ~~~
 
@@ -74,7 +74,7 @@ Behavior
 
 [Behavior](/doc/guide/basics.component#component-behavior) können mit allen
 möglichen Komponenten verwendet werden. Dazu muss das Behavior zunächst
-an die gewünschte Komponente angebunden werden. Danach kann man 
+an die gewünschte Komponente angebunden werden. Danach kann man
 Behaviormethoden über die Komponente aufrufen:
 
 ~~~
@@ -85,10 +85,10 @@ $component->attachBehavior($name,$behavior);
 $component->test();
 ~~~
 
-Statt über die `attachBehavior`-Methode wird ein Behavior in der Regel meist 
-per [Konfiguration](/doc/guide/basics.application#application-configuration) 
+Statt über die `attachBehavior`-Methode wird ein Behavior in der Regel meist
+per [Konfiguration](/doc/guide/basics.application#application-configuration)
 an eine Komponente angebunden, wie hier am Beispiel einer
-[Anwendungskomponente](/doc/guide/basics.application#application-component) 
+[Anwendungskomponente](/doc/guide/basics.application#application-component)
 gezeigt:
 
 ~~~
@@ -111,7 +111,7 @@ return array(
 ~~~
 
 Damit wird das Behavoir `xyz` and die `db`-Komponente angebunden.
-Dies wird durch Eigenschaft `behaviors` mögliche, die in [CApplicationComponent] 
+Dies wird durch Eigenschaft `behaviors` mögliche, die in [CApplicationComponent]
 definiert ist. Übergibt man in dieser Eigenschaft eine Liste von
 Behaviorkonfigurationen, bindet die Komponente die entsprechenden
 Behaviors beim Initialisieren an.
@@ -146,13 +146,13 @@ der `xyz`-Erweiterung kann im View wie folgt verwendet werden:
 [php]
 // Widget ohne eingebetteten Inhalt
 <?php $this->widget('ext.xyz.XyzClass', array(
-    'property1'=>'value1',
-    'property2'=>'value2')); ?>
+		'property1'=>'value1',
+		'property2'=>'value2')); ?>
 
 // Widget mit eingebettetem Inhalt:
 <?php $this->beginWidget('ext.xyz.XyzClass', array(
-    'property1'=>'value1',
-    'property2'=>'value2')); ?>
+		'property1'=>'value1',
+		'property2'=>'value2')); ?>
 
 ...Eingebetteter Inhalt des Widgets...
 
@@ -192,7 +192,7 @@ Die Action kann dann über die [Route](/doc/guide/basics.controller#route)
 Filter
 ------
 
-[Filter](/doc/guide/basics.controller#filter) werden ebenfalls von 
+[Filter](/doc/guide/basics.controller#filter) werden ebenfalls von
 einem [Controller](/doc/guide/basics.controller) verwendet. Sie übernehmen
 hauptsächlich die Vor- und Nachbearbeitung eines User-Requests, wenn dieser
 von einer [Action](/doc/guide/basics.controller#action) behandelt wird.
@@ -218,7 +218,7 @@ class TestController extends CController
 ~~~
 
 Man kann hierbei auch Plus- und Minusoperatoren verwenden, um den Filter
-nur auf bestimmte Actions anzuwenden. Näheres hierzu finden Sie in der 
+nur auf bestimmte Actions anzuwenden. Näheres hierzu finden Sie in der
 Dokumentation von [CController].
 
 Controller
@@ -226,8 +226,8 @@ Controller
 
 Ein [Controller](/doc/guide/basics.controller) stellt eine Reihe von Actions
 bereit, die von Benutzern aufgerufen werden können. Um eine
-Controllererweiterung zu verwenden, muss man in der 
-[Anwendungskonfiguration](/doc/guide/basics.application#application-configuration) 
+Controllererweiterung zu verwenden, muss man in der
+[Anwendungskonfiguration](/doc/guide/basics.application#application-configuration)
 die Eigenschaft [CWebApplication::controllerMap] anpassen:
 
 ~~~
@@ -250,7 +250,7 @@ Eine Action `a` in diesem Controller kann dann über die
 Validator
 ---------
 
-Validatoren werden hauptsächlich in 
+Validatoren werden hauptsächlich in
 [Modelklassen](/doc/guide/basics.model) (also Ablegern von
 [CFormModel] oder [CActiveRecord]) verwendet.
 Um einen Validator `XyzClass` aus der Erweiterung `xyz` einzusetzen,
@@ -278,9 +278,9 @@ class MyModel extends CActiveRecord // oder CFormModel
 Konsolenbefehl
 --------------
 
-Eine [Konsolenerweiterung](/doc/guide/topics.console) 
-fügt dem `yiic`-Befehl in der Regel ein weiteres Kommando hinzu. 
-Indem man die Konfiguration der Konslenanwendung anpasst, kann man 
+Eine [Konsolenerweiterung](/doc/guide/topics.console)
+fügt dem `yiic`-Befehl in der Regel ein weiteres Kommando hinzu.
+Indem man die Konfiguration der Konslenanwendung anpasst, kann man
 dann z.B. den Befehl `XyzClass` aus der Erweiterung `xyz` verwenden:
 
 ~~~

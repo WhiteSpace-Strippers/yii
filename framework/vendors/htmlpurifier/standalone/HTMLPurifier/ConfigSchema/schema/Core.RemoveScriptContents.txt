@@ -6,7 +6,7 @@ DEPRECATED-VERSION: 2.1.0
 DEPRECATED-USE: Core.HiddenElements
 --DESCRIPTION--
 <p>
-  This directive enables HTML Purifier to remove not only script tags
-  but all of their contents.
+	This directive enables HTML Purifier to remove not only script tags
+	but all of their contents.
 </p>
 --# vim: et sw=4 sts=4

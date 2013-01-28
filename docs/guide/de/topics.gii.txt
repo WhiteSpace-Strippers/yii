@@ -54,7 +54,7 @@ Angenommen, die bestehende Anwendung liegt unter
 die URL `http://hostname/pfad/zu/index.php?r=gii` aufgerufen werden.
 
 Falls die Anwendung das `path`-Format für URLs verwendet (siehe
-[URL-Management](/doc/guide/topics.url)), ist Gii über die URL 
+[URL-Management](/doc/guide/topics.url)), ist Gii über die URL
 `http://hostname/pfad/zu/index.php/gii` erreichbar. Eventuell muss auch folgende
 URL-Regel an den Anfang bestehender Regeln gesetzt werden:
 
@@ -95,11 +95,11 @@ Gii erweitern
 Obwohl die mitgelieferten Codegeneratorn bereits sehr leistungsstarken Code
 erzeugen, kann man diese dem eigenen Geschmack und Bedarf anpassen bzw. durch neue
 Generatoren erweitern. Zum Beispiel wenn der generierte Code dem eigenen
-Programmierstil entsprechen oder auch mehrere Sprachen unterstützen soll. 
+Programmierstil entsprechen oder auch mehrere Sprachen unterstützen soll.
 Gii macht solche Anpassungen sehr einfach.
 
 Gii kann auf zwei Arten erweitert werden: Entweder man passt die Codevorlagen
-(engl.: templates) der bestehenden Codegeneratoren an oder man schreibt sich gleich einen neuen 
+(engl.: templates) der bestehenden Codegeneratoren an oder man schreibt sich gleich einen neuen
 Codegenerator.
 
 ###Struktur eines Codegenerators
@@ -108,14 +108,14 @@ Die Dateien eines Codegenerators liegen in einem Verzeichnis mit dem Namen des
 Generators. Für gewöhnlich enthält ein Generator:
 
 ~~~
-model/                       Stammverzeichnis des Modelgenerators
-   ModelCode.php             Codemodel für die Codegenerierung
-   ModelGenerator.php        Controller für die Codegenerierung
-   views/                    Viewscripte des Generators
-      index.php              Standard-Viewscript
-   templates/                Sets von Codevorlagen
-      default/               'Default'- (bzw. Standard-)Vorlagenset
-         model.php           Codevorlage zum Generieren einer Modelklasse
+model/											 Stammverzeichnis des Modelgenerators
+	 ModelCode.php						 Codemodel für die Codegenerierung
+	 ModelGenerator.php				Controller für die Codegenerierung
+	 views/										Viewscripte des Generators
+			index.php							Standard-Viewscript
+	 templates/								Sets von Codevorlagen
+			default/							 'Default'- (bzw. Standard-)Vorlagenset
+				 model.php					 Codevorlage zum Generieren einer Modelklasse
 ~~~
 
 ###Suchpfad des Generators
@@ -131,7 +131,7 @@ return array(
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
 			'generatorPaths'=>array(
-				'application.gii',   // Ein Pfadalias
+				'application.gii',	 // Ein Pfadalias
 			),
 		),
 	),
@@ -273,7 +273,7 @@ und Label festlegt.
 Die `prepare()`-Methode bereitet den zu generierenden Code vor, indem sie eine
 Liste von [CCodeFile]-Objekten anlegt. Jedes dieser Objekte steht für eine zu
 erstellende Codedatei. In unserem Fall ist das nur eine Widgetdatei, die in
-`protected/components` erstellt werden soll. Der eigentliche Code dieser Datei 
+`protected/components` erstellt werden soll. Der eigentliche Code dieser Datei
 wird mit [CCodeFile::render] erzeugt. Sie bindet die Codevorlage als
 PHP-Script ein und liefert den dort ausgegebenen Inhalt zurück.
 
@@ -303,7 +303,7 @@ ist es an der Zeit, das Viewscript `views/index.php` anzulegen:
 ~~~
 
 Es zeigt ein Formular mit Hilfe des [CCodeForm]-Widgets an, das ein
-Eingabefeld für das Attribut `className` in `WidgetCode` enthält. 
+Eingabefeld für das Attribut `className` in `WidgetCode` enthält.
 
 Bei diesem Formular kann man sich zwei nützliche Features von [CCodeForm]
 zunutze machen: Tooltips und die "sticky"-Option (klebrig) für Eingabefelder.

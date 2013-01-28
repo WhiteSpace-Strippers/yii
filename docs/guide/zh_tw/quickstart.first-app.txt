@@ -1,7 +1,7 @@
 建立第一個 Yii 應用程式
 ===================
 
-為了對 Yii 有個初步認識，我們在本節講述如何建立第一個 Yii 應用程式。我們將使用 `yiic` （命令列工具）建立一個新的 Yii 應用程式。`Gii`（強大的基於 Web 的程式碼產生器）為特定的任務完成自動程式碼產生。假定 `YiiRoot`  為 Yii 的安裝目錄，`WebRoot` 是伺服器的文件根目錄。
+為了對 Yii 有個初步認識，我們在本節講述如何建立第一個 Yii 應用程式。我們將使用 `yiic` （命令列工具）建立一個新的 Yii 應用程式。`Gii`（強大的基於 Web 的程式碼產生器）為特定的任務完成自動程式碼產生。假定 `YiiRoot`	為 Yii 的安裝目錄，`WebRoot` 是伺服器的文件根目錄。
 
 在命令列運行 `yiic`，如下所示：
 
@@ -44,51 +44,51 @@ As we can see, the application has four pages: the homepage, the about page, the
 
 ~~~
 testdrive/
-   index.php                 Web 應用程式入口腳本文件
-   index-test.php            功能測試使用的入口腳本文件
-   assets/                   包含公開的資源文件
-   css/                      包含 CSS 文件
-   images/                   包含圖片文件
-   themes/                   包含應用程式主題
-   protected/                包含受保護的應用程式文件
-      yiic                   yiic 命令列腳本
-      yiic.bat               Windows 下的 yiic 命令列腳本
-      yiic.php               yiic 命令列 PHP 腳本
-      commands/              包含自定的 'yiic' 命令
-         shell/              包含自定的 'yiic shell' 命令
-      components/            包含可重用的用戶元件
-         Controller.php      所有控制器類別的基礎類別
-         Identity.php        用來認證的 'Identity' 類別
-      config/                包含配置文件
-         console.php         控制台應用程式配置
-         main.php            Web 應用程式配置
-         test.php            功能測試使用的配置
-      controllers/           包含控制器的類別文件
-         SiteController.php  預設控制器的類別文件
-      data/                  包含示範資料庫
-         schema.mysql.sql    MySQL 資料庫結構
-         schema.sqlite.sql   SQLite 資料庫結構
-         testdrive.db        示範的 SQLite 資料庫
-      extensions/            包含第三方擴展
-      messages/              包含翻譯過的消息
-      models/                包含模型的類別文件
-         LoginForm.php       'login' 動作的表單模型
-         ContactForm.php     'contact' 動作的表單模型
-      runtime/               包含臨時產生的文件
-      tests/                 包含測試腳本
-      views/                 包含控制器的視圖和佈局文件
-         layouts/            包含佈局視圖文件
-            main.php         所有視圖的預設佈局
-            column1.php      使用單欄頁面的佈局
-            column2.php      使用雙欄頁面的佈局
-         site/               包含 'site' 控制器的視圖文件
-            pages/           包含 "靜態" 頁面
-               about.php     "about" 頁面的視圖
-            contact.php      'contact' 動作的視圖
-            error.php        'error' 動作的視圖(顯示外部錯誤)
-            index.php        'index' 動作的視圖
-            login.php        'login' 動作的視圖
-         system/             包含系統視圖文件
+	 index.php								 Web 應用程式入口腳本文件
+	 index-test.php						功能測試使用的入口腳本文件
+	 assets/									 包含公開的資源文件
+	 css/											包含 CSS 文件
+	 images/									 包含圖片文件
+	 themes/									 包含應用程式主題
+	 protected/								包含受保護的應用程式文件
+			yiic									 yiic 命令列腳本
+			yiic.bat							 Windows 下的 yiic 命令列腳本
+			yiic.php							 yiic 命令列 PHP 腳本
+			commands/							包含自定的 'yiic' 命令
+				 shell/							包含自定的 'yiic shell' 命令
+			components/						包含可重用的用戶元件
+				 Controller.php			所有控制器類別的基礎類別
+				 Identity.php				用來認證的 'Identity' 類別
+			config/								包含配置文件
+				 console.php				 控制台應用程式配置
+				 main.php						Web 應用程式配置
+				 test.php						功能測試使用的配置
+			controllers/					 包含控制器的類別文件
+				 SiteController.php	預設控制器的類別文件
+			data/									包含示範資料庫
+				 schema.mysql.sql		MySQL 資料庫結構
+				 schema.sqlite.sql	 SQLite 資料庫結構
+				 testdrive.db				示範的 SQLite 資料庫
+			extensions/						包含第三方擴展
+			messages/							包含翻譯過的消息
+			models/								包含模型的類別文件
+				 LoginForm.php			 'login' 動作的表單模型
+				 ContactForm.php		 'contact' 動作的表單模型
+			runtime/							 包含臨時產生的文件
+			tests/								 包含測試腳本
+			views/								 包含控制器的視圖和佈局文件
+				 layouts/						包含佈局視圖文件
+						main.php				 所有視圖的預設佈局
+						column1.php			使用單欄頁面的佈局
+						column2.php			使用雙欄頁面的佈局
+				 site/							 包含 'site' 控制器的視圖文件
+						pages/					 包含 "靜態" 頁面
+							 about.php		 "about" 頁面的視圖
+						contact.php			'contact' 動作的視圖
+						error.php				'error' 動作的視圖(顯示外部錯誤)
+						index.php				'index' 動作的視圖
+						login.php				'login' 動作的視圖
+				 system/						 包含系統視圖文件
 ~~~
 
 連接到資料庫
@@ -115,10 +115,10 @@ return array(
 ~~~
 [sql]
 CREATE TABLE tbl_user (
-    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-    username VARCHAR(128) NOT NULL,
-    password VARCHAR(128) NOT NULL,
-    email VARCHAR(128) NOT NULL
+		id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+		username VARCHAR(128) NOT NULL,
+		password VARCHAR(128) NOT NULL,
+		email VARCHAR(128) NOT NULL
 );
 ~~~
 
@@ -183,7 +183,7 @@ return array(
 http://hostname/testdrive/index.php?r=user
 ~~~
 
-這會顯示一個 `tbl_user`  資料表中記錄的列表。
+這會顯示一個 `tbl_user`	資料表中記錄的列表。
 
 點擊頁面上的 `Create User` 連結，如果沒有登入的話我們將被帶到登入頁。登入後，我們看到一個可供我們增加新用戶的表單。完成表單並點擊 `Create` 按鈕，如果有任何輸入錯誤的話，一個友善的錯誤提示將會顯示並阻止我們儲存。回到用戶列表，我們應該能看到剛才新增的用戶顯示在列表中。
 

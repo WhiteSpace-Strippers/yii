@@ -17,8 +17,8 @@
  * properties. For example, the following usages are all valid for a
  * CAttributeCollection object:
  * <pre>
- * $collection->text='text'; // same as:  $collection->add('text','text');
- * echo $collection->text;   // same as:  echo $collection->itemAt('text');
+ * $collection->text='text'; // same as:	$collection->add('text','text');
+ * echo $collection->text;	 // same as:	echo $collection->itemAt('text');
  * </pre>
  *
  * The case sensitivity of attribute names can be toggled by setting the
@@ -203,11 +203,11 @@ class CAttributeCollection extends CMap
 	{
 		if(!$this->caseSensitive && (is_array($data) || $data instanceof Traversable))
 		{
-            $d=array();
-            foreach($data as $key=>$value)
-                $d[strtolower($key)]=$value;
-            return parent::mergeWith($d,$recursive);
+						$d=array();
+						foreach($data as $key=>$value)
+								$d[strtolower($key)]=$value;
+						return parent::mergeWith($d,$recursive);
 		}
-    parent::mergeWith($data,$recursive);
+		parent::mergeWith($data,$recursive);
 	}
 }

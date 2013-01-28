@@ -29,7 +29,7 @@
  * After the DB connection is established, one can execute an SQL statement like the following:
  * <pre>
  * $command=$connection->createCommand($sqlStatement);
- * $command->execute();   // a non-query SQL statement execution
+ * $command->execute();	 // a non-query SQL statement execution
  * // or execute an SQL query and fetch the result set
  * $reader=$command->query();
  *
@@ -50,14 +50,14 @@
  * $transaction=$connection->beginTransaction();
  * try
  * {
- *    $connection->createCommand($sql1)->execute();
- *    $connection->createCommand($sql2)->execute();
- *    //.... other SQL executions
- *    $transaction->commit();
+ *		$connection->createCommand($sql1)->execute();
+ *		$connection->createCommand($sql2)->execute();
+ *		//.... other SQL executions
+ *		$transaction->commit();
  * }
  * catch(Exception $e)
  * {
- *    $transaction->rollback();
+ *		$transaction->rollback();
  * }
  * </pre>
  *
@@ -69,12 +69,12 @@
  * like the following,
  * <pre>
  * array(
- *     'components'=>array(
- *         'db'=>array(
- *             'class'=>'CDbConnection',
- *             'connectionString'=>'sqlite:path/to/dbfile',
- *         ),
- *     ),
+ *		 'components'=>array(
+ *				 'db'=>array(
+ *						 'class'=>'CDbConnection',
+ *						 'connectionString'=>'sqlite:path/to/dbfile',
+ *				 ),
+ *		 ),
  * )
  * </pre>
  *
@@ -233,15 +233,15 @@ class CDbConnection extends CApplicationComponent
 	 * @since 1.1.6
 	 */
 	public $driverMap=array(
-		'pgsql'=>'CPgsqlSchema',    // PostgreSQL
-		'mysqli'=>'CMysqlSchema',   // MySQL
-		'mysql'=>'CMysqlSchema',    // MySQL
-		'sqlite'=>'CSqliteSchema',  // sqlite 3
+		'pgsql'=>'CPgsqlSchema',		// PostgreSQL
+		'mysqli'=>'CMysqlSchema',	 // MySQL
+		'mysql'=>'CMysqlSchema',		// MySQL
+		'sqlite'=>'CSqliteSchema',	// sqlite 3
 		'sqlite2'=>'CSqliteSchema', // sqlite 2
-		'mssql'=>'CMssqlSchema',    // Mssql driver on windows hosts
-		'dblib'=>'CMssqlSchema',    // dblib drivers on linux (and maybe others os) hosts
-		'sqlsrv'=>'CMssqlSchema',   // Mssql
-		'oci'=>'COciSchema',        // Oracle driver
+		'mssql'=>'CMssqlSchema',		// Mssql driver on windows hosts
+		'dblib'=>'CMssqlSchema',		// dblib drivers on linux (and maybe others os) hosts
+		'sqlsrv'=>'CMssqlSchema',	 // Mssql
+		'oci'=>'COciSchema',				// Oracle driver
 	);
 
 	/**
@@ -561,7 +561,7 @@ class CDbConnection extends CApplicationComponent
 		$this->setActive(true);
 		if(($value=$this->_pdo->quote($str))!==false)
 			return $value;
-		else  // the driver doesn't support quote (e.g. oci)
+		else	// the driver doesn't support quote (e.g. oci)
 			return "'" . addcslashes(str_replace("'", "''", $str), "\000\n\r\\\032") . "'";
 	}
 

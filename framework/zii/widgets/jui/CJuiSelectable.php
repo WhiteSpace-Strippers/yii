@@ -19,15 +19,15 @@ Yii::import('zii.widgets.jui.CJuiWidget');
  * To use this widget, you may insert the following code in a view:
  * <pre>
  * $this->widget('zii.widgets.jui.CJuiSelectable',array(
- *     'items'=>array(
- *         'id1'=>'Item 1',
- *         'id2'=>'Item 2',
- *         'id3'=>'Item 3',
- *     ),
- *     // additional javascript options for the selectable plugin
- *     'options'=>array(
- *         'delay'=>'300',
- *     ),
+ *		 'items'=>array(
+ *				 'id1'=>'Item 1',
+ *				 'id2'=>'Item 2',
+ *				 'id3'=>'Item 3',
+ *		 ),
+ *		 // additional javascript options for the selectable plugin
+ *		 'options'=>array(
+ *				 'delay'=>'300',
+ *		 ),
  * ));
  * </pre>
  *

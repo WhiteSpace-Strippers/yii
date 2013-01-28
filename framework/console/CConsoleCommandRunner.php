@@ -30,11 +30,11 @@ class CConsoleCommandRunner extends CComponent
 	 * the corresponding command properties. For example,
 	 * <pre>
 	 * array(
-	 *   'email'=>array(
-	 *      'class'=>'path.to.Mailer',
-	 *      'interval'=>3600,
-	 *   ),
-	 *   'log'=>'path.to.LoggerCommand',
+	 *	 'email'=>array(
+	 *			'class'=>'path.to.Mailer',
+	 *			'interval'=>3600,
+	 *	 ),
+	 *	 'log'=>'path.to.LoggerCommand',
 	 * )
 	 * </pre>
 	 */

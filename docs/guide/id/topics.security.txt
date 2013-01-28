@@ -19,7 +19,7 @@ karena mematikan semua tag HTML.
 
 Yii menyertakan produk [HTMLPurifier](http://htmlpurifier.org/)
 dan menyediakan komponen berguna bagi pengembang bernama [CHtmlPurifier]
-yang melapisi [HTMLPurifier](http://htmlpurifier.org/). Komponen ini 
+yang melapisi [HTMLPurifier](http://htmlpurifier.org/). Komponen ini
 mampu menghapus semua kode berbahaya dengan audit mendalam, aman namun memiliki list yang diperbolehkan
 dan memastikan konten yang disaring sesuai standar.
 
@@ -41,7 +41,7 @@ Pencegahan Pemalsuan Permintaan Situs-silang
 Serangan Cross-Site Request Forgery (CSRF) atau Penjagaan Pemalsuan Permintaan Situs-silang terjadi saat
 situs web berbahaya menyebabkan browser web pengguna untuk melakukan aksi
 yang tidak diinginkan pada situs aman. Sebagai contoh, situs web
-berbahaya mempunyai halaman yang berisi gambar di mana tag  `src` merujuk 
+berbahaya mempunyai halaman yang berisi gambar di mana tag	`src` merujuk
 ka situs bank: `http://bank.example/withdraw?transfer=10000&to=seseorang`.
 Jika pengguna yang memiliki cookie login untuk situs perbankan mengunjungi
 halaman berbahaya ini, aksi pentransferan 10000 dollar
@@ -90,12 +90,12 @@ dia memiliki semua informasi sesi relevan.
 Ada beberapa langkah pencegahan guna menghadapi serangan terhadap cookie.
 
 * Aplikasi bisa menggunakan SSL untuk membuat saluran komunikasi aman dan
-  hanya mengoper cookie terotentikasi melalui koneksi HTTPS. Penyerang
-  tidak bisa men-decipher isi dalam cookie yang ditransfer.
+	hanya mengoper cookie terotentikasi melalui koneksi HTTPS. Penyerang
+	tidak bisa men-decipher isi dalam cookie yang ditransfer.
 * Habiskan masa hidup sesi dengan benar, termasuk semua cookie dan token sesi
-  untuk mengurangi serangan.
-* Cegah cross site-scripting  yang menyebabkan kode berbahaya dijalankan dalam
-  browser pengguna dan mengekspos cookie yang dimilikinya.
+	untuk mengurangi serangan.
+* Cegah cross site-scripting	yang menyebabkan kode berbahaya dijalankan dalam
+	browser pengguna dan mengekspos cookie yang dimilikinya.
 * Validasi data cookie dan deteksi apakah isinya diubah.
 
 Yii mengimplementasikan skema validasi cookie yang mencegah serangan perubahan terhadap

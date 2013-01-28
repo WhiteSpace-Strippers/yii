@@ -108,7 +108,7 @@ class CUniqueValidator extends CValidator
 			$n=count($objects);
 			if($n===1)
 			{
-				if($column->isPrimaryKey)  // primary key is modified and not unique
+				if($column->isPrimaryKey)	// primary key is modified and not unique
 					$exists=$object->getOldPrimaryKey()!=$object->getPrimaryKey();
 				else
 				{

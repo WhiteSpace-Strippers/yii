@@ -93,10 +93,10 @@ class User extends CActiveRecord
 	 *
 	 * The {@link http://php.net/manual/en/function.crypt.php PHP `crypt()` built-in function}
 	 * requires, for the Blowfish hash algorithm, a salt string in a specific format:
-	 *  - "$2a$"
-	 *  - a two digit cost parameter
-	 *  - "$"
-	 *  - 22 characters from the alphabet "./0-9A-Za-z".
+	 *	- "$2a$"
+	 *	- a two digit cost parameter
+	 *	- "$"
+	 *	- 22 characters from the alphabet "./0-9A-Za-z".
 	 *
 	 * @param int cost parameter for Blowfish hash algorithm
 	 * @return string the salt

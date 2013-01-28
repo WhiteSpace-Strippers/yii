@@ -13,15 +13,15 @@
 	<col class="col-defined" />
 </colgroup>
 <tr>
-  <th>Property</th><th>Type</th><th>Description</th><th>Defined By</th>
+	<th>Property</th><th>Type</th><th>Description</th><th>Defined By</th>
 </tr>
 <?php foreach($class->properties as $property): ?>
 <?php if($protected && $property->isProtected || !$protected && !$property->isProtected): ?>
 <tr<?php echo $property->isInherited?' class="inherited"':''; ?> id="<?php echo $property->name; ?>">
-  <td><?php echo $this->renderSubjectUrl($property->definedBy,$property->name); ?></td>
-  <td><?php echo $this->renderTypeUrl($property->type); ?></td>
-  <td><?php echo $property->introduction; ?></td>
-  <td><?php echo $this->renderTypeUrl($property->definedBy); ?></td>
+	<td><?php echo $this->renderSubjectUrl($property->definedBy,$property->name); ?></td>
+	<td><?php echo $this->renderTypeUrl($property->type); ?></td>
+	<td><?php echo $property->introduction; ?></td>
+	<td><?php echo $this->renderTypeUrl($property->definedBy); ?></td>
 </tr>
 <?php endif; ?>
 <?php endforeach; ?>

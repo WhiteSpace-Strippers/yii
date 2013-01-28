@@ -50,14 +50,14 @@ Versão 1.1.2
 Versão 1.1.1
 -------------
 
- * Adicionado CActiveForm que simplifica a escrita de códigos de formulários com suporte a validação de 
+ * Adicionado CActiveForm que simplifica a escrita de códigos de formulários com suporte a validação de
  dados em ambos aos lados, cliente e servidor.
- 
+
  * Refatorado o código gerado pela ferramenta yiic. Em particular, o esqueleto
  da aplicação é agora gerado com vários layouts, o menu de operação foi
  reorganizado para páginas CRUD; adicionado recurso de pesquisa e filtragem para a página admin
  gerada pelo comando CRUD; usado CActiveForm para renderizar o formulário
- 
+
  * [Adicionado suporte para permitir definição global de comandos yiic](/doc/guide/topics.console)
 
 Versão 1.1.0
@@ -73,7 +73,7 @@ Versão 1.1.0
  [Securing Attribute Assignments](/doc/guide/form.model#securing-attribute-assignments).
 
  * Modificado o padrão do algoritmo de carregamento relacional em consultas Active Record,
- de modo que todas as tabelas são unidas em uma única instrução SQL. 
+ de modo que todas as tabelas são unidas em uma única instrução SQL.
 
  * Modificado o alias padrão de tabelas para ser o nome do relacionamento active record.
 

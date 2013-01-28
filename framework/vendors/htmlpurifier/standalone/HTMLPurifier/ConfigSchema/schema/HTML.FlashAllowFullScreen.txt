@@ -4,8 +4,8 @@ VERSION: 4.2.0
 DEFAULT: false
 --DESCRIPTION--
 <p>
-    Whether or not to permit embedded Flash content from
-    %HTML.SafeObject to expand to the full screen.  Corresponds to
-    the <code>allowFullScreen</code> parameter.
+		Whether or not to permit embedded Flash content from
+		%HTML.SafeObject to expand to the full screen.	Corresponds to
+		the <code>allowFullScreen</code> parameter.
 </p>
 --# vim: et sw=4 sts=4

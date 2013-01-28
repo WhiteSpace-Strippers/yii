@@ -31,7 +31,7 @@ em modo de produção de acordo com o valor da constante `YII_DEBUG`. Por padrã
 esse valo constante é definido como `false`, o que significa modo de produção.
 Para executar em modo de debug, defina essa constante como `true` antes de
 incluir o arquivo `yii.php`. Executando a aplicação em modo de debug é importante
-durante a fase de desenvolvimento pois fornece ricas informações de depuração 
+durante a fase de desenvolvimento pois fornece ricas informações de depuração
 quando um erro ocorre.
 
 <div class="revision">$Id: basics.entry.txt 1622 2009-12-26 20:56:05Z qiang.xue $</div>

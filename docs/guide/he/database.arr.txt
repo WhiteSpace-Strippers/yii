@@ -42,29 +42,29 @@
 [php]
 class Post extends CActiveRecord
 {
-    ......
+		......
 
-    public function relations()
-    {
-        return array(
-            'author'=»array(self::BELONGS_TO, 'User', 'author_id'),
-            'categories'=»array(self::MANY_MANY, 'Category',
-                'tbl_post_category(post_id, category_id)'),
-        );
-    }
+		public function relations()
+		{
+				return array(
+						'author'=»array(self::BELONGS_TO, 'User', 'author_id'),
+						'categories'=»array(self::MANY_MANY, 'Category',
+								'tbl_post_category(post_id, category_id)'),
+				);
+		}
 }
 
 class User extends CActiveRecord
 {
-    ......
+		......
 
-    public function relations()
-    {
-        return array(
-            'posts'=»array(self::HAS_MANY, 'Post', 'author_id'),
-            'profile'=»array(self::HAS_ONE, 'Profile', 'owner_id'),
-        );
-    }
+		public function relations()
+		{
+				return array(
+						'posts'=»array(self::HAS_MANY, 'Post', 'author_id'),
+						'profile'=»array(self::HAS_ONE, 'Profile', 'owner_id'),
+				);
+		}
 }
 ~~~
 
@@ -90,7 +90,7 @@ $author=$post-»author;
 
 גישת ה*טעינה עצלה* נוחה מאוד לשימוש, אך היא לא יעילה במקרים מסויימים. לדוגמא, במידה ואנו רוצים לגשת למידע אודות המפרסם של `N` הודעות, שימוש ב*טעינה עצלה* תבצע `N` שאילתות מקשרות. אנו נצטרך לנקוט בגישה של *טעינה נלהבת* (eager loading) במקרים כאלו.
 
-גישת  ה*טעינה נלהבת* מחזיר את האובייקטים המקושרים לאובייקט AR הראשי. ניתן לבצע זאת על ידי שימוש במתודה [with()|CActiveRecord::with] בשילוב של אחת מפקודות ה [find|CActiveRecord::find] או [findAll|CActiveRecord::findAll] במחלקת AR. לדוגמא,
+גישת	ה*טעינה נלהבת* מחזיר את האובייקטים המקושרים לאובייקט AR הראשי. ניתן לבצע זאת על ידי שימוש במתודה [with()|CActiveRecord::with] בשילוב של אחת מפקודות ה [find|CActiveRecord::find] או [findAll|CActiveRecord::findAll] במחלקת AR. לדוגמא,
 
 ~~~
 [php]
@@ -112,9 +112,9 @@ $posts=Post::model()-»with('author','categories')-»findAll();
 ~~~
 [php]
 $posts=Post::model()-»with(
-    'author.profile',
-    'author.posts',
-    'categories')-»findAll();
+		'author.profile',
+		'author.posts',
+		'categories')-»findAll();
 ~~~
 
 הדוגמא למעלה תחזיר את כל ההודעות ביחד עם המידע אודות המפרסם והקטגוריות בהם הם פורסמו. בנוסף היא תחזיר את המידע אודות הפרופיל של המשתמש וההודעות שלו.
@@ -125,9 +125,9 @@ $posts=Post::model()-»with(
 [php]
 $criteria=new CDbCriteria;
 $criteria-»with=array(
-    'author.profile',
-    'author.posts',
-    'categories',
+		'author.profile',
+		'author.posts',
+		'categories',
 );
 $posts=Post::model()-»findAll($criteria);
 ~~~
@@ -137,11 +137,11 @@ $posts=Post::model()-»findAll($criteria);
 ~~~
 [php]
 $posts=Post::model()-»findAll(array(
-    'with'=»array(
-        'author.profile',
-        'author.posts',
-        'categories',
-    )
+		'with'=»array(
+				'author.profile',
+				'author.posts',
+				'categories',
+		)
 );
 ~~~
 
@@ -188,15 +188,15 @@ $posts=Post::model()-»findAll(array(
 [php]
 class User extends CActiveRecord
 {
-    public function relations()
-    {
-        return array(
-            'posts'=»array(self::HAS_MANY, 'Post', 'author_id',
-                            'order'=»'posts.create_time DESC',
-                            'with'=»'categories'),
-            'profile'=»array(self::HAS_ONE, 'Profile', 'owner_id'),
-        );
-    }
+		public function relations()
+		{
+				return array(
+						'posts'=»array(self::HAS_MANY, 'Post', 'author_id',
+														'order'=»'posts.create_time DESC',
+														'with'=»'categories'),
+						'profile'=»array(self::HAS_ONE, 'Profile', 'owner_id'),
+				);
+		}
 }
 ~~~
 
@@ -207,7 +207,7 @@ class User extends CActiveRecord
 
 כששם העמודות מופיע בשני טבלאות או יותר אשר מקושרות ביחד, יש צורך בלזהות אותם צבורה יחודית. זה נעשה על ידי מתן קידומת לעמודה עם השם המקוצר של הטבלה בה היא נמצאת.
 
-בשאילתת AR מקושרת, השם המקוצר לטבלה הראשית הינו מוגדר מראש בתור 't' בזמן ששם המקוצר לטבלה המקושרת כברירת מחדל הוא זהה לשמו של הקישור שהוגדר. לדוגמא, בביטוי הבא, השמות המקוצרים לטבלאות `Post` ו `Comment` הינו `t` ו  `comments`, בהתאמה:
+בשאילתת AR מקושרת, השם המקוצר לטבלה הראשית הינו מוגדר מראש בתור 't' בזמן ששם המקוצר לטבלה המקושרת כברירת מחדל הוא זהה לשמו של הקישור שהוגדר. לדוגמא, בביטוי הבא, השמות המקוצרים לטבלאות `Post` ו `Comment` הינו `t` ו	`comments`, בהתאמה:
 
 ~~~
 [php]
@@ -219,7 +219,7 @@ $posts=Post::model()-»with('comments')-»findAll();
 ~~~
 [php]
 $posts=Post::model()-»with('comments')-»findAll(array(
-    'order'=»'t.create_time, comments.create_time'
+		'order'=»'t.create_time, comments.create_time'
 ));
 ~~~
 
@@ -233,8 +233,8 @@ $posts=Post::model()-»with('comments')-»findAll(array(
 ~~~
 [php]
 User::model()-»with(array(
-    'posts'=»array('order'=»'posts.create_time ASC'),
-    'profile',
+		'posts'=»array('order'=»'posts.create_time ASC'),
+		'profile',
 ))-»findAll();
 ~~~
 
@@ -262,9 +262,9 @@ $posts=$user-»posts(array('condition'=»'status=1'));
 [php]
 public function relations()
 {
-    return array(
-        'comments' =» array(self::HAS_MANY, 'Comment', 'post_id', 'together'=»false),
-    );
+		return array(
+				'comments' =» array(self::HAS_MANY, 'Comment', 'post_id', 'together'=»false),
+		);
 }
 ~~~
 
@@ -279,9 +279,9 @@ $posts = Post::model()-»with(array('comments'=»array('together'=»false)))-»f
 » ~~~
 » [php]
 » $posts=Post::model()-»with(
-»     'author.profile',
-»     'author.posts',
-»     'categories')-»together()-»findAll();
+»		 'author.profile',
+»		 'author.posts',
+»		 'categories')-»together()-»findAll();
 » ~~~
 »
 
@@ -293,19 +293,19 @@ $posts = Post::model()-»with(array('comments'=»array('together'=»false)))-»f
 
 מלבד השאילתות המקושרות המתוארות למעלה, Yii תומכת במה שנקרא שאילתות סטטיסטיות (או שאילתות מצטברות). זה מתייחס לקבלת המידע המצטבר בנוגע לאובייקט המקושר, כמו מספר התגובות לכל הודעה, ממוצע דירוג לכל מוצר, וכדומה. שאילתות סטטיסטיות ניתנות לביצוע על אובייקטים המקושרים בעזרת `HAS_MANY` (לדוגמא, הודעה מכילה הרבה תגובות) או `MANY_MANY` (לדוגמא, הודעה שייכת לכמה קטגוריות וקטגוריה מכילה כמה הודעות).
 
-ביצוע שאילתות סטטיסטיות דומה מאוד לביצוע שאילתה מקושרת כפי שתארנו קודם לכן. ראשית עלינו להגדיר את השאילתה הסטטיסטית במתודה [()relations|CActiveRecord::relations]  של המחלקה [CActiveRecord] כפי שאנו עושים בשאילתות מקושרות.
+ביצוע שאילתות סטטיסטיות דומה מאוד לביצוע שאילתה מקושרת כפי שתארנו קודם לכן. ראשית עלינו להגדיר את השאילתה הסטטיסטית במתודה [()relations|CActiveRecord::relations]	של המחלקה [CActiveRecord] כפי שאנו עושים בשאילתות מקושרות.
 
 ~~~
 [php]
 class Post extends CActiveRecord
 {
-    public function relations()
-    {
-        return array(
-            'commentCount'=»array(self::STAT, 'Comment', 'post_id'),
-            'categoryCount'=»array(self::STAT, 'Category', 'post_category(post_id, category_id)'),
-        );
-    }
+		public function relations()
+		{
+				return array(
+						'commentCount'=»array(self::STAT, 'Comment', 'post_id'),
+						'categoryCount'=»array(self::STAT, 'Category', 'post_category(post_id, category_id)'),
+				);
+		}
 }
 ~~~
 
@@ -320,7 +320,7 @@ $posts=Post::model()-»with('commentCount', 'categoryCount')-»findAll();
 
 הקוד למעלה יבצע 3 שאילתות בכדי לקבל את כל ההודעות ביחד עם מספר התגובות שלהם ומספר הקטגוריות. שימוש בגישה של טעינה עצלה, אנו נבצע `1+N*2` שאילתות SQL אם ישנם `N` הודעות.
 
-כברירת מחדל, שאילתה סטטיסטית תבצע את הביטוי  `COUNT` (ולכן תתקבל מספר התגובות ומספר הקטגוריות בדוגמא למעלה). אנו יכולים לשנות זאת על ידי הגדרת אפשרויות נוספות בזמן שאנו מצהירים זאת במתודה [()relations|CActiveRecord::relations]. האפשרויות הזמינות מסוכמות למטה.
+כברירת מחדל, שאילתה סטטיסטית תבצע את הביטוי	`COUNT` (ולכן תתקבל מספר התגובות ומספר הקטגוריות בדוגמא למעלה). אנו יכולים לשנות זאת על ידי הגדרת אפשרויות נוספות בזמן שאנו מצהירים זאת במתודה [()relations|CActiveRecord::relations]. האפשרויות הזמינות מסוכמות למטה.
 
 - `select` : הביטוי הסטטיסטי. כברירת מחדל הוא מוגדר כ `COUNT(*)`, האומר ספירה של תתי אובייקטים.
 
@@ -368,13 +368,13 @@ $posts=Post::model()-»with('comments:recently:approved')-»findAll();
 [php]
 class User extends CActiveRecord
 {
-    public function relations()
-    {
-        return array(
-            'posts'=»array(self::HAS_MANY, 'Post', 'author_id',
-                'with'=»'comments:approved'),
-        );
-    }
+		public function relations()
+		{
+				return array(
+						'posts'=»array(self::HAS_MANY, 'Post', 'author_id',
+								'with'=»'comments:approved'),
+				);
+		}
 }
 ~~~
 

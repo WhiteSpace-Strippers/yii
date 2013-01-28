@@ -4,10 +4,10 @@ Datenbankmigration
 > Note|Hinweis: Das Feature zur Datenbankmigration ist seit Verison 1.1.6 verfügbar.
 
 Genause wie der Quelltext einer Anwendung verändert sich auch die Struktur der
-zugehörigen Datenbank während der Entwicklung. So muss z.B. irgendwann eine Tabelle 
+zugehörigen Datenbank während der Entwicklung. So muss z.B. irgendwann eine Tabelle
 hinzugefügt werden. Oder nachdem die Anwendung produktiv geschaltet wurde,
 stellt man fest, dass eine Spalte noch dringend einen Index benötigt. Es ist
-daher genauso wichtig wie beim Quelltext, dass auch die strukturellen Änderungen 
+daher genauso wichtig wie beim Quelltext, dass auch die strukturellen Änderungen
 in der Datenbank festgehalten werden (man spricht hier auch von **Migration**).
 Wenn Programmcode und Datenbank nicht mehr zueinander passen, ist ein
 Fehlverhalten praktisch vorprogrammiert. Yii enthält daher ein Tool zur
@@ -27,7 +27,7 @@ verwaltet. Mit diesem Befehl können neue Migrationen erstellt, angewendet,
 zurückgenommen oder wiederholt werden. Man kann auch die Historie aller
 Migrationen oder neue Migrationen anzeigen lassen.
 
->Note|Hinweis: Es wird empfohlen, den `migrate`-Befehl mit der yiic-Version 
+>Note|Hinweis: Es wird empfohlen, den `migrate`-Befehl mit der yiic-Version
 >im Applikationspfad (z.B. `cd pfad/zu/protected`) statt derjenigen im
 >Framework-Verzeichnis auszuführen. Stellen Sie sicher, dass das
 >`protected/migrations`-Verzeichnis existiert und beschreibbar ist. Prüfen Sie
@@ -64,11 +64,11 @@ class m101129_185401_erstelle_news_tabelle extends CDbMigration
 	{
 	}
 
-    public function down()
-    {
+		public function down()
+		{
 		echo "m101129_185401_erstelle_news_tabelle unterstützt migration down nicht.\n";
 		return false;
-    }
+		}
 
 	/*
 	// Falls Transaktionen benötigt werden, kann stattdessen safeUp/safeDown implementiert werden
@@ -127,13 +127,13 @@ class m101129_185401_erstelle_news_tabelle extends CDbMigration
 Die Basisklasse [CDbMigration] stellt einige Methoden zum Manipulieren von
 Daten und DB-Schemas bereit. Mit [CDbMigration::createTable] kann man zum
 Beispiel eine Tabelle erzeugen, während [CDbMigration::insert] Zeilen in eine
-Tabelle einfügt. Alle Methoden verwenden die Datenbankverbindung, die von 
+Tabelle einfügt. Alle Methoden verwenden die Datenbankverbindung, die von
 [CDbMigration::getDbConnection()] zurückgeliefert wird. Standardmäßig ist das
 `Yii::app()->db`.
 
 > Info|Info: Sie werden feststellen, dass die DB-Methoden von [CDbMigration]
 > denen von [CDbCommand] sehr ähneln. Sie sind tatsächlich auch fast
-> identisch, außer, dass bei den [CDbMigration]-Methoden zusätzlich die 
+> identisch, außer, dass bei den [CDbMigration]-Methoden zusätzlich die
 > Zeit gemessen, sowie einige Informationen über die Parameter ausgegeben
 > werden.
 
@@ -278,7 +278,7 @@ Wie oben erwähnt, können nicht alle Migrationen rückgängig gemacht werden.
 Versucht man eine irreversible Migration rückgängig zu machen, wird eine
 Exception geworfen und der gesamte Prozess beendet.
 
-Migrationen wiederholen 
+Migrationen wiederholen
 -----------------------
 
 Migrationen zu wiederholen bedeutet, sie erst rückgängig zu machen und dann

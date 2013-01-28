@@ -10,10 +10,10 @@ Prozess stark vereinfacht.
 
 Der typische Ablauf beim Arbeiten mit Formularen sieht in Yii so aus:
 
-   1. Anlegen einer Modelklasse für die zu erfassenden Daten
-   2. Implementieren einer Controlleraction, die das abgeschickte Formular
-      verarbeitet
-   3. Erstellen des entsprechenden Formularviews für diese Action
+	 1. Anlegen einer Modelklasse für die zu erfassenden Daten
+	 2. Implementieren einer Controlleraction, die das abgeschickte Formular
+			verarbeitet
+	 3. Erstellen des entsprechenden Formularviews für diese Action
 
 In den nächsten Abschnitten gehen wir näher auf die einzelnen Schritte ein.
 

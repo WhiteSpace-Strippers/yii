@@ -4,7 +4,7 @@
 使用主题
 -------------
 
-不需要写任何代码，我们的博客应用已经是 [可更换主题(themeable)](http://www.yiiframework.com/doc/guide/topics.theming) 的了。要使用主题，我们主要是需要通过编写个性化的视图文件开发主题。例如，要使用一个名为  `classic` 的使用不同布局的主题，我们需要创建一个布局视图文件 `/wwwroot/blog/themes/classic/views/layouts/main.php`。我们还需要修改应用配置以显示我们选择的 `classic` 主题。
+不需要写任何代码，我们的博客应用已经是 [可更换主题(themeable)](http://www.yiiframework.com/doc/guide/topics.theming) 的了。要使用主题，我们主要是需要通过编写个性化的视图文件开发主题。例如，要使用一个名为	`classic` 的使用不同布局的主题，我们需要创建一个布局视图文件 `/wwwroot/blog/themes/classic/views/layouts/main.php`。我们还需要修改应用配置以显示我们选择的 `classic` 主题。
 
 ~~~
 [php]

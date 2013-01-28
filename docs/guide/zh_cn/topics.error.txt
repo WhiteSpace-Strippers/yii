@@ -37,11 +37,11 @@ throw new CHttpException(404,'此页面不存在');
 
 [CErrorHandler]会搜索合适的视图来显示错误信息，搜索的顺序如下：
 
-   1. `WebRoot/themes/ThemeName/views/system`: 在当前主题视图下的`system`目录中。
+	 1. `WebRoot/themes/ThemeName/views/system`: 在当前主题视图下的`system`目录中。
 
-   2. `WebRoot/protected/views/system`: 在应用的默认视图的`system`目录中。
+	 2. `WebRoot/protected/views/system`: 在应用的默认视图的`system`目录中。
 
-   3. `yii/framework/views`: 在Yii提供的标准视图目录中。
+	 3. `yii/framework/views`: 在Yii提供的标准视图目录中。
 
 因此，如果你想要自定义错误显示，可以直接在`system`视图目录中或者主题的`system`视图目录中创建一个视图文件。每个视图文件都是一个包含许多HTML代码的普通PHP文件。参考框架的`view`目录下的文件，可以获得更多信息。
 

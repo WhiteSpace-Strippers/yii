@@ -50,18 +50,18 @@ return array(
 > ~~~
 > [php]
 > return array(
->     ......
->     'components'=>array(
->         ......
->         'db'=>array(
->             'connectionString' => 'mysql:host=localhost;dbname=blog',
->             'emulatePrepare' => true,
->             'username' => 'root',
->             'password' => '',
->             'charset' => 'utf8',
->             'tablePrefix' => 'tbl_',
->         ),
->     ),
+>		 ......
+>		 'components'=>array(
+>				 ......
+>				 'db'=>array(
+>						 'connectionString' => 'mysql:host=localhost;dbname=blog',
+>						 'emulatePrepare' => true,
+>						 'username' => 'root',
+>						 'password' => '',
+>						 'charset' => 'utf8',
+>						 'tablePrefix' => 'tbl_',
+>				 ),
+>		 ),
 > 	......
 > );
 > ~~~

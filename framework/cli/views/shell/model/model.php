@@ -7,7 +7,7 @@
  * - $columns: a list of table column schema objects
  * - $rules: a list of validation rules (string)
  * - $labels: a list of labels (column name => label)
- * - $relations: a  list of relations (string)
+ * - $relations: a	list of relations (string)
  */
 ?>
 <?php echo "<?php\n"; ?>

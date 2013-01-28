@@ -16,14 +16,14 @@
 public function accessRules()
 {
 	return array(
-		array('allow',  // 全てのユーザに 'index' と 'view' のアクションを許可
+		array('allow',	// 全てのユーザに 'index' と 'view' のアクションを許可
 			'actions'=>array('index', 'view'),
 			'users'=>array('*'),
 		),
 		array('allow', // 認証されたユーザに全てのアクションを許可
 			'users'=>array('@'),
 		),
-		array('deny',  // 全てのユーザのアクセスを拒否
+		array('deny',	// 全てのユーザのアクセスを拒否
 			'users'=>array('*'),
 		),
 	);

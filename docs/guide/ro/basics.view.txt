@@ -133,7 +133,7 @@ Yii afiseaza exceptia folosind un view sistem specific.
 Denumirea view-urilor sistem se face dupa unele reguli.
 Numele de genul `errorXXX` se refera la view-uri pentru afisarea [CHttpException]
 cu codul de eroare `XXX`. De exemplu, daca este generat [CHttpException] cu codul de eroare
-404, atunci va fi afisat view-ul `error404`. 
+404, atunci va fi afisat view-ul `error404`.
 
 Yii furnizeaza un set de view-uri sistem implicite. Acestea sunt localizate in
 directorul `framework/views`. Pot fi customizate prin crearea unor fisiere view cu acelasi nume

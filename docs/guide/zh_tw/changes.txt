@@ -34,7 +34,7 @@
 
 版本 1.1.5
 -------------
- 
+
  * [增加了對控制台命令的動作和參數綁定的支援](/doc/guide/topics.console)
  * [增加了對自動調入命名空間類別的支援](/doc/guide/basics.namespace)
  * [增加了對視圖元件的主題支援](/doc/guide/topics.theming#theming-widget-views)

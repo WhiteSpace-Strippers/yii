@@ -4,8 +4,8 @@
  * Code: http://code.google.com/p/jquery-star-rating-plugin/
  *
 	* Dual licensed under the MIT and GPL licenses:
- *   http://www.opensource.org/licenses/mit-license.php
- *   http://www.gnu.org/licenses/gpl.html
+ *	 http://www.opensource.org/licenses/mit-license.php
+ *	 http://www.gnu.org/licenses/gpl.html
  ###
 */
 
@@ -145,7 +145,7 @@
 			if(control.readOnly)//{ //save a byte!
 				// Mark star as readOnly so user can customize display
 				star.addClass('star-rating-readonly');
-			//}  //save a byte!
+			//}	//save a byte!
 			else//{ //save a byte!
 			 // Enable hover css effects
 				star.addClass('star-rating-live')
@@ -217,7 +217,7 @@
 			if(!control.focus) return this; // quick fail if not required
 			// find data for event
 			var input = $(this).data('rating.input') || $( this.tagName=='INPUT' ? this : null );
-   // focus handler, as requested by focusdigital.co.uk
+	 // focus handler, as requested by focusdigital.co.uk
 			if(control.focus) control.focus.apply(input[0], [input.val(), $('a', input.data('rating.star'))[0]]);
 		}, // $.fn.rating.focus
 		
@@ -226,7 +226,7 @@
 			if(!control.blur) return this; // quick fail if not required
 			// find data for event
 			var input = $(this).data('rating.input') || $( this.tagName=='INPUT' ? this : null );
-   // blur handler, as requested by focusdigital.co.uk
+	 // blur handler, as requested by focusdigital.co.uk
 			if(control.blur) control.blur.apply(input[0], [input.val(), $('a', input.data('rating.star'))[0]]);
 		}, // $.fn.rating.blur
 		
@@ -320,7 +320,7 @@
 					//to ensure retro-compatibility, wantCallBack must be considered as true by default
 					// **** /MODIFICATION *****
 					
-  },// $.fn.rating.select
+	},// $.fn.rating.select
 		
 		
 		
@@ -332,7 +332,7 @@
 			control.readOnly = toggle || toggle==undefined ? true : false;
 			// enable/disable control value submission
 			if(disable) $(control.inputs).attr("disabled", "disabled");
-			else     			$(control.inputs).removeAttr("disabled");
+			else		 			$(control.inputs).removeAttr("disabled");
 			// Update rating control state
 			this.data('rating', control);
 			// Update display
@@ -357,21 +357,21 @@
 		$.fn.rating.options.cancel = 'Clear';
 	*/
 	$.fn.rating.options = { //$.extend($.fn.rating, { options: {
-			cancel: 'Cancel Rating',   // advisory title for the 'cancel' link
-			cancelValue: '',           // value to submit when user click the 'cancel' link
-			split: 0,                  // split the star into how many parts?
+			cancel: 'Cancel Rating',	 // advisory title for the 'cancel' link
+			cancelValue: '',					 // value to submit when user click the 'cancel' link
+			split: 0,									// split the star into how many parts?
 			
 			// Width of star image in case the plugin can't work it out. This can happen if
 			// the jQuery.dimensions plugin is not available OR the image is hidden at installation
 			starWidth: 16//,
 			
 			//NB.: These don't need to be pre-defined (can be undefined/null) so let's save some code!
-			//half:     false,         // just a shortcut to control.split = 2
-			//required: false,         // disables the 'cancel' button so user can only select one of the specified values
-			//readOnly: false,         // disable rating plugin interaction/ values cannot be changed
-			//focus:    function(){},  // executed when stars are focused
-			//blur:     function(){},  // executed when stars are focused
-			//callback: function(){},  // executed when a star is clicked
+			//half:		 false,				 // just a shortcut to control.split = 2
+			//required: false,				 // disables the 'cancel' button so user can only select one of the specified values
+			//readOnly: false,				 // disable rating plugin interaction/ values cannot be changed
+			//focus:		function(){},	// executed when stars are focused
+			//blur:		 function(){},	// executed when stars are focused
+			//callback: function(){},	// executed when a star is clicked
 	}; //} });
 	
 	/*--------------------------------------------------------*/

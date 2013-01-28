@@ -30,7 +30,7 @@ class StockController extends CController
 	{
 		$prices=array('IBM'=>100, 'GOOGLE'=>350);
 		return isset($prices[$symbol])?$prices[$symbol]:0;
-	    //...return stock price for $symbol
+			//...return stock price for $symbol
 	}
 }
 ~~~
@@ -62,7 +62,7 @@ class StockController extends CController
 	 */
 	public function getPrice($symbol)
 	{
-	    //...return stock price for $symbol
+			//...return stock price for $symbol
 	}
 }
 ~~~
@@ -92,16 +92,16 @@ Data Types（数据类型）
 
 当定义的方法和属性被远程访问，我们需要指定输入和输出参数的数据类型。以下的原始数据类型可以使用：
 
-   - str/string: 对应 `xsd:string`;
-   - int/integer: 对应 `xsd:int`;
-   - float/double: 对应 `xsd:float`;
-   - bool/boolean: 对应 `xsd:boolean`;
-   - date: 对应 `xsd:date`;
-   - time: 对应 `xsd:time`;
-   - datetime: 对应 `xsd:dateTime`;
-   - array: 对应 `xsd:string`;
-   - object: 对应 `xsd:struct`;
-   - mixed: 对应 `xsd:anyType`.
+	 - str/string: 对应 `xsd:string`;
+	 - int/integer: 对应 `xsd:int`;
+	 - float/double: 对应 `xsd:float`;
+	 - bool/boolean: 对应 `xsd:boolean`;
+	 - date: 对应 `xsd:date`;
+	 - time: 对应 `xsd:time`;
+	 - datetime: 对应 `xsd:dateTime`;
+	 - array: 对应 `xsd:string`;
+	 - object: 对应 `xsd:struct`;
+	 - mixed: 对应 `xsd:anyType`.
 
 如果类型不属于上述任何原始类型，它被看作是复合型组成的属性。复合型类型被看做类，他的属性当做类的公有成员变量，在文档注释中被用`@soap`标记。
 
@@ -154,7 +154,7 @@ class PostController extends CController
 			'service'=>array(
 				'class'=>'CWebServiceAction',
 				'classMap'=>array(
-					'Post'=>'Post',  // or simply 'Post'
+					'Post'=>'Post',	// or simply 'Post'
 				),
 			),
 		);
@@ -168,4 +168,4 @@ Intercepting Remote Method Invocation（拦截远程方法调用）
 通过实现[IWebServiceProvider]接口，sevice provider可以拦截远程方法调用。在
 [IWebServiceProvider::beforeWebMethod] ，sevice provider可以获得当前[CWebService]实例和通过[CWebService::methodName]请求的方法的名字 。它可以返回假如果远程方法出于某种原因不应被援引（例如：未经授权的访问） 。
 
-<div class="revision">$Id: topics.webservice.txt 265 2008-11-23 12:30:16Z weizhuo  译：sharehua $</div>
+<div class="revision">$Id: topics.webservice.txt 265 2008-11-23 12:30:16Z weizhuo	译：sharehua $</div>

@@ -38,7 +38,7 @@ CREATE TABLE tbl_post (
 );
 ~~~
 
-> Note|Catatan: AR tidak ditujukan untuk memecahkan semua tugas-tugas terkait-database. 
+> Note|Catatan: AR tidak ditujukan untuk memecahkan semua tugas-tugas terkait-database.
 AR paling cocok dipakai untuk memodelkan tabel database dalam konstruksi PHP dan melakukan
 query yang tidak melibatkan SQL yang kompleks. Yii DAO baru dipakai untuk skenario
 kompleks tersebut.
@@ -76,11 +76,11 @@ Anda bisa menghidupkan cache skema (schema caching) dengan mengkonfigurasi prope
 Dukungan terhadap AR dibatasi oleh DBMS. Saat ini, hanya DBMS berikut yang
 didukung:
 
-   - [MySQL 4.1 atau lebih tinggi](http://www.mysql.com)
-   - [PostgreSQL 7.3 atau lebih tinggi](http://www.postgres.com)
-   - [SQLite 2 dan 3](http://www.sqlite.org)
-   - [Microsoft SQL Server 2000 atau lebih tinggi](http://www.microsoft.com/sqlserver/)
-   - [Oracle](http://www.oracle.com)
+	 - [MySQL 4.1 atau lebih tinggi](http://www.mysql.com)
+	 - [PostgreSQL 7.3 atau lebih tinggi](http://www.postgres.com)
+	 - [SQLite 2 dan 3](http://www.sqlite.org)
+	 - [Microsoft SQL Server 2000 atau lebih tinggi](http://www.microsoft.com/sqlserver/)
+	 - [Oracle](http://www.oracle.com)
 
 Jika Anda ingin menggunakan komponen aplikasi selain `db`, atau jika Anda
 ingin bekerja dengan multipel database menggunakan AR, Anda harus meng-override
@@ -143,7 +143,7 @@ untuk setiap kelas AR (akan dijelaskan kemudian).
 > [php]
 > public function tableName()
 > {
->     return '{{post}}';
+>		 return '{{post}}';
 > }
 > ~~~
 > Alih-alih mengembalikan nama tabel secara lengkap, kita mengembalikan
@@ -221,7 +221,7 @@ class Post extends CActiveRecord
 }
 
 $post=new Post;
-echo $post->title;  // ini akan menampilkan: please enter a title
+echo $post->title;	// ini akan menampilkan: please enter a title
 ~~~
 
 Atribut dapat menempatkan nilai tipe [CDbExpression]
@@ -242,7 +242,7 @@ $post->save();
 sejumlah pernyataan SQL, seringkali kita ingin mengetahui pernyataan SQL apa yang dijalankan
 oleh AR. Ini bisa dilakukan dengan menghidupkan [fitur pencatatan](/doc/guide/topics.logging)
 pada Yii. Sebagai contoh, kita dapat menghidupkan [CWebLogRoute] dalam konfigurasi aplikasi,
-dan kita akan melihat pernyataan SQL yang dijalankan untuk ditampilkan  di akhir setiap halaman Web.
+dan kita akan melihat pernyataan SQL yang dijalankan untuk ditampilkan	di akhir setiap halaman Web.
 Kita dapat menyetel [CDbConnection::enableParamLogging] menjadi true dalam
 konfigurasi aplikasi agar nilai parameter yang diikat ke pernyataan SQL
 juga dicatat.
@@ -291,7 +291,7 @@ $post=Post::model()->find('postID=:postID', array(':postID'=>10));
 ~~~
 
 > Note|Catatan: Dalam contoh di atas, kita mungkin perlu meng-escape referensi pada kolom `postID`
-untuk DBMS tertentu. Sebagai contoh, jika kita menggunakan PostgreSQL, kita harus menulis 
+untuk DBMS tertentu. Sebagai contoh, jika kita menggunakan PostgreSQL, kita harus menulis
 kondisi sebagai `"postID"=:postID`, karena PostgreSQL standarnya akan memperlakukan nama
 kolom tidak case-sensitive.
 
@@ -302,7 +302,7 @@ mengijinkan kita untuk menetapkan kondisi selain klausul `WHERE`. Sebagai contoh
 ~~~
 [php]
 $criteria=new CDbCriteria;
-$criteria->select='title';  // hanya memilih kolom 'title'
+$criteria->select='title';	// hanya memilih kolom 'title'
 $criteria->condition='postID=:postID';
 $criteria->params=array(':postID'=>10);
 $post=Post::model()->find($criteria); // $params tidak diperlukan
@@ -505,25 +505,25 @@ Kustomisasi
 [CActiveRecord] menyediakan beberapa metode penampungan yang dapat di-overide
 dalam anak kelas untuk mengkustomisasi alur kerjanya.
 
-   - [beforeValidate|CModel::beforeValidate] dan
+	 - [beforeValidate|CModel::beforeValidate] dan
 [afterValidate|CModel::afterValidate]: ini dipanggil sebelum dan sesudah
 validasi dilakukan.
 
-   - [beforeSave|CActiveRecord::beforeSave] dan
+	 - [beforeSave|CActiveRecord::beforeSave] dan
 [afterSave|CActiveRecord::afterSave]: ini dipanggil sebelum dan sesudah
 penyimpanan instance AR.
 
-   - [beforeDelete|CActiveRecord::beforeDelete] dan
+	 - [beforeDelete|CActiveRecord::beforeDelete] dan
 [afterDelete|CActiveRecord::afterDelete]: ini dipanggil sebelum dan sesudah
 instance AR dihapus.
 
-   - [afterConstruct|CActiveRecord::afterConstruct]: ini dipanggil untuk
+	 - [afterConstruct|CActiveRecord::afterConstruct]: ini dipanggil untuk
 setiap instance AR yang dibuat menggunakan operator `new`.
 
-   - [beforeFind|CActiveRecord::beforeFind]: ini dipanggil sebelum pencari AR
-dipakai untuk melakukan query (misal `find()`, `findAll()`). 
+	 - [beforeFind|CActiveRecord::beforeFind]: ini dipanggil sebelum pencari AR
+dipakai untuk melakukan query (misal `find()`, `findAll()`).
 
-   - [afterFind|CActiveRecord::afterFind]: ini dipanggil untuk setiap instance AR
+	 - [afterFind|CActiveRecord::afterFind]: ini dipanggil untuk setiap instance AR
 yang dibuat sebagai hasil dari query.
 
 
@@ -625,7 +625,7 @@ $posts=Post::model()->published()->recently(3)->findAll();
 Jika kita tidak melengkapi parameter 3 di atas, secara standar kita akan mengambil 5 tulisan terbaru yang diterbitkan.
 
 
-### Default  Scope
+### Default	Scope
 
 Kelas model dapat memiliki default scope yang akan diterapkan untuk semua query (termasuk yang relasional) berkenaan dengan model. Sebagai contoh, website yang mendukung multi bahasa mungkin hanya ingin menampilkan konten yang ditetapkan oleh pengguna saat ini. Karena di sana ada banyak query atas konten situs, kita dapat mendefinisikan default scope guna memecahkan masalah ini. Untuk melakukannya, kita meng-override metode [CActiveRecord::defaultScope] seperti berikut,
 

@@ -76,7 +76,7 @@ deny from all
  0. 用户请求此 URL `http://www.example.com/blog/index.php?r=site/contact`；
  1. [入口脚本](http://www.yiiframework.com/doc/guide/basics.entry) 被网站服务器执行以处理此请求；
  2. 一个 [应用](http://www.yiiframework.com/doc/guide/basics.application) 的实例被创建，其配置参数为`/wwwroot/blog/protected/config/main.php` 应用配置文件中指定的初始值；
- 3. 应用分派此请求到一个 [控制器（Controller）](http://www.yiiframework.com/doc/guide/basics.controller) 和一个 [控制器动作（Controller action）](http://www.yiiframework.com/doc/guide/basics.controller#action)。对于联系页（Contact）的请求，它分派到了 `site` 控制器和 `contact` 动作 (即 `/wwwroot/blog/protected/controllers/SiteController.php` 中的  `actionContact` 方法);
+ 3. 应用分派此请求到一个 [控制器（Controller）](http://www.yiiframework.com/doc/guide/basics.controller) 和一个 [控制器动作（Controller action）](http://www.yiiframework.com/doc/guide/basics.controller#action)。对于联系页（Contact）的请求，它分派到了 `site` 控制器和 `contact` 动作 (即 `/wwwroot/blog/protected/controllers/SiteController.php` 中的	`actionContact` 方法);
  4. 应用按 `SiteController` 实例创建了 `site` 控制器并执行；
  5. `SiteController` 实例通过调用它的 `actionContact()` 方法执行 `contact` 动作；
  6. `actionContact` 方法为用户渲染一个名为 `contact` 的 [视图（View）](http://www.yiiframework.com/doc/guide/basics.view) 。在程序内部，这是通过包含一个视图文件 `/wwwroot/blog/protected/views/site/contact.php` 并将结果插入 [布局](http://www.yiiframework.com/doc/guide/basics.view#layout) 文件 `/wwwroot/blog/protected/views/layouts/column1.php` 实现的。

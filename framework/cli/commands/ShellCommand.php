@@ -26,22 +26,22 @@ class ShellCommand extends CConsoleCommand
 	{
 		return <<<EOD
 USAGE
-  yiic shell [entry-script | config-file]
+	yiic shell [entry-script | config-file]
 
 DESCRIPTION
-  This command allows you to interact with a Web application
-  on the command line. It also provides tools to automatically
-  generate new controllers, views and data models.
+	This command allows you to interact with a Web application
+	on the command line. It also provides tools to automatically
+	generate new controllers, views and data models.
 
-  It is recommended that you execute this command under
-  the directory that contains the entry script file of
-  the Web application.
+	It is recommended that you execute this command under
+	the directory that contains the entry script file of
+	the Web application.
 
 PARAMETERS
  * entry-script | config-file: optional, the path to
-   the entry script file or the configuration file for
-   the Web application. If not given, it is assumed to be
-   the 'index.php' file under the current directory.
+	 the entry script file or the configuration file for
+	 the Web application. If not given, it is assumed to be
+	 the 'index.php' file under the current directory.
 
 EOD;
 	}

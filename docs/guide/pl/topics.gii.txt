@@ -24,7 +24,7 @@ return array(
 );
 ~~~
 
-W powyższym kodzie deklarujemy moduł nazwany `gii` którego klasą jest [GiiModule]. Określamy również hasło dla modułu, które będzie rządane podczas uzyskiwania dostępu do Gii. 
+W powyższym kodzie deklarujemy moduł nazwany `gii` którego klasą jest [GiiModule]. Określamy również hasło dla modułu, które będzie rządane podczas uzyskiwania dostępu do Gii.
 
 Domyślnie, z powodu bezpieczeństwa, Gii skonfigurowane jest jako dostępne na lokalnym komputerze. Jeśli chcemy udostępnić go dla innych zaufanych komputerów, możemy skonfigurować właściwość [GiiModule::ipFilters] w sposób pokazany w powyższym kodzie.
 
@@ -75,14 +75,14 @@ Gii może zostać rozszerzone na dwa sposoby: dostosowanie szablonów kodu istni
 Generator kodu przechowywany jest w katalogu, którego nazwa jest traktowana jak nazwa generatora. Generator zazwyczaj zawieta następującą zawartość:
 
 ~~~
-model/                       katalog główny generatora modelu
-   ModelCode.php             model kodu używany do generowania kodu
-   ModelGenerator.php        kontroler generujący kod
-   views/                    zawiera skrypty widoku dla generatora
-      index.php              domyślny widok skryptu
-   templates/                zawiera zestawy szablonów kodu
-      default/               'domyślny' zestaw szablonu kodu
-         model.php           szablon kodu do generowania kodu klasy modelu
+model/											 katalog główny generatora modelu
+	 ModelCode.php						 model kodu używany do generowania kodu
+	 ModelGenerator.php				kontroler generujący kod
+	 views/										zawiera skrypty widoku dla generatora
+			index.php							domyślny widok skryptu
+	 templates/								zawiera zestawy szablonów kodu
+			default/							 'domyślny' zestaw szablonu kodu
+				 model.php					 szablon kodu do generowania kodu klasy modelu
 ~~~
 
 ###Ścieżka wyszukiwania generatorów
@@ -96,14 +96,14 @@ return array(
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
 			'generatorPaths'=>array(
-				'application.gii',   // alias ścieżki
+				'application.gii',	 // alias ścieżki
 			),
 		),
 	),
 );
 ~~~
 
-Powyższa konfiguracja instruuje Gii aby szukać generatorów w katalogu o aliasie `application.gii`, w odróżnieniu  od domyślnej lokalizacji `system.gii.generators`.
+Powyższa konfiguracja instruuje Gii aby szukać generatorów w katalogu o aliasie `application.gii`, w odróżnieniu	od domyślnej lokalizacji `system.gii.generators`.
 
 Możliwym jest posiadanie dwóch generatorów o tej samej nazwie ale pod różnymi ścieżakami wyszukiwania. W takim przypadku, generator znajdujący się w wyspecyfikowanej wcześnie właściwości [GiiModule::generatorPaths] ma pierwszeństwo.
 
@@ -177,7 +177,7 @@ class WidgetCode extends CCodeModel
 	{
 		return array_merge(parent::rules(), array(
 			array('className', 'required'),
-			array('className', 'match', 'pattern'=>'/^\w+$/'),			
+			array('className', 'match', 'pattern'=>'/^\w+$/'),
 		));
 	}
 
@@ -231,7 +231,7 @@ Podczas tworzenia formularza, możemy wykorzystać dwie fajne funkcjonalności d
 
 Jeśli wypróbowałeś jakikolwiek z domyślnych generatorów kodu, zauważyłeś że podczas ustawiania fokusu na danym polu wejściowym, tuż obok pola wyświetli się ładna dla oka podpowiedź. Może to zostać uzystkane w bardzo prosty sposób poprzez napisanie za polem wejściowym tagu `div`, którego klasą CSS jest `tooltip`.
 
-Dla pewnych pól wejściowych możemy chcieć zapamiętać ich ostatnią porpawną wartość tak aby uchronić użytkownika przed kłopotliwym powtarzaniem za każdym razem tych samych wartości podczas używania generatora.  Przykładem jest pole odczytujące nazwę klasy bazowej domyślnego generatora kodu. Te przyklejone pola są początkowo wyświetlane jako podświetlony, statyczny tekst. Jeśli na nim klikniemy, zamieni się on na pole wejściowe pobierające daną wejściową od użytkownika.
+Dla pewnych pól wejściowych możemy chcieć zapamiętać ich ostatnią porpawną wartość tak aby uchronić użytkownika przed kłopotliwym powtarzaniem za każdym razem tych samych wartości podczas używania generatora.	Przykładem jest pole odczytujące nazwę klasy bazowej domyślnego generatora kodu. Te przyklejone pola są początkowo wyświetlane jako podświetlony, statyczny tekst. Jeśli na nim klikniemy, zamieni się on na pole wejściowe pobierające daną wejściową od użytkownika.
 
 W celu zdefiniowana pola wejściowego jako przyklejonego, potrzebujemy zrobić dwie rzeczy.
 

@@ -69,18 +69,18 @@ return array(
 
 В настоящий момент AR поддерживает следующие СУБД:
 
-   - [MySQL 4.1 и выше](http://www.mysql.com)
-   - [PostgreSQL 7.3 и выше](http://www.postgres.com)
-   - [SQLite 2 и 3](http://www.sqlite.org)
-   - [Microsoft SQL Server 2000 и выше](http://www.microsoft.com/sqlserver/)
-   - [Oracle](http://www.oracle.com)
+	 - [MySQL 4.1 и выше](http://www.mysql.com)
+	 - [PostgreSQL 7.3 и выше](http://www.postgres.com)
+	 - [SQLite 2 и 3](http://www.sqlite.org)
+	 - [Microsoft SQL Server 2000 и выше](http://www.microsoft.com/sqlserver/)
+	 - [Oracle](http://www.oracle.com)
 
 Если вы хотите использовать другой компонент вместо `db` или предполагаете,
 используя AR, работать с несколькими БД, то следует переопределить метод
 [CActiveRecord::getDbConnection()]. Класс [CActiveRecord] является базовым классом
 для всех классов AR.
 
-> Tip|Подсказка: Есть несколько способов для работы AR с несколькими БД.  Если
+> Tip|Подсказка: Есть несколько способов для работы AR с несколькими БД.	Если
 схемы используемых баз различаются, то можно создать разные базовые классы AR с
 различной реализацией метода [getDbConnection()|CActiveRecord::getDbConnection].
 В противном случае проще будет динамически менять статическую переменную [CActiveRecord::db].
@@ -133,7 +133,7 @@ class Post extends CActiveRecord
 > [php]
 > public function tableName()
 > {
->     return '{{post}}';
+>		 return '{{post}}';
 > }
 > ~~~
 > Вместо того чтобы возвращать полное имя таблицы, мы возвращаем
@@ -209,7 +209,7 @@ class Post extends CActiveRecord
 }
 
 $post=new Post;
-echo $post->title;  // отобразится: пожалуйста, введите заголовок
+echo $post->title;	// отобразится: пожалуйста, введите заголовок
 ~~~
 
 До сохранения записи (добавления или обновления) атрибуту
@@ -282,7 +282,7 @@ $post=Post::model()->find('postID=:postID', array(':postID'=>10));
 ~~~
 [php]
 $criteria=new CDbCriteria;
-$criteria->select='title';  // выбираем только поле 'title'
+$criteria->select='title';	// выбираем только поле 'title'
 $criteria->condition='postID=:postID';
 $criteria->params=array(':postID'=>10);
 $post=Post::model()->find($criteria); // $params не требуется
@@ -464,23 +464,23 @@ $post->save();
 Класс [CActiveRecord] предоставляет несколько методов, которые могут быть переопределены в дочерних классах
 для тонкой настройки работы AR.
 
-   - [beforeValidate|CModel::beforeValidate] и [afterValidate|CModel::afterValidate]:
+	 - [beforeValidate|CModel::beforeValidate] и [afterValidate|CModel::afterValidate]:
 методы вызываются до и после осуществления проверки;
 
-   - [beforeSave|CActiveRecord::beforeSave] и [afterSave|CActiveRecord::afterSave]:
+	 - [beforeSave|CActiveRecord::beforeSave] и [afterSave|CActiveRecord::afterSave]:
 методы вызываются до и после сохранения экземпляра AR;
 
-   - [beforeDelete|CActiveRecord::beforeDelete] и [afterDelete|CActiveRecord::afterDelete]:
+	 - [beforeDelete|CActiveRecord::beforeDelete] и [afterDelete|CActiveRecord::afterDelete]:
 методы вызываются до и после удаления экземпляра AR;
 
-   - [afterConstruct|CActiveRecord::afterConstruct]: метод вызывается для каждого экземпляра AR,
+	 - [afterConstruct|CActiveRecord::afterConstruct]: метод вызывается для каждого экземпляра AR,
 созданного с использованием оператора `new`;
 
-   - [beforeFind|CActiveRecord::beforeFind]: метод вызывается перед тем, как
-     будет выполнен поисковый запрос (например, `find()`, `findAll()`).
+	 - [beforeFind|CActiveRecord::beforeFind]: метод вызывается перед тем, как
+		 будет выполнен поисковый запрос (например, `find()`, `findAll()`).
 
-   - [afterFind|CActiveRecord::afterFind]: метод вызывается для каждого экземпляра AR,
-     созданного в результате выполнения запроса.
+	 - [afterFind|CActiveRecord::afterFind]: метод вызывается для каждого экземпляра AR,
+		 созданного в результате выполнения запроса.
 
 Использование транзакций с AR
 -----------------------------

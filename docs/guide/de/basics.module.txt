@@ -3,7 +3,7 @@ Modul
 
 Ein Modul ist eine in sich geschlossene Einheit, die aus
 [Models](/doc/guide/basics.model), [Views](/doc/guide/basics.view),
-[Controllern](/doc/guide/basics.controller) und evtl. weiteren Komponenten 
+[Controllern](/doc/guide/basics.controller) und evtl. weiteren Komponenten
 besteht. In vielerlei Hinsicht erinnert ein Modul an eine
 [Applikation](/doc/guide/basics.application). Der wesentliche Unterschied
 besteht darin, dass ein Modul nicht für sich allein betrieben werden kann und
@@ -22,28 +22,28 @@ Erstellen eines Moduls
 Ein Modul wird in einem Verzeichnis mit der eindeutigen [Modul-ID|CWebModule::id]
 als Namen untergebracht. Die Struktur eines solchen Modulverzeichnisses ähnelt dem
 [Anwendungsverzeichnis](/doc/guide/basics.application#application-base-directory).
-Hier die typische Struktur eines Moduls, in diesem Fall mit dem Namen 
+Hier die typische Struktur eines Moduls, in diesem Fall mit dem Namen
 `forum`:
 
 ~~~
 forum/
-   ForumModule.php            die Klassendatei des Moduls
-   components/                enthält wiederverwendbare Benutzerkomponenten
-      views/                  enthält Viewdateien für Widgets
-   controllers/               enthält Klassendateien von Controllern
-      DefaultController.php   Die Klassendatei des Standardcontrollers
-   extensions/                enthält Erweiterungen von Dritten 
-   models/                    enthält Klassendateien von Models
-   views/                     enthält View- und Layoutdateien für Controller
-      layouts/                enthält Layout-Viewdateien 
-      default/                enthält Viewdateien für den Standardcontroller
-         index.php            die Datei des Index-Views
+	 ForumModule.php						die Klassendatei des Moduls
+	 components/								enthält wiederverwendbare Benutzerkomponenten
+			views/									enthält Viewdateien für Widgets
+	 controllers/							 enthält Klassendateien von Controllern
+			DefaultController.php	 Die Klassendatei des Standardcontrollers
+	 extensions/								enthält Erweiterungen von Dritten
+	 models/										enthält Klassendateien von Models
+	 views/										 enthält View- und Layoutdateien für Controller
+			layouts/								enthält Layout-Viewdateien
+			default/								enthält Viewdateien für den Standardcontroller
+				 index.php						die Datei des Index-Views
 ~~~
 
 Ein Modul muss eine Modulklasse beinhalten, die von [CWebModule] abgeleitet
 wurde. Der Klassenname wird gemäß dem Ausdruck `ucfirst($id).'Module'` gebildet,
 wobei `$id` sich auf die Modul-ID (bzw. den Verzeichnisnamen des Moduls)
-bezieht. Die Modulklasse dient zum Ablegen von Informationen, die 
+bezieht. Die Modulklasse dient zum Ablegen von Informationen, die
 im gesamten Modul benötigt werden. Man kann z.B.
 [CWebModule::params] oder [CWebModule::components] verwenden, um
 Parameter bzw. [Komponenten](/doc/guide/basics.application#application-component)
@@ -56,12 +56,12 @@ auf Modulebene bereitzustellen.
 Verwenden von Modulen
 ---------------------
 
-Um eine Modul zu verwenden, legen Sie das Modulverzeichnis zunächst im 
+Um eine Modul zu verwenden, legen Sie das Modulverzeichnis zunächst im
 `modules`-Ordner des
 [Anwendungsverzeichnisses](/doc/guide/basics.application#application-base-directory)
 ab. Geben Sie dann die Modul-ID im Konfigurationsparameter
 [modules|CWebApplication::modules] an. Um zum Beispiel das obige
-`forum`-Modul zu verwenden, ändert man die 
+`forum`-Modul zu verwenden, ändert man die
 [Konfiguration](/doc/guide/basics.application#application-configuration)
 folgendermaßen:
 
@@ -87,9 +87,9 @@ angegeben wird:
 return array(
 	......
 	'modules'=>array(
-	    'forum'=>array(
-	        'postPerPage'=>20,
-	    ),
+			'forum'=>array(
+					'postPerPage'=>20,
+			),
 	),
 	......
 );
@@ -110,14 +110,14 @@ $postPerPage=Yii::app()->controller->module->postPerPage;
 Eine Controller-Action in einem Modul kann über die
 [Route](/doc/guide/basics.controller#route) `modulID/controllerID/actionID`
 aufgerufen werden. Würde das `forum`-Modul z.B. einen `PostController`
-enthalten, würde die [Route](/doc/guide/basics.controller#route) 
+enthalten, würde die [Route](/doc/guide/basics.controller#route)
 `forum/post/create` die Action `create` in diesem Controller aufrufen.
 Die entsprechende URL für diese Route wäre dann
 `http://www.example.com/index.php?r=forum/post/create`.
 
 
 > Tip|Tipp: Liegt ein (Modul-)Controller in einem Unterverzeichnis von `controllers`
-> kann man trotzdem das beschriebene 
+> kann man trotzdem das beschriebene
 > [Routen](/doc/guide/basics.controller#route)-Format verwenden. Liegt
 > `PostController` zum Beispiel in `forum/controllers/admin`, lautet die
 > Route zu dessen `create`-Action `forum/admin/post/create`.
@@ -126,7 +126,7 @@ Die entsprechende URL für diese Route wäre dann
 Verschachtelte Module
 ---------------------
 
-Module können in unbegrenzter Tiefe ineinander verschachtelt werden. Das bedeutet, 
+Module können in unbegrenzter Tiefe ineinander verschachtelt werden. Das bedeutet,
 dass ein Modul ein weiteres Modul enthalten kann, welches wiederum ein anderes
 Modul beherbergt. Wir nennen ersteres *Elternmodul*, letzeres
 *Kindmodul*. Kindmodule müssen in der

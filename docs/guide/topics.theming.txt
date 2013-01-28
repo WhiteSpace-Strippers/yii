@@ -7,7 +7,7 @@ application can be changed instantly and dramatically.
 
 In Yii, each theme is represented as a directory consisting of view files,
 layout files, and relevant resource files such as images, CSS files,
-JavaScript files, etc.  The name of a theme is its directory name. All
+JavaScript files, etc.	The name of a theme is its directory name. All
 themes reside under the same directory `WebRoot/themes`. At any time, only
 one theme can be active.
 
@@ -144,8 +144,8 @@ repeat the same customization in every place we use [CLinkPager].
 [php]
 $this->widget('CLinkPager', array(
 	'pages'=>$pagination,
-    'maxButtonCount'=>5,
-    'cssFile'=>false,
+		'maxButtonCount'=>5,
+		'cssFile'=>false,
 ));
 ~~~
 
@@ -159,19 +159,19 @@ To use the global widget customization feature, we need to configure the
 ~~~
 [php]
 return array(
-    'components'=>array(
-        'widgetFactory'=>array(
-            'widgets'=>array(
-                'CLinkPager'=>array(
-                    'maxButtonCount'=>5,
-                    'cssFile'=>false,
-                ),
-                'CJuiDatePicker'=>array(
-                    'language'=>'ru',
-                ),
-            ),
-        ),
-    ),
+		'components'=>array(
+				'widgetFactory'=>array(
+						'widgets'=>array(
+								'CLinkPager'=>array(
+										'maxButtonCount'=>5,
+										'cssFile'=>false,
+								),
+								'CJuiDatePicker'=>array(
+										'language'=>'ru',
+								),
+						),
+				),
+		),
 );
 ~~~
 
@@ -216,11 +216,11 @@ In order to use the skin feature, we first need to modify the application config
 ~~~
 [php]
 return array(
-    'components'=>array(
-        'widgetFactory'=>array(
-            'enableSkin'=>true,
-        ),
-    ),
+		'components'=>array(
+				'widgetFactory'=>array(
+						'enableSkin'=>true,
+				),
+		),
 );
 ~~~
 
@@ -229,11 +229,11 @@ Please note that in versions prior to 1.1.3, you need to use the following confi
 ~~~
 [php]
 return array(
-    'components'=>array(
-        'widgetFactory'=>array(
-            'class'=>'CWidgetFactory',
-        ),
-    ),
+		'components'=>array(
+				'widgetFactory'=>array(
+						'class'=>'CWidgetFactory',
+				),
+		),
 );
 ~~~
 
@@ -243,14 +243,14 @@ We then create the needed skins. Skins belonging to the same widget class are st
 [php]
 <?php
 return array(
-    'default'=>array(
-        'nextPageLabel'=>'next',
-        'prevPageLabel'=>'prev',
-    ),
-    'classic'=>array(
-        'header'=>'',
-        'maxButtonCount'=>5,
-    ),
+		'default'=>array(
+				'nextPageLabel'=>'next',
+				'prevPageLabel'=>'prev',
+		),
+		'classic'=>array(
+				'header'=>'',
+				'maxButtonCount'=>5,
+		),
 );
 ~~~
 
@@ -268,9 +268,9 @@ If we create a widget with a set of initial property values, they will take prec
 ~~~
 [php]
 <?php $this->widget('CLinkPager', array(
-    'skin'=>'classic',
-    'maxButtonCount'=>6,
-    'cssFile'=>false,
+		'skin'=>'classic',
+		'maxButtonCount'=>6,
+		'cssFile'=>false,
 )); ?>
 ~~~
 
@@ -283,9 +283,9 @@ If a widget is using a skin that does not exist, Yii will still create the widge
 Skin is very similar to the global widget customization feature. The main
 differences are as follows.
 
-   - Skin is more related with the customization of presentational property values;
-   - A widget can have multiple skins;
-   - Skin is themeable;
-   - Using skin is more expensive than using global widget customization.
+	 - Skin is more related with the customization of presentational property values;
+	 - A widget can have multiple skins;
+	 - Skin is themeable;
+	 - Using skin is more expensive than using global widget customization.
 
 <div class="revision">$Id$</div>

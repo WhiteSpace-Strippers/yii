@@ -13,28 +13,28 @@
 Yii Interactive Tool v1.1
 Please type 'help' for help. Type 'exit' to quit.
 >> model User tbl_user
-   generate models/User.php
-   generate fixtures/tbl_user.php
-   generate unit/UserTest.php
+	 generate models/User.php
+	 generate fixtures/tbl_user.php
+	 generate unit/UserTest.php
 
 The following model classes are successfully generated:
-    User
+		User
 
 If you have a 'db' database connection, you can test these models now with:
-    $model=User::model()->find();
-    print_r($model);
+		$model=User::model()->find();
+		print_r($model);
 
 >> crud User
-   generate UserController.php
-   generate UserTest.php
-   mkdir D:/testdrive/protected/views/user
-   generate create.php
-   generate update.php
-   generate index.php
-   generate view.php
-   generate admin.php
-   generate _form.php
-   generate _view.php
+	 generate UserController.php
+	 generate UserTest.php
+	 mkdir D:/testdrive/protected/views/user
+	 generate create.php
+	 generate update.php
+	 generate index.php
+	 generate view.php
+	 generate admin.php
+	 generate _form.php
+	 generate _view.php
 
 Crud 'user' has been successfully created. You may access it via:
 http://hostname/path/to/index.php?r=user
@@ -42,7 +42,7 @@ http://hostname/path/to/index.php?r=user
 
 В прикладі вище, ми використовували команду `shell` утиліти `yiic` для взаємодії з створеним каркасом додатку. В командному рядку ми вводимо дві команди `model User tbl_user` і `crud User`. Команда `model` автоматично створює клас моделі `User`, базуючись на структурі таблиці `tbl_user`, а команда `crud` генерує клас контролера і файл відображення, які забезпечують виконання належних операцій CRUD.
 
-> Note|Примітка: Навіть якщо перевірка відповідності вимогам показує, що драйвер PDO відповідний використовуваній  базі даних, включений, можуть зʼявитися помилки типу «…could not find driver». В цьому випадку, потрібно запустити утиліту `yiic` наступним чином:
+> Note|Примітка: Навіть якщо перевірка відповідності вимогам показує, що драйвер PDO відповідний використовуваній	базі даних, включений, можуть зʼявитися помилки типу «…could not find driver». В цьому випадку, потрібно запустити утиліту `yiic` наступним чином:
 >
 > ~~~
 > % php -c path/to/php.ini protected/yiic.php shell
@@ -67,7 +67,7 @@ http://hostname/testdrive/index.php?r=user
 http://hostname/testdrive/index.php?r=user/admin
 ~~~
 
-Зʼявиться  акуратна таблиця користувачів. Клікнувши по назві одного із полів заголовку таблиці, можна упорядкувати записи, по значенню відповідного стовпця. Для перегляду, редагування чи видалення   записів, можна скористатися кнопками у відповідних стовпцях таблиці. Також можна переходити на різні сторінки, фільтрувати результати і виконувати пошук по ним.
+Зʼявиться	акуратна таблиця користувачів. Клікнувши по назві одного із полів заголовку таблиці, можна упорядкувати записи, по значенню відповідного стовпця. Для перегляду, редагування чи видалення	 записів, можна скористатися кнопками у відповідних стовпцях таблиці. Також можна переходити на різні сторінки, фільтрувати результати і виконувати пошук по ним.
 
 Все це не потребує написання ні одного рядка коду!
 

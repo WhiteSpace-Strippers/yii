@@ -46,60 +46,60 @@ class ModelCommand extends CConsoleCommand
 	{
 		return <<<EOD
 USAGE
-  model <class-name> [table-name]
+	model <class-name> [table-name]
 
 DESCRIPTION
-  This command generates a model class with the specified class name.
+	This command generates a model class with the specified class name.
 
 PARAMETERS
  * class-name: required, model class name. By default, the generated
-   model class file will be placed under the directory aliased as
-   'application.models'. To override this default, specify the class
-   name in terms of a path alias, e.g., 'application.somewhere.ClassName'.
+	 model class file will be placed under the directory aliased as
+	 'application.models'. To override this default, specify the class
+	 name in terms of a path alias, e.g., 'application.somewhere.ClassName'.
 
-   If the model class belongs to a module, it should be specified
-   as 'ModuleID.models.ClassName'.
+	 If the model class belongs to a module, it should be specified
+	 as 'ModuleID.models.ClassName'.
 
-   If the class name ends with '*', then a model class will be generated
-   for EVERY table in the database.
+	 If the class name ends with '*', then a model class will be generated
+	 for EVERY table in the database.
 
-   If the class name contains a regular expression deliminated by slashes,
-   then a model class will be generated for those tables whose name
-   matches the regular expression. If the regular expression contains
-   sub-patterns, the first sub-pattern will be used to generate the model
-   class name.
+	 If the class name contains a regular expression deliminated by slashes,
+	 then a model class will be generated for those tables whose name
+	 matches the regular expression. If the regular expression contains
+	 sub-patterns, the first sub-pattern will be used to generate the model
+	 class name.
 
  * table-name: optional, the associated database table name. If not given,
-   it is assumed to be the model class name.
+	 it is assumed to be the model class name.
 
-   Note, when the class name ends with '*', this parameter will be
-   ignored.
+	 Note, when the class name ends with '*', this parameter will be
+	 ignored.
 
 EXAMPLES
  * Generates the Post model:
-        model Post
+				model Post
 
  * Generates the Post model which is associated with table 'posts':
-        model Post posts
+				model Post posts
 
  * Generates the Post model which should belong to module 'admin':
-        model admin.models.Post
+				model admin.models.Post
 
  * Generates a model class for every table in the current database:
-        model *
+				model *
 
  * Same as above, but the model class files should be generated
-   under 'protected/models2':
-        model application.models2.*
+	 under 'protected/models2':
+				model application.models2.*
 
  * Generates a model class for every table whose name is prefixed
-   with 'tbl_' in the current database. The model class will not
-   contain the table prefix.
-        model /^tbl_(.*)$/
+	 with 'tbl_' in the current database. The model class will not
+	 contain the table prefix.
+				model /^tbl_(.*)$/
 
  * Same as above, but the model class files should be generated
-   under 'protected/models2':
-        model application.models2./^tbl_(.*)$/
+	 under 'protected/models2':
+				model application.models2./^tbl_(.*)$/
 
 EOD;
 	}
@@ -157,7 +157,7 @@ EOD;
 				{
 					// Put table and key name in variables for easier reading
 					$refTable=$fkEntry[0]; // Table name that current fk references to
-					$refKey=$fkEntry[1];   // Key in that table being referenced
+					$refKey=$fkEntry[1];	 // Key in that table being referenced
 					$refClassName=$this->getClassName($refTable);
 
 					// Add relation for this table
@@ -273,7 +273,7 @@ EOD;
 			return 1;
 		}
 
-		if(empty($matches[1]))  // without regular expression
+		if(empty($matches[1]))	// without regular expression
 		{
 			$this->generateClassNames($this->_schema);
 			if(($pos=strrpos($className,'.'))===false)
@@ -294,11 +294,11 @@ EOD;
 				$this->_classes=array($tableName=>$className);
 			}
 		}
-		else  // with regular expression
+		else	// with regular expression
 		{
 			$pattern=$matches[1];
 			$pos=strrpos($className,$pattern);
-			if($pos>0)  // only regexp is given
+			if($pos>0)	// only regexp is given
 				$basePath=Yii::getPathOfAlias(rtrim(substr($className,0,$pos),'.'));
 			else
 				$basePath=Yii::getPathOfAlias('application.models');
@@ -370,11 +370,11 @@ EOD;
 		echo <<<EOD
 
 The following model classes are successfully generated:
-    $classes
+		$classes
 
 If you have a 'db' database connection, you can test these models now with:
-    \$model={$className}::model()->find();
-    print_r(\$model);
+		\$model={$className}::model()->find();
+		print_r(\$model);
 
 EOD;
 	}
@@ -433,7 +433,7 @@ EOD;
 		else
 			echo "Warning: the table '$tableName' does not exist in the database.\n";
 
-		if(!is_file($source))  // fall back to default ones
+		if(!is_file($source))	// fall back to default ones
 			$source=YII_PATH.'/cli/views/shell/model/'.basename($source);
 		return $this->renderFile($source,array(
 			'className'=>$className,
@@ -447,7 +447,7 @@ EOD;
 
 	public function generateFixture($source,$table)
 	{
-		if(!is_file($source))  // fall back to default ones
+		if(!is_file($source))	// fall back to default ones
 			$source=YII_PATH.'/cli/views/shell/model/'.basename($source);
 		return $this->renderFile($source, array(
 			'table'=>$table,
@@ -457,7 +457,7 @@ EOD;
 	public function generateTest($source,$params)
 	{
 		list($className,$fixtureName)=$params;
-		if(!is_file($source))  // fall back to default ones
+		if(!is_file($source))	// fall back to default ones
 			$source=YII_PATH.'/cli/views/shell/model/'.basename($source);
 		return $this->renderFile($source, array(
 			'className'=>$className,

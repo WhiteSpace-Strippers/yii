@@ -129,10 +129,10 @@ class CButtonColumn extends CGridColumn
 	 *
 	 * Example:
 	 * <pre>
-	 *  array(
-	 *     class'=>'CButtonColumn',
-	 *     'afterDelete'=>'function(link,success,data){ if(success) alert("Delete completed successfuly"); }',
-	 *  ),
+	 *	array(
+	 *		 class'=>'CButtonColumn',
+	 *		 'afterDelete'=>'function(link,success,data){ if(success) alert("Delete completed successfuly"); }',
+	 *	),
 	 * </pre>
 	 */
 	public $afterDelete;
@@ -141,12 +141,12 @@ class CButtonColumn extends CGridColumn
 	 * which has the following format:
 	 * <pre>
 	 * 'buttonID' => array(
-	 *     'label'=>'...',     // text label of the button
-	 *     'url'=>'...',       // a PHP expression for generating the URL of the button
-	 *     'imageUrl'=>'...',  // image URL of the button. If not set or false, a text link is used
-	 *     'options'=>array(...), // HTML options for the button tag
-	 *     'click'=>'...',     // a JS function to be invoked when the button is clicked
-	 *     'visible'=>'...',   // a PHP expression for determining whether the button is visible
+	 *		 'label'=>'...',		 // text label of the button
+	 *		 'url'=>'...',			 // a PHP expression for generating the URL of the button
+	 *		 'imageUrl'=>'...',	// image URL of the button. If not set or false, a text link is used
+	 *		 'options'=>array(...), // HTML options for the button tag
+	 *		 'click'=>'...',		 // a JS function to be invoked when the button is clicked
+	 *		 'visible'=>'...',	 // a PHP expression for determining whether the button is visible
 	 * )
 	 * </pre>
 	 *
@@ -311,7 +311,7 @@ EOD;
 	protected function renderButton($id,$button,$row,$data)
 	{
 		if (isset($button['visible']) && !$this->evaluateExpression($button['visible'],array('row'=>$row,'data'=>$data)))
-  			return;
+				return;
 		$label=isset($button['label']) ? $button['label'] : $id;
 		$url=isset($button['url']) ? $this->evaluateExpression($button['url'],array('data'=>$data,'row'=>$row)) : '#';
 		$options=isset($button['options']) ? $button['options'] : array();

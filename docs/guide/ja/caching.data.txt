@@ -51,8 +51,8 @@ MemCache や APC のようなある種のキャッシュストレージにおい
 > ~~~
 > [php]
 > $cache=Yii::app()->cache;
-> $cache['var1']=$value1;  // $cache->set('var1',$value1); と同等
-> $value2=$cache['var2'];  // $value2=$cache->get('var2'); と同等
+> $cache['var1']=$value1;	// $cache->set('var1',$value1); と同等
+> $value2=$cache['var2'];	// $value2=$cache->get('var2'); と同等
 > ~~~
 
 キャッシュ依存関係
@@ -76,19 +76,19 @@ Yii::app()->cache->set($id, $value, 30, new CFileCacheDependency('FileName'));
 
 以下は、利用可能なキャッシュ依存関係の概要です:
 
-   - [CFileCacheDependency]: ファイルの最終更新日時が変更された場合に、依存関係が変更されます。
+	 - [CFileCacheDependency]: ファイルの最終更新日時が変更された場合に、依存関係が変更されます。
 
-   - [CDirectoryCacheDependency]: ディレクトリや、サブディレクトリ下のファイルのいずれかが変更された場合に、依存関係が変更されます。
+	 - [CDirectoryCacheDependency]: ディレクトリや、サブディレクトリ下のファイルのいずれかが変更された場合に、依存関係が変更されます。
 
-   - [CDbCacheDependency]: 指定された SQL 文のクエリ結果が変わった場合に、依存関係が変更されます。
+	 - [CDbCacheDependency]: 指定された SQL 文のクエリ結果が変わった場合に、依存関係が変更されます。
 
-   - [CGlobalStateCacheDependency]: 指定されたグローバルステートが変更された場合に、依存関係が変更されます。
+	 - [CGlobalStateCacheDependency]: 指定されたグローバルステートが変更された場合に、依存関係が変更されます。
 グローバルステートは、アプリケーション内で、複数のリクエストおよび複数のセッションを横断して持続する変数です。
 グローバルステートは、[CApplication::setGlobalState()] によって定義されます。
 
-   - [CChainedCacheDependency]: チェーン上の依存関係のいずれかが変更された場合に、依存関係が変更されます。
+	 - [CChainedCacheDependency]: チェーン上の依存関係のいずれかが変更された場合に、依存関係が変更されます。
 
-   - [CExpressionDependency]: 指定された PHP 式の結果が変更された場合に、依存関係が変更されます。
+	 - [CExpressionDependency]: 指定された PHP 式の結果が変更された場合に、依存関係が変更されます。
 
 
 クエリキャッシング
@@ -101,7 +101,7 @@ Yii::app()->cache->set($id, $value, 30, new CFileCacheDependency('FileName'));
 > Info|情報: ある種の DBMS (例えば [MySQL](http://dev.mysql.com/doc/refman/5.1/en/query-cache.html))
 > は、DB サーバサイドでのクエリキャッシュもサポートしています。
 > このサーバサイドでのクエリキャッシングと比較すると、Yii がここでサポートする同じ機能は、
-> より一層柔軟であり、潜在的にはより一層効率的でしょう。 
+> より一層柔軟であり、潜在的にはより一層効率的でしょう。
 
 ### クエリキャッシングを有効にする
 

@@ -21,22 +21,22 @@ class Utf8Command extends CConsoleCommand
 	{
 		return <<<EOD
 USAGE
-  yiic utf8 <action> <file>
+	yiic utf8 <action> <file>
 
 
 DESCRIPTION
-  This command can detect and remove UTF-8 BOM headers. It also supports
-  detection of wrong file encodings (non UTF-8).
+	This command can detect and remove UTF-8 BOM headers. It also supports
+	detection of wrong file encodings (non UTF-8).
 
 
 PARAMETERS
  * action: required, the name of the action to execute. The following
  actions are available:
-   - checkbom: checks for UTF-8 BOM header
-   - fixbom: removes UTF-8 BOM header
-   - checkencoding: checks for correct UTF-8 encoding
+	 - checkbom: checks for UTF-8 BOM header
+	 - fixbom: removes UTF-8 BOM header
+	 - checkencoding: checks for correct UTF-8 encoding
  * file: optional, the file to process. If not set, all (!) translation files
-   will be processed.
+	 will be processed.
 EOD;
 	}
 

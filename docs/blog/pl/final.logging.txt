@@ -1,7 +1,7 @@
 Logowanie błędów
 ==============
 
-Aplikacja działająca produktywnie często potrzebuje wyszukanego rejestrowania dla różnych zdarzeń. W naszym blogu, będziemy chcieli logować błędy występujące podczas jego użytkowania. Takie błędy mogą brać się z pomyłek programisty bądź też z niewłaściwego użytkowania aplikacji przez użytkowników. Rejestrowanie tych błędów pomoże nam usprawniać naszą aplikację. 
+Aplikacja działająca produktywnie często potrzebuje wyszukanego rejestrowania dla różnych zdarzeń. W naszym blogu, będziemy chcieli logować błędy występujące podczas jego użytkowania. Takie błędy mogą brać się z pomyłek programisty bądź też z niewłaściwego użytkowania aplikacji przez użytkowników. Rejestrowanie tych błędów pomoże nam usprawniać naszą aplikację.
 
 Udostępniamy logowanie błędów poprzez modyfikację [konfiguracji aplikacji](http://www.yiiframework.com/doc/guide/basics.application#application-configuration) w następujący sposób:
 

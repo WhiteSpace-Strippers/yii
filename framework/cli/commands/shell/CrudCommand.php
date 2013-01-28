@@ -39,42 +39,42 @@ class CrudCommand extends CConsoleCommand
 	{
 		return <<<EOD
 USAGE
-  crud <model-class> [controller-ID] ...
+	crud <model-class> [controller-ID] ...
 
 DESCRIPTION
-  This command generates a controller and views that accomplish
-  CRUD operations for the specified data model.
+	This command generates a controller and views that accomplish
+	CRUD operations for the specified data model.
 
 PARAMETERS
  * model-class: required, the name of the data model class. This can
-   also be specified as a path alias (e.g. application.models.Post).
-   If the model class belongs to a module, it should be specified
-   as 'ModuleID.models.ClassName'.
+	 also be specified as a path alias (e.g. application.models.Post).
+	 If the model class belongs to a module, it should be specified
+	 as 'ModuleID.models.ClassName'.
 
  * controller-ID: optional, the controller ID (e.g. 'post').
-   If this is not specified, the model class name will be used
-   as the controller ID. In this case, if the model belongs to
-   a module, the controller will also be created under the same
-   module.
+	 If this is not specified, the model class name will be used
+	 as the controller ID. In this case, if the model belongs to
+	 a module, the controller will also be created under the same
+	 module.
 
-   If the controller should be located under a subdirectory,
-   please specify the controller ID as 'path/to/ControllerID'
-   (e.g. 'admin/user').
+	 If the controller should be located under a subdirectory,
+	 please specify the controller ID as 'path/to/ControllerID'
+	 (e.g. 'admin/user').
 
-   If the controller belongs to a module (different from the module
-   that the model belongs to), please specify the controller ID
-   as 'ModuleID/ControllerID' or 'ModuleID/path/to/Controller'.
+	 If the controller belongs to a module (different from the module
+	 that the model belongs to), please specify the controller ID
+	 as 'ModuleID/ControllerID' or 'ModuleID/path/to/Controller'.
 
 EXAMPLES
  * Generates CRUD for the Post model:
-        crud Post
+				crud Post
 
  * Generates CRUD for the Post model which belongs to module 'admin':
-        crud admin.models.Post
+				crud admin.models.Post
 
  * Generates CRUD for the Post model. The generated controller should
-   belong to module 'admin', but not the model class:
-        crud Post admin/post
+	 belong to module 'admin', but not the model class:
+				crud Post admin/post
 
 EOD;
 	}
@@ -199,7 +199,7 @@ EOD;
 		elseif(is_array($id))
 			throw new ShellException(Yii::t('yii','Error: Table "{table}" has a composite primary key which is not supported by crud command.',array('{table}'=>$model->tableName())));
 
-		if(!is_file($source))  // fall back to default ones
+		if(!is_file($source))	// fall back to default ones
 			$source=YII_PATH.'/cli/views/shell/crud/'.basename($source);
 
 		return $this->renderFile($source,array(
@@ -214,7 +214,7 @@ EOD;
 		$model=CActiveRecord::model($modelClass);
 		$table=$model->getTableSchema();
 		$columns=$table->columns;
-		if(!is_file($source))  // fall back to default ones
+		if(!is_file($source))	// fall back to default ones
 			$source=YII_PATH.'/cli/views/shell/crud/'.basename($source);
 		return $this->renderFile($source,array(
 			'ID'=>$table->primaryKey,
@@ -225,7 +225,7 @@ EOD;
 	public function generateTest($source,$params)
 	{
 		list($controllerID,$fixtureName,$modelClass)=$params;
-		if(!is_file($source))  // fall back to default ones
+		if(!is_file($source))	// fall back to default ones
 			$source=YII_PATH.'/cli/views/shell/crud/'.basename($source);
 		return $this->renderFile($source, array(
 			'controllerID'=>$controllerID,

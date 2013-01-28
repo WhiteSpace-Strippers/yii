@@ -19,12 +19,12 @@ Yii::import('zii.widgets.jui.CJuiWidget');
  * To use this widget, you may insert the following code in a view:
  * <pre>
  * $this->beginWidget('zii.widgets.jui.CJuiResizable',array(
- *     // additional javascript options for the resizable plugin
- *     'options'=>array(
- *         'minHeight'=>'150',
- *     ),
+ *		 // additional javascript options for the resizable plugin
+ *		 'options'=>array(
+ *				 'minHeight'=>'150',
+ *		 ),
  * ));
- *     echo 'Your Resizable content here';
+ *		 echo 'Your Resizable content here';
  *
  * $this->endWidget();
  *

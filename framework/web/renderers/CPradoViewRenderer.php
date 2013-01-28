@@ -15,12 +15,12 @@
  * To use CPradoViewRenderer, configure it as an application component named "viewRenderer" in the application configuration:
  * <pre>
  * array(
- *     'components'=>array(
- *         ......
- *         'viewRenderer'=>array(
- *             'class'=>'CPradoViewRenderer',
- *         ),
- *     ),
+ *		 'components'=>array(
+ *				 ......
+ *				 'viewRenderer'=>array(
+ *						 'class'=>'CPradoViewRenderer',
+ *				 ),
+ *		 ),
  * )
  * </pre>
  *
@@ -88,7 +88,7 @@ class CPradoViewRenderer extends CViewRenderer
 		$this->_input=file_get_contents($sourceFile);
 		$n=preg_match_all('/'.implode('|',$regexRules).'/msS',$this->_input,$matches,PREG_SET_ORDER|PREG_OFFSET_CAPTURE);
 		$textStart=0;
-        $this->_output="<?php /* source file: $sourceFile */ ?>\n";
+				$this->_output="<?php /* source file: $sourceFile */ ?>\n";
 		for($i=0;$i<$n;++$i)
 		{
 			$match=&$matches[$i];
@@ -103,7 +103,7 @@ class CPradoViewRenderer extends CViewRenderer
 			if(strpos($str,'<com:')===0)	// opening component tag
 			{
 				$type=$match[3][0];
-				if($str[strlen($str)-2]!=='/')  // open tag
+				if($str[strlen($str)-2]!=='/')	// open tag
 					$this->_output.=$this->processBeginWidget($type,$match[4][0],$match[2][1]);
 				else
 					$this->_output.=$this->processWidget($type,$match[4][0],$match[2][1]);
@@ -113,7 +113,7 @@ class CPradoViewRenderer extends CViewRenderer
 			elseif(strpos($str,'<cache:')===0)	// opening cache tag
 			{
 				$id=$match[3][0];
-				if($str[strlen($str)-2]!=='/')  // open tag
+				if($str[strlen($str)-2]!=='/')	// open tag
 					$this->_output.=$this->processBeginCache($id,$match[4][0],$match[2][1]);
 				else
 					$this->_output.=$this->processCache($id,$match[4][0],$match[2][1]);
@@ -123,7 +123,7 @@ class CPradoViewRenderer extends CViewRenderer
 			elseif(strpos($str,'<clip:')===0)	// opening clip tag
 			{
 				$id=$match[3][0];
-				if($str[strlen($str)-2]!=='/')  // open tag
+				if($str[strlen($str)-2]!=='/')	// open tag
 					$this->_output.=$this->processBeginClip($id,$match[4][0],$match[2][1]);
 				else
 					$this->_output.=$this->processClip($id,$match[4][0],$match[2][1]);

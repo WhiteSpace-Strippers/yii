@@ -2,23 +2,23 @@ Odczytywanie tablicowych danych wejściowych
 ========================
 
 Czasami mamy potrzebę zbierania danych wejściowych użytkownika w trybie wsadowym.
-Inaczej mówiąc, użytkownik może wprowadzić informacje dla wielu instancji modelu 
-oraz przesłać je wszystkie naraz. Nazywamy to *tablicowymi danymi wejściowymi* 
+Inaczej mówiąc, użytkownik może wprowadzić informacje dla wielu instancji modelu
+oraz przesłać je wszystkie naraz. Nazywamy to *tablicowymi danymi wejściowymi*
 (ang. tabular input, ponieważ pola wejściowe są często prezentowane w tabeli HTML.
 
-Aby pracować z tablicowymi danymi wejściowymi, musimy najpierw stworzyć lub też 
-wypełnić tablice modeli instancji, w zależności od tego czy wstawiamy dane 
-czy też aktualizujemy je. Otrzymujemy wtedy dane wejściowe użytkownika ze zmiennej 
-`$_POST` oraz przypisujemy je do każdego modelu. Drobną różnicą pomiędzy w stosunku 
-do danych wejściowych jednego modelu jest to, że otrzymujemy dana przy użyciu 
+Aby pracować z tablicowymi danymi wejściowymi, musimy najpierw stworzyć lub też
+wypełnić tablice modeli instancji, w zależności od tego czy wstawiamy dane
+czy też aktualizujemy je. Otrzymujemy wtedy dane wejściowe użytkownika ze zmiennej
+`$_POST` oraz przypisujemy je do każdego modelu. Drobną różnicą pomiędzy w stosunku
+do danych wejściowych jednego modelu jest to, że otrzymujemy dana przy użyciu
 `$_POST['ModelClass'][$i]` zamiast `$_POST['ModelClass']`.
 
 ~~~
 [php]
 public function actionBatchUpdate()
 {
-  // zwracanie pozycji, które będą aktualizowane w trybie wsadowym
-  // przy założeniu, że każda pozycja jest klasą modelu 'Item'
+	// zwracanie pozycji, które będą aktualizowane w trybie wsadowym
+	// przy założeniu, że każda pozycja jest klasą modelu 'Item'
 	$items=$this->getItemsToUpdate();
 	if(isset($_POST['Item']))
 	{
@@ -29,7 +29,7 @@ public function actionBatchUpdate()
 				$item->attributes=$_POST['Item'][$i];
 			$valid=$item->validate() && $valid;
 		}
-		if($valid)  // all items are valid
+		if($valid)	// all items are valid
 			// ...rób coś tutaj
 	}
 	// wyświetl widok do zbierania tabelarycznych danych wejściowych
@@ -37,7 +37,7 @@ public function actionBatchUpdate()
 }
 ~~~
 
-Mając gotową akcję, musimy popracować nad widokiem `batchUpdate` aby wyświetlić 
+Mając gotową akcję, musimy popracować nad widokiem `batchUpdate` aby wyświetlić
 pola wejściowe za pomocą tabeli HTML.
 
 ~~~
@@ -61,11 +61,11 @@ pola wejściowe za pomocą tabeli HTML.
 </div><!-- yiiForm -->
 ~~~
 
-Zauważ, że w powyższym przykładzie użyliśmy `"[$i]name"` zamiast `"name"` jako 
+Zauważ, że w powyższym przykładzie użyliśmy `"[$i]name"` zamiast `"name"` jako
 drugi parametr podczas wywoływania metody [CHtml::activeTextField].
 
 Jeśli wystąpił tutaj jakikolwiek błąd sprawdzania danych, odpowiednie pole wejściowe
-zostanie podświetlone automatycznie, tak jak to było w przypadku pojedynczego 
+zostanie podświetlone automatycznie, tak jak to było w przypadku pojedynczego
 modelu opisanego wcześniej.
 
 <div class="revision">$Id: form.table.txt 2783 2010-12-28 16:20:41Z qiang.xue $</div>

@@ -21,8 +21,8 @@ Yii::import('system.test.CTestCase');
  * For example, assume we declare {@link fixtures} to be:
  * <pre>
  * public $fixtures=array(
- *     'posts' => 'Post',
- *     'comments' => 'Comment',
+ *		 'posts' => 'Post',
+ *		 'comments' => 'Comment',
  * );
  * </pre>
  *

@@ -5,4 +5,4 @@ Yii提供了强大的数据库编程支持。Yii数据访问对象(DAO)建立在
 
 尽管Yii的DAO和AR能够处理几乎所有数据库相关的任务，您仍然可以在Yii application中使用自己的数据库库。事实上，Yii框架精心设计使得可以与其他第三方库同时使用。
 
-<div class="revision">$Id: database.overview.txt 163 2008-11-05 12:51:48Z weizhuo  译：sharehua$</div>
+<div class="revision">$Id: database.overview.txt 163 2008-11-05 12:51:48Z weizhuo	译：sharehua$</div>

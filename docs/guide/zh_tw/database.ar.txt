@@ -52,17 +52,17 @@ return array(
 
 對 AR 的支援受 DBMS 的限制，當前只支援以下幾種 DBMS：
 
-   - [MySQL 4.1 或更高版本](http://www.mysql.com)
-   - [PostgreSQL 7.3 或更高版本](http://www.postgres.com)
-   - [SQLite 2 和 3](http://www.sqlite.org)
-   - [Microsoft SQL Server 2000 或更高版本](http://www.microsoft.com/sqlserver/)
-   - [Oracle](http://www.oracle.com)
+	 - [MySQL 4.1 或更高版本](http://www.mysql.com)
+	 - [PostgreSQL 7.3 或更高版本](http://www.postgres.com)
+	 - [SQLite 2 和 3](http://www.sqlite.org)
+	 - [Microsoft SQL Server 2000 或更高版本](http://www.microsoft.com/sqlserver/)
+	 - [Oracle](http://www.oracle.com)
 
-> Note|注意:  1.0.4 版開始支援  Microsoft SQL Server；從1.0.5 版開始支援 Oracle。
+> Note|注意:	1.0.4 版開始支援	Microsoft SQL Server；從1.0.5 版開始支援 Oracle。
 
 如果你想使用一個不是 `db` 的應用程式元件，或者如果你想使用 AR 處理多個資料庫，你應該覆蓋 [CActiveRecord::getDbConnection()]。[CActiveRecord] 類別是所有 AR 類別的基礎類別。
 
-> Tip|提示: 通過 AR 使用多個資料庫有兩種方式。如果資料庫的架構不同，你可以建立不同的 AR 基礎類別實現不同的 
+> Tip|提示: 通過 AR 使用多個資料庫有兩種方式。如果資料庫的架構不同，你可以建立不同的 AR 基礎類別實現不同的
 [getDbConnection()|CActiveRecord::getDbConnection]。否則，動態改變靜態變數 [CActiveRecord::db] 是一個好主意。
 
 定義 AR 類別
@@ -89,7 +89,7 @@ class Post extends CActiveRecord
 ~~~
 
 > Tip|提示: 由於 AR 類別經常在多處被引用，我們可以導入包含 AR 類別的整個目錄，而不是一個個導入。
-> 例如，如果我們所有的 AR 類別檔案都在 
+> 例如，如果我們所有的 AR 類別檔案都在
 > `protected/models` 目錄中，我們可以配置應用程式如下：
 > ~~~
 > [php]
@@ -109,7 +109,7 @@ class Post extends CActiveRecord
 > [php]
 > public function tableName()
 > {
->     return '{{post}}';
+>		 return '{{post}}';
 > }
 > ~~~
 > 這就是說，我們將返回通過雙大括號括起來的沒有前綴的資料表名，而不是完整的資料表的名字。
@@ -171,7 +171,7 @@ class Post extends CActiveRecord
 }
 
 $post=new Post;
-echo $post->title;  // 這將顯示: please enter a title
+echo $post->title;	// 這將顯示: please enter a title
 ~~~
 
 記錄在儲存（插入或更新）到資料庫之前，其屬性可以賦值為 [CDbExpression] 類型。例如，為儲存一個由 MySQL 的 `NOW()` 函數返回的時間戳，我們可以使用如下程式碼：
@@ -211,7 +211,7 @@ $post=Post::model()->findBySql($sql,$params);
 
 如上所示，我們通過 `Post::model()` 調用 `find` 方法。請記住，靜態方法 `model()` 是每個 AR 類別所必須的。此方法返回在物件上下文中的一個用於存取類別級別方法（類似於靜態類方法的東西）的 AR 實體。
 
-如果 `find` 方法找到了一個滿足查詢條件的列，它將返回一個 `Post` 實體，實體的特性含有資料表列中相應欄位的值。然後我們就可以像讀取普通物件的屬性那樣讀取載入的值，例如  `echo $post->title;`。
+如果 `find` 方法找到了一個滿足查詢條件的列，它將返回一個 `Post` 實體，實體的特性含有資料表列中相應欄位的值。然後我們就可以像讀取普通物件的屬性那樣讀取載入的值，例如	`echo $post->title;`。
 
 如果使用給定的查詢條件在資料庫中沒有找到任何東西， `find` 方法將返回 null 。
 
@@ -232,7 +232,7 @@ $post=Post::model()->find('postID=:postID', array(':postID'=>10));
 ~~~
 [php]
 $criteria=new CDbCriteria;
-$criteria->select='title';  // 只選擇 'title' 欄位
+$criteria->select='title';	// 只選擇 'title' 欄位
 $criteria->condition='postID=:postID';
 $criteria->params=array(':postID'=>10);
 $post=Post::model()->find($criteria); // $params 不需要了
@@ -340,7 +340,7 @@ Post::model()->deleteByPk($pk,$condition,$params);
 
 當插入或更新一列時，我們常常需要檢查欄位的值是否符合相應的規則。如果欄位的值是由最終使用者提供的，這一點就更加重要。總體來說，我們永遠不能相信任何來自客戶端的資料。
 
-當調用 [save()|CActiveRecord::save] 時， AR 會自動執行資料驗證。驗證是基於在 AR 類別的  [rules()|CModel::rules]  方法中指定的規則進行的。關於驗證規則的更多詳情，請參考 [宣告驗證規則](/doc/guide/form.model#declaring-validation-rules) 一節。下面是儲存記錄時所需的典型的工作流。
+當調用 [save()|CActiveRecord::save] 時， AR 會自動執行資料驗證。驗證是基於在 AR 類別的	[rules()|CModel::rules]	方法中指定的規則進行的。關於驗證規則的更多詳情，請參考 [宣告驗證規則](/doc/guide/form.model#declaring-validation-rules) 一節。下面是儲存記錄時所需的典型的工作流。
 
 ~~~
 [php]
@@ -350,7 +350,7 @@ if($post->save())
 }
 else
 {
-	// 資料無效，調用  getErrors() 擷取錯誤訊息
+	// 資料無效，調用	getErrors() 擷取錯誤訊息
 }
 ~~~
 
@@ -363,7 +363,7 @@ $post->content=$_POST['content'];
 $post->save();
 ~~~
 
-如果有很多欄位，我們可以看到一個用於這種複製的很長的欄位資料表。這可以通過使用如下所示的 [attributes|CActiveRecord::attributes]  屬性簡化操作。更多訊息可以在 [安全的屬性賦值](/doc/guide/form.model#securing-attribute-assignments)一節和  [建立動作](/doc/guide/form.action) 一節找到。
+如果有很多欄位，我們可以看到一個用於這種複製的很長的欄位資料表。這可以通過使用如下所示的 [attributes|CActiveRecord::attributes]	屬性簡化操作。更多訊息可以在 [安全的屬性賦值](/doc/guide/form.model#securing-attribute-assignments)一節和	[建立動作](/doc/guide/form.action) 一節找到。
 
 ~~~
 [php]
@@ -387,21 +387,21 @@ $post->save();
 
 [CActiveRecord] 提供了幾個佔位符號方法，它們可以在子類中被覆蓋以自定義其工作流。
 
-   - [beforeValidate|CModel::beforeValidate] 和
+	 - [beforeValidate|CModel::beforeValidate] 和
 [afterValidate|CModel::afterValidate]: 這兩個將在驗證執行之前和之後被調用。
 
-   - [beforeSave|CActiveRecord::beforeSave] 和
+	 - [beforeSave|CActiveRecord::beforeSave] 和
 [afterSave|CActiveRecord::afterSave]: 這兩個將在儲存 AR 實體之前和之後被調用。
 
-   - [beforeDelete|CActiveRecord::beforeDelete] 和
+	 - [beforeDelete|CActiveRecord::beforeDelete] 和
 [afterDelete|CActiveRecord::afterDelete]: 這兩個將在一個 AR 實體被刪除之前和之後被調用。
 
-   - [afterConstruct|CActiveRecord::afterConstruct]: 這個將在每個使用 `new` 操作符建立 AR 實體後被調用。
+	 - [afterConstruct|CActiveRecord::afterConstruct]: 這個將在每個使用 `new` 操作符建立 AR 實體後被調用。
 
-   - [beforeFind|CActiveRecord::beforeFind]: 這個將在一個 AR 查找器被用於執行查詢（例如 `find()`, `findAll()`）之前被調用。
-1.0.9 版本開始可用。  
+	 - [beforeFind|CActiveRecord::beforeFind]: 這個將在一個 AR 查找器被用於執行查詢（例如 `find()`, `findAll()`）之前被調用。
+1.0.9 版本開始可用。
 
-   - [afterFind|CActiveRecord::afterFind]: 這個將在每個 AR 實體作為一個查詢結果建立時被調用。
+	 - [afterFind|CActiveRecord::afterFind]: 這個將在每個 AR 實體作為一個查詢結果建立時被調用。
 
 
 使用 AR 處理交易

@@ -48,7 +48,7 @@ that classes be named in some unique way to avoid name conflict with
 Tot din acest motiv, toate clasele Yii au in fata litera "C".
 
 In ce priveste controller-ele, regula speciala este ca numele lor trebuie sa
-fie urmate de cuvantul `Controller`. De exemplu, clasa `PageController` va avea ID-ul `page`. 
+fie urmate de cuvantul `Controller`. De exemplu, clasa `PageController` va avea ID-ul `page`.
 Deci ID-ul controller-ului este numele clasei (cu prima litera mica), din care se indeparteaza apoi cuvantul`Controller`.
 Aceasta regula face aplicatia mai sigura din punctul de vedere al securitatii. De asemenea, URL-urile sunt mai compacte
 (ex. `/index.php?r=page/index` in loc de `/index.php?r=PageController/index`).
@@ -75,12 +75,12 @@ Fisierele claselor ar trebui sa fie denumite cu numele public al claselor respec
 De exemplu, clasa [CController] este in fisierul `CController.php`. O clasa publica
 este o clasa care poate fi folosita de orice alta clasa. Fiecare fisier care contine o clasa
 ar trebui sa contina cel mult o clasa publica. Clasele private (care sunt folosite doar de catre
-o clasa publica) ar trebui sa existe in acelasi fisier in care exista clasa publica. 
+o clasa publica) ar trebui sa existe in acelasi fisier in care exista clasa publica.
 
 Fisierele de tip view ar trebui sa aiba numele view-ului respectiv.
 De exemplu, view-ul `view1` ar trebui sa fie in fisierul `view1.php`.
 Un fisier view este un fisier PHP care contine cod PHP si HTML doar cu
-scop de prezentare pentru client. 
+scop de prezentare pentru client.
 
 Fisierele de configurare pot fi denumite in orice fel. Un fisier de configurare
 este un fisier PHP al carui singur scop este sa returneze un array care contine configuratia.
@@ -89,48 +89,48 @@ Directoare
 ----------
 
 Yii este structurat initial conform unui set implicit de directoare folosite pentru
-diverse scopuri. Fiecare director poate fi customizat daca este nevoie. 
+diverse scopuri. Fiecare director poate fi customizat daca este nevoie.
 
-   - `WebRoot/protected`: acesta este [application base
+	 - `WebRoot/protected`: acesta este [application base
 directory](/doc/guide/basics.application#application-base-directory). Contine toate
 fisierele PHP si fisierele de date care trebuie securizate fata de exterior. Poate fi
 schimbat prin [CWebApplication::basePath]. Yii contine un alias implicit avand numele
 `application` care este asociat cu aceasta cale. Accesul la acest director,
-inclusiv orice subdirector, ar trebui sa fie interzis tuturor utilizatorilor Web. 
+inclusiv orice subdirector, ar trebui sa fie interzis tuturor utilizatorilor Web.
 
-   - `WebRoot/protected/runtime`: acest director contine toate fisierele private temporare
+	 - `WebRoot/protected/runtime`: acest director contine toate fisierele private temporare
 generate in timpul rularii aplicatiei. Acest director poate fi schimbat prin [CApplication::runtimePath].
-Acest director trebuie sa dea drepturi de scriere procesului serverului Web. 
+Acest director trebuie sa dea drepturi de scriere procesului serverului Web.
 
-   - `WebRoot/protected/extensions`: acest director contine toate extensiile third-party. 
+	 - `WebRoot/protected/extensions`: acest director contine toate extensiile third-party.
 Acest director poate fi schimbat prin [CApplication::extensionPath].
 
-   - `WebRoot/protected/modules`: acest director contine toate
+	 - `WebRoot/protected/modules`: acest director contine toate
 [modulele](/doc/guide/basics.module) aplicatiei, fiecare reprezentand un subdirector.
 
-   - `WebRoot/protected/controllers`: acest director contine toate fisierele cu clasele
+	 - `WebRoot/protected/controllers`: acest director contine toate fisierele cu clasele
 controller-elor. Acest director poate fi schimbat prin [CWebApplication::controllerPath].
 
-   - `WebRoot/protected/views`: acest director contine toate fisierele view,
+	 - `WebRoot/protected/views`: acest director contine toate fisierele view,
 inclusiv view-urile controller-elor, view-urile layout si view-urile sistem. Acest director poate fi schimbat prin
 [CWebApplication::viewPath].
 
-   - `WebRoot/protected/views/ControllerID`: acest director contine fisierele view
+	 - `WebRoot/protected/views/ControllerID`: acest director contine fisierele view
 pentru un singur controller (identificat prin ID-ul sau, `ControllerID`). Acest director
 poate fi schimbat prin [CController::getViewPath].
 
-   - `WebRoot/protected/views/layouts`: acest director contine toate fisierele view
+	 - `WebRoot/protected/views/layouts`: acest director contine toate fisierele view
 care contin layout-uri. Acest director poate fi schimbat prin [CWebApplication::layoutPath].
 
-   - `WebRoot/protected/views/system`: acest director contine toate fisierele view ale sistemului.
+	 - `WebRoot/protected/views/system`: acest director contine toate fisierele view ale sistemului.
 View-urile sistemului sunt template-uri folosite pentru afisarea exceptiilor si erorilor.
 Acest director poate fi schimbat prin [CWebApplication::systemViewPath].
 
-   - `WebRoot/assets`: acest director contine fisiere asset publicate. Un fisier asset
+	 - `WebRoot/assets`: acest director contine fisiere asset publicate. Un fisier asset
 este un fisier privat care poate fi publicat pentru a deveni accesibil utilizatorilor Web. Acest
 director trebuie sa dea drept de scriere procesului serverului Web. Acest director poate fi schimbat prin [CAssetManager::basePath].
 
-   - `WebRoot/themes`: acest director contine diverse teme in care poate fi prezentata
+	 - `WebRoot/themes`: acest director contine diverse teme in care poate fi prezentata
 aplicatia Yii. Fiecare subdirector reprezinta o singura tema al carui nume este numele
 subdirectorului respectiv. Acest director poate fi schimbat prin [CThemeManager::basePath].
 

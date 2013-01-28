@@ -9,45 +9,45 @@ class Text_Highlighter_Renderer_Latex extends Text_Highlighter_Renderer_Array
 	(
 		'\\' => '\(\backslash\)',
 		'#'	 => '\#',
-		'$'  => '\$',
-		'%'  => '\%',
-		'&'  => '\&',
-		'_'  => '\_',
-		'{'  => '\{',
-		'}'  => '\}',
-		'^'  => '\^{}',
-		'~'  => '\~{}',
+		'$'	=> '\$',
+		'%'	=> '\%',
+		'&'	=> '\&',
+		'_'	=> '\_',
+		'{'	=> '\{',
+		'}'	=> '\}',
+		'^'	=> '\^{}',
+		'~'	=> '\~{}',
 	);
 
-    function finalize()
-    {
-        // get parent's output
-        parent::finalize();
-        $output = parent::getOutput();
-		$tex_output = '';
-        foreach ($output AS $token)
+		function finalize()
 		{
-            if ($this->_enumerated)
+				// get parent's output
+				parent::finalize();
+				$output = parent::getOutput();
+		$tex_output = '';
+				foreach ($output AS $token)
+		{
+						if ($this->_enumerated)
 			{
-                $class = $token[0];
-                $content = $token[1];
-            }
+								$class = $token[0];
+								$content = $token[1];
+						}
 			else
 			{
-                $key = key($token);
-                $class = $key;
-                $content = $token[$key];
-            }
-            $iswhitespace = ctype_space($content);
-            if (!$iswhitespace)
+								$key = key($token);
+								$class = $key;
+								$content = $token[$key];
+						}
+						$iswhitespace = ctype_space($content);
+						if (!$iswhitespace)
 			{
 				if ($class === 'special')
 					$class = 'code';
-                $tex_output .= sprintf('\textcolor{%s}{%s}', $class, $this->escape($content));
+								$tex_output .= sprintf('\textcolor{%s}{%s}', $class, $this->escape($content));
 			}
 			else
-                $tex_output .= $content;
-        }
+								$tex_output .= $content;
+				}
 		$this->_output = "\\begin{alltt}\n" . $tex_output . "\\end{alltt}";
 	}
 
@@ -91,22 +91,22 @@ class MarkdownHtml2Tex
 	(
 		'\\' => '\(\backslash\)',
 		'#'	 => '\#',
-		'$'  => '\$',
-		'%'  => '\%',
-		'&'  => '\&',
-		'_'  => '\_',
-		'{'  => '\{',
-		'}'  => '\}',
-		'^'  => '\^{}',
-		'~'  => '\~{}',
+		'$'	=> '\$',
+		'%'	=> '\%',
+		'&'	=> '\&',
+		'_'	=> '\_',
+		'{'	=> '\{',
+		'}'	=> '\}',
+		'^'	=> '\^{}',
+		'~'	=> '\~{}',
 	);
 
 	var $texttt_hyphen = array
 	(
 		//'\\' => '\bshyp{}',
-		'/'  => '\fshyp{}',
-		'.'  => '\dothyp{}',
-		':'  => '\colonhyp{}',
+		'/'	=> '\fshyp{}',
+		'.'	=> '\dothyp{}',
+		':'	=> '\colonhyp{}',
 	);
 
 	function hypenat($text)
@@ -163,10 +163,10 @@ class MarkdownHtml2Tex
 		$caption = $this->escape($matches[2]);
 		return <<<TEX
 \\begin{figure}[htbp]
-  \\centering
-  \\includegraphics[width={$width}cm]{{$filename}}
-  \\label{fig:{$filename}}
-  \\caption{{$caption}}
+	\\centering
+	\\includegraphics[width={$width}cm]{{$filename}}
+	\\label{fig:{$filename}}
+	\\caption{{$caption}}
 \\end{figure}
 TEX;
 	}

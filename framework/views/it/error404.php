@@ -24,7 +24,7 @@ L'URL richiesto non &egrave; stato trovato su questo server.
 Se hai digitato l'URL manualmente, prego controlla meglio e riprova.
 </p>
 <p>
-Se pensi che &egrave; un errore del server, contatta cortesemente  <?php echo $data['admin']; ?>.
+Se pensi che &egrave; un errore del server, contatta cortesemente	<?php echo $data['admin']; ?>.
 </p>
 <div class="version">
 <?php echo date('Y-m-d H:i:s',$data['time']) .' '. $data['version']; ?>

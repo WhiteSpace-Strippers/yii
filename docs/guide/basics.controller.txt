@@ -1,7 +1,7 @@
 Controller
 ==========
 
-A `controller` is an instance of [CController] or of a class that extends [CController]. 
+A `controller` is an instance of [CController] or of a class that extends [CController].
 It is created by the application object when the user requests it. When a controller
 runs, it performs the requested action, which usually brings in the needed
 models and renders an appropriate view. An `action`, in its simplest form, is
@@ -9,7 +9,7 @@ just a controller class method whose name starts with `action`.
 
 A controller has a default action. When the user request does not specify
 which action to execute, the default action will be executed. By default,
-the default action is named as `index`. It can be changed by setting the 
+the default action is named as `index`. It can be changed by setting the
 public instance variable, [CController::defaultAction].
 
 The following code defines a `site` controller, an `index` action (the default
@@ -47,7 +47,7 @@ would be `edit`.
 Users request a particular controller and action in terms of route. A
 route is formed by concatenating a controller ID and an action ID, separated
 by a slash. For example, the route `post/edit` refers to `PostController`
-and its `edit` action. By default, the URL `http://hostname/index.php?r=post/edit` 
+and its `edit` action. By default, the URL `http://hostname/index.php?r=post/edit`
 would request the post controller and the edit action.
 
 >Note: By default, routes are case-sensitive. It is
@@ -70,16 +70,16 @@ incoming request. Given the ID of the controller, the application will use
 the following rules to determine what the controller class is and where the
 class file is located.
 
-   - If [CWebApplication::catchAllRequest] is specified, a controller
+	 - If [CWebApplication::catchAllRequest] is specified, a controller
 will be created based on this property, and the user-specified controller ID
 will be ignored. This is mainly used to put the application in
 maintenance mode and display a static notice page.
 
-   - If the ID is found in [CWebApplication::controllerMap], the
+	 - If the ID is found in [CWebApplication::controllerMap], the
 corresponding controller configuration will be used to create the
 controller instance.
 
-   - If the ID is in the format `'path/to/xyz'`, the controller class
+	 - If the ID is in the format `'path/to/xyz'`, the controller class
 name is assumed to be `XyzController` and the corresponding class file is
 `protected/controllers/path/to/XyzController.php`. For example, a controller
 ID `admin/user` would be mapped to the controller class `UserController`
@@ -87,8 +87,8 @@ and the class file `protected/controllers/admin/UserController.php`.
 If the class file does not exist, a 404 [CHttpException] will be raised.
 
 When [modules](/doc/guide/basics.module) are used, the above process is
-slightly different. In particular, the application will check whether or not 
-the ID refers to a controller inside a module, and if so, the module instance 
+slightly different. In particular, the application will check whether or not
+the ID refers to a controller inside a module, and if so, the module instance
 will be created first, followed by the controller instance.
 
 
@@ -139,18 +139,18 @@ organize the code for controllers:
 
 ~~~
 protected/
-    controllers/
-        PostController.php
-        UserController.php
-        post/
-            CreateAction.php
-            ReadAction.php
-            UpdateAction.php
-        user/
-            CreateAction.php
-            ListAction.php
-            ProfileAction.php
-            UpdateAction.php
+		controllers/
+				PostController.php
+				UserController.php
+				post/
+						CreateAction.php
+						ReadAction.php
+						UpdateAction.php
+				user/
+						CreateAction.php
+						ListAction.php
+						ProfileAction.php
+						UpdateAction.php
 ~~~
 
 ### Action Parameter Binding
@@ -159,11 +159,11 @@ Since version 1.1.4, Yii has added support for automatic action parameter bindin
 That is, a controller action method can define named parameters whose value will
 be automatically populated from `$_GET` by Yii.
 
-To illustrate how this works, let's assume we need to write a `create` action for 
-`PostController`.  The action requires two parameters:
+To illustrate how this works, let's assume we need to write a `create` action for
+`PostController`.	The action requires two parameters:
 
 * `category`: an integer indicating the category ID under which the new post will
-   be created;
+	 be created;
 * `language`: a string indicating the language code that the new post will be in.
 
 We may end up with the following boring code for the purpose of retrieving the needed
@@ -208,8 +208,8 @@ class PostController extends CController
 Notice that we add two parameters to the action method `actionCreate`.
 The name of these parameters must be exactly the same as the ones we expect
 from `$_GET`. The `$language` parameter takes a default value `en` in case
-the request does not include such a parameter.  Because `$category`
-does not have a default value, if the request does not include a `category` 
+the request does not include such a parameter.	Because `$category`
+does not have a default value, if the request does not include a `category`
 parameter, a [CHttpException] (error code 400) will be thrown automatically.
 
 Starting from version 1.1.5, Yii also supports array type detection for action parameters.
@@ -265,8 +265,8 @@ that they appear in the filter list. A filter can prevent the execution of
 the action and the rest of the unexecuted filters.
 
 A filter can be defined as a controller class method. The method name must
-begin with `filter`. For example, a method named `filterAccessControl` 
-defines a filter named `accessControl`. The filter method must have the 
+begin with `filter`. For example, a method named `filterAccessControl`
+defines a filter named `accessControl`. The filter method must have the
 right signature:
 
 ~~~

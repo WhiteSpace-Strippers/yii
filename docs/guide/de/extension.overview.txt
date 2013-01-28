@@ -27,12 +27,12 @@ Softwareeinheit, die aus [Models](/doc/guide/basics.model),
 [Views](/doc/guide/basics.view), [Controllern](/doc/guide/basics.controller)
 und anderen Komponenten besteht. In vielerlei Hinsicht erinnert ein
 Modul an eine [Applikation](/doc/guide/basics.application). Der wesentliche
-Unterschied besteht darin, dass ein Modul nicht für sich allein betrieben werden 
+Unterschied besteht darin, dass ein Modul nicht für sich allein betrieben werden
 kann und in eine Applikation eingebettet werden muss. Man könnte zum Beispiel
 ein Modul zur Benutzerverwaltung verwenden.
 
 Eine Erweiterung kann auch eine Komponente sein, die in keine dieser
-Kategorien fällt. Yii ist nämlich so konzipiert, dass fast alles 
+Kategorien fällt. Yii ist nämlich so konzipiert, dass fast alles
 auf individuelle Bedürfnisse hin erweitert oder angepasst werden kann.
 
 <div class="revision">$Id: extension.overview.txt 2739 2010-12-14 01:50:04Z weizhuo $</div>

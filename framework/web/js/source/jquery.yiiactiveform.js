@@ -63,7 +63,7 @@
 			});
 			$form.data('settings', settings);
 
-			settings.submitting = false;  // whether it is waiting for ajax submission result
+			settings.submitting = false;	// whether it is waiting for ajax submission result
 			var validate = function (attribute, forceValidate) {
 				if (forceValidate) {
 					attribute.status = 2;
@@ -154,7 +154,7 @@
 									// TODO: if the submission is caused by "change" event, it will not work
 									if ($button.length) {
 										$button.click();
-									} else {  // no submit button in the form
+									} else {	// no submit button in the form
 										$form.submit();
 									}
 									return;
@@ -398,33 +398,33 @@
 		summaryID: undefined,
 		timer: undefined,
 		beforeValidateAttribute: undefined, // function (form, attribute) | boolean
-		afterValidateAttribute: undefined,  // function (form, attribute, data, hasError)
+		afterValidateAttribute: undefined,	// function (form, attribute, data, hasError)
 		beforeValidate: undefined, // function (form) | boolean
-		afterValidate: undefined,  // function (form, data, hasError) | boolean
-		focus: undefined,  // jquery selector that indicates which element to receive input focus initially
+		afterValidate: undefined,	// function (form, data, hasError) | boolean
+		focus: undefined,	// jquery selector that indicates which element to receive input focus initially
 		/**
 		 * list of attributes to be validated. Each array element is of the following structure:
 		 * {
-		 *     id: 'ModelClass_attribute', // the unique attribute ID
-		 *     model: 'ModelClass', // the model class name
-		 *     name: 'name', // attribute name
-		 *     inputID: 'input-tag-id',
-		 *     errorID: 'error-tag-id',
-		 *     value: undefined,
-		 *     status: 0,  // 0: empty, not entered before,  1: validated, 2: pending validation, 3: validating
-		 *     validationDelay: 200,
-		 *     validateOnChange: true,
-		 *     validateOnType: false,
-		 *     hideErrorMessage: false,
-		 *     inputContainer: undefined,
-		 *     errorCssClass: 'error',
-		 *     successCssClass: 'success',
-		 *     validatingCssClass: 'validating',
-		 *     enableAjaxValidation: true,
-		 *     enableClientValidation: true,
-		 *     clientValidation: undefined, // function (value, messages, attribute) | client-side validation
-		 *     beforeValidateAttribute: undefined, // function (form, attribute) | boolean
-		 *     afterValidateAttribute: undefined,  // function (form, attribute, data, hasError)
+		 *		 id: 'ModelClass_attribute', // the unique attribute ID
+		 *		 model: 'ModelClass', // the model class name
+		 *		 name: 'name', // attribute name
+		 *		 inputID: 'input-tag-id',
+		 *		 errorID: 'error-tag-id',
+		 *		 value: undefined,
+		 *		 status: 0,	// 0: empty, not entered before,	1: validated, 2: pending validation, 3: validating
+		 *		 validationDelay: 200,
+		 *		 validateOnChange: true,
+		 *		 validateOnType: false,
+		 *		 hideErrorMessage: false,
+		 *		 inputContainer: undefined,
+		 *		 errorCssClass: 'error',
+		 *		 successCssClass: 'success',
+		 *		 validatingCssClass: 'validating',
+		 *		 enableAjaxValidation: true,
+		 *		 enableClientValidation: true,
+		 *		 clientValidation: undefined, // function (value, messages, attribute) | client-side validation
+		 *		 beforeValidateAttribute: undefined, // function (form, attribute) | boolean
+		 *		 afterValidateAttribute: undefined,	// function (form, attribute, data, hasError)
 		 * }
 		 */
 		attributes: []

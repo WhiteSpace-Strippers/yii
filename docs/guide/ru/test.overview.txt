@@ -51,15 +51,15 @@
 
 ~~~
 testdrive/
-   protected/                файлы приложения
-      tests/                 тесты
-         fixtures/           фикстуры БД
-         functional/         функциональные тесты
-         unit/               модульные тесты
-         report/             отчёты по покрытию кода тестами
-         bootstrap.php       загрузчик
-         phpunit.xml         конфигурация для PHPUnit
-         WebTestCase.php     базовый класс для функциональных тестов страниц
+	 protected/								файлы приложения
+			tests/								 тесты
+				 fixtures/					 фикстуры БД
+				 functional/				 функциональные тесты
+				 unit/							 модульные тесты
+				 report/						 отчёты по покрытию кода тестами
+				 bootstrap.php			 загрузчик
+				 phpunit.xml				 конфигурация для PHPUnit
+				 WebTestCase.php		 базовый класс для функциональных тестов страниц
 ~~~
 
 Как показано выше, код тестов главным образом находится в трёх директориях:
@@ -72,7 +72,7 @@ testdrive/
 ~~~
 % cd testdrive/protected/tests
 % phpunit functional/PostTest.php // запускает отдельный тест
-% phpunit --verbose functional    // запускает все тесты в директории 'functional'
+% phpunit --verbose functional		// запускает все тесты в директории 'functional'
 % phpunit --coverage-html ./report unit
 ~~~
 

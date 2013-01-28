@@ -154,7 +154,7 @@ abstract class CCodeModel extends CFormModel
 	 * Child classes must override this method in the following format:
 	 * <pre>
 	 * return array_merge(parent::rules(), array(
-	 *     ...rules for the child class...
+	 *		 ...rules for the child class...
 	 * ));
 	 * </pre>
 	 * @return array validation rules
@@ -206,7 +206,7 @@ abstract class CCodeModel extends CFormModel
 	 * Child classes must override this method in the following format:
 	 * <pre>
 	 * return array_merge(parent::attributeLabels(), array(
-	 *     ...labels for the child class attributes...
+	 *		 ...labels for the child class attributes...
 	 * ));
 	 * </pre>
 	 * @return array the attribute labels
@@ -329,13 +329,13 @@ abstract class CCodeModel extends CFormModel
 		foreach($this->files as $file)
 		{
 			if($file->error!==null)
-				$output.="<span class=\"error\">generating {$file->relativePath}<br/>           {$file->error}</span>\n";
+				$output.="<span class=\"error\">generating {$file->relativePath}<br/>					 {$file->error}</span>\n";
 			elseif($file->operation===CCodeFile::OP_NEW && $this->confirmed($file))
 				$output.=' generated '.$file->relativePath."\n";
 			elseif($file->operation===CCodeFile::OP_OVERWRITE && $this->confirmed($file))
 				$output.=' overwrote '.$file->relativePath."\n";
 			else
-				$output.='   skipped '.$file->relativePath."\n";
+				$output.='	 skipped '.$file->relativePath."\n";
 		}
 		$output.="done!\n";
 		return $output;

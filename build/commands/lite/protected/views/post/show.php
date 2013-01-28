@@ -12,29 +12,29 @@
 <tr>
 	<th class="label"><?php echo CHtml::encode($post->getAttributeLabel('title')); ?>
 </th>
-    <td><?php echo CHtml::encode($post->title); ?>
+		<td><?php echo CHtml::encode($post->title); ?>
 </td>
-    </div>
+		</div>
 </tr>
 <tr>
 	<th class="label"><?php echo CHtml::encode($post->getAttributeLabel('create_time')); ?>
 </th>
-    <td><?php echo CHtml::encode($post->create_time); ?>
+		<td><?php echo CHtml::encode($post->create_time); ?>
 </td>
-    </div>
+		</div>
 </tr>
 <tr>
 	<th class="label"><?php echo CHtml::encode($post->getAttributeLabel('author_id')); ?>
 </th>
-    <td><?php echo CHtml::encode($post->author_id); ?>
+		<td><?php echo CHtml::encode($post->author_id); ?>
 </td>
-    </div>
+		</div>
 </tr>
 <tr>
 	<th class="label"><?php echo CHtml::encode($post->getAttributeLabel('content')); ?>
 </th>
-    <td><?php echo CHtml::encode($post->content); ?>
+		<td><?php echo CHtml::encode($post->content); ?>
 </td>
-    </div>
+		</div>
 </tr>
 </table>

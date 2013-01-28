@@ -3,8 +3,8 @@ Instalação
 
 A instalação do Yii envolve principalmente, as duas etapas seguintes:
 
-   1. Fazer o Download  do Yii Framework em [yiiframework.com](http://www.yiiframework.com/).
-   2. Descompactar o arquivo do Yii em um diretório acessível a Web.
+	 1. Fazer o Download	do Yii Framework em [yiiframework.com](http://www.yiiframework.com/).
+	 2. Descompactar o arquivo do Yii em um diretório acessível a Web.
 
 > Tip|Dica: O Yii não precisa ser instalado em um diretório acessível a Web. Uma aplicação
 Yii tem uma entrada de script que normalmente é o único arquivo que precisa ser exposto para
@@ -15,7 +15,7 @@ Requisitos
 ------------
 
 Depois de instalar o Yii, você pode verificar se o servidor satisfaz os requisitos do Yii.
-Você pode fazê-lo, acessando o script verificador de requisitos na 
+Você pode fazê-lo, acessando o script verificador de requisitos na
 seguinte URL em um navegador Web:
 
 ~~~

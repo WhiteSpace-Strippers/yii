@@ -22,16 +22,16 @@ method
 <?php if(!empty($method->input) || !empty($method->output)): ?>
 <?php foreach($method->input as $param): ?>
 <tr>
-  <td class="paramNameCol">$<?php echo $param->name; ?></td>
-  <td class="paramTypeCol"><?php echo $this->renderTypeUrl($param->type); ?></td>
-  <td class="paramDescCol"><?php echo $param->description; ?></td>
+	<td class="paramNameCol">$<?php echo $param->name; ?></td>
+	<td class="paramTypeCol"><?php echo $this->renderTypeUrl($param->type); ?></td>
+	<td class="paramDescCol"><?php echo $param->description; ?></td>
 </tr>
 <?php endforeach; ?>
 <?php if(!empty($method->output)): ?>
 <tr>
-  <td class="paramNameCol"><?php echo '{return}'; ?></td>
-  <td class="paramTypeCol"><?php echo $this->renderTypeUrl($method->output->type); ?></td>
-  <td class="paramDescCol"><?php echo $method->output->description; ?></td>
+	<td class="paramNameCol"><?php echo '{return}'; ?></td>
+	<td class="paramTypeCol"><?php echo $this->renderTypeUrl($method->output->type); ?></td>
+	<td class="paramDescCol"><?php echo $method->output->description; ?></td>
 </tr>
 <?php endif; ?>
 <?php endif; ?>

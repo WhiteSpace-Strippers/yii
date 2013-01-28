@@ -100,7 +100,7 @@ class CFormInputElement extends CFormElement
 	/**
 	 * @var boolean whether to allow AJAX-based validation for this input. Note that in order to use
 	 * AJAX-based validation, {@link CForm::activeForm} must be configured with 'enableAjaxValidation'=>true.
-	 * This property allows turning on or off  AJAX-based validation for individual input fields.
+	 * This property allows turning on or off	AJAX-based validation for individual input fields.
 	 * Defaults to true.
 	 * @since 1.1.7
 	 */
@@ -108,7 +108,7 @@ class CFormInputElement extends CFormElement
 	/**
 	 * @var boolean whether to allow client-side validation for this input. Note that in order to use
 	 * client-side validation, {@link CForm::activeForm} must be configured with 'enableClientValidation'=>true.
-	 * This property allows turning on or off  client-side validation for individual input fields.
+	 * This property allows turning on or off	client-side validation for individual input fields.
 	 * Defaults to true.
 	 * @since 1.1.7
 	 */
@@ -197,9 +197,9 @@ class CFormInputElement extends CFormElement
 		);
 
 		if(!empty($this->attributes['id']))
-        {
-            $options['for'] = $this->attributes['id'];
-        }
+				{
+						$options['for'] = $this->attributes['id'];
+				}
 
 		return CHtml::activeLabel($this->getParent()->getModel(), $this->name, $options);
 	}

@@ -62,9 +62,9 @@ if ( hasProductInstall && !hasRequestedVersion ) {
 		"type", "application/x-shockwave-flash",
 		"pluginspage", "http://www.adobe.com/go/getflashplayer"
 	);
-} else {  // flash is too old or we can't detect the plugin
+} else {	// flash is too old or we can't detect the plugin
 	var alternateContent = '<?php echo CJavaScript::quote($this->altHtmlContent); ?>';
-	document.write(alternateContent);  // insert non-flash content
+	document.write(alternateContent);	// insert non-flash content
 }
 /*]]>*/
 </script>

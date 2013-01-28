@@ -86,8 +86,8 @@ une fonctionnalité spécifique.
 Par exemple, l'application résoud une requête utilisateur grâce aux composants
 [CUrlManager] et [CHttpRequest].
 
-Il est possible de paramétrer les propriétés  de tous les [composants|CApplication::components] d'une
-application,  Par example, il est possible de configurer le composant
+Il est possible de paramétrer les propriétés	de tous les [composants|CApplication::components] d'une
+application,	Par example, il est possible de configurer le composant
 [CMemCache] pour qu'il utilise plusieurs serveurs de cache,
 
 ~~~
@@ -139,56 +139,56 @@ aspects du comportement de Yii.
 
 Voici une liste des composants du noyau pré-déclarés par [CWebApplication].
 
-   - [assetManager|CWebApplication::assetManager]: [CAssetManager] -
+	 - [assetManager|CWebApplication::assetManager]: [CAssetManager] -
 gestion de la publication des fichiers de ressource.
 
-   - [authManager|CWebApplication::authManager]: [CAuthManager] - gestion
+	 - [authManager|CWebApplication::authManager]: [CAuthManager] - gestion
 du contrôle d'accès par rôle utilisateur(RBAC).
 
-   - [cache|CApplication::cache]: [CCache] - gestion du cache de données.
+	 - [cache|CApplication::cache]: [CCache] - gestion du cache de données.
 Attention, il faut impérativement spécifier la classe de cache (e.g.
 [CMemCache], [CDbCache]). Si elle n'est pas définie, la valeur null est retournée
 lors de l'accès au composant.
 
-   - [clientScript|CWebApplication::clientScript]: [CClientScript] -
+	 - [clientScript|CWebApplication::clientScript]: [CClientScript] -
 gestions des scripts client (javascripts et CSS).
 
-   - [coreMessages|CApplication::coreMessages]: [CPhpMessageSource] -
+	 - [coreMessages|CApplication::coreMessages]: [CPhpMessageSource] -
 fourni la traduction des messages utilisés par le noyau de Yii.
 
-   - [db|CApplication::db]: [CDbConnection] - fourni la connexion à la
+	 - [db|CApplication::db]: [CDbConnection] - fourni la connexion à la
 base de données. Attention, il faut définir correctement la propriété
 [connectionString|CDbConnection::connectionString] avant d'utiliser le
 composant.
 
-   - [errorHandler|CApplication::errorHandler]: [CErrorHandler] - gestion
+	 - [errorHandler|CApplication::errorHandler]: [CErrorHandler] - gestion
 des erreurs PHP et des exceptions.
 
-   - [format|CApplication::format]: [CFormatter] - formate les données pour
+	 - [format|CApplication::format]: [CFormatter] - formate les données pour
 l'affichage.
 
-   - [messages|CApplication::messages]: [CPhpMessageSource] -
+	 - [messages|CApplication::messages]: [CPhpMessageSource] -
 fourni la traduction des messages utilisés par Yii.
 
-   - [request|CWebApplication::request]: [CHttpRequest] - fourni
+	 - [request|CWebApplication::request]: [CHttpRequest] - fourni
 les fonctionnalités relatives aux requêtes utilisateurs.
 
-   - [securityManager|CApplication::securityManager]: [CSecurityManager] -
+	 - [securityManager|CApplication::securityManager]: [CSecurityManager] -
 fourni les services de sécurity tels que le hashage ou le cryptage de données.
 
-   - [session|CWebApplication::session]: [CHttpSession] - fourni
+	 - [session|CWebApplication::session]: [CHttpSession] - fourni
 les fonctionnalités relatives aux sessions.
 
-   - [statePersister|CApplication::statePersister]: [CStatePersister] -
+	 - [statePersister|CApplication::statePersister]: [CStatePersister] -
 fourni une méthode globale de gestion de la persistance des données.
 
-   - [urlManager|CWebApplication::urlManager]: [CUrlManager] - fourni
+	 - [urlManager|CWebApplication::urlManager]: [CUrlManager] - fourni
 les fonctionnalités de création et d'interprétation des URLs.
 
-   - [user|CWebApplication::user]: [CWebUser] - information relative
+	 - [user|CWebApplication::user]: [CWebUser] - information relative
 à l'identité de l'utilisateur courant.
 
-   - [themeManager|CWebApplication::themeManager]: [CThemeManager] - gestion des thèmes.
+	 - [themeManager|CWebApplication::themeManager]: [CThemeManager] - gestion des thèmes.
 
 
 Cycle de vie d'une Application
@@ -197,25 +197,25 @@ Cycle de vie d'une Application
 Lors de la prise en charge d'une requête, l'application passe
 par les étapes suivantes :
 
-   0. Pré-initialisation de l'application via [CApplication::preinit()];
+	 0. Pré-initialisation de l'application via [CApplication::preinit()];
 
-   1. Mise en place de l'autoloader et de la gestion des erreurs;
+	 1. Mise en place de l'autoloader et de la gestion des erreurs;
 
-   2. Chargement des composants du noyau;
+	 2. Chargement des composants du noyau;
 
-   3. Chargement de la configuration de l'application;
+	 3. Chargement de la configuration de l'application;
 
-   4. Initialisation de l'application avec [CApplication::init()]
-	   - Enregistrement des "comportements" de l'application;
-	   - Chargement des composants statiques;
+	 4. Initialisation de l'application avec [CApplication::init()]
+		 - Enregistrement des "comportements" de l'application;
+		 - Chargement des composants statiques;
 
-   5. Levée de l'évènement [onBeginRequest|CApplication::onBeginRequest];
+	 5. Levée de l'évènement [onBeginRequest|CApplication::onBeginRequest];
 
-   6. Traitement de la requête utilisateur:
-	   - Résolution de la requête;
-	   - Création du contrôleur;
-	   - Exécution du contrôleur;
+	 6. Traitement de la requête utilisateur:
+		 - Résolution de la requête;
+		 - Création du contrôleur;
+		 - Exécution du contrôleur;
 
-   7. Levée de l'évènement [onEndRequest|CApplication::onEndRequest];
+	 7. Levée de l'évènement [onEndRequest|CApplication::onEndRequest];
 
 <div class="revision">$Id: basics.application.txt 1906 $</div>

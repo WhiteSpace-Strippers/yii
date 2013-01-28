@@ -1,7 +1,7 @@
 關聯式 Active Record
 ========================
 
-我們已經瞭解了怎樣使用  Active Record (AR) 從單個資料表中獲取資料。在本節中，我們講解怎樣使用 AR 連接多個相關資料表並取回關聯後的資料集。
+我們已經瞭解了怎樣使用	Active Record (AR) 從單個資料表中獲取資料。在本節中，我們講解怎樣使用 AR 連接多個相關資料表並取回關聯後的資料集。
 
 為了使用關聯式 AR，我們建議在需要關聯的表中定義主鍵-外鍵約束。這些約束可以幫助保證相關資料的一致性和完整性。
 
@@ -17,16 +17,16 @@
 
 在我們使用 AR 執行關聯查詢之前，我們需要讓 AR 知道一個 AR 類別是怎樣關聯到另一個的。
 
-兩個 AR 類別之間的關係直接通過 AR 類別所代表的資料表之間的關係相關聯。從資料庫的角度來說，表 A 和  B 之間有三種關係：一對多（one-to-many，例如：`tbl_user` 和 `tbl_post`），一對一（ one-to-one 例如：`tbl_user` 和 `tbl_profile`）和 多對多（many-to-many 例如：`tbl_category` 和 `tbl_post`）。
+兩個 AR 類別之間的關係直接通過 AR 類別所代表的資料表之間的關係相關聯。從資料庫的角度來說，表 A 和	B 之間有三種關係：一對多（one-to-many，例如：`tbl_user` 和 `tbl_post`），一對一（ one-to-one 例如：`tbl_user` 和 `tbl_profile`）和 多對多（many-to-many 例如：`tbl_category` 和 `tbl_post`）。
 在 AR 中，有四種關係：
 
-   - `BELONGS_TO`（屬於）: 如果表 A 和 B 之間的關係是一對多，則 表 B 屬於 表 A (例如：`Post` 屬於 `User`);
+	 - `BELONGS_TO`（屬於）: 如果表 A 和 B 之間的關係是一對多，則 表 B 屬於 表 A (例如：`Post` 屬於 `User`);
 
-   - `HAS_MANY`（有多個）: 如果表 A 和 B 之間的關係是一對多，則 A 有多個 B (例如：`User` 有多個 `Post`);
+	 - `HAS_MANY`（有多個）: 如果表 A 和 B 之間的關係是一對多，則 A 有多個 B (例如：`User` 有多個 `Post`);
 
-   - `HAS_ONE`（有一個）: 這是 `HAS_MANY` 的一個特例，A 最多有一個 B (例如：`User` 最多有一個 `Profile`);
+	 - `HAS_ONE`（有一個）: 這是 `HAS_MANY` 的一個特例，A 最多有一個 B (例如：`User` 最多有一個 `Profile`);
 
-   - `MANY_MANY`: 這個對應於資料庫中的 多對多 關係。 由於多數 DBMS 不直接支援 多對多 關係，因此需要有一個關聯表將 多對多 關係分割為 一對多 關係。在我們的示例資料結構中，`tbl_post_category` 就是用於此目的的。在 AR 術語中，我們可以解釋 `MANY_MANY` 為  `BELONGS_TO` 和 `HAS_MANY` 的組合。例如，`Post` 屬於多個（belongs to many） `Category` ，`Category` 有多個（has many） `Post`.
+	 - `MANY_MANY`: 這個對應於資料庫中的 多對多 關係。 由於多數 DBMS 不直接支援 多對多 關係，因此需要有一個關聯表將 多對多 關係分割為 一對多 關係。在我們的示例資料結構中，`tbl_post_category` 就是用於此目的的。在 AR 術語中，我們可以解釋 `MANY_MANY` 為	`BELONGS_TO` 和 `HAS_MANY` 的組合。例如，`Post` 屬於多個（belongs to many） `Category` ，`Category` 有多個（has many） `Post`.
 
 AR 中定義關係需要覆蓋 [CActiveRecord] 中的 [relations()|CActiveRecord::relations] 方法。此方法返回一個關係配置陣列。每個陣列元素通過如下格式表示一個單一的關係。
 
@@ -108,7 +108,7 @@ $posts=Post::model()->with('author')->findAll();
 $posts=Post::model()->with('author','categories')->findAll();
 ~~~
 
-我們也可以實現內嵌的渴求載入。像下面這樣，我們傳遞一個分等級的關係名稱表達式到  [with()|CActiveRecord::with] 方法，而不是一個關係名稱列表:
+我們也可以實現內嵌的渴求載入。像下面這樣，我們傳遞一個分等級的關係名稱表達式到	[with()|CActiveRecord::with] 方法，而不是一個關係名稱列表:
 
 ~~~
 [php]
@@ -171,37 +171,37 @@ $users=User::model()->with(array(
 
 我們提到在關係宣告時可以指定附加的選項。這些 名-值 配對形式的選項用於自定關聯式查詢。概括如下：
 
-   - `select`: 關聯的 AR 類別中要選擇的欄位的列表。預設為 '*'，即選擇所有欄位。此選項中的欄位名應該是已經消除歧義的。
+	 - `select`: 關聯的 AR 類別中要選擇的欄位的列表。預設為 '*'，即選擇所有欄位。此選項中的欄位名應該是已經消除歧義的。
 
-   - `condition`: 即 `WHERE` 條件。預設為空。此選項中的欄位名應該是已經消除歧義的。
+	 - `condition`: 即 `WHERE` 條件。預設為空。此選項中的欄位名應該是已經消除歧義的。
 
-   - `params`: 要綁定到所產生的 SQL 語句的參數。應該以 名-值 配對陣列的形式賦值。
+	 - `params`: 要綁定到所產生的 SQL 語句的參數。應該以 名-值 配對陣列的形式賦值。
 
-   - `on`: 即 `ON` 語句。此處指定的條件將會通過 `AND` 操作符附加到 join 條件中。此選項中的欄位名應該是已經消除歧義的。此選項不會應用到 `MANY_MANY` 關係中。
+	 - `on`: 即 `ON` 語句。此處指定的條件將會通過 `AND` 操作符附加到 join 條件中。此選項中的欄位名應該是已經消除歧義的。此選項不會應用到 `MANY_MANY` 關係中。
 
-   - `order`: 即 `ORDER BY` 語句。預設為空。 此選項中的欄位名應該是已經消除歧義的。
+	 - `order`: 即 `ORDER BY` 語句。預設為空。 此選項中的欄位名應該是已經消除歧義的。
 
-   - `with`: 一個需要被一起載入到這個物件的子物件列表。小心使用這個選項，不正確的使用會形成一個無限的關係迴圈。
+	 - `with`: 一個需要被一起載入到這個物件的子物件列表。小心使用這個選項，不正確的使用會形成一個無限的關係迴圈。
 
-   - `joinType`: 關係的關聯類型。預設是 `LEFT OUTER JOIN`。
+	 - `joinType`: 關係的關聯類型。預設是 `LEFT OUTER JOIN`。
 
-   - `alias`: 關係的別名。預設是 null，代表資料表別名與關係名稱一樣。
+	 - `alias`: 關係的別名。預設是 null，代表資料表別名與關係名稱一樣。
 
-   - `together`: 是否這個資料表相關的關係應該要強迫和主要資料表以及其他關聯在一起。這個選項只對 `HAS_MANY` 和 `MANY_MANY` 關係有意義。如果這個選項是 false，這個資料表 `HAS_MANY` 或 `MANY_MANY` 關係會以不同的 SQL 查詢與主要資料表關聯，可以提升整理個查詢效能藉由較少的重複資料被回傳。如果這個選項被設為 true，關聯的資料表會與主要資料關聯在單一一個 SQL 查詢，即使主要資料表已經被分頁。如果這個選項沒有被設定，關聯的資料表只會在主要資料被沒有被分頁時關聯在單一的 SQL 查詢。更詳細的內容，請參考 "Relational Query Performance" 章節。
+	 - `together`: 是否這個資料表相關的關係應該要強迫和主要資料表以及其他關聯在一起。這個選項只對 `HAS_MANY` 和 `MANY_MANY` 關係有意義。如果這個選項是 false，這個資料表 `HAS_MANY` 或 `MANY_MANY` 關係會以不同的 SQL 查詢與主要資料表關聯，可以提升整理個查詢效能藉由較少的重複資料被回傳。如果這個選項被設為 true，關聯的資料表會與主要資料關聯在單一一個 SQL 查詢，即使主要資料表已經被分頁。如果這個選項沒有被設定，關聯的資料表只會在主要資料被沒有被分頁時關聯在單一的 SQL 查詢。更詳細的內容，請參考 "Relational Query Performance" 章節。
 
-   - `join`: 額外 `JOIN` 子句。預設是空的。
+	 - `join`: 額外 `JOIN` 子句。預設是空的。
 
-   - `group`: `GROUP BY` 子句，預設是空的。欄位名應該是已經消除歧義的。
+	 - `group`: `GROUP BY` 子句，預設是空的。欄位名應該是已經消除歧義的。
 
-   - `having`: `HAVING` 子句。預設是空的。欄位名應該是已經消除歧義的。
+	 - `having`: `HAVING` 子句。預設是空的。欄位名應該是已經消除歧義的。
 
-   - `index`: 值被用來儲存關聯物件陣列中的鑰匙的欄位名稱。沒有設定這個選項，一個關聯式的物件陣列會使用 0 開始的整數索引。這選項只會設定給 `HAS_MANY` and `MANY_MANY` 關係使用。
+	 - `index`: 值被用來儲存關聯物件陣列中的鑰匙的欄位名稱。沒有設定這個選項，一個關聯式的物件陣列會使用 0 開始的整數索引。這選項只會設定給 `HAS_MANY` and `MANY_MANY` 關係使用。
 
 除此之外，下列的選項給延遲載入中的某些關係所使用：
 
-   - `limit`: 指定要被選取的列的數量。這個選項無法使用在 `BELONGS_TO` 關係。
+	 - `limit`: 指定要被選取的列的數量。這個選項無法使用在 `BELONGS_TO` 關係。
 
-   - `offset`: 指定要被選取的列的位移. 這個選項無法使用在 `BELONGS_TO` 關係。
+	 - `offset`: 指定要被選取的列的位移. 這個選項無法使用在 `BELONGS_TO` 關係。
 
 下面我們修改了 `posts` 關係宣告給 `User` 藉由包含上述的一些項目：
 
@@ -342,19 +342,19 @@ $posts=Post::model()->with('commentCount', 'categoryCount')->findAll();
 
 預設，一個統計查詢會計算 `COUNT` 表達式（和上述範例中的評論數量和類別數量）。當我們宣告 [relations()|CActiveRecord::relations] 時，可以藉由設定額外的選項自定它。可使用的選項如下。
 
-   - `select`: 統計表達式。預設是 `COUNT(*)`，表示計算子物件的數量。
+	 - `select`: 統計表達式。預設是 `COUNT(*)`，表示計算子物件的數量。
 
-   - `defaultValue`: 用來賦予給那些沒有取得統計查詢結果的紀錄。例如，如果一篇文章沒有任何評論，它的 `commentCount` 會得到的這個值。這選項的預設值是 0。
+	 - `defaultValue`: 用來賦予給那些沒有取得統計查詢結果的紀錄。例如，如果一篇文章沒有任何評論，它的 `commentCount` 會得到的這個值。這選項的預設值是 0。
 
-   - `condition`: `WHERE` 子句。預設是空的。
+	 - `condition`: `WHERE` 子句。預設是空的。
 
-   - `params`: 用來綁定到產生的 SQL 述句的參數。它必須是一個 名-值 配對的陣列。
+	 - `params`: 用來綁定到產生的 SQL 述句的參數。它必須是一個 名-值 配對的陣列。
 
-   - `order`: `ORDER BY` 子句。預設是空的。
+	 - `order`: `ORDER BY` 子句。預設是空的。
 
-   - `group`: `GROUP BY` 子句。預設是空的。
+	 - `group`: `GROUP BY` 子句。預設是空的。
 
-   - `having`: `HAVING` 子句。預設是空的。
+	 - `having`: `HAVING` 子句。預設是空的。
 
 
 命名空間的關聯查詢
@@ -411,7 +411,7 @@ class User extends CActiveRecord
 	public function relations()
 	{
 		return array(
-		    'posts'=>array(self::HAS_MANY, 'Post', 'author_id',
+				'posts'=>array(self::HAS_MANY, 'Post', 'author_id',
 				'with'=>array(
 					'comments'=>array(
 						'scopes'=>'approved'
@@ -469,8 +469,8 @@ class Post extends CActiveRecord
 
 上述 `array('key1'=>'key2')`：
 
-  - `key1` 是一個關係中的鍵，藉由指定 `through`（本例中是 `posts` ）。
-  - `key2` 是一個定義在模型中的鍵，指向（本例中`Comment`）。
+	- `key1` 是一個關係中的鍵，藉由指定 `through`（本例中是 `posts` ）。
+	- `key2` 是一個定義在模型中的鍵，指向（本例中`Comment`）。
 
 `through` 可以同時與 `HAS_ONE` 和 `HAS_MANY` 關係使用。
 

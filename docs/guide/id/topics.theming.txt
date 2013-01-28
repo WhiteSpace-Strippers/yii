@@ -7,21 +7,21 @@ bisa diubah secara instan dan secara dramatis.
 
 Dalam Yii, setiap tema disajikan sebagai direktori yang terdiri dari file view,
 file layout, dan file sumber daya relevan seperti file gambar, file CSS,
-file JavaScript, dll.  Nama tema adalah nama direktorinya. Semua tema
+file JavaScript, dll.	Nama tema adalah nama direktorinya. Semua tema
 berada di bawah dierktori yang sama `WebRoot/themes`. Hanya ada satu tema saja
 yang bisa aktif.
 
 > Tip: Direktori root standar tema `WebRoot/themes` bisa dikonfigurasi ke
 direktori yang berbeda. Cukup konfigurasi properti
 [basePath|CThemeManager::basePath] dan [baseUrl|CThemeManager::baseUrl]
-pada komponen aplikasi [themeManager|CWebApplication::themeManager] 
+pada komponen aplikasi [themeManager|CWebApplication::themeManager]
 ke direktori yang diinginkan.
 
 
 Penggunaan Tema
 -------------
 
-Untuk mengaktifkan tema, setel properti [theme|CWebApplication::theme] 
+Untuk mengaktifkan tema, setel properti [theme|CWebApplication::theme]
 aplikasi Web menjadi nama tema yang diinginkan. Ini bisa dikerjakan baik dalam
 [konfigurasi
 aplikasi](/doc/guide/basics.application#application-configuration) maupun selama berjalan
@@ -34,7 +34,7 @@ mengaktifkan tema yang tidak ada, `Yii::app()->theme` akan mengembalikan `null`.
 Pembuatan Tema
 ----------------
 
-Konten di bawah direktori theme harus diatur dengan cara yang sama seperti yang 
+Konten di bawah direktori theme harus diatur dengan cara yang sama seperti yang
 ada di bawah [basis path
 aplikasi](/doc/guide/basics.application#application-base-directory). Sebagai contoh, semua file tampilan
 harus ditempatkan di bawah `views`, file tampilan layout di bawah `views/layouts`, dan
@@ -45,7 +45,7 @@ kita harus menyimpan file tampilan baru sebagai `WebRoot/themes/classic/views/po
 Untuk tampilan yang dimiliki controller dalam [module](/doc/guide/basics.module),
 File tampilan tema terkait juga harus ditempatkan di bawah dierktori `views`.
 Sebagai contoh, jika `PostController` ada dalam sebuah module bernama
-`forum`, kita harus menyimpan file tampilan `create` sebagai `WebRoot/themes/classic/views/forum/post/create.php`. Jika module `forum` 
+`forum`, kita harus menyimpan file tampilan `create` sebagai `WebRoot/themes/classic/views/forum/post/create.php`. Jika module `forum`
 diulang dalam module lain bernama `support`, maka file tampilan seharusnya
 `WebRoot/themes/classic/views/support/forum/post/create.php`.
 
@@ -144,8 +144,8 @@ apabila kita harus melakukan hal yang sama di semua tempat yang menggunakan [Cli
 [php]
 $this->widget('CLinkPager', array(
 	'pages'=>$pagination,
-    'maxButtonCount'=>5,
-    'cssFile'=>false,
+		'maxButtonCount'=>5,
+		'cssFile'=>false,
 ));
 ~~~
 
@@ -159,26 +159,26 @@ Untuk menggunakan kustomisasi widget global, kita harus mengatur
 ~~~
 [php]
 return array(
-    'components'=>array(
-        'widgetFactory'=>array(
-            'widgets'=>array(
-                'CLinkPager'=>array(
-                    'maxButtonCount'=>5,
-                    'cssFile'=>false,
-                ),
-                'CJuiDatePicker'=>array(
-                    'language'=>'ru',
-                ),
-            ),
-        ),
-    ),
+		'components'=>array(
+				'widgetFactory'=>array(
+						'widgets'=>array(
+								'CLinkPager'=>array(
+										'maxButtonCount'=>5,
+										'cssFile'=>false,
+								),
+								'CJuiDatePicker'=>array(
+										'language'=>'ru',
+								),
+						),
+				),
+		),
 );
 ~~~
 
 Kode di atas maksudnya kita menentukan widget [CLinkPager] dan [CJuiDatePicker]
 dengan mengatur properti [CWidgetFactory::widgets]. Harap diperhatikan bahwa kustomisasi
-setiap widget diwakilkan sebagai sebuah pasangan key-value dalam array, dengan key 
-sebagai nama kelas widget sedangkan 
+setiap widget diwakilkan sebagai sebuah pasangan key-value dalam array, dengan key
+sebagai nama kelas widget sedangkan
 value merupakan array nilai properti awal.
 
 Sekarang, setiap saat kita menciptakan sebuah widget [ClinkPager] di sebuah view, maka
@@ -216,11 +216,11 @@ Guna menggunakan fitur skin ini, pertama-tama kita harus memodifikasi konfiguras
 ~~~
 [php]
 return array(
-    'components'=>array(
-        'widgetFactory'=>array(
-            'enableSkin'=>true,
-        ),
-    ),
+		'components'=>array(
+				'widgetFactory'=>array(
+						'enableSkin'=>true,
+				),
+		),
 );
 ~~~
 
@@ -229,11 +229,11 @@ Harap diketahui bahwa versi sebelum 1.1.3, Anda harus menggunakan konfigurasi be
 ~~~
 [php]
 return array(
-    'components'=>array(
-        'widgetFactory'=>array(
-            'class'=>'CWidgetFactory',
-        ),
-    ),
+		'components'=>array(
+				'widgetFactory'=>array(
+						'class'=>'CWidgetFactory',
+				),
+		),
 );
 ~~~
 
@@ -243,14 +243,14 @@ Kita kemudian membuat skin yang diperlukan. Skin yang merupakan milik kelas widg
 [php]
 <?php
 return array(
-    'default'=>array(
-        'nextPageLabel'=>'&gt;&gt;',
-        'prevPageLabel'=>'&lt;&lt;',
-    ),
-    'classic'=>array(
-        'header'=>'',
-        'maxButtonCount'=>5,
-    ),
+		'default'=>array(
+				'nextPageLabel'=>'&gt;&gt;',
+				'prevPageLabel'=>'&lt;&lt;',
+		),
+		'classic'=>array(
+				'header'=>'',
+				'maxButtonCount'=>5,
+		),
 );
 ~~~
 
@@ -268,9 +268,9 @@ Jika kita membuat widget dengan satu set nilai awal properti, maka nilai-nilai p
 ~~~
 [php]
 <?php $this->widget('CLinkPager', array(
-    'skin'=>'classic',
-    'maxButtonCount'=>6,
-    'cssFile'=>false,
+		'skin'=>'classic',
+		'maxButtonCount'=>6,
+		'cssFile'=>false,
 )); ?>
 ~~~
 
@@ -283,9 +283,9 @@ Jika widget menggunakan skin yang tidak ada, Yii tetap akan membuat widget seper
 Skin sangat mirip dengan fitur kustomisasi widget global.
 Perbedaan utamanya adalah:
 
-   - Skin lebih berhubungan dengan pengaturan nilai properti penampilan;
-   - Sebuah widget bisa saja memiliki beberapa skin;
-   - Skin dapat ditemakan(themeable);
-   - Menggunakan skin lebih berat dibandingkan menggunakan kustomisasi widget global;
+	 - Skin lebih berhubungan dengan pengaturan nilai properti penampilan;
+	 - Sebuah widget bisa saja memiliki beberapa skin;
+	 - Skin dapat ditemakan(themeable);
+	 - Menggunakan skin lebih berat dibandingkan menggunakan kustomisasi widget global;
 
 <div class="revision">$Id: topics.theming.txt 2890 2011-01-18 15:58:34Z qiang.xue $</div>

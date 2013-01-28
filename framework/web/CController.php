@@ -17,7 +17,7 @@
  * When a user requests an action 'XYZ', CController will do one of the following:
  * 1. Method-based action: call method 'actionXYZ' if it exists;
  * 2. Class-based action: create an instance of class 'XYZ' if the class is found in the action class map
- *    (specified via {@link actions()}, and execute the action;
+ *		(specified via {@link actions()}, and execute the action;
  * 3. Call {@link missingAction()}, which by default will raise a 404 HTTP exception.
  *
  * If the user does not specify an action, CController will run the action specified by
@@ -33,12 +33,12 @@
  * of the filter specification:
  * <pre>
  * array(
- *     'accessControl - login',
- *     'ajaxOnly + search',
- *     array(
- *         'COutputCache + list',
- *         'duration'=>300,
- *     ),
+ *		 'accessControl - login',
+ *		 'ajaxOnly + search',
+ *		 array(
+ *				 'COutputCache + list',
+ *				 'duration'=>300,
+ *		 ),
  * )
  * </pre>
  * The above example declares three filters: accessControl, ajaxOnly, COutputCache. The first two
@@ -136,10 +136,10 @@ class CController extends CBaseController
 	 * For a class-based filter, it is specified as an array like the following:
 	 * <pre>
 	 * array(
-	 *     'FilterClass[ +|- Action1, Action2, ...]',
-	 *     'name1'=>'value1',
-	 *     'name2'=>'value2',
-	 *     ...
+	 *		 'FilterClass[ +|- Action1, Action2, ...]',
+	 *		 'name1'=>'value1',
+	 *		 'name2'=>'value2',
+	 *		 ...
 	 * )
 	 * </pre>
 	 * where the name-value pairs will be used to initialize the properties of the filter.
@@ -162,12 +162,12 @@ class CController extends CBaseController
 	 * or arrays representing the configuration of the actions, such as the following,
 	 * <pre>
 	 * return array(
-	 *     'action1'=>'path.to.Action1Class',
-	 *     'action2'=>array(
-	 *         'class'=>'path.to.Action2Class',
-	 *         'property1'=>'value1',
-	 *         'property2'=>'value2',
-	 *     ),
+	 *		 'action1'=>'path.to.Action1Class',
+	 *		 'action2'=>array(
+	 *				 'class'=>'path.to.Action2Class',
+	 *				 'property1'=>'value1',
+	 *				 'property2'=>'value2',
+	 *		 ),
 	 * );
 	 * </pre>
 	 * Derived classes may override this method to declare external actions.
@@ -179,21 +179,21 @@ class CController extends CBaseController
 	 * (such as a widget, see {@link CWidget::actions}), like the following:
 	 * <pre>
 	 * return array(
-	 *     ...other actions...
-	 *     // import actions declared in ProviderClass::actions()
-	 *     // the action IDs will be prefixed with 'pro.'
-	 *     'pro.'=>'path.to.ProviderClass',
-	 *     // similar as above except that the imported actions are
-	 *     // configured with the specified initial property values
-	 *     'pro2.'=>array(
-	 *         'class'=>'path.to.ProviderClass',
-	 *         'action1'=>array(
-	 *             'property1'=>'value1',
-	 *         ),
-	 *         'action2'=>array(
-	 *             'property2'=>'value2',
-	 *         ),
-	 *     ),
+	 *		 ...other actions...
+	 *		 // import actions declared in ProviderClass::actions()
+	 *		 // the action IDs will be prefixed with 'pro.'
+	 *		 'pro.'=>'path.to.ProviderClass',
+	 *		 // similar as above except that the imported actions are
+	 *		 // configured with the specified initial property values
+	 *		 'pro2.'=>array(
+	 *				 'class'=>'path.to.ProviderClass',
+	 *				 'action1'=>array(
+	 *						 'property1'=>'value1',
+	 *				 ),
+	 *				 'action2'=>array(
+	 *						 'property2'=>'value2',
+	 *				 ),
+	 *		 ),
 	 * )
 	 * </pre>
 	 *
@@ -217,9 +217,9 @@ class CController extends CBaseController
 	 * the behavior class or an array of the following structure:
 	 * <pre>
 	 * 'behaviorName'=>array(
-	 *     'class'=>'path.to.BehaviorClass',
-	 *     'property1'=>'value1',
-	 *     'property2'=>'value2',
+	 *		 'class'=>'path.to.BehaviorClass',
+	 *		 'property1'=>'value1',
+	 *		 'property2'=>'value2',
 	 * )
 	 * </pre>
 	 *

@@ -9,7 +9,7 @@ Namespaceformat - in Punkt-Syntax angegeben:
 RootAlias.pfad.zu.ziel
 ~~~
 
-wobei `RootAlias` für den Alias eines existierenden Verzeichnisses steht. 
+wobei `RootAlias` für den Alias eines existierenden Verzeichnisses steht.
 
 Mit [YiiBase::getPathOfAlias()] erhält man den aufgelösten Pfad zu einem
 Alias. `system.web.CController` würde zum Beispiel nach
@@ -24,7 +24,7 @@ Die folgenden praktischen Rootaliase werden von Yii schon vorbelegt:
 
  - `system`: Verweist auf das Frameworkverzeichnis von Yii
  - `zii`: Verweist auf das Verzeichnis der [Zii-Bibliothek](/doc/guide/extension.use#zii-extensions).
- - `application`: Verweist auf das [Anwendungsverzeichnis](/doc/guide/basics.application#application-base-directory) 
+ - `application`: Verweist auf das [Anwendungsverzeichnis](/doc/guide/basics.application#application-base-directory)
  - `webroot`: Steht für das Verzeichnis, das das [Startscript](/doc/guide/basics.entry) enthält.
  - `ext`: Verweist auf das Verzeichnis, das alle [Erweiterungen](/doc/guide/extension.overview) enthält.
 
@@ -37,7 +37,7 @@ Importieren von Klassen
 -----------------------
 
 Über Aliase kann man auch sehr bequem eine Klassendatei einbinden.
-Möchte man zum Beispiel den Quelltext für [CController] importieren, 
+Möchte man zum Beispiel den Quelltext für [CController] importieren,
 genügt dieser Aufruf:
 
 ~~~
@@ -45,25 +45,25 @@ genügt dieser Aufruf:
 Yii::import('system.web.CController');
 ~~~
 
-Die [import|YiiBase::import]-Methode ist wesentlich effizienter als `include` und 
+Die [import|YiiBase::import]-Methode ist wesentlich effizienter als `include` und
 `require`. Eine importierte Klassendatei wird erst eingebunden, wenn die
 entsprechende Klasse zum ersten mal verwendet wird (das geschieht über den
 PHP-Autoloader-Mechanismus). Auch wenn ein Namespace
 mehrfach importiert wird, ist das wesentlich schneller als `include_once` oder
 `require_once` zu verwenden.
 
-> Tip|Tipp: Klassen aus dem Yii-Framework braucht man nicht zu importieren 
+> Tip|Tipp: Klassen aus dem Yii-Framework braucht man nicht zu importieren
 > oder mit include einzubinden. Alle Kernklassen von Yii sind bereits importiert.
 
 ###Verwenden einer Classmap
 
 Seit Version 1.1.5 kann Yii Anwenderklassen auch
-vorimportieren. Diesen Mechanismus verwendet Yii bereits intern 
+vorimportieren. Diesen Mechanismus verwendet Yii bereits intern
 für seine Kernklassen. Vorimportierte Klassen können überall in einer
 Anwendung ohne expliziten Import oder Include verwendet werden. Das ist
 insbesondere für Frameworks oder Libraries nützlich, die auf Yii aufbauen.
 
-Um eine Reihe von Klassen vorzuimportieren muss folgender Code vor 
+Um eine Reihe von Klassen vorzuimportieren muss folgender Code vor
 [CWebApplication::run()] ausgeführt werden:
 
 ~~~
@@ -115,7 +115,7 @@ Klassen mit Namespace
 ---------------------
 
 Eine Klasse mit Namespace bezeichnet eine Klasse, die innerhalb eines
-nichtglobalen Namespaces definiert wurde. Die Klasse `application\components\GoogleMap` 
+nichtglobalen Namespaces definiert wurde. Die Klasse `application\components\GoogleMap`
 wurde z.B. im Namespace `application\components` definiert. Namespaces setzen
 PHP 5.3.0 oder höher voraus.
 

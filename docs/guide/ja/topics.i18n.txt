@@ -7,10 +7,10 @@
 Yii は I18N のサポートをいくつかの面から提供します。
 
 
-   - 各可能な言語と変形のためのロケール (地域・言語) データの提供
-   - メッセージとファイルの翻訳機能の提供
-   - ロケール (地域・言語) に依存する日時フォーマットの提供
-   - ロケール (地域・言語) に依存する数値フォーマットの提供
+	 - 各可能な言語と変形のためのロケール (地域・言語) データの提供
+	 - メッセージとファイルの翻訳機能の提供
+	 - ロケール (地域・言語) に依存する日時フォーマットの提供
+	 - ロケール (地域・言語) に依存する数値フォーマットの提供
 
 以下の節で上記について詳しく説明します。
 
@@ -88,16 +88,16 @@ Yii::t('app', 'Path alias "{alias}" is redefined.',
 Yii は下記のタイプのメッセージソースを備えています。
 [CMessageSource] を継承して、オリジナルのメッセージソースタイプを作成することも可能です。
 
-   - [CPhpMessageSource]: メッセージ翻訳は、PHP 配列に "キー-値" のペアとして格納されます。
+	 - [CPhpMessageSource]: メッセージ翻訳は、PHP 配列に "キー-値" のペアとして格納されます。
 オリジナルメッセージがキーで、翻訳されたメッセージが値です。
 各配列が、特定のカテゴリに属するメッセージの翻訳を表現します。
 配列はカテゴリ名と同じ名前の独立した PHP スクリプトファイル保存されます。
 同じ言語のPHP 翻訳ファイルはロケール ID を名前とした同じディレクトリ下に保存されます。
 そして、それら全てのディレクトリは、[basePath|CPhpMessageSource::basePath] で指定されたディレクトリ下に位置します。
 
-   - [CGettextMessageSource]: メッセージ翻訳は、[GNU Gettext](http://www.gnu.org/software/gettext/) ファイルとして保存されます。
+	 - [CGettextMessageSource]: メッセージ翻訳は、[GNU Gettext](http://www.gnu.org/software/gettext/) ファイルとして保存されます。
 
-   - [CDbMessageSource]: メッセージ翻訳は、データベーステーブルとして保存されます。
+	 - [CDbMessageSource]: メッセージ翻訳は、データベーステーブルとして保存されます。
 詳細は、API ドキュメンテーション [CDbMessageSource] を参照してください。
 
 メッセージソースは、[アプリケーションコンポーネント](/doc/guide/basics.application#sec-4) として読み込まれます。
@@ -106,20 +106,20 @@ Yii は、[messages|CApplication::messages] という名前のアプリケーシ
 
 要約すると、メッセージ翻訳を使用するためには、下記のステップが必要です:
 
-   1. 適切な箇所で [Yii::t()|YiiBase::t] をコールします。
+	 1. 適切な箇所で [Yii::t()|YiiBase::t] をコールします。
 
-   2. `protected/messages/LocaleID/CategoryName.php` に PHP 翻訳ファイルを作成します。
+	 2. `protected/messages/LocaleID/CategoryName.php` に PHP 翻訳ファイルを作成します。
 各ファイルは、単にメッセージ翻訳の配列を返します。
 翻訳メッセージを保存するのにデフォルトの [CPhpMessageSource] を使用すると仮定していることに注意して下さい。
 
-   3. [CApplication::sourceLanguage] と [CApplication::language] の設定を行います。
+	 3. [CApplication::sourceLanguage] と [CApplication::language] の設定を行います。
 
 > Tip|ヒント: [CPhpMessageSource] をメッセージソースとして使用する場合は、メッセージ翻訳を管理するために、Yii の `yiic` ツールを利用できます。
 `message` コマンドによって、自動的に選択されたソースファイルから翻訳されるべきメッセージを抽出し、必要なら、既存の翻訳にそれらをマージできます。
 `message`コマンドのさらに詳細な使用方法については、`yiic help message`を実行して下さい。
 
 [CPhpMessageSource] を使ってメッセージソースを管理する場合、エクステンションクラス (例えばウィジェットやモジュール) のメッセージは分離して管理および使用することが出来ます。
-具体的に言うと、メッセージが `Xyz` というクラス名のエクステンションに属している場合、メッセージカテゴリを `Xyz.categoryName` の形式で指定することが出来ます。 
+具体的に言うと、メッセージが `Xyz` というクラス名のエクステンションに属している場合、メッセージカテゴリを `Xyz.categoryName` の形式で指定することが出来ます。
 対応するメッセージファイルは `BasePath/messages/LanguageID/categoryName.php` であると見なされます。
 ここで `BasePath` はエクステンションクラスファイルを含むディレクトリを指します。
 そして、`Yii::t()` を使ってエクステンションのメッセージを翻訳するときは、かわりに、以下の書式が使用されなければなりません。
@@ -281,9 +281,9 @@ Yii は、この問題のために、[CDateFormatter] を提供します。
 
 [CDateFormatter] クラスは主に UNIX タイムスタンプをフォーマットする二つのメソッドを提供します。
 
-   - [format|CDateFormatter::format]: このメソッドは、カスタムパターンに基づき、UNIX タイムスタンプを文字列にフォーマットします (たとえば、`$dateFormatter->format('yyyy-MM-dd',$timestamp)`)。
+	 - [format|CDateFormatter::format]: このメソッドは、カスタムパターンに基づき、UNIX タイムスタンプを文字列にフォーマットします (たとえば、`$dateFormatter->format('yyyy-MM-dd',$timestamp)`)。
 
-   - [formatDateTime|CDateFormatter::formatDateTime]: このメソッドは、ターゲットロケールデータに定義されているパターンに基づき、UNIX タイムスタンプを文字列にフォーマットします (たとえば、日付の `short` フォーマット、時刻の `long` フォーマット)。
+	 - [formatDateTime|CDateFormatter::formatDateTime]: このメソッドは、ターゲットロケールデータに定義されているパターンに基づき、UNIX タイムスタンプを文字列にフォーマットします (たとえば、日付の `short` フォーマット、時刻の `long` フォーマット)。
 
 数値フォーマット
 -----------------
@@ -296,12 +296,12 @@ Yii は、これらのために [CNumberFormatter] を提供します。
 
 下記メソッドが、integer、double 値のフォーマットのために、 [CNumberFormatter] によって提供されています。
 
-   - [format|CNumberFormatter::format]: このメソッドは、カスタムパターンに基づき、数値を文字列にフォーマットします (たとえば、`$numberFormatter->format('#,##0.00',$number)`)。
+	 - [format|CNumberFormatter::format]: このメソッドは、カスタムパターンに基づき、数値を文字列にフォーマットします (たとえば、`$numberFormatter->format('#,##0.00',$number)`)。
 
-   - [formatDecimal|CNumberFormatter::formatDecimal]: このメソッドは、ターゲットロケールデータに定義されている小数パターンに基づき、数値を文字列にフォーマットします。
+	 - [formatDecimal|CNumberFormatter::formatDecimal]: このメソッドは、ターゲットロケールデータに定義されている小数パターンに基づき、数値を文字列にフォーマットします。
 
-   - [formatCurrency|CNumberFormatter::formatCurrency]: このメソッドは、ターゲットロケールデータに定義されている通貨パターンに基づき、数値と通貨記号を文字列にフォーマットします。
+	 - [formatCurrency|CNumberFormatter::formatCurrency]: このメソッドは、ターゲットロケールデータに定義されている通貨パターンに基づき、数値と通貨記号を文字列にフォーマットします。
 
-   - [formatPercentage|CNumberFormatter::formatPercentage]: このメソッドは、ターゲットロケールデータに定義されているパーセンテージパターンに基づき、数値を文字列にフォーマットします。
+	 - [formatPercentage|CNumberFormatter::formatPercentage]: このメソッドは、ターゲットロケールデータに定義されているパーセンテージパターンに基づき、数値を文字列にフォーマットします。
 
 <div class="revision">$Id$</div>

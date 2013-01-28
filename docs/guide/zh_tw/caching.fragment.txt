@@ -60,13 +60,13 @@
 
 [COutputCache] 內置了這一屬性，程式設計師不需要撰寫根據 ID 變動內容的模式。以下是總結。
 
-   - [varyByRoute|COutputCache::varyByRoute]: 設置此選項為 true ，快取的內容將根據 [route](/doc/guide/basics.controller#route) 變化。因此，每個控制器和行動的組合將有一個單獨的快取內容。
+	 - [varyByRoute|COutputCache::varyByRoute]: 設置此選項為 true ，快取的內容將根據 [route](/doc/guide/basics.controller#route) 變化。因此，每個控制器和行動的組合將有一個單獨的快取內容。
 
-   - [varyBySession|COutputCache::varyBySession]: 設置此選項為 true ，快取的內容將根據 session ID 變化。因此，每個使用者會話可能會看到由快取提供的不同內容。
+	 - [varyBySession|COutputCache::varyBySession]: 設置此選項為 true ，快取的內容將根據 session ID 變化。因此，每個使用者會話可能會看到由快取提供的不同內容。
 
-   - [varyByParam|COutputCache::varyByParam]: 設置此選項的陣列裡的名字，快取的內容將根據 GET 參數的值變動。例如，如果一個頁面顯示文章的內容根據 `id` 的 GET 參數，我們可以指定 [varyByParam|COutputCache::varyByParam] 為 `array('id')`，以使我們能夠快取每篇文章內容。如果沒有這樣的變化，我們只能能夠快取某一文章。
+	 - [varyByParam|COutputCache::varyByParam]: 設置此選項的陣列裡的名字，快取的內容將根據 GET 參數的值變動。例如，如果一個頁面顯示文章的內容根據 `id` 的 GET 參數，我們可以指定 [varyByParam|COutputCache::varyByParam] 為 `array('id')`，以使我們能夠快取每篇文章內容。如果沒有這樣的變化，我們只能能夠快取某一文章。
 
-   - [varyByExpression|COutputCache::varyByExpression]: 藉由設定一個 PHP 表達式給這個選項，我們可以使得快取的內容根據 PHP 表達式的結果而變動。
+	 - [varyByExpression|COutputCache::varyByExpression]: 藉由設定一個 PHP 表達式給這個選項，我們可以使得快取的內容根據 PHP 表達式的結果而變動。
 
 ### 請求類型
 

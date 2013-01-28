@@ -102,7 +102,7 @@ abstract class CDbSchema extends CComponent
 			else
 				$this->_tables[$name]=$table=$this->loadTable($realName);
 
-			if(isset($qcDuration))  // re-enable query caching
+			if(isset($qcDuration))	// re-enable query caching
 				$this->_connection->queryCachingDuration=$qcDuration;
 
 			return $table;
@@ -351,7 +351,7 @@ abstract class CDbSchema extends CComponent
 	/**
 	 * Builds a SQL statement for creating a new DB table.
 	 *
-	 * The columns in the new  table should be specified as name-definition pairs (e.g. 'name'=>'string'),
+	 * The columns in the new	table should be specified as name-definition pairs (e.g. 'name'=>'string'),
 	 * where name stands for a column name which will be properly quoted by the method, and definition
 	 * stands for the column type which can contain an abstract DB type.
 	 * The {@link getColumnType} method will be invoked to convert any abstract type into a physical one.
@@ -574,7 +574,7 @@ abstract class CDbSchema extends CComponent
 		foreach($columns as $i=>$col)
 			$columns[$i]=$this->quoteColumnName($col);
 		return 'ALTER TABLE ' . $this->quoteTableName($table) . ' ADD CONSTRAINT '
-			. $this->quoteColumnName($name) . '  PRIMARY KEY ('
+			. $this->quoteColumnName($name) . '	PRIMARY KEY ('
 			. implode(', ', $columns). ' )';
 	}
 

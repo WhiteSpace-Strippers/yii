@@ -65,8 +65,8 @@ data that are from other applications.
 > ~~~
 > [php]
 > $cache=Yii::app()->cache;
-> $cache['var1']=$value1;  // equivalent to: $cache->set('var1',$value1);
-> $value2=$cache['var2'];  // equivalent to: $value2=$cache->get('var2');
+> $cache['var1']=$value1;	// equivalent to: $cache->set('var1',$value1);
+> $value2=$cache['var2'];	// equivalent to: $value2=$cache->get('var2');
 > ~~~
 
 Cache Dependency
@@ -94,24 +94,24 @@ value, indicating the data needs to be regenerated.
 
 Below is a summary of the available cache dependencies:
 
-   - [CFileCacheDependency]: the dependency is changed if the file's last
+	 - [CFileCacheDependency]: the dependency is changed if the file's last
 modification time is changed.
 
-   - [CDirectoryCacheDependency]: the dependency is changed if any of the
+	 - [CDirectoryCacheDependency]: the dependency is changed if any of the
 files under the directory and its subdirectories is changed.
 
-   - [CDbCacheDependency]: the dependency is changed if the query result
+	 - [CDbCacheDependency]: the dependency is changed if the query result
 of the specified SQL statement is changed.
 
-   - [CGlobalStateCacheDependency]: the dependency is changed if the value
+	 - [CGlobalStateCacheDependency]: the dependency is changed if the value
 of the specified global state is changed. A global state is a variable that
 is persistent across multiple requests and multiple sessions in an
 application. It is defined via [CApplication::setGlobalState()].
 
-   - [CChainedCacheDependency]: the dependency is changed if any of the
+	 - [CChainedCacheDependency]: the dependency is changed if any of the
 dependencies on the chain is changed.
 
-   - [CExpressionDependency]: the dependency is changed if the result of
+	 - [CExpressionDependency]: the dependency is changed if the result of
 the specified PHP expression is changed.
 
 

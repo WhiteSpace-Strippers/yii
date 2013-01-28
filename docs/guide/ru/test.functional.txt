@@ -76,10 +76,10 @@ class PostTest extends WebTestCase
 	public function testShow()
 	{
 		$this->open('post/1');
-	    // проверяем наличие заголовка некой записи
-	    $this->assertTextPresent($this->posts['sample1']['title']);
-	    // проверяем наличие формы комментария
-	    $this->assertTextPresent('Leave a Comment');
+			// проверяем наличие заголовка некой записи
+			$this->assertTextPresent($this->posts['sample1']['title']);
+			// проверяем наличие формы комментария
+			$this->assertTextPresent('Leave a Comment');
 	}
 
 	…
@@ -87,7 +87,7 @@ class PostTest extends WebTestCase
 ~~~
 
 Как и при написании класса модульного теста, мы объявляем фикстуры для
-использования этим тестом.  Здесь мы показываем, что должна использоваться
+использования этим тестом.	Здесь мы показываем, что должна использоваться
 фикстура `Post`. В тестирующем методе `testShow` мы сначала поручаем
 `Selenium RC` открыть URL `post/1`. Заметим, что это относительный URL, а
 полный URL формируется путем добавления относительного к базовому URL (т.е.

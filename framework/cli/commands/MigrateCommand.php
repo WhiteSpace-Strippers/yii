@@ -99,7 +99,7 @@ class MigrateCommand extends CConsoleCommand
 			echo "Total $n out of $total new ".($total===1 ? 'migration':'migrations')." to be applied:\n";
 
 		foreach($migrations as $migration)
-			echo "    $migration\n";
+			echo "		$migration\n";
 		echo "\n";
 
 		if($this->confirm('Apply the above '.($n===1 ? 'migration':'migrations')."?"))
@@ -135,7 +135,7 @@ class MigrateCommand extends CConsoleCommand
 		$n=count($migrations);
 		echo "Total $n ".($n===1 ? 'migration':'migrations')." to be reverted:\n";
 		foreach($migrations as $migration)
-			echo "    $migration\n";
+			echo "		$migration\n";
 		echo "\n";
 
 		if($this->confirm('Revert the above '.($n===1 ? 'migration':'migrations')."?"))
@@ -171,7 +171,7 @@ class MigrateCommand extends CConsoleCommand
 		$n=count($migrations);
 		echo "Total $n ".($n===1 ? 'migration':'migrations')." to be redone:\n";
 		foreach($migrations as $migration)
-			echo "    $migration\n";
+			echo "		$migration\n";
 		echo "\n";
 
 		if($this->confirm('Redo the above '.($n===1 ? 'migration':'migrations')."?"))
@@ -318,7 +318,7 @@ class MigrateCommand extends CConsoleCommand
 			else
 				echo "Total $n ".($n===1 ? 'migration has' : 'migrations have')." been applied before:\n";
 			foreach($migrations as $version=>$time)
-				echo "    (".date('Y-m-d H:i:s',$time).') '.$version."\n";
+				echo "		(".date('Y-m-d H:i:s',$time).') '.$version."\n";
 		}
 	}
 
@@ -340,7 +340,7 @@ class MigrateCommand extends CConsoleCommand
 				echo "Found $n new ".($n===1 ? 'migration' : 'migrations').":\n";
 
 			foreach($migrations as $migration)
-				echo "    ".$migration."\n";
+				echo "		".$migration."\n";
 		}
 	}
 
@@ -501,50 +501,50 @@ class MigrateCommand extends CConsoleCommand
 	{
 		return <<<EOD
 USAGE
-  yiic migrate [action] [parameter]
+	yiic migrate [action] [parameter]
 
 DESCRIPTION
-  This command provides support for database migrations. The optional
-  'action' parameter specifies which specific migration task to perform.
-  It can take these values: up, down, to, create, history, new, mark.
-  If the 'action' parameter is not given, it defaults to 'up'.
-  Each action takes different parameters. Their usage can be found in
-  the following examples.
+	This command provides support for database migrations. The optional
+	'action' parameter specifies which specific migration task to perform.
+	It can take these values: up, down, to, create, history, new, mark.
+	If the 'action' parameter is not given, it defaults to 'up'.
+	Each action takes different parameters. Their usage can be found in
+	the following examples.
 
 EXAMPLES
  * yiic migrate
-   Applies ALL new migrations. This is equivalent to 'yiic migrate up'.
+	 Applies ALL new migrations. This is equivalent to 'yiic migrate up'.
 
  * yiic migrate create create_user_table
-   Creates a new migration named 'create_user_table'.
+	 Creates a new migration named 'create_user_table'.
 
  * yiic migrate up 3
-   Applies the next 3 new migrations.
+	 Applies the next 3 new migrations.
 
  * yiic migrate down
-   Reverts the last applied migration.
+	 Reverts the last applied migration.
 
  * yiic migrate down 3
-   Reverts the last 3 applied migrations.
+	 Reverts the last 3 applied migrations.
 
  * yiic migrate to 101129_185401
-   Migrates up or down to version 101129_185401.
+	 Migrates up or down to version 101129_185401.
 
  * yiic migrate mark 101129_185401
-   Modifies the migration history up or down to version 101129_185401.
-   No actual migration will be performed.
+	 Modifies the migration history up or down to version 101129_185401.
+	 No actual migration will be performed.
 
  * yiic migrate history
-   Shows all previously applied migration information.
+	 Shows all previously applied migration information.
 
  * yiic migrate history 10
-   Shows the last 10 applied migrations.
+	 Shows the last 10 applied migrations.
 
  * yiic migrate new
-   Shows all new migrations.
+	 Shows all new migrations.
 
  * yiic migrate new 10
-   Shows the next 10 migrations that have not been applied.
+	 Shows the next 10 migrations that have not been applied.
 
 EOD;
 	}

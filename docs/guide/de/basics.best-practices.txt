@@ -3,9 +3,9 @@ Bewährte MVC-Verfahren
 
 Obwohl nahezu jeder Webentwickler das Model-View-Controller-Konzept kennt,
 entzieht sich der richtige Einsatz von MVC in realen Anwendungen oft deren
-Kenntnis. Die zentrale Idee hinter MVC besteht in der **Wiederverwendbarkeit 
+Kenntnis. Die zentrale Idee hinter MVC besteht in der **Wiederverwendbarkeit
 von Code und einer Trennung von Zuständigkeiten**. In diesem Abschnitt
-geben wir einige allgemeine Richtlinien, wie man dem MVC-Konzept beim Entwickeln 
+geben wir einige allgemeine Richtlinien, wie man dem MVC-Konzept beim Entwickeln
 mit Yii dem besser gerecht wird.
 
 Zum leichteren Verständnis nehmen wir eine Webanwendung an, die aus mehreren
@@ -16,7 +16,7 @@ Teilapplikationen besteht, wie zum Beispiel
 Anwendung bereitstellt. In der Regel ist der Zugriff auf administrative
 Mitarbeiter beschränkt;
 * Konsole: eine Anwendung aus Konsolenbefehlen zur Wartung der Webanwendung
-besteht, welche man entweder an einer Eingabeaufforderung aufrufen kann oder 
+besteht, welche man entweder an einer Eingabeaufforderung aufrufen kann oder
 die zeitgesteuerte ablaufen.
 * Web-API: stellt Schnittstellen zur Integration der Webanwendung für Dritte zur Verfügung.
 
@@ -47,7 +47,7 @@ Manchmal führt diese letzte Regel dazu, dass ein Model sehr "fett" wird, also
 zu viel Code in einer einzelnen Klasse enthält. Das kann ein Model auch schwer
 wartbar machen, falls der Code unterschiedlichen Zwecken dient. Zum Beispiel
 könnte es in einem `News`-Model eine Methode `getLatestNews` enthalten, die
-nur im Frontend verwendet wird. Sie könnte außerdem eine Methode `getDeletedNews` 
+nur im Frontend verwendet wird. Sie könnte außerdem eine Methode `getDeletedNews`
 implementieren, die nur im Backend benötigt wird. Das mag für kleine bis
 mittelgroße Anwendungen noch praktikabel sein. Bei großen Applikationen kann
 stattdessen mit folgender Strategie die Models besser wartbar halten:
@@ -72,7 +72,7 @@ Model auch von einer ganz anderen Teilapplikation verwendet werden könnte (z.B.
 Unittests, Web-API), die keinen Zugriff auf diese Requestdaten hat. Solche
 Variablen sollten nur vom Controller verarbeitet werden.
 
-* kein  HTML oder anderen darstellungsbezogenen Code enthalten. Da dieser Code
+* kein	HTML oder anderen darstellungsbezogenen Code enthalten. Da dieser Code
 sich je nach Anwendungsfall unterscheiden kann (eine News-Detailansicht kann
 z.B. im Verwaltungsbereich ganz anders aussehen als im Frontend), ist er in
 Views viel besser aufgehoben.
@@ -102,7 +102,7 @@ können. Dies sollte allerdings nur zum Zwecke der Darstellung geschehen.
 
 Views können auf verschiedene Weise wiederverwendet werden:
 
-* Layout: Gemeinsame Darstellungsbereiche (z.B. Seitenheader und -footer, also 
+* Layout: Gemeinsame Darstellungsbereiche (z.B. Seitenheader und -footer, also
 Kopf- und Fußbereich) können im Layout-View untergebracht werden.
 
 * Partielle Views: Verwenden Sie partielle Views (Views, die nicht mit einem
@@ -121,7 +121,7 @@ Codeschnipsel. Statt diesen Code überall zu wiederholen, lagert man ihn besser
 in eine Hilfsklasse aus und verwendet diese stattdessen im View. Yii enthält
 bereits ein Beispiel für diesen Ansatz: Die leistungsfähige
 [CHtml]-Hilfsklasse kann häufig verwendeten HTML-Code erzeugen. Hilfsklassen
-können in einem [importierten Verzeichnis](/doc/guide/basics.namespace) abgelegt werden, 
+können in einem [importierten Verzeichnis](/doc/guide/basics.namespace) abgelegt werden,
 so dass man sie ohne explizites Einbinden verwenden kann.
 
 
@@ -132,7 +132,7 @@ Controller
 und andere Komponenten zu einer lauffähigen Anwendung verbindet. Controller
 sind für die Verarbeitung einer Benutzeranfrage verantwortlich. Daher gilt,
 Controller ...
-	
+
 * können auf `$_GET`, `$_POST` und andere PHP-Variablen des Benutzerrequests zugreifen.
 
 * können Instanzen eines Models erstellen und dessen Lebenszyklus verwalten.

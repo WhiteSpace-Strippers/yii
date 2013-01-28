@@ -3,10 +3,10 @@
 
 使用擴充通常包含了以下三步：
 
-  1. 從 Yii 的 [擴充庫](http://www.yiiframework.com/extensions/) 下載擴充。
-  2. 解壓到 [應用程式程式的根目錄](/doc/guide/basics.application#application-base-directory)
+	1. 從 Yii 的 [擴充庫](http://www.yiiframework.com/extensions/) 下載擴充。
+	2. 解壓到 [應用程式程式的根目錄](/doc/guide/basics.application#application-base-directory)
 的子目錄 `extensions/xyz` 下，這裡的 `xyz` 是擴充的名稱。
-  3. 導入、配置和使用擴充。
+	3. 導入、配置和使用擴充。
 
 每個擴充都有一個所有擴充中唯一的名稱標識。把一個擴充命名為 `xyz`，我們也可以使用路徑別名定位到包含了 `xyz`
 所有檔案的根目錄。
@@ -38,20 +38,20 @@ $this->widget('zii.widgets.grid.CGridView', array(
 ~~~
 [php]
 return array(
-    // 'preload'=>array('xyz',...),
-    'components'=>array(
-        'xyz'=>array(
-            'class'=>'application.extensions.xyz.XyzClass',
-            'property1'=>'value1',
-            'property2'=>'value2',
-        ),
-        // 其他元件配置
-    ),
+		// 'preload'=>array('xyz',...),
+		'components'=>array(
+				'xyz'=>array(
+						'class'=>'application.extensions.xyz.XyzClass',
+						'property1'=>'value1',
+						'property2'=>'value2',
+				),
+				// 其他元件配置
+		),
 );
 ~~~
 
 然後,我們可以在任何地方透過使用 `Yii::app()->xyz` 來存取元件。元件將會被延遲建立（就是，僅當它第一次被存取時建立），
-除非我們把它配置到  `preload` 屬性裡。
+除非我們把它配置到	`preload` 屬性裡。
 
 
 行為
@@ -116,13 +116,13 @@ public function behaviors()
 [php]
 // 小工具不需要主體內容
 <?php $this->widget('application.extensions.xyz.XyzClass', array(
-    'property1'=>'value1',
-    'property2'=>'value2')); ?>
+		'property1'=>'value1',
+		'property2'=>'value2')); ?>
 
 // 小工具可以包含主體內容
 <?php $this->beginWidget('application.extensions.xyz.XyzClass', array(
-    'property1'=>'value1',
-    'property2'=>'value2')); ?>
+		'property1'=>'value1',
+		'property2'=>'value2')); ?>
 
 ...小工具的主體內容...
 
@@ -246,7 +246,7 @@ return array(
 
 然後，我們就能使用配備了額外命令 `xyz` 的 `yiic` 工具了。
 
-> Note|注意：控制台應用程式通常使用了一個不同於網路應用程式的配置檔案。如果使用了 `yiic webapp` 命令建立了一個應用程式，這樣的話，控制台應用程式的 `protected/yiic` 的配置檔案就是 `protected/config/console.php`  了,而網路應用程式的配置檔案則是 `protected/config/main.php`。
+> Note|注意：控制台應用程式通常使用了一個不同於網路應用程式的配置檔案。如果使用了 `yiic webapp` 命令建立了一個應用程式，這樣的話，控制台應用程式的 `protected/yiic` 的配置檔案就是 `protected/config/console.php`	了,而網路應用程式的配置檔案則是 `protected/config/main.php`。
 
 
 模組

@@ -277,7 +277,7 @@ class CActiveFinder extends CComponent
 		// $with is an array, keys are relation name, values are relation spec
 		foreach($with as $key=>$value)
 		{
-			if(is_string($value))  // the value is a relation name
+			if(is_string($value))	// the value is a relation name
 				$this->buildJoinTree($parent,$value);
 			elseif(is_string($key) && is_array($value))
 				$this->buildJoinTree($parent,$key,$value);
@@ -339,7 +339,7 @@ class CJoinElement
 	private $_finder;
 	private $_builder;
 	private $_parent;
-	private $_pkAlias;  				// string or name=>alias
+	private $_pkAlias;					// string or name=>alias
 	private $_columnAliases=array();	// name=>alias
 	private $_joined=false;
 	private $_table;
@@ -367,7 +367,7 @@ class CJoinElement
 			$this->rawTableAlias=$this->_builder->getSchema()->quoteTableName($this->tableAlias);
 			$this->_table=$this->model->getTableSchema();
 		}
-		else  // root element, the first parameter is the model.
+		else	// root element, the first parameter is the model.
 		{
 			$this->model=$relation;
 			$this->_builder=$relation->getCommandBuilder();
@@ -378,7 +378,7 @@ class CJoinElement
 
 		// set up column aliases, such as t1_c2
 		$table=$this->_table;
-		if($this->model->getDbConnection()->getDriverName()==='oci')  // Issue 482
+		if($this->model->getDbConnection()->getDriverName()==='oci')	// Issue 482
 			$prefix='T'.$id.'_C';
 		else
 			$prefix='t'.$id.'_c';
@@ -533,7 +533,7 @@ class CJoinElement
 			$fkDefined=true;
 			foreach($fks as $i=>$fk)
 			{
-				if(isset($joinTable->foreignKeys[$fk]))  // FK defined
+				if(isset($joinTable->foreignKeys[$fk]))	// FK defined
 				{
 					list($tableName,$pk)=$joinTable->foreignKeys[$fk];
 					if(!isset($parentCondition[$pk]) && $schema->compareTableNames($parent->_table->rawName,$tableName))
@@ -618,7 +618,7 @@ class CJoinElement
 				{
 					if(is_int($i))
 					{
-						if(isset($parent->_table->foreignKeys[$fk]))  // FK defined
+						if(isset($parent->_table->foreignKeys[$fk]))	// FK defined
 							$pk=$parent->_table->foreignKeys[$fk][1];
 						elseif(is_array($this->_table->primaryKey)) // composite PK
 							$pk=$this->_table->primaryKey[$i];
@@ -631,7 +631,7 @@ class CJoinElement
 				{
 					if(is_int($i))
 					{
-						if(isset($this->_table->foreignKeys[$fk]))  // FK defined
+						if(isset($this->_table->foreignKeys[$fk]))	// FK defined
 							$pk=$this->_table->foreignKeys[$fk][1];
 						elseif(is_array($parent->_table->primaryKey)) // composite PK
 							$pk=$parent->_table->primaryKey[$i];
@@ -771,7 +771,7 @@ class CJoinElement
 	private function populateRecord($query,$row)
 	{
 		// determine the primary key value
-		if(is_string($this->_pkAlias))  // single key
+		if(is_string($this->_pkAlias))	// single key
 		{
 			if(isset($row[$this->_pkAlias]))
 				$pk=$row[$this->_pkAlias];
@@ -898,7 +898,7 @@ class CJoinElement
 					continue;
 				}
 
-				if(isset($this->_columnAliases[$key]))  // simple column names
+				if(isset($this->_columnAliases[$key]))	// simple column names
 				{
 					$columns[]=$prefix.$schema->quoteColumnName($key).' AS '.$schema->quoteColumnName($this->_columnAliases[$key]);
 					$selected[$this->_columnAliases[$key]]=1;
@@ -1357,7 +1357,7 @@ class CStatElement
 						array('{class}'=>get_class($parent->model), '{relation}'=>$relation->name, '{table}'=>$pkTable->name)));
 
 		// set up mapping between fk and pk columns
-		$map=array();  // pk=>fk
+		$map=array();	// pk=>fk
 		foreach($fks as $i=>$fk)
 		{
 			if(!isset($table->columns[$fk]))
@@ -1373,7 +1373,7 @@ class CStatElement
 					throw new CDbException(Yii::t('yii','The relation "{relation}" in active record class "{class}" is specified with a foreign key "{key}" that does not point to the parent table "{table}".',
 						array('{class}'=>get_class($parent->model), '{relation}'=>$relation->name, '{key}'=>$fk, '{table}'=>$pkTable->name)));
 			}
-			else  // FK constraints undefined
+			else	// FK constraints undefined
 			{
 				if(is_array($pkTable->primaryKey)) // composite PK
 					$map[$pkTable->primaryKey[$i]]=$fk;
@@ -1396,7 +1396,7 @@ class CStatElement
 		$tableAlias=$model->getTableAlias(true);
 
 		// generate and perform query
-		if(count($fks)===1)  // single column FK
+		if(count($fks)===1)	// single column FK
 		{
 			$col=$table->columns[$fks[0]]->rawName;
 			$sql="SELECT $col AS $c, {$relation->select} AS $s FROM {$table->rawName} ".$tableAlias.$join
@@ -1410,7 +1410,7 @@ class CStatElement
 			foreach($command->queryAll() as $row)
 				$stats[$row['c']]=$row['s'];
 		}
-		else  // composite FK
+		else	// composite FK
 		{
 			$keys=array_keys($records);
 			foreach($keys as &$key)

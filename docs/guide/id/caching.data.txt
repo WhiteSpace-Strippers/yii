@@ -26,8 +26,8 @@ akan dihapus dari cache setelah periode waktu tertentu:
 Yii::app()->cache->set($id, $value, 30);
 ~~~
 
-Selanjutnya, saat kita perlu mengakses variabel ini (baik dalam permintaan Web 
-yang sama atau berbeda), kita memanggil [get()|CCache::get] dengan ID untuk mengambilnya 
+Selanjutnya, saat kita perlu mengakses variabel ini (baik dalam permintaan Web
+yang sama atau berbeda), kita memanggil [get()|CCache::get] dengan ID untuk mengambilnya
 dari cache. Jika nilai yang dikembalikan false, ini berarti nilai
 tidak tersedia dalam cache dan kita harus membuatnya kembali.
 
@@ -45,7 +45,7 @@ if($value===false)
 Ketika memilih ID untuk variabel yang ditembolok, pastikan ID unik di antara
 semua variabel lain yang mungkin ditembolok dalam aplikasi. ID tidak perlu
 unik di antara berbagai aplikasi karena komponen cache cukup pintar
-untuk membedakan ID pada aplikasi yang 
+untuk membedakan ID pada aplikasi yang
 berbeda.
 
 Beberapa penyimpanan cache, seperti MemCache, APC, mendukung pengambilan
@@ -57,7 +57,7 @@ mensimulasikannya.
 
 Untuk menghapus nilai yang ditembolok dari cache, panggil [delete()|CCache::delete]; dan
 untuk menghapus semuanya dari cache, panggil [flush()|CCache::flush]. Harap
-berhati-hati saat memanggil [flush()|CCache::flush] karena ia juga menghapus data 
+berhati-hati saat memanggil [flush()|CCache::flush] karena ia juga menghapus data
 yang ditembolok yang berasal dari aplikasi lain.
 
 > Tip: Karena [CCache] mengimplementasikan `ArrayAccess`, komponen cache bisa
@@ -65,8 +65,8 @@ yang ditembolok yang berasal dari aplikasi lain.
 > ~~~
 > [php]
 > $cache=Yii::app()->cache;
-> $cache['var1']=$value1;  // sama dengan: $cache->set('var1',$value1);
-> $value2=$cache['var2'];  // sama dengan: $value2=$cache->get('var2');
+> $cache['var1']=$value1;	// sama dengan: $cache->set('var1',$value1);
+> $value2=$cache['var2'];	// sama dengan: $value2=$cache->get('var2');
 > ~~~
 
 Ketergantungan Tembolok
@@ -89,30 +89,30 @@ Yii::app()->cache->set($id, $value, 30, new CFileCacheDependency('FileName'));
 ~~~
 
 Sekarang, jika kita mengambil `$value` dari cache dengan memanggil [get()|CCache::get],
-ketergantungan akan dievaluasi dan jika ia berubah, kita akan mendapat nilai false 
+ketergantungan akan dievaluasi dan jika ia berubah, kita akan mendapat nilai false
 yang menunjukan data perlu dibuat ulang.
 
 Di bawah ini adalah ringkasan ketergantungan cache yang tersedia:
 
-   - [CFileCacheDependency]: ketergantungan diubah jika waktu modifikasi 
-   file terakhir diubah.
+	 - [CFileCacheDependency]: ketergantungan diubah jika waktu modifikasi
+	 file terakhir diubah.
 
-   - [CDirectoryCacheDependency]: ketergantungan diubah jika file di
-   bawah direktori dan subdirektorinya berubah.
+	 - [CDirectoryCacheDependency]: ketergantungan diubah jika file di
+	 bawah direktori dan subdirektorinya berubah.
 
-   - [CDbCacheDependency]: ketergantungan diubah jika hasil kueri
+	 - [CDbCacheDependency]: ketergantungan diubah jika hasil kueri
 pernyataan SQL yang ditetapkan berubah.
 
-   - [CGlobalStateCacheDependency]: ketergantungan diubah jika nilai
+	 - [CGlobalStateCacheDependency]: ketergantungan diubah jika nilai
 kondisi global yang ditetapkan berubah. Kondisi global adalah variabel
 yang persisten pada beberapa permintaan dan beberapa sesi dalam aplikasi.
 Ketergantungan ini didefinisikan melalui [CApplication::setGlobalState()].
 
-   - [CChainedCacheDependency]: ketergantungan diubah jika salah satu 
-   rantai berubah.
+	 - [CChainedCacheDependency]: ketergantungan diubah jika salah satu
+	 rantai berubah.
 
-   - [CExpressionDependency]: ketergantungan berubah jika hasil yang 
-   ditetapkan ekspresi PHP diubah. 
+	 - [CExpressionDependency]: ketergantungan berubah jika hasil yang
+	 ditetapkan ekspresi PHP diubah.
 
 
 Query Caching

@@ -5,13 +5,13 @@
 			Log aplikácie
 			<?php 
 				$t = round(microtime(true) - YII_BEGIN_TIME, 3);
-				$m = function_exists('memory_get_usage') ?  '['.round(memory_get_usage()/1024/1024, 3).' MB]' : '';
+				$m = function_exists('memory_get_usage') ?	'['.round(memory_get_usage()/1024/1024, 3).' MB]' : '';
 				echo " * Stránka vygenerovaná za {$t} sek ~ ".round(1/$t)." strán/sek. ".$m;
 			?>
 		</th>
 	</tr>
 	<tr style="background-color: #ccc;">
-	    <th style="width:120px">Čas</th>
+			<th style="width:120px">Čas</th>
 		<th>Úroveň</th>
 		<th>Kategória</th>
 		<th>Zpráva</th>

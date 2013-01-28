@@ -37,10 +37,10 @@ Apelam [CController::renderDynamic()] pentru a insera continut dinamic in locul 
 ...alt continut HTML...
 ~~~
 
-In codul de mai sus, `$callback` se refera la un callback PHP valid. 
+In codul de mai sus, `$callback` se refera la un callback PHP valid.
 Poate sa fie un string care se refera ori la numele unei metode din clasa controller-ului curent
 ori la numele unei functii globale.
-Poate de asemenea sa fie un array care se refera la o metoda a unei clase. 
+Poate de asemenea sa fie un array care se refera la o metoda a unei clase.
 Orice parametri in plus transmisi catre [renderDynamic()|CController::renderDynamic()]
 vor fi transmisi callback. Callback-ul ar trebui sa returneze continutul dinamic in loc sa il afiseze.
 

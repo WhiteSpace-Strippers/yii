@@ -75,9 +75,9 @@ propiedad [CDbConnection::schemaCachingDuration] a un valor mayor que 0.
 El soporte para AR está limitado por el DBMS. Actualmente, solo los siguientes
 DBMS están soportados:
 
-   - [MySQL 4.1 o superior](http://www.mysql.com)
-   - [PostgreSQL 7.3 o superior](http://www.postgres.com)
-   - [SQLite 2 y 3](http://www.sqlite.org)
+	 - [MySQL 4.1 o superior](http://www.mysql.com)
+	 - [PostgreSQL 7.3 o superior](http://www.postgres.com)
+	 - [SQLite 2 y 3](http://www.sqlite.org)
 
 Si querés usar un componente de aplicación diferente de `db`, o si querés
 trabajar con múltiples bases de datos usando AR, deberías sobreescribir
@@ -195,7 +195,7 @@ class Post extends CActiveRecord
 }
 
 $post=new Post;
-echo $post->title;  // esto mostrará: por favor ingrese un título
+echo $post->title;	// esto mostrará: por favor ingrese un título
 ~~~
 
 Desde la versión 1.0.2, a un atributo se le puede asignar un valor de tipo
@@ -266,7 +266,7 @@ Por ejemplo,
 ~~~
 [php]
 $criteria=new CDbCriteria;
-$criteria->select='title';  // seleccionar solo la columna 'title'
+$criteria->select='title';	// seleccionar solo la columna 'title'
 $criteria->condition='postID=:postID';
 $criteria->params=array(':postID'=>10);
 $post=Post::model()->find($criteria); // $params no es necesario
@@ -422,7 +422,7 @@ if($post->save())
 }
 else
 {
-	// los datos no son válidos. Llamar a  getErrors() para obtener los mensajes de error
+	// los datos no son válidos. Llamar a	getErrors() para obtener los mensajes de error
 }
 ~~~
 
@@ -471,22 +471,22 @@ Personalización
 [CActiveRecord] provee algunos métodos que pueden ser sobreescritos en las clases
 que la heredan para personalizar su flujo de trabajo.
 
-   - [beforeValidate|CModel::beforeValidate] y
+	 - [beforeValidate|CModel::beforeValidate] y
 [afterValidate|CModel::afterValidate]: estos métodos son invocados antes y después
 de que la validación sea ejecutada.
 
-   - [beforeSave|CActiveRecord::beforeSave] y
+	 - [beforeSave|CActiveRecord::beforeSave] y
 [afterSave|CActiveRecord::afterSave]: estos métodos son invocados antes y después
 de que la instancia AR sea guardada.
 
-   - [beforeDelete|CActiveRecord::beforeDelete] y
+	 - [beforeDelete|CActiveRecord::beforeDelete] y
 [afterDelete|CActiveRecord::afterDelete]: estos métodos son invocados antes y después
 de que la instancia AR sea borrada.
 
-   - [afterConstruct|CActiveRecord::afterConstruct]: este método es invocado por cada
+	 - [afterConstruct|CActiveRecord::afterConstruct]: este método es invocado por cada
 instancia AR creada usando el operador `new`.
 
-   - [afterFind|CActiveRecord::afterFind]: este método es invocado por cada instancia AR
+	 - [afterFind|CActiveRecord::afterFind]: este método es invocado por cada instancia AR
 creada como resultado de una búsqueda.
 
 

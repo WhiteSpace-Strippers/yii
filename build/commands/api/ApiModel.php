@@ -202,7 +202,7 @@ class ApiModel
 		if(($text=trim($matches[2]))==='')
 			$text=$url;
 
-		if(preg_match('/^(http|ftp):\/\//i',$url))  // an external URL
+		if(preg_match('/^(http|ftp):\/\//i',$url))	// an external URL
 			return "<a href=\"$url\">$text</a>";
 		$url=$this->resolveInternalUrl($url);
 		return $url===''?$text:'{{'.$url.'|'.$text.'}}';
@@ -600,9 +600,9 @@ class ApiModel
 	/*
 	 * Checks @param directives in a source file
 	 * Detects:
-	 *    missing @param directive (there is no @param directive for a function parameter)
-	 *    missing function parameter (@param directive exists but that parameter is not in a function declaration)
-	 *    missmatch parameters (if @param directive has different parameter name than a function - possible spelling error or wrong order of @param directives)
+	 *		missing @param directive (there is no @param directive for a function parameter)
+	 *		missing function parameter (@param directive exists but that parameter is not in a function declaration)
+	 *		missmatch parameters (if @param directive has different parameter name than a function - possible spelling error or wrong order of @param directives)
 	 */
 	protected function checkSource($sourceFile)
 	{

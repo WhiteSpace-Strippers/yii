@@ -3,84 +3,84 @@
 
 <highlight lang="java">
 
-  <authors>
-    <author name="Andrey Demenev" email ="demenev@gmail.com"/>
-  </authors>
+	<authors>
+		<author name="Andrey Demenev" email ="demenev@gmail.com"/>
+	</authors>
 
-  <default innerClass="code" />
+	<default innerClass="code" />
 
-  <region name="block" delimClass="brackets" innerClass="code" start="\{" end="\}">
-    <contains all="yes"/>
-  </region>
+	<region name="block" delimClass="brackets" innerClass="code" start="\{" end="\}">
+		<contains all="yes"/>
+	</region>
 
-  <region name="brackets" delimClass="brackets" innerClass="code" start="\(" end="\)" >
-    <contains all="yes"/>
-  </region>
+	<region name="brackets" delimClass="brackets" innerClass="code" start="\(" end="\)" >
+		<contains all="yes"/>
+	</region>
 
-  <region name="sqbrackets" delimClass="brackets" innerClass="code" start="\[" end="\]">
-    <contains all="yes"/>
-  </region>
-
-
-  <region name="mlcomment" innerClass="comment" start="\/\*" end="\*\/">
-    <contains block="javadoc"/>
-    <contains block="cvstag"/>
-  </region>
-
-  <region name="strdouble" delimClass="quotes" innerClass="string" start="&quot;" end="&quot;" />
-
-  <region name="strsingle" delimClass="quotes" innerClass="string" start="'" end="'"/>
-
-  <block name="escaped" match="\\." innerClass="special" contained="yes">
-    <onlyin region="strsingle"/>
-  </block>
-
-  <block name="descaped" match="\\[\\&quot;'`tnr\$\{]" innerClass="special" contained="yes">
-    <onlyin region="strdouble"/>
-  </block>
+	<region name="sqbrackets" delimClass="brackets" innerClass="code" start="\[" end="\]">
+		<contains all="yes"/>
+	</region>
 
 
-  <region name="comment" start="\/\/" end="/$/m" innerClass="comment">
-    <contains block="cvstag"/>
-  </region>
+	<region name="mlcomment" innerClass="comment" start="\/\*" end="\*\/">
+		<contains block="javadoc"/>
+		<contains block="cvstag"/>
+	</region>
 
-  <block name="identifier" match="[a-z_]\w*" innerClass="identifier" />
+	<region name="strdouble" delimClass="quotes" innerClass="string" start="&quot;" end="&quot;" />
 
-  <block name="hexinteger" match="0[xX][\da-f]+" innerClass="number" />
-  <block name="integer" match="\d\d*|\b0\b" innerClass="number" />
-  <block name="octinteger" match="0[0-7]+" innerClass="number" />
-  <block name="float" match="(\d*\.\d+)|(\d+\.\d*)" innerClass="number" />
-  <block name="exponent" 
-         match="((\d+|((\d*\.\d+)|(\d+\.\d*)))[eE][+-]?\d+)" 
-         innerClass="number" />
+	<region name="strsingle" delimClass="quotes" innerClass="string" start="'" end="'"/>
 
-  <block name="javadoc" match="\s@\w+\s" innerClass="inlinedoc" contained="yes">
-    <onlyin region="mlcomment"/>
-    <onlyin region="comment"/>
-  </block>
+	<block name="escaped" match="\\." innerClass="special" contained="yes">
+		<onlyin region="strsingle"/>
+	</block>
 
-  <block name="url" match="((https?|ftp):\/\/[\w\?\.\-\&amp;=\/%+]+)|(^|[\s,!?])www\.\w+\.\w+[\w\?\.\&amp;=\/%+]*" innerClass="url" contained="yes">
-    <onlyin region="mlcomment"/>
-    <onlyin region="comment"/>
-  </block>
-  
-  <block name="email" match="\w+[\.\w\-]+@(\w+[\.\w\-])+" innerClass="url" contained="yes">
-    <onlyin region="mlcomment"/>
-    <onlyin region="comment"/>
-  </block>
-  
-  <block name="note" match="\bnote:" innerClass="inlinedoc" contained="yes">
-    <onlyin region="mlcomment"/>
-    <onlyin region="comment"/>
-  </block>
-  
+	<block name="descaped" match="\\[\\&quot;'`tnr\$\{]" innerClass="special" contained="yes">
+		<onlyin region="strdouble"/>
+	</block>
 
-  <block name="cvstag" match="\$\w+\s*:.*\$" innerClass="inlinedoc" contained="yes">
-    <onlyin region="mlcomment"/>
-    <onlyin region="comment"/>
-  </block>
 
-  <keywords name="types" inherits="identifier" innerClass="types" case = "yes">
+	<region name="comment" start="\/\/" end="/$/m" innerClass="comment">
+		<contains block="cvstag"/>
+	</region>
+
+	<block name="identifier" match="[a-z_]\w*" innerClass="identifier" />
+
+	<block name="hexinteger" match="0[xX][\da-f]+" innerClass="number" />
+	<block name="integer" match="\d\d*|\b0\b" innerClass="number" />
+	<block name="octinteger" match="0[0-7]+" innerClass="number" />
+	<block name="float" match="(\d*\.\d+)|(\d+\.\d*)" innerClass="number" />
+	<block name="exponent" 
+				 match="((\d+|((\d*\.\d+)|(\d+\.\d*)))[eE][+-]?\d+)" 
+				 innerClass="number" />
+
+	<block name="javadoc" match="\s@\w+\s" innerClass="inlinedoc" contained="yes">
+		<onlyin region="mlcomment"/>
+		<onlyin region="comment"/>
+	</block>
+
+	<block name="url" match="((https?|ftp):\/\/[\w\?\.\-\&amp;=\/%+]+)|(^|[\s,!?])www\.\w+\.\w+[\w\?\.\&amp;=\/%+]*" innerClass="url" contained="yes">
+		<onlyin region="mlcomment"/>
+		<onlyin region="comment"/>
+	</block>
+	
+	<block name="email" match="\w+[\.\w\-]+@(\w+[\.\w\-])+" innerClass="url" contained="yes">
+		<onlyin region="mlcomment"/>
+		<onlyin region="comment"/>
+	</block>
+	
+	<block name="note" match="\bnote:" innerClass="inlinedoc" contained="yes">
+		<onlyin region="mlcomment"/>
+		<onlyin region="comment"/>
+	</block>
+	
+
+	<block name="cvstag" match="\$\w+\s*:.*\$" innerClass="inlinedoc" contained="yes">
+		<onlyin region="mlcomment"/>
+		<onlyin region="comment"/>
+	</block>
+
+	<keywords name="types" inherits="identifier" innerClass="types" case = "yes">
 	<keyword match="boolean" />
 	<keyword match="byte" />
 	<keyword match="char" />
@@ -93,10 +93,10 @@
 	<keyword match="short" />
 	<keyword match="static" />
 	<keyword match="void" />
-  </keywords> 
+	</keywords> 
 
-  <keywords name="reserved" inherits="identifier" innerClass="reserved" case="yes">
-    <keyword match="import"/>
+	<keywords name="reserved" inherits="identifier" innerClass="reserved" case="yes">
+		<keyword match="import"/>
 	<keyword match="package"/>
 	<keyword match="abstract" />
 	<keyword match="break" />
@@ -135,9 +135,9 @@
 	<keyword match="try" />
 	<keyword match="volatile" />
 	<keyword match="while" />
-  </keywords> 
+	</keywords> 
 
-  <keywords name="builtin" inherits="identifier" innerClass="builtin" case = "yes" ifdef="java.builtins">
+	<keywords name="builtin" inherits="identifier" innerClass="builtin" case = "yes" ifdef="java.builtins">
 	<keyword match="AbstractAction" />
 	<keyword match="AbstractBorder" />
 	<keyword match="AbstractButton" />
@@ -2819,6 +2819,6 @@
 	<keyword match="_Remote_Stub" />
 	<keyword match="_ServantActivatorStub" />
 	<keyword match="_ServantLocatorStub" />
-  </keywords>
+	</keywords>
 
 </highlight>

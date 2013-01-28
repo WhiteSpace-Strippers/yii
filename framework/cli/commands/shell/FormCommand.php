@@ -29,29 +29,29 @@ class FormCommand extends CConsoleCommand
 	{
 		return <<<EOD
 USAGE
-  form <model-class> <view-name> [scenario]
+	form <model-class> <view-name> [scenario]
 
 DESCRIPTION
-  This command generates a form view that can be used to collect inputs
-  for the specified model.
+	This command generates a form view that can be used to collect inputs
+	for the specified model.
 
 PARAMETERS
  * model-class: required, model class. This can be either the name of
-   the model class (e.g. 'ContactForm') or the path alias of the model
-   class file (e.g. 'application.models.ContactForm'). The former can
-   be used only if the class can be autoloaded.
+	 the model class (e.g. 'ContactForm') or the path alias of the model
+	 class file (e.g. 'application.models.ContactForm'). The former can
+	 be used only if the class can be autoloaded.
 
  * view-name: required, the name of the view to be generated. This should
-   be the path alias of the view script (e.g. 'application.views.site.contact').
+	 be the path alias of the view script (e.g. 'application.views.site.contact').
 
  * scenario: optional, the name of the scenario in which the model is used
-   (e.g. 'update', 'login'). This determines which model attributes the
-   generated form view will be used to collect user inputs for. If this
-   is not provided, the scenario will be assumed to be '' (empty string).
+	 (e.g. 'update', 'login'). This determines which model attributes the
+	 generated form view will be used to collect user inputs for. If this
+	 is not provided, the scenario will be assumed to be '' (empty string).
 
 EXAMPLES
  * Generates the view script for the 'ContactForm' model:
-        form ContactForm application.views.site.contact
+				form ContactForm application.views.site.contact
 
 EOD;
 	}
@@ -95,7 +95,7 @@ EOD;
 		$this->copyFiles($list);
 
 		$actionFile=$templatePath.'/action.php';
-		if(!is_file($actionFile))  // fall back to default ones
+		if(!is_file($actionFile))	// fall back to default ones
 			$actionFile=YII_PATH.'/cli/views/shell/form/action.php';
 
 		echo "The following form view has been successfully created:\n";
@@ -107,7 +107,7 @@ EOD;
 
 	public function generateForm($source,$params)
 	{
-		if(!is_file($source))  // fall back to default ones
+		if(!is_file($source))	// fall back to default ones
 			$source=YII_PATH.'/cli/views/shell/form/'.basename($source);
 
 		return $this->renderFile($source,$params,true);

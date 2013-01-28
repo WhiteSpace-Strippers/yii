@@ -19,7 +19,7 @@ Berikut ini, kita akan menjelaskan cara penggunaan tool ini.
 
 > Note| Catatan: Lebih baik menggunakan yiic dari aplikasi (yakni `cd path/ke/protected`)
 > ketika menjalankan command `migrate` daripada dari direktori `framework`.
-> Pastikan Anda memiliki direktori `protected\migrations` dan writable(memiliki hak akses untuk tulis). Cek juga 
+> Pastikan Anda memiliki direktori `protected\migrations` dan writable(memiliki hak akses untuk tulis). Cek juga
 > koneksi database di `protected/config/console.php`
 
 Pembutan Migrasi
@@ -48,10 +48,10 @@ class m101129_185401_create_news_table extends CDbMigration
 	}
 
 public function down()
-    {
+		{
 		echo "m101129_185401_create_news_table tidak mendukung migration down.\n";
 		return false;
-    }
+		}
 
 	/*
 	// implementasi safeUp/safeDown jika perlu transaction.
@@ -244,7 +244,7 @@ Perintah pertama yang menampilkan migrasi yang sudah diaplikasikan, sedangkan pe
 Mengubah Histori Migrasi
 ---------------------------
 
-Kadang-kadang, mungkin kita ingin mengubah histori migrasi ke versi migrasi tertentu tanpa sebetulnya mengaplikasikan atau me-revert kembali  migrasi yang bersangkutan. Biasanya sering terjadi selama pengembangan migrasi baru. Kita dapat menggunakan perintah berikut.
+Kadang-kadang, mungkin kita ingin mengubah histori migrasi ke versi migrasi tertentu tanpa sebetulnya mengaplikasikan atau me-revert kembali	migrasi yang bersangkutan. Biasanya sering terjadi selama pengembangan migrasi baru. Kita dapat menggunakan perintah berikut.
 
 ~~~
 yiic migrate mark 101129_185401

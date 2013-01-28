@@ -26,7 +26,7 @@ class CHttpCookieTest extends CTestCase
 		$this->assertEquals($options['expire'],$cookie2->expire,'Configure inside the Constructor has been failed');
 		$this->assertEquals($options['httpOnly'],$cookie2->httpOnly,'Configure inside the Constructor has been failed');
 		//configure afterwards
-		$cookie->configure($options);		
+		$cookie->configure($options);
 		$this->assertEquals($options['expire'],$cookie->expire);
 		$this->assertEquals($options['httpOnly'],$cookie->httpOnly);
 		// Set name and value via configure (should have no effect)

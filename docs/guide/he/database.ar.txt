@@ -18,10 +18,10 @@ $post-»save();
 ~~~
 [sql]
 CREATE TABLE tbl_post (
-    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-    title VARCHAR(128) NOT NULL,
-    content TEXT NOT NULL,
-    create_time INTEGER NOT NULL
+		id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+		title VARCHAR(128) NOT NULL,
+		content TEXT NOT NULL,
+		create_time INTEGER NOT NULL
 );
 ~~~
 
@@ -36,14 +36,14 @@ AR משתמך על חיבור למסד הנתונים כדי לבצע פעולו
 ~~~
 [php]
 return array(
-    'components'=»array(
-        'db'=»array(
-            'class'=»'system.db.CDbConnection',
-            'connectionString'=»'sqlite:path/to/dbfile',
-            // הפעלת מטמון להפחתת עומס
-            // 'schemaCachingDuration'=»3600,
-        ),
-    ),
+		'components'=»array(
+				'db'=»array(
+						'class'=»'system.db.CDbConnection',
+						'connectionString'=»'sqlite:path/to/dbfile',
+						// הפעלת מטמון להפחתת עומס
+						// 'schemaCachingDuration'=»3600,
+				),
+		),
 );
 ~~~
 
@@ -60,7 +60,7 @@ return array(
 - [Oracle](http://www.oracle.com)
 
 
-» Note|הערה: התמיכה ב SQLServer  קיימת מגרסאות 1.0.4 ומעלה. והתמיכה של Oracle קיימת מגרסאות 1.0.5 ומעלה.
+» Note|הערה: התמיכה ב SQLServer	קיימת מגרסאות 1.0.4 ומעלה. והתמיכה של Oracle קיימת מגרסאות 1.0.5 ומעלה.
 
 אם ברצונך להשתמש ברכיב אפליקציה שהוא לא `db`, או אם ברצונך לעבוד עם כמה מסדי נתונים בעזרת ה AR, רצוי שתדרוס את [CActiveRecord::getDbConnection]. המחלקה [CActiveRecord] הינה מחלקת הבסיס של כל מחלקות ה AR.
 
@@ -75,15 +75,15 @@ return array(
 [php]
 class Post extends CActiveRecord
 {
-    public static function model($className=__CLASS__)
-    {
-        return parent::model($className);
-    }
+		public static function model($className=__CLASS__)
+		{
+				return parent::model($className);
+		}
 
-    public function tableName()
-    {
-        return 'tbl_post';
-    }
+		public function tableName()
+		{
+				return 'tbl_post';
+		}
 }
 ~~~
 
@@ -91,9 +91,9 @@ class Post extends CActiveRecord
 » ~~~
 » [php]
 » return array(
-»     'import'=»array(
-»         'application.models.*',
-»     ),
+»		 'import'=»array(
+»				 'application.models.*',
+»		 ),
 » );
 » ~~~
 
@@ -104,7 +104,7 @@ class Post extends CActiveRecord
 » [php]
 » public function tableName()
 » {
-»     return '{{post}}';
+»		 return '{{post}}';
 » }
 » ~~~
 זאת, במקום להחזיר את שמה המלא של הטבלה, אנו מחזירים את שם הטבלה ללא הקידומת ועוטפים אותה בסוגריים מסולסלות כפולות.
@@ -127,9 +127,9 @@ $post-»title='הודעה לדוגמא';
 [php]
 public function primaryKey()
 {
-    return 'id';
-    // בעבור מפתחות מורכבים, יש להחזיר מערך בצורה הבאה
-    // return array('pk1', 'pk2');
+		return 'id';
+		// בעבור מפתחות מורכבים, יש להחזיר מערך בצורה הבאה
+		// return array('pk1', 'pk2');
 }
 ~~~
 
@@ -156,12 +156,12 @@ $post-»save();
 [php]
 class Post extends CActiveRecord
 {
-    public $title='אנא הזן כותרת';
-    ......
+		public $title='אנא הזן כותרת';
+		......
 }
 
 $post=new Post;
-echo $post-»title;  // זה יציג: אנא הזן כותרת
+echo $post-»title;	// זה יציג: אנא הזן כותרת
 ~~~
 
 החל מגרסא 1.0.2, ניתן להגדיר ערך של [CDbExpression] למאפיין כלשהו לפני שמירת הרשומה (בין אם זה יצירת רשומה חדשה או עדכון רשומה קיימת) במסד הנתונים. לדוגמא, בכדי לשמור את הזמן הנוכחי המוחזר באמצעות הפונקציה `()NOW` ב MySQL, אנו יכולים להשתמש בקוד הבא:
@@ -200,7 +200,7 @@ $post=Post::model()-»findBySql($sql,$params);
 
 מתודת ה `find` תחזיר null במידה ולא נמצא שום דבר במסד הנתונים התואם לתנאים שהועברו.
 
-בעת הקריאה ל `find`, אנו משתמשים ב `condition$` ו  `params$` כדי להגדיר את התנאים של השאילתה. כאן `condition$` יכול להוות סטרינג המייצג את הסעיף `WHERE` בשאילתת SQL, ו `params$` הינו מערך של פרמטרים שערכיהם צריכים להתחם במפתחות שהוגדרו מראש ב `condition$`. לדוגמא,
+בעת הקריאה ל `find`, אנו משתמשים ב `condition$` ו	`params$` כדי להגדיר את התנאים של השאילתה. כאן `condition$` יכול להוות סטרינג המייצג את הסעיף `WHERE` בשאילתת SQL, ו `params$` הינו מערך של פרמטרים שערכיהם צריכים להתחם במפתחות שהוגדרו מראש ב `condition$`. לדוגמא,
 
 ~~~
 [php]
@@ -215,7 +215,7 @@ $post=Post::model()-»find('postID=:postID', array(':postID'=»10));
 ~~~
 [php]
 $criteria=new CDbCriteria;
-$criteria-»select='title';  // בחר רק את העמודה 'title'
+$criteria-»select='title';	// בחר רק את העמודה 'title'
 $criteria-»condition='postID=:postID';
 $criteria-»params=array(':postID'=»10);
 $post=Post::model()-»find($criteria); // $params אינו נחוץ כאן
@@ -229,9 +229,9 @@ $post=Post::model()-»find($criteria); // $params אינו נחוץ כאן
 ~~~
 [php]
 $post=Post::model()-»find(array(
-    'select'=»'title',
-    'condition'=»'postID=:postID',
-    'params'=»array(':postID'=»10),
+		'select'=»'title',
+		'condition'=»'postID=:postID',
+		'params'=»array(':postID'=»10),
 ));
 ~~~
 
@@ -297,7 +297,7 @@ Post::model()-»updateCounters($counters,$condition,$params);
 מחיקת רשומה
 ---------------
 
-אנו יכולים למחוק רשומה במידה ואובייקט ה AR  נוצר על ידי קבלת המידע מהטבלה במסד הנתונים.
+אנו יכולים למחוק רשומה במידה ואובייקט ה AR	נוצר על ידי קבלת המידע מהטבלה במסד הנתונים.
 
 ~~~
 [php]
@@ -328,11 +328,11 @@ AR מבצע אימות נתונים אוטומטית בעת הקריאה ל [()s
 [php]
 if($post-»save())
 {
-    // נתונים אומתו והרשומה נוספה/עודכנה
+		// נתונים אומתו והרשומה נוספה/עודכנה
 }
 else
 {
-    // נתונים לא תקינים. יש לקרוא למתודה ה getErrors() לקבלת השגיאות שחזרו
+		// נתונים לא תקינים. יש לקרוא למתודה ה getErrors() לקבלת השגיאות שחזרו
 }
 ~~~
 
@@ -392,16 +392,16 @@ $model=Post::model();
 $transaction=$model-»dbConnection-»beginTransaction();
 try
 {
-    // שימוש ב find ו save הינם שני שלבים אשר ניתן להתערב בהם על ידי בקשות נוספות
-    // לכן אנו משתמשים בטרנזקציה כדי לוודא המשכיות
-    $post=$model-»findByPk(10);
-    $post-»title='כותרת חדשה';
-    $post-»save();
-    $transaction-»commit();
+		// שימוש ב find ו save הינם שני שלבים אשר ניתן להתערב בהם על ידי בקשות נוספות
+		// לכן אנו משתמשים בטרנזקציה כדי לוודא המשכיות
+		$post=$model-»findByPk(10);
+		$post-»title='כותרת חדשה';
+		$post-»save();
+		$transaction-»commit();
 }
 catch(Exception $e)
 {
-    $transaction-»rollBack();
+		$transaction-»rollBack();
 }
 ~~~
 
@@ -409,7 +409,7 @@ catch(Exception $e)
 מרחבים מוגדרים
 ------------
 
-» Note|הערה: תמיכה במרחבים מוגדרים נוספה מגרסאות 1.0.5 ומעלה. הרעיון המקורי של מרחבים מוגדרים הגיע מ  Ruby on Rails.
+» Note|הערה: תמיכה במרחבים מוגדרים נוספה מגרסאות 1.0.5 ומעלה. הרעיון המקורי של מרחבים מוגדרים הגיע מ	Ruby on Rails.
 
 *מרחב מוגדר* מייצג *שם* של תנאי בשאילתה שניתן לאחד אותה ביחד עם עוד מרחבים מוגדרים ולצרף לשאילתה של AR.
 
@@ -419,19 +419,19 @@ catch(Exception $e)
 [php]
 class Post extends CActiveRecord
 {
-    ......
-    public function scopes()
-    {
-        return array(
-            'published'=»array(
-                'condition'=»'status=1',
-            ),
-            'recently'=»array(
-                'order'=»'create_time DESC',
-                'limit'=»5,
-            ),
-        );
-    }
+		......
+		public function scopes()
+		{
+				return array(
+						'published'=»array(
+								'condition'=»'status=1',
+						),
+						'recently'=»array(
+								'order'=»'create_time DESC',
+								'limit'=»5,
+						),
+				);
+		}
 }
 ~~~
 
@@ -463,11 +463,11 @@ Post::model()-»published()-»recently()-»delete();
 [php]
 public function recently($limit=5)
 {
-    $this-»getDbCriteria()-»mergeWith(array(
-        'order'=»'create_time DESC',
-        'limit'=»$limit,
-    ));
-    return $this;
+		$this-»getDbCriteria()-»mergeWith(array(
+				'order'=»'create_time DESC',
+				'limit'=»$limit,
+		));
+		return $this;
 }
 ~~~
 
@@ -488,12 +488,12 @@ $posts=Post::model()-»published()-»recently(3)-»findAll();
 [php]
 class Content extends CActiveRecord
 {
-    public function defaultScope()
-    {
-        return array(
-            'condition'=»"language='".Yii::app()-»language."'",
-        );
-    }
+		public function defaultScope()
+		{
+				return array(
+						'condition'=»"language='".Yii::app()-»language."'",
+				);
+		}
 }
 ~~~
 

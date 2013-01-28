@@ -33,13 +33,13 @@ class CTreeView extends CWidget
 	 * <li>text: string, required, the HTML text associated with this node.</li>
 	 * <li>expanded: boolean, optional, whether the tree view node is expanded.</li>
 	 * <li>id: string, optional, the ID identifying the node. This is used
-	 *   in dynamic loading of tree view (see {@link url}).</li>
+	 *	 in dynamic loading of tree view (see {@link url}).</li>
 	 * <li>hasChildren: boolean, optional, defaults to false, whether clicking on this
-	 *   node should trigger dynamic loading of more tree view nodes from server.
-	 *   The {@link url} property must be set in order to make this effective.</li>
+	 *	 node should trigger dynamic loading of more tree view nodes from server.
+	 *	 The {@link url} property must be set in order to make this effective.</li>
 	 * <li>children: array, optional, child nodes of this node.</li>
 	 * <li>htmlOptions: array, additional HTML attributes (see {@link CHtml::tag}).
-	 *   This option has been available since version 1.1.7.</li>
+	 *	 This option has been available since version 1.1.7.</li>
 	 * </ul>
 	 * Note, anything enclosed between the beginWidget and endWidget calls will
 	 * also be treated as tree view content, which appends to the content generated

@@ -1,11 +1,11 @@
 Protokollierung (Logging)
 =========================
 
-Yii bietet eine flexibles und erweiterbares Logfeature. Zu loggende 
+Yii bietet eine flexibles und erweiterbares Logfeature. Zu loggende
 (also zu protokollierende) Meldungen können einer
 Logstufe (engl.: log level) und einer Kategorie zugeordnet werden. Mit diesen
 Logstufen und Kategoriefiltern können bestimmte Meldungen jeweils
-an verschiedene Ziele, wie z.B. Dateien, E-Mails, Browserfenster etc., 
+an verschiedene Ziele, wie z.B. Dateien, E-Mails, Browserfenster etc.,
 weitergeleitet werden
 
 Loggen von Meldungen
@@ -28,16 +28,16 @@ Beispiel in [CController] geloggt wird, könnte man die Kategorie
 `system.web.CController` verwenden. Die Logstufe sollte einem der folgenden
 Werte entpsrechen:
 
-   - `trace`: Diese Stufe wird von [Yii::trace] verwendet. Sie dient zum
+	 - `trace`: Diese Stufe wird von [Yii::trace] verwendet. Sie dient zum
 Nachverfolgen (engl.: trace) des Programmablaufs während der Entwicklungsphase.
 
-   - `info`: dient zum Loggen allgemeiner Informationen.
+	 - `info`: dient zum Loggen allgemeiner Informationen.
 
-   - `profile`: dient zur Performance-Analyse, siehe unten.
+	 - `profile`: dient zur Performance-Analyse, siehe unten.
 
-   - `warning`: dient für Warnhinweise.
+	 - `warning`: dient für Warnhinweise.
 
-   - `error`: dient für schwerwiegende Fehlermeldungen.
+	 - `error`: dient für schwerwiegende Fehlermeldungen.
 
 Routing von Logeinträgen
 ------------------------
@@ -98,12 +98,12 @@ E-Mail-Adresse verschickt. Nur Meldungen mit der Stufe `error` oder
 
 Die folgenden Logrouten stehen in Yii zur Verfügung:
 
-   - [CDbLogRoute]: speichert Logmeldungen in einer Datenbanktabelle.
-   - [CEmailLogRoute]: schickt Logmeldungen an die angegebenen E-Mail-Adressen.
-   - [CFileLogRoute]: speichert Logmeldungen in eine Datei im
+	 - [CDbLogRoute]: speichert Logmeldungen in einer Datenbanktabelle.
+	 - [CEmailLogRoute]: schickt Logmeldungen an die angegebenen E-Mail-Adressen.
+	 - [CFileLogRoute]: speichert Logmeldungen in eine Datei im
 Runtime-Verzeichnis der Anwendung.
-   - [CWebLogRoute]: zeigt Logmeldungen am Ende der aktuellen Webseite an.
-   - [CProfileLogRoute]: zeigt Logmeldungen zur Performance-Analyse am Ende der
+	 - [CWebLogRoute]: zeigt Logmeldungen am Ende der aktuellen Webseite an.
+	 - [CProfileLogRoute]: zeigt Logmeldungen zur Performance-Analyse am Ende der
 aktuellen Webseite an.
 
 > Info: Das Logrouting wird am Ende des aktuellen Request-Zyklus beim
@@ -125,13 +125,13 @@ setzt. Mehrere Stufen oder Kategorien sollten mit Kommas verbunden werden.
 Da Logkategorien im Format `xxx.yyy.zzz` vorliegen, können man sie wie
 eine Hierarchie von Kategorien behandeln. In diesem Fall könnte man sagen, `xxx`
 ist die Elternkategorie von `xxx.yyy`, welche wiederum die Elternkategorie von
-`xxx.yyy.zzz` bildet.  Man könnte daher `xxx.*` verwenden, um die Kategorie
+`xxx.yyy.zzz` bildet.	Man könnte daher `xxx.*` verwenden, um die Kategorie
 `xxx` und all ihre Kind- und Enkelkategorien darzustellen.
 
 Loggen von Kontextinformationen
 -------------------------------
 
-Auch zusätzliche Kontextinformationen, wie vordefinierte PHP-Variablen 
+Auch zusätzliche Kontextinformationen, wie vordefinierte PHP-Variablen
 (z.B. `$_GET`, `$_SERVER`), die Session-ID
 oder den Benutzernamen können mitgeloggt werden. Dies erreicht man, indem man
 [CLogRoute::filter] auf einen passenden Logfilter weisen lässt.
@@ -227,7 +227,7 @@ darstellen. Man könnte die Zeit für die Ausführung einer SQL-Anweisung zwar
 auch messen, indem man manuell `beginProfile`- und `endProfile`-Ausdrücke an
 die passenden Stellen setzt. Es geht aber auch einfacher.
 
-Wenn man [CDbConnection::enableProfiling] per Konfiguration auf true setzt, 
+Wenn man [CDbConnection::enableProfiling] per Konfiguration auf true setzt,
 wird jede SQL-Anweisung gemessen. Mit der erwähnten [CProfileLogRoute]
 können die Ergebnisse leicht aufgegliedert nach den einzelnen SQL-Anweisungen
 und den dafür benötigten Zeiten angezeigt werden. Durch Aufruf von

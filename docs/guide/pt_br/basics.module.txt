@@ -13,17 +13,17 @@ Um módulo é organizado como um diretório cujo nome serve como a sua [ID|CWebM
 
 ~~~
 forum/
-   ForumModule.php            o arquivo de classe do módulo
-   components/                contém os componentes reutilizáveis do usuário
-      views/                  contém os arquivos de visão para os widgets
-   controllers/               contém as classes dos controles
-      DefaultController.php   o arquivo de classe do controle padrão
-   extensions/                contém extensões de terceiros
-   models/                    contém os arquivos de classe dos modelos
-   views/                     contém as visões dos controles e os arquivos de layout
-      layouts/                contém os arquivos das visões de layout
-      default/                contém os arquivos das visões do controle padrão
-         index.php            o arquivo da visão "index"
+	 ForumModule.php						o arquivo de classe do módulo
+	 components/								contém os componentes reutilizáveis do usuário
+			views/									contém os arquivos de visão para os widgets
+	 controllers/							 contém as classes dos controles
+			DefaultController.php	 o arquivo de classe do controle padrão
+	 extensions/								contém extensões de terceiros
+	 models/										contém os arquivos de classe dos modelos
+	 views/										 contém as visões dos controles e os arquivos de layout
+			layouts/								contém os arquivos das visões de layout
+			default/								contém os arquivos das visões do controle padrão
+				 index.php						o arquivo da visão "index"
 ~~~
 
 Um módulo deve ter uma classe de módulo que estende de [CWebModule]. O nome da classe é determinado usando a expressão `ucfirst($id).'Module'`, onde `$id` refere-se à ID do módulo (ou ao nome do diretório do módulo). Esta classe de módulo serve como o local central para o armazenamento de informações compartilhadas pelo código do módulo. Por exemplo, nós podemos usar [CWebModule::params] para armazenar os parâmetros do módulo, e usar [CWebModule::components] para compartilhar os [componentes da aplicação](/doc/guide/basics.application#application-component) no nível do módulo.
@@ -52,9 +52,9 @@ Um módulo pode também ser configurado com valores iniciais para as suas propri
 return array(
 	......
 	'modules'=>array(
-	    'forum'=>array(
-	        'postPerPage'=>20,
-	    ),
+			'forum'=>array(
+					'postPerPage'=>20,
+			),
 	),
 	......
 );

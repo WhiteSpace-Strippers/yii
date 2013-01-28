@@ -5,7 +5,7 @@ require_once 'ModelMock.php';
 /**
  * CCompareValidatorTest
  *
- * @author   Kevin Bradwick <kbradwick@gmail.com>
+ * @author	 Kevin Bradwick <kbradwick@gmail.com>
  */
 class CCompareValidatorTest extends CTestCase
 {

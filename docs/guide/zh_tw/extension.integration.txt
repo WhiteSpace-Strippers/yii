@@ -15,7 +15,7 @@ Yii::import('application.vendors.*');
 require_once('Zend/Search/Lucene.php');
 ~~~
 
-上述程式碼包含類檔案 `Lucene.php`。因為我們使用的是相對路徑，我們需要改變 PHP 的包含路徑，以使檔案可以正確定位。這是通過在 `require_once` 之前調用 `Yii::import` 做到。 
+上述程式碼包含類檔案 `Lucene.php`。因為我們使用的是相對路徑，我們需要改變 PHP 的包含路徑，以使檔案可以正確定位。這是通過在 `require_once` 之前調用 `Yii::import` 做到。
 
 一旦上述設立準備就緒後，我們可以在控制器的動作裡裡使用 `Lucene` 類別，如下：
 

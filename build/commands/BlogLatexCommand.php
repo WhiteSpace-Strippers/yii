@@ -6,11 +6,11 @@ class BlogLatexCommand extends CConsoleCommand
 	{
 		return <<<EOD
 USAGE
-  yiic bloglatex
+	yiic bloglatex
 
 DESCRIPTION
-  This command generates latex files for the definitive guide.
-  The generated latex files are stored in the blog directory.
+	This command generates latex files for the definitive guide.
+	The generated latex files are stored in the blog directory.
 
 EOD;
 	}

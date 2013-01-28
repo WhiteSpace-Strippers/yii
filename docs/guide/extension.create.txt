@@ -5,19 +5,19 @@ Because an extension is meant to be used by third-party developers, it takes
 some additional efforts to create it. The followings are some general guidelines:
 
 * An extension should be self-contained. That is, its external dependency should
-  be minimal. It would be a headache for its users if an extension requires
-  installation of additional packages, classes or resource files.
+	be minimal. It would be a headache for its users if an extension requires
+	installation of additional packages, classes or resource files.
 * Files belonging to an extension should be organized under the same
-  directory whose name is the extension name
+	directory whose name is the extension name
 * Classes in an extension should be prefixed with some letter(s) to avoid
-  naming conflict with classes in other extensions.
+	naming conflict with classes in other extensions.
 * An extension should come with detailed installation and API documentation.
-  This would reduce the time and effort needed by other developers when they
-  use the extension.
+	This would reduce the time and effort needed by other developers when they
+	use the extension.
 * An extension should be using an appropriate license. If you want to make
-  your extension to be used by both open-source and closed-source projects,
-  you may consider using licenses such as BSD, MIT, etc., but not GPL as it
-  requires its derived code to be open-source as well.
+	your extension to be used by both open-source and closed-source projects,
+	you may consider using licenses such as BSD, MIT, etc., but not GPL as it
+	requires its derived code to be open-source as well.
 
 In the following, we describe how to create a new extension, according to
 its categorization as described in [overview](/doc/guide/extension.overview).

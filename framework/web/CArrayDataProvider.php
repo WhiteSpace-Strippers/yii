@@ -20,21 +20,21 @@
  * or associative arrays (e.g. query results of DAO).
  * Make sure to set the {@link keyField} property to the name of the field that uniquely
  * identifies a data record or false if you do not have such a field.
- * 
+ *
  * CArrayDataProvider may be used in the following way:
  * <pre>
  * $rawData=Yii::app()->db->createCommand('SELECT * FROM tbl_user')->queryAll();
  * // or using: $rawData=User::model()->findAll();
  * $dataProvider=new CArrayDataProvider($rawData, array(
- *     'id'=>'user',
- *     'sort'=>array(
- *         'attributes'=>array(
- *              'id', 'username', 'email',
- *         ),
- *     ),
- *     'pagination'=>array(
- *         'pageSize'=>10,
- *     ),
+ *		 'id'=>'user',
+ *		 'sort'=>array(
+ *				 'attributes'=>array(
+ *							'id', 'username', 'email',
+ *				 ),
+ *		 ),
+ *		 'pagination'=>array(
+ *				 'pageSize'=>10,
+ *		 ),
  * ));
  * // $dataProvider->getData() will return a list of arrays.
  * </pre>

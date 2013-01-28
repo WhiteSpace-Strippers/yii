@@ -1,7 +1,7 @@
 Tạo Ứng Dụng Yii Đầu Tiên
 =========================
 
-Để có những kinh nghiệm đầu tiên về Yii,  trong phần này, chúng tôi hướng dẫn
+Để có những kinh nghiệm đầu tiên về Yii,	trong phần này, chúng tôi hướng dẫn
 bạn cách tạo ứng dụng Yii đầu tiên của bạn. Chúng tôi sẽ sử dụng một công cụ đắc
 lực `yiic` để tự động tạo ra những đoạn mã cho yêu cầu này. Để cho tiện, chúng
 tôi giả xử rằng `YiiRoot` là thư mục mà Yii được cài đặt, và `WebRoot` là thư
@@ -56,50 +56,50 @@ thể cấu trúc thư mục này.
 
 ~~~
 testdrive/
-   index.php                 file script truy cập đến ứng dụng web
-   index-test.php            file script truy cập các chức năng kiểm định
-   assets/                   chứa các file nguồn được publish
-   css/                      chứa các file CSS
-   images/                   chứa các file hình ảnh
-   themes/                   chứa các theme của ứng dụng
-   protected/                chứa các file bảo vệ của ứng dụng
-      yiic                   yiic command line script cho Unix/Linux
-      yiic.bat               yiic command line script cho Windows
-      yiic.php               yiic command line PHP script
-      commands/              chứa các lệnh 'yiic' được thiết lập
-         shell/              chứa các lệnh 'yiic shell' được thiết lập
-      components/            chứa các component có thể sử dụng lại
-         Controller.php      lớp cơ bản cho các controller
-         Identity.php        lớp 'Identity' dùng cho việc xác thực
-      config/                chứa các file cấu hình
-         console.php         the console application configuration
-         main.php            the Web application configuration
-         test.php            the configuration for the functional tests
-      controllers/           containing controller class files
-         SiteController.php  the default controller class
-      data/                  containing the sample database
-         schema.mysql.sql    the DB schema for the sample MySQL database
-         schema.sqlite.sql   the DB schema for the sample SQLite database
-         testdrive.db        the sample SQLite database file
-      extensions/            containing third-party extensions
-      messages/              containing translated messages
-      models/                containing model class files
-         LoginForm.php       the form model for 'login' action
-         ContactForm.php     the form model for 'contact' action
-      runtime/               containing temporarily generated files
-      tests/                 containing test scripts
-      views/                 containing controller view and layout files
-         layouts/            containing layout view files
-            main.php         the base layout shared by all pages
-            column1.php      the layout for pages using a single column
-            column2.php      the layout for pages using two columns
-         site/               containing view files for the 'site' controller
-         	pages/           containing "static" pages
-         	   about.php    the view for the "about" page
-            contact.php      the view for 'contact' action
-            error.php        the view for 'error' action (displaying external errors)
-            index.php        the view for 'index' action
-            login.php        the view for 'login' action
+	 index.php								 file script truy cập đến ứng dụng web
+	 index-test.php						file script truy cập các chức năng kiểm định
+	 assets/									 chứa các file nguồn được publish
+	 css/											chứa các file CSS
+	 images/									 chứa các file hình ảnh
+	 themes/									 chứa các theme của ứng dụng
+	 protected/								chứa các file bảo vệ của ứng dụng
+			yiic									 yiic command line script cho Unix/Linux
+			yiic.bat							 yiic command line script cho Windows
+			yiic.php							 yiic command line PHP script
+			commands/							chứa các lệnh 'yiic' được thiết lập
+				 shell/							chứa các lệnh 'yiic shell' được thiết lập
+			components/						chứa các component có thể sử dụng lại
+				 Controller.php			lớp cơ bản cho các controller
+				 Identity.php				lớp 'Identity' dùng cho việc xác thực
+			config/								chứa các file cấu hình
+				 console.php				 the console application configuration
+				 main.php						the Web application configuration
+				 test.php						the configuration for the functional tests
+			controllers/					 containing controller class files
+				 SiteController.php	the default controller class
+			data/									containing the sample database
+				 schema.mysql.sql		the DB schema for the sample MySQL database
+				 schema.sqlite.sql	 the DB schema for the sample SQLite database
+				 testdrive.db				the sample SQLite database file
+			extensions/						containing third-party extensions
+			messages/							containing translated messages
+			models/								containing model class files
+				 LoginForm.php			 the form model for 'login' action
+				 ContactForm.php		 the form model for 'contact' action
+			runtime/							 containing temporarily generated files
+			tests/								 containing test scripts
+			views/								 containing controller view and layout files
+				 layouts/						containing layout view files
+						main.php				 the base layout shared by all pages
+						column1.php			the layout for pages using a single column
+						column2.php			the layout for pages using two columns
+				 site/							 containing view files for the 'site' controller
+				 	pages/					 containing "static" pages
+				 		 about.php		the view for the "about" page
+						contact.php			the view for 'contact' action
+						error.php				the view for 'error' action (displaying external errors)
+						index.php				the view for 'index' action
+						login.php				the view for 'login' action
 ~~~
 
 Kết nối cơ sở dữ liệu
@@ -164,28 +164,28 @@ Open a command line window, and execute the commands listed as follows,
 Yii Interactive Tool v1.1
 Please type 'help' for help. Type 'exit' to quit.
 >> model User tbl_user
-   generate models/User.php
-   generate fixtures/tbl_user.php
-   generate unit/UserTest.php
+	 generate models/User.php
+	 generate fixtures/tbl_user.php
+	 generate unit/UserTest.php
 
 The following model classes are successfully generated:
-    User
+		User
 
 If you have a 'db' database connection, you can test these models now with:
-    $model=User::model()->find();
-    print_r($model);
+		$model=User::model()->find();
+		print_r($model);
 
 >> crud User
-   generate UserController.php
-   generate UserTest.php
-   mkdir D:/testdrive/protected/views/user
-   generate create.php
-   generate update.php
-   generate index.php
-   generate view.php
-   generate admin.php
-   generate _form.php
-   generate _view.php
+	 generate UserController.php
+	 generate UserTest.php
+	 mkdir D:/testdrive/protected/views/user
+	 generate create.php
+	 generate update.php
+	 generate index.php
+	 generate view.php
+	 generate admin.php
+	 generate _form.php
+	 generate _view.php
 
 Crud 'user' has been successfully created. You may access it via:
 http://hostname/path/to/index.php?r=user

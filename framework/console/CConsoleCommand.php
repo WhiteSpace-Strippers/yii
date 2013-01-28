@@ -28,9 +28,9 @@
  * action method will allow us to run a command with <code>yiic sitemap --type=News</code>:
  * <pre>
  * class SitemapCommand {
- *     public function actionIndex($type) {
- *         ....
- *     }
+ *		 public function actionIndex($type) {
+ *				 ....
+ *		 }
  * }
  * </pre>
  *
@@ -86,9 +86,9 @@ abstract class CConsoleCommand extends CComponent
 	 * the behavior class or an array of the following structure:
 	 * <pre>
 	 * 'behaviorName'=>array(
-	 *     'class'=>'path.to.BehaviorClass',
-	 *     'property1'=>'value1',
-	 *     'property2'=>'value2',
+	 *		 'class'=>'path.to.BehaviorClass',
+	 *		 'property1'=>'value1',
+	 *		 'property2'=>'value2',
 	 * )
 	 * </pre>
 	 *
@@ -224,7 +224,7 @@ abstract class CConsoleCommand extends CComponent
 		$params=array();	// unnamed parameters
 		foreach($args as $arg)
 		{
-			if(preg_match('/^--(\w+)(=(.*))?$/',$arg,$matches))  // an option
+			if(preg_match('/^--(\w+)(=(.*))?$/',$arg,$matches))	// an option
 			{
 				$name=$matches[1];
 				$value=isset($matches[3]) ? $matches[3] : true;
@@ -279,7 +279,7 @@ abstract class CConsoleCommand extends CComponent
 			return $help.' '.$options[0];
 		$help.=" <action>\nActions:\n";
 		foreach($options as $option)
-			$help.='    '.$option."\n";
+			$help.='		'.$option."\n";
 		return $help;
 	}
 
@@ -295,14 +295,14 @@ abstract class CConsoleCommand extends CComponent
 	{
 		$options=array();
 		$class=new ReflectionClass(get_class($this));
-        foreach($class->getMethods(ReflectionMethod::IS_PUBLIC) as $method)
-        {
-        	$name=$method->getName();
-        	if(!strncasecmp($name,'action',6) && strlen($name)>6)
-        	{
-        		$name=substr($name,6);
-        		$name[0]=strtolower($name[0]);
-        		$help=$name;
+				foreach($class->getMethods(ReflectionMethod::IS_PUBLIC) as $method)
+				{
+					$name=$method->getName();
+					if(!strncasecmp($name,'action',6) && strlen($name)>6)
+					{
+						$name=substr($name,6);
+						$name[0]=strtolower($name[0]);
+						$help=$name;
 
 				foreach($method->getParameters() as $param)
 				{
@@ -322,9 +322,9 @@ abstract class CConsoleCommand extends CComponent
 						$help.=" --$name=value";
 				}
 				$options[]=$help;
-        	}
-        }
-        return $options;
+					}
+				}
+				return $options;
 	}
 
 	/**
@@ -347,12 +347,12 @@ abstract class CConsoleCommand extends CComponent
 	 * <li>source: required, the full path of the file/directory to be copied from</li>
 	 * <li>target: required, the full path of the file/directory to be copied to</li>
 	 * <li>callback: optional, the callback to be invoked when copying a file. The callback function
-	 *   should be declared as follows:
-	 *   <pre>
-	 *   function foo($source,$params)
-	 *   </pre>
-	 *   where $source parameter is the source file path, and the content returned
-	 *   by the function will be saved into the target file.</li>
+	 *	 should be declared as follows:
+	 *	 <pre>
+	 *	 function foo($source,$params)
+	 *	 </pre>
+	 *	 where $source parameter is the source file path, and the content returned
+	 *	 by the function will be saved into the target file.</li>
 	 * <li>params: optional, the parameters to be passed to the callback</li>
 	 * </ul>
 	 * @see buildFileList
@@ -381,28 +381,28 @@ abstract class CConsoleCommand extends CComponent
 			{
 				if($content===file_get_contents($target))
 				{
-					echo "  unchanged $name\n";
+					echo "	unchanged $name\n";
 					continue;
 				}
 				if($overwriteAll)
-					echo "  overwrite $name\n";
+					echo "	overwrite $name\n";
 				else
 				{
-					echo "      exist $name\n";
-					echo "            ...overwrite? [Yes|No|All|Quit] ";
+					echo "			exist $name\n";
+					echo "						...overwrite? [Yes|No|All|Quit] ";
 					$answer=trim(fgets(STDIN));
 					if(!strncasecmp($answer,'q',1))
 						return;
 					elseif(!strncasecmp($answer,'y',1))
-						echo "  overwrite $name\n";
+						echo "	overwrite $name\n";
 					elseif(!strncasecmp($answer,'a',1))
 					{
-						echo "  overwrite $name\n";
+						echo "	overwrite $name\n";
 						$overwriteAll=true;
 					}
 					else
 					{
-						echo "       skip $name\n";
+						echo "			 skip $name\n";
 						continue;
 					}
 				}
@@ -410,7 +410,7 @@ abstract class CConsoleCommand extends CComponent
 			else
 			{
 				$this->ensureDirectory(dirname($target));
-				echo "   generate $name\n";
+				echo "	 generate $name\n";
 			}
 			file_put_contents($target,$content);
 		}
@@ -459,7 +459,7 @@ abstract class CConsoleCommand extends CComponent
 		if(!is_dir($directory))
 		{
 			$this->ensureDirectory(dirname($directory));
-			echo "      mkdir ".strtr($directory,'\\','/')."\n";
+			echo "			mkdir ".strtr($directory,'\\','/')."\n";
 			mkdir($directory);
 		}
 	}

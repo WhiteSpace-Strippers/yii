@@ -3,8 +3,8 @@ Instalasi
 
 Instalasi Yii mencakup dua langkah berikut:
 
-   1. Download Yii Framework dari [yiiframework.com](http://www.yiiframework.com/).
-   2. Keluarkan(unpack) file rilis Yii ke direktori yang dapat diakses Web.
+	 1. Download Yii Framework dari [yiiframework.com](http://www.yiiframework.com/).
+	 2. Keluarkan(unpack) file rilis Yii ke direktori yang dapat diakses Web.
 
 > Tip: Yii tidak harus diinstalasi di bawah direktori yang bisa diakses Web.
 Aplikasi Yii memiliki satu skrip entri yang biasanya merupakan satu-satunya file yang

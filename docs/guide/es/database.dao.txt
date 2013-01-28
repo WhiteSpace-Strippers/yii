@@ -14,10 +14,10 @@ base de datos (ej.: PDO_MYSQL).
 
 El DAO de Yii principalmente consiste de las siguientes cuatro clases:
 
-   - [CDbConnection]: representa una conexión a una base de datos.
-   - [CDbCommand]: representa una sentencia SQL a jecutar en la base de datos.
-   - [CDbDataReader]: representa un flujo (solo de avance) de filas del resultado de una consulta.
-   - [CDbTransaction]: representa una transacción de base de datos.
+	 - [CDbConnection]: representa una conexión a una base de datos.
+	 - [CDbCommand]: representa una sentencia SQL a jecutar en la base de datos.
+	 - [CDbDataReader]: representa un flujo (solo de avance) de filas del resultado de una consulta.
+	 - [CDbTransaction]: representa una transacción de base de datos.
 
 A continuación, mencionaremos el uso del DAO Yii en diferentes escenarios.
 
@@ -37,7 +37,7 @@ $connection=new CDbConnection($dsn,$username,$password);
 // establish connection. You may try...catch possible exceptions
 $connection->active=true;
 ......
-$connection->active=false;  // close connection
+$connection->active=false;	// close connection
 ~~~
 
 La forma del DNS depende del driver PDO de la base de datos en uso. En general,
@@ -46,9 +46,9 @@ por la sintaxis específica del driver. Mira la [Documentación PDO](http://www.
 para una información completa. A continuación, una lista de los formatos DNS
 más comunmente utilizados:
 
-   - SQLite: `sqlite:/path/to/dbfile`
-   - MySQL: `mysql:host=localhost;dbname=testdb`
-   - PostgreSQL: `pgsql:host=localhost;port=5432;dbname=testdb`
+	 - SQLite: `sqlite:/path/to/dbfile`
+	 - MySQL: `mysql:host=localhost;dbname=testdb`
+	 - PostgreSQL: `pgsql:host=localhost;port=5432;dbname=testdb`
 
 Puesto que [CDbConnetion] extiende de [CApplicationComponent], podemos también
 usarla como un [Componente de Aplicación](/doc/guide/basics.application#application-component).
@@ -95,10 +95,10 @@ $command=$connection->createCommand($sql);
 Una sentencia SQL es ejecutada a través de [CDbCommand] en una de las
 siguientes dos maneras:
 
-   - [execute()|CDbCommand::execute]: ejecuta una sentencia SQL que no es
+	 - [execute()|CDbCommand::execute]: ejecuta una sentencia SQL que no es
 consulta, como `INSERT`, `UPDATE` y `DELETE`. Si es exitosa, devuelve el
 numero de filas afectadas por la ejecución.
-   - [query()|CDbCommand::query]: ejecuta una sentencia SQL que devuelve
+	 - [query()|CDbCommand::query]: ejecuta una sentencia SQL que devuelve
 filas de datos, como `SELECT`. Si es exitosa, develve una instancia de
 [CDbDataReader], a partid de la cual se recorrer el resultado de las filas
 de datos. Por conveniencia, están implementados un conjunto de métodos
@@ -109,12 +109,12 @@ sentencia SQL.
 
 ~~~
 [php]
-$rowCount=$command->execute();   // ejecuta una sentencia SQL sin resultados
-$dataReader=$command->query();   // ejecuta una consulta SQL
-$rows=$command->queryAll();      // consulta y devuelve todas las filas de resultado
-$row=$command->queryRow();       // consulta y devuelve la primera fila de resultado
+$rowCount=$command->execute();	 // ejecuta una sentencia SQL sin resultados
+$dataReader=$command->query();	 // ejecuta una consulta SQL
+$rows=$command->queryAll();			// consulta y devuelve todas las filas de resultado
+$row=$command->queryRow();			 // consulta y devuelve la primera fila de resultado
 $column=$command->queryColumn(); // consulta y devuelve la primera columna de resultado
-$value=$command->queryScalar();  // consulta y devuelve el primer campo en la primer fila
+$value=$command->queryScalar();	// consulta y devuelve el primer campo en la primer fila
 ~~~
 
 Obteniendo Resultados de la Consulta
@@ -150,10 +150,10 @@ la base de datos no se quede sólo con algunas de las consultas llevadas a
 cabo. Para evitar esto, puede ser iniciada una transacción, representada
 en Yii como una instancia de [CDbTransaction]:
 
-   - Comenzar la transacción.
-   - Ejecutar consultas una a una. Ninguna actualización a la base de datos es visible al mundo exterior.
-   - Consignar la transacción. Las actualizaciones se vuelven visibles si la transacción es exitosa.
-   - Si una de las consultas falla, la transacción entera se deshace.
+	 - Comenzar la transacción.
+	 - Ejecutar consultas una a una. Ninguna actualización a la base de datos es visible al mundo exterior.
+	 - Consignar la transacción. Las actualizaciones se vuelven visibles si la transacción es exitosa.
+	 - Si una de las consultas falla, la transacción entera se deshace.
 
 El anterior flujo de trabajo puede ser implementado usando el siguiente código:
 
@@ -202,7 +202,7 @@ $command->execute();
 
 Los métodos [bindParam()|CDbCommand::bindParam] y [bindValue()|CDbCommand::bindValue]
 son muy similares. La única diferencia es que el primero vincula un parámetro con una
-variable PHP mientras que el último con un valor. Para parámetros  que representan
+variable PHP mientras que el último con un valor. Para parámetros	que representan
 grandes bloques de memoria de datos, es preferible el primero por consideraciones de
 rendimiento.
 
@@ -226,8 +226,8 @@ $dataReader->bindColumn(1,$username);
 $dataReader->bindColumn(2,$email);
 while($dataReader->read()!==false)
 {
-    // $username e $email contienen el nombre de usuaario y el email de la fila actual
+		// $username e $email contienen el nombre de usuaario y el email de la fila actual
 }
 ~~~
 
-<div class="revision">$Id: database.dao.txt 368 2009-03-06 14:10:00Z freakpol $</div> 
+<div class="revision">$Id: database.dao.txt 368 2009-03-06 14:10:00Z freakpol $</div>

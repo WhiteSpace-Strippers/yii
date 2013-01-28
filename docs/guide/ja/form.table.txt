@@ -25,7 +25,7 @@ public function actionBatchUpdate()
 				$item->attributes=$_POST['Item'][$i];
 			$valid=$item->validate() && $valid;
 		}
-		if($valid)  // 全てのアイテムが検証を通ったら
+		if($valid)	// 全てのアイテムが検証を通ったら
 			// 何かをする …
 	}
 	// 表形式入力を収集するためのビューを表示

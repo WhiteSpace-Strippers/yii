@@ -22,8 +22,8 @@
  * <pre>
  * if($this->beginCache('cacheName',array('property1'=>'value1',...))
  * {
- *     // ... display the content to be cached here
- *    $this->endCache();
+ *		 // ... display the content to be cached here
+ *		$this->endCache();
  * }
  * </pre>
  *
@@ -47,15 +47,15 @@
  * some parameters. COutputCache supports four kinds of variations:
  * <ul>
  * <li>{@link varyByRoute}: this specifies whether the cached content
- *   should be varied with the requested route (controller and action)</li>
+ *	 should be varied with the requested route (controller and action)</li>
  * <li>{@link varyByParam}: this specifies a list of GET parameter names
- *   and uses the corresponding values to determine the version of the cached content.</li>
+ *	 and uses the corresponding values to determine the version of the cached content.</li>
  * <li>{@link varyBySession}: this specifies whether the cached content
- *   should be varied with the user session.</li>
+ *	 should be varied with the user session.</li>
  * <li>{@link varyByExpression}: this specifies whether the cached content
- *   should be varied with the result of the specified PHP expression.</li>
+ *	 should be varied with the result of the specified PHP expression.</li>
  * <li>{@link varyByLanguage}: this specifies whether the cached content
- *   should by varied with the user's language. Available since 1.1.14.</li>
+ *	 should by varied with the user's language. Available since 1.1.14.</li>
  * </ul>
  * For more advanced variation, override {@link getBaseCacheKey()} method.
  *
@@ -133,8 +133,8 @@ class COutputCache extends CFilterWidget
 	 * specifying the configuration of the dependency object. For example,
 	 * <pre>
 	 * array(
-	 *     'class'=>'CDbCacheDependency',
-	 *     'sql'=>'SELECT MAX(lastModified) FROM Post',
+	 *		 'class'=>'CDbCacheDependency',
+	 *		 'sql'=>'SELECT MAX(lastModified) FROM Post',
 	 * )
 	 * </pre>
 	 * would make the output cache depends on the last modified time of all posts.

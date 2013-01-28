@@ -7,8 +7,8 @@
 模型是儲存使用者輸入和驗證這些輸入的中心位置。
 
 取決於使用使用者所輸入資料的方式，我們可以建立兩種類型的模型。
-如果使用者輸入被收集、使用然後丟棄，我們應該建立一個  [表單模型](/doc/guide/basics.model);
-如果使用者的輸入被收集後要儲存到資料庫，我們應使用一個 
+如果使用者輸入被收集、使用然後丟棄，我們應該建立一個	[表單模型](/doc/guide/basics.model);
+如果使用者的輸入被收集後要儲存到資料庫，我們應使用一個
 [Active Record](/doc/guide/database.ar) 。
 兩種類別型的模型共享同樣的基礎類別 [CModel] ，它定義了表單所需的通用接口。
 
@@ -89,7 +89,7 @@ array('AttributeList', 'Validator', 'on'=>'ScenarioList', ...附加選項)
 `Validator（驗證器）` 指定要執行驗證的種類別；`on` 參數是可選的，它指定此規則應被應用程式到的場景列表；
 附加選項是一個名值對陣列，用於初始化相應驗證器的特性值。
 
-有三種方式可在驗證規則中指定  `Validator` 。第一，
+有三種方式可在驗證規則中指定	`Validator` 。第一，
 `Validator` 可以是模型類別中一個方法的名字，就像上面示例中的
 `authenticate` 。驗證方法必須是下面的架構：
 
@@ -110,38 +110,38 @@ public function ValidatorName($attribute,$params) { ... }
 `required` 名字是 [CRequiredValidator] 的別名，它用於確保所驗證的屬性值不為空。
 下面是預定義的驗證器別名的完整列表：
 
-   - `boolean`: [CBooleanValidator] 的別名， 確保屬性有一個 [CBooleanValidator::trueValue] 或
+	 - `boolean`: [CBooleanValidator] 的別名， 確保屬性有一個 [CBooleanValidator::trueValue] 或
 [CBooleanValidator::falseValue] 值。
 
-   - `captcha`: [CCaptchaValidator] 的別名，確保屬性值等於 [CAPTCHA](http://en.wikipedia.org/wiki/Captcha) 中顯示的驗證碼。
+	 - `captcha`: [CCaptchaValidator] 的別名，確保屬性值等於 [CAPTCHA](http://en.wikipedia.org/wiki/Captcha) 中顯示的驗證碼。
 
-   - `compare`: [CCompareValidator] 的別名，確保屬性等於另一個屬性或常量。
-   
-   - `email`: [CEmailValidator] 的別名，確保屬性是一個有效的 Email 位址。
+	 - `compare`: [CCompareValidator] 的別名，確保屬性等於另一個屬性或常量。
 
-   - `default`: [CDefaultValueValidator] 的別名，指定屬性的預設值。
+	 - `email`: [CEmailValidator] 的別名，確保屬性是一個有效的 Email 位址。
 
-   - `exist`: [CExistValidator] 的別名，確保屬性值可以在指定表的列中可以找到。
+	 - `default`: [CDefaultValueValidator] 的別名，指定屬性的預設值。
 
-   - `file`: [CFileValidator] 的別名，確保屬性含有一個上傳文件的名字。
+	 - `exist`: [CExistValidator] 的別名，確保屬性值可以在指定表的列中可以找到。
 
-   - `filter`: [CFilterValidator] 的別名，通過一個篩選器改變此屬性。
+	 - `file`: [CFileValidator] 的別名，確保屬性含有一個上傳文件的名字。
 
-   - `in`: [CRangeValidator] 的別名，確保資料在一個預先指定的值的範圍之內。
+	 - `filter`: [CFilterValidator] 的別名，通過一個篩選器改變此屬性。
 
-   - `length`: [CStringValidator] 的別名，確保資料的長度在一個指定的範圍之內。
+	 - `in`: [CRangeValidator] 的別名，確保資料在一個預先指定的值的範圍之內。
 
-   - `match`: [CRegularExpressionValidator] 的別名，確保資料可以匹配一個正則表達式。
+	 - `length`: [CStringValidator] 的別名，確保資料的長度在一個指定的範圍之內。
 
-   - `numerical`: [CNumberValidator] 的別名，確保資料是一個有效的數字。
+	 - `match`: [CRegularExpressionValidator] 的別名，確保資料可以匹配一個正則表達式。
 
-   - `required`: [CRequiredValidator] 的別名，確保屬性不為空。
+	 - `numerical`: [CNumberValidator] 的別名，確保資料是一個有效的數字。
 
-   - `type`: [CTypeValidator] 的別名，確保屬性是指定的資料類型。
+	 - `required`: [CRequiredValidator] 的別名，確保屬性不為空。
 
-   - `unique`: [CUniqueValidator] 的別名，確保資料在資料表的列中是唯一的。
+	 - `type`: [CTypeValidator] 的別名，確保屬性是指定的資料類型。
 
-   - `url`: [CUrlValidator] 的別名，確保資料是一個有效的 URL。
+	 - `unique`: [CUniqueValidator] 的別名，確保資料在資料表的列中是唯一的。
+
+	 - `url`: [CUrlValidator] 的別名，確保資料是一個有效的 URL。
 
 下面我們列出了幾個只用這些預定義驗證器的示例：
 
@@ -171,7 +171,7 @@ if(isset($_POST['LoginForm']))
 	$model->attributes=$_POST['LoginForm'];
 ~~~
 
-最後的表達式被稱作 *大量賦值（massive assignment）* ，它將  `$_POST['LoginForm']`
+最後的表達式被稱作 *大量賦值（massive assignment）* ，它將	`$_POST['LoginForm']`
 中的每一項複製到相應的模型屬性中。這相當於如下賦值方法：
 
 ~~~
@@ -232,7 +232,7 @@ if(isset($_POST['User']))
 array('content', 'safe')
 ~~~
 
-為了完成起見，還有一個用於聲明一個特性為不安全的  `unsafe` 規則：
+為了完成起見，還有一個用於聲明一個特性為不安全的	`unsafe` 規則：
 
 ~~~
 [php]
@@ -247,19 +247,19 @@ array('permission', 'unsafe')
 
 一旦模型被使用者提交的資料填入，我們就可以調用 [CModel::validate()]
 觸發資料驗證進程。此方法返回一個指示驗證是否成功的值。
-對 [CActiveRecord] 模型來說，驗證也可以在我們調用其  [CActiveRecord::save()]
+對 [CActiveRecord] 模型來說，驗證也可以在我們調用其	[CActiveRecord::save()]
 方法時自動觸發。
 
 我們可以使用 [scenario|CModel::scenario] 設置場景特性，這樣，相應場景的驗證規則就會被應用。
 
 驗證是基於場景執行的。 [scenario|CModel::scenario] 特性指定了模型當前用於的場景和當前使用的驗證規則集。
 例如，在 `login` 場景中，我們只想驗證使用者模型中的 `username` 和 `password` 輸入；
-而在 `register` 場景中，我們需要驗證更多的輸入，例如  `email`, `address`, 等。
+而在 `register` 場景中，我們需要驗證更多的輸入，例如	`email`, `address`, 等。
 下面的例子展示了如何在 `register` 場景中執行驗證：
 
 ~~~
 [php]
-// 在註冊場景中建立一個  User 模型。等於：
+// 在註冊場景中建立一個	User 模型。等於：
 // $model=new User;
 // $model->scenario='register';
 $model=new User('register');
@@ -268,10 +268,10 @@ $model=new User('register');
 $model->attributes=$_POST['User'];
 
 // 執行驗證
-if($model->validate())   // if the inputs are valid
-    ...
+if($model->validate())	 // if the inputs are valid
+		...
 else
-    ...
+		...
 ~~~
 
 規則關聯的場景可以通過規則中的 `on` 選項指定。如果 `on` 選項未設置，則此規則會應用程式於所有場景。例如：

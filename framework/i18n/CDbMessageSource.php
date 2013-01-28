@@ -15,18 +15,18 @@
  * <pre>
  * CREATE TABLE SourceMessage
  * (
- *     id INTEGER PRIMARY KEY,
- *     category VARCHAR(32),
- *     message TEXT
+ *		 id INTEGER PRIMARY KEY,
+ *		 category VARCHAR(32),
+ *		 message TEXT
  * );
  * CREATE TABLE Message
  * (
- *     id INTEGER,
- *     language VARCHAR(16),
- *     translation TEXT,
- *     PRIMARY KEY (id, language),
- *     CONSTRAINT FK_Message_SourceMessage FOREIGN KEY (id)
- *          REFERENCES SourceMessage (id) ON DELETE CASCADE ON UPDATE RESTRICT
+ *		 id INTEGER,
+ *		 language VARCHAR(16),
+ *		 translation TEXT,
+ *		 PRIMARY KEY (id, language),
+ *		 CONSTRAINT FK_Message_SourceMessage FOREIGN KEY (id)
+ *					REFERENCES SourceMessage (id) ON DELETE CASCADE ON UPDATE RESTRICT
  * );
  * </pre>
  * The 'SourceMessage' table stores the messages to be translated, and the 'Message' table

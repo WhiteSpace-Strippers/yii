@@ -66,26 +66,26 @@ public function actionLogin()
 return array(
 	'title'=>'Пожалуйста, представьтесь',
 
-    'elements'=>array(
-        'username'=>array(
-            'type'=>'text',
-            'maxlength'=>32,
-        ),
-        'password'=>array(
-            'type'=>'password',
-            'maxlength'=>32,
-        ),
-        'rememberMe'=>array(
-            'type'=>'checkbox',
-        )
-    ),
+		'elements'=>array(
+				'username'=>array(
+						'type'=>'text',
+						'maxlength'=>32,
+				),
+				'password'=>array(
+						'type'=>'password',
+						'maxlength'=>32,
+				),
+				'rememberMe'=>array(
+						'type'=>'checkbox',
+				)
+		),
 
-    'buttons'=>array(
-        'login'=>array(
-            'type'=>'submit',
-            'label'=>'Вход',
-        ),
-    ),
+		'buttons'=>array(
+				'login'=>array(
+						'type'=>'submit',
+						'label'=>'Вход',
+				),
+		),
 );
 ~~~
 
@@ -133,8 +133,8 @@ return array(
 ~~~
 [php]
 'username'=>array(
-    'type'=>'text',
-    'maxlength'=>32,
+		'type'=>'text',
+		'maxlength'=>32,
 ),
 ~~~
 
@@ -174,9 +174,9 @@ input.
 ~~~
 [php]
 'gender'=>array(
-    'type'=>'dropdownlist',
-    'items'=>User::model()->getGenderOptions(),
-    'prompt'=>'Выберите значение:',
+		'type'=>'dropdownlist',
+		'items'=>User::model()->getGenderOptions(),
+		'prompt'=>'Выберите значение:',
 ),
 
 …
@@ -214,19 +214,19 @@ HTML разметка. К примеру, горизонтальный разд�
 ~~~
 [php]
 return array(
-    'elements'=>array(
+		'elements'=>array(
 		......
-        'password'=>array(
-            'type'=>'password',
-            'maxlength'=>32,
-        ),
+				'password'=>array(
+						'type'=>'password',
+						'maxlength'=>32,
+				),
 
-        '<hr />',
+				'<hr />',
 
-        'rememberMe'=>array(
-            'type'=>'checkbox',
-        )
-    ),
+				'rememberMe'=>array(
+						'type'=>'checkbox',
+				)
+		),
 	......
 );
 ~~~
@@ -256,30 +256,30 @@ return array(
 ~~~
 [php]
 return array(
-    'elements'=>array(
+		'elements'=>array(
 		......
-        'user'=>array(
-            'type'=>'form',
-            'title'=>'Данные для входа',
-            'elements'=>array(
-            	'username'=>array(
-            		'type'=>'text',
-            	),
-            	'password'=>array(
-            		'type'=>'password',
-            	),
-            	'email'=>array(
-            		'type'=>'text',
-            	),
-            ),
-        ),
+				'user'=>array(
+						'type'=>'form',
+						'title'=>'Данные для входа',
+						'elements'=>array(
+							'username'=>array(
+								'type'=>'text',
+							),
+							'password'=>array(
+								'type'=>'password',
+							),
+							'email'=>array(
+								'type'=>'text',
+							),
+						),
+				),
 
-        'profile'=>array(
-        	'type'=>'form',
-        	......
-        ),
-        ......
-    ),
+				'profile'=>array(
+					'type'=>'form',
+					......
+				),
+				......
+		),
 	......
 );
 ~~~
@@ -369,43 +369,43 @@ public function actionRegister()
 ~~~
 [php]
 return array(
-    'elements'=>array(
-        'user'=>array(
-            'type'=>'form',
-            'title'=>'Данные для входа',
-            'elements'=>array(
-                'username'=>array(
-                    'type'=>'text',
-                ),
-                'password'=>array(
-                    'type'=>'password',
-                ),
-                'email'=>array(
-                    'type'=>'text',
-                )
-            ),
-        ),
+		'elements'=>array(
+				'user'=>array(
+						'type'=>'form',
+						'title'=>'Данные для входа',
+						'elements'=>array(
+								'username'=>array(
+										'type'=>'text',
+								),
+								'password'=>array(
+										'type'=>'password',
+								),
+								'email'=>array(
+										'type'=>'text',
+								)
+						),
+				),
 
-        'profile'=>array(
-            'type'=>'form',
-            'title'=>'Профиль',
-            'elements'=>array(
-                'firstName'=>array(
-                    'type'=>'text',
-                ),
-                'lastName'=>array(
-                    'type'=>'text',
-                ),
-            ),
-        ),
-    ),
+				'profile'=>array(
+						'type'=>'form',
+						'title'=>'Профиль',
+						'elements'=>array(
+								'firstName'=>array(
+										'type'=>'text',
+								),
+								'lastName'=>array(
+										'type'=>'text',
+								),
+						),
+				),
+		),
 
-    'buttons'=>array(
-        'register'=>array(
-            'type'=>'submit',
-            'label'=>'Зарегистрироваться',
-        ),
-    ),
+		'buttons'=>array(
+				'register'=>array(
+						'type'=>'submit',
+						'label'=>'Зарегистрироваться',
+				),
+		),
 );
 ~~~
 

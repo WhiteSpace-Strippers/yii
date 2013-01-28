@@ -758,13 +758,13 @@ class CHtml
 	 * The 'empty' option can also be an array of value-label pairs.
 	 * Each pair will be used to render a list option at the beginning. Note, the text label will NOT be HTML-encoded.</li>
 	 * <li>options: array, specifies additional attributes for each OPTION tag.
-	 *     The array keys must be the option values, and the array values are the extra
-	 *     OPTION tag attributes in the name-value pairs. For example,
+	 *		 The array keys must be the option values, and the array values are the extra
+	 *		 OPTION tag attributes in the name-value pairs. For example,
 	 * <pre>
-	 *     array(
-	 *         'value1'=>array('disabled'=>true, 'label'=>'value 1'),
-	 *         'value2'=>array('label'=>'value 2'),
-	 *     );
+	 *		 array(
+	 *				 'value1'=>array('disabled'=>true, 'label'=>'value 1'),
+	 *				 'value2'=>array('label'=>'value 2'),
+	 *		 );
 	 * </pre>
 	 * </li>
 	 * </ul>
@@ -824,13 +824,13 @@ class CHtml
 	 * The 'empty' option can also be an array of value-label pairs.
 	 * Each pair will be used to render a list option at the beginning. Note, the text label will NOT be HTML-encoded.</li>
 	 * <li>options: array, specifies additional attributes for each OPTION tag.
-	 *     The array keys must be the option values, and the array values are the extra
-	 *     OPTION tag attributes in the name-value pairs. For example,
+	 *		 The array keys must be the option values, and the array values are the extra
+	 *		 OPTION tag attributes in the name-value pairs. For example,
 	 * <pre>
-	 *     array(
-	 *         'value1'=>array('disabled'=>true, 'label'=>'value 1'),
-	 *         'value2'=>array('label'=>'value 2'),
-	 *     );
+	 *		 array(
+	 *				 'value1'=>array('disabled'=>true, 'label'=>'value 1'),
+	 *				 'value2'=>array('label'=>'value 2'),
+	 *		 );
 	 * </pre>
 	 * </li>
 	 * </ul>
@@ -1066,9 +1066,9 @@ EOD;
 	 * The following special options are added for convenience:
 	 * <ul>
 	 * <li>update: string, specifies the selector whose HTML content should be replaced
-	 *   by the AJAX request result.</li>
+	 *	 by the AJAX request result.</li>
 	 * <li>replace: string, specifies the selector whose target should be replaced
-	 *   by the AJAX request result.</li>
+	 *	 by the AJAX request result.</li>
 	 * </ul>
 	 * Note, if you specify the 'success' option, the above options will be ignored.
 	 * @return string the generated JavaScript
@@ -1536,18 +1536,18 @@ EOD;
 	 * In addition, the following options are also supported:
 	 * <ul>
 	 * <li>encode: boolean, specifies whether to encode the values. Defaults to true.</li>
-	 * <li>prompt: string, specifies the prompt text shown as the first list option. Its value is empty.  Note, the prompt text will NOT be HTML-encoded.</li>
+	 * <li>prompt: string, specifies the prompt text shown as the first list option. Its value is empty.	Note, the prompt text will NOT be HTML-encoded.</li>
 	 * <li>empty: string, specifies the text corresponding to empty selection. Its value is empty.
 	 * The 'empty' option can also be an array of value-label pairs.
 	 * Each pair will be used to render a list option at the beginning. Note, the text label will NOT be HTML-encoded.</li>
 	 * <li>options: array, specifies additional attributes for each OPTION tag.
-	 *     The array keys must be the option values, and the array values are the extra
-	 *     OPTION tag attributes in the name-value pairs. For example,
+	 *		 The array keys must be the option values, and the array values are the extra
+	 *		 OPTION tag attributes in the name-value pairs. For example,
 	 * <pre>
-	 *     array(
-	 *         'value1'=>array('disabled'=>true, 'label'=>'value 1'),
-	 *         'value2'=>array('label'=>'value 2'),
-	 *     );
+	 *		 array(
+	 *				 'value1'=>array('disabled'=>true, 'label'=>'value 1'),
+	 *				 'value2'=>array('label'=>'value 2'),
+	 *		 );
 	 * </pre>
 	 * </li>
 	 * </ul>
@@ -1606,13 +1606,13 @@ EOD;
 	 * The 'empty' option can also be an array of value-label pairs.
 	 * Each pair will be used to render a list option at the beginning. Note, the text label will NOT be HTML-encoded.</li>
 	 * <li>options: array, specifies additional attributes for each OPTION tag.
-	 *     The array keys must be the option values, and the array values are the extra
-	 *     OPTION tag attributes in the name-value pairs. For example,
+	 *		 The array keys must be the option values, and the array values are the extra
+	 *		 OPTION tag attributes in the name-value pairs. For example,
 	 * <pre>
-	 *     array(
-	 *         'value1'=>array('disabled'=>true, 'label'=>'value 1'),
-	 *         'value2'=>array('label'=>'value 2'),
-	 *     );
+	 *		 array(
+	 *				 'value1'=>array('disabled'=>true, 'label'=>'value 1'),
+	 *				 'value2'=>array('label'=>'value 2'),
+	 *		 );
 	 * </pre>
 	 * </li>
 	 * </ul>
@@ -1995,13 +1995,13 @@ EOD;
 	 * The 'empty' option can also be an array of value-label pairs.
 	 * Each pair will be used to render a list option at the beginning. Note, the text label will NOT be HTML-encoded.</li>
 	 * <li>options: array, specifies additional attributes for each OPTION tag.
-	 *     The array keys must be the option values, and the array values are the extra
-	 *     OPTION tag attributes in the name-value pairs. For example,
+	 *		 The array keys must be the option values, and the array values are the extra
+	 *		 OPTION tag attributes in the name-value pairs. For example,
 	 * <pre>
-	 *     array(
-	 *         'value1'=>array('disabled'=>true, 'label'=>'value 1'),
-	 *         'value2'=>array('label'=>'value 2'),
-	 *     );
+	 *		 array(
+	 *				 'value1'=>array('disabled'=>true, 'label'=>'value 1'),
+	 *				 'value2'=>array('label'=>'value 2'),
+	 *		 );
 	 * </pre>
 	 * </li>
 	 * <li>key: string, specifies the name of key attribute of the selection object(s).
@@ -2202,9 +2202,9 @@ EOD;
 	{
 		if(($pos=strpos($attribute,'['))!==false)
 		{
-			if($pos!==0)  // e.g. name[a][b]
+			if($pos!==0)	// e.g. name[a][b]
 				return get_class($model).'['.substr($attribute,0,$pos).']'.substr($attribute,$pos);
-			if(($pos=strrpos($attribute,']'))!==false && $pos!==strlen($attribute)-1)  // e.g. [a][b]name
+			if(($pos=strrpos($attribute,']'))!==false && $pos!==strlen($attribute)-1)	// e.g. [a][b]name
 			{
 				$sub=substr($attribute,0,$pos+1);
 				$attribute=substr($attribute,$pos+1);

@@ -5,8 +5,8 @@ DEFAULT: array()
 --DESCRIPTION--
 
 <p>
-  This directive can be used to add custom auto-format injectors.
-  Specify an array of injector names (class name minus the prefix)
-  or concrete implementations. Injector class must exist.
+	This directive can be used to add custom auto-format injectors.
+	Specify an array of injector names (class name minus the prefix)
+	or concrete implementations. Injector class must exist.
 </p>
 --# vim: et sw=4 sts=4

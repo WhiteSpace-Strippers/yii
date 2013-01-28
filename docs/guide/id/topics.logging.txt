@@ -25,17 +25,17 @@ Kategori adalah string dalam bentuk `xxx.yyy.zzz` yang mirip dengan
 dalam [CController], kita bisa menggunakan kategori `system.web.CController`.
 Level message harus salah satu dari nilai berikut:
 
-   - `trace`: ini adalah tingkat yang dipakai oleh [Yii::trace]. kegunaannya untuk melacak
+	 - `trace`: ini adalah tingkat yang dipakai oleh [Yii::trace]. kegunaannya untuk melacak
 alur eksekusi aplikasi selama pengembangan.
 
-   - `info`: ini untuk pencatatan informasi umum.
+	 - `info`: ini untuk pencatatan informasi umum.
 
-   - `profile`: ini untuk profil performa (yang akan segera
+	 - `profile`: ini untuk profil performa (yang akan segera
 dijelaskan).
 
-   - `warning`: ini untuk message peringatan.
+	 - `warning`: ini untuk message peringatan.
 
-   - `error`: ini untuk message kesalahan fatal.
+	 - `error`: ini untuk message kesalahan fatal.
 
 Message Routing
 ---------------------
@@ -91,11 +91,11 @@ Hanya message yang tingkatannya `error` atau `warning` yang dikirimkan.
 
 Berikut Log Route yang tersedia dalam Yii:
 
-   - [CDbLogRoute]: menyimpan message dalam tabel database.
-   - [CEmailLogRoute]: mengirimkan message ke alamat email yang ditetapkan.
-   - [CFileLogRoute]: menyimpan message dalam sebuah file di bawah direktori runtime aplikasi.
-   - [CWebLogRoute]: menampilkan message di akhir halaman Web saat ini.
-   - [CProfileLogRoute]: menampilkan message profil di akhir halaman Web saat ini.
+	 - [CDbLogRoute]: menyimpan message dalam tabel database.
+	 - [CEmailLogRoute]: mengirimkan message ke alamat email yang ditetapkan.
+	 - [CFileLogRoute]: menyimpan message dalam sebuah file di bawah direktori runtime aplikasi.
+	 - [CWebLogRoute]: menampilkan message di akhir halaman Web saat ini.
+	 - [CProfileLogRoute]: menampilkan message profil di akhir halaman Web saat ini.
 
 > Info: Pengiriman message terjadi di akhir siklus permintaan saat ini
 saat event [onEndRequest|CApplication::onEndRequest] dimunculkan. Untuk mengakhiri
@@ -126,7 +126,7 @@ Kita bisa menetapkan log informasi konteks tambahan,
 seperti variabel pradefinisi PHP (misal `$_GET`, `$_SERVER`), session ID, nama pengguna, dll.
 Ini dilakukan dengan menetapkan properti [CLogRoute::filter] pada rute log agar sesuai dengan penyaringan log.
 
-Framework dilengkapi dengan [CLogFilter] yang bisa dipakai sebagai filter log yang paling 
+Framework dilengkapi dengan [CLogFilter] yang bisa dipakai sebagai filter log yang paling
 dibutuhkan dalam banyak hal. Secara standar, [CLogFilter] akan mencatat message dengan variabel seperti
 `$_GET`, `$_SERVER` yang seringkali berisi informasi konteks sistem yang berharga.
 [CLogFilter] juga dapat dikonfigurasi untuk mengawali setiap message yang dicatat dengan ID sesi, nama pengguna, dll.,
@@ -160,7 +160,7 @@ array(
 
 Mulai dari versi 1.0.7, Yii mendukung pencatatan pemanggilan informasi stack dalam message yang dicatat
 dengan memanggil `Yii::trace`. Fitur ini dimatikan secara default karena memperlambat kinerja.
-Untuk menggunakan fitur ini, cukup definisikan konstan bernama `YII_TRACE_LEVEL` di awal entri 
+Untuk menggunakan fitur ini, cukup definisikan konstan bernama `YII_TRACE_LEVEL` di awal entri
 skrip (sebelum menyertakan `yii.php`) ke integer lebih besar daripada 0. Kemudian Yii akan menambahkan
 setiap pelacakan message dengan nama file dan nomor baris pada stack panggilan yang dimiliki kode
 aplikasi. Jumlah `YII_TRACE_LEVEL` menentukan berapa banyak lapisan dari setiap stack panggilan harus disimpan.

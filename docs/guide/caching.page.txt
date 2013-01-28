@@ -48,42 +48,42 @@ ends after the enclosed content (action) is evaluated.
 
 HTTP Caching
 ------------
-In addition to simply caching the output of an action, Yii introduced 
-[CHttpCacheFilter] in version 1.1.11. This filter aids in setting the 
-aforementioned headers to notify a client that a page's content has not been 
+In addition to simply caching the output of an action, Yii introduced
+[CHttpCacheFilter] in version 1.1.11. This filter aids in setting the
+aforementioned headers to notify a client that a page's content has not been
 changed since the last request, so the server will not have to re-transmit the
 content. [CHttpCacheFilter] can be set up similar to [COutputCache]:
 ~~~
 [php]
 public function filters()
 {
-    return array(
-        array(
-            'CHttpCacheFilter + index',
-            'lastModified'=>Yii::app()->db->createCommand("SELECT MAX(`update_time`) FROM {{post}}")->queryScalar(),
-        ),
-    );
+		return array(
+				array(
+						'CHttpCacheFilter + index',
+						'lastModified'=>Yii::app()->db->createCommand("SELECT MAX(`update_time`) FROM {{post}}")->queryScalar(),
+				),
+		);
 }
 ~~~
-The above code will set the `Last-Modified` header to the last date at which a 
-post was updated. You can also use [CHttpCacheFilter::lastModifiedExpression] to set 
+The above code will set the `Last-Modified` header to the last date at which a
+post was updated. You can also use [CHttpCacheFilter::lastModifiedExpression] to set
 the `Last-Modified` header using a php expression.
 
-> Tip: Both, [CHttpCacheFilter::lastModifiedExpression] and 
-[CHttpCacheFilter::lastModified] can take either an integer representing an 
+> Tip: Both, [CHttpCacheFilter::lastModifiedExpression] and
+[CHttpCacheFilter::lastModified] can take either an integer representing an
 epochal Unix timestamp or an arbitrary string representing a human-readable
 date. As long as later one can be parsed by
 [strtotime()](http://php.net/manual/function.strtotime.php), no further
 conversion is necessary.
 
-The "Entity Tag" (or `ETag` for short) header can be set in a similar fashion 
-through [CHttpCacheFilter::etagSeed] and [CHttpCacheFilter::etagSeedExpression] 
+The "Entity Tag" (or `ETag` for short) header can be set in a similar fashion
+through [CHttpCacheFilter::etagSeed] and [CHttpCacheFilter::etagSeedExpression]
 , respectively. Both will be serialized (so you can use either a single value
 or an entire array) and are used to generate a quoted, base64-encoded SHA1
 hash serving as content for the `ETag` header. This differs from the way the
 [Apache Webserver](http://httpd.apache.org) and others are generating their
 ETags. However, this method is perfectly in line with the RFC and turned out to
-be more feasible for use in a framework. 
+be more feasible for use in a framework.
 
 > Note: In order to comply with
 [RFC 2616, section 13.3.4](http://tools.ietf.org/html/rfc2616#section-13.3.4),

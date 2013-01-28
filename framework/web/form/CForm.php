@@ -47,8 +47,8 @@
  * the following:
  * <pre>
  * 'elements'=>array(
- *     'username'=>array('type'=>'text', 'maxlength'=>80),
- *     'password'=>array('type'=>'password', 'maxlength'=>80),
+ *		 'username'=>array('type'=>'text', 'maxlength'=>80),
+ *		 'password'=>array('type'=>'password', 'maxlength'=>80),
  * )
  * </pre>
  * The above code specifies two input elements: 'username' and 'password'. Note the model

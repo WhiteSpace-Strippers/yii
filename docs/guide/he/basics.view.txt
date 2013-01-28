@@ -12,8 +12,8 @@
 ~~~
 [php]
 $this-»render('edit', array(
-    'varone'=»$value1,
-    'vartwo'=»$value2,
+		'varone'=»$value1,
+		'vartwo'=»$value2,
 ));
 ~~~
 
@@ -67,7 +67,7 @@ $this-»render('edit', array(
 [php]
 «?php
 $this-»widget('CMaskedTextField',array(
-    'mask'=»'99/99/9999'
+		'mask'=»'99/99/9999'
 ));
 ?»
 ~~~
@@ -78,15 +78,15 @@ $this-»widget('CMaskedTextField',array(
 [php]
 class MyWidget extends CWidget
 {
-    public function init()
-    {
-        // this method is called by CController::beginWidget()
-    }
+		public function init()
+		{
+				// this method is called by CController::beginWidget()
+		}
 
-    public function run()
-    {
-        // this method is called by CController::endWidget()
-    }
+		public function run()
+		{
+				// this method is called by CController::endWidget()
+		}
 }
 ~~~
 

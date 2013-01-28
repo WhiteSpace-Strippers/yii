@@ -109,12 +109,12 @@ class User extends CActiveRecord
 > ~~~
 > [php]
 > return array(
->     …
->     'import'=>array(
->         'application.models.*',
->         'application.components.*',
->     ),
->     …
+>		 …
+>		 'import'=>array(
+>				 'application.models.*',
+>				 'application.components.*',
+>		 ),
+>		 …
 > );
 > ~~~
 >

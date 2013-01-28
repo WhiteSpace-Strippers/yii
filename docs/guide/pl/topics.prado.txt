@@ -2,21 +2,21 @@ Korzystanie z alternatywnych składni szablonów
 =================================
 
 Yii pozwala deweloperom na korzystanie ze swojej ulubionej składni szablonów (np. Prado, Smarty)
-podczas pisania kontrolera lub widoków widżetu. Jest to możliwe poprzez utworzenie    
+podczas pisania kontrolera lub widoków widżetu. Jest to możliwe poprzez utworzenie
 i zainstalowanie komponentu aplikacji [viewRenderer|CWebApplication::viewRenderer].
 
-Generator widoków przechwytuje wywołania metody [CBaseController::renderFile], 
-kompiluje plik widoku przy użyciu niestandardowej składni szablonów i generuje 
-wynik kompilacji. 
+Generator widoków przechwytuje wywołania metody [CBaseController::renderFile],
+kompiluje plik widoku przy użyciu niestandardowej składni szablonów i generuje
+wynik kompilacji.
 
-> Info|Info: Rekomenduje się używanie niestandardowej składni szablonów tylko podczas  
-pisania widoków, które są rzadko używane ponownie. W przeciwnym przypadku, ludzie 
+> Info|Info: Rekomenduje się używanie niestandardowej składni szablonów tylko podczas
+pisania widoków, które są rzadko używane ponownie. W przeciwnym przypadku, ludzie
 którzy chcą użyć ponownie widoku, zmuszeni są do używania tej samej, niestandardowej składni
 szablonów w swojej aplikacji.
 
-W dalszej części, pokażemy jak używać [CPradoViewRenderer], widoku generatora, który 
-umożliwia deweloperowi używania składni szablonu podobnej do tej z [frameworku PRADO](http://www.pradosoft.com/). 
-Dla ludzi, którzy chcą utworzyć swoje własne generatory widoków, [CPradoViewRenderer] 
+W dalszej części, pokażemy jak używać [CPradoViewRenderer], widoku generatora, który
+umożliwia deweloperowi używania składni szablonu podobnej do tej z [frameworku PRADO](http://www.pradosoft.com/).
+Dla ludzi, którzy chcą utworzyć swoje własne generatory widoków, [CPradoViewRenderer]
 jest dobrym przykładem.
 
 Używanie`CPradoViewRenderer`
@@ -37,19 +37,19 @@ return array(
 ~~~
 
 Domyślnie, [CPradoViewRenderer] będzie kompilował pliki źródłowe widoków i zapisywał
-wynikowy plik PHP w katalogu [runtime](/doc/guide/basics.convention#directory). 
-Tylko wtedy, gdy plik źródłowy widoku zmienił się, plik PHP będzie przegenerowany. 
+wynikowy plik PHP w katalogu [runtime](/doc/guide/basics.convention#directory).
+Tylko wtedy, gdy plik źródłowy widoku zmienił się, plik PHP będzie przegenerowany.
 Dlatego też używanie [CPradoViewRenderer] pociąga za sobą niewielki spadek wydajności.
 
-> Tip|Wskazówka: Podczas gdy [CPradoViewRenderer] głównie dostarcza nowe tagi szablonu 
-w celu tworzenia widoków w sposób łatwiejszy i szybszy, wciąż możesz używać kodu PHP 
+> Tip|Wskazówka: Podczas gdy [CPradoViewRenderer] głównie dostarcza nowe tagi szablonu
+w celu tworzenia widoków w sposób łatwiejszy i szybszy, wciąż możesz używać kodu PHP
 w dotychczasowy sposób w plikach widoku.
 
 W dalszej części przedstawiamy taki szablonów, które są wspierane przez [CPradoViewRenderer].
 
 ### Skrócone tagi PHP
 
-Skrócone tagi PHP są skrótami do pisania wyrażeń PHP w widoku. Tag wyrażenia `<%= expression %>` 
+Skrócone tagi PHP są skrótami do pisania wyrażeń PHP w widoku. Tag wyrażenia `<%= expression %>`
 tłumaczony jest na `<?php echo expression ?>`; natomiast tag z wyrażeniem `<% statement
 %>` jest tłumaczony na `<?php statement ?>`. Na przykład:
 
@@ -69,7 +69,7 @@ tłumaczone jest na
 
 ### Tagi komponentów
 
-Tagi komponentów używane są do wstawiania [widżetu](/doc/guide/basics.view#widget) do widoku. Używają one następującej składni: 
+Tagi komponentów używane są do wstawiania [widżetu](/doc/guide/basics.view#widget) do widoku. Używają one następującej składni:
 
 ~~~
 [php]
@@ -83,7 +83,7 @@ Tagi komponentów używane są do wstawiania [widżetu](/doc/guide/basics.view#w
 
 gdzie `WidgetClass` określa klasę widżetu lub [alias ścieżki ](/doc/guide/basics.namespace) klasy,
 a inicjalna wartość właściwości może być zarówno umieszczonym w cudzysłowie łańcuchem lub też
-wyrażeniem PHP zamkniętym w parę okrągłtych nawiasów. Na przykład: 
+wyrażeniem PHP zamkniętym w parę okrągłtych nawiasów. Na przykład:
 
 ~~~
 [php]
@@ -100,12 +100,12 @@ would be translated as
 ~~~
 
 > Note|Uwaga: Wartość `showRefreshButton` określona jest jako `{false}`
-zamiast `"false"` ponieważ druga oznacza ciąg znaków zamiast wartości boolowskiej. 
+zamiast `"false"` ponieważ druga oznacza ciąg znaków zamiast wartości boolowskiej.
 
 ### Tagi buforowania
 
 Tagi buforowania są skrótami używanymi do [buforowania fragmentarycznego](/doc/guide/caching.fragment).
-Ich składnia jest następująca:  
+Ich składnia jest następująca:
 
 ~~~
 [php]
@@ -114,8 +114,8 @@ Ich składnia jest następująca:
 </cache:fragmentID >
 ~~~
 
-gdzie `fragmentID` powinien być identyfikatorem, który jednoznacznie definiuje zawartość, 
-która zostanie zbuforowana a part właściwość-wartość są używane do konfiguracji dla 
+gdzie `fragmentID` powinien być identyfikatorem, który jednoznacznie definiuje zawartość,
+która zostanie zbuforowana a part właściwość-wartość są używane do konfiguracji dla
 buforowania fragmentarycznego, na przykład
 
 ~~~
@@ -124,7 +124,7 @@ buforowania fragmentarycznego, na przykład
 	// użyj tutaj informacji z profilu
 </cache:profile >
 ~~~
-będzie przetłumaczone na 
+będzie przetłumaczone na
 
 ~~~
 [php]
@@ -159,7 +159,7 @@ Tagi klipsa będą przetłumaczone jako
 ### Tagi komentarza
 
 Tagi komentarza są używane do pisanie komentarzy w widoku, które powinny być widoczne
-jedynie dla deweloperów. Tagi komentarza będą wycięte podczas wyświetlania widoku 
+jedynie dla deweloperów. Tagi komentarza będą wycięte podczas wyświetlania widoku
 użytkownikowi końcowemu. Składnia dla tagów komentarza jest następująca,
 
 ~~~
@@ -174,7 +174,7 @@ Mieszanie formatów szablonów
 
 Poczynając od wersji 1.1.2 możliwe jest mieszanie użyć alternatywnych składni szablonów
 ze zwykłą składnią PHP. Aby móc to zrobić, właściwość [CViewRenderer::fileExtension]
-zainstalowanego renderera widoków musi zostać skonfigurowana poprzez wartość inną niż `.php`. 
+zainstalowanego renderera widoków musi zostać skonfigurowana poprzez wartość inną niż `.php`.
 Na przykład, jeśli właściwość ustawiona jest jako `.tpl`, wtedy każdy plik widoku kończący się `.tpl`
 będzie generowany przy użyciu zainstalowanego renderera, podczas gdy pozostałe pliki
 kończące się `.php` będą traktowane jak zwykłe pliki widoków PHP.

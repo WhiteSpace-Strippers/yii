@@ -6,22 +6,22 @@ ist meist etwas mehr Aufwand bei ihrer Entwicklung nötig.
 Hier zunächst einige grundsätzliche Richtlinien:
 
 * Eine Erweiterung sollte in sich geschlossen sein. Das heisst, sie sollte
-  möglichst wenig externe Abhängigkeiten aufweisen. Für einen Anwender wäre es
-  sehr lästig, wenn er für eine Erweiterung erst zusätzliche Pakete, Klassen
-  oder sonstige Dateien installieren müsste.
+	möglichst wenig externe Abhängigkeiten aufweisen. Für einen Anwender wäre es
+	sehr lästig, wenn er für eine Erweiterung erst zusätzliche Pakete, Klassen
+	oder sonstige Dateien installieren müsste.
 * Alle Dateien, die zu einer Erweiterung gehören, sollten unterhalb des
-  Verzeichnisses mit dem Namen der Erweiterung abgelegt werden.
+	Verzeichnisses mit dem Namen der Erweiterung abgelegt werden.
 * Klassen in einer Erweiterung sollte ein Buchstabe (bzw. mehrere Buchstaben)
-  vorangestellt sein, um Konflikte mit anderen Erweiterungen zu vermeiden.
+	vorangestellt sein, um Konflikte mit anderen Erweiterungen zu vermeiden.
 * Eine Erweiterung sollte eine detaillierte Installationsanleitung und
-  API-Dokumentation enthalten. So können Zeit und Aufwand für andere
-  Entwickler minimiert werden, wenn sie die Erweiterung verwenden möchten.
+	API-Dokumentation enthalten. So können Zeit und Aufwand für andere
+	Entwickler minimiert werden, wenn sie die Erweiterung verwenden möchten.
 * Eine Erweiterung sollte ein passende Lizenz verwenden. Wenn Ihre Erweiterung
-  sowohl in Open-Source- als auch in Closed-Source-Projekten (Projekte mit
-  einsehbarem bzw. nicht einsehbarem Quellcode) einsetzbar sein
-  soll, könnten Sie Lizenzen wie BSD oder MIT in die engere Wahl ziehen. GPL
-  allerdings nicht, da bei ihr auch jeglicher davon abgeleitete Code als
-  Open Source zur Verfügung gestellt werden muss.
+	sowohl in Open-Source- als auch in Closed-Source-Projekten (Projekte mit
+	einsehbarem bzw. nicht einsehbarem Quellcode) einsetzbar sein
+	soll, könnten Sie Lizenzen wie BSD oder MIT in die engere Wahl ziehen. GPL
+	allerdings nicht, da bei ihr auch jeglicher davon abgeleitete Code als
+	Open Source zur Verfügung gestellt werden muss.
 
 Im folgenden beschreiben wir jeweils, wie man Erweiterungen entsprechend den
 Kategorien in der [Übersicht](/doc/guide/extension.overview) erstellt.
@@ -38,7 +38,7 @@ sollte das Interface [IApplicationComponent] implementieren oder die Klasse
 [IApplicationComponent::init], in der die Komponente ihre Initialisierung
 vornehmen kann. Diese Methode wird aufgerufen, nachdem die Komponente erstellt
 und ihre Eigenschaftswerte (entsprechend der
-[Anwendungskonfiguration](/doc/guide/basics.application#application-configuration)) 
+[Anwendungskonfiguration](/doc/guide/basics.application#application-configuration))
 gesetzt wurden.
 
 Standardmäßig wird eine Komponente nur erstellt und initialisiert, wenn zum
@@ -90,7 +90,7 @@ Ein [Widget](/doc/guide/basics.view#widget) sollte [CWidget] oder dessen
 Kindklassen erweitern.
 
 Am einfachsten erstellt man ein Widget, indem man ein vorhandenes Widget
-erweitert und seine Methoden oder vorgegebenen Eigenschaften überschreibt. 
+erweitert und seine Methoden oder vorgegebenen Eigenschaften überschreibt.
 Wenn Sie z.B. schönere CSS-Stile für [CTabView] verwenden möchten, könnten Sie
 dessen [CTabView::cssFile]-Eigenschaft konfigurieren. Sie könnten [CTabView]
 aber auch wie im folgenden Beispiel erweitern, so dass diese Eigenschaft
@@ -121,16 +121,16 @@ zugänglich ist, wird sie als Asset veröffentlicht.
 
 Um ein ganz neues Widget zu erstellen, muss man hauptsächlich zwei Methoden
 implementieren: [CWidget::init] und [CWidget::run]. Erstere wird aufgerufen,
-wenn man ein Widget mit `$this->beginWidget` verwendet, 
-die Zweite, beim Aufruf von `$this->endWidget`. Möchte man den 
-eingebetteten Inhalt zwischen den beiden Aufrufen abfangen und verarbeiten, 
-kann man in [CWidget::init] eine [Ausgabepufferung](http://de3.php.net/manual/de/book.outcontrol.php) 
+wenn man ein Widget mit `$this->beginWidget` verwendet,
+die Zweite, beim Aufruf von `$this->endWidget`. Möchte man den
+eingebetteten Inhalt zwischen den beiden Aufrufen abfangen und verarbeiten,
+kann man in [CWidget::init] eine [Ausgabepufferung](http://de3.php.net/manual/de/book.outcontrol.php)
 starten und die gepufferte Ausgabe dann in [CWidget::run] zur weiteren
 Bearbeitung auslesen.
 
 Mit einem Widget müssen oft auch CSS-, Javascript- oder anderen
-Dateien in eine Seite eingebunden werden. Diese Dateien nennen wir *Assets* 
-(sinngem.: Anlage, Zusatz), da sie am Ort der Widgetklasse abgelegt werden und 
+Dateien in eine Seite eingebunden werden. Diese Dateien nennen wir *Assets*
+(sinngem.: Anlage, Zusatz), da sie am Ort der Widgetklasse abgelegt werden und
 normalerweise vom Web aus nicht erreichbar sind. Um diese Dateien zugänglich zu
 machen, müssen sie mit dem [CWebApplication::assetManager] (sinngem.:
 Anlagenverwalter) veröffentlicht werden, wie im obigen Beispiel gezeigt. Soll
@@ -152,8 +152,8 @@ class MyWidget extends CWidget
 ~~~
 
 Ein Widget kann auch seine eigenen Viewdateien verwenden. In diesem Fall
-legt man ein Verzeichnis namens `views` im Ordner der Widgetklasse an, wo alle 
-zugehörigen Viewdateien abgelegt werden.  Ähnlich wie im Controller kann man
+legt man ein Verzeichnis namens `views` im Ordner der Widgetklasse an, wo alle
+zugehörigen Viewdateien abgelegt werden.	Ähnlich wie im Controller kann man
 dann im Widget `$this->render('ViewName')` benutzen, um einen dieser Views zu rendern.
 
 Action
@@ -248,12 +248,12 @@ class MyCommand extends CConsoleCommand
 Module
 ------
 Für Details zur Erstellung von Modulen, beachten Sie bitte das Kapitel über
-[Module](/doc/guide/basics.module#creating-module). 
+[Module](/doc/guide/basics.module#creating-module).
 
-Allgemeine sollte auch ein Modul in sich geschlossen sein. Sämtliche Dateien, 
-die das Modul verwendet(wie z.B. CSS-, Javascript-, Bilddateien) sollten 
-im Modul enthalten sein. Und sie sollten vom Modul veröffentlicht werden, 
-damit sie vom Web aus erreichbar sind. 
+Allgemeine sollte auch ein Modul in sich geschlossen sein. Sämtliche Dateien,
+die das Modul verwendet(wie z.B. CSS-, Javascript-, Bilddateien) sollten
+im Modul enthalten sein. Und sie sollten vom Modul veröffentlicht werden,
+damit sie vom Web aus erreichbar sind.
 
 Allgemeine Komponenten
 ----------------------

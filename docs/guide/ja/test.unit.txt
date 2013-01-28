@@ -9,7 +9,7 @@ Yii のテストフレームワークは [PHPUnit](http://www.phpunit.de/) の�
 例えば、`Post` クラスをテストするためには、対応するユニットテストの名前を `PostTest` とする、というのが規約です。
 基本クラスの [CTestCase] は汎用のユニットテストのためのものであり、一方、 [CDbTestCase] は [アクティブレコード](/doc/guide/database.ar) モデルをテストするのに適しています。
 二つのクラスは、共に、`PHPUnit_Framework_TestCase` を親クラスとして持っており、このクラスから継承した全てのメソッドを使用することが出来ます。
- 
+
  * ユニットテストのクラスは `XyzTest.php` と名付けられた PHP ファイルに保存されます。
 規約によって、ユニットテストのファイルはディレクトリ `protected/tests/unit` の下に保存します。
 

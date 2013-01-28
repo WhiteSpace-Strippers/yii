@@ -25,7 +25,7 @@ Ako ste unijeli URL ručno provjerite pravopis i pokušajte ponovno.
 
 </p>
 <p>
-Ako mislite da je ovo greška web servera, molimo kontaktirajte   <?php echo $data['admin']; ?>.
+Ako mislite da je ovo greška web servera, molimo kontaktirajte	 <?php echo $data['admin']; ?>.
 </p>
 <div class="version">
 <?php echo date('Y-m-d H:i:s',$data['time']) .' '. $data['version']; ?>

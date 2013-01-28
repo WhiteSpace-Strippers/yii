@@ -17,7 +17,7 @@
  * by setting {@link setUrlFormat urlFormat} property:
  * <ul>
  * <li>'path' format: /path/to/EntryScript.php/name1/value1/name2/value2...</li>
- * <li>'get' format:  /path/to/EntryScript.php?name1=value1&name2=value2...</li>
+ * <li>'get' format:	/path/to/EntryScript.php?name1=value1&name2=value2...</li>
  * </ul>
  *
  * When using 'path' format, CUrlManager uses a set of {@link setRules rules} to:
@@ -41,19 +41,19 @@
  * For example,
  * <pre>
  * array(
- *     'articles'=>'article/list',
- *     'article/<id:\d+>/*'=>'article/read',
+ *		 'articles'=>'article/list',
+ *		 'article/<id:\d+>/*'=>'article/read',
  * )
  * </pre>
  * Two rules are specified in the above:
  * <ul>
  * <li>The first rule says that if the user requests the URL '/path/to/index.php/articles',
- *   it should be treated as '/path/to/index.php/article/list'; and vice versa applies
- *   when constructing such a URL.</li>
+ *	 it should be treated as '/path/to/index.php/article/list'; and vice versa applies
+ *	 when constructing such a URL.</li>
  * <li>The second rule contains a named parameter 'id' which is specified using
- *   the &lt;ParamName:RegExp&gt; syntax. It says that if the user requests the URL
- *   '/path/to/index.php/article/13', it should be treated as '/path/to/index.php/article/read?id=13';
- *   and vice versa applies when constructing such a URL.</li>
+ *	 the &lt;ParamName:RegExp&gt; syntax. It says that if the user requests the URL
+ *	 '/path/to/index.php/article/13', it should be treated as '/path/to/index.php/article/read?id=13';
+ *	 and vice versa applies when constructing such a URL.</li>
  * </ul>
  *
  * The route part may contain references to named parameters defined in the pattern part.
@@ -61,9 +61,9 @@
  * For example,
  * <pre>
  * array(
- *      '<_c:(post|comment)>/<id:\d+>/<_a:(create|update|delete)>'=>'<_c>/<_a>',
- *      '<_c:(post|comment)>/<id:\d+>'=>'<_c>/view',
- *      '<_c:(post|comment)>s/*'=>'<_c>/list',
+ *			'<_c:(post|comment)>/<id:\d+>/<_a:(create|update|delete)>'=>'<_c>/<_a>',
+ *			'<_c:(post|comment)>/<id:\d+>'=>'<_c>/view',
+ *			'<_c:(post|comment)>s/*'=>'<_c>/list',
  * )
  * </pre>
  * In the above, we use two named parameters '<_c>' and '<_a>' in the route part. The '<_c>'
@@ -84,7 +84,7 @@
  * In order to use parameterized hostnames, simply declare URL rules with host info, e.g.:
  * <pre>
  * array(
- *     'http://<user:\w+>.example.com/<lang:\w+>/profile' => 'user/profile',
+ *		 'http://<user:\w+>.example.com/<lang:\w+>/profile' => 'user/profile',
  * )
  * </pre>
  *
@@ -92,20 +92,20 @@
  * For example,
  * <pre>
  * array(
- *   // a standard rule
- *   '<action:(login|logout)>' => 'site/<action>',
- *   // a custom rule using data in DB
- *   array(
- *     'class' => 'application.components.MyUrlRule',
- *     'connectionID' => 'db',
- *   ),
+ *	 // a standard rule
+ *	 '<action:(login|logout)>' => 'site/<action>',
+ *	 // a custom rule using data in DB
+ *	 array(
+ *		 'class' => 'application.components.MyUrlRule',
+ *		 'connectionID' => 'db',
+ *	 ),
  * )
  * </pre>
  * Please note that the custom URL rule class should extend from {@link CBaseUrlRule} and
  * implement the following two methods,
  * <ul>
- *    <li>{@link CBaseUrlRule::createUrl()}</li>
- *    <li>{@link CBaseUrlRule::parseUrl()}</li>
+ *		<li>{@link CBaseUrlRule::createUrl()}</li>
+ *		<li>{@link CBaseUrlRule::parseUrl()}</li>
  * </ul>
  *
  * CUrlManager is a default application component that may be accessed via

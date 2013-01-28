@@ -72,12 +72,12 @@ En la clase `UserIdentity`, vamos a sobrecargar el método `getId()` que devuelv
 > ~~~
 > [php]
 > return array(
->     ......
->     'import'=>array(
->         'application.models.*',
->         'application.components.*',
->     ),
->     ......
+>		 ......
+>		 'import'=>array(
+>				 'application.models.*',
+>				 'application.components.*',
+>		 ),
+>		 ......
 > );
 > ~~~
 >

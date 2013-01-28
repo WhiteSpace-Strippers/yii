@@ -1,7 +1,7 @@
 建立第一个 Yii 应用
 ===================
 
-为了对 Yii 有个初步认识，我们在本节讲述如何建立第一个 Yii 应用。我们将使用 `yiic` （命令行工具）创建一个新的 Yii 应用。`Gii`（强大的基于web的代码生成器）为特定的任务完成自动代码生成。假定 `YiiRoot`  为 Yii 的安装目录，`WebRoot` 是服务器的文档根目录。
+为了对 Yii 有个初步认识，我们在本节讲述如何建立第一个 Yii 应用。我们将使用 `yiic` （命令行工具）创建一个新的 Yii 应用。`Gii`（强大的基于web的代码生成器）为特定的任务完成自动代码生成。假定 `YiiRoot`	为 Yii 的安装目录，`WebRoot` 是服务器的文档根目录。
 
 在命令行运行 `yiic`，如下所示：
 
@@ -42,51 +42,51 @@ http://hostname/testdrive/index.php
 
 ~~~
 testdrive/
-   index.php                 Web 应用入口脚本文件
-   index-test.php            功能测试使用的入口脚本文件
-   assets/                   包含公开的资源文件
-   css/                      包含 CSS 文件
-   images/                   包含图片文件
-   themes/                   包含应用主题
-   protected/                包含受保护的应用文件
-      yiic                   yiic 命令行脚本
-      yiic.bat               Windows 下的 yiic 命令行脚本
-      yiic.php               yiic 命令行 PHP 脚本
-      commands/              包含自定义的 'yiic' 命令
-         shell/              包含自定义的 'yiic shell' 命令
-      components/            包含可重用的用户组件
-         Controller.php      所有控制器类的基础类
-         Identity.php        用来认证的 'Identity' 类
-      config/                包含配置文件
-         console.php         控制台应用配置
-         main.php            Web 应用配置
-         test.php            功能测试使用的配置
-      controllers/           包含控制器的类文件
-         SiteController.php  默认控制器的类文件
-      data/                  包含示例数据库
-         schema.mysql.sql    示例 MySQL 数据库
-         schema.sqlite.sql   示例 SQLite 数据库
-         testdrive.db        示例 SQLite 数据库文件
-      extensions/            包含第三方扩展
-      messages/              包含翻译过的消息
-      models/                包含模型的类文件
-         LoginForm.php       'login' 动作的表单模型
-         ContactForm.php     'contact' 动作的表单模型
-      runtime/               包含临时生成的文件
-      tests/                 包含测试脚本
-      views/                 包含控制器的视图和布局文件
-         layouts/            包含布局视图文件
-            main.php         所有视图的默认布局
-            column1.php      使用单列页面使用的布局
-            column2.php      使用双列的页面使用的布局
-         site/               包含 'site' 控制器的视图文件
-            pages/           包含 "静态" 页面
-               about.php     "about" 页面的视图
-            contact.php      'contact' 动作的视图
-            error.php        'error' 动作的视图(显示外部错误)
-            index.php        'index' 动作的视图
-            login.php        'login' 动作的视图
-         system/             包含系统视图文件
+	 index.php								 Web 应用入口脚本文件
+	 index-test.php						功能测试使用的入口脚本文件
+	 assets/									 包含公开的资源文件
+	 css/											包含 CSS 文件
+	 images/									 包含图片文件
+	 themes/									 包含应用主题
+	 protected/								包含受保护的应用文件
+			yiic									 yiic 命令行脚本
+			yiic.bat							 Windows 下的 yiic 命令行脚本
+			yiic.php							 yiic 命令行 PHP 脚本
+			commands/							包含自定义的 'yiic' 命令
+				 shell/							包含自定义的 'yiic shell' 命令
+			components/						包含可重用的用户组件
+				 Controller.php			所有控制器类的基础类
+				 Identity.php				用来认证的 'Identity' 类
+			config/								包含配置文件
+				 console.php				 控制台应用配置
+				 main.php						Web 应用配置
+				 test.php						功能测试使用的配置
+			controllers/					 包含控制器的类文件
+				 SiteController.php	默认控制器的类文件
+			data/									包含示例数据库
+				 schema.mysql.sql		示例 MySQL 数据库
+				 schema.sqlite.sql	 示例 SQLite 数据库
+				 testdrive.db				示例 SQLite 数据库文件
+			extensions/						包含第三方扩展
+			messages/							包含翻译过的消息
+			models/								包含模型的类文件
+				 LoginForm.php			 'login' 动作的表单模型
+				 ContactForm.php		 'contact' 动作的表单模型
+			runtime/							 包含临时生成的文件
+			tests/								 包含测试脚本
+			views/								 包含控制器的视图和布局文件
+				 layouts/						包含布局视图文件
+						main.php				 所有视图的默认布局
+						column1.php			使用单列页面使用的布局
+						column2.php			使用双列的页面使用的布局
+				 site/							 包含 'site' 控制器的视图文件
+						pages/					 包含 "静态" 页面
+							 about.php		 "about" 页面的视图
+						contact.php			'contact' 动作的视图
+						error.php				'error' 动作的视图(显示外部错误)
+						index.php				'index' 动作的视图
+						login.php				'login' 动作的视图
+				 system/						 包含系统视图文件
 ~~~
 
 连接到数据库
@@ -113,10 +113,10 @@ return array(
 ~~~
 [sql]
 CREATE TABLE tbl_user (
-    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-    username VARCHAR(128) NOT NULL,
-    password VARCHAR(128) NOT NULL,
-    email VARCHAR(128) NOT NULL
+		id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+		username VARCHAR(128) NOT NULL,
+		password VARCHAR(128) NOT NULL,
+		email VARCHAR(128) NOT NULL
 );
 ~~~
 
@@ -162,7 +162,7 @@ return array(
 
 ![Model Generator](gii-model.png)
 
-在 `Table Name` 输入框中，输入 `tbl_user`。在 `Model Class` 输入框中，输入 `User`。然后点击 `Preview` 按钮。这里将展示将要生成的新文件。现在点击 `Generate` 按钮。一个名为 `User.php`  将生成到 `protected/models` 目录中。如我们稍后描述的， `User` 模型类允许我们以面向对象的方式来访问数据表 `tbl_user` 。
+在 `Table Name` 输入框中，输入 `tbl_user`。在 `Model Class` 输入框中，输入 `User`。然后点击 `Preview` 按钮。这里将展示将要生成的新文件。现在点击 `Generate` 按钮。一个名为 `User.php`	将生成到 `protected/models` 目录中。如我们稍后描述的， `User` 模型类允许我们以面向对象的方式来访问数据表 `tbl_user` 。
 
 ### 生成 CRUD 代码
 
@@ -181,7 +181,7 @@ return array(
 http://hostname/testdrive/index.php?r=user
 ~~~
 
-这会显示一个 `tbl_user`  表中记录的列表。
+这会显示一个 `tbl_user`	表中记录的列表。
 
 点击页面上的 `Create User` 链接，如果没有登录的话我们将被带到登录页。登录后，我们看到一个可供我们添加新用户的表单。完成表单并点击 `Create` 按钮，如果有任何输入错误的话，一个友好的错误提示将会显示并阻止我们保存。回到用户列表页，我们应该能看到刚才添加的用户显示在列表中。
 

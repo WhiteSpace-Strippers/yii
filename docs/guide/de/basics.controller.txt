@@ -71,16 +71,16 @@ Beim Bearbeiten eines Requests erzeugt [CWebApplication] eine
 Controllerinstanz. Die Applikation geht folgendermaßen vor, um
 die Klassendatei zu einer gegebenen Controller-ID zu finden:
 
-   - Ist [CWebApplication::catchAllRequest] gesetzt, wird dieser
+	 - Ist [CWebApplication::catchAllRequest] gesetzt, wird dieser
 Wert zum Suchen des Controllers verwendet und die Controller-ID im Request
 ignoriert. Dies wird hauptsächlich verwendet, um die
 Anwendung in den Wartungsmodus zu schalten und eine statische Hinweisseite
 anzuzeigen.
 
-   - Wenn die ID in [CWebApplication::controllerMap] enthalten ist, wird die
+	 - Wenn die ID in [CWebApplication::controllerMap] enthalten ist, wird die
 Controllerinstanz entsprechend dieser Konfiguration erstellt.
 
-   - Liegt die ID im Format `'pfad/zu/xyz'` vor, wird von der
+	 - Liegt die ID im Format `'pfad/zu/xyz'` vor, wird von der
 Controllerklasse `XyzController` in der Datei
 `protected/controllers/pfad/zu/XyzController.php` ausgegangen. Die
 Controller-ID `admin/user` würde zum Beispiel in die Controllerklasse
@@ -141,18 +141,18 @@ diese Verzeichnisstruktur verwenden:
 
 ~~~
 protected/
-    controllers/
-        PostController.php
-        UserController.php
-        post/
-            CreateAction.php
-            ReadAction.php
-            UpdateAction.php
-        user/
-            CreateAction.php
-            ListAction.php
-            ProfileAction.php
-            UpdateAction.php
+		controllers/
+				PostController.php
+				UserController.php
+				post/
+						CreateAction.php
+						ReadAction.php
+						UpdateAction.php
+				user/
+						CreateAction.php
+						ListAction.php
+						ProfileAction.php
+						UpdateAction.php
 ~~~
 
 
@@ -340,7 +340,7 @@ als Objekt vorliegt. Mit dem Pfadalias `application.filters.PerformanceFilter`
 geben wir an, dass sich die Filterklasse in `protected/filters/PerformanceFilter.php`
 befindet. Da ein Array für die Konfiguration von `PerformanceFilter` verwendet
 wird, können damit auch gleich die Starteigenschaften des Filterobjekts
-definiert werden.  Im Beispiel setzen wir die Eigenschaft `unit` auf `'second'`.
+definiert werden.	Im Beispiel setzen wir die Eigenschaft `unit` auf `'second'`.
 
 Durch Plus- und Minusoperatoren kann man bestimmen, auf welche Actions der
 Filter angewendet werden soll und auf welche nicht. Oben wird der Filter

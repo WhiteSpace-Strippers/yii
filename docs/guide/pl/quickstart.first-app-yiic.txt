@@ -11,40 +11,40 @@ Otwórz narzędzie linii komand i wywołaj następujące, wyświetlone komendy
 Yii Interactive Tool v1.1
 Please type 'help' for help. Type 'exit' to quit.
 >> model User tbl_user
-   generate models/User.php
-   generate fixtures/tbl_user.php
-   generate unit/UserTest.php
+	 generate models/User.php
+	 generate fixtures/tbl_user.php
+	 generate unit/UserTest.php
 
 The following model classes are successfully generated:
-    User
+		User
 
 If you have a 'db' database connection, you can test these models now with:
-    $model=User::model()->find();
-    print_r($model);
+		$model=User::model()->find();
+		print_r($model);
 
 >> crud User
-   generate UserController.php
-   generate UserTest.php
-   mkdir D:/testdrive/protected/views/user
-   generate create.php
-   generate update.php
-   generate index.php
-   generate view.php
-   generate admin.php
-   generate _form.php
-   generate _view.php
+	 generate UserController.php
+	 generate UserTest.php
+	 mkdir D:/testdrive/protected/views/user
+	 generate create.php
+	 generate update.php
+	 generate index.php
+	 generate view.php
+	 generate admin.php
+	 generate _form.php
+	 generate _view.php
 
 Crud 'user' has been successfully created. You may access it via:
 http://hostname/path/to/index.php?r=user
 ~~~
 
 W powyższym kodzie użyliśmy komendy `yiic shell` w celu oddziaływania ze szkieletem twojej aplikacji.
-W wierszu poleceń wywołaliśmy dwie komendy: `model User tbl_user` oraz 
-`crud User`.  Pierwsza wygenerowała klasę o nazwie `User` dla tabeli `tbl_user`,
+W wierszu poleceń wywołaliśmy dwie komendy: `model User tbl_user` oraz
+`crud User`.	Pierwsza wygenerowała klasę o nazwie `User` dla tabeli `tbl_user`,
 druga zaś zanalizowała model `User` i wygenerowała kod implementujacy operacje CRUD.
 
 > Note|Uwaga: Moga wystapić błędy takie jak "...could not find driver", nawet
-> jeśli sprawdzanie wymagań pokazuje, że udostępniłeś już PDO oraz 
+> jeśli sprawdzanie wymagań pokazuje, że udostępniłeś już PDO oraz
 > odpowiednie sterowniki PDO. Jeśli tak się stanie, możesz spróbować wywołać
 > narzędzie `yiic` w następujący sposób
 >
@@ -63,9 +63,9 @@ http://hostname/testdrive/index.php?r=user
 Wyświetli on listę użytkowników z tabeli `tbl_user`.
 
 Kliknij przycisk `Create User` na stronie. Zostaniemy przeniesieni do strony logowania
-jeśli nie zalogowaliśmy się wcześniej. Po zalogowaniu, zobaczymy formularz wejściowy, 
+jeśli nie zalogowaliśmy się wcześniej. Po zalogowaniu, zobaczymy formularz wejściowy,
 który pozwoli nam dodać nowego użytkownika. Uzupełnij formularz i kliknij przycisk `Create`.
-Jeśli wystąpił jakikolwiek błąd wprowadzania danych, subtelny alert o błędzie pojawi się 
+Jeśli wystąpił jakikolwiek błąd wprowadzania danych, subtelny alert o błędzie pojawi się
 i zapobiegnie zapisaniu się wprowadzonych danych. Wracając do strony z listą użytkowników,
 powinniśmy zobaczyć nowo dodanego użytkownika w liście.
 
@@ -80,7 +80,7 @@ http://hostname/testdrive/index.php?r=user/admin
 ~~~
 
 Pokażą się nam wpisy z użytkonwikami ładnie przedstawione w układzie tabelarycznym.
-Możemy kliknąć na nagłówku komórki w celu posortowania kolumny. Możemy kliknąć w przyciski 
+Możemy kliknąć na nagłówku komórki w celu posortowania kolumny. Możemy kliknąć w przyciski
 znajdujące się w każdym wierszu w celu podejrzenia, zaktualizowania lub też skasowania
 odpowiedniego wiersza danych.
 Możemy przeglądać różne strony. Możemy rónież filtrować i przeszukiwać w celu odnalezienia

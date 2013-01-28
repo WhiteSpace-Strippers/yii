@@ -206,13 +206,13 @@ file structure:
 
 ~~~
 /var/www/common/mynamespace/modules
-  testmodule
-    controllers
-      DefaultController.php
-    views
-      default
-        index.php
-    TestmoduleModule.php
+	testmodule
+		controllers
+			DefaultController.php
+		views
+			default
+				index.php
+		TestmoduleModule.php
 ~~~
 
 `index.php` view is the same as in regular module. `TestmoduleModule.php` and

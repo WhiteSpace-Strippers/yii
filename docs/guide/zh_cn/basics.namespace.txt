@@ -43,9 +43,9 @@ Importing Classes
 Yii::import('system.web.CController');
 ~~~
 
-[import|YiiBase::import] 方法跟  `include` 和 `require` 不同，它更加高效。
+[import|YiiBase::import] 方法跟	`include` 和 `require` 不同，它更加高效。
 导入（import）的类定义并不会真正被包含进来，直到它第一次被引用。
-多次导入同样的名字空间也会比  `include_once` 和 `require_once` 快得多。
+多次导入同样的名字空间也会比	`include_once` 和 `require_once` 快得多。
 
 > Tip|提示: 当引用 Yii 框架定义的类时，我们不需要导入或包含它。所有的核心 Yii
 类都已被提前导入了。

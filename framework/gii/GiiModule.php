@@ -19,13 +19,13 @@ Yii::import('system.gii.CCodeForm');
  * To use GiiModule, you must include it as a module in the application configuration like the following:
  * <pre>
  * return array(
- *     ......
- *     'modules'=>array(
- *         'gii'=>array(
- *             'class'=>'system.gii.GiiModule',
- *             'password'=>***choose a password***
- *         ),
- *     ),
+ *		 ......
+ *		 'modules'=>array(
+ *				 'gii'=>array(
+ *						 'class'=>'system.gii.GiiModule',
+ *						 'password'=>***choose a password***
+ *				 ),
+ *		 ),
  * )
  * </pre>
  *
@@ -46,15 +46,15 @@ Yii::import('system.gii.CCodeForm');
  * the following URLs in your application configuration in order to access GiiModule:
  * <pre>
  * 'components'=>array(
- *     'urlManager'=>array(
- *         'urlFormat'=>'path',
- *         'rules'=>array(
- *             'gii'=>'gii',
- *             'gii/<controller:\w+>'=>'gii/<controller>',
- *             'gii/<controller:\w+>/<action:\w+>'=>'gii/<controller>/<action>',
- *             ...other rules...
- *         ),
- *     )
+ *		 'urlManager'=>array(
+ *				 'urlFormat'=>'path',
+ *				 'rules'=>array(
+ *						 'gii'=>'gii',
+ *						 'gii/<controller:\w+>'=>'gii/<controller>',
+ *						 'gii/<controller:\w+>/<action:\w+>'=>'gii/<controller>/<action>',
+ *						 ...other rules...
+ *				 ),
+ *		 )
  * )
  * </pre>
  *

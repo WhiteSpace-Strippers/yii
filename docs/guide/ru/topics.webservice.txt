@@ -47,7 +47,7 @@ class StockController extends CController
 	{
 		$prices=array('IBM'=>100, 'GOOGLE'=>350);
 		return isset($prices[$symbol])?$prices[$symbol]:0;
-	    //…возвращаем цену для компании с индексом $symbol
+			//…возвращаем цену для компании с индексом $symbol
 	}
 }
 ~~~
@@ -83,7 +83,7 @@ class StockController extends CController
 	 */
 	public function getPrice($symbol)
 	{
-	    //…возвращаем цену для компании с индексом $symbol
+			//…возвращаем цену для компании с индексом $symbol
 	}
 }
 ~~~
@@ -119,16 +119,16 @@ echo $client->getPrice('GOOGLE');
 веб-сервис, нам необходимо определить типы параметров и возвращаемых значений.
 Для этого могут быть использованы следующие типы:
 
-   - str/string: соответствует `xsd:string`;
-   - int/integer: соответствует `xsd:int`;
-   - float/double: соответствует `xsd:float`;
-   - bool/boolean: соответствует `xsd:boolean`;
-   - date: соответствует `xsd:date`;
-   - time: соответствует `xsd:time`;
-   - datetime: соответствует `xsd:dateTime`;
-   - array: соответствует `xsd:string`;
-   - object: соответствует `xsd:struct`;
-   - mixed: соответствует `xsd:anyType`.
+	 - str/string: соответствует `xsd:string`;
+	 - int/integer: соответствует `xsd:int`;
+	 - float/double: соответствует `xsd:float`;
+	 - bool/boolean: соответствует `xsd:boolean`;
+	 - date: соответствует `xsd:date`;
+	 - time: соответствует `xsd:time`;
+	 - datetime: соответствует `xsd:dateTime`;
+	 - array: соответствует `xsd:string`;
+	 - object: соответствует `xsd:struct`;
+	 - mixed: соответствует `xsd:anyType`.
 
 Если тип не является одним из приведённых выше, он воспринимается как
 составной тип, состоящий из свойств. Этот тип соответствует классу, а его
@@ -192,7 +192,7 @@ class PostController extends CController
 			'service'=>array(
 				'class'=>'CWebServiceAction',
 				'classMap'=>array(
-					'Post'=>'Post',  // или просто 'Post'
+					'Post'=>'Post',	// или просто 'Post'
 				),
 			),
 		);

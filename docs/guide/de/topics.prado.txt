@@ -1,11 +1,11 @@
 Alternative Templatesyntax
 ==========================
 
-Yii erlaubt es dem Entwickler, seine eigene bevorzugte Templatesyntax 
+Yii erlaubt es dem Entwickler, seine eigene bevorzugte Templatesyntax
 (z.B. von Prado oder Smarty) für Controller- und Widgetviews zu verwenden.
-Dazu  muss eine [viewRenderer|CWebApplication::viewRenderer]-Komponente
+Dazu	muss eine [viewRenderer|CWebApplication::viewRenderer]-Komponente
 erstellt bzw. konfiguriert werden. Diese Komponente fängt die Aufrufe von
-[CBaseController::renderFile] ab, kompiliert die Viewdatei in der 
+[CBaseController::renderFile] ab, kompiliert die Viewdatei in der
 entsprechenden Syntax und rendert das Ergebnis.
 
 > Info: Es wird empfohlen, die alternative Syntax nur bei Views einzusetzen,
@@ -15,7 +15,7 @@ einsetzen.
 
 Wir zeigen im Folgenden, wie man den [CPradoViewRenderer] verwendet, um mit
 einer ähnlichen Templatesyntax wie in [Prado](http://www.pradosoft.com/) zu
-arbeiten. Möchte man seinen eigenen Viewrenderer verwirklichen, ist der 
+arbeiten. Möchte man seinen eigenen Viewrenderer verwirklichen, ist der
 [CPradoViewRenderer] ein guter Ausgangspunkt dafür.
 
 Einsatz des `CPradoViewRenderer`
@@ -43,7 +43,7 @@ Diese PHP-Dateien werden nur dann neu generiert, wenn die Quelldatei sich
 geändert hat. Auf diese Weise verringert der Einsatz von [CPradoViewRenderer] die
 Performance nur unwesentlich.
 
-> Tip|Tipp: Der [CPradoViewRenderer] führt hauptsächlich vereinfachende 
+> Tip|Tipp: Der [CPradoViewRenderer] führt hauptsächlich vereinfachende
 Templatetags für Views ein. Daneben kann man aber auch immer noch normalen
 PHP-Code in Views verwenden.
 
@@ -74,7 +74,7 @@ echo Ausdruck ?>` übersetzt, während `<% Anweisung %>` zu
 
 Komponententags dienen zum Einfügen eines
 [Widgets](/doc/guide/basics.view#widget) in einem View. Sie verwenden diese
-Syntax: 
+Syntax:
 
 ~~~
 [php]

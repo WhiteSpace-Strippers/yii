@@ -17,8 +17,8 @@
  * The configuration data may be obtained from a PHP script. For example,
  * <pre>
  * return array(
- *     'name'=>'My Application',
- *     'defaultController'=>'index',
+ *		 'name'=>'My Application',
+ *		 'defaultController'=>'index',
  * );
  * </pre>
  * Use the following code to load the above configuration data:
@@ -59,8 +59,8 @@ class CConfiguration extends CMap
 	 * <pre>
 	 * return array
 	 * (
-	 *     'name'=>'My Application',
-	 *     'defaultController'=>'index',
+	 *		 'name'=>'My Application',
+	 *		 'defaultController'=>'index',
 	 * );
 	 * </pre>
 	 *

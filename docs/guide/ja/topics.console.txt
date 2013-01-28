@@ -189,7 +189,7 @@ yiic sitemap index --verbose=1 --type=News
 ~~~
 [php]
 if (/* error */) {
-    return 1; // エラーコード 1 で終了
+		return 1; // エラーコード 1 で終了
 }
 // ... do something ...
 return 0; // 正常終了

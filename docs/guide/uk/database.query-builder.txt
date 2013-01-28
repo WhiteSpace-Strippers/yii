@@ -34,7 +34,7 @@ $user = Yii::app()->db->createCommand()
 > $command->where('id=:id', array(':id'=>$id));
 > ~~~
 >
-> Не варто використовувати для одного запиту і SQL, і конструктор запитів.   
+> Не варто використовувати для одного запиту і SQL, і конструктор запитів.
 
 
 Підготовка конструктора запитів
@@ -398,7 +398,7 @@ $row = Yii::app()->db->createCommand(array(
 [php]
 $command = Yii::app()->db->createCommand();
 $users = $command->select('*')->from('tbl_users')->queryAll();
-$command->reset();  // clean up the previous query
+$command->reset();	// clean up the previous query
 $posts = $command->select('*')->from('tbl_posts')->queryAll();
 ~~~
 
@@ -532,9 +532,9 @@ function createTable($table, $columns, $options=null)
 ~~~
 [php]
 // CREATE TABLE `tbl_user` (
-//     `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-//     `username` varchar(255) NOT NULL,
-//     `location` point
+//		 `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+//		 `username` varchar(255) NOT NULL,
+//		 `location` point
 // ) ENGINE=InnoDB
 createTable('tbl_user', array(
 	'id' => 'pk',

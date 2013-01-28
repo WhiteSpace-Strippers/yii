@@ -4,7 +4,7 @@
 頁面快取指的是快取整個頁面的內容。頁面快取可以發生在不同的地方。例如，通過選擇適當的頁面頭，客戶端的瀏覽器可能會快取網頁瀏覽有限時間。 Web 應用程式程式本身也可以在快取中儲存網頁內容。
 
 頁面快取可以被看作是 [片段快取](/doc/guide/caching.fragment) 一個特殊情況 。
-由於網頁內容是往往通過應用程式佈局來產生，如果我們只是簡單的在佈局中調用 [beginCache()|CBaseController::beginCache] 
+由於網頁內容是往往通過應用程式佈局來產生，如果我們只是簡單的在佈局中調用 [beginCache()|CBaseController::beginCache]
 和 [endCache()|CBaseController::endCache]，將無法正常工作。
 這是因為佈局在 [CController::render()] 方法裡的加載是在頁面內容產生之後。
 
@@ -42,12 +42,12 @@ HTTP 快取
 [php]
 public function filters()
 {
-    return array(
-        array(
-            'CHttpCacheFilter + index',
-            'lastModified'=>Yii::app()->db->createCommand("SELECT MAX(`update_time`) FROM {{post}}")->queryScalar(),
-        ),
-    );
+		return array(
+				array(
+						'CHttpCacheFilter + index',
+						'lastModified'=>Yii::app()->db->createCommand("SELECT MAX(`update_time`) FROM {{post}}")->queryScalar(),
+				),
+		);
 }
 ~~~
 

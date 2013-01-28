@@ -68,26 +68,26 @@ the configuration needed by [CForm], as shown in the following:
 return array(
 	'title'=>'Please provide your login credential',
 
-    'elements'=>array(
-        'username'=>array(
-            'type'=>'text',
-            'maxlength'=>32,
-        ),
-        'password'=>array(
-            'type'=>'password',
-            'maxlength'=>32,
-        ),
-        'rememberMe'=>array(
-            'type'=>'checkbox',
-        )
-    ),
+		'elements'=>array(
+				'username'=>array(
+						'type'=>'text',
+						'maxlength'=>32,
+				),
+				'password'=>array(
+						'type'=>'password',
+						'maxlength'=>32,
+				),
+				'rememberMe'=>array(
+						'type'=>'checkbox',
+				)
+		),
 
-    'buttons'=>array(
-        'login'=>array(
-            'type'=>'submit',
-            'label'=>'Login',
-        ),
-    ),
+		'buttons'=>array(
+				'login'=>array(
+						'type'=>'submit',
+						'label'=>'Login',
+				),
+		),
 );
 ~~~
 
@@ -134,8 +134,8 @@ specifies a single input element:
 ~~~
 [php]
 'username'=>array(
-    'type'=>'text',
-    'maxlength'=>32,
+		'type'=>'text',
+		'maxlength'=>32,
 ),
 ~~~
 
@@ -173,9 +173,9 @@ property of the corresponding input element. One can do so like the following:
 ~~~
 [php]
 'gender'=>array(
-    'type'=>'dropdownlist',
-    'items'=>User::model()->getGenderOptions(),
-    'prompt'=>'Please select:',
+		'type'=>'dropdownlist',
+		'items'=>User::model()->getGenderOptions(),
+		'prompt'=>'Please select:',
 ),
 
 ...
@@ -212,19 +212,19 @@ collection. To do so, we simply specify a static text string as an array element
 ~~~
 [php]
 return array(
-    'elements'=>array(
+		'elements'=>array(
 		......
-        'password'=>array(
-            'type'=>'password',
-            'maxlength'=>32,
-        ),
+				'password'=>array(
+						'type'=>'password',
+						'maxlength'=>32,
+				),
 
-        '<hr />',
+				'<hr />',
 
-        'rememberMe'=>array(
-            'type'=>'checkbox',
-        )
-    ),
+				'rememberMe'=>array(
+						'type'=>'checkbox',
+				)
+		),
 	......
 );
 ~~~
@@ -252,30 +252,30 @@ the [CForm::elements] property with an element whose type is `form`:
 ~~~
 [php]
 return array(
-    'elements'=>array(
+		'elements'=>array(
 		......
-        'user'=>array(
-            'type'=>'form',
-            'title'=>'Login Credential',
-            'elements'=>array(
-            	'username'=>array(
-            		'type'=>'text',
-            	),
-            	'password'=>array(
-            		'type'=>'password',
-            	),
-            	'email'=>array(
-            		'type'=>'text',
-            	),
-            ),
-        ),
+				'user'=>array(
+						'type'=>'form',
+						'title'=>'Login Credential',
+						'elements'=>array(
+							'username'=>array(
+								'type'=>'text',
+							),
+							'password'=>array(
+								'type'=>'password',
+							),
+							'email'=>array(
+								'type'=>'text',
+							),
+						),
+				),
 
-        'profile'=>array(
-        	'type'=>'form',
-        	......
-        ),
-        ......
-    ),
+				'profile'=>array(
+					'type'=>'form',
+					......
+				),
+				......
+		),
 	......
 );
 ~~~
@@ -369,15 +369,15 @@ return array(
 			'type'=>'form',
 			'title'=>'Login information',
 			'elements'=>array(
-		        'username'=>array(
-		            'type'=>'text',
-		        ),
-		        'password'=>array(
-		            'type'=>'password',
-		        ),
-		        'email'=>array(
-		            'type'=>'text',
-		        )
+						'username'=>array(
+								'type'=>'text',
+						),
+						'password'=>array(
+								'type'=>'password',
+						),
+						'email'=>array(
+								'type'=>'text',
+						)
 			),
 		),
 
@@ -385,22 +385,22 @@ return array(
 			'type'=>'form',
 			'title'=>'Profile information',
 			'elements'=>array(
-		        'firstName'=>array(
-		            'type'=>'text',
-		        ),
-		        'lastName'=>array(
-		            'type'=>'text',
-		        ),
+						'firstName'=>array(
+								'type'=>'text',
+						),
+						'lastName'=>array(
+								'type'=>'text',
+						),
 			),
 		),
 	),
 
-    'buttons'=>array(
-        'register'=>array(
-            'type'=>'submit',
-            'label'=>'Register',
-        ),
-    ),
+		'buttons'=>array(
+				'register'=>array(
+						'type'=>'submit',
+						'label'=>'Register',
+				),
+		),
 );
 ~~~
 

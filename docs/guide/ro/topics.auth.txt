@@ -3,7 +3,7 @@ Autentificare si autorizare
 
 Autentificarea si autorizarea sunt necesare daca o pagina Web trebuie
 sa fie accesata doar de anumiti utilizatori. Autentificarea in sine asigura
-ca cineva este cine pretinde ca este. De obicei, este nevoie de un nume de 
+ca cineva este cine pretinde ca este. De obicei, este nevoie de un nume de
 utilizator si o parola, dar poate include si alte metode pentru demonstrarea identitatii,
 precum smart card, amprente, etc. Autorizarea este calea prin care o persoana,
 o data ce a fost identificata (autentificata), are permisiunea sa acceseze/modifice
@@ -67,7 +67,7 @@ class UserIdentity extends CUserIdentity
 			$this->errorCode=self::ERROR_NONE;
 		}
 		return !$this->errorCode;
-    }
+		}
 
 	public function getId()
 	{
@@ -187,7 +187,7 @@ class PostController extends CController
 }
 ~~~
 
-Codul de mai sus specifica trei reguli, fiecare reprezentata de un array. 
+Codul de mai sus specifica trei reguli, fiecare reprezentata de un array.
 Primul element din array este `'allow'` sau `'deny'` iar restul perechilor
 nume-valoare specifica parametrii pattern ai regulii. Aceste reguli
 ne spun: action-urile `create` si `edit` nu pot fi executate de catre
@@ -206,40 +206,40 @@ daca nici una dintre aceste reguli nu se potriveste cu contextul, action va fi e
 > ~~~
 > [php]
 > return array(
->     // ... alte reguli...
->     // urmatoarea regula interzice action-ul 'delete' in absolut orice context
->     array('deny',
->         'action'=>'delete',
->     ),
+>		 // ... alte reguli...
+>		 // urmatoarea regula interzice action-ul 'delete' in absolut orice context
+>		 array('deny',
+>				 'action'=>'delete',
+>		 ),
 > );
 > ~~~
 > Motivul pentru care adaugam aceasta regula este ca daca nici o regula nu se
-> potriveste, action-ul va fi executat. 
+> potriveste, action-ul va fi executat.
 
 O regula de acces poate sa se potriveasca cu urmatorii parametri de context:
 
-   - [actions|CAccessRule::actions]: precizeaza lista de action-uri pentru care se aplica regula.
+	 - [actions|CAccessRule::actions]: precizeaza lista de action-uri pentru care se aplica regula.
 
-   - [users|CAccessRule::users]: precizeaza utilizatorii pentru care se aplica regula.
+	 - [users|CAccessRule::users]: precizeaza utilizatorii pentru care se aplica regula.
 Este folosit [numele|CWebUser::name] utilizatorului curent. Trei caractere speciale pot fi folosite aici:
 
-	   - `*`: orice utilizator, anonim sau autentificat.
-	   - `?`: utilizatorii anonimi.
-	   - `@`: utilizatorii autentificati.
+		 - `*`: orice utilizator, anonim sau autentificat.
+		 - `?`: utilizatorii anonimi.
+		 - `@`: utilizatorii autentificati.
 
-   - [roles|CAccessRule::roles]: precizeaza caror roluri li se aplica regula curenta.
+	 - [roles|CAccessRule::roles]: precizeaza caror roluri li se aplica regula curenta.
 Se foloseste [controlul accesului bazat pe roluri](#role-based-access-control)
 care va fi descris in sub-sectiunea urmatoare. In particular, regula
 este aplicata daca [CWebUser::checkAccess] returneaza true pentru unul dintre roluri.
 De notat este faptul ca ar trebui sa folosim rolurile in regulile `allow` pentru ca, prin definitie,
 un rol reprezinta o permisiune de a face ceva.
 
-   - [ips|CAccessRule::ips]: precizeaza caror adrese IP li se va aplica regula.
+	 - [ips|CAccessRule::ips]: precizeaza caror adrese IP li se va aplica regula.
 
-   - [verbs|CAccessRule::verbs]: precizeaza caror tipuri de cereri (ex.
+	 - [verbs|CAccessRule::verbs]: precizeaza caror tipuri de cereri (ex.
 `GET`, `POST`) li se va aplica regula.
 
-   - [expression|CAccessRule::expression]: precizeaza o expresie PHP a carei valoare
+	 - [expression|CAccessRule::expression]: precizeaza o expresie PHP a carei valoare
 indica daca aceasta regula se va aplica sau nu. In aceasta expresie putem folosi variabila `$user`
 care se refera la `Yii::app()->user`. Aceasta optiune este disponibila incepand cu versiunea 1.0.3.
 
@@ -249,11 +249,11 @@ care se refera la `Yii::app()->user`. Aceasta optiune este disponibila incepand 
 Cand autorizarea esueaza, adica utilizatorul nu are dreptul sa executa action-ul specificat,
 se poate intampla unul dintre urmatoarele doua scenarii:
 
-   - If the user is not logged in and if the [loginUrl|CWebUser::loginUrl]
+	 - If the user is not logged in and if the [loginUrl|CWebUser::loginUrl]
 property of the user component is configured to be the URL of the login
 page, the browser will be redirected to that page.
 
-   - Otherwise an HTTP exception will be displayed with error code 401.
+	 - Otherwise an HTTP exception will be displayed with error code 401.
 
 When configuring the [loginUrl|CWebUser::loginUrl] property, one can
 provide a relative or absolute URL. One can also provide an array which
@@ -398,23 +398,23 @@ whole set of APIs to accomplish these tasks.
 To define an authorization item, call one of the following methods,
 depending on the type of the item:
 
-   - [CAuthManager::createRole]
-   - [CAuthManager::createTask]
-   - [CAuthManager::createOperation]
+	 - [CAuthManager::createRole]
+	 - [CAuthManager::createTask]
+	 - [CAuthManager::createOperation]
 
 Once we have a set of authorization items, we can call the following
 methods to establish relationships between authorization items:
 
-   - [CAuthManager::addItemChild]
-   - [CAuthManager::removeItemChild]
-   - [CAuthItem::addChild]
-   - [CAuthItem::removeChild]
+	 - [CAuthManager::addItemChild]
+	 - [CAuthManager::removeItemChild]
+	 - [CAuthItem::addChild]
+	 - [CAuthItem::removeChild]
 
 And finally, we call the following methods to assign role items to
 individual users:
 
-   - [CAuthManager::assign]
-   - [CAuthManager::revoke]
+	 - [CAuthManager::assign]
+	 - [CAuthManager::revoke]
 
 Below we show an example about building an authorization hierarchy with
 the provided APIs:

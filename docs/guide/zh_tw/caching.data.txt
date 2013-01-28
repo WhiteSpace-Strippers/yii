@@ -12,7 +12,7 @@ Yii::app()->cache->set($id, $value);
 ~~~
 
 快取的資料將一直留在快取中，除非它由於某些快取策略（例如快取空間已滿，舊的資料被刪除）而被清除。
-要改變這種行為，我們可以在調用  [set()|CCache::set]  的同時提供一個過期參數，這樣在設定的時間段之後，快取資料將被清除：
+要改變這種行為，我們可以在調用	[set()|CCache::set]	的同時提供一個過期參數，這樣在設定的時間段之後，快取資料將被清除：
 
 ~~~
 [php]
@@ -46,8 +46,8 @@ if($value===false)
 > ~~~
 > [php]
 > $cache=Yii::app()->cache;
-> $cache['var1']=$value1;  // 相當於: $cache->set('var1',$value1);
-> $value2=$cache['var2'];  // 相當於: $value2=$cache->get('var2');
+> $cache['var1']=$value1;	// 相當於: $cache->set('var1',$value1);
+> $value2=$cache['var2'];	// 相當於: $value2=$cache->get('var2');
 > ~~~
 
 快取相依性
@@ -70,17 +70,17 @@ Yii::app()->cache->set($id, $value, 30, new CFileCacheDependency('FileName'));
 
 下面是可用的快取相依性的簡要說明：
 
-   - [CFileCacheDependency]: 如果文件的最後修改時間發生改變，則相依性改變。
+	 - [CFileCacheDependency]: 如果文件的最後修改時間發生改變，則相依性改變。
 
-   - [CDirectoryCacheDependency]: 如果目錄和其子目錄中的文件發生改變，則相依性改變。
+	 - [CDirectoryCacheDependency]: 如果目錄和其子目錄中的文件發生改變，則相依性改變。
 
-   - [CDbCacheDependency]: 如果指定 SQL 語句的查詢結果發生改變，則相依性改變。
+	 - [CDbCacheDependency]: 如果指定 SQL 語句的查詢結果發生改變，則相依性改變。
 
-   - [CGlobalStateCacheDependency]: 如果指定的全域狀態發生改變，則相依性改變。全域狀態是應用程式中的一個跨請求、跨會話的變數。它是通過 [CApplication::setGlobalState()] 定義的。
+	 - [CGlobalStateCacheDependency]: 如果指定的全域狀態發生改變，則相依性改變。全域狀態是應用程式中的一個跨請求、跨會話的變數。它是通過 [CApplication::setGlobalState()] 定義的。
 
-   - [CChainedCacheDependency]: 如果鏈中的任何相依性發生改變，則此相依性改變。
+	 - [CChainedCacheDependency]: 如果鏈中的任何相依性發生改變，則此相依性改變。
 
-   - [CExpressionDependency]: 如果指定的 PHP 表達式的結果發生改變，則相依性改變。
+	 - [CExpressionDependency]: 如果指定的 PHP 表達式的結果發生改變，則相依性改變。
 
 
 查詢快取

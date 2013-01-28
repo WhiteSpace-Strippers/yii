@@ -17,23 +17,23 @@ $_POST['ModelClass'][$i]
 [php] 
 public function actionBatchUpdate()
 {
-    // שליפת מידע בצורה מאסיבית
-    // בנחה שכל ערך הוא מודל של המחלקה `Item`
-    $items=$this-»getItemsToUpdate();
-    if(isset($_POST['Item']))
-    {
-        $valid=true;
-        foreach($items as $i=»$item)
-        {
-            if(isset($_POST['Item'][$i]))
-                $item-»attributes=$_POST['Item'][$i];
-            $valid=$valid && $item-»validate();
-        }
-        if($valid)  // כל הערכים תקינים
-            // פעולות לביצוע
-    }
-    // הצג את הטופס
-    $this-»render('batchUpdate',array('items'=»$items));
+		// שליפת מידע בצורה מאסיבית
+		// בנחה שכל ערך הוא מודל של המחלקה `Item`
+		$items=$this-»getItemsToUpdate();
+		if(isset($_POST['Item']))
+		{
+				$valid=true;
+				foreach($items as $i=»$item)
+				{
+						if(isset($_POST['Item'][$i]))
+								$item-»attributes=$_POST['Item'][$i];
+						$valid=$valid && $item-»validate();
+				}
+				if($valid)	// כל הערכים תקינים
+						// פעולות לביצוע
+		}
+		// הצג את הטופס
+		$this-»render('batchUpdate',array('items'=»$items));
 }
 ~~~
 

@@ -76,11 +76,11 @@ you should turn on schema caching by configuring the
 Support for AR is limited by DBMS. Currently, only the following DBMS are
 supported:
 
-   - [MySQL 4.1 or later](http://www.mysql.com)
-   - [PostgreSQL 7.3 or later](http://www.postgres.com)
-   - [SQLite 2 and 3](http://www.sqlite.org)
-   - [Microsoft SQL Server 2000 or later](http://www.microsoft.com/sqlserver/)
-   - [Oracle](http://www.oracle.com)
+	 - [MySQL 4.1 or later](http://www.mysql.com)
+	 - [PostgreSQL 7.3 or later](http://www.postgres.com)
+	 - [SQLite 2 and 3](http://www.sqlite.org)
+	 - [Microsoft SQL Server 2000 or later](http://www.microsoft.com/sqlserver/)
+	 - [Oracle](http://www.oracle.com)
 
 If you want to use an application component other than `db`, or if you
 want to work with multiple databases using AR, you should override
@@ -143,7 +143,7 @@ such for every AR class (to be explained shortly).
 > [php]
 > public function tableName()
 > {
->     return '{{post}}';
+>		 return '{{post}}';
 > }
 > ~~~
 > That is, instead of returning the fully qualified table name, we return
@@ -221,7 +221,7 @@ class Post extends CActiveRecord
 }
 
 $post=new Post;
-echo $post->title;  // this would display: please enter a title
+echo $post->title;	// this would display: please enter a title
 ~~~
 
 An attribute can be assigned a value of [CDbExpression]
@@ -302,7 +302,7 @@ allows us to specify conditions other than the `WHERE` clause. For example,
 ~~~
 [php]
 $criteria=new CDbCriteria;
-$criteria->select='title';  // only select the 'title' column
+$criteria->select='title';	// only select the 'title' column
 $criteria->condition='postID=:postID';
 $criteria->params=array(':postID'=>10);
 $post=Post::model()->find($criteria); // $params is not needed
@@ -505,25 +505,25 @@ Customization
 [CActiveRecord] provides a few placeholder methods that can be overridden
 in child classes to customize its workflow.
 
-   - [beforeValidate|CModel::beforeValidate] and
+	 - [beforeValidate|CModel::beforeValidate] and
 [afterValidate|CModel::afterValidate]: these are invoked before and
 after validation is performed.
 
-   - [beforeSave|CActiveRecord::beforeSave] and
+	 - [beforeSave|CActiveRecord::beforeSave] and
 [afterSave|CActiveRecord::afterSave]: these are invoked before and after
 saving an AR instance.
 
-   - [beforeDelete|CActiveRecord::beforeDelete] and
+	 - [beforeDelete|CActiveRecord::beforeDelete] and
 [afterDelete|CActiveRecord::afterDelete]: these are invoked before and
 after an AR instance is deleted.
 
-   - [afterConstruct|CActiveRecord::afterConstruct]: this is invoked for
+	 - [afterConstruct|CActiveRecord::afterConstruct]: this is invoked for
 every AR instance created using the `new` operator.
 
-   - [beforeFind|CActiveRecord::beforeFind]: this is invoked before an AR finder
+	 - [beforeFind|CActiveRecord::beforeFind]: this is invoked before an AR finder
 is used to perform a query (e.g. `find()`, `findAll()`).
 
-   - [afterFind|CActiveRecord::afterFind]: this is invoked after every AR
+	 - [afterFind|CActiveRecord::afterFind]: this is invoked after every AR
 instance created as a result of query.
 
 

@@ -34,16 +34,16 @@ three types: one-to-many (e.g. `tbl_user` and `tbl_post`), one-to-one (e.g.
 `tbl_user` and `tbl_profile`) and many-to-many (e.g. `tbl_category` and `tbl_post`).
 In AR, there are four types of relationships:
 
-   - `BELONGS_TO`: if the relationship between table A and B is
+	 - `BELONGS_TO`: if the relationship between table A and B is
 one-to-many, then B belongs to A (e.g. `Post` belongs to `User`);
 
-   - `HAS_MANY`: if the relationship between table A and B is one-to-many,
+	 - `HAS_MANY`: if the relationship between table A and B is one-to-many,
 then A has many B (e.g. `User` has many `Post`);
 
-   - `HAS_ONE`: this is special case of `HAS_MANY` where A has at most one
+	 - `HAS_ONE`: this is special case of `HAS_MANY` where A has at most one
 B (e.g. `User` has at most one `Profile`);
 
-   - `MANY_MANY`: this corresponds to the many-to-many relationship in
+	 - `MANY_MANY`: this corresponds to the many-to-many relationship in
 database. An associative table is needed to break a many-to-many
 relationship into one-to-many relationships, as most DBMS do not support
 many-to-many relationship directly. In our example database schema, the
@@ -251,35 +251,35 @@ We mentioned that additional options can be specified in relationship
 declaration. These options, specified as name-value pairs, are used to
 customize the relational query. They are summarized as below.
 
-   - `select`: a list of columns to be selected for the related AR class.
+	 - `select`: a list of columns to be selected for the related AR class.
 It defaults to '*', meaning all columns. Column names referenced in this option
 should be disambiguated.
 
-   - `condition`: the `WHERE` clause. It defaults to empty. Column names
+	 - `condition`: the `WHERE` clause. It defaults to empty. Column names
 referenced in this option should be disambiguated.
 
-   - `params`: the parameters to be bound to the generated SQL statement.
+	 - `params`: the parameters to be bound to the generated SQL statement.
 This should be given as an array of name-value pairs.
 
-   - `on`: the `ON` clause. The condition specified here will be appended
+	 - `on`: the `ON` clause. The condition specified here will be appended
 to the joining condition using the `AND` operator. Column names referenced
 in this option should be disambiguated.
 This option does not apply to `MANY_MANY` relations.
 
-   - `order`: the `ORDER BY` clause. It defaults to empty. Column names
+	 - `order`: the `ORDER BY` clause. It defaults to empty. Column names
 referenced in this option should be disambiguated.
 
-   - `with`: a list of child related objects that should be loaded
+	 - `with`: a list of child related objects that should be loaded
 together with this object. Be aware that using this option inappropriately
 may form an infinite relation loop.
 
-   - `joinType`: type of join for this relationship. It defaults to `LEFT
+	 - `joinType`: type of join for this relationship. It defaults to `LEFT
 OUTER JOIN`.
 
-   - `alias`: the alias for the table associated with this relationship.
+	 - `alias`: the alias for the table associated with this relationship.
 It defaults to null, meaning the table alias is the same as the relation name.
 
-   - `together`: whether the table associated with this relationship should
+	 - `together`: whether the table associated with this relationship should
 be forced to join together with the primary table and other tables.
 This option is only meaningful for `HAS_MANY` and `MANY_MANY` relations.
 If this option is set false, the table associated with the `HAS_MANY` or `MANY_MANY`
@@ -291,21 +291,21 @@ If this option is not set, the associated table will be joined with the
 primary table in a single SQL query only when the primary table is not paginated.
 For more details, see the section "Relational Query Performance".
 
-   - `join`: the extra `JOIN` clause. It defaults to empty. This option
+	 - `join`: the extra `JOIN` clause. It defaults to empty. This option
 has been available since version 1.1.3.
 
-   - `group`: the `GROUP BY` clause. It defaults to empty. Column names
+	 - `group`: the `GROUP BY` clause. It defaults to empty. Column names
 referenced in this option should be disambiguated.
 
-   - `having`: the `HAVING` clause. It defaults to empty. Column names
+	 - `having`: the `HAVING` clause. It defaults to empty. Column names
 referenced in this option should be disambiguated.
 
-   - `index`: the name of the column whose values should be used as keys
+	 - `index`: the name of the column whose values should be used as keys
 of the array that stores related objects. Without setting this option,
 an related object array would use zero-based integer index.
 This option can only be set for `HAS_MANY` and `MANY_MANY` relations.
 
-   - `scopes`: scopes to apply. In case of a single scope can be used like
+	 - `scopes`: scopes to apply. In case of a single scope can be used like
 `'scopes'=>'scopeName'`, in case of multiple scopes can be used like
 `'scopes'=>array('scopeName1','scopeName2')`. This option has been available
 since version 1.1.9.
@@ -313,15 +313,15 @@ since version 1.1.9.
 In addition, the following options are available for certain relationships
 during lazy loading:
 
-   - `limit`: limit of the rows to be selected. This option does NOT apply
+	 - `limit`: limit of the rows to be selected. This option does NOT apply
 to `BELONGS_TO` relation.
 
-   - `offset`: offset of the rows to be selected. This option does NOT
+	 - `offset`: offset of the rows to be selected. This option does NOT
 apply to `BELONGS_TO` relation.
 
-   - `through`: name of the model's relation that will be used as a bridge when
-   getting related data. Can be set only for `HAS_ONE` and `HAS_MANY`.
-   This option has been available since version 1.1.7.
+	 - `through`: name of the model's relation that will be used as a bridge when
+	 getting related data. Can be set only for `HAS_ONE` and `HAS_MANY`.
+	 This option has been available since version 1.1.7.
 
 Below we modify the `posts` relationship declaration in the `User` by
 including some of the above options:
@@ -494,20 +494,20 @@ The above statement will execute three SQLs to bring back all posts together wit
 
 By default, a statistical query will calculate the `COUNT` expression (and thus the comment count and category count in the above example). We can customize it by specifying additional options when we declare it in [relations()|CActiveRecord::relations]. The available options are summarized as below.
 
-   - `select`: the statistical expression. Defaults to `COUNT(*)`, meaning the count of child objects.
+	 - `select`: the statistical expression. Defaults to `COUNT(*)`, meaning the count of child objects.
 
-   - `defaultValue`: the value to be assigned to those records that do not receive a statistical query result. For example, if a post does not have any comments, its `commentCount` would receive this value. The default value for this option is 0.
+	 - `defaultValue`: the value to be assigned to those records that do not receive a statistical query result. For example, if a post does not have any comments, its `commentCount` would receive this value. The default value for this option is 0.
 
-   - `condition`: the `WHERE` clause. It defaults to empty.
+	 - `condition`: the `WHERE` clause. It defaults to empty.
 
-   - `params`: the parameters to be bound to the generated SQL statement.
+	 - `params`: the parameters to be bound to the generated SQL statement.
 This should be given as an array of name-value pairs.
 
-   - `order`: the `ORDER BY` clause. It defaults to empty.
+	 - `order`: the `ORDER BY` clause. It defaults to empty.
 
-   - `group`: the `GROUP BY` clause. It defaults to empty.
+	 - `group`: the `GROUP BY` clause. It defaults to empty.
 
-   - `having`: the `HAVING` clause. It defaults to empty.
+	 - `having`: the `HAVING` clause. It defaults to empty.
 
 
 Relational Query with Named Scopes
@@ -547,7 +547,7 @@ $posts=Post::model()->findAll(array(
 
 The above query will bring back all posts together with their approved comments. Note that `comments` refers to the relation name, while `recently` and `approved` refer to two named scopes declared in the `Comment` model class. The relation name and the named scopes should be separated by colons.
 
-Occasionally you may need to retrieve a scoped relationship using a lazy-loading approach, instead of the normal eager loading method shown above.  In that case, the following syntax will do what you need:
+Occasionally you may need to retrieve a scoped relationship using a lazy-loading approach, instead of the normal eager loading method shown above.	In that case, the following syntax will do what you need:
 
 ~~
 [php]
@@ -576,7 +576,7 @@ class User extends CActiveRecord
 	public function relations()
 	{
 		return array(
-		    'posts'=>array(self::HAS_MANY, 'Post', 'author_id',
+				'posts'=>array(self::HAS_MANY, 'Post', 'author_id',
 				'with'=>array(
 					'comments'=>array(
 						'scopes'=>'approved'
@@ -636,8 +636,8 @@ When using `through`, relation definition should look like the following:
 
 In the above `array('key1'=>'key2')`:
 
-  - `key1` is a key defined in relation specified in `through` (`posts` is this case).
-  - `key2` is a key defined in a model relation points to (`Comment` in this case).
+	- `key1` is a key defined in relation specified in `through` (`posts` is this case).
+	- `key2` is a key defined in a model relation points to (`Comment` in this case).
 
 `through` can be used with both `HAS_ONE` and `HAS_MANY` relations.
 

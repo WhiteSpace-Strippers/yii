@@ -33,7 +33,7 @@ Create a Web application under '/wwwroot/blog'? [Yes|No]y
 > ścieżka/do/php /wwwroot/yii/framework/yiic.php webapp /wwwroot/blog
 >~~~
 
-Aby wypróbować aplikację, którą właśnie stworzyliśmy, otwórz przeglądarkę i przejdź do adresu `http://www.example.com/blog/index.php`. Powinniśmy zobaczyć, że nasza szkieletowa aplikacja posiada już cztery w pełni funkcjonalne strony: stronę domową, stronę o nas, stronę kontaktową oraz stronę logowania. 
+Aby wypróbować aplikację, którą właśnie stworzyliśmy, otwórz przeglądarkę i przejdź do adresu `http://www.example.com/blog/index.php`. Powinniśmy zobaczyć, że nasza szkieletowa aplikacja posiada już cztery w pełni funkcjonalne strony: stronę domową, stronę o nas, stronę kontaktową oraz stronę logowania.
 
 W dalszej części, pokrótce opiszemy co znajduje się w właśnie stworzonym szkielecie aplikacji.
 

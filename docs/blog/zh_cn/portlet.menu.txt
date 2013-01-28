@@ -83,7 +83,7 @@ class UserMenu extends CPortlet
 
  1. 打开浏览器输入 URL `http://www.example.com/blog/index.php` 。 核实页面中的侧边栏中没有任何东西显示。
  2. 点击 `Login` 超链接，填写登录表单登录，如果登录成功，核实 `UserMenu` portlet 显示在了侧边栏中，且其标题为当前用户名。
- 3. 点击 `UserMenu` portlet 中的  'Logout' ，核实注销成功且 `UserMenu` portlet 已消失。
+ 3. 点击 `UserMenu` portlet 中的	'Logout' ，核实注销成功且 `UserMenu` portlet 已消失。
 
 
 总结

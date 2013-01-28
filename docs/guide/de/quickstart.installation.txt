@@ -3,8 +3,8 @@ Installation
 
 Die Installation von Yii erfolgt im Wesentlichen in zwei Schritten:
 
-   1. Herunterladen des Yii-Frameworks von [yiiframework.com](http://www.yiiframework.com/).
-   2. Entpacken des Yii-Pakets in ein Verzeichnis mit Webzugriff.
+	 1. Herunterladen des Yii-Frameworks von [yiiframework.com](http://www.yiiframework.com/).
+	 2. Entpacken des Yii-Pakets in ein Verzeichnis mit Webzugriff.
 
 > Tip|Tipp: Yii muss nicht zwingend in ein Webverzeichnis installiert werden.
 Bei einer Yii-Anwendung muss in der Regel nur das Startscript (meist

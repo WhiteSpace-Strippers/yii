@@ -14,15 +14,15 @@
  * $count=Yii::app()->db->createCommand('SELECT COUNT(*) FROM tbl_user')->queryScalar();
  * $sql='SELECT * FROM tbl_user';
  * $dataProvider=new CSqlDataProvider($sql, array(
- *     'totalItemCount'=>$count,
- *     'sort'=>array(
- *         'attributes'=>array(
- *              'id', 'username', 'email',
- *         ),
- *     ),
- *     'pagination'=>array(
- *         'pageSize'=>10,
- *     ),
+ *		 'totalItemCount'=>$count,
+ *		 'sort'=>array(
+ *				 'attributes'=>array(
+ *							'id', 'username', 'email',
+ *				 ),
+ *		 ),
+ *		 'pagination'=>array(
+ *				 'pageSize'=>10,
+ *		 ),
  * ));
  * // $dataProvider->getData() will return a list of arrays.
  * </pre>

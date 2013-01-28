@@ -72,9 +72,9 @@ prin configurarea proprietatii [CDbConnection::schemaCachingDuration] cu o valoa
 
 Suportul pentru AR este limitat de catre DBMS. In acest moment, au suport doar urmatoarele DBMS:
 
-   - [MySQL 4.1 sau mai nou](http://www.mysql.com)
-   - [PostgreSQL 7.3 sau mai nou](http://www.postgres.com)
-   - [SQLite 2 sau 3](http://www.sqlite.org)
+	 - [MySQL 4.1 sau mai nou](http://www.mysql.com)
+	 - [PostgreSQL 7.3 sau mai nou](http://www.postgres.com)
+	 - [SQLite 2 sau 3](http://www.sqlite.org)
 
 Daca vrem sa folosim o alta componenta decat `db`, sau daca vrem sa lucram
 cu mai multe baze de date folosind AR, atunci ar trebui sa suprascriem
@@ -187,7 +187,7 @@ class Post extends CActiveRecord
 }
 
 $post=new Post;
-echo $post->title;  // Aceasta instructiune va afisa: Va rugam introduceti un titlu
+echo $post->title;	// Aceasta instructiune va afisa: Va rugam introduceti un titlu
 ~~~
 
 Incepand cu versiunea 1.0.2 a Yii, unui atribut i se poate asigna o valoare de tip
@@ -225,7 +225,7 @@ $post=Post::model()->findBySql($sql,$params);
 In cele de mai sus, apelam metoda `find` cu `Post::model()`. Sa ne aducem aminte
 ca metoda statica `model()` este necesara pentru fiecare clasa AR. Metoda returneaza
 o instanta AR care este folosita pentru a accesa metodele clasei (asemanator cu metodele
-unei clase statice) in contextul unui obiect. 
+unei clase statice) in contextul unui obiect.
 
 Daca metoda `find` gaseste un rand care indeplineste conditiile cererii, atunci
 va intoarce o instanta `Post` ale carei proprietati contin valorile coloanelor
@@ -233,9 +233,9 @@ corespunzatoare din randul din tabela. Putem acum citi valorile incarcate exact 
 cum putem citi valorile proprietatilor unui obiect, de exemplu, `echo $post->title;`.
 
 Metoda `find` va intoarce null daca nu este gasit nici un rand din baza de date
-care indeplineste conditiile. 
+care indeplineste conditiile.
 
-Cand apelam `find`, folosim `$condition` si `$params` pentru a transmite conditiile. 
+Cand apelam `find`, folosim `$condition` si `$params` pentru a transmite conditiile.
 `$condition` poate fi un string in care se retine clauza `WHERE` dintr-o instructiune
 SQL. `$params` este un array de parametri ale caror valori ar trebui sa fie conectate corespunzator
 la placeholder-ele din `$condition`. De exemplu,
@@ -253,7 +253,7 @@ sa specificam alte conditii pe langa clauza `WHERE`. De exemplu:
 ~~~
 [php]
 $criteria=new CDbCriteria;
-$criteria->select='title';  // selecteaza doar coloana 'title'
+$criteria->select='title';	// selecteaza doar coloana 'title'
 $criteria->condition='postID=:postID';
 $criteria->params=array(':postID'=>10);
 $post=Post::model()->find($criteria); // $params nu este necesar
@@ -281,7 +281,7 @@ putem folosi [findByAttributes()|CActiveRecord::findByAttributes].
 Parametrii `$attributes` vor fi transmisi intr-un array de valori indexate dupa numele de coloana.
 In unele framework-uri, acest task poate fi facut prin apelarea unor metode de genul
 `findByNameAndTitle`. Desi pare atractiva aceasta abordare, de obicei cauzeaza confuzie, conflicte
-si probleme (ex. daca numele coloanelor sunt case-sensitive sau nu). 
+si probleme (ex. daca numele coloanelor sunt case-sensitive sau nu).
 
 Atunci cand se potrivesc mai multe coloane cu conditia noastra, putem sa le extragem
 pe toate in acelasi timp folosind metodele `findAll`, fiecare metoda `find` avand un corespondent `findall`.
@@ -350,7 +350,7 @@ Post::model()->updateCounters($counters,$condition,$params);
 
 In cele de mai sus, `$attributes` este un array cu valori de coloane indexate dupa numele coloanelor;
 `$counters` este un array cu valori de incrementare indexate dupa numele coloanelor;
-iar `$condition` si `$params` sunt descrie in subsectiunea anterioara. 
+iar `$condition` si `$params` sunt descrie in subsectiunea anterioara.
 
 Stergerea inregistrarilor
 -------------------------
@@ -448,21 +448,21 @@ Customizare
 [CActiveRecord] pune la dispozitie cateva metode care pot fi suprascrise in clasele derivate
 pentru a schimba fluxul de lucru.
 
-   - [beforeValidate|CModel::beforeValidate] si
+	 - [beforeValidate|CModel::beforeValidate] si
 [afterValidate|CModel::afterValidate]: acestea sunt apelate inainte si dupa validare.
 
-   - [beforeSave|CActiveRecord::beforeSave] si
+	 - [beforeSave|CActiveRecord::beforeSave] si
 [afterSave|CActiveRecord::afterSave]: acestea sunt apelate inainte si dupa salvarea
 unei instante AR.
 
-   - [beforeDelete|CActiveRecord::beforeDelete] si
+	 - [beforeDelete|CActiveRecord::beforeDelete] si
 [afterDelete|CActiveRecord::afterDelete]: acestea sunt apelate inainte si dupa ce o instanta
 AR este stearsa.
 
-   - [afterConstruct|CActiveRecord::afterConstruct]: aceasta este apelata pentru fiecare
+	 - [afterConstruct|CActiveRecord::afterConstruct]: aceasta este apelata pentru fiecare
 instanta AR creata cu operatorul `new`.
 
-   - [afterFind|CActiveRecord::afterFind]: aceasta este apelata pentru fiecare instanta AR
+	 - [afterFind|CActiveRecord::afterFind]: aceasta este apelata pentru fiecare instanta AR
 creata ca rezultat al cererii.
 
 

@@ -3,9 +3,9 @@ Konten Dinamis(Dynamic Content)
 
 Saat menggunakan [caching fragmen](/doc/guide/caching.fragment) atau [caching
 halaman](/doc/guide/caching.page), kita sering mengalami situasi di mana
-seluruh bagian output relatif statis kecuali pada satu atau beberapa 
+seluruh bagian output relatif statis kecuali pada satu atau beberapa
 tempat. Sebagai contoh, halaman bantuan mungkin menampilkan halaman statis
-informasi bantuan dengan nama pengguna yang saat ini masuk ditampilkan di 
+informasi bantuan dengan nama pengguna yang saat ini masuk ditampilkan di
 atas.
 
 Untuk memecahkan masalah ini, kita dapat memvariasikan konten cache berdasarkan
@@ -20,7 +20,7 @@ harus dibuat setiap kali meskipun penyertaan konten
 sedang dilayani dari cache. Dikarenakan alasan ini, kita memerlukan konten dinamis yang
 dibuat oleh beberapa metode atau fungsi.
 
-Kita memanggil [CController::renderDynamic()] untuk menyisipkan konten dinamis 
+Kita memanggil [CController::renderDynamic()] untuk menyisipkan konten dinamis
 di tempat yang diinginkan.
 
 ~~~

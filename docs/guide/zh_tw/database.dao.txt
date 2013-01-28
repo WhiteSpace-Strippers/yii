@@ -10,10 +10,10 @@ PostgreSQL 等等。因此，要使用 Yii DAO，PDO 擴充和特定的 PDO 資�
 
 Yii DAO 主要包含如下四個類：
 
-   - [CDbConnection]: 代表一個資料庫連接。
-   - [CDbCommand]: 代表一條通過資料庫執行的 SQL 述句。
-   - [CDbDataReader]: 代表一個只往前移動的查詢結果的資料流。
-   - [CDbTransaction]: 代表一個資料庫交易。
+	 - [CDbConnection]: 代表一個資料庫連接。
+	 - [CDbCommand]: 代表一條通過資料庫執行的 SQL 述句。
+	 - [CDbDataReader]: 代表一個只往前移動的查詢結果的資料流。
+	 - [CDbTransaction]: 代表一個資料庫交易。
 
 下面，我們介紹 Yii DAO 在不同場景中的應用程式。
 
@@ -28,10 +28,10 @@ Yii DAO 主要包含如下四個類：
 ~~~
 [php]
 $connection=new CDbConnection($dsn,$username,$password);
-// 建立連接。你可以使用  try...catch 獲得可能拋出的例外
+// 建立連接。你可以使用	try...catch 獲得可能拋出的例外
 $connection->active=true;
 ......
-$connection->active=false;  // 關閉連接
+$connection->active=false;	// 關閉連接
 ~~~
 
 DSN 的格式取決於所使用的 PDO 資料庫驅動。總體來說，
@@ -39,15 +39,15 @@ DSN 要含有 PDO 驅動的名字，跟上一個冒號，再跟上驅動特定�
 文件](http://www.php.net/manual/en/pdo.construct.php) 取得更多訊息。
 下面是一個常用DSN格式的列表。
 
-   - SQLite: `sqlite:/path/to/dbfile`
-   - MySQL: `mysql:host=localhost;dbname=testdb`
-   - PostgreSQL: `pgsql:host=localhost;port=5432;dbname=testdb`
-   - SQL Server: `mssql:host=localhost;dbname=testdb`
-   - Oracle: `oci:dbname=//localhost:1521/testdb`
+	 - SQLite: `sqlite:/path/to/dbfile`
+	 - MySQL: `mysql:host=localhost;dbname=testdb`
+	 - PostgreSQL: `pgsql:host=localhost;port=5432;dbname=testdb`
+	 - SQL Server: `mssql:host=localhost;dbname=testdb`
+	 - Oracle: `oci:dbname=//localhost:1521/testdb`
 
 由於 [CDbConnection] 繼承自 [CApplicationComponent]，我們也可以將其作為一個 [應用程式元件](/doc/guide/basics.application#application-component)
 使用。要這樣做的話，
-請在 [應用程式配置](/doc/guide/basics.application#application-configuration) 
+請在 [應用程式配置](/doc/guide/basics.application#application-configuration)
 中配置一個 `db` （或其他名字）應用程式元件如下：
 
 ~~~
@@ -61,25 +61,25 @@ array(
 			'connectionString'=>'mysql:host=localhost;dbname=testdb',
 			'username'=>'root',
 			'password'=>'password',
-			'emulatePrepare'=>true,  // MySQL 需要
+			'emulatePrepare'=>true,	// MySQL 需要
 		),
 	),
 )
 ~~~
 
-然後我們就可以通過 `Yii::app()->db` 存取資料庫連接了。它已經被自動啟動了，除非我們特意配置了 
+然後我們就可以通過 `Yii::app()->db` 存取資料庫連接了。它已經被自動啟動了，除非我們特意配置了
 [CDbConnection::autoConnect] 為 false。通過這種方式，這個單獨的資料庫連接就可以在我們程式碼中的很多地方共享。
 
 
 執行 SQL 述句
 ------------------------
 
-資料庫連接建立後，SQL 述句就可以通過使用 [CDbCommand] 執行了。你可以通過使用指定的SQL述句作為參數調用 
+資料庫連接建立後，SQL 述句就可以通過使用 [CDbCommand] 執行了。你可以通過使用指定的SQL述句作為參數調用
 [CDbConnection::createCommand()] 建立一個 [CDbCommand] 實體。
 
 ~~~
 [php]
-$connection=Yii::app()->db;   // 假設你已經建立了一個 "db" 連接
+$connection=Yii::app()->db;	 // 假設你已經建立了一個 "db" 連接
 // 如果沒有，你可能需要建立一個連接：
 // $connection=new CDbConnection($dsn,$username,$password);
 $command=$connection->createCommand($sql);
@@ -89,23 +89,23 @@ $command=$connection->createCommand($sql);
 
 一條 SQL 述句會通過 [CDbCommand] 以如下兩種方式被執行：
 
-   - [execute()|CDbCommand::execute]: 執行一個無查詢 （non-query）SQL 述句，
+	 - [execute()|CDbCommand::execute]: 執行一個無查詢 （non-query）SQL 述句，
 例如 `INSERT`, `UPDATE` 和 `DELETE` 。如果成功，它將返回此執行所影響的行數。
 
-   - [query()|CDbCommand::query]: 執行一條會返回若干行資料的 SQL 述句，例如 `SELECT`。
-如果成功，它將返回一個  [CDbDataReader] 實體，通過此實體可以遍歷資料的結果行。為方便起見，
+	 - [query()|CDbCommand::query]: 執行一條會返回若干行資料的 SQL 述句，例如 `SELECT`。
+如果成功，它將返回一個	[CDbDataReader] 實體，通過此實體可以遍歷資料的結果行。為方便起見，
 （Yii）還實現了一系列 `queryXXX()` 方法以直接返回查詢結果。
 
 執行 SQL 述句時如果發生錯誤，將會拋出一個例外。
 
 ~~~
 [php]
-$rowCount=$command->execute();   // 執行無查詢 SQL
-$dataReader=$command->query();   // 執行一個 SQL 查詢
-$rows=$command->queryAll();      // 查詢並返回結果中的所有列
-$row=$command->queryRow();       // 查詢並返回結果中的第一列
+$rowCount=$command->execute();	 // 執行無查詢 SQL
+$dataReader=$command->query();	 // 執行一個 SQL 查詢
+$rows=$command->queryAll();			// 查詢並返回結果中的所有列
+$row=$command->queryRow();			 // 查詢並返回結果中的第一列
 $column=$command->queryColumn(); // 查詢並返回結果中的第一行
-$value=$command->queryScalar();  // 查詢並返回結果中第一列的第一個字串
+$value=$command->queryScalar();	// 查詢並返回結果中第一列的第一個字串
 ~~~
 
 取得查詢結果
@@ -113,7 +113,7 @@ $value=$command->queryScalar();  // 查詢並返回結果中第一列的第一�
 
 在 [CDbCommand::query()] 產生 [CDbDataReader] 實體之後，你可以通過重複調用
 [CDbDataReader::read()] 取得結果中的行。你也可以在 PHP 的 `foreach` 語言架構中使用
-[CDbDataReader] 一行行檢索資料。 
+[CDbDataReader] 一行行檢索資料。
 
 ~~~
 [php]
@@ -136,10 +136,10 @@ $rows=$dataReader->readAll();
 保證資料庫沒有留下幾條查詢而只執行了另外幾條查詢是非常重要的。
 交易，在 Yii 中顯示為 [CDbTransaction] 實體，可能會在下面的情況中啟動：
 
-   - 開始交易.
-   - 一個個執行查詢。任何對資料庫的更新對外界不可見。
-   - 提交交易。如果交易成功，更新變為可見。
-   - 如果一個查詢失敗，整個交易反轉。
+	 - 開始交易.
+	 - 一個個執行查詢。任何對資料庫的更新對外界不可見。
+	 - 提交交易。如果交易成功，更新變為可見。
+	 - 如果一個查詢失敗，整個交易反轉。
 
 上述工作流可以通過如下程式碼實現：
 
@@ -175,9 +175,9 @@ catch(Exception $e) // 如果有一條查詢失敗，則會拋出例外
 // 一條帶有兩個佔位符號 ":username" 和 ":email" 的 SQL
 $sql="INSERT INTO tbl_user (username, email) VALUES(:username,:email)";
 $command=$connection->createCommand($sql);
-// 用實際的使用者名替換佔位符號 ":username" 
+// 用實際的使用者名替換佔位符號 ":username"
 $command->bindParam(":username",$username,PDO::PARAM_STR);
-// 用實際的 Email 替換佔位符號 ":email" 
+// 用實際的 Email 替換佔位符號 ":email"
 $command->bindParam(":email",$email,PDO::PARAM_STR);
 $command->execute();
 // 使用新的參數集插入另一行
@@ -202,13 +202,13 @@ $command->execute();
 [php]
 $sql="SELECT username, email FROM tbl_user";
 $dataReader=$connection->createCommand($sql)->query();
-// 使用 $username 變數綁定第一欄位 (username) 
+// 使用 $username 變數綁定第一欄位 (username)
 $dataReader->bindColumn(1,$username);
-// 使用 $email 變數綁定第二欄位 (email) 
+// 使用 $email 變數綁定第二欄位 (email)
 $dataReader->bindColumn(2,$email);
 while($dataReader->read()!==false)
 {
-    // $username 和 $email 含有當前列中的 username 和 email 
+		// $username 和 $email 含有當前列中的 username 和 email
 }
 ~~~
 

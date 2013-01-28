@@ -6,17 +6,17 @@ scopul de a fi folosita de catre alti programatori. In cele ce urmeaza, avem
 cateva principii generale:
 
 * O extensie ar trebui sa fie de sine statatoare. Adica, toate dependentele sale externe
-  ar trebui sa fie reduse la minim. Daca extensia ar necesita instalarea de pachete aditionale,
-  alte clase sau alte fisiere, vor fi prea multe dureri de cap pentru cei care o vor folosi.
+	ar trebui sa fie reduse la minim. Daca extensia ar necesita instalarea de pachete aditionale,
+	alte clase sau alte fisiere, vor fi prea multe dureri de cap pentru cei care o vor folosi.
 * Fisierele care apartin extensiei ar trebui sa fie organizate in interiorul directorului extensiei
-  (care trebuie sa ii poarte numele).
+	(care trebuie sa ii poarte numele).
 * Clasele unei extensii ar trebui sa fie prefixate cu unele litere pentru a evita conflictul
-  de nume cu clasele altor extensii.
+	de nume cu clasele altor extensii.
 * O extensie ar trebui sa aiba informatii despre instalare si documentatie API.
-  Aceste doua informatii reduc timpul si efortul depus de eventualii programatori care o vor folosi.
+	Aceste doua informatii reduc timpul si efortul depus de eventualii programatori care o vor folosi.
 * O extensie ar trebui sa foloseasca o licenta corespunzatoare. Daca vrem ca extensia
-  sa fie si open-source si proiect privat, putem lua in considerare licentele
-  BSD, MIT, etc., nu GPL pentru ca sub GPL, codul va fi open-source de asemenea.
+	sa fie si open-source si proiect privat, putem lua in considerare licentele
+	BSD, MIT, etc., nu GPL pentru ca sub GPL, codul va fi open-source de asemenea.
 
 In cele ce urmeaza, vom descrie cum sa cream o extensie noua, pornind de la categorisirea
 facuta in [generalitati despre extensii](/doc/guide/extension.overview).
@@ -31,7 +31,7 @@ trebuie sa implementeze interfata [IApplicationComponent] sau sa fie derivata di
 clasa [CApplicationComponent]. Pricipala metoda care trebuie implementata este
 [IApplicationComponent::init] in care se fac initializarile componentei.
 Aceasta metoda este apelata dupa ce componenta este creata si dupa ce sunt initializate
-proprietatile clasei cu valorile initiale specificate in 
+proprietatile clasei cu valorile initiale specificate in
 [configurarea aplicatiei](/doc/guide/basics.application#application-configuration).
 
 Implicit, o componenta a aplicatiei este creata si initializata doar atunci cand este accesata
@@ -44,7 +44,7 @@ Widget
 ------
 
 Un [widget](/doc/guide/basics.view#widget) trebuie sa fie derivat din clasa [CWidget] sau
-dintr-o clasa derivata. 
+dintr-o clasa derivata.
 
 Cel mai usor mod de a crea un nou widget este sa il derivam dintr-un widget existent
 si sa ii suprascriem metodele sau sa ii schimbam valorile sale initiale. De exemplu, daca

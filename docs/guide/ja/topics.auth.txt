@@ -243,44 +243,44 @@ class PostController extends CController
 > ~~~
 > [php]
 > return array(
->     // ... ルール...
->     // 最後のルールで必ず実行を阻止する
->     array('deny',
->         'action'=>array('delete'),
->     ),
+>		 // ... ルール...
+>		 // 最後のルールで必ず実行を阻止する
+>		 array('deny',
+>				 'action'=>array('delete'),
+>		 ),
 > );
 > ~~~
 > こうする理由は、一致するルールが一つも無かった場合には、アクションが実行されるからです。
 
 アクセスルールは、以下のコンテキストパラメータと比較することが出来ます。
 
-   - [actions|CAccessRule::actions]: どのアクションにルールが適用されるかを定義します。
+	 - [actions|CAccessRule::actions]: どのアクションにルールが適用されるかを定義します。
 アクション ID の配列です。比較は大文字小文字を区別しません。
 
-   - [controllers|CAccessRule::controllers]: どのコントローラにルールが適用されるかを定義します。
+	 - [controllers|CAccessRule::controllers]: どのコントローラにルールが適用されるかを定義します。
 コントローラ ID の配列です。比較は大文字小文字を区別しません。
 
-   - [users|CAccessRule::users]: どのユーザにルールが適用されるかを定義します。
+	 - [users|CAccessRule::users]: どのユーザにルールが適用されるかを定義します。
 現在のユーザの [name|CWebUser::name] が判断基準に使われます。比較は大文字小文字を区別しません。
 三種類の特別な意味を持つ文字を使うことが出来ます。
 
-	   - `*`: あらゆるユーザ。匿名ユーザも認証済みのユーザも含みます。
-	   - `?`: 匿名ユーザ。
-	   - `@`: 認証済みのユーザ。
+		 - `*`: あらゆるユーザ。匿名ユーザも認証済みのユーザも含みます。
+		 - `?`: 匿名ユーザ。
+		 - `@`: 認証済みのユーザ。
 
-   - [roles|CAccessRule::roles]: どのロールにルールが適用されるかを定義します。
+	 - [roles|CAccessRule::roles]: どのロールにルールが適用されるかを定義します。
 このパラメータは、は次の節で説明する [ロールベースアクセスコントロール](/doc/guide/topics.auth#sec-7) 機能を利用します。
 具体的には、ロールに対して [CWebUser::checkAccess] が true を返したときにルールが適用されます。
 ロールは主としてに `allow` のルールで使うべきであることに注意して下さい。
 その定義からして、ロール (役割) とは何かをする許可のことだからです。
 さらに、ここでは `ロール (roles)` という用語を使っていますが、その値は実際には、ロール (role)、タスク (task)、オペレーション (operation) など、どの権限アイテムでも構いません。
 
-   - [ips|CAccessRule::ips]: どのクライアントIPアドレスにルールが適用されるかを定義します。
+	 - [ips|CAccessRule::ips]: どのクライアントIPアドレスにルールが適用されるかを定義します。
 
-   - [verbs|CAccessRule::verbs]: どのリクエストタイプ (例: `GET`, `POST`) にルールが適用されるかを定義します。
+	 - [verbs|CAccessRule::verbs]: どのリクエストタイプ (例: `GET`, `POST`) にルールが適用されるかを定義します。
 比較は大文字小文字を区別しません。
 
-   - [expression|CAccessRule::expression]: PHP の式でルールが適用されるかどうかを定義します。
+	 - [expression|CAccessRule::expression]: PHP の式でルールが適用されるかどうかを定義します。
 式の中で、`$user` という変数を使って `Yii::app()->user` を参照できます。
 
 
@@ -289,10 +289,10 @@ class PostController extends CController
 
 権限付与が失敗すると、すなわちユーザがアクションの実行を許可されないと、以下の二つのシナリオのうちどちらかが発生します。
 
-   - ユーザがログインしておらず、ユーザコンポーネントの [loginUrl|CWebUser::loginUrl] プロパティがログインページの URL に設定されていると、ブラウザはそのページにリダイレクトされます。
+	 - ユーザがログインしておらず、ユーザコンポーネントの [loginUrl|CWebUser::loginUrl] プロパティがログインページの URL に設定されていると、ブラウザはそのページにリダイレクトされます。
 [loginUrl|CWebUser::loginUrl] はデフォルトでは `site/login` ページを指していることに注意して下さい。
 
-   - それ以外の場合は HTTP 例外がエラーコード 403 で表示されます。
+	 - それ以外の場合は HTTP 例外がエラーコード 403 で表示されます。
 
 [loginUrl|CWebUser::loginUrl] を設定する際に、相対 URL か絶対 URL のどちらかを指定できます。
 あるいはまた、[CWebApplication::createUrl] によって URL を生成するための配列を指定しても構いません。
@@ -414,21 +414,21 @@ return array(
 
 権限アイテムの定義には、アイテムの種類によって以下のメソッドのいずれかを使います。
 
-   - [CAuthManager::createRole]
-   - [CAuthManager::createTask]
-   - [CAuthManager::createOperation]
+	 - [CAuthManager::createRole]
+	 - [CAuthManager::createTask]
+	 - [CAuthManager::createOperation]
 
 権限アイテムのセットができたら、以下のメソッドでアイテム間の関係を設定します。
 
-   - [CAuthManager::addItemChild]
-   - [CAuthManager::removeItemChild]
-   - [CAuthItem::addChild]
-   - [CAuthItem::removeChild]
+	 - [CAuthManager::addItemChild]
+	 - [CAuthManager::removeItemChild]
+	 - [CAuthItem::addChild]
+	 - [CAuthItem::removeChild]
 
 そして最後に、以下のメソッドでロールを個々のユーザに割り当てます。
 
-   - [CAuthManager::assign]
-   - [CAuthManager::revoke]
+	 - [CAuthManager::assign]
+	 - [CAuthManager::revoke]
 
 以下にこれらの API を使った例を示します。
 

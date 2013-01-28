@@ -50,18 +50,18 @@ We would like to explain a bit more about the `tablePrefix` property that we set
 > ~~~
 > [php]
 > return array(
->     ......
->     'components'=>array(
->         ......
->         'db'=>array(
->             'connectionString' => 'mysql:host=localhost;dbname=blog',
->             'emulatePrepare' => true,
->             'username' => 'root',
->             'password' => '',
->             'charset' => 'utf8',
->             'tablePrefix' => 'tbl_',
->         ),
->     ),
+>		 ......
+>		 'components'=>array(
+>				 ......
+>				 'db'=>array(
+>						 'connectionString' => 'mysql:host=localhost;dbname=blog',
+>						 'emulatePrepare' => true,
+>						 'username' => 'root',
+>						 'password' => '',
+>						 'charset' => 'utf8',
+>						 'tablePrefix' => 'tbl_',
+>				 ),
+>		 ),
 > 	......
 > );
 > ~~~

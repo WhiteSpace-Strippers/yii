@@ -115,8 +115,8 @@ Por exemplo, se definir a seguinte classe de comando:
 [php]
 class SitemapCommand extends CConsoleCommand
 {
-    public function actionIndex($type, $limit=5) { ... }
-    public function actionInit() { ... }
+		public function actionIndex($type, $limit=5) { ... }
+		public function actionInit() { ... }
 }
 ~~~
 

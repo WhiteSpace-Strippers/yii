@@ -63,26 +63,26 @@ File ini akan mengembalikan larik(array) PHP yang mewakiliki konfigurasi [CForm]
 return array(
 	'title'=>'Please provide your login credential',
 
-    'elements'=>array(
-        'username'=>array(
-            'type'=>'text',
-            'maxlength'=>32,
-        ),
-        'password'=>array(
-            'type'=>'password',
-            'maxlength'=>32,
-        ),
-        'rememberMe'=>array(
-            'type'=>'checkbox',
-        )
-    ),
+		'elements'=>array(
+				'username'=>array(
+						'type'=>'text',
+						'maxlength'=>32,
+				),
+				'password'=>array(
+						'type'=>'password',
+						'maxlength'=>32,
+				),
+				'rememberMe'=>array(
+						'type'=>'checkbox',
+				)
+		),
 
-    'buttons'=>array(
-        'login'=>array(
-            'type'=>'submit',
-            'label'=>'Login',
-        ),
-    ),
+		'buttons'=>array(
+				'login'=>array(
+						'type'=>'submit',
+						'label'=>'Login',
+				),
+		),
 );
 ~~~
 
@@ -127,8 +127,8 @@ sebagai sebuah instance dari [CFormInputElement]. Kode berikut akan menspesifika
 ~~~
 [php]
 'username'=>array(
-    'type'=>'text',
-    'maxlength'=>32,
+		'type'=>'text',
+		'maxlength'=>32,
 ),
 ~~~
 
@@ -164,9 +164,9 @@ pada elemen input yang bersangkutan. Kita dapat mengaturnya demikian:
 ~~~
 [php]
 'gender'=>array(
-    'type'=>'dropdownlist',
-    'items'=>User::model()->getGenderOptions(),
-    'prompt'=>'Please select:',
+		'type'=>'dropdownlist',
+		'items'=>User::model()->getGenderOptions(),
+		'prompt'=>'Please select:',
 ),
 
 ...
@@ -202,19 +202,19 @@ Misalnya:
 ~~~
 [php]
 return array(
-    'elements'=>array(
+		'elements'=>array(
 		......
-        'password'=>array(
-            'type'=>'password',
-            'maxlength'=>32,
-        ),
+				'password'=>array(
+						'type'=>'password',
+						'maxlength'=>32,
+				),
 
-        '<hr />',
+				'<hr />',
 
-        'rememberMe'=>array(
-            'type'=>'checkbox',
-        )
-    ),
+				'rememberMe'=>array(
+						'type'=>'checkbox',
+				)
+		),
 	......
 );
 ~~~
@@ -242,30 +242,30 @@ properti [CForm::elements] dengan elemen yang tipenya `form`:
 ~~~
 [php]
 return array(
-    'elements'=>array(
+		'elements'=>array(
 		......
-        'user'=>array(
-            'type'=>'form',
-            'title'=>'Login Credential',
-            'elements'=>array(
-            	'username'=>array(
-            		'type'=>'text',
-            	),
-            	'password'=>array(
-            		'type'=>'password',
-            	),
-            	'email'=>array(
-            		'type'=>'text',
-            	),
-            ),
-        ),
+				'user'=>array(
+						'type'=>'form',
+						'title'=>'Login Credential',
+						'elements'=>array(
+							'username'=>array(
+								'type'=>'text',
+							),
+							'password'=>array(
+								'type'=>'password',
+							),
+							'email'=>array(
+								'type'=>'text',
+							),
+						),
+				),
 
-        'profile'=>array(
-        	'type'=>'form',
-        	......
-        ),
-        ......
-    ),
+				'profile'=>array(
+					'type'=>'form',
+					......
+				),
+				......
+		),
 	......
 );
 ~~~
@@ -300,7 +300,7 @@ Dan untuk mengakses elemen `email` di contoh form registrasi user, kita dapat me
 $email = $form->elements['user']->elements['email'];
 ~~~
 
-Karena [CForm] mengimplementasi pengaksesan larik untuk properti [CForm::elements]-nya, kode di atas dapat 
+Karena [CForm] mengimplementasi pengaksesan larik untuk properti [CForm::elements]-nya, kode di atas dapat
 disederhanakan lagi menjadi:
 
 ~~~
@@ -359,15 +359,15 @@ return array(
 			'type'=>'form',
 			'title'=>'Login information',
 			'elements'=>array(
-		        'username'=>array(
-		            'type'=>'text',
-		        ),
-		        'password'=>array(
-		            'type'=>'password',
-		        ),
-		        'email'=>array(
-		            'type'=>'text',
-		        )
+						'username'=>array(
+								'type'=>'text',
+						),
+						'password'=>array(
+								'type'=>'password',
+						),
+						'email'=>array(
+								'type'=>'text',
+						)
 			),
 		),
 
@@ -375,22 +375,22 @@ return array(
 			'type'=>'form',
 			'title'=>'Profile information',
 			'elements'=>array(
-		        'firstName'=>array(
-		            'type'=>'text',
-		        ),
-		        'lastName'=>array(
-		            'type'=>'text',
-		        ),
+						'firstName'=>array(
+								'type'=>'text',
+						),
+						'lastName'=>array(
+								'type'=>'text',
+						),
 			),
 		),
 	),
 
-    'buttons'=>array(
-        'register'=>array(
-            'type'=>'submit',
-            'label'=>'Register',
-        ),
-    ),
+		'buttons'=>array(
+				'register'=>array(
+						'type'=>'submit',
+						'label'=>'Register',
+				),
+		),
 );
 ~~~
 

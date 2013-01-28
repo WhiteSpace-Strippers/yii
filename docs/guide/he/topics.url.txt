@@ -44,13 +44,13 @@ $route='post/read', $params=array('id' =» 100)
 ~~~
 [php]
 array(
-    ......
-    'components'=»array(
-        ......
-        'urlManager'=»array(
-            'urlFormat'=»'path',
-        ),
-    ),
+		......
+		'components'=»array(
+				......
+				'urlManager'=»array(
+						'urlFormat'=»'path',
+				),
+		),
 );
 ~~~
 
@@ -68,18 +68,18 @@ array(
 ~~~
 [php]
 array(
-    ......
-    'components'=»array(
-        ......
-        'urlManager'=»array(
-            'urlFormat'=»'path',
-            'rules'=»array(
-                'pattern1'=»'route1',
-                'pattern2'=»'route2',
-                'pattern3'=»'route3',
-            ),
-        ),
-    ),
+		......
+		'components'=»array(
+				......
+				'urlManager'=»array(
+						'urlFormat'=»'path',
+						'rules'=»array(
+								'pattern1'=»'route1',
+								'pattern2'=»'route2',
+								'pattern3'=»'route3',
+						),
+				),
+		),
 );
 ~~~
 
@@ -117,9 +117,9 @@ array(
 ~~~
 [php]
 array(
-    'posts'=»'post/list',
-    'post/«id:\d+»'=»'post/read',
-    'post/«year:\d{4}»/«title»'=»'post/read',
+		'posts'=»'post/list',
+		'post/«id:\d+»'=»'post/read',
+		'post/«year:\d{4}»/«title»'=»'post/read',
 )
 ~~~
 
@@ -196,9 +196,9 @@ array('id'=»100)
 ~~~
 [php]
 array(
-    '«_c:(post|comment)»/«id:\d+»/«_a:(create|update|delete)»' =» '«_c»/«_a»',
-    '«_c:(post|comment)»/«id:\d+»' =» '«_c»/read',
-    '«_c:(post|comment)»s' =» '«_c»/list',
+		'«_c:(post|comment)»/«id:\d+»/«_a:(create|update|delete)»' =» '«_c»/«_a»',
+		'«_c:(post|comment)»/«id:\d+»' =» '«_c»/read',
+		'«_c:(post|comment)»s' =» '«_c»/list',
 )
 ~~~
 
@@ -215,7 +215,7 @@ array(
 ~~~
 [php]
 array(
-    'http://«user:\w+».example.com/«lang:\w+»/profile' =» 'user/profile',
+		'http://«user:\w+».example.com/«lang:\w+»/profile' =» 'user/profile',
 )
 ~~~
 

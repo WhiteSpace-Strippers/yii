@@ -23,7 +23,7 @@ di mana `$this` merujuk ke instance controller; `$route` menetapkan
 [rute](/doc/guide/basics.controller#route) permintaan; dan `$params`
 adalah daftar parameter `GET` yang akan ditambahkan ke URL.
 
-Secara default, URL yang dibuat dengan  [createUrl|CController::createUrl] adalah
+Secara default, URL yang dibuat dengan	[createUrl|CController::createUrl] adalah
 apa yang disebut dengan format `get`. Sebagai contoh, `$route='post/read'` dan
 `$params=array('id'=>100)`, kita akan mendapatkan URL seperti berikut:
 
@@ -126,20 +126,20 @@ array('route1', 'pattern'=>'pattern1', 'urlSuffix'=>'.xml', 'caseSensitive'=>fal
 Di atas, array tersebut berisi daftar opsi-opsi extra untuk aturan. Option yang memungkinkan
 akan dijelaskan pada bawah ini:
 
-   - [pattern|CUrlRule::pattern]: pola yang digunakan untuk mencocokkan serta membuat URL.
+	 - [pattern|CUrlRule::pattern]: pola yang digunakan untuk mencocokkan serta membuat URL.
 Opsi ini sudah tersedia pada versi 1.1.7.
 
-   - [urlSuffix|CUrlRule::urlSuffix]: merupakan akhir dari URL yang dipakai pada atran. Secara default bernilai null
+	 - [urlSuffix|CUrlRule::urlSuffix]: merupakan akhir dari URL yang dipakai pada atran. Secara default bernilai null
 yang berarti menggunakan nilai [CUrlManager::urlSuffix].
 
-   - [caseSensitive|CUrlRule::caseSensitive]: menentukan aturan bersifat case-sensitive atau tidak. Secara default bernilai null,
+	 - [caseSensitive|CUrlRule::caseSensitive]: menentukan aturan bersifat case-sensitive atau tidak. Secara default bernilai null,
 yang artinya mengikuti nilai [CUrlManager::caseSensitive].
 
 - [defaultParams|CUrlRule::defaultParams]: Parameter GET default (name=>value) yang disediakan oleh aturan ini.
 Ketika aturan ini digunakan untuk parsing permintaan yang masuk, nilai-nilai tersebut yang dideklarasi dalam properti ini
 akan diinjeksi ke $_GET.
 
-   - [matchValue|CUrlRule::matchValue]: menentukan apakah nilai parameter GET harus sesuai dengan sub-pola
+	 - [matchValue|CUrlRule::matchValue]: menentukan apakah nilai parameter GET harus sesuai dengan sub-pola
 dalam aturan ketika membuat sebuah aturan. Secara default bernilai null,
 yang artinya menggunakan nilai [CUrlManager::matchValue]. Jika properti ini adalah false, itu artinya
 sebuah aturan akan digunakan untuk membuat sebuah URL jika rute dan nama parameter pas dengan yang diberikan.
@@ -149,11 +149,11 @@ Harap dicatat bahwa jika mengeset properti ini menjadi true akan menurunkan kine
 - [verb|CUrlRule::verb]: verb HTTP (misalnya `GET`, `POST`, `DELETE`) jadi aturan harus cocok
 dengan urutan yang digunakan untuk parsing request sekarang. Default-nya adalah null, yang artinya aturan bersangkutan akan cocok dengan verb HTTP apa saja.
 Jika sebuah aturan bisa cocok lebih dari satu verb, maka verb-verb ini harus ditulis dengan dipisah oleh koma. Ketika sebuah aturan tidak cocok
-dengan verb yang ditentukan, maka akan dilangkahi pada saat proses parsing request. Opsi ini hanya 
+dengan verb yang ditentukan, maka akan dilangkahi pada saat proses parsing request. Opsi ini hanya
 digunakan untuk parsing request. Tujuan utama terdapat opsi ini supaya mendukung URL RESTful.
 Opsi ini sudah tersedia semenjak versi 1.1.7.
 
-   - ]parsingOnly|CUrlRule::parsingOnly]: menentukan apakah aturan digunakan hanya untuk request saja.
+	 - ]parsingOnly|CUrlRule::parsingOnly]: menentukan apakah aturan digunakan hanya untuk request saja.
 Nilai default false, yang artinya sebuah rule digunakan untuk parsing dan juga pembuatan URL.
 Opsi ini tersedia di versi 1.1.7.
 
@@ -189,17 +189,17 @@ array(
 )
 ~~~
 
-   - Memanggil `$this->createUrl('post/list')` menghasilkan `/index.php/posts`.
+	 - Memanggil `$this->createUrl('post/list')` menghasilkan `/index.php/posts`.
 Aturan pertama diterapkan.
 
-   - Memanggil `$this->createUrl('post/read',array('id'=>100))` menghasilkan
+	 - Memanggil `$this->createUrl('post/read',array('id'=>100))` menghasilkan
 `/index.php/post/100`. Aturan kedua diterapkan.
 
-   - Memanggil `$this->createUrl('post/read',array('year'=>2008,'title'=>'a
+	 - Memanggil `$this->createUrl('post/read',array('year'=>2008,'title'=>'a
 sample post'))` menghasilkan `/index.php/post/2008/a%20sample%20post`. Aturan
 ketiga diterapkan.
 
-   - Memanggil `$this->createUrl('post/read')` menghasilkan
+	 - Memanggil `$this->createUrl('post/read')` menghasilkan
 `/index.php/post/read`. Tidak ada satupun aturan yang diterapkan.
 
 Secara ringkas, saat menggunakan [createUrl|CController::createUrl] untuk membuat
@@ -345,32 +345,32 @@ Menggunakan Custom Class URL Rules (Kelas Aturan URL Buatan Sendiri)
 > Note|Catatan: Menggunakan kelas aturan URL buatan sendiri didukung mulai dari versi 1.1.8
 
 Secara default, setiap aturan URL yang dibuat di [CUrlManager] diwakili sebagai
-sebuah objek [CUrlRule] yang melakukan penguraian dan pembuatan URL-URL 
+sebuah objek [CUrlRule] yang melakukan penguraian dan pembuatan URL-URL
 berdasarkan aturan yang ditetapkan. Walaupun [CUrlRule] cukup fleksibel untuk menangani
 sebagian besar format URL, tetapi terkadang kita butuh jauh lebih dari itu.
 
-Misalnya, dalam sebuah website dealer mobil, kita mungkin ingin format URL seperti 
+Misalnya, dalam sebuah website dealer mobil, kita mungkin ingin format URL seperti
 demikian `/Manufacturer/Model`, dengan `Manufacturer` dan `Model` harus cocok dengan data
 di dalam tabel database. Kelas [CUrlRule] tidak akan berjalan dikarenakan kelas ini bergantung
 pada regular expressions yang dideklarasikan secara statis tanpa pengetahuan mengenai database.
 
 Kita dapat menulis kelas aturan URL dengan menurunkan [CBaseUrlRule] dan menggunakannya
-di dalam satu atau lebih aturan URL. Dengan contoh website dealer mobil tadi, kita dapat 
+di dalam satu atau lebih aturan URL. Dengan contoh website dealer mobil tadi, kita dapat
 mendeklarasikan aturan URL berikut,
 
 ~~~
 [php]
 array(
-	// Standar aturan mapping '/' ke action 'site/index' 
+	// Standar aturan mapping '/' ke action 'site/index'
 	'' => 'site/index',
 
-	// sebuah aturan mapping standar '/login' ke 'site/login' dan lainnya 
+	// sebuah aturan mapping standar '/login' ke 'site/login' dan lainnya
 	'<action:(login|logout|about)>' => 'site/<action>',
 
 	// Aturan buatan sendiri untuk menangani '/Manufacturer/Model'
 	array(
-	    'class' => 'application.components.CarUrlRule',
-	    'connectionID' => 'db',
+			'class' => 'application.components.CarUrlRule',
+			'connectionID' => 'db',
 	),
 
 	// Aturan standar untuk menangani 'post/update' dan lainnya
@@ -396,7 +396,7 @@ class CarUrlRule extends CBaseUrlRule
 			else if (isset($params['manufacturer']))
 				return $params['manufacturer'];
 		}
-		return false;  // this rule does not apply
+		return false;	// this rule does not apply
 	}
 
 	public function parseUrl($manager,$request,$pathInfo,$rawPathInfo)
@@ -408,7 +408,7 @@ class CarUrlRule extends CBaseUrlRule
 			// If so, set $_GET['manufacturer'] and/or $_GET['model']
 			// and return 'car/index'
 		}
-		return false;  // this rule does not apply
+		return false;	// this rule does not apply
 	}
 }
 ~~~
@@ -419,10 +419,10 @@ Kelas URL buatan sendiri ini harus mengimplementasi dua method abstrak yang dide
 * [parseUrl()|CBaseUrlRule::parseUrl()]
 
 Selain penggunaan di atas, kelas aturan URL custom juga dapat diimplementasikan
-tujuan lainnya. Misalnya, kita dapat menulis sebuah kelas aturan yang melakukan pencatatan 
+tujuan lainnya. Misalnya, kita dapat menulis sebuah kelas aturan yang melakukan pencatatan
 URL parsing dan request pembuatan. Biasanya fungsi ini kita perlukan pada saat tahap pengembangan. Kita juga dapat
 menulis kelas aturan untuk menampilkan halaman error 404 khusus apabila aturan URL request gagal diuraikan.
-Harap dicatat, khusus kasus ini, aturan dari kelas spesial ini harus 
+Harap dicatat, khusus kasus ini, aturan dari kelas spesial ini harus
 dideklarasikan sebagai aturan terakhir.
 
 <div class="revision">$Id: topics.url.txt 3329 2011-06-28 08:31:35Z mdomba $</div>

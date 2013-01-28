@@ -95,7 +95,7 @@ class CWebModule extends CModule
 
 	/**
 	 * @return string the directory that contains the controller classes. Defaults to 'moduleDir/controllers' where
-     * moduleDir is the directory containing the module class.
+		 * moduleDir is the directory containing the module class.
 	 */
 	public function getControllerPath()
 	{
@@ -169,11 +169,11 @@ class CWebModule extends CModule
 	 * <pre>
 	 * if(parent::beforeControllerAction($controller,$action))
 	 * {
-	 *     // your code
-	 *     return true;
+	 *		 // your code
+	 *		 return true;
 	 * }
 	 * else
-	 *     return false;
+	 *		 return false;
 	 * </pre>
 	 * @param CController $controller the controller
 	 * @param CAction $action the action

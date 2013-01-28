@@ -7,7 +7,7 @@ pentru a pastra date si regulile lor de functionare relevante.
 Un model reprezinta un singur obiect de date. Poate fi un rand dintr-o tabela
 a bazei de date, sau poate fi un form cu input-uri venite de la utilizator. Fiecare camp
 al modelului reprezinta un atribut al modelului. Fiecare atribut are un label care poate fi
-validat cu un set de reguli. 
+validat cu un set de reguli.
 
 Yii implementeaza doua tipuri de modele: modelul form si active record. Ambele sunt derivate
 din aceeasi clasa de baza [CModel].

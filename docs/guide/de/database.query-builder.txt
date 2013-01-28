@@ -3,9 +3,9 @@ Query Builder
 
 Mit dem Yii Query Builder (sinngem. "Abfrageersteller") kann man auf
 objektorientierte Weise SQL-Anweisungen erstellen. Ein Entwickler kann damit die
-einzelnen Teile eines SQL-Ausdrucks mittels Klassenmethoden und -eigenschaften 
+einzelnen Teile eines SQL-Ausdrucks mittels Klassenmethoden und -eigenschaften
 festlegen. Der Query Builder baut daraus dann einen gültigen SQL-Ausdruck, der
-mit den üblichen DAO-Methoden verwendet werden kann, wie es im Kapitel 
+mit den üblichen DAO-Methoden verwendet werden kann, wie es im Kapitel
 [Data Access Objects](/doc/guide/database.dao) beschrieben wurde. Eine
 typische Anwendung des Query Builders zum erstellen eines SELECT-Ausdrucks
 sieht so aus:
@@ -71,7 +71,7 @@ Das bedeutet, man holt sich zunächst über `Yii::app()->db` die DB-Verbindung
 und ruft dann [CDbConnection::createCommand()] auf, um die benötigte
 Objektinstanz zu erzeugen.
 
-Beachten Sie, dass hier im Gegensatz zum [Data Access Objects](/doc/guide/database.dao)-Kapitel, 
+Beachten Sie, dass hier im Gegensatz zum [Data Access Objects](/doc/guide/database.dao)-Kapitel,
 kein SQL-Ausdruck an `createCommand()` übergeben wurde. Stattdessen werden
 die einzelnen Bestandteile des SQL-Ausdrucks mit den Query Builder Methoden
 wie folgt zusammengebaut.
@@ -165,7 +165,7 @@ function from($tables)
 ~~~
 
 Die [from()|CDbCommand::from()]-Methode beschreibt den `FROM`-Teil einer Abfrage.
-Der `$tables`-Parameter gibt die Tabellennamen entweder als String mit Tabellennamen 
+Der `$tables`-Parameter gibt die Tabellennamen entweder als String mit Tabellennamen
 durch Komma getrennt oder als Array an. Tabellennamen können Schemapräfixe
 (z.B. `public.tbl_user`) und/oder Tabellenaliase (z.B. `tbl_user u`)
 enthalten. Die Methode setzt Tabellennamen automatisch in korrekte Anführungszeichen,
@@ -195,7 +195,7 @@ function where($conditions, $params=array())
 ~~~
 
 Die [where()|CDbCommand::where()]-Methode beschreibt den `WHERE`-Teil einer
-Abfrage. Der `$conditions`-Parameter gibt die Abfragebedingung an und 
+Abfrage. Der `$conditions`-Parameter gibt die Abfragebedingung an und
 `$params` die Parameter die an die ganze Abfrage gebunden werden sollen.
 Der `$conditions`-Parameter kann entweder ein String (z.B. `id=1`) oder ein
 Array folgender Form sein:
@@ -218,7 +218,7 @@ werden KEINE Anführungszeichen hinzugefügt bzw. kein Escaping vorgenommen.
 
 * `in`: Operand 1 sollte eine Spalte oder ein DB-Ausdruck sein und Operand 2
 ein Array mit der Reihe der Werte in der Operand 1 enthalten sein soll. Aus
-`array('in', 'id', array(1,2,3))` wird somit `id IN (1,2,3)`. 
+`array('in', 'id', array(1,2,3))` wird somit `id IN (1,2,3)`.
 Diese Methode fügt Anführungszeichen hinzu wo nötig und esacped die
 Werte im angegebenen Bereich.
 
@@ -226,9 +226,9 @@ Werte im angegebenen Bereich.
 
 * `like`: Operand 1 sollte eine Spalte oder ein DB-Ausdruck sein, Operand 2
 ein String oder ein Array mit den Werten denen Operand 1 mit LIKE entsprechen
-soll. `array('like', 'name', 'tester')` erzeugt somit `name LIKE '%tester%'`. 
+soll. `array('like', 'name', 'tester')` erzeugt somit `name LIKE '%tester%'`.
 Ist Operand 2 ein Array werden mehrere mit `AND` verknüpfte LIKEs erzeugt.
-`array('like', 'name', array('test', 'sample'))` ergibt damit `name LIKE '%test%' AND name LIKE '%sample%'`. 
+`array('like', 'name', array('test', 'sample'))` ergibt damit `name LIKE '%test%' AND name LIKE '%sample%'`.
 Diese Methode fügt Anführungszeichen hinzu, wo nötig und esacped die
 Werte im angegebenen Bereich.
 
@@ -380,7 +380,7 @@ function group($columns)
 
 Mit der [group()|CDbCommand::group()]-Methode bestimmt man den `GROUP BY`-Teil
 einer Abfrage. Der Parameter `$columns` gibt die Spalten an, nach denen
-gruppiert werden soll und kann entweder ein String aus Spaltennamen sein, 
+gruppiert werden soll und kann entweder ein String aus Spaltennamen sein,
 die durch Komma getrennt werden oder eine Array aus
 selbigen. Spaltennamen können Tabellenpräfixe enthalten und werden auch
 automatisch in passende Anführungszeichen gesetzt, es sei denn es tauchen Klammern auf
@@ -440,8 +440,8 @@ union('select * from tbl_profile')
 
 ### Abfragen ausführen
 
-Hat man eine Abfrage mit obigen Methoden erstellt, kann man sie mit den 
-üblichen DAO-Methoden ausführen, wie sie in [Data Access Objects](/doc/guide/database.dao) 
+Hat man eine Abfrage mit obigen Methoden erstellt, kann man sie mit den
+üblichen DAO-Methoden ausführen, wie sie in [Data Access Objects](/doc/guide/database.dao)
 beschrieben wurden. Mit [CDbCommand::queryRow()] erhält man z.B. eine einzelne Zeile
 als Ergebnis, mit [CDbCommand::queryAll()] alle Zeilen auf einmal.
 Example:
@@ -502,7 +502,7 @@ $row = Yii::app()->db->createCommand(array(
 ~~~
 
 
-### Erstellen mehrfacher Abfragen 
+### Erstellen mehrfacher Abfragen
 
 Eine [CDbCommand]-Instanz kann mehrfach wiederverwendet werden. Bevor man
 jedoch eine neue Abfrage damit erstellen kann, muss die vorhergehende Abfrage
@@ -512,7 +512,7 @@ durch einen Aufruf von [CDbCommand::reset()] gelöscht werden:
 [php]
 $command = Yii::app()->db->createCommand();
 $users = $command->select('*')->from('tbl_users')->queryAll();
-$command->reset();  // clean up the previous query
+$command->reset();	// clean up the previous query
 $posts = $command->select('*')->from('tbl_posts')->queryAll();
 ~~~
 
@@ -569,8 +569,8 @@ function update($table, $columns, $conditions='', $params=array())
 Die [update()|CDbCommand::update()]-Methode erzeugt einen `UPDATE`-Ausdruck und
 führt ihn aus. Die Tabelle wird in `$table` angegeben, die Parameter als
 Name-Wert-Paare im Array `$columns`. `$conditions` und `$params` werden wie
-bei [where|CDbCommand::where] verwendet und spezifizieren den  `WHERE`-Teil
-im `UPDATE` Ausdruck. Der Tabellenname wird wieder automatisch in korrekte Anführungszeichen 
+bei [where|CDbCommand::where] verwendet und spezifizieren den	`WHERE`-Teil
+im `UPDATE` Ausdruck. Der Tabellenname wird wieder automatisch in korrekte Anführungszeichen
 gesetzt und die Daten als Parameter an den Ausdruck gebunden.
 
 Hier ein Beispiel:
@@ -594,8 +594,8 @@ function delete($table, $conditions='', $params=array())
 
 Die [delete()|CDbCommand::delete()]-Methode erzeugt einen `DELETE`-Ausdruck und
 führt ihn aus. Die Tabelle wird in `$table` angegeben. `$conditions` und `$params` werden wie
-bei [where()|CDbCommand::where()] verwendet und spezifizieren den  `WHERE`-Teil
-im `DELETE` Ausdruck. Der Tabellenname wird wieder automatisch in korrekte Anführungszeichen 
+bei [where()|CDbCommand::where()] verwendet und spezifizieren den	`WHERE`-Teil
+im `DELETE` Ausdruck. Der Tabellenname wird wieder automatisch in korrekte Anführungszeichen
 gesetzt und die Daten als Parameter an den Ausdruck gebunden.
 
 
@@ -685,9 +685,9 @@ Hier ein Beispiel, wie man eine Tabelle erstellt:
 ~~~
 [php]
 // CREATE TABLE `tbl_user` (
-//     `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-//     `username` varchar(255) NOT NULL,
-//     `location` point
+//		 `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+//		 `username` varchar(255) NOT NULL,
+//		 `location` point
 // ) ENGINE=InnoDB
 createTable('tbl_user', array(
 	'id' => 'pk',
@@ -859,7 +859,7 @@ Spaltennamen müssen hierbei durch Kommas getrennt werden. `$refTable`
 und `$refColumns` geben das Ziel der Fremdschlüsselbeziehung an. Mit den
 Parametern `$delete` und `$update` können die `ON DELETE`- und `ON
 UPDATE`-Optionen für den SQL-Ausdruck übergeben werden. Die meisten DBMS
-unterstützen diese Optionen: `RESTRICT`, `CASCADE`, `NO ACTION`, `SET DEFAULT`, 
+unterstützen diese Optionen: `RESTRICT`, `CASCADE`, `NO ACTION`, `SET DEFAULT`,
 `SET NULL`. Tabellen-, Spalten- und Indexnamen werden wieder in korrekte
 Anführungszeichen eingefasst.
 
@@ -885,7 +885,7 @@ function dropForeignKey($name, $table)
 Mit [dropForeignKey()|CDbCommand::dropForeignKey()] wird eine
 Fremdschlüsselbeziehung gelöscht. `$name` muss dabei den Namen der zu
 löschenden Beziehung, `$table` die Tabelle für die er definiert wurde
-enthalten. Beide Namen werden in die richtigen Anführungszeichen eingefasst. 
+enthalten. Beide Namen werden in die richtigen Anführungszeichen eingefasst.
 
 Hier ein Beispiel:
 
@@ -927,7 +927,7 @@ function dropIndex($name, $table)
 
 [dropIndex()|CDbCommand::dropIndex()] löscht den Index mit dem Namen `$name` aus
 der Tabelle `$table`. Beide Namen werden in die korrekten Anführungszeichen
-gesetzt. 
+gesetzt.
 
 Hier ein Beispiel:
 

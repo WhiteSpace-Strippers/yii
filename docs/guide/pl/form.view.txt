@@ -1,20 +1,20 @@
 Tworzenie formularza
 =============
 
-Stworzenie widoku `login` jest bardzo proste. Rozpoczynamy od tagu `form`, którego 
+Stworzenie widoku `login` jest bardzo proste. Rozpoczynamy od tagu `form`, którego
 atrybut akcji powinien być adresem URL poprzednio opisanej akcji `login`.
-Następnie wstawiamy etykiety oraz pola wejściowe dla atrybutów zadeklarowanych 
-w klasie `LoginForm`. Na końcu wstawiamy przycisk wysyłający, który może zostać 
+Następnie wstawiamy etykiety oraz pola wejściowe dla atrybutów zadeklarowanych
+w klasie `LoginForm`. Na końcu wstawiamy przycisk wysyłający, który może zostać
 kliknięty przez użytkownika celem przesłania formularza. Wszystko to może zostać
 zrobione za pomocą czystego kody HTML.
 
-Yii dostarcza kilka klas helperów, aby ułatwić komponowanie widoku. Na przykład, 
+Yii dostarcza kilka klas helperów, aby ułatwić komponowanie widoku. Na przykład,
 aby stworzyć pole tekstowe, możemy wywołać metodę [CHtml::textField()]; aby utworzyć
 listę rozwijaną (ang. drop-down) wywołujemy metodę [CHtml::dropDownList()].
 
-> Info|Info: Można się zastanawiać, jaka jest korzyść płynąca z używania helperów 
+> Info|Info: Można się zastanawiać, jaka jest korzyść płynąca z używania helperów
 > jeśli wymagają podobnej ilości kodu w porównaniu do zwykłego kodu HTML.
-> Odpowiedź jest prosta, helpery potrafią więcej niż kod HTML. Na przykład, 
+> Odpowiedź jest prosta, helpery potrafią więcej niż kod HTML. Na przykład,
 > następujący kod wygeneruje pole tekstowe, które może wywołać przesłanie formularza
 > jeśli jego wartość zostanie zmieniona przez użytkownika.
 > ~~~
@@ -23,7 +23,7 @@ listę rozwijaną (ang. drop-down) wywołujemy metodę [CHtml::dropDownList()].
 > ~~~
 > W przeciwnym razie będzie to wymagało pisania wszędzie pokracznego kodu JavaScript.
 
-W następnym przykładzie używamy klasy [CHtml] aby utworzyć formularz logowania. 
+W następnym przykładzie używamy klasy [CHtml] aby utworzyć formularz logowania.
 Zakładamy, że zmienna `$model` reprezentuje instancje `LoginForm`.
 
 ~~~
@@ -54,11 +54,11 @@ Remember me next time<br/>
 </div><!-- yiiForm -->
 ~~~
 
-Powyższy kod generuje bardziej dynamiczny formularz. Na przykład, 
+Powyższy kod generuje bardziej dynamiczny formularz. Na przykład,
 metoda [CHtml::activeLabel()] generuje etykietę powiązaną z określonym atrybutem modelu.
-Jeśli atrybut posiada błąd w danych wejściowych, klasa CSS etykiety będzie zmieniona 
-na `error`, co zmieni wygląd etykiety odpowiednio do stylu CSS. Podobnie metoda 
-[CHtml::activeTextField()] wygeneruje pole wejściowe dla określonego atrybutu modelu 
+Jeśli atrybut posiada błąd w danych wejściowych, klasa CSS etykiety będzie zmieniona
+na `error`, co zmieni wygląd etykiety odpowiednio do stylu CSS. Podobnie metoda
+[CHtml::activeTextField()] wygeneruje pole wejściowe dla określonego atrybutu modelu
 oraz zmieni jego klasę CSS w momencie wystąpienia błędów we wprowadzanych danych.
 
 Jeśli używamy pliku stylu CSS `form.css` dostarczonego przez skrypt `yiic` wygenerowany
@@ -69,7 +69,7 @@ formularz będzie podobny do następującego:
 ![Logowania wraz ze stroną błędów](login2.png)
 
 Podczynając od wersji 1.1.1 został dostarczony nowy widżet [CActiveForm]
-aby ułatwić tworzenie formularzy. Widżet jest w stanie wspierać spójne 
+aby ułatwić tworzenie formularzy. Widżet jest w stanie wspierać spójne
 i nierozróżnialne sprawdzanie poprawności zarówno po stronie klienta jak i serwera.
 Przy użyciu [CActiveForm] powyższy kod widoku moze zostać przepisany na:
 

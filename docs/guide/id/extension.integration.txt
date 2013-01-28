@@ -51,7 +51,7 @@ Untuk menggunakan pustaka (library) yang memiliki namespace sesuai standar
 (seperti Zend Framework 2 or Symfony2), Anda harus mendaftarkan root-nya sebagai path alias.
 
 Sebagai contoh kita akan menggunakan [Imagine](https://github.com/avalanche123/Imagine).
-Jika kita meletakkan direktori `Imagine` di dalam `protected/vendors` maka kita akan 
+Jika kita meletakkan direktori `Imagine` di dalam `protected/vendors` maka kita akan
 mampu menggunakannya seperti berikut ini:
 
 ~~~
@@ -63,7 +63,7 @@ Yii::setPathOfAlias('Imagine',Yii::getPathOfAlias('application.vendors.Imagine')
 // dan lain-lain.
 ~~~
 
-Pada code di atas, nama dari alias yang sudah kita definisikan harus cocok 
+Pada code di atas, nama dari alias yang sudah kita definisikan harus cocok
 dengan namespace pertama yang digunakan di dalam pustaka.
 
 Menggunakan Yii di Sistem Pihak Ketiga

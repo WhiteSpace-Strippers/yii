@@ -22,13 +22,13 @@ class AutoloadCommand extends CConsoleCommand
 	{
 		return <<<EOD
 USAGE
-  build autoload
+	build autoload
 
 DESCRIPTION
-  This command updates YiiBase.php with the latest class map.
-  The class map is used by Yii::autoload() to quickly include a class on demand.
+	This command updates YiiBase.php with the latest class map.
+	The class map is used by Yii::autoload() to quickly include a class on demand.
 
-  Do not run this command unless you change or add core framework classes.
+	Do not run this command unless you change or add core framework classes.
 
 EOD;
 	}

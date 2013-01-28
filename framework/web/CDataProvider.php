@@ -85,8 +85,8 @@ abstract class CDataProvider extends CComponent implements IDataProvider
 	 * You can configure this property same way as a component:
 	 * <pre>
 	 * array(
-	 *     'class' => 'MyPagination',
-	 *     'pageSize' => 20,
+	 *		 'class' => 'MyPagination',
+	 *		 'pageSize' => 20,
 	 * ),
 	 * </pre>
 	 */
@@ -133,8 +133,8 @@ abstract class CDataProvider extends CComponent implements IDataProvider
 	 * You can configure this property same way as a component:
 	 * <pre>
 	 * array(
-	 *     'class' => 'MySort',
-	 *     'attributes' => array('name', 'weight'),
+	 *		 'class' => 'MySort',
+	 *		 'attributes' => array('name', 'weight'),
 	 * ),
 	 * </pre>
 	 */

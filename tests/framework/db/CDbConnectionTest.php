@@ -47,18 +47,18 @@ class CDbConnectionTest extends CTestCase
 
 	public function testActive()
 	{
-	    $this->assertFalse($this->_connection->active);
-	    $this->_connection->active=true;
-	    $this->assertTrue($this->_connection->active);
-	    $pdo=$this->_connection->pdoInstance;
-	    $this->assertTrue($pdo instanceof PDO);
+			$this->assertFalse($this->_connection->active);
+			$this->_connection->active=true;
+			$this->assertTrue($this->_connection->active);
+			$pdo=$this->_connection->pdoInstance;
+			$this->assertTrue($pdo instanceof PDO);
 
-	    $this->_connection->active=true;
-	    $this->assertEquals($pdo,$this->_connection->pdoInstance);
+			$this->_connection->active=true;
+			$this->assertEquals($pdo,$this->_connection->pdoInstance);
 
 		$this->_connection->active=false;
-	    $this->assertFalse($this->_connection->active);
-	    $this->assertEquals($this->_connection->pdoInstance,null);
+			$this->assertFalse($this->_connection->active);
+			$this->assertEquals($this->_connection->pdoInstance,null);
 
 		$connection=new CDbConnection('unknown::memory:');
 		$this->setExpectedException('CException');
@@ -76,8 +76,8 @@ class CDbConnectionTest extends CTestCase
 
 	public function testLastInsertID()
 	{
-	    $this->_connection->active=true;
-	    $this->_connection->pdoInstance->exec(file_get_contents(dirname(__FILE__).'/data/sqlite.sql'));
+			$this->_connection->active=true;
+			$this->_connection->pdoInstance->exec(file_get_contents(dirname(__FILE__).'/data/sqlite.sql'));
 		$sql='INSERT INTO posts(title,create_time,author_id) VALUES(\'test post\',11000,1)';
 		$this->_connection->createCommand($sql)->execute();
 		$this->assertEquals($this->_connection->lastInsertID,6);
@@ -85,8 +85,8 @@ class CDbConnectionTest extends CTestCase
 
 	public function testQuoteValue()
 	{
-	    $this->_connection->active=true;
-	    $this->_connection->pdoInstance->exec(file_get_contents(dirname(__FILE__).'/data/sqlite.sql'));
+			$this->_connection->active=true;
+			$this->_connection->pdoInstance->exec(file_get_contents(dirname(__FILE__).'/data/sqlite.sql'));
 		$str="this is 'my' name";
 		$expectedStr="'this is ''my'' name'";
 		$this->assertEquals($expectedStr,$this->_connection->quoteValue($str));
@@ -94,8 +94,8 @@ class CDbConnectionTest extends CTestCase
 
 	public function testColumnNameCase()
 	{
-	    $this->_connection->active=true;
-	    $this->_connection->pdoInstance->exec(file_get_contents(dirname(__FILE__).'/data/sqlite.sql'));
+			$this->_connection->active=true;
+			$this->_connection->pdoInstance->exec(file_get_contents(dirname(__FILE__).'/data/sqlite.sql'));
 		$this->assertEquals(PDO::CASE_NATURAL,$this->_connection->ColumnCase);
 		$this->_connection->columnCase=PDO::CASE_LOWER;
 		$this->assertEquals(PDO::CASE_LOWER,$this->_connection->ColumnCase);
@@ -103,8 +103,8 @@ class CDbConnectionTest extends CTestCase
 
 	public function testNullConversion()
 	{
-	    $this->_connection->active=true;
-	    $this->_connection->pdoInstance->exec(file_get_contents(dirname(__FILE__).'/data/sqlite.sql'));
+			$this->_connection->active=true;
+			$this->_connection->pdoInstance->exec(file_get_contents(dirname(__FILE__).'/data/sqlite.sql'));
 		$this->assertEquals(PDO::NULL_NATURAL,$this->_connection->NullConversion);
 		$this->_connection->nullConversion=PDO::NULL_EMPTY_STRING;
 		$this->assertEquals(PDO::NULL_EMPTY_STRING,$this->_connection->NullConversion);

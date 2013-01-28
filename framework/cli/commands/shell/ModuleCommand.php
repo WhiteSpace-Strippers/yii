@@ -30,10 +30,10 @@ class ModuleCommand extends CConsoleCommand
 	{
 		return <<<EOD
 USAGE
-  module <module-ID>
+	module <module-ID>
 
 DESCRIPTION
-  This command generates an application module.
+	This command generates an application module.
 
 PARAMETERS
  * module-ID: required, module ID. It is case-sensitive.
@@ -75,10 +75,10 @@ EOD;
 		echo <<<EOD
 
 Module '{$moduleID}' has been created under the following folder:
-    $modulePath
+		$modulePath
 
 You may access it in the browser using the following URL:
-    http://hostname/path/to/index.php?r=$moduleID
+		http://hostname/path/to/index.php?r=$moduleID
 
 Note, the module needs to be installed first by adding '{$moduleID}'
 to the 'modules' property in the application configuration.

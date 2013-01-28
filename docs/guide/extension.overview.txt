@@ -2,7 +2,7 @@ Extending Yii
 =============
 
 Extending Yii is a common activity during development. For example, when
-you write a new controller, you extend Yii by inheriting its  [CController]
+you write a new controller, you extend Yii by inheriting its	[CController]
 class; when you write a new widget, you are extending [CWidget] or an existing
 widget class. If the extended code is designed to be reused by third-party
 developers, we call it an *extension*.
@@ -19,7 +19,7 @@ classified as follows,
  * [console command](/doc/guide/topics.console)
  * validator: a validator is a component class extending [CValidator].
  * helper: a helper is a class with only static methods. It is like global
-   functions using the class name as their namespace.
+	 functions using the class name as their namespace.
  * [module](/doc/guide/basics.module): a module is a self-contained software unit that consists of [models](/doc/guide/basics.model), [views](/doc/guide/basics.view), [controllers](/doc/guide/basics.controller) and other supporting components. In many aspects, a module resembles to an [application](/doc/guide/basics.application). The main difference is that a module is inside an application. For example, we could have a module that provides user management functionalities.
 
 An extension can also be a component that does not fall into any of the above

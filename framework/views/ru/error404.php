@@ -24,7 +24,7 @@ p {font-family:"Verdana";font-weight:normal;color:black;font-size:9pt;margin-top
 Если вы ввели адрес страницы вручную, проверьте правильность его написания и повторите попытку.
 </p>
 <p>
-Если вы считаете, что это ошибка настройки сервера, обратитесь по адресу  <?php echo $data['admin']; ?>.
+Если вы считаете, что это ошибка настройки сервера, обратитесь по адресу	<?php echo $data['admin']; ?>.
 </p>
 <div class="version">
 <?php echo date('Y-m-d H:i:s',$data['time']) .' '. $data['version']; ?>

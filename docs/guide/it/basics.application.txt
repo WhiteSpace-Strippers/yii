@@ -137,40 +137,40 @@ di quasi ogni aspetto di Yii.
 
 Ecco una lista di componenti core che sono pre-dichiarati da [CWebApplication]:
 
-   - [assetManager|CWebApplication::assetManager]: [CAssetManager] - gestisce la pubblicazione di file risorsa privati.
+	 - [assetManager|CWebApplication::assetManager]: [CAssetManager] - gestisce la pubblicazione di file risorsa privati.
 
-   - [authManager|CWebApplication::authManager]: [CAuthManager] - gestisce il controllo di accesso role-based (RBAC).
+	 - [authManager|CWebApplication::authManager]: [CAuthManager] - gestisce il controllo di accesso role-based (RBAC).
 
-   - [cache|CApplication::cache]: [CCache] - gestisce la funzione di caching dei dati.
+	 - [cache|CApplication::cache]: [CCache] - gestisce la funzione di caching dei dati.
 Nota, si deve specificare la classe attuale (es.
 [CMemCache], [CDbCache]). Altrimenti quando si accede al componente
 si otterrà null come risultato.
 
-   - [clientScript|CWebApplication::clientScript]: [CClientScript] - gestisce gli script client (javascript and CSS).
+	 - [clientScript|CWebApplication::clientScript]: [CClientScript] - gestisce gli script client (javascript and CSS).
 
-   - [coreMessages|CApplication::coreMessages]: [CPhpMessageSource] - fornisce i messaggi core tradotti utilizzati dal framework Yii.
+	 - [coreMessages|CApplication::coreMessages]: [CPhpMessageSource] - fornisce i messaggi core tradotti utilizzati dal framework Yii.
 
-   - [db|CApplication::db]: [CDbConnection] - fornisce la connessione al database. Nota, si deve configurare la proprietà [connectionString|CDbConnection::connectionString] per poter utilizzare questo componente.
+	 - [db|CApplication::db]: [CDbConnection] - fornisce la connessione al database. Nota, si deve configurare la proprietà [connectionString|CDbConnection::connectionString] per poter utilizzare questo componente.
 
-   - [errorHandler|CApplication::errorHandler]: [CErrorHandler] - gestisce le eccezioni e gli errori PHP non catturati.
+	 - [errorHandler|CApplication::errorHandler]: [CErrorHandler] - gestisce le eccezioni e gli errori PHP non catturati.
 
-   - [format|CApplication::format]: [CFormatter] - formatta i valori dei dati a solo scopo di visualizzazione.
+	 - [format|CApplication::format]: [CFormatter] - formatta i valori dei dati a solo scopo di visualizzazione.
 
-   - [messages|CApplication::messages]: [CPhpMessageSource] - fornisce i messaggi tradotti utilizzati dall'applicazione Yii.
+	 - [messages|CApplication::messages]: [CPhpMessageSource] - fornisce i messaggi tradotti utilizzati dall'applicazione Yii.
 
-   - [request|CWebApplication::request]: [CHttpRequest] - fornisce le informazioni relative alle richieste utente.
+	 - [request|CWebApplication::request]: [CHttpRequest] - fornisce le informazioni relative alle richieste utente.
 
-   - [securityManager|CApplication::securityManager]: [CSecurityManager] - fornisce i servizi legati alla sicurezza, come hashing e criptazione.
+	 - [securityManager|CApplication::securityManager]: [CSecurityManager] - fornisce i servizi legati alla sicurezza, come hashing e criptazione.
 
-   - [session|CWebApplication::session]: [CHttpSession] - fornisce la funzionalità legata alla sessione.
+	 - [session|CWebApplication::session]: [CHttpSession] - fornisce la funzionalità legata alla sessione.
 
-   - [statePersister|CApplication::statePersister]: [CStatePersister] - fornisce il meccanismo per la persistenza dello stato globale.
+	 - [statePersister|CApplication::statePersister]: [CStatePersister] - fornisce il meccanismo per la persistenza dello stato globale.
 
-   - [urlManager|CWebApplication::urlManager]: [CUrlManager] - fornisce le funzionalità per la creazione e il parsing (analisi) degli URL.
+	 - [urlManager|CWebApplication::urlManager]: [CUrlManager] - fornisce le funzionalità per la creazione e il parsing (analisi) degli URL.
 
-   - [user|CWebApplication::user]: [CWebUser] - trasporta le informazioni legate all'identità dell'utente corrente.
+	 - [user|CWebApplication::user]: [CWebUser] - trasporta le informazioni legate all'identità dell'utente corrente.
 
-   - [themeManager|CWebApplication::themeManager]: [CThemeManager] - gestisce i temi.
+	 - [themeManager|CWebApplication::themeManager]: [CThemeManager] - gestisce i temi.
 
 
 Ciclo di vita dell'Applicazione
@@ -178,25 +178,25 @@ Ciclo di vita dell'Applicazione
 
 Quando viene gestita una richiesta, una applicazione seguirà il seguente ciclo di vita:
 
-   0. Pre-inizializza l'applicazione con [CApplication::preinit()];
+	 0. Pre-inizializza l'applicazione con [CApplication::preinit()];
 
-   1. Impostazione della classe autoloader e della gestione degli errori;
+	 1. Impostazione della classe autoloader e della gestione degli errori;
 
-   2. Registrazione dei componenti core;
+	 2. Registrazione dei componenti core;
 
-   3. Caricamento della configurazione dell'applicazione;
+	 3. Caricamento della configurazione dell'applicazione;
 
-   4. Inizializzazione dell'applicazione con [CApplication::init()]
-     - Registrazione dei comportamenti dell'applicazione;
-     - caricamento dei componenti statici;
+	 4. Inizializzazione dell'applicazione con [CApplication::init()]
+		 - Registrazione dei comportamenti dell'applicazione;
+		 - caricamento dei componenti statici;
 
-   5. Generazione dell'evento [onBeginRequest|CApplication::onBeginRequest];
+	 5. Generazione dell'evento [onBeginRequest|CApplication::onBeginRequest];
 
-   6. Processo della richiesta:
-	   - Raccolta delle informazioni riguardanti la richiesta;
-	   - Creazione di un controller;
-	   - Esecuzione del controller;
+	 6. Processo della richiesta:
+		 - Raccolta delle informazioni riguardanti la richiesta;
+		 - Creazione di un controller;
+		 - Esecuzione del controller;
 
-   7. Generazione dell'evento [onEndRequest|CApplication::onEndRequest];
+	 7. Generazione dell'evento [onEndRequest|CApplication::onEndRequest];
 
 <div class="revision">$Id: basics.application.txt 3251 2011-06-01 00:24:06Z qiang.xue $</div>

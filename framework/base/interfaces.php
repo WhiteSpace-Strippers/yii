@@ -621,10 +621,10 @@ interface ILogFilter
 	 * @param array $logs list of messages. Each array element represents one message
 	 * with the following structure:
 	 * array(
-	 *   [0] => message (string)
-	 *   [1] => level (string)
-	 *   [2] => category (string)
-	 *   [3] => timestamp (float, obtained by microtime(true));
+	 *	 [0] => message (string)
+	 *	 [1] => level (string)
+	 *	 [2] => category (string)
+	 *	 [3] => timestamp (float, obtained by microtime(true));
 	 */
 	public function filter(&$logs);
 }

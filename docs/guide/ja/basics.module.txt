@@ -19,17 +19,17 @@
 
 ~~~
 forum/
-   ForumModule.php            モジュールクラスファイル
-   components/                再利用可能なユーザコンポーネントを含む
-      views/                  ウイジェットのためのビューを含む
-   controllers/               コントローラクラスファイルを含む
-      DefaultController.php   デフォルトコントローラクラスファイル
-   extensions/                サードパーティのエクステンションを含む
-   models/                    モデルクラスファイルを含む
-   views/                     コントローラビューとレイアウトファイルを含む
-      layouts/                レイアウトビューファイルを含む
-      default/                デフォルトコントローラのビューファイルを含む
-         index.php            インデックスビューファイル
+	 ForumModule.php						モジュールクラスファイル
+	 components/								再利用可能なユーザコンポーネントを含む
+			views/									ウイジェットのためのビューを含む
+	 controllers/							 コントローラクラスファイルを含む
+			DefaultController.php	 デフォルトコントローラクラスファイル
+	 extensions/								サードパーティのエクステンションを含む
+	 models/										モデルクラスファイルを含む
+	 views/										 コントローラビューとレイアウトファイルを含む
+			layouts/								レイアウトビューファイルを含む
+			default/								デフォルトコントローラのビューファイルを含む
+				 index.php						インデックスビューファイル
 ~~~
 
 モジュールは [CWebModule] より継承されたモジュールクラスを持つ必要があります。
@@ -66,9 +66,9 @@ return array(
 return array(
 	......
 	'modules'=>array(
-	    'forum'=>array(
-	        'postPerPage'=>20,
-	    ),
+			'forum'=>array(
+					'postPerPage'=>20,
+			),
 	),
 	......
 );

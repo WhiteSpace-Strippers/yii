@@ -3,7 +3,7 @@ Autenticação e Autorização
 
 Autenticação e autorização são necessárias para uma página Web que deve
 ser limitada a determinados usuários. *Autenticação* serve para verificar
-se alguém é quem diz ser. Isto geralmente envolve a utilização de um usuário e  
+se alguém é quem diz ser. Isto geralmente envolve a utilização de um usuário e
 senha, mas pode incluir outros métodos de validação da identidade, como
 cartão inteligente (smart card), impressões digitais, etc. *Autorização* serve para descobrir se uma
 pessoa, uma vez identificada (e autenticada), tem permissão para manipular
@@ -20,7 +20,7 @@ de identidade para o usuário corrente. Pode ser acessado de qualquer lugar, uti
 `Yii::app()->user`.
 
 Utilizando o componente de usuário, podemos verificar se um usuário está conectado ou não através de
-[CWebUser::isGuest]; podemos [conectar|CWebUser::login] e 
+[CWebUser::isGuest]; podemos [conectar|CWebUser::login] e
 [desconectar|CWebUser::logout] um usuário; podemos verificar se um usuário pode executar
 operações específicas, chamando [CWebUser::checkAccess]; e podemos também
 obter o [identificador único|CWebUser::name] e outras informações armazenadas
@@ -36,7 +36,7 @@ implementadas para diferentes abordagens de autenticação (por exemplo, OpenID,
 
 O principal trabalho na definição da classe de identidade é a implementação do
 método [IUserIdentity::authenticate]. Este método é utilizando para encapsular os principal detalhes da abordagem da autenticação. Uma classe de identidade também pode declarar
-informações adicionais de identidade que precisam ser armazenadas durante a sessão do 
+informações adicionais de identidade que precisam ser armazenadas durante a sessão do
 usuário.
 
 #### Um Exemplo
@@ -66,7 +66,7 @@ class UserIdentity extends CUserIdentity
 			$this->errorCode=self::ERROR_NONE;
 		}
 		return !$this->errorCode;
-    }
+		}
 
 	public function getId()
 	{
@@ -78,9 +78,9 @@ class UserIdentity extends CUserIdentity
 Quando falarmos sobre login e logout na próxima seção, veremos que passamos a classe identidade como parâmetro ao método login de um usuário. Qualquer informação que precisarmos armazenar no estado (apenas chamando [CBaseUserIdentity::setState])) serão passadas para a classe [CWebUser], que por sua vez irá armazenar de forma persistente, como uma sessão.
 Esta informação pode ser acessada como uma propriedade da classe [CWebUser]. No nosso exemplo, armazenamos a informação do título do usuário através de `$this->setState('title', $record->title);`. Uma vez finalizado o processo de login, podemos obter a informação `title` do usuário corrente, simplesmente usando `Yii::app()->user->title`.
 
-> Info: Por padrão, [CWebUser] utiliza sessão para armazenamento persistente de informação 
+> Info: Por padrão, [CWebUser] utiliza sessão para armazenamento persistente de informação
 sobre identidade de usuário. Caso o login estiver ativo e baseado na utilização de cookies (a configuração
-[CWebUser::allowAutoLogin] for verdadeira), a informação de identidade do usuário também 
+[CWebUser::allowAutoLogin] for verdadeira), a informação de identidade do usuário também
 será salva como um cookie. Tenha certeza de não declarar informações sensíveis
 (por exemplo, senha).
 
@@ -156,7 +156,7 @@ Se o usuário é autenticado, podemos regerar uma chave aletória e armazená-la
 na base de dados, bem como no estado da identidade com [CBaseUserIdentity::setState].
 
 * [CWebUser::beforeLogin()]: nele é realizado a chamada quando o usuário será sendo conectado.
-Devemos verificar se a chave obtida do estado do cookie é a mesma que 
+Devemos verificar se a chave obtida do estado do cookie é a mesma que
 a do banco de dados.
 
 Filtro de Controle de Acesso (Access Control Filter)
@@ -220,7 +220,7 @@ class PostController extends CController
 ~~~
 
 O código acima especifica três regras, cada uma representada por um array.
-O primeiro elemento do array é um `'allow'` ou `'deny'` e o segundo 
+O primeiro elemento do array é um `'allow'` ou `'deny'` e o segundo
 é formado por pares do tipo nome-valor que especificam o padrão dos parâmetros da regra. As regras definidas acima são interpretadas como se segue: as ações `create` e `edit` não podem ser executadas por usuários anônimos (não identificados);
 a ação `delete` pode ser executada por usuários com o papel `admin`;
 e a ação `delete` não pode ser executada por ninguém.
@@ -237,11 +237,11 @@ E se nenhuma das regras bater, a ação também poderá ser executada.
 > ~~~
 > [php]
 > return array(
->     // ... outras regras...
->     // a seguinte regra nega a ação 'delete' em todos os contextos
->     array('deny',
->         'actions'=>array('delete'),
->     ),
+>		 // ... outras regras...
+>		 // a seguinte regra nega a ação 'delete' em todos os contextos
+>		 array('deny',
+>				 'actions'=>array('delete'),
+>		 ),
 > );
 > ~~~
 > Sem esta regra, se nenhuma das regras batesse em algum contexto, a ação `delete` ainda seria executada.
@@ -249,21 +249,21 @@ E se nenhuma das regras bater, a ação também poderá ser executada.
 
 Uma regra de acesso pode bater nos seguintes contextos:
 
-   - [actions|CAccessRule::actions]: especifica com quais ações esta regra bate.
+	 - [actions|CAccessRule::actions]: especifica com quais ações esta regra bate.
 Deve ser um array de IDs de ações. A comparação não diferencia maiúsculas/minúsculas (case-insensitive).
 
-   - [controllers|CAccessRule::controllers]: especifica com quais controllers esta regra bate.
+	 - [controllers|CAccessRule::controllers]: especifica com quais controllers esta regra bate.
 Deve ser um array de IDs de ações. A comparação não diferencia maiúsculas/minúsculas (case-insensitive).
 
-   - [users|CAccessRule::users]: especifica com quais usuários esta regra bate.
+	 - [users|CAccessRule::users]: especifica com quais usuários esta regra bate.
 O [nome de usuário|CWebUser::name] é usado para a comparação. A comparação não diferencia maiúsculas/minúsculas (case-insensitive).
 Três caracteres especiais podem ser usados aqui:
 
-     - `*`: qualquer usuário, inclusive anônimos e autenticados.
-	   - `?`: usuários anônimos.
-     - `@`: usuários autenticados.
+		 - `*`: qualquer usuário, inclusive anônimos e autenticados.
+		 - `?`: usuários anônimos.
+		 - `@`: usuários autenticados.
 
-   - [roles|CAccessRule::roles]: especifica com quais papéis esta regra bate.
+	 - [roles|CAccessRule::roles]: especifica com quais papéis esta regra bate.
 Isto faz uso do [controle de acesso baseado em papéis](/doc/guide/topics.auth#role-based-access-control),
 característica que será descrita na próxima sub-seção. Em resumo, a regra é aplicada
 se [CWebUser::checkAccess] retornar true para um dos papéis.
@@ -272,10 +272,10 @@ um papel representa uma permissão de fazer algo. Note também que, embora usemo
 aqui, seu valor pode realmente ser qualquer item de autenticação, incluindo papéis,
 tarefas e operações.
 
-   - [ips|CAccessRule::ips]: especifica com quais endereços de IP de clientes esta regra bate.
-   - [verbs|CAccessRule::verbs]: especifica com quais tipos de requisição (exemplo: `GET`,
+	 - [ips|CAccessRule::ips]: especifica com quais endereços de IP de clientes esta regra bate.
+	 - [verbs|CAccessRule::verbs]: especifica com quais tipos de requisição (exemplo: `GET`,
 `POST`) esta regra bate. A comparação não diferencia maiúsculas/minúsculas (case-insensitive).
-   - [expression|CAccessRule::expression]: especifica uma expressão PHP cujo valor indica se
+	 - [expression|CAccessRule::expression]: especifica uma expressão PHP cujo valor indica se
 esta regra bate. Na expressão você pode a variável `$user` que se refere a `Yii::app()->user`.
 
 
@@ -285,17 +285,17 @@ Manipulando o Resultado da Autorização
 Quando a autorização falha, ou seja, o usuário não tem permissão de realizar a ação
 especificada, um dos dois cenários a seguir pode ocorrer:
 
-   - Se o usuário não estiver logado e se a propriedade [loginUrl|CWebUser::loginUrl]
+	 - Se o usuário não estiver logado e se a propriedade [loginUrl|CWebUser::loginUrl]
 do componente User estiver configurada para ser a URL da página de login, o navegador
-vai ser redirecionado para essa página. Note que, por padrão, 
+vai ser redirecionado para essa página. Note que, por padrão,
 [loginUrl|CWebUser::loginUrl] aponta para a página `site/login`.
 
-   - Caso contrário, uma exceção HTTP com código de erro 403 vai ser exibida.
+	 - Caso contrário, uma exceção HTTP com código de erro 403 vai ser exibida.
 
 Ao configurar a propriedade [loginUrl|CWebUser::loginUrl], pode-se fornecer uma
 URL relativa ou absoluta. Pode-se também fornecer um array que vai ser usado
 para gerar uma URL por chamar [CWebApplication::createUrl]. O primeiro elemento array
-deve especificar a [rota](/doc/guide/basics.controller#route) para a ação login 
+deve especificar a [rota](/doc/guide/basics.controller#route) para a ação login
 do controller, e o restante, pares nome-valor de parâmetros GET.
 Por exemplo:
 
@@ -343,7 +343,7 @@ fazer uso dos dados de autorização para realizar a verificação de acesso.
 Um conceito fundamental do RBAC no Yii é o *item de autorização*. Um
 item de autorização é uma permissão de fazer algo (ex: criar novas postagens
 num blog, gerenciar usuários, etc). De acordo com sua granulidade e audiência,
-itens de autorização podem ser classificados como *operações*, *tarefas* e 
+itens de autorização podem ser classificados como *operações*, *tarefas* e
 *papéis*. Um papel consiste de tarefas, uma tarefa consiste de operações e
 uma operação é uma permissão que é atômica.
 Por exemplo, podemos ter um sistema com um papel `administrador` que consista
@@ -357,7 +357,7 @@ Um item de autorização é identificado exclusivamente por seu nome.
 
 Um item de autorização pode ser associado a uma *business rule* (regra de negócio). Uma
 business rule é um código em PHP que vai ser executado quando ocorrer a verificação
-de acesso com respeito ao item. O usuário terá a permissão de acesso representada 
+de acesso com respeito ao item. O usuário terá a permissão de acesso representada
 pelo item somente quando a execução retornar true. Por exemplo, ao definir uma
 operação `updatePost` (atualizarPost), nós gostaríamos de adicionar uma business
 rule que verifique se ID do usuário é o mesmo que do autor do post de modo que
@@ -435,23 +435,23 @@ whole set of APIs to accomplish these tasks.
 To define an authorization item, call one of the following methods,
 depending on the type of the item:
 
-   - [CAuthManager::createRole]
-   - [CAuthManager::createTask]
-   - [CAuthManager::createOperation]
+	 - [CAuthManager::createRole]
+	 - [CAuthManager::createTask]
+	 - [CAuthManager::createOperation]
 
 Once we have a set of authorization items, we can call the following
 methods to establish relationships between authorization items:
 
-   - [CAuthManager::addItemChild]
-   - [CAuthManager::removeItemChild]
-   - [CAuthItem::addChild]
-   - [CAuthItem::removeChild]
+	 - [CAuthManager::addItemChild]
+	 - [CAuthManager::removeItemChild]
+	 - [CAuthItem::addChild]
+	 - [CAuthItem::removeChild]
 
 And finally, we call the following methods to assign role items to
 individual users:
 
-   - [CAuthManager::assign]
-   - [CAuthManager::revoke]
+	 - [CAuthManager::assign]
+	 - [CAuthManager::revoke]
 
 Below we show an example about building an authorization hierarchy with
 the provided APIs:

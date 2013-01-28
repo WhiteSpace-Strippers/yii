@@ -88,9 +88,9 @@ class CSort extends CComponent
 	 * A more flexible way is to specify the key-value pair as
 	 * <pre>
 	 * 'user'=>array(
-	 *     'asc'=>'first_name, last_name',
-	 *     'desc'=>'first_name DESC, last_name DESC',
-	 *     'label'=>'Name'
+	 *		 'asc'=>'first_name, last_name',
+	 *		 'desc'=>'first_name DESC, last_name DESC',
+	 *		 'label'=>'Name'
 	 * )
 	 * </pre>
 	 * where 'user' is the name of the virtual attribute that specifies the full name of user
@@ -102,9 +102,9 @@ class CSort extends CComponent
 	 * attributes. For example,
 	 * <pre>
 	 * 'price'=>array(
-	 *     'asc'=>'item.price',
-	 *     'desc'=>'item.price DESC',
-	 *     'label'=>'Item Price'
+	 *		 'asc'=>'item.price',
+	 *		 'desc'=>'item.price DESC',
+	 *		 'label'=>'Item Price'
 	 * )
 	 * </pre>
 	 *
@@ -117,10 +117,10 @@ class CSort extends CComponent
 	 * option values include 'asc' (default) and 'desc'. For example,
 	 * <pre>
 	 * 'price'=>array(
-	 *     'asc'=>'item.price',
-	 *     'desc'=>'item.price DESC',
-	 *     'label'=>'Item Price',
-	 *     'default'=>'desc',
+	 *		 'asc'=>'item.price',
+	 *		 'desc'=>'item.price DESC',
+	 *		 'label'=>'Item Price',
+	 *		 'default'=>'desc',
 	 * )
 	 * </pre>
 	 *
@@ -128,13 +128,13 @@ class CSort extends CComponent
 	 * all model attributes are available for sorting, in addition to those virtual attributes. For example,
 	 * <pre>
 	 * 'attributes'=>array(
-	 *     'price'=>array(
-	 *         'asc'=>'item.price',
-	 *         'desc'=>'item.price DESC',
-	 *         'label'=>'Item Price',
-	 *         'default'=>'desc',
-	 *     ),
-	 *     '*',
+	 *		 'price'=>array(
+	 *				 'asc'=>'item.price',
+	 *				 'desc'=>'item.price DESC',
+	 *				 'label'=>'Item Price',
+	 *				 'default'=>'desc',
+	 *		 ),
+	 *		 '*',
 	 * )
 	 * </pre>
 	 * Note that when a name appears as both a model attribute and a virtual attribute, the position of
@@ -164,7 +164,7 @@ class CSort extends CComponent
 	 * be in descending order. For example,
 	 * <pre>
 	 * 'defaultOrder'=>array(
-	 *     'price'=>CSort::SORT_DESC,
+	 *		 'price'=>CSort::SORT_DESC,
 	 * )
 	 * </pre>
 	 * `SORT_DESC` and `SORT_ASC` are available since 1.1.10. In earlier Yii versions you should use

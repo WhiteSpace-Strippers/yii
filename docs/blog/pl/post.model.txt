@@ -6,7 +6,7 @@ Klasa wiadomości `Post`, wygenerowana przez narzędzie `Gii` musi zostać zmody
  - w metodzie `rules()`: określającej reguły sprawdzania poprawności dla atrybutów modelu;
  - w metodzie `relations()`: definiującej obiekty pokrewne;
 
-> Info|Info: [Model](http://www.yiiframework.com/doc/guide/basics.model) zawiera listę atrybutów, każdy z nich jest powiązany z odpowiadającą mu kolumną w bazie danych. Atrybuty mogą być zadeklarowane bezpośrednio jako zmienne klasy lub też pośrednio bez żadnej deklaracji. 
+> Info|Info: [Model](http://www.yiiframework.com/doc/guide/basics.model) zawiera listę atrybutów, każdy z nich jest powiązany z odpowiadającą mu kolumną w bazie danych. Atrybuty mogą być zadeklarowane bezpośrednio jako zmienne klasy lub też pośrednio bez żadnej deklaracji.
 
 
 Dostosowywanie metody `rules()`
@@ -89,7 +89,7 @@ public function relations()
 }
 ~~~
 
-Wprowadzamy również w klasie modelu komentarza `Comment` dwie poniższe stałe, które są używanie w metodzie powyżej: 
+Wprowadzamy również w klasie modelu komentarza `Comment` dwie poniższe stałe, które są używanie w metodzie powyżej:
 
 ~~~
 [php]
@@ -152,9 +152,9 @@ Ponieważ klasa [CComponent] jest ostatecznym przodkiem klasy wiadomości `Post`
 Reprezentacja statusu w postaci tekstowej
 ---------------------------
 
-Ponieważ status wiadomości jest przechowywany jako wartość całkowita (integer) w bazie danych potrzebujemy dostarczyć jego reprezentację tekstową, po to aby wyświetlić ją w bardziej przystępnym formacie użytkownikowi końcowemu. Podobne wymagania występują bardzo często w dużych systemach. 
+Ponieważ status wiadomości jest przechowywany jako wartość całkowita (integer) w bazie danych potrzebujemy dostarczyć jego reprezentację tekstową, po to aby wyświetlić ją w bardziej przystępnym formacie użytkownikowi końcowemu. Podobne wymagania występują bardzo często w dużych systemach.
 
-Jako ogólne rozwiązanie dla ww problemu stosujemy tabelę `tbl_lookup` przechowującą mapowania pomiędzy wartościami całkowitymi a tekstową reprezentacją potrzebną innym obiektom danych. Modyfikujemy klasę modelu `Lookup` w następujący sposób aby ułatwić dostęp do danych testowych w tabeli: 
+Jako ogólne rozwiązanie dla ww problemu stosujemy tabelę `tbl_lookup` przechowującą mapowania pomiędzy wartościami całkowitymi a tekstową reprezentacją potrzebną innym obiektom danych. Modyfikujemy klasę modelu `Lookup` w następujący sposób aby ułatwić dostęp do danych testowych w tabeli:
 
 ~~~
 [php]

@@ -22,7 +22,7 @@ p {font-family:"Verdana";font-weight:normal;color:black;font-size:9pt;margin-top
 <h1>Interna pogreška web poslužitelja</h1>
 <h2><?php echo nl2br(CHtml::encode($data['message'])); ?></h2>
 <p>
-Interne pogreške web poslužitelja prilikom pocesuiranja  vašeg zahtjeva.
+Interne pogreške web poslužitelja prilikom pocesuiranja	vašeg zahtjeva.
 Molimo kontaktirajte <?php echo $data['admin']; ?> o ovom problemu.
 </p>
 <p>

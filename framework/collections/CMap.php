@@ -20,7 +20,7 @@
  * unset($map[$key]); // remove the value with the specified key
  * if(isset($map[$key])) // if the map contains the key
  * foreach($map as $key=>$value) // traverse the items in the map
- * $n=count($map);  // returns the number of items in the map
+ * $n=count($map);	// returns the number of items in the map
  * </pre>
  *
  * @property boolean $readOnly Whether this map is read-only or not. Defaults to false.

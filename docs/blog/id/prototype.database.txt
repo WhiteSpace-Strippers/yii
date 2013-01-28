@@ -9,7 +9,7 @@ Membuat Database
 
 Kita memilih membuat sebuah database SQLite. Karena dukungan database Yii dibangun di atas [PDO](http://www.php.net/manual/en/book.pdo.php), kita dapat dengan mudah mengganti jenis DBMS dengan gampan (misalnya MySQL, PostgreSQL) tanpa perlu mengubah kode komputer.
 
-Kita membuat sebuah file database `blog.db` di bawah direktori `/wwwroot/blog/protected/data`. Perhatikan bahwa direktori dan file database haruslah dapat ditulis oleh proses server Web, seperti yang dperlukan oleh SQLite. Kita dapat meng-copy file database dari demo blog di dalam instalasi Yii di  `/wwwroot/yii/demos/blog/protected/data/blog.db`. Kita juga dapat membuat database dengan menjalankan statement di dalam file `/wwwroot/yii/demos/blog/protected/data/schema.sqlite.sql`.
+Kita membuat sebuah file database `blog.db` di bawah direktori `/wwwroot/blog/protected/data`. Perhatikan bahwa direktori dan file database haruslah dapat ditulis oleh proses server Web, seperti yang dperlukan oleh SQLite. Kita dapat meng-copy file database dari demo blog di dalam instalasi Yii di	`/wwwroot/yii/demos/blog/protected/data/blog.db`. Kita juga dapat membuat database dengan menjalankan statement di dalam file `/wwwroot/yii/demos/blog/protected/data/schema.sqlite.sql`.
 
 > Tip|Tips: Untuk mengeksekusi statement SQL, kita bisa menggunakan command line `sqlite3`, yang dapat ditemukan di [website resmi SQLite](http://www.sqlite.org/download.html).
 
@@ -17,7 +17,7 @@ Kita membuat sebuah file database `blog.db` di bawah direktori `/wwwroot/blog/pr
 Membangun Koneksi Database
 --------------------------------
 
-Untuk menggunakan database blog di dalam aplikasi kerangka yang kita buat, kita perlu memodifikasi [konfigurasi aplikasi](http://www.yiiframework.com/doc/guide/basics.application#application-configuration)  yang di simpan di dalam skrip PHP `/wwwroot/blog/protected/config/main.php`. Skrip mengembalikan sebuah array yang berkaitan terdiri dari pasangan nama-nilai, masing-masing digunakan untuk menginisialisasi properti (yang dapat ditulisi) dari [instance aplikasi](http://www.yiiframework.com/doc/guide/basics.application).
+Untuk menggunakan database blog di dalam aplikasi kerangka yang kita buat, kita perlu memodifikasi [konfigurasi aplikasi](http://www.yiiframework.com/doc/guide/basics.application#application-configuration)	yang di simpan di dalam skrip PHP `/wwwroot/blog/protected/config/main.php`. Skrip mengembalikan sebuah array yang berkaitan terdiri dari pasangan nama-nilai, masing-masing digunakan untuk menginisialisasi properti (yang dapat ditulisi) dari [instance aplikasi](http://www.yiiframework.com/doc/guide/basics.application).
 
 Kami mengkonfigurasi komponen `db` sebagai berikut,
 
@@ -50,18 +50,18 @@ Khusus properti `tablePrefix` yang diatur di konfigurasi akan dijelaskan lebih s
 > ~~~
 > [php]
 > return array(
->     ......
->     'components'=>array(
->         ......
->         'db'=>array(
->             'connectionString' => 'mysql:host=localhost;dbname=blog',
->             'emulatePrepare' => true,
->             'username' => 'root',
->             'password' => '',
->             'charset' => 'utf8',
->             'tablePrefix' => 'tbl_',
->         ),
->     ),
+>		 ......
+>		 'components'=>array(
+>				 ......
+>				 'db'=>array(
+>						 'connectionString' => 'mysql:host=localhost;dbname=blog',
+>						 'emulatePrepare' => true,
+>						 'username' => 'root',
+>						 'password' => '',
+>						 'charset' => 'utf8',
+>						 'tablePrefix' => 'tbl_',
+>				 ),
+>		 ),
 > 	......
 > );
 > ~~~

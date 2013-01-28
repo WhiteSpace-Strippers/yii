@@ -55,7 +55,7 @@ class CWebServiceAction extends CAction
 	/**
 	 * @var string the name of the GET parameter that differentiates a WSDL request
 	 * from a Web service request. If this GET parameter exists, the request is considered
-	 * as a Web service request; otherwise, it is a WSDL request.  Defaults to 'ws'.
+	 * as a Web service request; otherwise, it is a WSDL request.	Defaults to 'ws'.
 	 */
 	public $serviceVar='ws';
 	/**

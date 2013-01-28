@@ -1,10 +1,10 @@
 Hva er Yii?
 ===========
 
-Yii er et raskt og effektivt, komponent-basert PHP-rammeverk for 
+Yii er et raskt og effektivt, komponent-basert PHP-rammeverk for
 utvikling av små og store webapplikasjoner. Rammeverket tilbyr maksimal
-gjennbruk av kode og kan aksellerere og effektivisere utviklingsprosessen 
-merkbart. Navnet Yii (uttales `Yee` eller `/ji:/`) står for *enkelt*, 
+gjennbruk av kode og kan aksellerere og effektivisere utviklingsprosessen
+merkbart. Navnet Yii (uttales `Yee` eller `/ji:/`) står for *enkelt*,
 *effektivt* og *utvidbart*.
 
 Systemkrav
@@ -30,8 +30,8 @@ Hvordan er Yii sammenlignet med andre rammeverk?
 
 Som de fleste andre PHP-rammeverk er Yii et MVC rammeverk.
 
-Yii skiller seg fra andre PHP-rammeverk ved at det er effektivt, rik på 
-funksjonalitet og godt dokumentert. Yii er fra starten av tilpasset 
+Yii skiller seg fra andre PHP-rammeverk ved at det er effektivt, rik på
+funksjonalitet og godt dokumentert. Yii er fra starten av tilpasset
 de som jobber med utvikling av webapplikasjoner til daglig. Det er ikke et
 biprodukt av et prosjekt eller en sammenslåing av tredjepartsarbeid. Det
 er resultatet av utviklernes solide erfaring med webutvikling i tillegg

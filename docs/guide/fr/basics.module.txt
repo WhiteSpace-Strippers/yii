@@ -30,17 +30,17 @@ Ci-dessous, la structure du module `forum`:
 
 ~~~
 forum/
-   ForumModule.php            La classe du module
-   components/                Composants réutilisables
-      views/                  Vues widget
-   controllers/               Contrôleurs
-      DefaultController.php   Contrôleur par défaut
-   extensions/                Extensions tierces
-   models/                    Modèles
-   views/                     Vues et Layouts
-      layouts/                Layouts
-      default/                Vues du contrôleur par défaut
-         index.php            La vue index
+	 ForumModule.php						La classe du module
+	 components/								Composants réutilisables
+			views/									Vues widget
+	 controllers/							 Contrôleurs
+			DefaultController.php	 Contrôleur par défaut
+	 extensions/								Extensions tierces
+	 models/										Modèles
+	 views/										 Vues et Layouts
+			layouts/								Layouts
+			default/								Vues du contrôleur par défaut
+				 index.php						La vue index
 ~~~
 
 Un module doit avoir une classe qui étends [CWebModule].
@@ -93,9 +93,9 @@ Par exemple, le module `forum` pourrait avoir une propriété nommée
 return array(
 	......
 	'modules'=>array(
-	    'forum'=>array(
-	        'postPerPage'=>20,
-	    ),
+			'forum'=>array(
+					'postPerPage'=>20,
+			),
 	),
 	......
 );

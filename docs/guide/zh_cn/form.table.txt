@@ -25,7 +25,7 @@ public function actionBatchUpdate()
 				$item->attributes=$_POST['Item'][$i];
 			$valid=$valid && $item->validate();
 		}
-		if($valid)  // 如果所有项目有效
+		if($valid)	// 如果所有项目有效
 			// ...则在此处做一些操作
 	}
 	// 显示视图收集表格输入
@@ -56,7 +56,7 @@ public function actionBatchUpdate()
 </div><!-- form -->
 ~~~
 
-注意，在上面的代码中我们使用了 `"[$i]name"` 而不是 `"name"` 作为调用 
+注意，在上面的代码中我们使用了 `"[$i]name"` 而不是 `"name"` 作为调用
 [CHtml::activeTextField] 时的第二个参数。
 
 如果有任何验证错误，相应的输入项将会自动高亮显示，就像前面我们讲解的单模型输入一样。

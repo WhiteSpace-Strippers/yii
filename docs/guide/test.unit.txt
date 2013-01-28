@@ -29,7 +29,7 @@ class CommentTest extends CDbTestCase
 }
 ~~~
 
-In this class, we specify the `fixtures` member variable to be an array that specifies which fixtures will be used by this test. The array represents a  mapping from fixture names to model class names or fixture table names (e.g. from fixture name `posts` to model class `Post`). Note that when mapping to fixture table names, we should prefix the table name with a colon (e.g. `:Post`) to differentiate it from model class name. And when using model class names, the corresponding tables will be considered as fixture tables. As we described earlier, fixture tables will be reset to some known state each time when a test method is executed.
+In this class, we specify the `fixtures` member variable to be an array that specifies which fixtures will be used by this test. The array represents a	mapping from fixture names to model class names or fixture table names (e.g. from fixture name `posts` to model class `Post`). Note that when mapping to fixture table names, we should prefix the table name with a colon (e.g. `:Post`) to differentiate it from model class name. And when using model class names, the corresponding tables will be considered as fixture tables. As we described earlier, fixture tables will be reset to some known state each time when a test method is executed.
 
 Fixture names allow us to access the fixture data in test methods in a convenient way. The following code shows its typical usage:
 

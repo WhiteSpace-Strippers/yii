@@ -19,7 +19,7 @@ p {font-family:"Verdana";font-weight:normal;color:black;font-size:9pt;margin-top
 <body>
 <h1>Paslauga nepasiekiama</h1>
 <p>
-Šiuo metu sistema tvarkoma, prašytume užsukti vėliau. 
+Šiuo metu sistema tvarkoma, prašytume užsukti vėliau.
 </p>
 <p>
 Ačiū.

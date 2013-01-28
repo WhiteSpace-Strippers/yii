@@ -15,14 +15,14 @@
  * <ul>
  * <li>All translations are saved under the {@link basePath} directory.</li>
  * <li>Translations in one language are kept as PHP files under an individual subdirectory
- *   whose name is the same as the language ID. Each PHP file contains messages
- *   belonging to the same category, and the file name is the same as the category name.</li>
+ *	 whose name is the same as the language ID. Each PHP file contains messages
+ *	 belonging to the same category, and the file name is the same as the category name.</li>
  * <li>Within a PHP file, an array of (source, translation) pairs is returned.
  * For example:
  * <pre>
  * return array(
- *     'original message 1' => 'translated message 1',
- *     'original message 2' => 'translated message 2',
+ *		 'original message 1' => 'translated message 1',
+ *		 'original message 2' => 'translated message 2',
  * );
  * </pre>
  * </li>
@@ -65,7 +65,7 @@ class CPhpMessageSource extends CMessageSource
 	 * The format of the array should be:
 	 * <pre>
 	 * array(
-	 *     'ExtensionName' => 'ext.ExtensionName.messages',
+	 *		 'ExtensionName' => 'ext.ExtensionName.messages',
 	 * )
 	 * </pre>
 	 * Where the key is the name of the extension and the value is the alias to the path

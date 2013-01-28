@@ -22,14 +22,14 @@ class LiteCommand extends CConsoleCommand
 	{
 		return <<<EOD
 USAGE
-  build lite
+	build lite
 
 DESCRIPTION
-  This command generates yiilite.php by merging commonly used Yii class
-  files into a single one and removes all comments and trace statements.
+	This command generates yiilite.php by merging commonly used Yii class
+	files into a single one and removes all comments and trace statements.
 
-  You should not execute this command unless you change some framework
-  file and need to update yii.php accordingly.
+	You should not execute this command unless you change some framework
+	file and need to update yii.php accordingly.
 
 EOD;
 	}

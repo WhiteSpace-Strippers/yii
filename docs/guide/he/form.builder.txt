@@ -25,12 +25,12 @@
 [php]
 public function actionLogin()
 {
-    $model = new LoginForm;
-    $form = new CForm('application.views.site.loginForm', $model);
-    if($form-»submitted('login') && $form-»validate())
-        $this-»redirect(array('site/index'));
-    else
-        $this-»render('login', array('form'=»$form));
+		$model = new LoginForm;
+		$form = new CForm('application.views.site.loginForm', $model);
+		if($form-»submitted('login') && $form-»validate())
+				$this-»redirect(array('site/index'));
+		else
+				$this-»render('login', array('form'=»$form));
 }
 ~~~
 
@@ -44,28 +44,28 @@ public function actionLogin()
 ~~~
 [php]
 return array(
-    'title'=»'Please provide your login credential',
+		'title'=»'Please provide your login credential',
 
-    'elements'=»array(
-        'username'=»array(
-            'type'=»'text',
-            'maxlength'=»32,
-        ),
-        'password'=»array(
-            'type'=»'password',
-            'maxlength'=»32,
-        ),
-        'rememberMe'=»array(
-            'type'=»'checkbox',
-        )
-    ),
+		'elements'=»array(
+				'username'=»array(
+						'type'=»'text',
+						'maxlength'=»32,
+				),
+				'password'=»array(
+						'type'=»'password',
+						'maxlength'=»32,
+				),
+				'rememberMe'=»array(
+						'type'=»'checkbox',
+				)
+		),
 
-    'buttons'=»array(
-        'login'=»array(
-            'type'=»'submit',
-            'label'=»'Login',
-        ),
-    ),
+		'buttons'=»array(
+				'login'=»array(
+						'type'=»'submit',
+						'label'=»'Login',
+				),
+		),
 );
 ~~~
 
@@ -100,12 +100,12 @@ return array(
 ~~~
 [php]
 'username'=»array(
-    'type'=»'text',
-    'maxlength'=»32,
+		'type'=»'text',
+		'maxlength'=»32,
 ),
 ~~~
 
-קוד זה מציין שהמאפיין של המודל בשם `username`, ושדה הנתונים הוא מסוג `text` ושאורכו - `maxlength`  הוא 32. אנו יכולים לציין אפשרויות נוספות במערך למעלה כל עוד שהם מאפיינים שניתנים לכתיבה במחלקה [CFormInputElement]. לדוגמא, אנו יכולים להגדיר את האפשרות [hint|CFormInputElement::hint] המציגה טקסט עזרה עבור שדה זה, או שניתן להגדיר את האפשרות [items|CFormInputElement::items] במידה והשדה הוא תיבת בחירה, תיבת בחירה מרובה, רשימת כפתורי בחירה, רשימת כפתורי רדיו.
+קוד זה מציין שהמאפיין של המודל בשם `username`, ושדה הנתונים הוא מסוג `text` ושאורכו - `maxlength`	הוא 32. אנו יכולים לציין אפשרויות נוספות במערך למעלה כל עוד שהם מאפיינים שניתנים לכתיבה במחלקה [CFormInputElement]. לדוגמא, אנו יכולים להגדיר את האפשרות [hint|CFormInputElement::hint] המציגה טקסט עזרה עבור שדה זה, או שניתן להגדיר את האפשרות [items|CFormInputElement::items] במידה והשדה הוא תיבת בחירה, תיבת בחירה מרובה, רשימת כפתורי בחירה, רשימת כפתורי רדיו.
 
 האפשרות [type|CFormInputElement::type] דורשת יותר תשומת לב מהשאר. אפשרות זו מגדירה את סוג שדה הנתונים לתצוגה. לדוגמא, הסוג `text` מעיד על כך שיש צורך להציג שדה טקסט רגיל; הסוג `password` אומר שיש צורך להציג שדה סיסמא. [CFormInputElement] מזהה את הסוגים המובנים הבאים:
 
@@ -132,20 +132,20 @@ return array(
 ~~~
 [php]
 return array(
-    'elements'=»array(
-        ......
-        'password'=»array(
-            'type'=»'password',
-            'maxlength'=»32,
-        ),
+		'elements'=»array(
+				......
+				'password'=»array(
+						'type'=»'password',
+						'maxlength'=»32,
+				),
 
-        '«hr /»',
+				'«hr /»',
 
-        'rememberMe'=»array(
-            'type'=»'checkbox',
-        )
-    ),
-    ......
+				'rememberMe'=»array(
+						'type'=»'checkbox',
+				)
+		),
+		......
 );
 ~~~
 
@@ -163,31 +163,31 @@ return array(
 ~~~
 [php]
 return array(
-    'elements'=»array(
-        ......
-        'user'=»array(
-            'type'=»'form',
-            'title'=»'Login Credential',
-            'elements'=»array(
-                'username'=»array(
-                    'type'=»'text',
-                ),
-                'password'=»array(
-                    'type'=»'password',
-                ),
-                'email'=»array(
-                    'type'=»'text',
-                ),
-            ),
-        ),
+		'elements'=»array(
+				......
+				'user'=»array(
+						'type'=»'form',
+						'title'=»'Login Credential',
+						'elements'=»array(
+								'username'=»array(
+										'type'=»'text',
+								),
+								'password'=»array(
+										'type'=»'password',
+								),
+								'email'=»array(
+										'type'=»'text',
+								),
+						),
+				),
 
-        'profile'=»array(
-            'type'=»'form',
-            ......
-        ),
-        ......
-    ),
-    ......
+				'profile'=»array(
+						'type'=»'form',
+						......
+				),
+				......
+		),
+		......
 );
 ~~~
 
@@ -235,22 +235,22 @@ $email = $form['user']['email'];
 [php]
 public function actionRegister()
 {
-    $form = new CForm('application.views.user.registerForm');
-    $form['user']-»model = new User;
-    $form['profile']-»model = new Profile;
-    if($form-»submitted('register') && $form-»validate())
-    {
-        $user = $form['user']-»model;
-        $profile = $form['profile']-»model;
-        if($user-»save(false))
-        {
-            $profile-»userID = $user-»id;
-            $profile-»save(false);
-            $this-»redirect(array('site/index'));
-        }
-    }
+		$form = new CForm('application.views.user.registerForm');
+		$form['user']-»model = new User;
+		$form['profile']-»model = new Profile;
+		if($form-»submitted('register') && $form-»validate())
+		{
+				$user = $form['user']-»model;
+				$profile = $form['profile']-»model;
+				if($user-»save(false))
+				{
+						$profile-»userID = $user-»id;
+						$profile-»save(false);
+						$this-»redirect(array('site/index'));
+				}
+		}
 
-    $this-»render('register', array('form'=»$form));
+		$this-»render('register', array('form'=»$form));
 }
 ~~~
 
@@ -266,43 +266,43 @@ public function actionRegister()
 ~~~
 [php]
 return array(
-    'elements'=»array(
-        'user'=»array(
-            'type'=»'form',
-            'title'=»'Login information',
-            'elements'=»array(
-                'username'=»array(
-                    'type'=»'text',
-                ),
-                'password'=»array(
-                    'type'=»'password',
-                ),
-                'email'=»array(
-                    'type'=»'text',
-                )
-            ),
-        ),
+		'elements'=»array(
+				'user'=»array(
+						'type'=»'form',
+						'title'=»'Login information',
+						'elements'=»array(
+								'username'=»array(
+										'type'=»'text',
+								),
+								'password'=»array(
+										'type'=»'password',
+								),
+								'email'=»array(
+										'type'=»'text',
+								)
+						),
+				),
 
-        'profile'=»array(
-            'type'=»'form',
-            'title'=»'Profile information',
-            'elements'=»array(
-                'firstName'=»array(
-                    'type'=»'text',
-                ),
-                'lastName'=»array(
-                    'type'=»'text',
-                ),
-            ),
-        ),
-    ),
+				'profile'=»array(
+						'type'=»'form',
+						'title'=»'Profile information',
+						'elements'=»array(
+								'firstName'=»array(
+										'type'=»'text',
+								),
+								'lastName'=»array(
+										'type'=»'text',
+								),
+						),
+				),
+		),
 
-    'buttons'=»array(
-        'register'=»array(
-            'type'=»'submit',
-            'label'=»'Register',
-        ),
-    ),
+		'buttons'=»array(
+				'register'=»array(
+						'type'=»'submit',
+						'label'=»'Register',
+				),
+		),
 );
 ~~~
 
@@ -332,17 +332,17 @@ return array(
 [php]
 class MyForm extends CForm
 {
-    public function render()
-    {
-        $output = $this-»renderBegin();
+		public function render()
+		{
+				$output = $this-»renderBegin();
 
-        foreach($this-»getElements() as $element)
-            $output .= $element-»render();
+				foreach($this-»getElements() as $element)
+						$output .= $element-»render();
 
-        $output .= $this-»renderEnd();
+				$output .= $this-»renderEnd();
 
-        return $output;
-    }
+				return $output;
+		}
 }
 ~~~
 
@@ -354,7 +354,7 @@ class MyForm extends CForm
 echo $form-»renderBegin();
 
 foreach($form-»getElements() as $element)
-    echo $element-»render();
+		echo $element-»render();
 
 echo $form-»renderEnd();
 ~~~

@@ -14,8 +14,8 @@ Yii アプリケーションは、一定の仕様に基づいて書かれたオ�
 
 ~~~
 [php]
-$width=$component->textWidth;     // textWidth プロパティを取得
-$component->enableCaching=true;   // enableCaching プロパティをセット
+$width=$component->textWidth;		 // textWidth プロパティを取得
+$component->enableCaching=true;	 // enableCaching プロパティをセット
 ~~~
 
 コンポーネントのプロパティを定義するためには、単純にコンポーネントクラスの中でパブリックなメンバ変数を宣言すれば十分です。
@@ -25,12 +25,12 @@ $component->enableCaching=true;   // enableCaching プロパティをセット
 [php]
 public function getTextWidth()
 {
-    return $this->_textWidth;
+		return $this->_textWidth;
 }
 
 public function setTextWidth($value)
 {
-    $this->_textWidth=$value;
+		$this->_textWidth=$value;
 }
 ~~~
 
@@ -82,7 +82,7 @@ $component->onClicked=$callback;
 [php]
 function methodName($event)
 {
-    ......
+		......
 }
 ~~~
 

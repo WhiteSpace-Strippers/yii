@@ -582,7 +582,7 @@ jQuery.extend = jQuery.fn.extend = function() {
 
 				// Recurse if we're merging object values
 				if ( deep && copy && typeof copy == "object" && !copy.nodeType )
-					target[ name ] = jQuery.extend( deep, 
+					target[ name ] = jQuery.extend( deep,
 						// Never move original objects, clone them
 						src || ( copy.length != null ? [ ] : { } )
 					, copy );
@@ -641,7 +641,7 @@ jQuery.extend({
 			else
 				script.appendChild( document.createTextNode( data ) );
 
-			// Use insertBefore instead of appendChild  to circumvent an IE6 bug.
+			// Use insertBefore instead of appendChild	to circumvent an IE6 bug.
 			// This arises when a base node is used (#2709).
 			head.insertBefore( script, head.firstChild );
 			head.removeChild( script );
@@ -1077,7 +1077,7 @@ jQuery.extend({
 				return elem[ name ];
 			}
 
-			if ( msie && notxml &&  name == "style" )
+			if ( msie && notxml &&	name == "style" )
 				return jQuery.attr( elem.style, "cssText", value );
 
 			if ( set )
@@ -2882,7 +2882,7 @@ jQuery.extend({
 
 		if ( xml && data.documentElement.tagName == "parsererror" )
 			throw "parsererror";
-			
+
 		// Allow a pre-filtering function to sanitize the response
 		if( filter )
 			data = filter( data, type );
@@ -3362,13 +3362,13 @@ jQuery.fn.offset = function() {
 	var left = 0, top = 0, elem = this[0], results;
 
 	if ( elem ) with ( jQuery.browser ) {
-		var parent       = elem.parentNode,
-		    offsetChild  = elem,
-		    offsetParent = elem.offsetParent,
-		    doc          = elem.ownerDocument,
-		    safari2      = safari && parseInt(version) < 522 && !/adobeair/i.test(userAgent),
-		    css          = jQuery.curCSS,
-		    fixed        = css(elem, "position") == "fixed";
+		var parent			 = elem.parentNode,
+				offsetChild	= elem,
+				offsetParent = elem.offsetParent,
+				doc					= elem.ownerDocument,
+				safari2			= safari && parseInt(version) < 522 && !/adobeair/i.test(userAgent),
+				css					= jQuery.curCSS,
+				fixed				= css(elem, "position") == "fixed";
 
 		// Use getBoundingClientRect if available
 		if ( elem.getBoundingClientRect ) {
@@ -3376,7 +3376,7 @@ jQuery.fn.offset = function() {
 
 			// Add the document scroll offsets
 			add(box.left + Math.max(doc.documentElement.scrollLeft, doc.body.scrollLeft),
-				box.top  + Math.max(doc.documentElement.scrollTop,  doc.body.scrollTop));
+				box.top	+ Math.max(doc.documentElement.scrollTop,	doc.body.scrollTop));
 
 			// IE adds the HTML element's border, by default it is medium which is 2px
 			// IE 6 and 7 quirks mode the border width is overwritable by the following css html { border: 0; }
@@ -3407,7 +3407,7 @@ jQuery.fn.offset = function() {
 					fixed = true;
 
 				// Set offsetChild to previous offsetParent unless it is the body element
-				offsetChild  = /^body$/i.test(offsetParent.tagName) ? offsetChild : offsetParent;
+				offsetChild	= /^body$/i.test(offsetParent.tagName) ? offsetChild : offsetParent;
 				// Get next offsetParent
 				offsetParent = offsetParent.offsetParent;
 			}
@@ -3436,7 +3436,7 @@ jQuery.fn.offset = function() {
 			// Add the document scroll offsets if position is fixed
 			if ( fixed )
 				add(Math.max(doc.documentElement.scrollLeft, doc.body.scrollLeft),
-					Math.max(doc.documentElement.scrollTop,  doc.body.scrollTop));
+					Math.max(doc.documentElement.scrollTop,	doc.body.scrollTop));
 		}
 
 		// Return an object with top and left properties
@@ -3465,22 +3465,22 @@ jQuery.fn.extend({
 			var offsetParent = this.offsetParent(),
 
 			// Get correct offsets
-			offset       = this.offset(),
+			offset			 = this.offset(),
 			parentOffset = /^body|html$/i.test(offsetParent[0].tagName) ? { top: 0, left: 0 } : offsetParent.offset();
 
 			// Subtract element margins
-			// note: when an element has margin: auto the offsetLeft and marginLeft 
+			// note: when an element has margin: auto the offsetLeft and marginLeft
 			// are the same in Safari causing offset.left to incorrectly be 0
-			offset.top  -= num( this, 'marginTop' );
+			offset.top	-= num( this, 'marginTop' );
 			offset.left -= num( this, 'marginLeft' );
 
 			// Add offsetParent borders
-			parentOffset.top  += num( offsetParent, 'borderTopWidth' );
+			parentOffset.top	+= num( offsetParent, 'borderTopWidth' );
 			parentOffset.left += num( offsetParent, 'borderLeftWidth' );
 
 			// Subtract the two offsets
 			results = {
-				top:  offset.top  - parentOffset.top,
+				top:	offset.top	- parentOffset.top,
 				left: offset.left - parentOffset.left
 			};
 		}
@@ -3500,7 +3500,7 @@ jQuery.fn.extend({
 // Create scrollLeft and scrollTop methods
 jQuery.each( ['Left', 'Top'], function(i, name) {
 	var method = 'scroll' + name;
-	
+
 	jQuery.fn[ method ] = function(val) {
 		if (!this[0]) return;
 
@@ -3527,7 +3527,7 @@ jQuery.each( ['Left', 'Top'], function(i, name) {
 // Create innerHeight, innerWidth, outerHeight and outerWidth methods
 jQuery.each([ "Height", "Width" ], function(i, name){
 
-	var tl = i ? "Left"  : "Top",  // top or left
+	var tl = i ? "Left"	: "Top",	// top or left
 		br = i ? "Right" : "Bottom"; // bottom or right
 
 	// innerHeight and innerWidth

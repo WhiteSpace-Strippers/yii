@@ -7,8 +7,8 @@
 模型是保存用户输入和验证这些输入的中心位置。
 
 取决于使用用户所输入数据的方式，我们可以创建两种类型的模型。
-如果用户输入被收集、使用然后丢弃，我们应该创建一个  [表单模型](/doc/guide/basics.model);
-如果用户的输入被收集后要保存到数据库，我们应使用一个 
+如果用户输入被收集、使用然后丢弃，我们应该创建一个	[表单模型](/doc/guide/basics.model);
+如果用户的输入被收集后要保存到数据库，我们应使用一个
 [Active Record](/doc/guide/database.ar) 。
 两种类型的模型共享同样的基类 [CModel] ，它定义了表单所需的通用接口。
 
@@ -87,7 +87,7 @@ array('AttributeList', 'Validator', 'on'=>'ScenarioList', ...附加选项)
 `Validator（验证器）` 指定要执行验证的种类；`on` 参数是可选的，它指定此规则应被应用到的场景列表；
 附加选项是一个名值对数组，用于初始化相应验证器的属性值。
 
-有三种方式可在验证规则中指定  `Validator` 。第一，
+有三种方式可在验证规则中指定	`Validator` 。第一，
 `Validator` 可以是模型类中一个方法的名字，就像上面示例中的
 `authenticate` 。验证方法必须是下面的结构：
 
@@ -108,38 +108,38 @@ public function ValidatorName($attribute,$params) { ... }
 `required` 名字是 [CRequiredValidator] 的别名，它用于确保所验证的特性值不为空。
 下面是预定义的验证器别名的完整列表：
 
-   - `boolean`: [CBooleanValidator] 的别名， 确保特性有一个 [CBooleanValidator::trueValue] 或
+	 - `boolean`: [CBooleanValidator] 的别名， 确保特性有一个 [CBooleanValidator::trueValue] 或
 [CBooleanValidator::falseValue] 值。
 
-   - `captcha`: [CCaptchaValidator] 的别名，确保特性值等于 [CAPTCHA](http://en.wikipedia.org/wiki/Captcha) 中显示的验证码。
+	 - `captcha`: [CCaptchaValidator] 的别名，确保特性值等于 [CAPTCHA](http://en.wikipedia.org/wiki/Captcha) 中显示的验证码。
 
-   - `compare`: [CCompareValidator] 的别名，确保特性等于另一个特性或常量。
-   
-   - `email`: [CEmailValidator] 的别名，确保特性是一个有效的Email地址。
+	 - `compare`: [CCompareValidator] 的别名，确保特性等于另一个特性或常量。
 
-   - `default`: [CDefaultValueValidator] 的别名，指定特性的默认值。
+	 - `email`: [CEmailValidator] 的别名，确保特性是一个有效的Email地址。
 
-   - `exist`: [CExistValidator] 的别名，确保特性值可以在指定表的列中可以找到。
+	 - `default`: [CDefaultValueValidator] 的别名，指定特性的默认值。
 
-   - `file`: [CFileValidator] 的别名，确保特性含有一个上传文件的名字。
+	 - `exist`: [CExistValidator] 的别名，确保特性值可以在指定表的列中可以找到。
 
-   - `filter`: [CFilterValidator] 的别名，通过一个过滤器改变此特性。
+	 - `file`: [CFileValidator] 的别名，确保特性含有一个上传文件的名字。
 
-   - `in`: [CRangeValidator] 的别名，确保数据在一个预先指定的值的范围之内。
+	 - `filter`: [CFilterValidator] 的别名，通过一个过滤器改变此特性。
 
-   - `length`: [CStringValidator] 的别名，确保数据的长度在一个指定的范围之内。
+	 - `in`: [CRangeValidator] 的别名，确保数据在一个预先指定的值的范围之内。
 
-   - `match`: [CRegularExpressionValidator] 的别名，确保数据可以匹配一个正则表达式。
+	 - `length`: [CStringValidator] 的别名，确保数据的长度在一个指定的范围之内。
 
-   - `numerical`: [CNumberValidator] 的别名，确保数据是一个有效的数字。
+	 - `match`: [CRegularExpressionValidator] 的别名，确保数据可以匹配一个正则表达式。
 
-   - `required`: [CRequiredValidator] 的别名，确保特性不为空。
+	 - `numerical`: [CNumberValidator] 的别名，确保数据是一个有效的数字。
 
-   - `type`: [CTypeValidator] 的别名，确保特性是指定的数据类型。
+	 - `required`: [CRequiredValidator] 的别名，确保特性不为空。
 
-   - `unique`: [CUniqueValidator] 的别名，确保数据在数据表的列中是唯一的。
+	 - `type`: [CTypeValidator] 的别名，确保特性是指定的数据类型。
 
-   - `url`: [CUrlValidator] 的别名，确保数据是一个有效的 URL。
+	 - `unique`: [CUniqueValidator] 的别名，确保数据在数据表的列中是唯一的。
+
+	 - `url`: [CUrlValidator] 的别名，确保数据是一个有效的 URL。
 
 下面我们列出了几个只用这些预定义验证器的示例：
 
@@ -169,7 +169,7 @@ if(isset($_POST['LoginForm']))
 	$model->attributes=$_POST['LoginForm'];
 ~~~
 
-最后的表达式被称作 *块赋值（massive assignment）* ，它将  `$_POST['LoginForm']`
+最后的表达式被称作 *块赋值（massive assignment）* ，它将	`$_POST['LoginForm']`
 中的每一项复制到相应的模型特性中。这相当于如下赋值方法：
 
 ~~~
@@ -230,7 +230,7 @@ if(isset($_POST['User']))
 array('content', 'safe')
 ~~~
 
-为了完成起见，还有一个用于声明一个属性为不安全的  `unsafe` 规则：
+为了完成起见，还有一个用于声明一个属性为不安全的	`unsafe` 规则：
 
 ~~~
 [php]
@@ -244,7 +244,7 @@ array('permission', 'unsafe')
 
 在版本1.0中,决定一个数据项是否是安全的,基于一个名为 `safeAttributes` 方法的返回值和数据项被指定的场景. 默认的,这个方法返回所有公共成员变量作为 [CFormModel]
 的安全特性,而它也返回了除了主键外, 表中所有字段名作为 [CActiveRecord]的安全特性.我们可以根据场景重写这个方法来限制安全特性 .例如, 一个用户模型可以包含很多特性,但是在 `login`
-场景.里,我们只能使用  `username` 和 `password` 特性.我们可以按照如下来指定这一限制 :
+场景.里,我们只能使用	`username` 和 `password` 特性.我们可以按照如下来指定这一限制 :
 
 ~~~
 [php]
@@ -262,15 +262,15 @@ public function safeAttributes()
 ~~~
 [php]
 array(
-   // these attributes can be massively assigned in any scenario
-   // that is not explicitly specified below
-   'attr1, attr2, ...',
+	 // these attributes can be massively assigned in any scenario
+	 // that is not explicitly specified below
+	 'attr1, attr2, ...',
 	 *
-   // these attributes can be massively assigned only in scenario 1
-   'scenario1' => 'attr2, attr3, ...',
+	 // these attributes can be massively assigned only in scenario 1
+	 'scenario1' => 'attr2, attr3, ...',
 	 *
-   // these attributes can be massively assigned only in scenario 2
-   'scenario2' => 'attr1, attr3, ...',
+	 // these attributes can be massively assigned only in scenario 2
+	 'scenario2' => 'attr1, attr3, ...',
 )
 ~~~
 
@@ -295,19 +295,19 @@ $model->id=1;
 
 一旦模型被用户提交的数据填充，我们就可以调用 [CModel::validate()]
 出发数据验证进程。此方法返回一个指示验证是否成功的值。
-对 [CActiveRecord] 模型来说，验证也可以在我们调用其  [CActiveRecord::save()]
+对 [CActiveRecord] 模型来说，验证也可以在我们调用其	[CActiveRecord::save()]
 方法时自动触发。
 
 我们可以使用 [scenario|CModel::scenario] 设置场景属性，这样，相应场景的验证规则就会被应用。
 
 验证是基于场景执行的。 [scenario|CModel::scenario] 属性指定了模型当前用于的场景和当前使用的验证规则集。
 例如，在 `login` 场景中，我们只想验证用户模型中的 `username` 和 `password` 输入；
-而在 `register` 场景中，我们需要验证更多的输入，例如  `email`, `address`, 等。
+而在 `register` 场景中，我们需要验证更多的输入，例如	`email`, `address`, 等。
 下面的例子演示了如何在 `register` 场景中执行验证：
 
 ~~~
 [php]
-// 在注册场景中创建一个  User 模型。等价于：
+// 在注册场景中创建一个	User 模型。等价于：
 // $model=new User;
 // $model->scenario='register';
 $model=new User('register');
@@ -316,10 +316,10 @@ $model=new User('register');
 $model->attributes=$_POST['User'];
 
 // 执行验证
-if($model->validate())   // if the inputs are valid
-    ...
+if($model->validate())	 // if the inputs are valid
+		...
 else
-    ...
+		...
 ~~~
 
 规则关联的场景可以通过规则中的 `on` 选项指定。如果 `on` 选项未设置，则此规则会应用于所有场景。例如：

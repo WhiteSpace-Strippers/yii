@@ -50,7 +50,7 @@ class CDataProviderIteratorTest extends CTestCase
 		));
 		new CDataProviderIterator($dataProvider, $pageSizes);
 	}
-	
+
 	/**
 	 * Generates some data to fill a dataProvider
 	 * @param integer $totalItems the total number of items to generate

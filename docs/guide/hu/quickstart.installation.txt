@@ -3,8 +3,8 @@ Telepítés
 
 A Yii telepítése a következő két lépésből áll:
 
-   1. A Yii keretrendszer letöltése a [yiiframework.com](http://www.yiiframework.com/)-ról.
-   2. A letöltött fájl kicsomagolása egy webről elérhető könyvtárba.
+	 1. A Yii keretrendszer letöltése a [yiiframework.com](http://www.yiiframework.com/)-ról.
+	 2. A letöltött fájl kicsomagolása egy webről elérhető könyvtárba.
 
 > Tip|Tipp: Nem feltétlenül szükséges a Yii-t egy webről eléhető könyvtárba
 telepíteni. Minden Yii alkalmazásnak van egy belépési parancsfájlja és gyakorlatilag

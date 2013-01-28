@@ -11,7 +11,7 @@
 - Изменены методы [validate()|CModel::validate],
 [beforeValidate()|CModel::beforeValidate],
 [afterValidate()|CModel::afterValidate]. Для методов
-[setAttributes()|CModel::setAttributes] и 
+[setAttributes()|CModel::setAttributes] и
 [getSafeAttributeNames()|CModel::getSafeAttributeNames]
 параметр 'scenario' удалён. Получать и устанавливать сценарий модели теперь необходимо, используя
 свойство [CModel::scenario].

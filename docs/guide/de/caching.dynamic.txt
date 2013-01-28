@@ -1,9 +1,9 @@
 Dynamische Inhalte
 ==================
 
-Cacht man [Fragmente](/doc/guide/caching.fragment) oder ganze 
+Cacht man [Fragmente](/doc/guide/caching.fragment) oder ganze
 [Seiten](/doc/guide/caching.page), merkt man oft, dass der Inhalt
-- abgesehen von wenigen Stellen - relativ statisch bleibt. 
+- abgesehen von wenigen Stellen - relativ statisch bleibt.
 Eine Hilfeseite könnte z.B. statischen Hilfetext, sowie oben den aktuellen
 Benutzernamen enthalten.
 
@@ -19,7 +19,7 @@ Ein dynamischer Inhalt steht für einen Bereich in der Ausgabe, der nicht
 gecacht werden soll, selbst wenn er in einen gecachten Fragment
 eingebettet ist. Damit dieser Inhalt dynamisch bleibt, muss er jedesmal
 neu erzeugt werden, selbst wenn der umhüllende Inhalt aus dem Cache geliefert
-wird. Aus diesem Grund ist es erforderlich, dass dynamischer Inhalt von einer 
+wird. Aus diesem Grund ist es erforderlich, dass dynamischer Inhalt von einer
 Methode oder einer Funktion erzeugt wird.
 
 Um dynamischen Inhalt einzufügen, wird an der gewünschten Stelle
@@ -38,7 +38,7 @@ Um dynamischen Inhalt einzufügen, wird an der gewünschten Stelle
 
 
 `$callback` bezieht sich oben auf einen gültigen PHP-Callback. Dies kann ein
-String mit dem Namen einer globalen Funktion oder einer Methode in der aktuellen 
+String mit dem Namen einer globalen Funktion oder einer Methode in der aktuellen
 Controllerklasse sein. Es kann auch ein Array sein, der sich auf eine
 Klassenmethode bezieht. Alle weiteren Parameter von
 [renderDynamic()|CController::renderDynamic()] werden an den Callback

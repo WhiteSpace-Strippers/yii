@@ -15,7 +15,7 @@ Configuração da Aplicação
 
 Por padrão, o objeto da aplicação é uma instância de [CWebApplication]. Para personalizá-lo
 normalmente é utilizado um arquivo de configuração (ou um array) para inicializar
-os valores de suas propriedades quando a instância da aplicação é criada. Uma 
+os valores de suas propriedades quando a instância da aplicação é criada. Uma
 alternativa para a costomização é estender o [CWebApplication].
 
 A configuração é um conjunto de pares do tipo chave-valor. Cada chave representa
@@ -62,8 +62,8 @@ Diretório Base da Aplicação
 O diretório base da aplicação é a pasta principal que sob a qual os
 dados e scripts de PHP sensíveis à segurança residem. Por padrão, é um subdiretório
 chamado `protected` que está localizado sob o diretório que contém o script
-de entrada. Ele pode ser personalizado através da definição 
-[basePath|CWebApplication::basePath], uma propriedade da 
+de entrada. Ele pode ser personalizado através da definição
+[basePath|CWebApplication::basePath], uma propriedade da
 [configuração da aplicação](/doc/guide/basics.application#application-configuration).
 
 O conteúdo dentro do diretório base da aplicação deve ter o acesso protegido
@@ -86,7 +86,7 @@ solicitação do usuário com a ajuda dos componentes [CUrlManager] e [CHttpRequ
 
 Ao configurar as propriedades dos [componentes|CApplication::components] da instância da
 aplicação, podemos personalizar a classe e os valores das propriedades de qualquer
-componente usado na aplicação. Por exemplo, podemos configurar o componente [CMemCache] 
+componente usado na aplicação. Por exemplo, podemos configurar o componente [CMemCache]
 para que ele possa utilizar múltiplos servidores de memchache para fazer o caching, como abaixo:
 
 ~~~
@@ -129,88 +129,88 @@ Principais Componentes da Aplicação
 -----------------------------------
 
 O Yii predefine um conjunto de componentes principais da aplicação para fornecer
-funcionalidades comuns em aplicações Web. Por exemplo, o componente [request|CWebApplication::request] 
+funcionalidades comuns em aplicações Web. Por exemplo, o componente [request|CWebApplication::request]
 é usado para coletar informações sobre uma solicitação do usuário e prover informações como a URL solicitada e cookies. Ao configurar
 as propriedades desses componentes principais, podemos mudar o padrão de comportamento de praticamente todos os aspectos do Yii.
 
 Abaixo, listamos os principais componentes que são pré-declarados pelo [CWebApplication].
 
-   - [assetManager|CWebApplication::assetManager]: [CAssetManager] -
+	 - [assetManager|CWebApplication::assetManager]: [CAssetManager] -
 gerencia a criação dos ativos privados (assets).
 
-   - [authManager|CWebApplication::authManager]: [CAuthManager] - 
+	 - [authManager|CWebApplication::authManager]: [CAuthManager] -
 gerencia o controle de acesso baseado em regras (RBAC).
 
-   - [cache|CApplication::cache]: [CCache] - fornece as funcionalidades
+	 - [cache|CApplication::cache]: [CCache] - fornece as funcionalidades
 do caching de dados. Note que você deve especificar a classe atual (ex.:
 [CMemCache], [CDbCache]). Caso contrário, será retornado Null ao acessar
 o componente.
 
-   - [clientScript|CWebApplication::clientScript]: [CClientScript] -
+	 - [clientScript|CWebApplication::clientScript]: [CClientScript] -
 gerencia os scripts (javascript e CSS) do cliente.
 
-   - [coreMessages|CApplication::coreMessages]: [CPhpMessageSource] -
+	 - [coreMessages|CApplication::coreMessages]: [CPhpMessageSource] -
 fornece as principais mensagens traduzidas usadas pelo framework Yii.
 
-   - [db|CApplication::db]: [CDbConnection] - fornece uma conexão ao 
+	 - [db|CApplication::db]: [CDbConnection] - fornece uma conexão ao
 banco de dados. Note que você deverá configurar a propriedade
 [connectionString|CDbConnection::connectionString] corretamente para
 utilizar esse componente.
 
-   - [errorHandler|CApplication::errorHandler]: [CErrorHandler] - processa 
+	 - [errorHandler|CApplication::errorHandler]: [CErrorHandler] - processa
 erros e exceções do PHP.
 
-   - [format|CApplication::format]: [CFormatter] - formata valores de dados com o propósito de exibí-los.
+	 - [format|CApplication::format]: [CFormatter] - formata valores de dados com o propósito de exibí-los.
 
-   - [messages|CApplication::messages]: [CPhpMessageSource] - fornece mensagens
+	 - [messages|CApplication::messages]: [CPhpMessageSource] - fornece mensagens
 traduzidas utilizadas pela aplicação Yii.
 
-   - [request|CWebApplication::request]: [CHttpRequest] - fornece informações 
+	 - [request|CWebApplication::request]: [CHttpRequest] - fornece informações
 relacionadas à solicitação do usuário.
 
-   - [securityManager|CApplication::securityManager]: [CSecurityManager] -
+	 - [securityManager|CApplication::securityManager]: [CSecurityManager] -
 fornece serviços relacionados à segurança, como hashing e encriptação.
 
-   - [session|CWebApplication::session]: [CHttpSession] - fornece funcionalidades 
+	 - [session|CWebApplication::session]: [CHttpSession] - fornece funcionalidades
 relacionadas à sessão.
 
-   - [statePersister|CApplication::statePersister]: [CStatePersister] -
+	 - [statePersister|CApplication::statePersister]: [CStatePersister] -
 fornece o mecanismo para a persistência do estado global.
 
-   - [urlManager|CWebApplication::urlManager]: [CUrlManager] - fornece
+	 - [urlManager|CWebApplication::urlManager]: [CUrlManager] - fornece
 funcionalidades de análise e criação de URLs.
 
-   - [user|CWebApplication::user]: [CWebUser] - guarda informações relacionadas à identidade
+	 - [user|CWebApplication::user]: [CWebUser] - guarda informações relacionadas à identidade
 sobre o usuário atual.
 
-   - [themeManager|CWebApplication::themeManager]: [CThemeManager] - gerencia temas.
+	 - [themeManager|CWebApplication::themeManager]: [CThemeManager] - gerencia temas.
 
 
 Ciclo de Vida de uma Aplicação
 ------------------------------
 
-Quando processa uma solicitação de um usuário, a aplicação segue o ciclo 
+Quando processa uma solicitação de um usuário, a aplicação segue o ciclo
 de vida descrito a seguir:
 
-   0. Pré-inicia a aplicação com o método [CApplication::preinit()];
+	 0. Pré-inicia a aplicação com o método [CApplication::preinit()];
 
-   1. Configura o auto-carregamento de classes (autoloader) e o tratamento de erros;
+	 1. Configura o auto-carregamento de classes (autoloader) e o tratamento de erros;
 
-   2. Registra os principais componentes da aplicação;
+	 2. Registra os principais componentes da aplicação;
 
-   3. Carrega as configurações da aplicação;
+	 3. Carrega as configurações da aplicação;
 
-   4. Inicia a aplicação com [CApplication::init()]:
-       - Registra os comportamentos (behaviors) da aplicação;
-	   - Carrega os componentes estáticos da aplicação;
+	 4. Inicia a aplicação com [CApplication::init()]:
+			 - Registra os comportamentos (behaviors) da aplicação;
+		 - Carrega os componentes estáticos da aplicação;
 
-   5. Dispara um evento [onBeginRequest|CApplication::onBeginRequest] (no início da requisição);
+	 5. Dispara um evento [onBeginRequest|CApplication::onBeginRequest] (no início da requisição);
 
-   6. Processa a solicitação do usuário:
-	   - Coleta informações sobre a solicitação do usuário;
-	   - Cria um controle;
-	   - Executa o controle;
+	 6. Processa a solicitação do usuário:
+		 - Coleta informações sobre a solicitação do usuário;
+		 - Cria um controle;
+		 - Executa o controle;
 
-   7. Dispara um evento [onEndRequest|CApplication::onEndRequest] (ao fim da requisição);
+	 7. Dispara um evento [onEndRequest|CApplication::onEndRequest] (ao fim da requisição);
 
 <div class="revision">$Id: basics.application.txt 3251 2011-06-01 00:24:06Z qiang.xue $</div>

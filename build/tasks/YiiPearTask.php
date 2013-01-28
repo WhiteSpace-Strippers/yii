@@ -90,11 +90,11 @@ class YiiPearTask extends Task
 
 		$e = $pkg->setOptions(array
 		(
-			'baseinstalldir'    => 'yii',
-			'packagedirectory'  => $this->pkgdir,
+			'baseinstalldir'		=> 'yii',
+			'packagedirectory'	=> $this->pkgdir,
 			'filelistgenerator' => 'file',
-			'simpleoutput'      => true,
-			'ignore'            => array(),
+			'simpleoutput'			=> true,
+			'ignore'						=> array(),
 			'roles' => array('*' => 'php'),
 			)
 		);

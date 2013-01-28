@@ -96,14 +96,14 @@ Gii は二つの方法で拡張できます。
 ディレクトリは通常下記の内容から構成されます。
 
 ~~~
-model/                       モデルジェネレータのルートフォルダ
-   ModelCode.php             コード生成に使われるコードのモデル
-   ModelGenerator.php        コード生成コントローラ
-   views/                    ジェネレータのためのビュースクリプト
-      index.php              デフォルトのビュースクリプト
-   templates/                コードテンプレートセットを格納
-      default/               'default' のコードテンプレートセット
-         model.php           モデルクラスのコードを生成するためのコードテンプレート
+model/											 モデルジェネレータのルートフォルダ
+	 ModelCode.php						 コード生成に使われるコードのモデル
+	 ModelGenerator.php				コード生成コントローラ
+	 views/										ジェネレータのためのビュースクリプト
+			index.php							デフォルトのビュースクリプト
+	 templates/								コードテンプレートセットを格納
+			default/							 'default' のコードテンプレートセット
+				 model.php					 モデルクラスのコードを生成するためのコードテンプレート
 ~~~
 
 ### ジェネレータのサーチパス
@@ -118,7 +118,7 @@ return array(
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
 			'generatorPaths'=>array(
-				'application.gii',   // パスエイリアス
+				'application.gii',	 // パスエイリアス
 			),
 		),
 	),

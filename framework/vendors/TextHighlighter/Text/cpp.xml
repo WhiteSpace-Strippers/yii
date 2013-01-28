@@ -5,13 +5,13 @@
 
 	<authors>
 		<author name="Aaron Kalin"/>
-        <author name="Andrey Demenev" email="demenev@gmail.com"/>
+				<author name="Andrey Demenev" email="demenev@gmail.com"/>
 	</authors>
 
-    <comment>
+		<comment>
 Thanks to Aaron Kalin for initial
 implementation of this highlighter
-    </comment>
+		</comment>
 
 	<default innerClass="code" />
 
@@ -19,7 +19,7 @@ implementation of this highlighter
 		<onlyin region="strdouble"/>
 	</block>
 
-    <region name="strdouble" delimClass="quotes" innerClass="string" start="&quot;" end="&quot;"/>
+		<region name="strdouble" delimClass="quotes" innerClass="string" start="&quot;" end="&quot;"/>
 
 	<region name="block" delimClass="brackets" innerClass="code" start="\{" end="\}">
 		<contains all="yes"/>
@@ -35,33 +35,33 @@ implementation of this highlighter
 
 	<block name="identifier" match="[a-z_]\w*" innerClass="identifier" case="no"/>
 
-  <block name="hexinteger" match="\b0[xX][\da-f]+" innerClass="number" contained="yes"/>
-  <block name="integer" match="\b\d\d*|\b0\b" innerClass="number" contained="yes"/>
-  <block name="octinteger" match="\b0[0-7]+" innerClass="number" contained="yes"/>
-  <block name="float" match="\b(\d*\.\d+)|(\d+\.\d*)" innerClass="number" contained="yes"/>
+	<block name="hexinteger" match="\b0[xX][\da-f]+" innerClass="number" contained="yes"/>
+	<block name="integer" match="\b\d\d*|\b0\b" innerClass="number" contained="yes"/>
+	<block name="octinteger" match="\b0[0-7]+" innerClass="number" contained="yes"/>
+	<block name="float" match="\b(\d*\.\d+)|(\d+\.\d*)" innerClass="number" contained="yes"/>
 
 
-  <region name="strincl" delimClass="quotes" innerClass="string" start="&lt;" end="&gt;">
-      <onlyin region="include" />
-  </region>
+	<region name="strincl" delimClass="quotes" innerClass="string" start="&lt;" end="&gt;">
+			<onlyin region="include" />
+	</region>
 
-  <!-- <block name="preprocessor" match="^#[azAZ_]\w*" innerClass="prepro"/> -->
-    <region name="include" innerClass="prepro" start="/^[ \t]*#include/m" end="/(?&lt;!\\)$/m">
+	<!-- <block name="preprocessor" match="^#[azAZ_]\w*" innerClass="prepro"/> -->
+		<region name="include" innerClass="prepro" start="/^[ \t]*#include/m" end="/(?&lt;!\\)$/m">
 		<contains region="strdouble"/>
 		<contains region="strincl"/>
 	</region>
 
-    <region name="preprocessor" delimClass="prepro"  innerClass="code" start="/^[ \t]*#[ \t]*[a-z]+/mi" end="/(?&lt;!\\)$/m">
-        <contains region="comment"/>
-        <contains region="mlcomment"/>
+		<region name="preprocessor" delimClass="prepro"	innerClass="code" start="/^[ \t]*#[ \t]*[a-z]+/mi" end="/(?&lt;!\\)$/m">
+				<contains region="comment"/>
+				<contains region="mlcomment"/>
 		<contains region="strdouble"/>
-        <contains region="brackets"/>
-        <contains region="block"/>
-        <contains block="identifier"/>
-        <contains block="integer"/>
-        <contains block="hexinteger"/>
-        <contains block="octinteger"/>
-        <contains block="float"/>
+				<contains region="brackets"/>
+				<contains region="block"/>
+				<contains block="identifier"/>
+				<contains block="integer"/>
+				<contains block="hexinteger"/>
+				<contains block="octinteger"/>
+				<contains block="float"/>
 
 	</region>
 
@@ -80,9 +80,9 @@ implementation of this highlighter
 
 	<region name="comment" start="\/\/.+" end="/$/m" innerClass="comment" delimClass="comment">
 		<contains block="cvstag"/>
-    </region>
+		</region>
 
-    <keywords name="reserved" inherits="identifier" innerClass="reserved" case="yes">
+		<keywords name="reserved" inherits="identifier" innerClass="reserved" case="yes">
 		<keyword match="and" />
 		<keyword match="and_eq" />
 		<keyword match="asm" />
@@ -134,7 +134,7 @@ implementation of this highlighter
 		<keyword match="xor" />
 		<keyword match="xor_eq" />
 
-        <keyword match="false" />
+				<keyword match="false" />
 		<keyword match="true" />
 	</keywords>
 

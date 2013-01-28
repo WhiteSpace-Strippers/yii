@@ -113,31 +113,31 @@ array('route1', 'pattern'=>'pattern1', 'urlSuffix'=>'.xml', 'caseSensitive'=>fal
 上記においては、規則の追加オプションのリストが配列として指定されています。
 使用できるオプションは以下の通りです。
 
-   - [pattern|CUrlRule::pattern]: URL のマッチングと作成に使用されるパターン。
+	 - [pattern|CUrlRule::pattern]: URL のマッチングと作成に使用されるパターン。
 このオプションは、バージョン 1.1.7 以降で使用可能です。
 
-   - [urlSuffix|CUrlRule::urlSuffix]: この規則にだけ使用される URL サフィックス。
+	 - [urlSuffix|CUrlRule::urlSuffix]: この規則にだけ使用される URL サフィックス。
 デフォルトは null で、[CUrlManager::urlSuffix] を使用することを意味します。
 
-   - [caseSensitive|CUrlRule::caseSensitive]: この規則が大文字と小文字を区別するか否か。
+	 - [caseSensitive|CUrlRule::caseSensitive]: この規則が大文字と小文字を区別するか否か。
 デフォルトは null で、[CUrlManager::caseSensitive] の値を使用することを意味します。
 
-   - [defaultParams|CUrlRule::defaultParams]: この規則が提供するデフォルトの GET パラメータ (name=>value)。
-入ってくるリクエストの解析にこの規則が用いられると、このプロパティで宣言された値が $_GET に差し込まれます。 
+	 - [defaultParams|CUrlRule::defaultParams]: この規則が提供するデフォルトの GET パラメータ (name=>value)。
+入ってくるリクエストの解析にこの規則が用いられると、このプロパティで宣言された値が $_GET に差し込まれます。
 
-   - [matchValue|CUrlRule::matchValue]: URL の生成時に、GET パラメータの値が規則の対応するサブパターンに一致すべきか否か。
+	 - [matchValue|CUrlRule::matchValue]: URL の生成時に、GET パラメータの値が規則の対応するサブパターンに一致すべきか否か。
 デフォルトは null で、[CUrlManager::matchValue] の値を使用することを意味します。
 このプロパティが false である場合は、規則のルートとパラメータ名が与えられたものと一致すると、その規則が URL の作成に使用されます。
 このプロパティが true に設定された場合は、与えられたパラメータの値も対応するパラメータのサブパターンと一致しなければなりません。
 このプロパティを true に設定するとパフォーマンスが低下することに注意してください。
 
-   - [verb|CUrlRule::verb]: 現在のリクエストの解析にこの規則を使用するために、一致しなければならない HTTP 動詞(verb) (例えば `GET`, `POST`, `DELETE`)。
+	 - [verb|CUrlRule::verb]: 現在のリクエストの解析にこの規則を使用するために、一致しなければならない HTTP 動詞(verb) (例えば `GET`, `POST`, `DELETE`)。
 規則が複数の動詞にマッチしうる場合は、動詞をカンマで区切ってください。
 規則が指定された動詞にマッチしない場合は、リクエストの解析プロセスでスキップされます。
 このオプションは主として RESTful URL をサポートするために提供されています。
 このオプションはバージョン 1.1.7 以降で利用可能です。
 
-   - [parsingOnly|CUrlRule::parsingOnly]: この規則がリクエストの解析だけに使用されるか否か。
+	 - [parsingOnly|CUrlRule::parsingOnly]: この規則がリクエストの解析だけに使用されるか否か。
 デフォルトは false で、規則が URL の解析と生成の両方に使われることを意味します。
 このオプションはバージョン 1.1.7 以降で利用可能です。
 
@@ -169,13 +169,13 @@ array(
 )
 ~~~
 
-   - `$this->createUrl('post/list')` をコールした場合、第 1 のルールが適用されて `/index.php/posts` が生成されます。
+	 - `$this->createUrl('post/list')` をコールした場合、第 1 のルールが適用されて `/index.php/posts` が生成されます。
 
-   - `$this->createUrl('post/read', array('id'=>100))` をコールした場合、第 2 のルールが適用されて `/index.php/post/100` が作成されます。
+	 - `$this->createUrl('post/read', array('id'=>100))` をコールした場合、第 2 のルールが適用されて `/index.php/post/100` が作成されます。
 
-   - `$this->createUrl('post/read', array('year'=>2008, 'title'=>'a sample post'))` をコールした場合、第 3 のルールが適用される事になり、`/index.php/post/2008/a%20sample%20post` が作成されます。
+	 - `$this->createUrl('post/read', array('year'=>2008, 'title'=>'a sample post'))` をコールした場合、第 3 のルールが適用される事になり、`/index.php/post/2008/a%20sample%20post` が作成されます。
 
-   - `$this->createUrl('post/read')`をコールした場合、どのルールも適用されないので `/index.php/post/read` が作成されます。
+	 - `$this->createUrl('post/read')`をコールした場合、どのルールも適用されないので `/index.php/post/read` が作成されます。
 
 
 要点をまとめると、[createUrl|CController::createUrl] で URL を生成する時、メソッドに渡される route パラメータと GET パラメータによって、どの URL 規則が適用されるかが決定されます。
@@ -311,8 +311,8 @@ array(
 
 	// '/Manufacturer/Model' を処理するカスタム規則
 	array(
-	    'class' => 'application.components.CarUrlRule',
-	    'connectionID' => 'db',
+			'class' => 'application.components.CarUrlRule',
+			'connectionID' => 'db',
 	),
 
 	// 'post/update' 等を扱う標準的な規則
@@ -338,7 +338,7 @@ class CarUrlRule extends CBaseUrlRule
 			else if (isset($params['manufacturer']))
 				return $params['manufacturer'];
 		}
-		return false;  // この規則は適用されない
+		return false;	// この規則は適用されない
 	}
 
 	public function parseUrl($manager,$request,$pathInfo,$rawPathInfo)
@@ -350,7 +350,7 @@ class CarUrlRule extends CBaseUrlRule
 			// 一致したら、$_GET['manufacturer'] または $_GET['model']、
 			// あるいはその両方をセットして、'car/index' を返す
 		}
-		return false;  // この規則は適用されない
+		return false;	// この規則は適用されない
 	}
 }
 ~~~

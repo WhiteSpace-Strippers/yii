@@ -23,6 +23,6 @@ Exigências adicionais para este sistema incluem:
  * O sistema deve mostrar uma lista dos comentários mais recentes.
  * O sistema deve ser personalizável.
  * O sistema deve usar URLs amigáveis.
- 
+
 
 <div class="revision">$Id: start.requirements.txt 683 2009-02-16 05:20:17Z qiang.xue $</div>

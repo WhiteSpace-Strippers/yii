@@ -61,14 +61,14 @@ class SiteController extends CController
 コントローラのインスタンスは [CWebApplication] が入ってきたリクエストを処理する際に生成されます。
 コントローラ ID が与えられると、アプリケーションは次のルールを用いて、コントローラクラスとクラスファイルを探し出します。
 
-   - [CWebApplication::catchAllRequest] が指定されている場合、コントローラはこのプロパティを元に生成され、
+	 - [CWebApplication::catchAllRequest] が指定されている場合、コントローラはこのプロパティを元に生成され、
 ユーザの指定したコントローラ ID は無視されます。
 これは主にアプリケーションをメンテナンスモードにし、通知のための静的ページを表示するために使用します。
 
-   - ID が [CWebApplication::controllerMap] に指定されている場合、
+	 - ID が [CWebApplication::controllerMap] に指定されている場合、
 対応するコントローラ設定に基づき、コントローラインスタンスが生成されます。
 
-   - ID が `'path/to/xyz'` 形式の場合、コントローラクラス名は `XyzController` で、
+	 - ID が `'path/to/xyz'` 形式の場合、コントローラクラス名は `XyzController` で、
 対応するクラスファイルは `protected/controllers/path/to/XyzController.php` であると仮定されます。
 たとえば、コントローラ ID が `admin/user` なら、コントローラクラス名が `UserController` で、
 クラスファイルが `protected/controllers/admin/UserController.php` になります。
@@ -122,18 +122,18 @@ class PostController extends CController
 
 ~~~
 protected/
-    controllers/
-        PostController.php
-        UserController.php
-        post/
-            CreateAction.php
-            ReadAction.php
-            UpdateAction.php
-        user/
-            CreateAction.php
-            ListAction.php
-            ProfileAction.php
-            UpdateAction.php
+		controllers/
+				PostController.php
+				UserController.php
+				post/
+						CreateAction.php
+						ReadAction.php
+						UpdateAction.php
+				user/
+						CreateAction.php
+						ListAction.php
+						ProfileAction.php
+						UpdateAction.php
 ~~~
 
 

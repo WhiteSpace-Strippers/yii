@@ -35,26 +35,26 @@ PHP memcache et utilise la mémoire comme support de mémoire cache, le composan
 encapsule l'extension PHP APC et le composant [CDbCache] stocke les données en mémoire cache
 dans la base de données de composants. Ce qui suit est un résumé des éléments de cache disponibles :
 
-   - [CMemCache]: PHP utilise [l'extention memcache](http://www.php.net/manual/en/book.memcache.php).
+	 - [CMemCache]: PHP utilise [l'extention memcache](http://www.php.net/manual/en/book.memcache.php).
 
-   - [CApcCache]: PHP utilise [l'extension APC](http://www.php.net/manual/en/book.apc.php).
+	 - [CApcCache]: PHP utilise [l'extension APC](http://www.php.net/manual/en/book.apc.php).
 
-   - [CXCache]: PHP utilise [l'extension XCache](http://xcache.lighttpd.net/).
+	 - [CXCache]: PHP utilise [l'extension XCache](http://xcache.lighttpd.net/).
 
-   - [CEAcceleratorCache]: PHP utilise [l'extension EAccelerator](http://eaccelerator.net/).
+	 - [CEAcceleratorCache]: PHP utilise [l'extension EAccelerator](http://eaccelerator.net/).
 
-   - [CDbCache]: utilise une table de base de données pour stocker les données mises en cache.
+	 - [CDbCache]: utilise une table de base de données pour stocker les données mises en cache.
 Par défaut, il va créer et utiliser une base de données SQLite3 sous le répertoire d'exécution.
 Vous pouvez spécifier explicitement une base de données pour qu'elle utilise en définissant sa
 propriété [connectionID|CDbCache::connectionID].
 
-   - [CZendDataCache]: utilise [Zend Cache de Données](http://files.zend.com/help/Zend-Server-Community-Edition/data_cache_component.htm)
-   comme support de mise en cache sous-jacent.
+	 - [CZendDataCache]: utilise [Zend Cache de Données](http://files.zend.com/help/Zend-Server-Community-Edition/data_cache_component.htm)
+	 comme support de mise en cache sous-jacent.
 
-   - [CFileCache]: utilise des fichiers pour stocker des données en mémoire cache.
+	 - [CFileCache]: utilise des fichiers pour stocker des données en mémoire cache.
 Ceci est particulièrement adaptée pour mettre en cache gros morceau de données (telles que les pages).
 
-   - [CDummyCache]: présente cache factice qui ne fait pas la mise en cache du tout. Le but
+	 - [CDummyCache]: présente cache factice qui ne fait pas la mise en cache du tout. Le but
 de ce composant est de simplifier le code qui a besoin de vérifier la disponibilité de cache.
 Par exemple, au cours du développement ou si le serveur ne prend pas en charge la mémoire cache réelle,
 nous pouvons utiliser ce composant cache. Quand un support mémoire cache réelle est activée, on peut passer

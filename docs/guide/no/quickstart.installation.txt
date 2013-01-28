@@ -3,8 +3,8 @@ Installasjon
 
 Installasjon av Yii består hovedsakling av følgende steg:
 
-   1. Last ned Yii Framework fra [yiiframework.com](http://www.yiiframework.com/).
-   2. Pakk ut Yii-pakka i en mappe under webserveren din.
+	 1. Last ned Yii Framework fra [yiiframework.com](http://www.yiiframework.com/).
+	 2. Pakk ut Yii-pakka i en mappe under webserveren din.
 
 > Tip|Tips: Yii trenger ikke bli installert under en mappe på webserveren.
 En Yii-applikasjon har et start-script som vanligvis er den eneste fila som

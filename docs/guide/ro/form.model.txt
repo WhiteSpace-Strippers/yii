@@ -40,7 +40,7 @@ Am declarat trei atribute in `LoginForm`: `$username`, `$password` si
 `$rememberMe`. Sunt folosite pentru a pastra username-ul si parola introduse
 de catre utilizator (plus optiunea `remember me`). Pentru optiunea `$rememberMe`,
 valoarea implicita este `false`, care inseamna ca optiunea va fi initial afisata
-ne-bifata. 
+ne-bifata.
 
 > Info: In loc sa denumim proprietati aceste trei variabile, folosim termenul de
 *atribute* pentru a face diferenta fata de proprietatile normale. Un atribut
@@ -74,7 +74,7 @@ class LoginForm extends CFormModel
 
 	public function authenticate($attribute,$params)
 	{
-		if(!$this->hasErrors())  // vrem sa permitem autentificarea doar cand nu sunt erori
+		if(!$this->hasErrors())	// vrem sa permitem autentificarea doar cand nu sunt erori
 		{
 			$identity=new UserIdentity($this->username,$this->password);
 			if($identity->authenticate())
@@ -136,41 +136,41 @@ In exemplul de mai sus, numele `required` este un alias catre [CRequiredValidato
 care asigura ca valoarea atributului va contine ceva. Mai jos avem o lista completa de
 alias-uri predefinite de validatori:
 
-   - `captcha`: alias pentru of [CCaptchaValidator], asigura ca atributul este acelasi
+	 - `captcha`: alias pentru of [CCaptchaValidator], asigura ca atributul este acelasi
 cu codul de verificare afisat intr-un [CAPTCHA](http://en.wikipedia.org/wiki/Captcha).
 
-   - `compare`: alias pentru [CCompareValidator], asigura ca atributul este egal cu un
+	 - `compare`: alias pentru [CCompareValidator], asigura ca atributul este egal cu un
 alt atribut sau o constanta.
 
-   - `email`: alias pentru [CEmailValidator], asigura ca astributul este o adresa
+	 - `email`: alias pentru [CEmailValidator], asigura ca astributul este o adresa
 de email valida.
 
-   - `default`: alias pentru [CDefaultValueValidator], defineste o valoare implicita
+	 - `default`: alias pentru [CDefaultValueValidator], defineste o valoare implicita
 atributelor specificate.
 
-   - `file`: alias pentru [CFileValidator], asigura ca atributul contine un nume
+	 - `file`: alias pentru [CFileValidator], asigura ca atributul contine un nume
 pentru un fisier pentru care se face upload.
 
-   - `filter`: alias pentru [CFilterValidator], transforma atributul cu un filtru.
+	 - `filter`: alias pentru [CFilterValidator], transforma atributul cu un filtru.
 
-   - `in`: alias pentru [CRangeValidator], asigura ca atributul este intr-o lista predefinita de valori.
+	 - `in`: alias pentru [CRangeValidator], asigura ca atributul este intr-o lista predefinita de valori.
 
-   - `length`: alias pentru [CStringValidator], asigura ca lungimea valorii atributului
+	 - `length`: alias pentru [CStringValidator], asigura ca lungimea valorii atributului
 este intr-un anumit interval.
 
-   - `match`: alias pentru [CRegularExpressionValidator], asigura ca valoarea atributului se potriveste
+	 - `match`: alias pentru [CRegularExpressionValidator], asigura ca valoarea atributului se potriveste
 cu o expresie regulata.
 
-   - `numerical`: alias pentru [CNumberValidator], asigura ca valoarea atributului este este un numar valid.
+	 - `numerical`: alias pentru [CNumberValidator], asigura ca valoarea atributului este este un numar valid.
 
-   - `required`: alias pentru [CRequiredValidator], asigura ca atributul va contine ceva.
+	 - `required`: alias pentru [CRequiredValidator], asigura ca atributul va contine ceva.
 
-   - `type`: alias pentru [CTypeValidator], asigura ca atributul este de un anumit tip de date.
+	 - `type`: alias pentru [CTypeValidator], asigura ca atributul este de un anumit tip de date.
 
-   - `unique`: alias pentru [CUniqueValidator], asigura ca valoarea atributului este unica
+	 - `unique`: alias pentru [CUniqueValidator], asigura ca valoarea atributului este unica
 intr-o coloana a unei tabele din baza de date.
 
-   - `url`: alias pentru [CUrlValidator], asigura ca valoarea atributului este un URL valid.
+	 - `url`: alias pentru [CUrlValidator], asigura ca valoarea atributului este un URL valid.
 
 Mai jos, prezentam exemple folosind validatori predefiniti:
 
@@ -220,7 +220,7 @@ foreach($_POST['LoginForm'] as $name=>$value)
 
 Task-ul de a decide daca o informatie de intrare este sigura sau nu revine
 unei metode `safeAttributes()` cu un scenariu specificat. In cazul modelului
-[CFormModel], implicit, metoda returneaza toate variabilele publice ale modelului, 
+[CFormModel], implicit, metoda returneaza toate variabilele publice ale modelului,
 acest lucru insemnand ca toate aceste variabile sunt sigure.
 In cazul modelului [CActiveRecord], implicit, metoda returneaza toate coloanele
 tabelei cu exceptia cheii primare, acest lucru insemnand ca toate aceste atribute sunt sigure.
@@ -246,17 +246,17 @@ Mai precis, valoarea returnata de metoda `safeAttributes` ar trebui sa fie de fo
 ~~~
 [php]
 array(
-   // aceste atribute pot fi asignate masiv in orice scenariu
-   // care nu este specificat mai jos
-   'attr1, attr2, ...',
+	 // aceste atribute pot fi asignate masiv in orice scenariu
+	 // care nu este specificat mai jos
+	 'attr1, attr2, ...',
 	 *
-   
-   // aceste atribute pot fi asignate masiv doar in scenariul 1
-   'scenario1' => 'attr2, attr3, ...',
+
+	 // aceste atribute pot fi asignate masiv doar in scenariul 1
+	 'scenario1' => 'attr2, attr3, ...',
 	 *
-   
-   // aceste atribute pot fi asignate masiv doar in scenariul 2
-   'scenario2' => 'attr1, attr3, ...',
+
+	 // aceste atribute pot fi asignate masiv doar in scenariul 2
+	 'scenario2' => 'attr1, attr3, ...',
 )
 ~~~
 

@@ -23,17 +23,17 @@ class TranslationsCommand extends CConsoleCommand
 This command handles tasks related to framework translations.
 
 USAGE
-  build translations report --sourcePath=<path> --translationPath=<path>
+	build translations report --sourcePath=<path> --translationPath=<path>
 
 PARAMETERS
-  * sourcePath: required, the directory where the original documentation files are.
-  * translationPath: required, the directory where the translated documentation files are.
-  * title: optional, custom report title
+	* sourcePath: required, the directory where the original documentation files are.
+	* translationPath: required, the directory where the translated documentation files are.
+	* title: optional, custom report title
 
 EXAMPLES
-  * build translations report --sourcePath="../docs/guide" --translationPath="../docs/guide/ru" --title="Russian guide translation report" > report_guide_ru.html
-  * build translations report --sourcePath="../docs/blog" --translationPath="../docs/blog/ru" --title="Russian blog translation report" > report_blog_ru.html
-  * build translations report --sourcePath="../framework/views" --translationPath="../framework/views/ru" --title="Russian framework views translation report" > report_views_ru.html
+	* build translations report --sourcePath="../docs/guide" --translationPath="../docs/guide/ru" --title="Russian guide translation report" > report_guide_ru.html
+	* build translations report --sourcePath="../docs/blog" --translationPath="../docs/blog/ru" --title="Russian blog translation report" > report_blog_ru.html
+	* build translations report --sourcePath="../framework/views" --translationPath="../framework/views/ru" --title="Russian framework views translation report" > report_views_ru.html
 
 EOD;
 	}

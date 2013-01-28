@@ -10,8 +10,8 @@ Una propiedad de un componente es como una variable miembro pública de un objet
 
 ~~~
 [php]
-$width=$component->textWidth;     // leer la propiedad textWidth
-$component->enableCaching=true;   // escribir la propiedad enableCaching
+$width=$component->textWidth;		 // leer la propiedad textWidth
+$component->enableCaching=true;	 // escribir la propiedad enableCaching
 ~~~
 
 Para definir una propiedad de componente, podemos simplemente declarar un variable miembro pública en la clase del componente. Un método más flexible es definir métodos getters y setters como estos:
@@ -20,12 +20,12 @@ Para definir una propiedad de componente, podemos simplemente declarar un variab
 [php]
 public function getTextWidth()
 {
-    return $this->_textWidth;
+		return $this->_textWidth;
 }
 
 public function setTextWidth($value)
 {
-    $this->_textWidth=$value;
+		$this->_textWidth=$value;
 }
 ~~~
 
@@ -65,7 +65,7 @@ La signatura de un manejador de eventos ha de ser como sigue:
 [php]
 function methodName($event)
 {
-    ......
+		......
 }
 ~~~
 

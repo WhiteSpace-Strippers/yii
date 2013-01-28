@@ -7,17 +7,17 @@
 [php]
 public function actionLogin()
 {
-    $model=new LoginForm;
-    if(isset($_POST['LoginForm']))
-    {
-        // אוסף את הקלט של המשתמש
-        $model-»attributes=$_POST['LoginForm'];
-        // מאמת את הקלט של המשתמש במידה והכל עבר בהצלחה המשתמש יועבר לעמוד הקודם
-        if($model-»validate())
-            $this-»redirect(Yii::app()-»user-»returnUrl);
-    }
-    // הצג את טופס ההתחברות
-    $this-»render('login',array('model'=»$model));
+		$model=new LoginForm;
+		if(isset($_POST['LoginForm']))
+		{
+				// אוסף את הקלט של המשתמש
+				$model-»attributes=$_POST['LoginForm'];
+				// מאמת את הקלט של המשתמש במידה והכל עבר בהצלחה המשתמש יועבר לעמוד הקודם
+				if($model-»validate())
+						$this-»redirect(Yii::app()-»user-»returnUrl);
+		}
+		// הצג את טופס ההתחברות
+		$this-»render('login',array('model'=»$model));
 }
 ~~~
 

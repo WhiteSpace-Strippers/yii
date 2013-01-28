@@ -25,9 +25,9 @@ Yii::app()-»cache-»set($id, $value, 30);
 $value=Yii::app()-»cache-»get($id);
 if($value===false)
 {
-    // regenerate $value because it is not found in cache
-    // and save it in cache for later use:
-    // Yii::app()-»cache-»set($id,$value);
+		// regenerate $value because it is not found in cache
+		// and save it in cache for later use:
+		// Yii::app()-»cache-»set($id,$value);
 }
 ~~~
 
@@ -41,8 +41,8 @@ if($value===false)
 » ~~~
 » [php]
 » $cache=Yii::app()-»cache;
-» $cache['var1']=$value1;  // equivalent to: $cache-»set('var1',$value1);
-» $value2=$cache['var2'];  // equivalent to: $value2=$cache-»get('var2');
+» $cache['var1']=$value1;	// equivalent to: $cache-»set('var1',$value1);
+» $value2=$cache['var2'];	// equivalent to: $value2=$cache-»get('var2');
 » ~~~
 
 הגדרת תלות למטמון

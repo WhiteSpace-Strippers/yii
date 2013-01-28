@@ -17,10 +17,10 @@
 <div id="content">
 <h2>Descriere</h2>
 <p>
-Acest script verifica daca configuratia serverului dvs indeplineste cerintele 
-pentru rularea aplicatiilor Web <a href="http://www.yiiframework.com/">Yii</a>. 
-Se fac urmatoarele verificari: daca serverul ruleaza versiunea corecta de PHP, 
-daca extensiile PHP corespunzatoare au fost incarcate si daca 
+Acest script verifica daca configuratia serverului dvs indeplineste cerintele
+pentru rularea aplicatiilor Web <a href="http://www.yiiframework.com/">Yii</a>.
+Se fac urmatoarele verificari: daca serverul ruleaza versiunea corecta de PHP,
+daca extensiile PHP corespunzatoare au fost incarcate si daca
 setarile din fisierul php.ini sunt corecte.
 </p>
 
@@ -29,8 +29,8 @@ setarile din fisierul php.ini sunt corecte.
 <?php if($result>0): ?>
 Felicitari! Configuratia serverului dvs indeplineste toate cerintele Yii.
 <?php elseif($result<0): ?>
-Configuratia serverului dvs indeplineste cerintele minime pentru Yii. 
-Va rugam sa cititi avertismentele afisate mai jos, in cazul in care aplicatia pe care o veti crea 
+Configuratia serverului dvs indeplineste cerintele minime pentru Yii.
+Va rugam sa cititi avertismentele afisate mai jos, in cazul in care aplicatia pe care o veti crea
 va folosi respectivele feature-uri.
 <?php else: ?>
 Din pacate, configuratia serverului dvs nu indeplineste cerintele Yii.

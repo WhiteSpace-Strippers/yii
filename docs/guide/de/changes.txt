@@ -59,9 +59,9 @@ Version 1.1.1
  sowohl Client- als auch serverseitige Validierung.
 
  * Der von yiic erzeugte Code wurde überarbeitet. Die erstellte Anwendung
-   enthält jetzt mehrere Layouts, für die Formulardarstellung wird jetzt
-   CACtiveForm verwendet und bei CRUD-Seiten wurde das Menü angepasst, sowie
-   eine Such- und Filteroption auf der Adminseite hinzugefügt
+	 enthält jetzt mehrere Layouts, für die Formulardarstellung wird jetzt
+	 CACtiveForm verwendet und bei CRUD-Seiten wurde das Menü angepasst, sowie
+	 eine Such- und Filteroption auf der Adminseite hinzugefügt
 
  * [Es können nun auch globale yiic-Befehle definiert werden](/doc/guide/topics.console)
 
@@ -72,14 +72,14 @@ Version 1.1.0
 
  * [Skin-Support für Widgets](/doc/guide/topics.theming#skin).
 
- * [Erweiterbarer Form-Builder](/doc/guide/form.builder) zum einfachen 
+ * [Erweiterbarer Form-Builder](/doc/guide/form.builder) zum einfachen
 Erstellen von Formularen.
 
- * Vereinfachte Angabe von sicheren Modelattributen. Siehe 
+ * Vereinfachte Angabe von sicheren Modelattributen. Siehe
  [Sichere Attributzuweisungen](/doc/guide/form.model#securing-attribute-assignments).
 
- * Änderung bei relationalen AR: Alle Tabellen werden standardmäßig 
-  mittels einer einzigen SQL-Abfrage eingebunden.
+ * Änderung bei relationalen AR: Alle Tabellen werden standardmäßig
+	mittels einer einzigen SQL-Abfrage eingebunden.
 
  * Bei AR entspricht der verwendete Tabellenalias dem Namen der Relation.
 

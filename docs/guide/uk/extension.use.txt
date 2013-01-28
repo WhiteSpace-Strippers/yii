@@ -3,11 +3,11 @@
 
 Порядок використання розширень, як правило, включає три кроки:
 
-  1. Завантажити розширення з [репозиторію](http://www.yiiframework.com/extensions/) Yii;
-  2. Розпакувати розширення в підпапку `extensions/xyz`
-     [базової директорії додатка](/doc/guide/basics.application#application-base-directory),
-     де `xyz` — імʼя розширення;
-  3. Підключити, налаштувати і використовувати розширення.
+	1. Завантажити розширення з [репозиторію](http://www.yiiframework.com/extensions/) Yii;
+	2. Розпакувати розширення в підпапку `extensions/xyz`
+		 [базової директорії додатка](/doc/guide/basics.application#application-base-directory),
+		 де `xyz` — імʼя розширення;
+	3. Підключити, налаштувати і використовувати розширення.
 
 Кожне розширення унікально ідентифікується по імені. Якщо розширення називається `xyz`, то, використовуючи псевдонім шляху `ext.xyz`, ми завжди можемо визначити папку, в якій зберігаються файли даного розширення.
 
@@ -35,15 +35,15 @@ $this->widget('zii.widgets.grid.CGridView', array(
 ~~~
 [php]
 return array(
-    // 'preload'=>array('xyz',…),
-    'components'=>array(
-        'xyz'=>array(
-            'class'=>'ext.xyz.XyzClass',
-            'property1'=>'value1',
-            'property2'=>'value2',
-        ),
-        // інші налаштування компонентів
-    ),
+		// 'preload'=>array('xyz',…),
+		'components'=>array(
+				'xyz'=>array(
+						'class'=>'ext.xyz.XyzClass',
+						'property1'=>'value1',
+						'property2'=>'value2',
+				),
+				// інші налаштування компонентів
+		),
 );
 ~~~
 
@@ -110,13 +110,13 @@ public function behaviors()
 [php]
 // віджет без внутрішнього вмісту
 <?php $this->widget('ext.xyz.XyzClass', array(
-    'property1'=>'value1',
-    'property2'=>'value2')); ?>
+		'property1'=>'value1',
+		'property2'=>'value2')); ?>
 
 // віджет, який може мати внутрішній вміст
 <?php $this->beginWidget('ext.xyz.XyzClass', array(
-    'property1'=>'value1',
-    'property2'=>'value2')); ?>
+		'property1'=>'value1',
+		'property2'=>'value2')); ?>
 
 …вміст віджету…
 

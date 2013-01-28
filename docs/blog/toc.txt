@@ -1,25 +1,25 @@
 * Getting Started
 	- [Overview](start.overview)
-    - [Testdriving with Yii](start.testdrive)
-    - [Requirements Analysis](start.requirements)
-    - [Overall Design](start.design)
+		- [Testdriving with Yii](start.testdrive)
+		- [Requirements Analysis](start.requirements)
+		- [Overall Design](start.design)
 
 * Initial Prototyping
-    - [Setting Up Database](prototype.database)
-    - [Scaffolding](prototype.scaffold)
-    - [Authenticating User](prototype.auth)
-    - [Summary](prototype.summary)
+		- [Setting Up Database](prototype.database)
+		- [Scaffolding](prototype.scaffold)
+		- [Authenticating User](prototype.auth)
+		- [Summary](prototype.summary)
 
 * Post Management
-    - [Customizing Post Model](post.model)
-    - [Creating and Updating Posts](post.create)
-    - [Displaying Posts](post.display)
-    - [Managing Posts](post.admin)
+		- [Customizing Post Model](post.model)
+		- [Creating and Updating Posts](post.create)
+		- [Displaying Posts](post.display)
+		- [Managing Posts](post.admin)
 
 * Comment Management
 	- [Customizing Comment Model](comment.model)
-    - [Creating and Displaying Comments](comment.create)
-    - [Managing Comments](comment.admin)
+		- [Creating and Displaying Comments](comment.create)
+		- [Managing Comments](comment.admin)
 
 * Portlets
 	- [Creating User Menu Portlet](portlet.menu)
@@ -29,7 +29,7 @@
 * Final Work
 	- [Beautifying URLs](final.url)
 	- [Logging Errors](final.logging)
-    - [Final Tune-up and Deployment](final.deployment)
-    - [Future Enhancements](final.future)
+		- [Final Tune-up and Deployment](final.deployment)
+		- [Future Enhancements](final.future)
 
 <div class="revision">$Id$</div>

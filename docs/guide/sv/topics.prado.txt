@@ -1,21 +1,21 @@
 Alternativ mallsyntax
 =====================
 
-Yii tillåter urvecklare att använda sin egen favoritmallsyntax (t.ex. Prado, 
-Smarty) för att skriva kontroller- eller widgetvyer. Detta uppnås genom att 
-skriva och installera en applikationskomponent, 
-[viewRenderer|CWebApplication::viewRenderer]. Vyrenderaren fångar upp 
-invokeringar av [CBaseController::renderFile], kompilerar vyfilen med anpassad 
+Yii tillåter urvecklare att använda sin egen favoritmallsyntax (t.ex. Prado,
+Smarty) för att skriva kontroller- eller widgetvyer. Detta uppnås genom att
+skriva och installera en applikationskomponent,
+[viewRenderer|CWebApplication::viewRenderer]. Vyrenderaren fångar upp
+invokeringar av [CBaseController::renderFile], kompilerar vyfilen med anpassad
 mallsyntax, och renderar de kompilerade resultaten.
 
-> Info: Det rekommenderas att anpassad mallsyntax bara används till att skriva 
-vyer som med liten sannolikhet kommer att återanvändas. I annat fall kommer 
-personer som återanvänder vyerna att tvingas använda samma anpassade mallsyntax i 
+> Info: Det rekommenderas att anpassad mallsyntax bara används till att skriva
+vyer som med liten sannolikhet kommer att återanvändas. I annat fall kommer
+personer som återanvänder vyerna att tvingas använda samma anpassade mallsyntax i
 sina applikationer.
 
-I det följande, introduceras hur man använder [CPradoViewRenderer], en 
-vyrenderare som tillåter utvecklare att använda en mallsyntax snarlik den i 
-[Prado-ramverket](http://www.pradosoft.com/). För personer som vill utveckla 
+I det följande, introduceras hur man använder [CPradoViewRenderer], en
+vyrenderare som tillåter utvecklare att använda en mallsyntax snarlik den i
+[Prado-ramverket](http://www.pradosoft.com/). För personer som vill utveckla
 sina egna vyrenderare, är [CPradoViewRenderer] en bra referens.
 
 Använda `CPradoViewRenderer`
@@ -35,23 +35,23 @@ return array(
 );
 ~~~
 
-Som standard, kommer [CPradoViewRenderer] att kompilera vyfilernas källkod och 
-spara de resulterande PHP-filerna i 
-[runtime](/doc/guide/basics.convention#directory)-katalogen. bara när vyfilernas 
-källkod har ändrats, kommer PHP-filerna att genereras på nytt. Därför åsamkar 
+Som standard, kommer [CPradoViewRenderer] att kompilera vyfilernas källkod och
+spara de resulterande PHP-filerna i
+[runtime](/doc/guide/basics.convention#directory)-katalogen. bara när vyfilernas
+källkod har ändrats, kommer PHP-filerna att genereras på nytt. Därför åsamkar
 [CPradoViewRenderer] mycket liten prestandaförlust.
 
-> Tip|Tips: Medan [CPradoViewRenderer] huvudsakligen introducerar ett antal nya 
-mall-taggar för att göra det lättare och snabbare att skriva vyer, kan man 
+> Tip|Tips: Medan [CPradoViewRenderer] huvudsakligen introducerar ett antal nya
+mall-taggar för att göra det lättare och snabbare att skriva vyer, kan man
 fortfarande skriva PHP-kod precis som vanligt i vyernas källkod.
 
 I det följande introduceras de mall-taggar som stöds av [CPradoViewRenderer].
 
 ### Korta PHP-taggar
 
-Korta PHP-taggar är kortformer för att skriva PHP-uttryck och -satser i en vy. 
-Uttrycks-taggen `<%= expression %>` översätts till `<?php echo expression ?>`; 
-medan sats-taggen `<% statement %>` översätts till `<?php statement ?>`. Till 
+Korta PHP-taggar är kortformer för att skriva PHP-uttryck och -satser i en vy.
+Uttrycks-taggen `<%= expression %>` översätts till `<?php echo expression ?>`;
+medan sats-taggen `<% statement %>` översätts till `<?php statement ?>`. Till
 exempel,
 
 ~~~
@@ -70,7 +70,7 @@ exempel,
 
 ### Komponent-taggar
 
-Komponent-taggar används för att infoga en 
+Komponent-taggar används för att infoga en
 [widget](/doc/guide/basics.view#widget) i en vy. De använder följande syntax:
 
 ~~~
@@ -83,9 +83,9 @@ Komponent-taggar används för att infoga en
 <com:WidgetClass property1=value1 property2=value2 .../>
 ~~~
 
-där `WidgetClass` specificerar widgetklassens namn eller 
-[sökvägsalias](/doc/guide/basics.namespace), och där initialvärden för propertyn 
-kan bestå av antingen strängar mellan citationstecken eller PHP-uttryck omgivna 
+där `WidgetClass` specificerar widgetklassens namn eller
+[sökvägsalias](/doc/guide/basics.namespace), och där initialvärden för propertyn
+kan bestå av antingen strängar mellan citationstecken eller PHP-uttryck omgivna
 av ett par krumparenteser. Till exempel,
 
 ~~~
@@ -102,13 +102,13 @@ av ett par krumparenteser. Till exempel,
 	'showRefreshButton'=>false)); ?>
 ~~~
 
-> Note|Märk: Värdet på `showRefreshButton` specificeras till `{false}` i stället 
-för `"false"` eftersom det senare innebär en sträng i stället för ett boolskt 
+> Note|Märk: Värdet på `showRefreshButton` specificeras till `{false}` i stället
+för `"false"` eftersom det senare innebär en sträng i stället för ett boolskt
 värde.
 
 ### Cache-taggar
 
-Cache-taggar är kortformer för att använda 
+Cache-taggar är kortformer för att använda
 [fragmentcachning](/doc/guide/caching.fragment). Deras syntax är som följer,
 
 ~~~
@@ -118,8 +118,8 @@ Cache-taggar är kortformer för att använda
 </cache:fragmentID >
 ~~~
 
-där `fragmentID` skall vara en identifierare som oförväxelbart identifierar 
-innehållet som cachas, och där property-värdeparen används till att konfigurera 
+där `fragmentID` skall vara en identifierare som oförväxelbart identifierar
+innehållet som cachas, och där property-värdeparen används till att konfigurera
 fragmentcachen. Till exempel,
 
 ~~~
@@ -140,8 +140,8 @@ fragmentcachen. Till exempel,
 
 ### Urklipps-taggar
 
-Snarlikt cache-taggar är urklipps-taggar kortformer för anrop till 
-[CBaseController::beginClip] och [CBaseController::endClip] i en vy. Syntaxen är 
+Snarlikt cache-taggar är urklipps-taggar kortformer för anrop till
+[CBaseController::beginClip] och [CBaseController::endClip] i en vy. Syntaxen är
 som följer,
 
 ~~~
@@ -163,8 +163,8 @@ Urklipps-taggarna översätts till
 
 ### Kommentars-taggar
 
-Kommentars-taggar används för att skriva vykommentarer som endast skall vara 
-synliga för utvecklare. Kommentar-taggar kommer att vara borttagna när vyerna 
+Kommentars-taggar används för att skriva vykommentarer som endast skall vara
+synliga för utvecklare. Kommentar-taggar kommer att vara borttagna när vyerna
 presenteras för slutanvändare. Syntaxen för kommentars-taggar är som följer,
 
 ~~~
@@ -177,11 +177,11 @@ view comments that will be stripped off
 Blandning av mallformat
 -----------------------
 
-Med start från version 1.1.2 är det möjligt att blanda användning av någon alternativ 
+Med start från version 1.1.2 är det möjligt att blanda användning av någon alternativ
 mallsyntax med vanlig PHP-syntax. För att göra så måste propertyn [CViewRenderer::fileExtension]
-i den installerade vyrenderaren konfigureras med ett värde skilt från `.php`. 
-Till exempel om propertyn är satt till `.tpl` kommer varje vyfil med filtillägget `.tpl` 
-att renderas med hjälp av den installerade vyrenderaren, medan alla andra vyfiler med filtillägget 
+i den installerade vyrenderaren konfigureras med ett värde skilt från `.php`.
+Till exempel om propertyn är satt till `.tpl` kommer varje vyfil med filtillägget `.tpl`
+att renderas med hjälp av den installerade vyrenderaren, medan alla andra vyfiler med filtillägget
 `.php` kommer att behandlas som vanliga PHP-vyskript.
 
 

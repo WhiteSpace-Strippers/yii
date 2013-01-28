@@ -24,7 +24,7 @@
  * <li>An {@link IUserIdentity identity instance} is created with the user-provided information.</li>
  * <li>Call {@link IUserIdentity::authenticate} to check if the identity is valid.</li>
  * <li>If valid, call {@link CWebUser::login} to login the user, and
- *     Redirect the user browser to {@link returnUrl}.</li>
+ *		 Redirect the user browser to {@link returnUrl}.</li>
  * <li>If not valid, retrieve the error code or message from the identity
  * instance and display it.</li>
  * </ol>

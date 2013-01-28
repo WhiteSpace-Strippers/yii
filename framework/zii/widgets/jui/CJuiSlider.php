@@ -19,15 +19,15 @@ Yii::import('zii.widgets.jui.CJuiWidget');
  * To use this widget, you may insert the following code in a view:
  * <pre>
  * $this->widget('zii.widgets.jui.CJuiSlider',array(
- *     'value'=>37,
- *     // additional javascript options for the slider plugin
- *     'options'=>array(
- *         'min'=>10,
- *         'max'=>50,
- *     ),
- *     'htmlOptions'=>array(
- *         'style'=>'height:20px;',
- *     ),
+ *		 'value'=>37,
+ *		 // additional javascript options for the slider plugin
+ *		 'options'=>array(
+ *				 'min'=>10,
+ *				 'max'=>50,
+ *		 ),
+ *		 'htmlOptions'=>array(
+ *				 'style'=>'height:20px;',
+ *		 ),
  * ));
  * </pre>
  *

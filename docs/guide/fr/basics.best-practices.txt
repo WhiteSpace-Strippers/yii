@@ -1,4 +1,4 @@
-Bonnes Pratiques MVC 
+Bonnes Pratiques MVC
 ====================
 
 Bien que l'architecture Modèle-Vue-Contrôleur (MVC) soit connu par la quasi totalité des dévelopeur web, de nombreuses personnes s'interrogent encore sur la meilleure facon de l'appliquer lors du développement d'une application. Les idées centrales derrière MVC sont **la réutilisation et le séparation logique du code**. Nous allons voir dans cette section les règles générales à suivre afin de respecter au mieux l'architecture MVC lors de développement d'une application Yii.

@@ -125,18 +125,18 @@ class PostController extends CController
 Наприклад структура, директорій, приведена нижче, може бути використана для розташування коду контролерів:
 ~~~
 protected/
-    controllers/
-        PostController.php
-        UserController.php
-        post/
-            CreateAction.php
-            ReadAction.php
-            UpdateAction.php
-        user/
-            CreateAction.php
-            ListAction.php
-            ProfileAction.php
-            UpdateAction.php
+		controllers/
+				PostController.php
+				UserController.php
+				post/
+						CreateAction.php
+						ReadAction.php
+						UpdateAction.php
+				user/
+						CreateAction.php
+						ListAction.php
+						ProfileAction.php
+						UpdateAction.php
 ~~~
 
 ### Привʼязка параметрів дій
@@ -183,7 +183,7 @@ class PostController extends CController
 {
 	public function actionCreate($category, $language='en')
 	{
-	    $category=(int)$category;
+			$category=(int)$category;
 
 		// … дійсно корисна частина коду …
 	}

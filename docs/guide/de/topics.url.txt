@@ -53,13 +53,13 @@ und die Anwendung die neuen URLs auch richtig interpretiert:
 ~~~
 [php]
 array(
-    ......
-    'components'=>array(
-        ......
-        'urlManager'=>array(
-            'urlFormat'=>'path',
-        ),
-    ),
+		......
+		'components'=>array(
+				......
+				'urlManager'=>array(
+						'urlFormat'=>'path',
+				),
+		),
 );
 ~~~
 
@@ -87,18 +87,18 @@ der [urlManager|CWebApplication::urlManager]-Komponente konfigurieren:
 ~~~
 [php]
 array(
-    ......
-    'components'=>array(
-        ......
-        'urlManager'=>array(
-            'urlFormat'=>'path',
-            'rules'=>array(
-                'pattern1'=>'route1',
-                'pattern2'=>'route2',
-                'pattern3'=>'route3',
-            ),
-        ),
-    ),
+		......
+		'components'=>array(
+				......
+				'urlManager'=>array(
+						'urlFormat'=>'path',
+						'rules'=>array(
+								'pattern1'=>'route1',
+								'pattern2'=>'route2',
+								'pattern3'=>'route3',
+						),
+				),
+		),
 );
 ~~~
 
@@ -126,44 +126,44 @@ array('route1', 'pattern'=>'pattern1', 'urlSuffix'=>'.xml', 'caseSensitive'=>fal
 
 Hier die möglichen Optionen für jede Regel:
 
-   - [pattern|CUrlRule::pattern]: Das Suchmuster, dem erzeugte, bzw. zu
+	 - [pattern|CUrlRule::pattern]: Das Suchmuster, dem erzeugte, bzw. zu
 analysierende URLs entpsrechen müssen. Seit Version 1.1.7 verfügbar.
 
-   - [urlSuffix|CUrlRule::urlSuffix]: Die Endung (Suffix) speziell für diese
-   Regel. Standardmäßig null, was bedeutet, dass der Wert von
-   [CUrlManager::urlSuffix] verwendet wird.
+	 - [urlSuffix|CUrlRule::urlSuffix]: Die Endung (Suffix) speziell für diese
+	 Regel. Standardmäßig null, was bedeutet, dass der Wert von
+	 [CUrlManager::urlSuffix] verwendet wird.
 
-   - [caseSensitive|CUrlRule::caseSensitive]: Ob bei dieser Regel
-   Groß-/Kleinschreibung beachtet werden soll. Standardmäßig null, was
-   bedeutet, dass die Einstellung in [CUrlManager::caseSensitive] verwendet
-   wird.
+	 - [caseSensitive|CUrlRule::caseSensitive]: Ob bei dieser Regel
+	 Groß-/Kleinschreibung beachtet werden soll. Standardmäßig null, was
+	 bedeutet, dass die Einstellung in [CUrlManager::caseSensitive] verwendet
+	 wird.
 
-   - [defaultParams|CUrlRule::defaultParams]: Die GET-Parameter (Name=>Wert)
-    für diese Regel. Wenn diese Regel für einen eingehenden Request verwendet
-    wird, werden die hier angegebenen Werte nach $_GET eingeschleust.
+	 - [defaultParams|CUrlRule::defaultParams]: Die GET-Parameter (Name=>Wert)
+		für diese Regel. Wenn diese Regel für einen eingehenden Request verwendet
+		wird, werden die hier angegebenen Werte nach $_GET eingeschleust.
 
-   - [matchValue|CUrlRule::matchValue]: Ob die GET-Parameter beim Erzeugen
-   einer URL mit den entsprechenden Submustern übereinstimmen müssen.
-   Standardmäßig null, was bedeutet, dass der Wert von
-   [CUrlManager::matchValue] verwendet wird. Wird dieser Option auf false
-   gesetzt, wird diese Regel zum Erzeugen der URL verwendet, falls Route und
-   Parameternamen mit den gegebenen Werten übereinstimmen. Ist die Option true
-   dann müssen die gegebenen Parameterwerte auch mit den entsprechenden
-   Submusterwerten übereinstimmen. Beachten Sie, dass letzteres die
-   Geschwindigkeit negativ beeinflussen kann.
+	 - [matchValue|CUrlRule::matchValue]: Ob die GET-Parameter beim Erzeugen
+	 einer URL mit den entsprechenden Submustern übereinstimmen müssen.
+	 Standardmäßig null, was bedeutet, dass der Wert von
+	 [CUrlManager::matchValue] verwendet wird. Wird dieser Option auf false
+	 gesetzt, wird diese Regel zum Erzeugen der URL verwendet, falls Route und
+	 Parameternamen mit den gegebenen Werten übereinstimmen. Ist die Option true
+	 dann müssen die gegebenen Parameterwerte auch mit den entsprechenden
+	 Submusterwerten übereinstimmen. Beachten Sie, dass letzteres die
+	 Geschwindigkeit negativ beeinflussen kann.
 
-   - [verb|CUrlRule::verb]: Das HTTP-Verb (z.B. `GET`, `POST`, `DELETE`) für
-    das diese Regel gültig sein soll. Der Vorgabewert null bedeutet, dass die
-    Regel für alle HTTP-Verben gilt. Soll eine Regel auf mehrere Verben zutreffen,
-    müssen diese mit Komma getrennt werden. Beim Auswerten eines Requests wird eine Regel
-    übersprungen, wenn das aktuelle Verb nicht mit dem/den angegebenen Verb(en) übereinstimmt.
-    Diese Option wird nur beim Auswerten verwendet und ist für REST-Support nützlich.
-    Sie steht seit Version 1.1.7 zur Verfügung.
+	 - [verb|CUrlRule::verb]: Das HTTP-Verb (z.B. `GET`, `POST`, `DELETE`) für
+		das diese Regel gültig sein soll. Der Vorgabewert null bedeutet, dass die
+		Regel für alle HTTP-Verben gilt. Soll eine Regel auf mehrere Verben zutreffen,
+		müssen diese mit Komma getrennt werden. Beim Auswerten eines Requests wird eine Regel
+		übersprungen, wenn das aktuelle Verb nicht mit dem/den angegebenen Verb(en) übereinstimmt.
+		Diese Option wird nur beim Auswerten verwendet und ist für REST-Support nützlich.
+		Sie steht seit Version 1.1.7 zur Verfügung.
 
-   - [parsingOnly|CUrlRule::parsingOnly]: ob diese Regel nur zum Auswerten
-   eines Requests verwendet werden soll. Vorgabewert is `false`, wodurch eine Regel
-   sowohl zum Auswerten als auch zum Erstellen von URLs verwendet wird.
-   Diese Option steht seit Version 1.1.7 zur Verfügung.
+	 - [parsingOnly|CUrlRule::parsingOnly]: ob diese Regel nur zum Auswerten
+	 eines Requests verwendet werden soll. Vorgabewert is `false`, wodurch eine Regel
+	 sowohl zum Auswerten als auch zum Erstellen von URLs verwendet wird.
+	 Diese Option steht seit Version 1.1.7 zur Verfügung.
 
 
 Verwenden von benannten Parametern
@@ -180,7 +180,7 @@ wobei `ParamName` den Namen des GET-Parameters angibt und das optionale
 `ParamMuster` einen regulären Ausdruck, der für das Auffinden dieses
 Parameters verwendet werden soll. Falls `ParamMuster` nicht angegeben wird,
 bedeutet das, dass alle Zeichen außer dem Schrägstrich `/` als Parameterwert
-verwendet werden.  Beim Erstellen einer URL werden diese
+verwendet werden.	Beim Erstellen einer URL werden diese
 Parameterplatzhalter durch die entsprechenden Parameterwerte ersetzt. Und beim
 Auswerten einer URL werden die entsprechenden GET-Parameter mit den gefundenen
 Werten gefüllt.
@@ -191,23 +191,23 @@ funktionieren:
 ~~~
 [php]
 array(
-    'posts'=>'post/list',
-    'post/<id:\d+>'=>'post/read',
-    'post/<year:\d{4}>/<title>'=>'post/read',
+		'posts'=>'post/list',
+		'post/<id:\d+>'=>'post/read',
+		'post/<year:\d{4}>/<title>'=>'post/read',
 )
 ~~~
 
-   - Ruft man `$this->createUrl('post/list')` auf, erzeugt dies
+	 - Ruft man `$this->createUrl('post/list')` auf, erzeugt dies
 `/index.php/posts`. Die erste Regel wird angewendet.
 
-   - `$this->createUrl('post/read',array('id'=>100))` erzeugt
+	 - `$this->createUrl('post/read',array('id'=>100))` erzeugt
 `/index.php/post/100`. Die zweite Regel wird angewendet.
 
-   - `$this->createUrl('post/read',array('year'=>2008,
+	 - `$this->createUrl('post/read',array('year'=>2008,
 'title'=>'a sample post'))` erzeugt
 `/index.php/post/2008/a%20sample%20post`. Die dritte Regel wird angewendet.
 
-   - `$this->createUrl('post/read')` liefert
+	 - `$this->createUrl('post/read')` liefert
 `/index.php/post/read`. Keine der Regeln wird angewendet.
 
 Zusammenfassend kann man sagen, dass beim Aufruf von
@@ -256,9 +256,9 @@ Hier ein Beispiel, wie Routen mit benannten Parametern parametrisiert werden:
 ~~~
 [php]
 array(
-    '<_c:(post|comment)>/<id:\d+>/<_a:(create|update|delete)>' => '<_c>/<_a>',
-    '<_c:(post|comment)>/<id:\d+>' => '<_c>/read',
-    '<_c:(post|comment)>s' => '<_c>/list',
+		'<_c:(post|comment)>/<id:\d+>/<_a:(create|update|delete)>' => '<_c>/<_a>',
+		'<_c:(post|comment)>/<id:\d+>' => '<_c>/read',
+		'<_c:(post|comment)>s' => '<_c>/list',
 )
 ~~~
 
@@ -290,7 +290,7 @@ mit Host-Informationen. Zum Beispiel:
 ~~~
 [php]
 array(
-    'http://<user:\w+>.example.com/<lang:\w+>/profile' => 'user/profile',
+		'http://<user:\w+>.example.com/<lang:\w+>/profile' => 'user/profile',
 )
 ~~~
 
@@ -316,7 +316,7 @@ Startscripts `index.php` verbergen. Dazu muss sowohl der Webserver als auch
 die [urlManager|CWebApplication::urlManager]-Komponente konfiguriert werden.
 
 Zunächst muss der Webserver so konfiguriert werden, dass er auch URLs ohne
-Startscript an dieses weiterleitet  Im Falle
+Startscript an dieses weiterleitet	Im Falle
 des [Apache HTTP-Servers](http://httpd.apache.org/) erreichen man das, indem
 man die Rewrite-Engine (sinngem.: Umschreibemaschine) einschaltet und einige
 Rewrite-Rules (sinngem.: Umschreiberegeln) definieren. Hierzu kann man eine
@@ -364,7 +364,7 @@ Regel. [CUrlRule] ist zwar bereits flexibel genug, um fast alle URL-Formate
 umzusetzen. Trotzdem kann es vorkommen, dass man darüberhinausgehende
 spezielle Features benötigt.
 
-Nehmen wir als Beispiel die Webseite eines Autohändlers. Das URL-Format dort 
+Nehmen wir als Beispiel die Webseite eines Autohändlers. Das URL-Format dort
 solle dem Muster `/Hersteller/Modell` entsprechen, wobei `Hersteller` und
 `Modell` Werten aus der Datenbank entsprechen müssen. [CUrlRule] hilft hier
 nicht weiter, da es nur statische reguläre Ausdrücke ohne Bezug zur Datenbank
@@ -387,8 +387,8 @@ array(
 
 	// eigene Regel um '/Hersteller/Modell' zu bearbeiten
 	array(
-	    'class' => 'application.components.AutoUrlRule',
-	    'connectionID' => 'db',
+			'class' => 'application.components.AutoUrlRule',
+			'connectionID' => 'db',
 	),
 
 	// gewöhnliche Regel für 'person/update' usw.
@@ -413,7 +413,7 @@ class CarUrlRule extends CBaseUrlRule
 			else if (isset($params['hersteller']))
 				return $params['hersteller'];
 		}
-		return false;  // URL passt nicht, Regel nicht betroffen
+		return false;	// URL passt nicht, Regel nicht betroffen
 	}
 
 	public function parseUrl($manager,$request,$pathInfo,$rawPathInfo)
@@ -425,7 +425,7 @@ class CarUrlRule extends CBaseUrlRule
 			// Falls ja, setze $_GET['hersteller'] und $_GET['modell']
 			// und gib 'car/index' als Returnwert zurück
 		}
-		return false;  // URL passt nicht, Regel nicht betroffen
+		return false;	// URL passt nicht, Regel nicht betroffen
 	}
 }
 ~~~

@@ -3,10 +3,10 @@
 
 エクステンションを使うには、通常、次の3つのステップが必要です:
 
-  1. Yii の [extension repository](http://www.yiiframework.com/extensions/) より、エクステンションをダウンロードします。
-  2. エクステンションを [アプリケーションベースディレクトリ](/doc/guide/basics.application#sec-3) のサブディレクトリである `extensions/xyz` 以下に解凍します。
+	1. Yii の [extension repository](http://www.yiiframework.com/extensions/) より、エクステンションをダウンロードします。
+	2. エクステンションを [アプリケーションベースディレクトリ](/doc/guide/basics.application#sec-3) のサブディレクトリである `extensions/xyz` 以下に解凍します。
 ここで、`xyz` にはエクステンション名が入ります。
-  3. インポート、初期構成を行い、エクステンションを使用します。
+	3. インポート、初期構成を行い、エクステンションを使用します。
 
 各エクステンションは全てのエクステンション中でそれを特定するためのユニークな名前を持ちます。
 エクステンション名が `xyz` であると仮定した場合、`xyz` のすべてのファイルを含むベースディレクトリを示す `ext.xyz` というパスエイリアスをいつでも使用できます。

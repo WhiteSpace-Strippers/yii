@@ -19,24 +19,24 @@
  * Log routes may be configured in application configuration like following:
  * <pre>
  * array(
- *     'preload'=>array('log'), // preload log component when app starts
- *     'components'=>array(
- *         'log'=>array(
- *             'class'=>'CLogRouter',
- *             'routes'=>array(
- *                 array(
- *                     'class'=>'CFileLogRoute',
- *                     'levels'=>'trace, info',
- *                     'categories'=>'system.*',
- *                 ),
- *                 array(
- *                     'class'=>'CEmailLogRoute',
- *                     'levels'=>'error, warning',
- *                     'emails'=>array('admin@example.com'),
- *                 ),
- *             ),
- *         ),
- *     ),
+ *		 'preload'=>array('log'), // preload log component when app starts
+ *		 'components'=>array(
+ *				 'log'=>array(
+ *						 'class'=>'CLogRouter',
+ *						 'routes'=>array(
+ *								 array(
+ *										 'class'=>'CFileLogRoute',
+ *										 'levels'=>'trace, info',
+ *										 'categories'=>'system.*',
+ *								 ),
+ *								 array(
+ *										 'class'=>'CEmailLogRoute',
+ *										 'levels'=>'error, warning',
+ *										 'emails'=>array('admin@example.com'),
+ *								 ),
+ *						 ),
+ *				 ),
+ *		 ),
  * )
  * </pre>
  *

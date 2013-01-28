@@ -1,10 +1,10 @@
 Frågeverktyg (Query Builder)
 ============================
 
-Yii:s frågeverktyg erbjuder en objektorienterad variant för framställning av SQL-frågor. 
-Verktyget möjliggör för utvecklare att använda klassmetoder och propertyn för specificering 
-av de enskilda delarna av en SQL-fråga. Därefter sammanställer verktyget de olika delarna till 
-en giltig SQL-fråga som kan exekveras genom amrop till DAO-metoderna som beskrivs i [Data Access Objects](/doc/guide/database.dao). 
+Yii:s frågeverktyg erbjuder en objektorienterad variant för framställning av SQL-frågor.
+Verktyget möjliggör för utvecklare att använda klassmetoder och propertyn för specificering
+av de enskilda delarna av en SQL-fråga. Därefter sammanställer verktyget de olika delarna till
+en giltig SQL-fråga som kan exekveras genom amrop till DAO-metoderna som beskrivs i [Data Access Objects](/doc/guide/database.dao).
 Nedan visas exempel på typisk användning av frågeverktyget för att bygga en SQL SELECT-fråga:
 
 ~~~
@@ -18,22 +18,22 @@ $user = Yii::app()->db->createCommand()
 ~~~
 
 
-Frågeverktyget kommer bäst till sin rätt när en SQL-fråga behöver komponeras programmatiskt eller 
-baserat på någon villkorlig logik i applikationen. Bland huvudsakliga fördelarna med att använda 
+Frågeverktyget kommer bäst till sin rätt när en SQL-fråga behöver komponeras programmatiskt eller
+baserat på någon villkorlig logik i applikationen. Bland huvudsakliga fördelarna med att använda
 frågeverktyget ingår:
 
 * Det tillåter att komplexa SQL-frågor byggs programmatiskt.
 
-* Tabell- och kolumnnamn omsluts automatiskt med med diakritiskt tecken (`) så att konflikt undviks 
+* Tabell- och kolumnnamn omsluts automatiskt med med diakritiskt tecken (`) så att konflikt undviks
 med reserverade ord och specialtecken i SQL.
 
-* Även parametervärden omsluts och parameterbindning används när så är möjligt, vilket hjälper till 
+* Även parametervärden omsluts och parameterbindning används när så är möjligt, vilket hjälper till
 att reducera risken för "SQL injection"-attacker.
 
 * Ett visst mått av databasabstraktion erhålls, vilket underlättar migrering till andra databasplattformar.
 
 
-Det är inte nödvändigt att använda frågeverktyget. Faktum är att enkla frågor lättare och snabbare kan 
+Det är inte nödvändigt att använda frågeverktyget. Faktum är att enkla frågor lättare och snabbare kan
 skrivas direkt med SQL-satser.
 
 > Note|Märk: Frågeverktyget kan inte användas för att modifiera en existerande fråga, specificerad som en
@@ -61,20 +61,20 @@ För att börja använda frågeverktyget skapar vi en ny instans av [CDbCommand]
 $command = Yii::app()->db->createCommand();
 ~~~
 
-Det vill säga, vi använder `Yii::app()->db` för att erhålla DB-anslutningen och anropar sedan [CDbConnection::createCommand()] 
+Det vill säga, vi använder `Yii::app()->db` för att erhålla DB-anslutningen och anropar sedan [CDbConnection::createCommand()]
 för att skapa den önskade command-instansen.
 
-Märk att i stället för att lämna med en komplett SQL-sats vid anropet av `createCommand()`, så som är brukligt 
-i [Data Access Objects](/doc/guide/database.dao), lämnar vi den tom. 
-Anledningen till  detta är att vi vill bygga enskilda delar av SQL-satsen genom att använda frågeverktygets 
-metoder, vilka  beskrivs nedan.
+Märk att i stället för att lämna med en komplett SQL-sats vid anropet av `createCommand()`, så som är brukligt
+i [Data Access Objects](/doc/guide/database.dao), lämnar vi den tom.
+Anledningen till	detta är att vi vill bygga enskilda delar av SQL-satsen genom att använda frågeverktygets
+metoder, vilka	beskrivs nedan.
 
 
 Bygga datahämtningsfrågor
 -------------------------
 
-Datahämtningsfrågor refererar till SQL SELECT-satser. Frågeverktyget erbjuder en uppsättning metoder 
-för att bygga individuella delar av en SELECT-sats. Eftersom alla dessa metoder lämnar [CDbCommand]-instansen 
+Datahämtningsfrågor refererar till SQL SELECT-satser. Frågeverktyget erbjuder en uppsättning metoder
+för att bygga individuella delar av en SELECT-sats. Eftersom alla dessa metoder lämnar [CDbCommand]-instansen
 i retur, kan de anropas i en kedja (method chaining), som exemplet i början av detta avsnitt visar.
 
 * [select()|CDbCommand::select() ]: specificerar SELECT-delen av frågan
@@ -94,8 +94,8 @@ i retur, kan de anropas i en kedja (method chaining), som exemplet i början av 
 * [union()|CDbCommand::union() ]: lägger till ett UNION-fragment till frågan
 
 
-I fortsättningen nedan förklaras hur man använder dessa frågeverktygets metoder. 
-För enkelhets skull antar vi att den underliggande databasen är MySQL. 
+I fortsättningen nedan förklaras hur man använder dessa frågeverktygets metoder.
+För enkelhets skull antar vi att den underliggande databasen är MySQL.
 Märk att om annan DBMS används, kan annorlunda "quoting" av tabell-/kolumnnamn/värden än i exemplen användas.
 
 
@@ -106,10 +106,10 @@ Märk att om annan DBMS används, kan annorlunda "quoting" av tabell-/kolumnnamn
 function select($columns='*')
 ~~~
 
-Metoden [select()|CDbCommand::select() ] specificerar `SELECT`-delen av en fråga. Parametern `$columns`specificerar 
-vilka kolumner som skall selekteras, antingen som en sträng av kommaseparerade kolumnnamn, eller en vektor 
-innehållande kolumnnamn. Kolumnnamn kan innehålla tabellprefix ochd/eller kolumnalias. Metoden kommer att 
-automatiskt omge kolumnnamn med diakritiskt tecken utom då en kolumnspecifikation innehåller parenteser 
+Metoden [select()|CDbCommand::select() ] specificerar `SELECT`-delen av en fråga. Parametern `$columns`specificerar
+vilka kolumner som skall selekteras, antingen som en sträng av kommaseparerade kolumnnamn, eller en vektor
+innehållande kolumnnamn. Kolumnnamn kan innehålla tabellprefix ochd/eller kolumnalias. Metoden kommer att
+automatiskt omge kolumnnamn med diakritiskt tecken utom då en kolumnspecifikation innehåller parenteser
 (vilket innebär att kolumnen angetts som ett DB-uttryck).
 
 Nedan följer några exempel:
@@ -136,7 +136,7 @@ select(array('id', 'count(*) as num'))
 function selectDistinct($columns)
 ~~~
 
-Metoden [selectDistinct()|CDbCommand::selectDistinct] är snarlik [select()|CDbCommand::select() ] förutom att  
+Metoden [selectDistinct()|CDbCommand::selectDistinct] är snarlik [select()|CDbCommand::select() ] förutom att
 den aktiverar `DISTINCT`-flaggan. Till exempel, `selectDistinct('id, username')` kommer att generera följande SQL:
 
 ~~~
@@ -151,11 +151,11 @@ SELECT DISTINCT `id`, `username`
 function from($tables)
 ~~~
 
-Metoden [from()|CDbCommand::from() ] specificerar `FROM`-delen av en fråga. Parametern `$tables` specificerar 
-vilka tabeller selektering skall ske från. Denna kan antingen vara en sträng av kommaseparerade tabellnamn, 
-eller en vektor innehållande tabellnamn. Tabellnamn kan innehålla schemaprefix (t.ex. `public.tbl_user`) 
-och/eller tabellalias (t.ex. `tbl_user u`). Metoden kommer att automatiskt omge tabellnamn med 
-diakritiskt tecken utom då en tabellspecifikationen innehåller parenteser (vilket innebär att tabellen angetts 
+Metoden [from()|CDbCommand::from() ] specificerar `FROM`-delen av en fråga. Parametern `$tables` specificerar
+vilka tabeller selektering skall ske från. Denna kan antingen vara en sträng av kommaseparerade tabellnamn,
+eller en vektor innehållande tabellnamn. Tabellnamn kan innehålla schemaprefix (t.ex. `public.tbl_user`)
+och/eller tabellalias (t.ex. `tbl_user u`). Metoden kommer att automatiskt omge tabellnamn med
+diakritiskt tecken utom då en tabellspecifikationen innehåller parenteser (vilket innebär att tabellen angetts
 som en subfråga eller ett DB-uttryck).
 
 Nedan följer några exempel:
@@ -180,10 +180,10 @@ from(array('tbl_user', '(select * from tbl_profile) p'))
 function where($conditions, $params=array())
 ~~~
 
-Metoden [where()|CDbCommand::where() ] specificerar `WHERE`-delen av en fråga. 
-Parametern `$conditions` specificerar frågevillkor medan `$params` 
-specificerar de parameterar som kommer att knytas till den kompletta frågan. 
-Parametern `$conditions` kan ges antingen som en sträng (t.ex. `id=1`) eller 
+Metoden [where()|CDbCommand::where() ] specificerar `WHERE`-delen av en fråga.
+Parametern `$conditions` specificerar frågevillkor medan `$params`
+specificerar de parameterar som kommer att knytas till den kompletta frågan.
+Parametern `$conditions` kan ges antingen som en sträng (t.ex. `id=1`) eller
 som en vektor med följande format:
 
 ~~~
@@ -193,26 +193,26 @@ array(operator, operand1, operand2, ...)
 
 där `operator` kan vara något av följande:
 
-* `and`: operanderna sammanbinds med hjälp av `AND`. 
-Till exempel, `array('and', 'id=1', 'id=2')` genererar `id=1 AND id=2`. 
-Om en operand i sin tur ges i form av en vektor, kommer den att konverteras till sträng på samma sätt. 
-Till exempel, `array('and', 'type=1', array('or', 'id=1', 'id=2'))` genererar `type=1 AND (id=1 OR id=2)`. 
+* `and`: operanderna sammanbinds med hjälp av `AND`.
+Till exempel, `array('and', 'id=1', 'id=2')` genererar `id=1 AND id=2`.
+Om en operand i sin tur ges i form av en vektor, kommer den att konverteras till sträng på samma sätt.
+Till exempel, `array('and', 'type=1', array('or', 'id=1', 'id=2'))` genererar `type=1 AND (id=1 OR id=2)`.
 Metoden lägger INTE till "quoting" med diakritiskt tecken, inte heller införs undantag "escaping" av specialteckenkoder.
 
 * `or`: lika som `and`-operatorn förutom att operanderna sammanbinds med OR.
 
-* `in`: operand 1 skall vara en kolumn eller ett DB-uttryck, operand 2 en vektor som representerar ett intervall 
-av värden som kolumnen eller DB-uttrycket skall finnas inom. 
-Till exempel, `array('in', 'id', array(1,2,3))` genererar `id IN (1,2,3)`. 
+* `in`: operand 1 skall vara en kolumn eller ett DB-uttryck, operand 2 en vektor som representerar ett intervall
+av värden som kolumnen eller DB-uttrycket skall finnas inom.
+Till exempel, `array('in', 'id', array(1,2,3))` genererar `id IN (1,2,3)`.
 Metoden omger kolumnnamn med diakritiskt tecken samt inför vid behov undantag (escaping) för specialteckenkoder i range-operanden.
 
 * `not in`: lika som `in`-operatorn förutom att `IN` ersätts av `NOT IN` i det genererade villkoret.
 
-* `like`: operand 1 skall vara en kolumn eller ett DB-uttryck, operand 2 en vektor som representerar ett intervall 
-av värden som kolumnen eller DB-uttrycket skall likna. 
-Till exempel, `array('like', 'name', '%tester%')` genererar `name LIKE '%tester%'`. 
-När intervallet anges som en vektor, kommer flera `LIKE`-predikat sammanbundna av `AND` att genereras. 
-Till exempel, `array('like', 'name', array('%test%', '%sample%'))` genererar `name LIKE '%test%' AND name LIKE '%sample%'`. 
+* `like`: operand 1 skall vara en kolumn eller ett DB-uttryck, operand 2 en vektor som representerar ett intervall
+av värden som kolumnen eller DB-uttrycket skall likna.
+Till exempel, `array('like', 'name', '%tester%')` genererar `name LIKE '%tester%'`.
+När intervallet anges som en vektor, kommer flera `LIKE`-predikat sammanbundna av `AND` att genereras.
+Till exempel, `array('like', 'name', array('%test%', '%sample%'))` genererar `name LIKE '%test%' AND name LIKE '%sample%'`.
 Metoden omger kolumnnamn med diakritiskt tecken samt inför vid behov undantag för specialteckenkoder i range-operanden.
 
 * `not like`: lika som `like`-operatorn förutom att `LIKE` ersätts av `NOT LIKE` i det genererade villkoret.
@@ -250,8 +250,8 @@ where(array('not like', 'name', '%Qiang%'))
 where(array('or not like', 'name', array('%Qiang%', '%Xue%')))
 ~~~
 
-Vänligen notera att när operator innehåller `like`, behöver vi uttryckligen specificera jokertecken 
-(så som `%` and `_`) i mönstren. Om mönstren hämtas från användarinmatning, bör vi även använda 
+Vänligen notera att när operator innehåller `like`, behöver vi uttryckligen specificera jokertecken
+(så som `%` and `_`) i mönstren. Om mönstren hämtas från användarinmatning, bör vi även använda
 följande kod för att införa undantag för specialteckenkoder och därmed förhindra att de behandlas som jokertecken:
 
 ~~~
@@ -271,9 +271,9 @@ function order($columns)
 ~~~
 
 Metoden [order()|CDbCommand::order() ] specificerar `ORDER BY`-delen av en fråga.
-Parametern `$columns` specificerar kolumnerna att sortera efter, antingen i form av en sträng som representerar 
-kommaseparerade kolumnnamn samt sorteringsdirektiv (`ASC` or `DESC`), alternativt en vektor av 
-kolumnnamn och sorteringsdirektiv. Kolumnnamn kan innehålla tabellprefix. Metoden omger automatiskt kolumnnamn 
+Parametern `$columns` specificerar kolumnerna att sortera efter, antingen i form av en sträng som representerar
+kommaseparerade kolumnnamn samt sorteringsdirektiv (`ASC` or `DESC`), alternativt en vektor av
+kolumnnamn och sorteringsdirektiv. Kolumnnamn kan innehålla tabellprefix. Metoden omger automatiskt kolumnnamn
 med diakritiskt tecken förutom när kolumn innehåller parenteser (vilket innebär att kolumn ges i form av ett DB-uttryck).
 
 Nedan följer några exempel:
@@ -295,8 +295,8 @@ function limit($limit, $offset=null)
 function offset($offset)
 ~~~
 
-Metoderna [limit()|CDbCommand::limit() ] och [offset()|CDbCommand::offset() ] specificerar 
-`LIMIT`- och `OFFSET`-delarna av en fråga. Lägg märke till att vissa DBMS saknar stöd för `LIMIT`- och `OFFSET`-syntax. 
+Metoderna [limit()|CDbCommand::limit() ] och [offset()|CDbCommand::offset() ] specificerar
+`LIMIT`- och `OFFSET`-delarna av en fråga. Lägg märke till att vissa DBMS saknar stöd för `LIMIT`- och `OFFSET`-syntax.
 I sådant fall skriver frågeverktyget om SQL-satsen för simulering av funktionaliteten hos limit och offset.
 
 Nedan följer några exempel:
@@ -323,15 +323,15 @@ function crossJoin($table)
 function naturalJoin($table)
 ~~~
 
-Metoden [join()|CDbCommand::join() ] och dess varianter specificerar sammanfogning med andra tabeller 
-med hjälp av `INNER JOIN`, `LEFT OUTER JOIN`, `RIGHT OUTER JOIN`, `CROSS JOIN`, eller `NATURAL JOIN`. 
-Parametern `$table` specificerar tabellen med vilken sammanfogning skall ske. Tabellnamnet kan innehålla 
-schemaprefix och/eller alias. Metoden kommer att automatiskt omge tabellnamnet med 
-diakritiskt tecken utom då en det innehåller parenteser, vilket innebär en subfråga eller ett DB-uttryck. 
-Parametern `$conditions` specificerar villkor för sammanfogningen. Dess syntax är samma som för [where()|CDbCommand::where() ]. 
+Metoden [join()|CDbCommand::join() ] och dess varianter specificerar sammanfogning med andra tabeller
+med hjälp av `INNER JOIN`, `LEFT OUTER JOIN`, `RIGHT OUTER JOIN`, `CROSS JOIN`, eller `NATURAL JOIN`.
+Parametern `$table` specificerar tabellen med vilken sammanfogning skall ske. Tabellnamnet kan innehålla
+schemaprefix och/eller alias. Metoden kommer att automatiskt omge tabellnamnet med
+diakritiskt tecken utom då en det innehåller parenteser, vilket innebär en subfråga eller ett DB-uttryck.
+Parametern `$conditions` specificerar villkor för sammanfogningen. Dess syntax är samma som för [where()|CDbCommand::where() ].
 Och `$params` specificerar de parametrar som skall knytas till den kompletta frågan.
 
-Till skillnad från frågeverktygets övriga metoder, medför varje nytt anrop till en join-metod att dess resultat kommer att 
+Till skillnad från frågeverktygets övriga metoder, medför varje nytt anrop till en join-metod att dess resultat kommer att
 läggas till efter de tidigare.
 
 Nedan följer några exempel:
@@ -353,9 +353,9 @@ function group($columns)
 ~~~
 
 Metoden [group()|CDbCommand::group() ] specificerar `GROUP BY`-delen av en fråga.
-Parametern `$columns` specificerar kolumnerna att gruppindela efter, i strängformat representerande 
-kommaseparerade kolumnnamn, alternativt som motsvarande vektor. Kolumnnamn kan innehålla tabellprefix. 
-Metoden kommer att automatiskt omge kolumnnamn med diakritiskt tecken utom då en kolumnspecifikationen innehåller parenteser 
+Parametern `$columns` specificerar kolumnerna att gruppindela efter, i strängformat representerande
+kommaseparerade kolumnnamn, alternativt som motsvarande vektor. Kolumnnamn kan innehålla tabellprefix.
+Metoden kommer att automatiskt omge kolumnnamn med diakritiskt tecken utom då en kolumnspecifikationen innehåller parenteser
 (vilket innebär att kolumnen angetts som en subfråga eller ett DB-uttryck).
 
 Nedan följer några exempel:
@@ -376,7 +376,7 @@ group(array('tbl_profile.name', 'id')
 function having($conditions, $params=array())
 ~~~
 
-Metoden [having()|CDbCommand::having() ] specificerar `HAVING`-delen av en fråga. Dess användning 
+Metoden [having()|CDbCommand::having() ] specificerar `HAVING`-delen av en fråga. Dess användning
 har likhet med [where()|CDbCommand::where() ].
 
 Nedan följer några exempel:
@@ -397,8 +397,8 @@ having(array('or', 'id=1', 'id=2'))
 function union($sql)
 ~~~
 
-Metoden [union()|CDbCommand::union() ] specificerar `UNION`-delen av en fråga. Den lägger till `$sql` 
-till existerande SQL genom användning av operatorn `UNION`. Anrop av `union()` upprepade gånger kommer att 
+Metoden [union()|CDbCommand::union() ] specificerar `UNION`-delen av en fråga. Den lägger till `$sql`
+till existerande SQL genom användning av operatorn `UNION`. Anrop av `union()` upprepade gånger kommer att
 lägga till flera SQL-led efter existerande SQL.
 
 Nedan följer några exempel:
@@ -412,9 +412,9 @@ union('select * from tbl_profile')
 
 ### Exekvera frågor
 
-När en fråga byggts genom anrop till frågeverktygets metoder enligt ovan, kan vi anropa DAO-metoderna 
-som beskrivs i [Data Access Objects](/doc/guide/database.dao), så att frågan exekveras. 
-Till exempel, kan vi anropa [CDbCommand::queryRow()] för att erhålla en enda rad som resultat, alternativt 
+När en fråga byggts genom anrop till frågeverktygets metoder enligt ovan, kan vi anropa DAO-metoderna
+som beskrivs i [Data Access Objects](/doc/guide/database.dao), så att frågan exekveras.
+Till exempel, kan vi anropa [CDbCommand::queryRow()] för att erhålla en enda rad som resultat, alternativt
 [CDbCommand::queryAll()] för att erhålla samtliga rader tillsammans.
 
 Exempel:
@@ -430,7 +430,7 @@ $users = Yii::app()->db->createCommand()
 
 ### Retrieving SQLs
 
-Förutom att exekvera en fråga som byggts med frågeverktyget, kan vi även hämta den motsvarande SQL-satsen. 
+Förutom att exekvera en fråga som byggts med frågeverktyget, kan vi även hämta den motsvarande SQL-satsen.
 Detta kan ske genom anrop av [CDbCommand::getText()].
 
 ~~~
@@ -446,10 +446,10 @@ Om det finns parametrar som skall knytas till frågan, kan dessa hämtas via pro
 
 ### Alternativ syntax för att bygga frågor
 
-Ibland är användning av metodkedja (method chaining) för att bygga en fråga inte det optimala valet. 
-Yii:s frågeverktyg tillåter att man bygger en fråga genom att helt enkelt tilldela värden till ett objekts propertyn. 
-Specifikt finns för varje metod i frågeverktyget en motsvarande property med samma namn. Tilldelning av ett värde 
-till propertyn är ekvivalent med att anropa motsvarande metod. Till exempel så är följande två uttryck ekvivalenta, 
+Ibland är användning av metodkedja (method chaining) för att bygga en fråga inte det optimala valet.
+Yii:s frågeverktyg tillåter att man bygger en fråga genom att helt enkelt tilldela värden till ett objekts propertyn.
+Specifikt finns för varje metod i frågeverktyget en motsvarande property med samma namn. Tilldelning av ett värde
+till propertyn är ekvivalent med att anropa motsvarande metod. Till exempel så är följande två uttryck ekvivalenta,
 förutsatt att `$command` representerar ett [CDbCommand]-objekt:
 
 ~~~
@@ -458,8 +458,8 @@ $command->select(array('id', 'username'));
 $command->select = array('id', 'username');
 ~~~
 
-Dessutom kan metoden [CDbConnection::createCommand()] acceptera en vektor som parameter. 
-Namn-värdeparen i vektorn kommer att användas till att initialisera [CDbCommand]-instansens propertyn. 
+Dessutom kan metoden [CDbConnection::createCommand()] acceptera en vektor som parameter.
+Namn-värdeparen i vektorn kommer att användas till att initialisera [CDbCommand]-instansens propertyn.
 Detta innebär att vi kan använda följande kod för att bygga en fråga:
 
 ~~~
@@ -475,8 +475,8 @@ $row = Yii::app()->db->createCommand(array(
 
 ### Bygga upprepade frågor
 
-En [CDbCommand]-instans kan återanvändas flera gånger för att bygga ytterligare frågor. 
-Innan en ny fråga byggs behöver dock metoden [CDbCommand::reset()] anropas för att städa efter föregående fråga. 
+En [CDbCommand]-instans kan återanvändas flera gånger för att bygga ytterligare frågor.
+Innan en ny fråga byggs behöver dock metoden [CDbCommand::reset()] anropas för att städa efter föregående fråga.
 
 Till exempel:
 
@@ -484,7 +484,7 @@ Till exempel:
 [php]
 $command = Yii::app()->db->createCommand();
 $users = $command->select('*')->from('tbl_users')->queryAll();
-$command->reset();  // clean up the previous query
+$command->reset();	// clean up the previous query
 $posts = $command->select('*')->from('tbl_posts')->queryAll();
 ~~~
 
@@ -492,9 +492,9 @@ $posts = $command->select('*')->from('tbl_posts')->queryAll();
 Bygga frågor för manipulering av data
 -------------------------------------
 
-Datamanipuleringsfrågor refererar till SQL-satser för insättning, uppdatering och borttagning av data i en databastabell. 
+Datamanipuleringsfrågor refererar till SQL-satser för insättning, uppdatering och borttagning av data i en databastabell.
 Som motsvarighet till dessa frågor tillhandahåller frågeverktyget metoderna `insert`, `update` och `delete`.
-Till skillnad från SELECT-frågemetoderna som beskrivits ovan, bygger var och en av frågemetoderna för datamanipulering 
+Till skillnad från SELECT-frågemetoderna som beskrivits ovan, bygger var och en av frågemetoderna för datamanipulering
 en komplett SQL-sats och exekverar den omedelbart.
 
 * [insert()|CDbCommand::insert]: infogar en rad i en tabell
@@ -512,10 +512,10 @@ Nedan beskrivs dessa frågemetoder för datamanipulering.
 function insert($table, $columns)
 ~~~
 
-Metoden [insert()|CDbCommand::insert] bygger och exekverar en SQL `INSERT`-sats. 
-Parametern `$table` specificerar vilken tabell att infoga i, medan `$columns` är en vektor 
-innehållande namn-värdepar som specificerar vilka kolumnvärden som skall infogas. 
-Metoden kommer att korrekt omge tabellnamn med diakritiskt tecken samt använda parameterbindning 
+Metoden [insert()|CDbCommand::insert] bygger och exekverar en SQL `INSERT`-sats.
+Parametern `$table` specificerar vilken tabell att infoga i, medan `$columns` är en vektor
+innehållande namn-värdepar som specificerar vilka kolumnvärden som skall infogas.
+Metoden kommer att korrekt omge tabellnamn med diakritiskt tecken samt använda parameterbindning
 för värden som skall infogas.
 
 Nedan följer ett exempel:
@@ -538,11 +538,11 @@ $command->insert('tbl_user', array(
 function update($table, $columns, $conditions='', $params=array())
 ~~~
 
-Metoden [update()|CDbCommand::update] bygger och exekverar en SQL `UPDATE`-sats. 
-Parametern `$table` specificerar vilken tabell som skall uppdateras; `$columns` är en vektor 
-innehållande namn-värdepar som specificerar vilka kolumnvärden som skall uppdateras; 
-`$conditions` och `$params` specificerar, precis som i [where()|CDbCommand::where() ], `WHERE`-ledet i `UPDATE`-satsen. 
-Metoden kommer att korrekt omge tabellnamn med diakritiskt tecken samt använda parameterbindning 
+Metoden [update()|CDbCommand::update] bygger och exekverar en SQL `UPDATE`-sats.
+Parametern `$table` specificerar vilken tabell som skall uppdateras; `$columns` är en vektor
+innehållande namn-värdepar som specificerar vilka kolumnvärden som skall uppdateras;
+`$conditions` och `$params` specificerar, precis som i [where()|CDbCommand::where() ], `WHERE`-ledet i `UPDATE`-satsen.
+Metoden kommer att korrekt omge tabellnamn med diakritiskt tecken samt använda parameterbindning
 för värden som skall uppdateras.
 
 Nedan följer ett exempel:
@@ -564,9 +564,9 @@ $command->update('tbl_user', array(
 function delete($table, $conditions='', $params=array())
 ~~~
 
-Metoden [delete()|CDbCommand::delete] bygger och exekverar en SQL `DELETE`-sats. 
-Parametern `$table` specificerar tabell att ta bort från; `$conditions` och `$params` 
-specificerar, precis som i [where()|CDbCommand::where() ], `WHERE`-ledet i 
+Metoden [delete()|CDbCommand::delete] bygger och exekverar en SQL `DELETE`-sats.
+Parametern `$table` specificerar tabell att ta bort från; `$conditions` och `$params`
+specificerar, precis som i [where()|CDbCommand::where() ], `WHERE`-ledet i
 `DELETE`-satsen. Metoden kommer att korrekt omge tabellnamn med diakritiskt tecken.
 
 Nedan följer ett exempel:
@@ -581,8 +581,8 @@ $command->delete('tbl_user', 'id=:id', array(':id'=>1));
 Bygga frågor som manipulerar databasschema
 ------------------------------------------
 
-Förutom vanliga frågor som hämtar eller manipulerar data, erbjuder frågeverktyget även en uppsättning 
-metoder som bygger och exekverar SQL-frågor som kan manipulera schema i en databas. 
+Förutom vanliga frågor som hämtar eller manipulerar data, erbjuder frågeverktyget även en uppsättning
+metoder som bygger och exekverar SQL-frågor som kan manipulera schema i en databas.
 Mer specifikt erbjuds stöd för följande frågor:
 
 * [createTable()|CDbCommand::createTable]: skapar en tabell
@@ -596,17 +596,17 @@ Mer specifikt erbjuds stöd för följande frågor:
 * [createIndex()|CDbCommand::createIndex]: skapar ett index
 * [dropIndex()|CDbCommand::dropIndex]: tar bort ett index
 
-> Info: Även om de faktiska SQL-satserna för schemamanipulering varierar en hel del 
-mellan olika databashanterare (DBMS), försöker frågeverktyget att erbjuda ett enhetligt 
-gränssnitt för att bygga dessa frågor. Detta förenklar uppgiften att flytta en databas 
+> Info: Även om de faktiska SQL-satserna för schemamanipulering varierar en hel del
+mellan olika databashanterare (DBMS), försöker frågeverktyget att erbjuda ett enhetligt
+gränssnitt för att bygga dessa frågor. Detta förenklar uppgiften att flytta en databas
 från en DBMS till en annan.
 
 
 ###Abstrakta datatyper
 
-Frågeverktyget introducerar en uppsättning abstrakta datatyper som kan användas till att definiera 
-tabellkolumner. Till skillnad från de fysiska datatyperna som är specifika för enskilda DBMS och skiljer 
-sig åt mellan olika DBMS, är de abstrakta datatyperna DBMS-oberoende. När abstrakta datatyper används 
+Frågeverktyget introducerar en uppsättning abstrakta datatyper som kan användas till att definiera
+tabellkolumner. Till skillnad från de fysiska datatyperna som är specifika för enskilda DBMS och skiljer
+sig åt mellan olika DBMS, är de abstrakta datatyperna DBMS-oberoende. När abstrakta datatyper används
 till att definiera tabellkolumner, kommer frågeverktyget att konvertera till motsvarande fysiska datatyper.
 
 Följande abstrakta datatyper stöds av frågeverktyget.
@@ -633,20 +633,20 @@ Följande abstrakta datatyper stöds av frågeverktyget.
 function createTable($table, $columns, $options=null)
 ~~~
 
-Metoden [createTable()|CDbCommand::createTable] bygger och exekverar en SQL-sats som skapar en tabell. 
-Parametern `$table` specificerar namnet på tabellen som skall skapas. Parametern `$columns` specificerar 
-kolumnerna i den nya tabellen. De måste anges i form av namn-definitionspar (t.ex. `'username'=>'string'`). 
-Parametern `$options` specificerar möjliga extra SQL-fragment som skall följa på genererad SQL. 
+Metoden [createTable()|CDbCommand::createTable] bygger och exekverar en SQL-sats som skapar en tabell.
+Parametern `$table` specificerar namnet på tabellen som skall skapas. Parametern `$columns` specificerar
+kolumnerna i den nya tabellen. De måste anges i form av namn-definitionspar (t.ex. `'username'=>'string'`).
+Parametern `$options` specificerar möjliga extra SQL-fragment som skall följa på genererad SQL.
 Metoden kommer att korrekt omge tabellnamn och kolumnnamn med diakritiskt tecken.
 
-Vid specificering av kolumndefinition kan man använda en abstrakt datatyp som beskrivits ovan. 
-Frågeverktyget kommer att konvertera den abstrakta datatypen till motsvarande fysiska datatyp, 
-givet vilken DBMS som för tillfället används. Till exempel för MySQL, kommer `string` att 
+Vid specificering av kolumndefinition kan man använda en abstrakt datatyp som beskrivits ovan.
+Frågeverktyget kommer att konvertera den abstrakta datatypen till motsvarande fysiska datatyp,
+givet vilken DBMS som för tillfället används. Till exempel för MySQL, kommer `string` att
 konverteras till `varchar(255)`.
 
-En kolumndefinition kan även innehålla icke-abstrakta datatyper eller specifikationer. De kommer att 
-infogas i genererad SQL utan ändring. Till exempel `point`, som inte är en abstrakt datatyp kommer, 
-om den används i en kolumndefinition, att uppträda oförändrad i resulterande SQL; `string NOT NULL` 
+En kolumndefinition kan även innehålla icke-abstrakta datatyper eller specifikationer. De kommer att
+infogas i genererad SQL utan ändring. Till exempel `point`, som inte är en abstrakt datatyp kommer,
+om den används i en kolumndefinition, att uppträda oförändrad i resulterande SQL; `string NOT NULL`
 kommer att konverteras till `varchar(255) NOT NULL` (dvs endast den abstrakta typen `string` konverteras).
 
 Nedan följer ett exempel på hur man skapar en tabell:
@@ -654,9 +654,9 @@ Nedan följer ett exempel på hur man skapar en tabell:
 ~~~
 [php]
 // CREATE TABLE `tbl_user` (
-//     `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-//     `username` varchar(255) NOT NULL,
-//     `location` point
+//		 `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+//		 `username` varchar(255) NOT NULL,
+//		 `location` point
 // ) ENGINE=InnoDB
 createTable('tbl_user', array(
 	'id' => 'pk',
@@ -673,9 +673,9 @@ createTable('tbl_user', array(
 function renameTable($table, $newName)
 ~~~
 
-Metoden [renameTable()|CDbCommand::renameTable] bygger och exekverar en SQL-sats som ändrar 
-namnet på en tabell. Parametern `$table` specificerar namnet på tabellen som skall namnändras. 
-Parametern `$newName` specificerar det nya tabellnamnet. Frågeverktyget kommer att korrekt 
+Metoden [renameTable()|CDbCommand::renameTable] bygger och exekverar en SQL-sats som ändrar
+namnet på en tabell. Parametern `$table` specificerar namnet på tabellen som skall namnändras.
+Parametern `$newName` specificerar det nya tabellnamnet. Frågeverktyget kommer att korrekt
 omge tabellnamnen med diakritiskt tecken.
 
 Nedan följer ett exempel som visar hur man ändrar namn på en tabell:
@@ -694,8 +694,8 @@ renameTable('tbl_users', 'tbl_user')
 function dropTable($table)
 ~~~
 
-Metoden [dropTable()|CDbCommand::dropTable] bygger och exekverar en SQL-sats som tar bort en tabell. 
-Parametern `$table` specificerar namnet på tabellen som skall tas bort. Frågeverktyget kommer att 
+Metoden [dropTable()|CDbCommand::dropTable] bygger och exekverar en SQL-sats som tar bort en tabell.
+Parametern `$table` specificerar namnet på tabellen som skall tas bort. Frågeverktyget kommer att
 korrekt omge tabellnamnet med diakritiskt tecken.
 
 Nedan följer ett exempel på hur man tar bort en tabell:
@@ -713,8 +713,8 @@ dropTable('tbl_user')
 function truncateTable($table)
 ~~~
 
-Metoden [truncateTable()|CDbCommand::truncateTable] bygger och exekverar en SQL-sats som tar bort 
-allt innehåll ur en tabell. Parametern `$table` specificerar namnet på tabellen som skall tömmas. 
+Metoden [truncateTable()|CDbCommand::truncateTable] bygger och exekverar en SQL-sats som tar bort
+allt innehåll ur en tabell. Parametern `$table` specificerar namnet på tabellen som skall tömmas.
 Frågeverktyget kommer att korrekt omge tabellnamnet med diakritiskt tecken.
 
 Nedan följer ett exempel på hur man tömmer en tabell på innehåll:
@@ -733,10 +733,10 @@ truncateTable('tbl_user')
 function addColumn($table, $column, $type)
 ~~~
 
-Metoden [addColumn()|CDbCommand::addColumn] bygger och exekverar en SQL-sats som lägger till en ny 
-tabellkolumn. Parametern `$table` specificerar namnet på tabellen som en ny kolumn skall tillfogas. 
-Parametern `$column` specificerar namnet på den nya kolumnen. Och `$type` specificerar definitionen 
-för den nya kolumnen. En kolumndefinition kan innehålla abstrakt datatyp, som beskrivits i avsnittet 
+Metoden [addColumn()|CDbCommand::addColumn] bygger och exekverar en SQL-sats som lägger till en ny
+tabellkolumn. Parametern `$table` specificerar namnet på tabellen som en ny kolumn skall tillfogas.
+Parametern `$column` specificerar namnet på den nya kolumnen. Och `$type` specificerar definitionen
+för den nya kolumnen. En kolumndefinition kan innehålla abstrakt datatyp, som beskrivits i avsnittet
 om "createTable". Frågeverktyget kommer att korrekt omge tabellnamn och kolumnnamn med diakritiskt tecken.
 
 Nedan följer ett exempel på hur man lägger till en kolumn:
@@ -755,9 +755,9 @@ addColumn('tbl_user', 'email', 'string NOT NULL')
 function dropColumn($table, $column)
 ~~~
 
-Metoden [dropColumn()|CDbCommand::dropColumn] bygger och exekverar en SQL-sats som tar bort en 
-tabellkolumn. Parametern `$table` specificerar namnet på tabellen ur vilken en kolumn skall tas bort. 
-Parametern `$column` specificerar namnet på kolumnen som skall tas bort. Frågeverktyget kommer 
+Metoden [dropColumn()|CDbCommand::dropColumn] bygger och exekverar en SQL-sats som tar bort en
+tabellkolumn. Parametern `$table` specificerar namnet på tabellen ur vilken en kolumn skall tas bort.
+Parametern `$column` specificerar namnet på kolumnen som skall tas bort. Frågeverktyget kommer
 att korrekt omge tabellnamn och kolumnnamn med diakritiskt tecken.
 
 Nedan följer ett exempel på hur man tar bort en kolumn:
@@ -776,9 +776,9 @@ dropColumn('tbl_user', 'location')
 function renameColumn($table, $name, $newName)
 ~~~
 
-Metoden [renameColumn()|CDbCommand::renameColumn] bygger och exekverar en SQL-sats som ändrar namn 
-på en tabellkolumn. Parametern `$table` specificerar namnet på tabellen vars kolumn skall byta namn. 
-Parametern `$name` specificerar det befintliga kolumnnamnet. `$newName` specificerar önskat kolumnnamn. 
+Metoden [renameColumn()|CDbCommand::renameColumn] bygger och exekverar en SQL-sats som ändrar namn
+på en tabellkolumn. Parametern `$table` specificerar namnet på tabellen vars kolumn skall byta namn.
+Parametern `$name` specificerar det befintliga kolumnnamnet. `$newName` specificerar önskat kolumnnamn.
 Frågeverktyget kommer att korrekt omge tabellnamn och kolumnnamn med diakritiskt tecken.
 
 Nedan följer ett exempel på hur man ändrar en kolumns namn:
@@ -797,10 +797,10 @@ renameColumn('tbl_user', 'name', 'username')
 function alterColumn($table, $column, $type)
 ~~~
 
-Metoden [alterColumn()|CDbCommand::alterColumn] bygger och exekverar en SQL-sats som ändrar definition 
-för en tabellkolumn. Parametern `$table` specificerar namnet på tabellen vars kolumndefinition skall ändras. 
-Parametern `$column` specificerar namnet på kolumnen som skall ändras. Och `$type` specificerar den nya 
-kolumndefinitionen. En kolumndefinition kan innehålla abstrakt datatyp, så som beskrivits tidigare för 
+Metoden [alterColumn()|CDbCommand::alterColumn] bygger och exekverar en SQL-sats som ändrar definition
+för en tabellkolumn. Parametern `$table` specificerar namnet på tabellen vars kolumndefinition skall ändras.
+Parametern `$column` specificerar namnet på kolumnen som skall ändras. Och `$type` specificerar den nya
+kolumndefinitionen. En kolumndefinition kan innehålla abstrakt datatyp, så som beskrivits tidigare för
 "createTable". Frågeverktyget kommer att korrekt omge tabellnamn och kolumnnamn med diakritiskt tecken.
 
 Nedan följer ett exempel på hur man ändrar specifikation för en kolumn:
@@ -822,13 +822,13 @@ function addForeignKey($name, $table, $columns,
 	$refTable, $refColumns, $delete=null, $update=null)
 ~~~
 
-Metoden [addForeignKey()|CDbCommand::addForeignKey] bygger och exekverar en SQL-sats som lägger till 
-ett integritetsvillkor (constraint) till en tabell. Parametern `$name` specificerar namnet på villkoret. 
-Parametrarna `$table` och `$columns` specificerar tabell- och kolumnnamn för referensattributet (FK). 
-Vid flera kolumner skall dessa separeras med kommatecken. Parametrarna `$refTable` och `$refColumns` 
-specificerar tabell- och kolumnnamn som referensattributet refererar till. Parametrarna `$delete` och 
-`$update` specificerar alternativen`ON DELETE` och `ON UPDATE` i SQL-satsen. De flesta databashanterare 
-stöder följande alternativ: `RESTRICT`, `CASCADE`, `NO ACTION`, `SET DEFAULT`, `SET NULL`. 
+Metoden [addForeignKey()|CDbCommand::addForeignKey] bygger och exekverar en SQL-sats som lägger till
+ett integritetsvillkor (constraint) till en tabell. Parametern `$name` specificerar namnet på villkoret.
+Parametrarna `$table` och `$columns` specificerar tabell- och kolumnnamn för referensattributet (FK).
+Vid flera kolumner skall dessa separeras med kommatecken. Parametrarna `$refTable` och `$refColumns`
+specificerar tabell- och kolumnnamn som referensattributet refererar till. Parametrarna `$delete` och
+`$update` specificerar alternativen`ON DELETE` och `ON UPDATE` i SQL-satsen. De flesta databashanterare
+stöder följande alternativ: `RESTRICT`, `CASCADE`, `NO ACTION`, `SET DEFAULT`, `SET NULL`.
 Frågeverktyget kommer att korrekt omge tabellnamn, indexnamn och kolumnnamn med diakritiskt tecken.
 
 Nedan följer ett exempel på hur man skapar en restriktion för referensattribut:
@@ -850,9 +850,9 @@ addForeignKey('fk_profile_user_id', 'tbl_profile', 'user_id',
 function dropForeignKey($name, $table)
 ~~~
 
-Metoden [dropForeignKey()|CDbCommand::dropForeignKey] bygger och exekverar en SQL-sats som tar bort ett 
-integritetsvillkor. Parametern `$name` specificerar namnet på det villkor som skall tas bort. 
-Parametern  `$table` specificerar namnet på tabellen som innehåller villkoret. Frågeverktyget kommer 
+Metoden [dropForeignKey()|CDbCommand::dropForeignKey] bygger och exekverar en SQL-sats som tar bort ett
+integritetsvillkor. Parametern `$name` specificerar namnet på det villkor som skall tas bort.
+Parametern	`$table` specificerar namnet på tabellen som innehåller villkoret. Frågeverktyget kommer
 att korrekt omge tabellnamnet och villkorsnamnet med diakritiskt tecken.
 
 Nedan följer ett exempel på hur man tar bort en restriktion för referensattribut:
@@ -871,11 +871,11 @@ dropForeignKey('fk_profile_user_id', 'tbl_profile')
 function createIndex($name, $table, $column, $unique=false)
 ~~~
 
-Metoden [createIndex()|CDbCommand::createIndex] bygger och exekverar en SQL-sats som skapar ett index. 
-Parametern `$name` specificerar namn på det index som skall skapas. Parametern `$table` specificerar 
-namnet på tabellen som indexet skall tillhöra. Parametern `$column` specificerar namnet på kolumnen 
-som skall indexeras. Och parametern `$unique` specificerar huruvida ett unikt index skall skapas. 
-Om indexet består av flera kolumner, måste dessa separeras med kommatecken. 
+Metoden [createIndex()|CDbCommand::createIndex] bygger och exekverar en SQL-sats som skapar ett index.
+Parametern `$name` specificerar namn på det index som skall skapas. Parametern `$table` specificerar
+namnet på tabellen som indexet skall tillhöra. Parametern `$column` specificerar namnet på kolumnen
+som skall indexeras. Och parametern `$unique` specificerar huruvida ett unikt index skall skapas.
+Om indexet består av flera kolumner, måste dessa separeras med kommatecken.
 Frågeverktyget kommer att korrekt omge tabellnamn, indexnamn och kolumnnamn med diakritiskt tecken.
 
 Nedan följer ett exempel på hur man skapar ett index:
@@ -894,9 +894,9 @@ createIndex('idx_username', 'tbl_user')
 function dropIndex($name, $table)
 ~~~
 
-Metoden [dropIndex()|CDbCommand::dropIndex] bygger och exekverar en SQL-sats som tar bort ett index. 
-Parametern `$name` specificerar namn för indexet som skall tas bort. Parametern `$table` specificerar 
-namnet på tabellen som indexet tillhör. Frågeverktyget kommer att korrekt omge tabellnamn och indexnamn 
+Metoden [dropIndex()|CDbCommand::dropIndex] bygger och exekverar en SQL-sats som tar bort ett index.
+Parametern `$name` specificerar namn för indexet som skall tas bort. Parametern `$table` specificerar
+namnet på tabellen som indexet tillhör. Frågeverktyget kommer att korrekt omge tabellnamn och indexnamn
 med diakritiskt tecken.
 
 Nedan följer ett exempel på hur man tar bort ett index:

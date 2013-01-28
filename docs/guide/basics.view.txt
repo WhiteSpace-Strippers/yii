@@ -9,7 +9,7 @@ be placed in controllers or models rather than in views.
 
 A view has a name which is used to identify the view script file when
 rendering. The name of a view is the same as the name of its view script.
-For example, the view name `edit` refers to a view script named `edit.php`. 
+For example, the view name `edit` refers to a view script named `edit.php`.
 To render a view, call [CController::render()] with the name of
 the view. The method will look for the corresponding view file under the
 directory `protected/views/ControllerID`.
@@ -58,11 +58,11 @@ call [renderPartial()|CController::renderPartial] instead.
 Widget
 ------
 
-A widget is an instance of [CWidget] or a child class of [CWidget]. It is a 
-component that is mainly for presentational purposes. A widget is usually 
-embedded in a view script to generate a complex, yet self-contained user 
-interface. For example, a calendar widget can be used to render 
-a complex calendar user interface. Widgets facilitate better reusability in 
+A widget is an instance of [CWidget] or a child class of [CWidget]. It is a
+component that is mainly for presentational purposes. A widget is usually
+embedded in a view script to generate a complex, yet self-contained user
+interface. For example, a calendar widget can be used to render
+a complex calendar user interface. Widgets facilitate better reusability in
 user interface code.
 
 To use a widget, do as follows in a view script:
@@ -87,7 +87,7 @@ Widgets can be configured to customize their behavior. This is done by
 setting their initial property values when calling
 [CBaseController::beginWidget] or [CBaseController::widget]. For example,
 when using a [CMaskedTextField] widget, we might like to specify the mask
-being used. We can do so by passing an array of initial property 
+being used. We can do so by passing an array of initial property
 values as follows, where the array keys are property names and array values
 are the initial values of the corresponding widget properties:
 

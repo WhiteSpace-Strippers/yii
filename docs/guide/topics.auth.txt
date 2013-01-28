@@ -66,7 +66,7 @@ class UserIdentity extends CUserIdentity
 			$this->errorCode=self::ERROR_NONE;
 		}
 		return !$this->errorCode;
-    }
+		}
 
 	public function getId()
 	{
@@ -253,11 +253,11 @@ be executed.
 > ~~~
 > [php]
 > return array(
->     // ... other rules...
->     // the following rule denies 'delete' action for all contexts
->     array('deny',
->         'actions'=>array('delete'),
->     ),
+>		 // ... other rules...
+>		 // the following rule denies 'delete' action for all contexts
+>		 array('deny',
+>				 'actions'=>array('delete'),
+>		 ),
 > );
 > ~~~
 > The reason for this rule is because if none of the rules matches a context, then the action will continue to be executed.
@@ -265,21 +265,21 @@ be executed.
 
 An access rule can match the following context parameters:
 
-   - [actions|CAccessRule::actions]: specifies which actions this rule
+	 - [actions|CAccessRule::actions]: specifies which actions this rule
 matches. This should be an array of action IDs. The comparison is case-insensitive.
 
-   - [controllers|CAccessRule::controllers]: specifies which controllers this rule
+	 - [controllers|CAccessRule::controllers]: specifies which controllers this rule
 matches. This should be an array of controller IDs. The comparison is case-insensitive.
 
-   - [users|CAccessRule::users]: specifies which users this rule matches.
+	 - [users|CAccessRule::users]: specifies which users this rule matches.
 The current user's [name|CWebUser::name] is used for matching. The comparison
 is case-insensitive. Three special characters can be used here:
 
-	   - `*`: any user, including both anonymous and authenticated users.
-	   - `?`: anonymous users.
-	   - `@`: authenticated users.
+		 - `*`: any user, including both anonymous and authenticated users.
+		 - `?`: anonymous users.
+		 - `@`: authenticated users.
 
-   - [roles|CAccessRule::roles]: specifies which roles that this rule matches.
+	 - [roles|CAccessRule::roles]: specifies which roles that this rule matches.
 This makes use of the [role-based access control](/doc/guide/topics.auth#role-based-access-control)
 feature to be described in the next subsection. In particular, the rule
 is applied if [CWebUser::checkAccess] returns true for one of the roles.
@@ -288,13 +288,13 @@ a role represents a permission to do something. Also note, although we use the
 term `roles` here, its value can actually be any auth item, including roles,
 tasks and operations.
 
-   - [ips|CAccessRule::ips]: specifies which client IP addresses this rule
+	 - [ips|CAccessRule::ips]: specifies which client IP addresses this rule
 matches.
 
-   - [verbs|CAccessRule::verbs]: specifies which request types (e.g.
+	 - [verbs|CAccessRule::verbs]: specifies which request types (e.g.
 `GET`, `POST`) this rule matches. The comparison is case-insensitive.
 
-   - [expression|CAccessRule::expression]: specifies a PHP expression whose value
+	 - [expression|CAccessRule::expression]: specifies a PHP expression whose value
 indicates whether this rule matches. In the expression, you can use variable `$user`
 which refers to `Yii::app()->user`.
 
@@ -305,12 +305,12 @@ Handling Authorization Result
 When authorization fails, i.e., the user is not allowed to perform the
 specified action, one of the following two scenarios may happen:
 
-   - If the user is not logged in and if the [loginUrl|CWebUser::loginUrl]
+	 - If the user is not logged in and if the [loginUrl|CWebUser::loginUrl]
 property of the user component is configured to be the URL of the login
 page, the browser will be redirected to that page. Note that by default,
 [loginUrl|CWebUser::loginUrl] points to the `site/login` page.
 
-   - Otherwise an HTTP exception will be displayed with error code 403.
+	 - Otherwise an HTTP exception will be displayed with error code 403.
 
 When configuring the [loginUrl|CWebUser::loginUrl] property, one can
 provide a relative or absolute URL. One can also provide an array which
@@ -457,23 +457,23 @@ whole set of APIs to accomplish these tasks.
 To define an authorization item, call one of the following methods,
 depending on the type of the item:
 
-   - [CAuthManager::createRole]
-   - [CAuthManager::createTask]
-   - [CAuthManager::createOperation]
+	 - [CAuthManager::createRole]
+	 - [CAuthManager::createTask]
+	 - [CAuthManager::createOperation]
 
 Once we have a set of authorization items, we can call the following
 methods to establish relationships between authorization items:
 
-   - [CAuthManager::addItemChild]
-   - [CAuthManager::removeItemChild]
-   - [CAuthItem::addChild]
-   - [CAuthItem::removeChild]
+	 - [CAuthManager::addItemChild]
+	 - [CAuthManager::removeItemChild]
+	 - [CAuthItem::addChild]
+	 - [CAuthItem::removeChild]
 
 And finally, we call the following methods to assign role items to
 individual users:
 
-   - [CAuthManager::assign]
-   - [CAuthManager::revoke]
+	 - [CAuthManager::assign]
+	 - [CAuthManager::revoke]
 
 Below we show an example about building an authorization hierarchy with
 the provided APIs:
@@ -568,7 +568,7 @@ privileges to all authenticated users. It poses a lot of maintenance trouble
 if we explicitly specify and store these role assignments. We can exploit
 *default roles* to solve this problem.
 
-A default role is a role that is implicitly assigned to every user. We do not 
+A default role is a role that is implicitly assigned to every user. We do not
 need to explicitly assign it to a user.
 When [CWebUser::checkAccess] is invoked, default roles will be checked first as if they are
 assigned to the user.

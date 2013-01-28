@@ -4,7 +4,7 @@
 שינויים הקשורים לתסריטים במודלים
 ------------------------------------
 
-- המתודה ()CModel::safeAttributes הוסרה. מאפיינים בטוחים מוגדרים כעת במתודה ()CModel::rules  כאלמנטים שיש לאמת אותם לכל דבר בעזרת פונקציות אימות נתונים.
+- המתודה ()CModel::safeAttributes הוסרה. מאפיינים בטוחים מוגדרים כעת במתודה ()CModel::rules	כאלמנטים שיש לאמת אותם לכל דבר בעזרת פונקציות אימות נתונים.
 
 - המתודות ()CModel::validate(), CModel::beforeValidate ו ()CModel::afterValidate השתנו. במתודות ()CModel::setAttributes(), CModel::getSafeAttributeNames הפרמטר 'scenario` הוסר. בכדי להגדיר את התסריט של המודל יש להגדיר את המאפיין CModel::scenario.
 

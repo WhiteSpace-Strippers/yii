@@ -27,7 +27,7 @@
  * {@link validation}.
  *
  * To encrypt and decrypt data, call {@link encrypt()} and {@link decrypt()}
- * respectively, which uses 3DES encryption algorithm.  Note, the PHP Mcrypt
+ * respectively, which uses 3DES encryption algorithm.	Note, the PHP Mcrypt
  * extension must be installed and loaded.
  *
  * CSecurityManager is a core application component that can be accessed via

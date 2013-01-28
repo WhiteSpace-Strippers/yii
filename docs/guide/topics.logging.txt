@@ -25,17 +25,17 @@ Category is a string in the format of `xxx.yyy.zzz` which resembles to the
 logged in [CController], we may use the category `system.web.CController`.
 Message level should be one of the following values:
 
-   - `trace`: this is the level used by [Yii::trace]. It is for tracing
+	 - `trace`: this is the level used by [Yii::trace]. It is for tracing
 the execution flow of the application during development.
 
-   - `info`: this is for logging general information.
+	 - `info`: this is for logging general information.
 
-   - `profile`: this is for performance profile which is to be described
+	 - `profile`: this is for performance profile which is to be described
 shortly.
 
-   - `warning`: this is for warning messages.
+	 - `warning`: this is for warning messages.
 
-   - `error`: this is for fatal error messages.
+	 - `error`: this is for fatal error messages.
 
 Message Routing
 ---------------
@@ -110,11 +110,11 @@ we can prevent certain categories from appearing in our logs:
 
 The following log routes are available in Yii:
 
-   - [CDbLogRoute]: saves messages in a database table.
-   - [CEmailLogRoute]: sends messages to specified email addresses.
-   - [CFileLogRoute]: saves messages in a file under the application runtime directory.
-   - [CWebLogRoute]: displays messages at the end of the current Web page.
-   - [CProfileLogRoute]: displays profiling messages at the end of the current Web page.
+	 - [CDbLogRoute]: saves messages in a database table.
+	 - [CEmailLogRoute]: sends messages to specified email addresses.
+	 - [CFileLogRoute]: saves messages in a file under the application runtime directory.
+	 - [CWebLogRoute]: displays messages at the end of the current Web page.
+	 - [CProfileLogRoute]: displays profiling messages at the end of the current Web page.
 
 > Info: Message routing occurs at the end of the current request cycle
 when the [onEndRequest|CApplication::onEndRequest] event is raised. To explicitly

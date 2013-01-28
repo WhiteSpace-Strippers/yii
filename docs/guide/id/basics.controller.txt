@@ -70,16 +70,16 @@ yang masuk. Berdasarkan ID controller yang diberikan, aplikasi akan
 menentukan kelas controller apa dan di mana file kelas ditempatkan, dengan menggunakan
 aturan berikut.
 
-   - Jika [CWebApplication::catchAllRequest] ditetapkan, controller
+	 - Jika [CWebApplication::catchAllRequest] ditetapkan, controller
 akan dibuat berdasarkan properti ini, dam ID controller yang ditetapkan pengguna
 akan diabaikan. Ini dipakai terutama untuk menyimpan aplikasi dalam maintenance
 mode dan menampilkan halaman statis pemberitahuan.
 
-   - Jika ID ditemukan dalam [CWebApplication::controllerMap], konfigurasi
+	 - Jika ID ditemukan dalam [CWebApplication::controllerMap], konfigurasi
 controller terkait akan dipakai dalam membuat turunan
 controller.
 
-   - Jika ID ada dalam format `'path/ke/xyz'`, nama kelas controller
+	 - Jika ID ada dalam format `'path/ke/xyz'`, nama kelas controller
 diasumsikan adalah `XyzController` dan file kelas terkait adalah
 `protected/controllers/path/ke/XyzController.php`. Sebagai contoh, ID controller
 `admin/user` akan diuraikan sebagai kelas controller `UserController`
@@ -139,18 +139,18 @@ mengatur kode controller:
 
 ~~~
 protected/
-    controllers/
-        PostController.php
-        UserController.php
-        post/
-            CreateAction.php
-            ReadAction.php
-            UpdateAction.php
-        user/
-            CreateAction.php
-            ListAction.php
-            ProfileAction.php
-            UpdateAction.php
+		controllers/
+				PostController.php
+				UserController.php
+				post/
+						CreateAction.php
+						ReadAction.php
+						UpdateAction.php
+				user/
+						CreateAction.php
+						ListAction.php
+						ProfileAction.php
+						UpdateAction.php
 ~~~
 
 Action Parameter Binding
@@ -162,9 +162,9 @@ otomatis diisi oleh Yii dari nilai `$_GET`.
 Untuk mengilustrasi bagaimana cara kerjanya, mari kita asumsi bahwa kita perlu membuat sebuah action `create`
 pada `PostController`. Action ini memerlukan dua buah parameter :
 
-   * `category`: sebuah integer yang menunjukkan ID kategori ke berapa post baru yang
+	 * `category`: sebuah integer yang menunjukkan ID kategori ke berapa post baru yang
 akan dibuat.
-   * `language`: sebuah string yang mewakili kode bahasa pada post baru.
+	 * `language`: sebuah string yang mewakili kode bahasa pada post baru.
 
 Kita mungkin akan menggunakan coding berikut ini untuk mendapatkan nilai yang
 diinginkan dari parameter `$_GET`:
@@ -173,20 +173,20 @@ diinginkan dari parameter `$_GET`:
 [php]
 class PostController extends CController
 {
-    public function actionCreate()
-    {
-        if(isset($_GET['category']))
-            $category=(int)$_GET['category'];
-        else
-            throw new CHttpException(404,'invalid request');
+		public function actionCreate()
+		{
+				if(isset($_GET['category']))
+						$category=(int)$_GET['category'];
+				else
+						throw new CHttpException(404,'invalid request');
 
-        if(isset($_GET['language']))
-            $language=$_GET['language'];
-        else
-            $language='en';
+				if(isset($_GET['language']))
+						$language=$_GET['language'];
+				else
+						$language='en';
 
-        // ... mulai koding di sini...
-    }
+				// ... mulai koding di sini...
+		}
 }
 ~~~
 
@@ -196,12 +196,12 @@ Sekarang, dengan menggunakan fitur parameter action, kita bisa mendapatkan hasil
 [php]
 class PostController extends CController
 {
-    public function actionCreate($category, $language='en')
-    {
-        $category=(int)$category;
+		public function actionCreate($category, $language='en')
+		{
+				$category=(int)$category;
 
-        // ... mulai koding di sini...
-    }
+				// ... mulai koding di sini...
+		}
 }
 ~~~
 
@@ -235,7 +235,7 @@ sebuah string sederhana, akan diubah menjadi sebuah array yang terdiri dari stri
 > `$_GET` akan mengakibatkan HTTP exception.
 
 Mulai dari versi 1.1.7, binding parameter otomatis akan bekerja juga pada
-action yang menggunakan class. Ketika method `run()` didefinisikan 
+action yang menggunakan class. Ketika method `run()` didefinisikan
 beberapa parameter, maka parameter-parameter ini akan diisi sesuai dengan
 nilai parameter request yang diberi nama. Contohnya,
 
@@ -266,7 +266,7 @@ lain yang tidak dieksekusi.
 
 Filter bisa didefinisikan sebagai metode kelas controller. Nama metode harus
 dimulai dengan `filter`. Sebagai contoh, keberadaan metode
-`filterAccessControl` mendefinisikan sebuah filter bernama `accessControl`. 
+`filterAccessControl` mendefinisikan sebuah filter bernama `accessControl`.
 Metode filter harus bertanda:
 
 ~~~

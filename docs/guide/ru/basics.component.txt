@@ -24,12 +24,12 @@ $component->enableCaching=true; // устанавливаем значение �
 [php]
 public function getTextWidth()
 {
-    return $this->_textWidth;
+		return $this->_textWidth;
 }
 
 public function setTextWidth($value)
 {
-    $this->_textWidth=$value;
+		$this->_textWidth=$value;
 }
 ~~~
 
@@ -85,7 +85,7 @@ PHP-функцию call_user_func). Это может быть либо глоб
 [php]
 function methodName($event)
 {
-    …
+		…
 }
 ~~~
 

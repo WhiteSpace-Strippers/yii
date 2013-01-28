@@ -41,50 +41,50 @@ http://hostname/testdrive/index.php
 
 ~~~
 testdrive/
-   index.php                 קובץ הכניסה הראשי של האפליקציה
-   index-test.php            קובץ הכניסה הראשי למטרת בדיקות
-   assets/                   מכיל קבצי נכסים הנגישים למשתמשים
-   css/                      מכיל קבצי css
-   images/                   מכיל תמונות
-   themes/                   מכיל תבניות עיצוב לאפליקציה
-   protected/                מכיל קבצים מוגנים של האפליקציה
-      yiic                   קובץ פקודות עבור לינוקס ויוניקס
-      yiic.bat               קובץ פקודות עבור וינדווס
-      yiic.php               קובץ פקודות PHP
-      commands/              מכיל פקודות 'yiic' מותאמים אישית
-         shell/              מכיל פקודות 'yiic shell' מותאמים אישית
-      components/            מכיל רכיבים אשר משתמשים בהם שוב ושוב
-         Controller.php      מחלקת הבסיס לכל הקונטרולרים
-         Identity.php        מחלקת הזיהוי של משתמשים
-      config/                מכיל קבצי הגדרות
-         console.php         קובץ הגדרות לאפליקציה דרך מסוף
-         main.php            קובץ הגדרות לאפליקצית ווב
-         test.php            קובץ הגדרות לבדיקות פונקצנליות
-      controllers/           מכיל קבצי מחלקות קונטרולר
-         SiteController.php  קונטרולר ברירת המחדל
-      data/                  מכיל את מסדי הנתונים לדוגמא
-         schema.mysql.sql    תרשים מסד הנתונים של MySQL
-         schema.sqlite.sql   תרשים מסד נתונים של SQLite
-         testdrive.db        קובץ מסד הנתונים לדוגמא של SQLite
-      extensions/            מכיל הרחבות צד שלישי
-      messages/              מכיל קבצי תרגום
-      models/                מכיל קבצי מחלקות המודל
-         LoginForm.php       מודל הטופס לפעולה של התחברות
-         ContactForm.php     מודל הטופס לפעולה של יצירת קשר
-      runtime/               מכיל קבצים זמניים
-      tests/                 מכיל קבצי סקריפט לבדיקה
-      views/                 מכיל קבצי תצוגה ותבניות של קונטרולרים
-         layouts/            מכיל קבצי תבניות
-            main.php         התבנית הראשית אשר מופיע בכל העמודים
-            column1.php      תבנית לעמודים אשר משתמשים בעיצוב של עמודה אחת
-            column2.php      תבנית לעמודים אשר משתמשים בעיצוב של שני עמודות
-         site/               מכיל קבצי תצוגה לקונטרולר 'site'
-             pages/           מכיל עמודים סטטיים
-                about.php    קובץ התצוגה לעמוד אודות
-            contact.php     קובץ תצוגה לעמוד יצירת קשר
-            error.php        קובץ תצוגה להצגת שגיאות במידה ויש
-            index.php        קובץ תצוגה לפעולה 'index'
-            login.php        קובץ תצוגה לפעולה 'login'
+	 index.php								 קובץ הכניסה הראשי של האפליקציה
+	 index-test.php						קובץ הכניסה הראשי למטרת בדיקות
+	 assets/									 מכיל קבצי נכסים הנגישים למשתמשים
+	 css/											מכיל קבצי css
+	 images/									 מכיל תמונות
+	 themes/									 מכיל תבניות עיצוב לאפליקציה
+	 protected/								מכיל קבצים מוגנים של האפליקציה
+			yiic									 קובץ פקודות עבור לינוקס ויוניקס
+			yiic.bat							 קובץ פקודות עבור וינדווס
+			yiic.php							 קובץ פקודות PHP
+			commands/							מכיל פקודות 'yiic' מותאמים אישית
+				 shell/							מכיל פקודות 'yiic shell' מותאמים אישית
+			components/						מכיל רכיבים אשר משתמשים בהם שוב ושוב
+				 Controller.php			מחלקת הבסיס לכל הקונטרולרים
+				 Identity.php				מחלקת הזיהוי של משתמשים
+			config/								מכיל קבצי הגדרות
+				 console.php				 קובץ הגדרות לאפליקציה דרך מסוף
+				 main.php						קובץ הגדרות לאפליקצית ווב
+				 test.php						קובץ הגדרות לבדיקות פונקצנליות
+			controllers/					 מכיל קבצי מחלקות קונטרולר
+				 SiteController.php	קונטרולר ברירת המחדל
+			data/									מכיל את מסדי הנתונים לדוגמא
+				 schema.mysql.sql		תרשים מסד הנתונים של MySQL
+				 schema.sqlite.sql	 תרשים מסד נתונים של SQLite
+				 testdrive.db				קובץ מסד הנתונים לדוגמא של SQLite
+			extensions/						מכיל הרחבות צד שלישי
+			messages/							מכיל קבצי תרגום
+			models/								מכיל קבצי מחלקות המודל
+				 LoginForm.php			 מודל הטופס לפעולה של התחברות
+				 ContactForm.php		 מודל הטופס לפעולה של יצירת קשר
+			runtime/							 מכיל קבצים זמניים
+			tests/								 מכיל קבצי סקריפט לבדיקה
+			views/								 מכיל קבצי תצוגה ותבניות של קונטרולרים
+				 layouts/						מכיל קבצי תבניות
+						main.php				 התבנית הראשית אשר מופיע בכל העמודים
+						column1.php			תבנית לעמודים אשר משתמשים בעיצוב של עמודה אחת
+						column2.php			תבנית לעמודים אשר משתמשים בעיצוב של שני עמודות
+				 site/							 מכיל קבצי תצוגה לקונטרולר 'site'
+						 pages/					 מכיל עמודים סטטיים
+								about.php		קובץ התצוגה לעמוד אודות
+						contact.php		 קובץ תצוגה לעמוד יצירת קשר
+						error.php				קובץ תצוגה להצגת שגיאות במידה ויש
+						index.php				קובץ תצוגה לפעולה 'index'
+						login.php				קובץ תצוגה לפעולה 'login'
 ~~~
 
 התחברות למסד נתונים
@@ -95,26 +95,26 @@ testdrive/
 ~~~
 [php]
 return array(
-    ......
-    'components'=»array(
-        ......
-        'db'=»array(
-            'connectionString'=»'sqlite:protected/data/testdrive.db',
-        ),
-    ),
-    ......
+		......
+		'components'=»array(
+				......
+				'db'=»array(
+						'connectionString'=»'sqlite:protected/data/testdrive.db',
+				),
+		),
+		......
 );
 ~~~
 
-הקוד למעלה מנחה את Yii  שהאפליקציה צריכה להתחבר למסד נתונים SQLite תחת `WebRoot/testdrive/protected/data/testdrive.db` בעת הצורך. מסד הנתונים SQLite כבר כלול בשלד האפליקציה שיצרנו זה עתה. מסד נתונים מכיל טבלה אחת בלבד בשם `tbl_user`:
+הקוד למעלה מנחה את Yii	שהאפליקציה צריכה להתחבר למסד נתונים SQLite תחת `WebRoot/testdrive/protected/data/testdrive.db` בעת הצורך. מסד הנתונים SQLite כבר כלול בשלד האפליקציה שיצרנו זה עתה. מסד נתונים מכיל טבלה אחת בלבד בשם `tbl_user`:
 
 ~~~
 [sql]
 CREATE TABLE tbl_user (
-    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-    username VARCHAR(128) NOT NULL,
-    password VARCHAR(128) NOT NULL,
-    email VARCHAR(128) NOT NULL
+		id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+		username VARCHAR(128) NOT NULL,
+		password VARCHAR(128) NOT NULL,
+		email VARCHAR(128) NOT NULL
 );
 ~~~
 
@@ -136,18 +136,18 @@ CREATE TABLE tbl_user (
 ~~~
 [php]
 return array(
-    ......
-    'import'=»array(
-        'application.models.*',
-        'application.components.*',
-    ),
+		......
+		'import'=»array(
+				'application.models.*',
+				'application.components.*',
+		),
 
-    'modules'=»array(
-        'gii'=»array(
-            'class'=»'system.gii.GiiModule',
-            'password'=»'יש להזין סיסמא כאן',
-        ),
-    ),
+		'modules'=»array(
+				'gii'=»array(
+						'class'=»'system.gii.GiiModule',
+						'password'=»'יש להזין סיסמא כאן',
+				),
+		),
 );
 ~~~
 

@@ -88,7 +88,7 @@ Apabila user ingin melihat post dengan tag tertentu, kita akan menambahkan sebua
 
 Menggunakan kriteria query, kita dapat membuat sebuah data provider, yang pada umumnya melayani tiga hal. Pertama, memberikan pagination untuk data yang terlalu banyak hasilnya. Di sini kita kustomisasi pagination dengan mengatur ukuran page menjadi 5. Detik, seperti mengurutkan sesuai request user. Dan terkahir, dia melakukan feed pada data yang terpaginasi dan susun ke widget atau kode view untuk presentasi
 
-Setelah kita menyelesaikan dengan `actionIndex()`, kita memodifikasikan view `index` sebagai berikut. Perubahan kita pada umumnya mengenai penambahan header `h1`  ketika user menentukan tampilan post sebagai tag.
+Setelah kita menyelesaikan dengan `actionIndex()`, kita memodifikasikan view `index` sebagai berikut. Perubahan kita pada umumnya mengenai penambahan header `h1`	ketika user menentukan tampilan post sebagai tag.
 
 ~~~
 [php]

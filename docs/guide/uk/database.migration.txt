@@ -42,13 +42,13 @@ class m101129_185401_create_news_table extends CDbMigration
 	}
 
 
-    public function down()
-    {
-    	echo "m101129_185401_create_news_table does not support migration down.\n";
+		public function down()
+		{
+			echo "m101129_185401_create_news_table does not support migration down.\n";
 		return false;
-    }
+		}
 
-    /*
+		/*
 	// якщо потрібно виконати зміни в транзакції, використовуйте safeUp/safeDown
 	// замість up/down
 	public function safeUp()

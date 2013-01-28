@@ -3,8 +3,8 @@ Instalare
 
 Instalarea platformei Yii implica in mare urmatorii doi pasi:
 
-   1. Descarcam platforma Yii de pe site-ul [yiiframework.com](http://www.yiiframework.com/).
-   2. Dezarhivam fisierul editiei descarcate de Yii intr-un director accesibil pe Web.
+	 1. Descarcam platforma Yii de pe site-ul [yiiframework.com](http://www.yiiframework.com/).
+	 2. Dezarhivam fisierul editiei descarcate de Yii intr-un director accesibil pe Web.
 
 > Tip|Sfat: Platforma Yii nu trebuie neaparat instalata intr-un director accesibil de pe Web.
 O aplicatie Yii are un fisier de intrare care este de obicei singurul fisier care

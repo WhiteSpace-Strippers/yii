@@ -19,12 +19,12 @@ Yii::import('zii.widgets.jui.CJuiWidget');
  * To use this widget, you may insert the following code in a view:
  * <pre>
  * $this->beginWidget('zii.widgets.jui.CJuiDraggable',array(
- *     // additional javascript options for the draggable plugin
- *     'options'=>array(
- *         'scope'=>'myScope',
- *     ),
+ *		 // additional javascript options for the draggable plugin
+ *		 'options'=>array(
+ *				 'scope'=>'myScope',
+ *		 ),
  * ));
- *     echo 'Your draggable content here';
+ *		 echo 'Your draggable content here';
  *
  * $this->endWidget();
  *

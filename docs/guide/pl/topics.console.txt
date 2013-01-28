@@ -1,11 +1,11 @@
 Aplikacje konsolowe
 ====================
 
-Aplikacje konsolowe używane są głównie przez aplikacje webowe do wykonywania zadań 
-w trybie online, takich jak generowanie kodu, kompilacja indeksu wyszukiwania,  
-wysyłanie maili, itp. Yii dostarcza frameworku do pisania aplikacji konsolowych  
+Aplikacje konsolowe używane są głównie przez aplikacje webowe do wykonywania zadań
+w trybie online, takich jak generowanie kodu, kompilacja indeksu wyszukiwania,
+wysyłanie maili, itp. Yii dostarcza frameworku do pisania aplikacji konsolowych
 w sposób systematyczny i obiektowo zorientowany. Yii udostępnia aplikacji konsolowej
-zasoby (np. połączenia z bazą danych), które używane są przez aplikację sieciową 
+zasoby (np. połączenia z bazą danych), które używane są przez aplikację sieciową
 w trybie online.
 
 Przegląd
@@ -46,8 +46,8 @@ yiic <nazwa-polecenia> [parametry...]
 Tworzenie poleceń
 ---------------
 
-Polecenia konsolowe zapisane są w plikach, z klasami, w katalogu określonym 
-poprzez parametr [CConsoleApplication::commandPath]. Domyślnie wskazuje on 
+Polecenia konsolowe zapisane są w plikach, z klasami, w katalogu określonym
+poprzez parametr [CConsoleApplication::commandPath]. Domyślnie wskazuje on
 na `protected/commands`.
 
 Klasa polecenia konsolowego musi dziedziczyć po [CConsoleCommand]. Nazwa klasy
@@ -56,7 +56,7 @@ którego nazwa rozpoczyna się dużą literą. Np, polecenie `sitemap` musi uży
 o nazwie `SitemapCommand`. Wielkość liter poleceń konsolowych ma znaczenie.
 
 
-> Tip|Wskazówka: Poprzez skonfigurowanie [CConsoleApplication::commandMap] można posiadać również 
+> Tip|Wskazówka: Poprzez skonfigurowanie [CConsoleApplication::commandMap] można posiadać również
 > klasy poleceń spełniające inne konwencje nazewnictwa oraz znajdujące się w innych katalogach.
 
 Aby utworzyć nowe polecenie, nierzadko trzeba nadpisać metodę [CConsoleCommand::run()]
@@ -74,13 +74,13 @@ public function run($args) { ... }
 gdzie `$args` wskazuje na dodatkowe parametry podane w linii poleceń.
 
 W konsoli poleceń możemy używać `Yii::app()` w celu dostępu do instancji
-aplikacji konsolowej za pomocą której możemy również uzyskać dostęp do połączeń 
+aplikacji konsolowej za pomocą której możemy również uzyskać dostęp do połączeń
 bazodanowych (np. `Yii::app()->db`). Można powiedzieć, że użyteczność jest bardzo
 podobna do tego, co możemy zrobić w aplikacji sieciowej.
 
-> Info|Info: Poczynając od wersji 1.1.1, możemy również tworzyć globalne polecenia, 
-które są współdzielone przez **wszystkie** aplikacje Yii znajdujące się na tej samej 
-maszynie. W tym celu zdefiniuj gobalną zmienną o nazwie `YII_CONSOLE_COMMANDS`, 
+> Info|Info: Poczynając od wersji 1.1.1, możemy również tworzyć globalne polecenia,
+które są współdzielone przez **wszystkie** aplikacje Yii znajdujące się na tej samej
+maszynie. W tym celu zdefiniuj gobalną zmienną o nazwie `YII_CONSOLE_COMMANDS`,
 wskazującą na istniejący katalog. Możemy umieścić nasze globalne polecenia w tym katalogu.
 
 
@@ -95,7 +95,7 @@ wymaganymi jak i opcjonalnymi. Polecenie konsolowe może również dostarczać k
 do obsługi różnych podzadań. Czynność może zostać uproszczona poprzez używanie akcji konsoli poleceń.
 
 Akcja poleceń konsolowych jest metodą w klasie polecenia konsolowego.
-Nazwa metody musi posiadać format `actionXyz`, gdzie `Xyz` określa nazwę akcji, 
+Nazwa metody musi posiadać format `actionXyz`, gdzie `Xyz` określa nazwę akcji,
 której pierwsza litera nazwy zapisana jest za pomocą dużej litery. Na przykład,
 metoda `actionIndex` określa akcję o nazwie `index`.
 
@@ -106,15 +106,15 @@ yiic <nazwa-polecenia> <nazwa-akcji> --opcja1=wartość --opcja2=wartość2 ...
 ~~~
 
 Dodatkowe pary opcja-wartość zostaną przekazane jako nazwane parametry do metody akcji.
-Wasrtośc opcji `xyz` zostanie prezkazana do parametru `$xyz` metody akcji. 
+Wasrtośc opcji `xyz` zostanie prezkazana do parametru `$xyz` metody akcji.
 Na przykład, jeśli zdefiniujemy następująco klasę poleceń:
 
 ~~~
 [php]
 class SitemapCommand extends CConsoleCommand
 {
-    public function actionIndex($type, $limit=5) { ... }
-    public function actionInit() { ... }
+		public function actionIndex($type, $limit=5) { ... }
+		public function actionInit() { ... }
 }
 ~~~
 
@@ -126,15 +126,15 @@ yiic sitemap index --type=News --limit=5
 // $limit przyjmuje wartość domyślną
 yiic sitemap index --type=News
 
-// $limit  przyjmuje wartość domyślną
-// ponieważ 'index' jest akcją domyślną, możemy pominąć nazwę akcji 
+// $limit	przyjmuje wartość domyślną
+// ponieważ 'index' jest akcją domyślną, możemy pominąć nazwę akcji
 yiic sitemap --type=News
 
-// kolejność opcji nie ma znaczenia 
+// kolejność opcji nie ma znaczenia
 yiic sitemap index --limit=5 --type=News
 ~~~
 
-Jeśli opcja podana została bez wartości (np. `--type` zamiast `--type=News`), 
+Jeśli opcja podana została bez wartości (np. `--type` zamiast `--type=News`),
 to odpowiadająca mu wartość parametru akcji zostanie przyjęta jako `true`.
 
 > Note|Uwaga: Nie wspieramy alternatywnego formatpu opcji, takich jak:
@@ -173,8 +173,8 @@ Tablica `$args` będzie przechowywać wszystkie wartości dostępnych anonimowyc
 
 Globalne opcje odnoszą się do tych opcji linii polecań, które są dzielone przez wszystkie akcje w poleceniu.
 Na przykład, w poceneiu, które dostarcza kilka akcji, możemy chcieć aby każda akcja rozpoznawała
-opcje nazwaną `verbose` (z ang. gadatliwy, wielomówny). Chociaż możemy zadeklarować parametr `$verbose` 
-w każdej metodzie akcji, lepszym sposobem jest zadelarować ją jako **publiczną zmienną** klasy polecenia, 
+opcje nazwaną `verbose` (z ang. gadatliwy, wielomówny). Chociaż możemy zadeklarować parametr `$verbose`
+w każdej metodzie akcji, lepszym sposobem jest zadelarować ją jako **publiczną zmienną** klasy polecenia,
 która zamieni `verbose` w globalną opcję:
 
 ~~~
@@ -196,13 +196,13 @@ yiic sitemap index --verbose=1 --type=News
 Dostosowywanie aplikacji konsolowej
 --------------------------------
 
-Jeśli aplikacja została utworzona za pomocą narzędzia `yiic webapp`, domyślnie, 
-konfiguracja aplikacji konsolowej będzie się znajdować w `protected/config/console.php`. 
+Jeśli aplikacja została utworzona za pomocą narzędzia `yiic webapp`, domyślnie,
+konfiguracja aplikacji konsolowej będzie się znajdować w `protected/config/console.php`.
 Tak jak i plik konfiguracyjny aplikacji sieciowej, plik ten jest skryptem PHP, który zwraca
 tablicę reprezentującą inicjalne wartości właściwości instancji aplikacji konsolowej.
 W rezultacie, każda publiczna właściwość [CConsoleApplication] może zostać skonfigurowana w tym pliku.
 
-Ponieważ polecenia konsoli często służą aplikacji sieciowej, potrzebuję dostępu do używanych 
+Ponieważ polecenia konsoli często służą aplikacji sieciowej, potrzebuję dostępu do używanych
 przez nią zasobów (takich jak połączenie z bazą danych). Możemy go zagwarantować w następujący sposób
 poprzez plik konfiguracji aplikacji:
 

@@ -55,99 +55,99 @@ and must only contain letters, digits and underscores. Optional attribute
 case, when given value yes, makes the language case sensitive (default is case
 insensitive). Allowed subelements are:
 
-    * <authors>: Information about the authors of the file.
-        <author>: Information about a single author of the file. (May be used
-        multiple times, one per author.)
-                - name="...": Author's name. Required.
-                - email="...": Author's email address. Optional.
+		* <authors>: Information about the authors of the file.
+				<author>: Information about a single author of the file. (May be used
+				multiple times, one per author.)
+								- name="...": Author's name. Required.
+								- email="...": Author's email address. Optional.
 
-    * <default>: Default color group.
-          - innerGroup="...": color group name. Required.
-    
-    * <region>: Region definition
-          - name="...": Region name. Required.
-          - innerGroup="...": Default color group of region contents. Required.
-          - delimGroup="...": color group of start and end of region. Optional,
-            defaults to value of innerGroup attribute.
-          - start="...", end="...": Regular expression matching start and end
-            of region. Required. Regular expression delimiters are optional, but
-            if you need to specify delimiter, use /. The only case when the
-            delimiters are needed, is specifying regular expression modifiers,
-            such as m or U. Examples: \/\* or /$/m.
-          - contained="yes": Marks region as contained.
-          - never-contained="yes": Marks region as not-contained.
-          - <contains>: Elements allowed inside this region.
-                - all="yes" Region can contain any other region or block
-                (except not-contained). May be used multiple times.
-                      - <but> Do not allow certain regions or blocks.
-                            - region="..." Name of region not allowed within
-                              current region.
-                            - block="..." Name of block not allowed within
-                              current region.
-                - region="..." Name of region allowed within current region.
-                - block="..." Name of block allowed within current region.
-          - <onlyin> Only allow this region within certain regions. May be
-            used multiple times.
-                - block="..." Name of parent region
-    
-    * <block>: Block definition
-          - name="...": Block name. Required.
-          - innerGroup="...": color group of block contents. Optional. If not
-            specified, color group of parent region or default color group will be
-            used. One would only want to omit this attribute if there are
-            keyword groups (see below) inherited from this block, and no special
-            highlighting should apply when the block does not match the keyword.
-          - match="..." Regular expression matching the block. Required.
-            Regular expression delimiters are optional, but if you need to
-            specify delimiter, use /. The only case when the delimiters are
-            needed, is specifying regular expression modifiers, such as m or U.
-            Examples: #|\/\/ or /$/m.
-          - contained="yes": Marks block as contained.
-          - never-contained="yes": Marks block as not-contained.
-          - <onlyin> Only allow this block within certain regions. May be used
-              multiple times.
-                - block="..." Name of parent region
-          - multiline="yes": Marks block as multi-line. By default, whole
-            blocks are assumed to reside in a single line. This make the things
-            faster. If you need to declare a multi-line block, use this
-            attribute.
-          - <partgroup>: Assigns another color group to a part of the block that
-              matched a subpattern.
-                - index="n": Subpattern index. Required.
-                - innerGroup="...": color group name. Required.
+		* <default>: Default color group.
+					- innerGroup="...": color group name. Required.
+		
+		* <region>: Region definition
+					- name="...": Region name. Required.
+					- innerGroup="...": Default color group of region contents. Required.
+					- delimGroup="...": color group of start and end of region. Optional,
+						defaults to value of innerGroup attribute.
+					- start="...", end="...": Regular expression matching start and end
+						of region. Required. Regular expression delimiters are optional, but
+						if you need to specify delimiter, use /. The only case when the
+						delimiters are needed, is specifying regular expression modifiers,
+						such as m or U. Examples: \/\* or /$/m.
+					- contained="yes": Marks region as contained.
+					- never-contained="yes": Marks region as not-contained.
+					- <contains>: Elements allowed inside this region.
+								- all="yes" Region can contain any other region or block
+								(except not-contained). May be used multiple times.
+											- <but> Do not allow certain regions or blocks.
+														- region="..." Name of region not allowed within
+															current region.
+														- block="..." Name of block not allowed within
+															current region.
+								- region="..." Name of region allowed within current region.
+								- block="..." Name of block allowed within current region.
+					- <onlyin> Only allow this region within certain regions. May be
+						used multiple times.
+								- block="..." Name of parent region
+		
+		* <block>: Block definition
+					- name="...": Block name. Required.
+					- innerGroup="...": color group of block contents. Optional. If not
+						specified, color group of parent region or default color group will be
+						used. One would only want to omit this attribute if there are
+						keyword groups (see below) inherited from this block, and no special
+						highlighting should apply when the block does not match the keyword.
+					- match="..." Regular expression matching the block. Required.
+						Regular expression delimiters are optional, but if you need to
+						specify delimiter, use /. The only case when the delimiters are
+						needed, is specifying regular expression modifiers, such as m or U.
+						Examples: #|\/\/ or /$/m.
+					- contained="yes": Marks block as contained.
+					- never-contained="yes": Marks block as not-contained.
+					- <onlyin> Only allow this block within certain regions. May be used
+							multiple times.
+								- block="..." Name of parent region
+					- multiline="yes": Marks block as multi-line. By default, whole
+						blocks are assumed to reside in a single line. This make the things
+						faster. If you need to declare a multi-line block, use this
+						attribute.
+					- <partgroup>: Assigns another color group to a part of the block that
+							matched a subpattern.
+								- index="n": Subpattern index. Required.
+								- innerGroup="...": color group name. Required.
 
-              This is an example from CSS highlighter: the measure is matched as
-              a whole, but the measurement units are highlighted with different
-              color.
+							This is an example from CSS highlighter: the measure is matched as
+							a whole, but the measurement units are highlighted with different
+							color.
 
-                <block name="measure"  match="\d*\.?\d+(\%|em|ex|pc|pt|px|in|mm|cm)"
-                        innerGroup="number" contained="yes">
-                    <onlyin region="property"/>
-                    <partGroup index="1" innerGroup="string" />
-                </block>
-  
-    * <keywords>: Keyword group definition. Keyword groups are useful when you
-      want to highlight some words that match a condition for a block with a
-      different color. Keywords are defined with literal match, not regular
-      expressions. For example, you have a block named identifier matching a
-      general identifier, and want to highlight reserved words (which match
-      this block as well) with different color. You inherit a keyword group
-      "reserved" from "identifier" block.
-          - name="...": Keyword group. Required.
-          - ifdef="...", ifndef="..." : Conditional declaration. See
-            "Conditions" below.
-          - inherits="...": Inherited block name. Required.
-          - innerGroup="...": color group of keyword group. Required.
-          - case="yes|no": Overrides case-sensitivity of the language.
-            Optional, defaults to global value.
-          - <keyword>: Single keyword definition.
-                - match="..." The keyword. Note: this is not a regular
-                  expression, but literal match (possibly case insensitive).
+								<block name="measure"	match="\d*\.?\d+(\%|em|ex|pc|pt|px|in|mm|cm)"
+												innerGroup="number" contained="yes">
+										<onlyin region="property"/>
+										<partGroup index="1" innerGroup="string" />
+								</block>
+	
+		* <keywords>: Keyword group definition. Keyword groups are useful when you
+			want to highlight some words that match a condition for a block with a
+			different color. Keywords are defined with literal match, not regular
+			expressions. For example, you have a block named identifier matching a
+			general identifier, and want to highlight reserved words (which match
+			this block as well) with different color. You inherit a keyword group
+			"reserved" from "identifier" block.
+					- name="...": Keyword group. Required.
+					- ifdef="...", ifndef="..." : Conditional declaration. See
+						"Conditions" below.
+					- inherits="...": Inherited block name. Required.
+					- innerGroup="...": color group of keyword group. Required.
+					- case="yes|no": Overrides case-sensitivity of the language.
+						Optional, defaults to global value.
+					- <keyword>: Single keyword definition.
+								- match="..." The keyword. Note: this is not a regular
+									expression, but literal match (possibly case insensitive).
 
 Note that for BC reasons element partClass is alias for partGroup, and
-attributes innerClass and  delimClass  are aliases of innerGroup and
+attributes innerClass and	delimClass	are aliases of innerGroup and
 delimGroup, respectively.
-    
+		
 
 Conditions
 ----------
@@ -158,28 +158,28 @@ keywords matching Java standard classes. Finding a match in this list can take
 much time. For that reason, corresponding keyword group is declared with
 "ifdef" attribute :
 
-  <keywords name="builtin" inherits="identifier" innerClass="builtin" 
-            case="yes" ifdef="java.builtins">
+	<keywords name="builtin" inherits="identifier" innerClass="builtin" 
+						case="yes" ifdef="java.builtins">
 	<keyword match="AbstractAction" />
 	<keyword match="AbstractBorder" />
 	<keyword match="AbstractButton" />
-    ...
-    ...
+		...
+		...
 	<keyword match="_Remote_Stub" />
 	<keyword match="_ServantActivatorStub" />
 	<keyword match="_ServantLocatorStub" />
-  </keywords>
+	</keywords>
 
 This keyword group will be only enabled when "java.builtins" is passed as an
 element of "defines" option:
 
-    $options = array(
-        'defines' => array(
-            'java.builtins',
-        ),
-        'numbers' => HL_NUMBERS_TABLE,
-    );
-    $highlighter =& Text_Highlighter::factory('java', $options);
+		$options = array(
+				'defines' => array(
+						'java.builtins',
+				),
+				'numbers' => HL_NUMBERS_TABLE,
+		);
+		$highlighter =& Text_Highlighter::factory('java', $options);
 
 "ifndef" attribute has reverse meaning.
 
@@ -194,12 +194,12 @@ Class generation
 Creating XML description of highlighting rules is the most complicated part of
 the process. To generate the class, you need just few lines of code:
 
-    <?php
-    require_once 'Text/Highlighter/Generator.php';
-    $generator =& new Text_Highlighter_Generator('php.xml');
-    $generator->generate();
-    $generator->saveCode('PHP.php');
-    ?>
+		<?php
+		require_once 'Text/Highlighter/Generator.php';
+		$generator =& new Text_Highlighter_Generator('php.xml');
+		$generator->generate();
+		$generator->saveCode('PHP.php');
+		?>
 
 
 
@@ -214,42 +214,42 @@ care of possible errors. It is called generate (on Unix/Linux) or generate.bat
 also to process XML from standard input and write generated code to standard
 output.
 
-    Usage:
-    generate options
+		Usage:
+		generate options
 
-    Options:
-      -x filename, --xml=filename
-            source XML file. Multiple input files can be specified, in which
-            case each -x option must be followed by -p unless -d is specified
-            Defaults to stdin
-      -p filename, --php=filename
-            destination PHP file. Defaults to stdout. If specied multiple times,
-            each -p must follow -x
-      -d dirname, --dir=dirname
-            Default destination directory. File names will be taken from XML input
-            ("lang" attribute of <highlight> tag)
-      -h, --help
-            This help
+		Options:
+			-x filename, --xml=filename
+						source XML file. Multiple input files can be specified, in which
+						case each -x option must be followed by -p unless -d is specified
+						Defaults to stdin
+			-p filename, --php=filename
+						destination PHP file. Defaults to stdout. If specied multiple times,
+						each -p must follow -x
+			-d dirname, --dir=dirname
+						Default destination directory. File names will be taken from XML input
+						("lang" attribute of <highlight> tag)
+			-h, --help
+						This help
 
 Examples
 
-    Read from php.xml, write to PHP.php
+		Read from php.xml, write to PHP.php
 
-        generate -x php.xml -p PHP.php
+				generate -x php.xml -p PHP.php
 
-    Read from php.xml, write to standard output
+		Read from php.xml, write to standard output
 
-        generate -x php.xml
+				generate -x php.xml
 
-    Read from php.xml, write to PHP.php, read from xml.xml, write to XML.php
+		Read from php.xml, write to PHP.php, read from xml.xml, write to XML.php
 
-        generate -x php.xml -p PHP.php -x xml.xml -p XML.php
+				generate -x php.xml -p PHP.php -x xml.xml -p XML.php
 
-    Read from php.xml, write to /some/dir/PHP.php, read from xml.xml, write to
-    /some/dir/XML.php (assuming that xml.xml contains <highlight lang="xml">, and
-    php.xml contains <highlight lang="php">)
+		Read from php.xml, write to /some/dir/PHP.php, read from xml.xml, write to
+		/some/dir/XML.php (assuming that xml.xml contains <highlight lang="xml">, and
+		php.xml contains <highlight lang="php">)
 
-        generate -x php.xml -x xml.xml -d /some/dir/
+				generate -x php.xml -x xml.xml -d /some/dir/
 
 
 
@@ -262,11 +262,11 @@ Introduction
 Text_Highlighter supports renderes. Using renderers, you can get output in
 different formats. Two renderers are included in the package:
 
-    - HTML renderer. Generates HTML output. A style sheet should be linked to
-      the document to display colored text
+		- HTML renderer. Generates HTML output. A style sheet should be linked to
+			the document to display colored text
 
-    - Console renderer. Can be used to output highlighted text to
-      color-capable terminals, either directly or trough less -r
+		- Console renderer. Can be used to output highlighted text to
+			color-capable terminals, either directly or trough less -r
 
 
 Renderers API
@@ -277,29 +277,29 @@ override at least two methods - acceptToken and getOutput. Overriding other
 methods is optional, depending on the nature of renderer's output and details
 of implementation.
 
-    string reset()
-        resets renderer state. This method is called every time before a new
-        source file is highlighted.
+		string reset()
+				resets renderer state. This method is called every time before a new
+				source file is highlighted.
 
-    string preprocess(string $code)
-        preprocesses code. Can be used, for example, to normalize whitespace
-        before highlighting. Returns preprocessed string.
+		string preprocess(string $code)
+				preprocesses code. Can be used, for example, to normalize whitespace
+				before highlighting. Returns preprocessed string.
 
-    void acceptToken(string $group, string $content)
-        the core method of the renderer. Highlighter passes chunks of text to
-        this method in $content, and color group in $group
+		void acceptToken(string $group, string $content)
+				the core method of the renderer. Highlighter passes chunks of text to
+				this method in $content, and color group in $group
 
-    void finalize()
-        signals the renderer that no more tokens are available.
+		void finalize()
+				signals the renderer that no more tokens are available.
 
-    mixed getOutput()
-        returns generated output.
+		mixed getOutput()
+				returns generated output.
 
 
 Setting renderer options
 --------------------------------
 
-Renderers accept an optional argument to their constructor  - options array.
+Renderers accept an optional argument to their constructor	- options array.
 Elements of this array are renderer-specific.
 
 HTML renderer
@@ -315,29 +315,29 @@ highlighter XML source ("lang" attribute of <highlight> tag) in lower case.
 
 There are 3 special CSS classes:
 
-    hl-main - this class applies to whole output or right table column,
-              depending on 'numbers' option
-    hl-gutter - applies to left column in table
-    hl-table - applies to whole table
+		hl-main - this class applies to whole output or right table column,
+							depending on 'numbers' option
+		hl-gutter - applies to left column in table
+		hl-table - applies to whole table
 
 HTML renderer accepts following options (each being optional):
-    
-    * numbers - line numbering style.
-        0 - no numbering (default)
-        HL_NUMBERS_LI - use <ol></ol> for line numbering
-        HL_NUMBERS_TABLE  - create a 2-column table, with line numbers in left
-                            column and highlighted text in right column
+		
+		* numbers - line numbering style.
+				0 - no numbering (default)
+				HL_NUMBERS_LI - use <ol></ol> for line numbering
+				HL_NUMBERS_TABLE	- create a 2-column table, with line numbers in left
+														column and highlighted text in right column
 
-    * tabsize - tabulation size. Defaults to 4
+		* tabsize - tabulation size. Defaults to 4
 
-    Example:
-        
-        require_once 'Text/Highlighter/Renderer/Html.php';
-        $options = array(
-            'numbers' => HL_NUMBERS_LI,
-            'tabsize' => 8,
-        );
-        $renderer =& new Text_Highlighter_Renderer_HTML($options);
+		Example:
+				
+				require_once 'Text/Highlighter/Renderer/Html.php';
+				$options = array(
+						'numbers' => HL_NUMBERS_LI,
+						'tabsize' => 8,
+				);
+				$renderer =& new Text_Highlighter_Renderer_HTML($options);
 
 Console renderer
 ----------------
@@ -348,50 +348,50 @@ this renderer only highlights most common color groups. Additional colors
 can be specified using 'colors' option. This renderer also accepts 'numbers'
 option - a boolean value, and 'tabsize' option.
 
-    Example :
+		Example :
 
-        require_once 'Text/Highlighter/Renderer/Console.php';
-        $colors = array(
-            'prepro' => "\033[35m",
-            'types' => "\033[32m",
-        );
-        $options = array(
-            'numbers' => true,
-            'tabsize' => 8,
-            'colors' => $colors,
-        );
-        $renderer =& new Text_Highlighter_Renderer_Console($options);
+				require_once 'Text/Highlighter/Renderer/Console.php';
+				$colors = array(
+						'prepro' => "\033[35m",
+						'types' => "\033[32m",
+				);
+				$options = array(
+						'numbers' => true,
+						'tabsize' => 8,
+						'colors' => $colors,
+				);
+				$renderer =& new Text_Highlighter_Renderer_Console($options);
 
 
 ANSI color escape sequences have the following format:
 
-    ESC[#;#;....;#m
+		ESC[#;#;....;#m
 
 where ESC is character with ASCII code 27 (033 octal, 0x1B hexadecimal). # is
 one of the following:
 
-        0 for normal display
-        1 for bold on
-        4 underline (mono only)
-        5 blink on
-        7 reverse video on
-        8 nondisplayed (invisible)
-        30 black foreground
-        31 red foreground
-        32 green foreground
-        33 yellow foreground
-        34 blue foreground
-        35 magenta foreground
-        36 cyan foreground
-        37 white foreground
-        40 black background
-        41 red background
-        42 green background
-        43 yellow background
-        44 blue background
-        45 magenta background
-        46 cyan background
-        47 white background
+				0 for normal display
+				1 for bold on
+				4 underline (mono only)
+				5 blink on
+				7 reverse video on
+				8 nondisplayed (invisible)
+				30 black foreground
+				31 red foreground
+				32 green foreground
+				33 yellow foreground
+				34 blue foreground
+				35 magenta foreground
+				36 cyan foreground
+				37 white foreground
+				40 black background
+				41 red background
+				42 green background
+				43 yellow background
+				44 blue background
+				45 magenta background
+				46 cyan background
+				47 white background
 
 
 How to use Text_Highlighter class
@@ -403,8 +403,8 @@ Creating a highlighter object
 To create a highlighter for a certain language, use Text_Highlighter::factory()
 static method:
 
-    require_once 'Text/Highlighter.php';
-    $hl =& Text_Highlighter::factory('php');
+		require_once 'Text/Highlighter.php';
+		$hl =& Text_Highlighter::factory('php');
 
 
 Setting a renderer
@@ -412,27 +412,27 @@ Setting a renderer
 
 Actual output is produced by a renderer.
 
-    require_once 'Text/Highlighter.php';
-    require_once 'Text/Highlighter/Renderer/Html.php';
-    $options = array(
-        'numbers' => HL_NUMBERS_LI,
-        'tabsize' => 8,
-    );
-    $renderer =& new Text_Highlighter_Renderer_HTML($options);
-    $hl =& Text_Highlighter::factory('php');
-    $hl->setRenderer($renderer);
+		require_once 'Text/Highlighter.php';
+		require_once 'Text/Highlighter/Renderer/Html.php';
+		$options = array(
+				'numbers' => HL_NUMBERS_LI,
+				'tabsize' => 8,
+		);
+		$renderer =& new Text_Highlighter_Renderer_HTML($options);
+		$hl =& Text_Highlighter::factory('php');
+		$hl->setRenderer($renderer);
 
 Note that for BC reasons, it is possible to use highlighter without setting a
 renderer. If no renderer is set, HTML renderer will be used by default. In
 this case, you should pass options as second parameter to factory method. The
 following example works exactly as previous one:
 
-    require_once 'Text/Highlighter.php';
-    $options = array(
-        'numbers' => HL_NUMBERS_LI,
-        'tabsize' => 8,
-    );
-    $hl =& Text_Highlighter::factory('php', $options);
+		require_once 'Text/Highlighter.php';
+		$options = array(
+				'numbers' => HL_NUMBERS_LI,
+				'tabsize' => 8,
+		);
+		$hl =& Text_Highlighter::factory('php', $options);
 
 
 Getting output
@@ -440,16 +440,16 @@ Getting output
 
 And finally, do the highlighting and get the output:
 
-    require_once 'Text/Highlighter.php';
-    require_once 'Text/Highlighter/Renderer/Html.php';
-    $options = array(
-        'numbers' => HL_NUMBERS_LI,
-        'tabsize' => 8,
-    );
-    $renderer =& new Text_Highlighter_Renderer_HTML($options);
-    $hl =& Text_Highlighter::factory('php');
-    $hl->setRenderer($renderer);
-    $html = $hl->highlight(file_get_contents('example.php'));
+		require_once 'Text/Highlighter.php';
+		require_once 'Text/Highlighter/Renderer/Html.php';
+		$options = array(
+				'numbers' => HL_NUMBERS_LI,
+				'tabsize' => 8,
+		);
+		$renderer =& new Text_Highlighter_Renderer_HTML($options);
+		$hl =& Text_Highlighter::factory('php');
+		$hl->setRenderer($renderer);
+		$html = $hl->highlight(file_get_contents('example.php'));
 
 # vim: set autoindent tabstop=4 shiftwidth=4 softtabstop=4 tw=78: */
 

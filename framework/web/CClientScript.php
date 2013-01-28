@@ -65,15 +65,15 @@ class CClientScript extends CApplicationComponent
 	 * The array structure is as follows:
 	 * <pre>
 	 * array(
-	 *   'package-name'=>array(
-     *     'basePath'=>'alias of the directory containing the script files',
-     *     'baseUrl'=>'base URL for the script files',
-     *     'js'=>array(list of js files relative to basePath/baseUrl),
-     *     'css'=>array(list of css files relative to basePath/baseUrl),
-     *     'depends'=>array(list of dependent packages),
-     *   ),
-     *   ......
-     * )
+	 *	 'package-name'=>array(
+		 *		 'basePath'=>'alias of the directory containing the script files',
+		 *		 'baseUrl'=>'base URL for the script files',
+		 *		 'js'=>array(list of js files relative to basePath/baseUrl),
+		 *		 'css'=>array(list of css files relative to basePath/baseUrl),
+		 *		 'depends'=>array(list of dependent packages),
+		 *	 ),
+		 *	 ......
+		 * )
 	 * </pre>
 	 *
 	 * The JS and CSS files listed are relative to 'basePath'.
@@ -636,8 +636,8 @@ class CClientScript extends CApplicationComponent
 	 *
 	 * <b>Example:</b>
 	 * <pre>
-	 *    $cs->registerMetaTag('example', 'description', null, array('lang' => 'en'));
-	 *    $cs->registerMetaTag('beispiel', 'description', null, array('lang' => 'de'));
+	 *		$cs->registerMetaTag('example', 'description', null, array('lang' => 'en'));
+	 *		$cs->registerMetaTag('beispiel', 'description', null, array('lang' => 'de'));
 	 * </pre>
 	 * @param string $content content attribute of the meta tag
 	 * @param string $name name attribute of the meta tag. If null, the attribute will not be generated

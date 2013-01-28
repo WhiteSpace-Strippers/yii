@@ -15,26 +15,26 @@
  *
  * The following pattern characters are recognized:
  * <pre>
- * Pattern |      Description
+ * Pattern |			Description
  * ----------------------------------------------------
- * d       | Day of month 1 to 31, no padding
- * dd      | Day of month 01 to 31, zero leading
- * M       | Month digit 1 to 12, no padding
- * MM      | Month digit 01 to 12, zero leading
- * MMM     | Abbreviation representation of month (available since 1.1.11; locale aware since 1.1.13)
- * MMMM    | Full name representation (available since 1.1.13; locale aware)
- * yy      | 2 year digit, e.g., 96, 05
- * yyyy    | 4 year digit, e.g., 2005
- * h       | Hour in 0 to 23, no padding
- * hh      | Hour in 00 to 23, zero leading
- * H       | Hour in 0 to 23, no padding
- * HH      | Hour in 00 to 23, zero leading
- * m       | Minutes in 0 to 59, no padding
- * mm      | Minutes in 00 to 59, zero leading
- * s       | Seconds in 0 to 59, no padding
- * ss      | Seconds in 00 to 59, zero leading
- * a       | AM or PM, case-insensitive (since version 1.1.5)
- * ?       | matches any character (wildcard) (since version 1.1.11)
+ * d			 | Day of month 1 to 31, no padding
+ * dd			| Day of month 01 to 31, zero leading
+ * M			 | Month digit 1 to 12, no padding
+ * MM			| Month digit 01 to 12, zero leading
+ * MMM		 | Abbreviation representation of month (available since 1.1.11; locale aware since 1.1.13)
+ * MMMM		| Full name representation (available since 1.1.13; locale aware)
+ * yy			| 2 year digit, e.g., 96, 05
+ * yyyy		| 4 year digit, e.g., 2005
+ * h			 | Hour in 0 to 23, no padding
+ * hh			| Hour in 00 to 23, zero leading
+ * H			 | Hour in 0 to 23, no padding
+ * HH			| Hour in 00 to 23, zero leading
+ * m			 | Minutes in 0 to 59, no padding
+ * mm			| Minutes in 00 to 59, zero leading
+ * s			 | Seconds in 0 to 59, no padding
+ * ss			| Seconds in 00 to 59, zero leading
+ * a			 | AM or PM, case-insensitive (since version 1.1.5)
+ * ?			 | matches any character (wildcard) (since version 1.1.11)
  * ----------------------------------------------------
  * </pre>
  * All other characters must appear in the date string at the corresponding positions.
@@ -193,15 +193,15 @@ class CDateTimeParser
 				}
 				case 'a':
 				{
-				    if(($ampm=self::parseAmPm($value,$i))===false)
-				        return false;
-				    if(isset($hour))
-				    {
-				    	if($hour==12 && $ampm==='am')
-				    		$hour=0;
-				    	elseif($hour<12 && $ampm==='pm')
-				    		$hour+=12;
-				    }
+						if(($ampm=self::parseAmPm($value,$i))===false)
+								return false;
+						if(isset($hour))
+						{
+							if($hour==12 && $ampm==='am')
+								$hour=0;
+							elseif($hour<12 && $ampm==='pm')
+								$hour+=12;
+						}
 					$i+=2;
 					break;
 				}

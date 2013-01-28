@@ -203,9 +203,9 @@ class CDbCriteriaTest extends CTestCase {
 		$this->assertEquals('%1%', $criteria->params[':ycp9']);
 
 		$criteria = new CDbCriteria();
-		$criteria->compare('A', '    value_with_spaces  ');
+		$criteria->compare('A', '		value_with_spaces	');
 		$this->assertEquals('A=:ycp10', $criteria->condition);
-		$this->assertEquals('    value_with_spaces  ', $criteria->params[':ycp10']);
+		$this->assertEquals('		value_with_spaces	', $criteria->params[':ycp10']);
 
 		$criteria = new CDbCriteria();
 		$criteria->compare('A', array());
@@ -579,7 +579,7 @@ class CDbCriteriaTest extends CTestCase {
 		$criteria->having="{$paramName}";
 		$criteria->select="{$paramName}";
 		$criteria->params[$paramName]=$paramValue;
-		
+
 		$serializedCriteria=serialize($criteria);
 		$unserializedCriteria=unserialize($serializedCriteria);
 

@@ -103,6 +103,6 @@ protected function afterDelete()
 
 El código es muy simple: borra todos los comentarios cuyo `post_id` sea igual al ID del post borrado; luego actualiza la tabla `tbl_tag` para las etiquetas del post borrado.
 
-> Tip|Consejo: Debemos borrar explícitamente todos los comentarios del post borrado porque SQLite no implementa reglas de clave foránea. En un SGDB que tenga esta capacidad (como MySQL, PostgreSQL), las restricciones de clave foránea se pueden configurar para que el SGBD aumáticamente borre los comentarios relaciones si el post es borrado. En ese caso, no necesitamos especificar explícitamente el llamado de borrado en nuestro código. 
+> Tip|Consejo: Debemos borrar explícitamente todos los comentarios del post borrado porque SQLite no implementa reglas de clave foránea. En un SGDB que tenga esta capacidad (como MySQL, PostgreSQL), las restricciones de clave foránea se pueden configurar para que el SGBD aumáticamente borre los comentarios relaciones si el post es borrado. En ese caso, no necesitamos especificar explícitamente el llamado de borrado en nuestro código.
 
 <div class="revision">$Id$</div>

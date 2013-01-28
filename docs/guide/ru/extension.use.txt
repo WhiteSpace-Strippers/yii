@@ -3,11 +3,11 @@
 
 Порядок использования расширений, как правило, включает три шага:
 
-  1. Скачать расширение из [репозитория расширений](http://www.yiiframework.com/extensions/) Yii;
-  2. Распаковать расширение в поддиректорию `extensions/xyz`
-     [базовой директории приложения](/doc/guide/basics.application#application-base-directory),
-     где `xyz` — имя расширения;
-  3. Подключить, настроить и использовать расширение.
+	1. Скачать расширение из [репозитория расширений](http://www.yiiframework.com/extensions/) Yii;
+	2. Распаковать расширение в поддиректорию `extensions/xyz`
+		 [базовой директории приложения](/doc/guide/basics.application#application-base-directory),
+		 где `xyz` — имя расширения;
+	3. Подключить, настроить и использовать расширение.
 
 Каждое расширение уникально идентифицируется по имени. Если расширение
 называется `xyz`, то, используя псевдоним пути `ext.xyz`, мы всегда можем
@@ -48,15 +48,15 @@ $this->widget('zii.widgets.grid.CGridView', array(
 ~~~
 [php]
 return array(
-    // 'preload'=>array('xyz',…),
-    'components'=>array(
-        'xyz'=>array(
-            'class'=>'ext.xyz.XyzClass',
-            'property1'=>'value1',
-            'property2'=>'value2',
-        ),
-        // прочие настройки компонентов
-    ),
+		// 'preload'=>array('xyz',…),
+		'components'=>array(
+				'xyz'=>array(
+						'class'=>'ext.xyz.XyzClass',
+						'property1'=>'value1',
+						'property2'=>'value2',
+				),
+				// прочие настройки компонентов
+		),
 );
 ~~~
 
@@ -137,13 +137,13 @@ public function behaviors()
 [php]
 // виджет без внутреннего содержимого
 <?php $this->widget('ext.xyz.XyzClass', array(
-    'property1'=>'value1',
-    'property2'=>'value2')); ?>
+		'property1'=>'value1',
+		'property2'=>'value2')); ?>
 
 // виджет, который может иметь внутреннее содержимое
 <?php $this->beginWidget('ext.xyz.XyzClass', array(
-    'property1'=>'value1',
-    'property2'=>'value2')); ?>
+		'property1'=>'value1',
+		'property2'=>'value2')); ?>
 
 …содержимое виджета…
 

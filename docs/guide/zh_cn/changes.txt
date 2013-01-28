@@ -83,18 +83,18 @@
 版本 1.0.11
 --------------
 
- * 增加支持以参数化后的主机名解析和创建 URL 
-     - [Parameterizing Hostnames](/doc/guide/topics.url#parameterizing-hostnames)
+ * 增加支持以参数化后的主机名解析和创建 URL
+		 - [Parameterizing Hostnames](/doc/guide/topics.url#parameterizing-hostnames)
 
 
 版本 1.0.10
 --------------
 
  * 增强了支持使用 CPhpMessageSource 管理模块信息
-     - [信息翻译](/doc/guide/topics.i18n#message-translation)
+		 - [信息翻译](/doc/guide/topics.i18n#message-translation)
 
  * 增加支持关联匿名函数作为 event handlers
-     - [组件事件](/doc/guide/basics.component#component-event)
+		 - [组件事件](/doc/guide/basics.component#component-event)
 
 版本 1.0.8
 -------------
@@ -108,46 +108,46 @@
 版本 1.0.7
 -------------
 
- * 增加了在跟踪信息中支持显示调用栈 
-     - [记录上下文信息](/doc/guide/topics.logging#logging-context-information)
+ * 增加了在跟踪信息中支持显示调用栈
+		 - [记录上下文信息](/doc/guide/topics.logging#logging-context-information)
 
  * 增加了 `index` 选项到 AR 关联，以便被关联的对象可以被使用一个指定字段的值索引
-     - [关联查询选项](/doc/guide/database.arr#relational-query-options)
+		 - [关联查询选项](/doc/guide/database.arr#relational-query-options)
 
 版本 1.0.6
 -------------
 
  * 增加在 `update` 和 `delete` 方法使用命名空间的支持：
-     - [命名空间](/doc/guide/database.ar#named-scopes)
+		 - [命名空间](/doc/guide/database.ar#named-scopes)
 
  * 增加支持在关联规则的 `with` 选项中使用命名空间：
-     - [使用命名空间进行关联查询](/doc/guide/database.arr#relational-query-with-named-scopes)
+		 - [使用命名空间进行关联查询](/doc/guide/database.arr#relational-query-with-named-scopes)
 
  * 增加支持 profiling SQL executions
-     - [Profiling SQL Executions](/doc/guide/topics.logging#profiling-sql-executions)
+		 - [Profiling SQL Executions](/doc/guide/topics.logging#profiling-sql-executions)
 
  * 增加记录额外上下文信息支持
-     - [Logging Context Information](/doc/guide/topics.logging#logging-context-information)
+		 - [Logging Context Information](/doc/guide/topics.logging#logging-context-information)
 
  * 增加通过设置它的 urlFormat 和 caseSensitive 选项来定制一个单独的 URL 规则：
-     - [对用户友好的 URL](/doc/guide/topics.url#user-friendly-urls)
+		 - [对用户友好的 URL](/doc/guide/topics.url#user-friendly-urls)
 
  * 增加了支持使用一个controller action 显示应用错误：
-     - [使用 Action 管理错误](/doc/guide/topics.error#handling-errors-using-an-action)
+		 - [使用 Action 管理错误](/doc/guide/topics.error#handling-errors-using-an-action)
 
 版本 1.0.5
 -------------
 
  * 通过支持命名空间增强了 active record。查看：
-     - [命名空间](/doc/guide/database.ar#named-scopes)
-     - [默认命名空间](/doc/guide/database.ar#default-named-scope)
-     - [使用命名空间进行关联查询](/doc/guide/database.arr#relational-query-with-named-scopes)
+		 - [命名空间](/doc/guide/database.ar#named-scopes)
+		 - [默认命名空间](/doc/guide/database.ar#default-named-scope)
+		 - [使用命名空间进行关联查询](/doc/guide/database.arr#relational-query-with-named-scopes)
 
 
  * 增强了 active record ，支持 lazy loading with dynamic query options。 查看：
-     - [动态关联查询选项](/doc/guide/database.arr#dynamic-relational-query-options)
+		 - [动态关联查询选项](/doc/guide/database.arr#dynamic-relational-query-options)
 
  * 增强了 [CUrlManager] ，支持URL规则中的 route 部分。查看：
-     - [Parameterizing Routes in URL Rules](/doc/guide/topics.url#parameterizing-routes)
+		 - [Parameterizing Routes in URL Rules](/doc/guide/topics.url#parameterizing-routes)
 
 <div class="revision">$Id: changes.txt 2340 2012-02-28 03:26:19Z dongbeta@qq.com $</div>

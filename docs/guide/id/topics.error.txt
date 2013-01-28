@@ -37,12 +37,12 @@ Anda menggunakan sintaks berikut untuk memunculkan exception bila diperlukan:
 throw new ExceptionClass('ExceptionMessage');
 ~~~
 
-Yii mendefinisikan tiga kelas exception: [CException], [CDbException] dan 
-[CHttpException]. [CException] adalah kelas exception generik. [CDbException] 
+Yii mendefinisikan tiga kelas exception: [CException], [CDbException] dan
+[CHttpException]. [CException] adalah kelas exception generik. [CDbException]
 mewakiliki exception yang diakibatkan oleh operasi berhubungan dengan DB.
 [CHttpException] merupakan exception yang harus ditampilkan kepada pengguna akhir
-dan membawa  sebuah properti [statusCode|CHttpException::statusCode] mewakili status kode HTTP 
-Kelas exception menentukan bagaimana ia harus ditampilkan, 
+dan membawa	sebuah properti [statusCode|CHttpException::statusCode] mewakili status kode HTTP
+Kelas exception menentukan bagaimana ia harus ditampilkan,
 seperti yang akan dijelaskan nanti.
 
 > Tip: Memunculkan exception [CHttpException] adalah cara mudah pelaporan
@@ -77,13 +77,13 @@ sebenarnya.
 [CErrorHandler] mencari file tampilan terkait untuk sebuah tampilan dengan urutan
 sebagai berikut:
 
-   1. `WebRoot/themes/ThemeName/views/system`: ini adalah direktori tampilan `system`
+	 1. `WebRoot/themes/ThemeName/views/system`: ini adalah direktori tampilan `system`
 di bawah tema yang aktif saat ini.
 
-   2. `WebRoot/protected/views/system`: ini adalah direktori tampilan `system` di
+	 2. `WebRoot/protected/views/system`: ini adalah direktori tampilan `system` di
 bawah aplikasi.
 
-   3. `yii/framework/views`: ini adalah direktori tampilan sistem standar yang
+	 3. `yii/framework/views`: ini adalah direktori tampilan sistem standar yang
 disediakan oleh Yii framework.
 
 Oleh karena itu, jika kita ingin mengkustomisasi tampilan error, kita cukup membuat

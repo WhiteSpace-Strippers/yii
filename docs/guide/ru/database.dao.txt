@@ -12,10 +12,10 @@ Yii DAO является надстройкой над [PHP Data Objects (PDO)](
 
 Yii DAO состоит из четырёх основных классов:
 
-   - [CDbConnection]: представляет подключение к базе данных.
-   - [CDbCommand]: представляет запрос к базе данных, который необходимо выполнить.
-   - [CDbDataReader]: представляет однонаправленный поток строк данных, возвращаемых в ответ на запрос.
-   - [CDbTransaction]: представляет транзакцию базы данных.
+	 - [CDbConnection]: представляет подключение к базе данных.
+	 - [CDbCommand]: представляет запрос к базе данных, который необходимо выполнить.
+	 - [CDbDataReader]: представляет однонаправленный поток строк данных, возвращаемых в ответ на запрос.
+	 - [CDbTransaction]: представляет транзакцию базы данных.
 
 Далее мы проиллюстрируем использование Yii DAO на различных примерах.
 
@@ -34,7 +34,7 @@ $connection=new CDbConnection($dsn,$username,$password);
 // можно использовать конструкцию try…catch для перехвата возможных исключений
 $connection->active=true;
 …
-$connection->active=false;  // close connection
+$connection->active=false;	// close connection
 ~~~
 
 Формат DSN зависит от используемого драйвера PDO. Как правило, DSN состоит из имени драйвера PDO,
@@ -42,11 +42,11 @@ $connection->active=false;  // close connection
 используемого драйвера. Подробнее с этим можно ознакомиться в [документации PDO](http://www.php.net/manual/ru/pdo.construct.php).
 Ниже представлены несколько основных форматов DSN:
 
-   - SQLite: `sqlite:/path/to/dbfile`
-   - MySQL: `mysql:host=localhost;dbname=testdb`
-   - PostgreSQL: `pgsql:host=localhost;port=5432;dbname=testdb`
-   - SQL Server: `mssql:host=localhost;dbname=testdb`
-   - Oracle: `oci:dbname=//localhost:1521/testdb`
+	 - SQLite: `sqlite:/path/to/dbfile`
+	 - MySQL: `mysql:host=localhost;dbname=testdb`
+	 - PostgreSQL: `pgsql:host=localhost;port=5432;dbname=testdb`
+	 - SQL Server: `mssql:host=localhost;dbname=testdb`
+	 - Oracle: `oci:dbname=//localhost:1521/testdb`
 
 Поскольку [CDbConnection] наследует класс [CApplicationComponent], мы можем использовать его
 в качестве [компонента приложения](/doc/guide/basics.application#application-component). Для этого нужно настроить
@@ -64,7 +64,7 @@ array(
 			'connectionString'=>'mysql:host=localhost;dbname=testdb',
 			'username'=>'root',
 			'password'=>'password',
-			'emulatePrepare'=>true,  // необходимо для некоторых версий инсталляций MySQL
+			'emulatePrepare'=>true,	// необходимо для некоторых версий инсталляций MySQL
 		),
 	),
 )
@@ -92,10 +92,10 @@ $command=$connection->createCommand($sql);
 
 Существуют два способа выполнения SQL-запросов с использованием [CDbCommand]:
 
-   - [execute()|CDbCommand::execute]: выполняет SQL-запросы `INSERT`, `UPDATE` и `DELETE`.
+	 - [execute()|CDbCommand::execute]: выполняет SQL-запросы `INSERT`, `UPDATE` и `DELETE`.
 В случае успешного выполнения возвращает количество затронутых строк.
 
-   - [query()|CDbCommand::query]: выполняет SQL-запросы, возвращающие наборы данных, например, запросы `SELECT`.
+	 - [query()|CDbCommand::query]: выполняет SQL-запросы, возвращающие наборы данных, например, запросы `SELECT`.
 В случае успешного выполнения возвращает экземпляр класса [CDbDataReader], обеспечивающий доступ к полученным данным.
 Для удобства также реализованы методы вида `queryXXX()`, возвращающие результаты напрямую.
 
@@ -103,12 +103,12 @@ $command=$connection->createCommand($sql);
 
 ~~~
 [php]
-$rowCount=$command->execute();   // выполнение запроса типа `INSERT`, `UPDATE` или `DELETE`
-$dataReader=$command->query();   // выполнение запроса типа `SELECT`
-$rows=$command->queryAll();      // возвращает все строки результата запроса
-$row=$command->queryRow();       // возвращает первую строку результата запроса
+$rowCount=$command->execute();	 // выполнение запроса типа `INSERT`, `UPDATE` или `DELETE`
+$dataReader=$command->query();	 // выполнение запроса типа `SELECT`
+$rows=$command->queryAll();			// возвращает все строки результата запроса
+$row=$command->queryRow();			 // возвращает первую строку результата запроса
 $column=$command->queryColumn(); // возвращает первый столбец результата запроса
-$value=$command->queryScalar();  // возвращает значение первого поля первой строки результата запроса
+$value=$command->queryScalar();	// возвращает значение первого поля первой строки результата запроса
 ~~~
 
 Обработка результатов запроса
@@ -140,10 +140,10 @@ $rows=$dataReader->readAll();
 читает из БД, важно удостовериться, что набор запросов выполнен полностью, а не частично.
 В этой ситуации можно воспользоваться транзакциями, представляющими собой экземпляры класса [CDbTransaction]:
 
-   - Начало транзакции.
-   - Выполнение запросов по очереди. В этот момент все изменения в базе недоступны извне.
-   - Подтверждение транзакции. Если транзакция проведена успешно, то изменения становятся общедоступны.
-   - При возникновении ошибки в ходе выполнения запросов происходит откат транзакции в начальное состояние.
+	 - Начало транзакции.
+	 - Выполнение запросов по очереди. В этот момент все изменения в базе недоступны извне.
+	 - Подтверждение транзакции. Если транзакция проведена успешно, то изменения становятся общедоступны.
+	 - При возникновении ошибки в ходе выполнения запросов происходит откат транзакции в начальное состояние.
 
 Эту последовательность действий можно реализовать следующим образом:
 
@@ -217,7 +217,7 @@ $dataReader->bindColumn(1,$username);
 $dataReader->bindColumn(2,$email);
 while($dataReader->read()!==false)
 {
-    // переменные $username и $email получают значения полей username и email текущей строки
+		// переменные $username и $email получают значения полей username и email текущей строки
 }
 ~~~
 

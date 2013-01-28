@@ -5,7 +5,7 @@ Obiekt aplikacji obudowuje kontekst wywołania, w którym przetwarzane jest żą
 Jego głównym zadaniem jest zbieranie pewnych podstawowych informacji o żądaniu
 i wysyłania ich do odpowiedniego kontrolera w celu późniejszego ich przetworzenia.
 
-Służy on również jako główne miejsce przechowujące ustawienia konfiguracji na poziomie aplikacji. 
+Służy on również jako główne miejsce przechowujące ustawienia konfiguracji na poziomie aplikacji.
 Z tego powodu, obiekt aplikacji jest również nazywany `front-controller'em`.
 
 Obiekt aplikacji jest tworzony jako singleton przez [skrypt wejściowy](/doc/guide/basics.entry).
@@ -16,13 +16,13 @@ Konfiguracja aplikacji
 -------------------------
 
 Domyślnie, obiekt aplikacji jest instancją klasy [CWebApplication]. Aby dostosować go
-do własnych potrzeb, zazwyczaj dostarczamy mu plik ustawień konfiguracyjnych (lub tablicę) 
+do własnych potrzeb, zazwyczaj dostarczamy mu plik ustawień konfiguracyjnych (lub tablicę)
 podczas tworzenia jego instancji w celu zainicjalizowania wartości jego właściwości.
 Alternatywnym sposobem dostosowywania go do własnych potrzeb jest rozszerzenie
 klasy [CWebApplication].
 
 Konfigurację stanowi tablica par klucz-wartość. Każdy klucz reprezentuje nazwę właściwości
-instancji aplikacji a każda odpowiadająca jej wartość reprezentuje odpowiadającą tej właściwości wartość początkową. 
+instancji aplikacji a każda odpowiadająca jej wartość reprezentuje odpowiadającą tej właściwości wartość początkową.
 Na przykład, następująca tablica konfiguracyjna, ustawia właściwości [name|CApplication::name] oraz
 [defaultController|CWebApplication::defaultController] aplikacji.
 
@@ -34,7 +34,7 @@ array(
 )
 ~~~
 
-Zazwyczaj przechowujemy konfigurację w osobnym skrypcie PHP (np. `protected/config/main.php`). 
+Zazwyczaj przechowujemy konfigurację w osobnym skrypcie PHP (np. `protected/config/main.php`).
 Wewnątrz skryptu zwracamy tablicę konfiguracyjną w następujący sposób:
 
 ~~~
@@ -51,9 +51,9 @@ sposób, zazwyczaj w [skrypcie wejściowym](/doc/guide/basics.entry):
 $app=Yii::createWebApplication($configFile);
 ~~~
 
-> Tip|Wskazówka: Jeśli konfiguracja aplikacji jest bardzo złożona, możemy podzielić ją 
+> Tip|Wskazówka: Jeśli konfiguracja aplikacji jest bardzo złożona, możemy podzielić ją
 na kilka plików, każdy będzie zwracał wtedy część tablicy konfiguracyjnej.
-Następnie w głównym pliku konfiguracyjnym, możemy wywołać funkcję PHP `include()` w celu 
+Następnie w głównym pliku konfiguracyjnym, możemy wywołać funkcję PHP `include()` w celu
 załadowania pozostałych plików konfiguracyjnych oraz złączenia ich w jedną, kompletną
 tablicę konfiguracyjną.
 
@@ -61,15 +61,15 @@ tablicę konfiguracyjną.
 Katalog główny aplikacji (ang. Application Base Directory)
 --------------------------
 
-Katalog główny aplikacji to katalog główny, w którym zawierają się wszystkie 
-wrażliwe na bezpieczeństwo skrypty PHP oraz dane. Domyślnie, jest to podkatalog 
+Katalog główny aplikacji to katalog główny, w którym zawierają się wszystkie
+wrażliwe na bezpieczeństwo skrypty PHP oraz dane. Domyślnie, jest to podkatalog
 nazwany `protected`, który znajduje się w katalogu zawierającym skrypt wejściowy.
-Można go dostosować do własnych potrzeb poprzez ustawienie właściwości  
+Można go dostosować do własnych potrzeb poprzez ustawienie właściwości
 [basePath|CWebApplication::basePath] w [konfiguracji aplikacji](/doc/guide/basics.application#application-configuration).
 
-Dostęp do zawartości w katalogu głównym aplikacji powinien być chroniony, tak by 
+Dostęp do zawartości w katalogu głównym aplikacji powinien być chroniony, tak by
 żaden użytkownik webowy nie miał do niego dostępu. Dla [serwera HTTP Apache](http://httpd.apache.org/)
-można to uczynić prosto poprzez umieszczenie pliku `.htaccess` w katalogu głównym. 
+można to uczynić prosto poprzez umieszczenie pliku `.htaccess` w katalogu głównym.
 Zawartość pliku `.htaccess` powinna być następująca:
 
 ~~~
@@ -79,8 +79,8 @@ deny from all
 Komponenty aplikacji
 ---------------------
 
-Funkcjonalności oferowane przez obiekt aplikacji mogą zostać łatwo dostosowane 
-oraz wzbogacone poprzez użycie jego elastycznej komponentowej architektury. Obiekt 
+Funkcjonalności oferowane przez obiekt aplikacji mogą zostać łatwo dostosowane
+oraz wzbogacone poprzez użycie jego elastycznej komponentowej architektury. Obiekt
 zarządza zestawem komponentów aplikacji, każdy z nich implementuje określoną funkcjonalność.
 Na przykład, obiekt przetwarza wstępnie żądanie użytkownika przy pomocy komponentów
 [CUrlManager] oraz [CHttpRequest].
@@ -108,110 +108,110 @@ array(
 ~~~
 
 W powyższym przykładzie, dodaliśmy element `cache` do tablicy komponentów `components`.
-Element `cache` mówi, iż klasą komponentu jest `CMemCache` a jej właściwość `servers` 
+Element `cache` mówi, iż klasą komponentu jest `CMemCache` a jej właściwość `servers`
 powinna być w taki i taki sposób zainicjalizowana.
 
 Aby dostać się do komponentu aplikacji używamy `Yii::app()->ComponentID`, gdzie
 `ComponentID` odnosi się do ID komponentu (np. `Yii::app()->cache`).
 
-Komponent aplikacji może zostać dezaktywowany poprzez ustawienie `enabled` na false 
-w jego konfiguracji. Wartość null jest zwracana, jeśli chcemy uzyskać dostęp do 
+Komponent aplikacji może zostać dezaktywowany poprzez ustawienie `enabled` na false
+w jego konfiguracji. Wartość null jest zwracana, jeśli chcemy uzyskać dostęp do
 dezaktywowanego komponentu.
 
-> Tip|Wskazówka: Domyślnie, komponenty aplikacji tworzone są na żądanie. Oznacza to, że 
-komponent aplikacji nie zostanie tak długo utworzony, dopóki nie będzie żądania 
-dostępu do niego ze strony użytkownika. W rezultacie, ogólna wydajność nie będzie 
+> Tip|Wskazówka: Domyślnie, komponenty aplikacji tworzone są na żądanie. Oznacza to, że
+komponent aplikacji nie zostanie tak długo utworzony, dopóki nie będzie żądania
+dostępu do niego ze strony użytkownika. W rezultacie, ogólna wydajność nie będzie
 zmniejszona nawet jeśli aplikacja posiada skonfigurowanych wiele komponentów. Część
 komponentów aplikacji (np. [CLogRouter]) musi być utworzona niezależnie od tego, czy
-żądanie dostępu do nich wystąpiło, czy też nie. Aby to umożliwić, należy wypisać 
+żądanie dostępu do nich wystąpiło, czy też nie. Aby to umożliwić, należy wypisać
 ich numery ID we właściwości [preload|CApplication::preload] aplikacji.
 
 Rdzenne komponenty aplikacji (ang. Core Application Components)
 ---------------------------------------------------------------
 
-Yii predefiniuje zestaw podstawowych komponentów aplikacji aby dostarczyć funkcjonalność 
-wspólną dla prawie wszystkich aplikacji webowych. Na przykład, komponent [request|CWebApplication::request] 
-jest używany do zbierania informacji o żądaniu użytkownika i dostarczania informacji takich jak 
-żądany URL, ciasteczka. Poprzez skonfigurowanie właściwości rdzennych komponentów, 
+Yii predefiniuje zestaw podstawowych komponentów aplikacji aby dostarczyć funkcjonalność
+wspólną dla prawie wszystkich aplikacji webowych. Na przykład, komponent [request|CWebApplication::request]
+jest używany do zbierania informacji o żądaniu użytkownika i dostarczania informacji takich jak
+żądany URL, ciasteczka. Poprzez skonfigurowanie właściwości rdzennych komponentów,
 możemy zmienić domyślne zachowanie Yii prawie w każdym jego aspekcie.
 
 Poniżej znajduje się lista rdzennych komponentów, które są predeklarowane w [CWebApplication].
 
-   - [assetManager|CWebApplication::assetManager]: [CAssetManager] - zarządza publikowaniem 
-   prywatnych plików zasobów.
+	 - [assetManager|CWebApplication::assetManager]: [CAssetManager] - zarządza publikowaniem
+	 prywatnych plików zasobów.
 
-   - [authManager|CWebApplication::authManager]: [CAuthManager] - zarządza bazującą 
-   na rolach kontrolą dostępu (RBAC).
+	 - [authManager|CWebApplication::authManager]: [CAuthManager] - zarządza bazującą
+	 na rolach kontrolą dostępu (RBAC).
 
-   - [cache|CApplication::cache]: [CCache] - dostarcza funkcjonalność umożliwiającą
-   buforowanie danych. Zauważ, że musisz określić aktualną klasę (np. [CMemCache], 
-   [CDbCache]). W przeciwnym przypadku, wartość null zostanie zwrócona kiedy będziesz 
-   próbował uzyskać dostęp do tego komponentu.
+	 - [cache|CApplication::cache]: [CCache] - dostarcza funkcjonalność umożliwiającą
+	 buforowanie danych. Zauważ, że musisz określić aktualną klasę (np. [CMemCache],
+	 [CDbCache]). W przeciwnym przypadku, wartość null zostanie zwrócona kiedy będziesz
+	 próbował uzyskać dostęp do tego komponentu.
 
-   - [clientScript|CWebApplication::clientScript]: [CClientScript] - zarządza 
-   skryptami klienta (javascript oraz CSS).
+	 - [clientScript|CWebApplication::clientScript]: [CClientScript] - zarządza
+	 skryptami klienta (javascript oraz CSS).
 
-   - [coreMessages|CApplication::coreMessages]: [CPhpMessageSource] - dostarcza 
-   tłumaczenia rdzennych komunikatów używanych przez framework Yii.
+	 - [coreMessages|CApplication::coreMessages]: [CPhpMessageSource] - dostarcza
+	 tłumaczenia rdzennych komunikatów używanych przez framework Yii.
 
-   - [db|CApplication::db]: [CDbConnection] - dostarcza połączenia z bazą danych. 
-   Zauważ, że aby móc używać tego komponentu, musisz skonfigurować jego właściwość 
-   [connectionString|CDbConnection::connectionString].
+	 - [db|CApplication::db]: [CDbConnection] - dostarcza połączenia z bazą danych.
+	 Zauważ, że aby móc używać tego komponentu, musisz skonfigurować jego właściwość
+	 [connectionString|CDbConnection::connectionString].
 
-   - [errorHandler|CApplication::errorHandler]: [CErrorHandler] - zarządza niezłapanymi
-   błędami oraz wyjątkami PHP.
-   
-   - [format|CApplication::format]: [CFormatter] - formatuje wartości danych w celu wyświetlenia.
+	 - [errorHandler|CApplication::errorHandler]: [CErrorHandler] - zarządza niezłapanymi
+	 błędami oraz wyjątkami PHP.
 
-   - [messages|CApplication::messages]: [CPhpMessageSource] - dostarcza przetłumaczone
-   komunikaty używane przez aplikacje Yii.
+	 - [format|CApplication::format]: [CFormatter] - formatuje wartości danych w celu wyświetlenia.
 
-   - [request|CWebApplication::request]: [CHttpRequest] - dostarcza informacji 
-   związanych z żądaniem użytkownika.
+	 - [messages|CApplication::messages]: [CPhpMessageSource] - dostarcza przetłumaczone
+	 komunikaty używane przez aplikacje Yii.
 
-   - [securityManager|CApplication::securityManager]: [CSecurityManager] - dostarcza
-   usługi związane z bezpieczeństwem, takie jak haszowanie i szyfrowanie.
+	 - [request|CWebApplication::request]: [CHttpRequest] - dostarcza informacji
+	 związanych z żądaniem użytkownika.
 
-   - [session|CWebApplication::session]: [CHttpSession] - dostarcza funkcjonalność 
-   powiązaną z sesją.
+	 - [securityManager|CApplication::securityManager]: [CSecurityManager] - dostarcza
+	 usługi związane z bezpieczeństwem, takie jak haszowanie i szyfrowanie.
 
-   - [statePersister|CApplication::statePersister]: [CStatePersister] - dostarcza mechanizmu
-   przechowywania stanów globalnych.
+	 - [session|CWebApplication::session]: [CHttpSession] - dostarcza funkcjonalność
+	 powiązaną z sesją.
 
-   - [urlManager|CWebApplication::urlManager]: [CUrlManager] - dostarcza funkcjonalności
-   tworzenia i parsowania adresów URL.
+	 - [statePersister|CApplication::statePersister]: [CStatePersister] - dostarcza mechanizmu
+	 przechowywania stanów globalnych.
 
-   - [user|CWebApplication::user]: [CWebUser] - przechowuje informację związane z tożsamością
-   aktualnego użytkownika.
+	 - [urlManager|CWebApplication::urlManager]: [CUrlManager] - dostarcza funkcjonalności
+	 tworzenia i parsowania adresów URL.
 
-   - [themeManager|CWebApplication::themeManager]: [CThemeManager] - zarządza tematami.
+	 - [user|CWebApplication::user]: [CWebUser] - przechowuje informację związane z tożsamością
+	 aktualnego użytkownika.
+
+	 - [themeManager|CWebApplication::themeManager]: [CThemeManager] - zarządza tematami.
 
 
 Cykl życia aplikacji
 --------------------
 
-Podczas przetwarzania żądania użytkownika aplikacja podlega następującemu cyklowi 
+Podczas przetwarzania żądania użytkownika aplikacja podlega następującemu cyklowi
 życia:
 
-   0. Inicjalizacja początkowa aplikacji za pomocą [CApplication::preinit()];
+	 0. Inicjalizacja początkowa aplikacji za pomocą [CApplication::preinit()];
 
-   1. Utworzenie klasy autoloader oraz klasy zarządzania błędami;
+	 1. Utworzenie klasy autoloader oraz klasy zarządzania błędami;
 
-   2. Zarejestrowanie rdzennych komponentów aplikacji;
+	 2. Zarejestrowanie rdzennych komponentów aplikacji;
 
-   3. Wczytanie konfiguracji aplikacji;
+	 3. Wczytanie konfiguracji aplikacji;
 
-   4. Zainicjalizowanie aplikacji przy użyciu metody [CApplication::init()]
-     - rejestruje zachowania aplikacji;   
-	   - załadowanie statycznych komponentów aplikacji;
+	 4. Zainicjalizowanie aplikacji przy użyciu metody [CApplication::init()]
+		 - rejestruje zachowania aplikacji;
+		 - załadowanie statycznych komponentów aplikacji;
 
-   5. Zgłoszenie zdarzenia [onBeginRequest|CApplication::onBeginRequest];
+	 5. Zgłoszenie zdarzenia [onBeginRequest|CApplication::onBeginRequest];
 
-   6. Przetwarzanie żądania użytkownika:
-	   - zbieranie informacji o żądaniu;
-	   - utworzenie kontrolera;
-	   - uruchomienie kontrolera;
+	 6. Przetwarzanie żądania użytkownika:
+		 - zbieranie informacji o żądaniu;
+		 - utworzenie kontrolera;
+		 - uruchomienie kontrolera;
 
-   7. Zgłoszenie zdarzenia [onEndRequest|CApplication::onEndRequest];
+	 7. Zgłoszenie zdarzenia [onEndRequest|CApplication::onEndRequest];
 
 <div class="revision">$Id: basics.application.txt 3251 2011-06-01 00:24:06Z qiang.xue $</div>

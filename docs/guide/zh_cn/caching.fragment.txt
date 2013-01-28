@@ -59,13 +59,13 @@
 
 [COutputCache]内置了这一特征，程序员不需要编写根据ID变动内容的模式。以下是摘要。
 
-   - [varyByRoute|COutputCache::varyByRoute]: 设置此选项为true ，缓存的内容将根据[route](/doc/guide/basics.controller#route)变化。因此，每个控制器和行动的组合将有一个单独的缓存内容。
+	 - [varyByRoute|COutputCache::varyByRoute]: 设置此选项为true ，缓存的内容将根据[route](/doc/guide/basics.controller#route)变化。因此，每个控制器和行动的组合将有一个单独的缓存内容。
 
-   - [varyBySession|COutputCache::varyBySession]: 设置此选项为true ，缓存的内容将根据session ID变化。因此，每个用户会话可能会看到由缓存提供的不同内容。
+	 - [varyBySession|COutputCache::varyBySession]: 设置此选项为true ，缓存的内容将根据session ID变化。因此，每个用户会话可能会看到由缓存提供的不同内容。
 
-   - [varyByParam|COutputCache::varyByParam]: 设置此选项的数组里的名字，缓存的内容将根据GET参数的值变动。例如，如果一个页面显示文章的内容根据`id`的GET参数，我们可以指定[varyByParam|COutputCache::varyByParam]为`array('id')`，以使我们能够缓存每篇文章内容。如果没有这样的变化，我们只能能够缓存某一文章。
+	 - [varyByParam|COutputCache::varyByParam]: 设置此选项的数组里的名字，缓存的内容将根据GET参数的值变动。例如，如果一个页面显示文章的内容根据`id`的GET参数，我们可以指定[varyByParam|COutputCache::varyByParam]为`array('id')`，以使我们能够缓存每篇文章内容。如果没有这样的变化，我们只能能够缓存某一文章。
 
-   - [varyByExpression|COutputCache::varyByExpression]: by setting this option
+	 - [varyByExpression|COutputCache::varyByExpression]: by setting this option
 to a PHP expression, we can make the cached content to be variated according
 to the result of this PHP expression. This option has been available since
 version 1.0.4.

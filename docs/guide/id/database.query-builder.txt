@@ -170,7 +170,7 @@ dengan `operator`dapat bisa berupa :
 
 * `not in`: mirip dengan operator `in` kecuali tulisan `IN` akan diubah dengan `NOT IN` di dalam kondisi yang di-generate.
 
-* `like`: operan 1 harus berupa kolom atau ekspresi DB, dan operan 2 harus berupa string atau sebuah array yang mewakili range dari nilai-nilai di kolom atau ekspresi DB yang mirip. Misalnya,  `array('like', 'name', '%tester%')` akan menghasilkan `name LIKE '%tester%'`.  Ketika range nilai diberikan sebagai array, maka beberapa predikat `LIKE` akan di-generate dan digabungkan dengan menggunakan `AND`. Misalnya `array('like', 'name', array('%test%', '%sample%'))` akan menghasilkan `name LIKE '%test%' AND name LIKE '%sample%'`. Method ini akan memberikan quote pada nama kolom dan nilai escape pada range nilai.
+* `like`: operan 1 harus berupa kolom atau ekspresi DB, dan operan 2 harus berupa string atau sebuah array yang mewakili range dari nilai-nilai di kolom atau ekspresi DB yang mirip. Misalnya,	`array('like', 'name', '%tester%')` akan menghasilkan `name LIKE '%tester%'`.	Ketika range nilai diberikan sebagai array, maka beberapa predikat `LIKE` akan di-generate dan digabungkan dengan menggunakan `AND`. Misalnya `array('like', 'name', array('%test%', '%sample%'))` akan menghasilkan `name LIKE '%test%' AND name LIKE '%sample%'`. Method ini akan memberikan quote pada nama kolom dan nilai escape pada range nilai.
 
 * `not like`: mirip dengan operator `like` kecuali tulisan `LIKE` akan diganti dengan `NOT LIKE` pada kondisi yang dihasilkan.
 
@@ -407,7 +407,7 @@ Sebuah instance [CDbCommand] dapat dipakai ulang beberapa kali untuk membuat beb
 [php]
 $command = Yii::app()->db->createCommand();
 $users = $command->select('*')->from('tbl_users')->queryAll();
-$command->reset();  // clean up the previous query
+$command->reset();	// clean up the previous query
 $posts = $command->select('*')->from('tbl_posts')->queryAll();
 ~~~
 
@@ -475,7 +475,7 @@ $command->update('tbl_user', array(
 function delete($table, $conditions='', $params=array())
 ~~~
 
-Method [delete()|CDbCommand::delete] membuat dan menjalankan statement SQL `DELETE`. Parameter `$table` menentukan table yang mana yang akan dihapus; `$conditions`  dan `$params` mirip dengan [where()|CDbCommand::where()], yakni menentukan `WHERE` di dalam statement `DELETE`. Method ini akan memberikan quote pada nama.
+Method [delete()|CDbCommand::delete] membuat dan menjalankan statement SQL `DELETE`. Parameter `$table` menentukan table yang mana yang akan dihapus; `$conditions`	dan `$params` mirip dengan [where()|CDbCommand::where()], yakni menentukan `WHERE` di dalam statement `DELETE`. Method ini akan memberikan quote pada nama.
 
 Berikut salah satu contoh:
 
@@ -505,7 +505,7 @@ Selain query manipulasi dan penarikan normal, query builder juga menyediakan sek
 > Info: Walaupun statement SQL yang digunakan untuk manipulasi database schema sangat berbeda di antara DBMS, query builder mencoba menyediakan sebuah interface yang seragam untuk membuat query-query ini. Ini akan memudahkan proses migrasi database dari satu DBMS ke yang lainnya.
 
 
-###Tipe Data Abstrak 
+###Tipe Data Abstrak
 
 Query builder memperkenalkan sekumpulan tipe data abstrak yang dapat digunakan untuk mendefinisikan kolom table. Tidak seperti tipe data physical yang spesifik pada DBMS tertentu dan cukup berbeda di DBMS lainnya, tipe data abstrak bebas dari DBMS. Ketika tipe data abstrak digunakan untuk mendefinisikan kolom table, query builder akan mengubahnya menjadi tipe data physical bersangkutan.
 
@@ -544,9 +544,9 @@ Berikut contoh bagaimana membuat sebuah table:
 ~~~
 [php]
 // CREATE TABLE `tbl_user` (
-//     `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-//     `username` varchar(255) NOT NULL,
-//     `location` point
+//		 `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+//		 `username` varchar(255) NOT NULL,
+//		 `location` point
 // ) ENGINE=InnoDB
 createTable('tbl_user', array(
 	'id' => 'pk',
@@ -691,7 +691,7 @@ function addForeignKey($name, $table, $columns,
 	$refTable, $refColumns, $delete=null, $update=null)
 ~~~
 
-Method [addForeignKey()|CDbCommand::addForeignKey] akan membuat dan menjalankan statement SQL untuk menambahkan foreign key constraint pada sebuah table. Parameter `$name` menentukan nama foreign key. Parameter `$table` dan `$columns` menentukan nama table dan nama kolom yang akan ditetapkan sebagai foreign key. JIka lebih dari satu kolom, maka bisa dipisahkan dengan menggunakan koma. Parameter `$refTable` dan `$refColumns` menentukan nama dan kolom table yang akan menjadi reference foreign key. Parameter `$delete` dan `$update` menentukan opsi `ON DELETE` dan `ON UPDATE` dalam statement SQL. Kebanyakan DBMS mendukung opsi ini:`RESTRICT`, `CASCADE`, `NO ACTION`, `SET DEFAULT`, `SET NULL`.  Query builder akan memberikan quote pada nama table, nama index dan nama kolom.
+Method [addForeignKey()|CDbCommand::addForeignKey] akan membuat dan menjalankan statement SQL untuk menambahkan foreign key constraint pada sebuah table. Parameter `$name` menentukan nama foreign key. Parameter `$table` dan `$columns` menentukan nama table dan nama kolom yang akan ditetapkan sebagai foreign key. JIka lebih dari satu kolom, maka bisa dipisahkan dengan menggunakan koma. Parameter `$refTable` dan `$refColumns` menentukan nama dan kolom table yang akan menjadi reference foreign key. Parameter `$delete` dan `$update` menentukan opsi `ON DELETE` dan `ON UPDATE` dalam statement SQL. Kebanyakan DBMS mendukung opsi ini:`RESTRICT`, `CASCADE`, `NO ACTION`, `SET DEFAULT`, `SET NULL`.	Query builder akan memberikan quote pada nama table, nama index dan nama kolom.
 
 Berikut contoh menambah foreign key constraint,
 

@@ -10,9 +10,9 @@ MVC.
 
 Langkah-langkah berikut umumnya diperlukan saat berhadapan dengan form dalam Yii:
 
-   1. Buat kelas model yang mewakili field data yang dikumpulkan;
-   2. Buat aksi controller dengan kode yang merespon pengiriman form.
-   3. Buat form dalam file skrip tampilan sesuai dengan aksi controller.
+	 1. Buat kelas model yang mewakili field data yang dikumpulkan;
+	 2. Buat aksi controller dengan kode yang merespon pengiriman form.
+	 3. Buat form dalam file skrip tampilan sesuai dengan aksi controller.
 
 Dalam subseksi berikut, kami menjelaskan setiap langkah ini secara lebih rinci.
 

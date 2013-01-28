@@ -10,8 +10,8 @@
  * Requires: jQuery v1.3+
  *
  * Dual licensed under the MIT and GPL licenses:
- *   http://www.opensource.org/licenses/mit-license.php
- *   http://www.gnu.org/licenses/gpl.html
+ *	 http://www.opensource.org/licenses/mit-license.php
+ *	 http://www.gnu.org/licenses/gpl.html
  */
 
 #fancybox-loading {
@@ -258,7 +258,7 @@
 }
 
 #fancybox-left:hover, #fancybox-right:hover {
-	visibility: visible;    /* IE6 */
+	visibility: visible;		/* IE6 */
 }
 
 #fancybox-left:hover span {

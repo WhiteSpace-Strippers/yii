@@ -37,7 +37,7 @@ class UserMenu extends CPortlet
 
 Klasa `UserMenu` dziedziczy z klasy `CPortlet` z biblioteki `zii`. Nadpisuje zarówno metodę `init()` jak i metodę `renderContent()` z klasy `CPortlet`. Pierwsza metoda ustawia tytuł jako nazwę aktualnego użytkownika; druga generuje zawartość ciała portletu poprzez wygenerowanie widoku o nazwie `userMenu`.
 
-> Tip|Wskazówka: Zauważ, że dołączamy jawnie klasę `CPortlet` poprzez wywołanie metody `Yii::import()` zanim odwołamy się do niej po raz pierwszy. Dzieje się tak, ponieważ `CPortlet` jest częścią projektu `zii` - oficjalnej biblioteki rozszerzeń dla Yii. Ze względu na wydajność, klasy w tym projekcie nie są wymieniane jako klasy podstawowe (ang. core classes). Dlatego też, musimy je zaimportować zanim ich użyjemy po raz pierwszy. 
+> Tip|Wskazówka: Zauważ, że dołączamy jawnie klasę `CPortlet` poprzez wywołanie metody `Yii::import()` zanim odwołamy się do niej po raz pierwszy. Dzieje się tak, ponieważ `CPortlet` jest częścią projektu `zii` - oficjalnej biblioteki rozszerzeń dla Yii. Ze względu na wydajność, klasy w tym projekcie nie są wymieniane jako klasy podstawowe (ang. core classes). Dlatego też, musimy je zaimportować zanim ich użyjemy po raz pierwszy.
 
 
 Tworzenie widoku `userMenu`
@@ -56,7 +56,7 @@ Następnie, tworzymy widok `userMenu`, który jest zapisany w pliku `/wwwroot/bl
 </ul>
 ~~~
 
-> Info|Info: Domyślnie, pliki widoku dla widżetu powinny się znajdować w podkatalogu `views` katalogu zawierającego klasę widżetu. Nazwa pliku powinna być taka sam jak nazwa widoku. 
+> Info|Info: Domyślnie, pliki widoku dla widżetu powinny się znajdować w podkatalogu `views` katalogu zawierającego klasę widżetu. Nazwa pliku powinna być taka sam jak nazwa widoku.
 
 
 Używanie portletu `UserMenu`

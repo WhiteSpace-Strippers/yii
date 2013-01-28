@@ -50,10 +50,10 @@ class PostTest extends WebTestCase
 	public function testShow()
 	{
 		$this->open('post/1');
-	    // verifikasi judul sampel post ada
-	    $this->assertTextPresent($this->posts['sample1']['title']);
-	    // verifikasi form comment ada
-	    $this->assertTextPresent('Leave a Comment');
+			// verifikasi judul sampel post ada
+			$this->assertTextPresent($this->posts['sample1']['title']);
+			// verifikasi form comment ada
+			$this->assertTextPresent('Leave a Comment');
 	}
 
 	......

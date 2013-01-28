@@ -13,12 +13,12 @@ class CMemCacheTest extends CTestCase
 		'id'=>'testApp',
 		'components'=>array(
 			'cache'=>array(
-	            'class'=>'CMemCache',
-	            'servers'=>array(
-	                array('host'=>MEMCACHE_TEST_HOST, 'port'=>MEMCACHE_TEST_PORT, 'weight'=>100),
-	    		),
-            ),
-        ),
+							'class'=>'CMemCache',
+							'servers'=>array(
+									array('host'=>MEMCACHE_TEST_HOST, 'port'=>MEMCACHE_TEST_PORT, 'weight'=>100),
+					),
+						),
+				),
 
 	);
 
@@ -27,7 +27,7 @@ class CMemCacheTest extends CTestCase
 		if(!extension_loaded('memcache') && !extension_loaded('memcached'))
 			$this->markTestSkipped('Memcache or memcached extensions are required.');
 	}
-	
+
 	public function testMget()
 	{
 		$app=new TestApplication($this->_config);
@@ -38,18 +38,18 @@ class CMemCacheTest extends CTestCase
 		$key1='data1';
 		$data2=array('xyz'=>3,4=>'whn');
 		$key2='data2';
-		
+
 		$cache->delete($key1);
 		$cache->delete($key2);
 
 		$this->assertFalse($cache->get($key1));
 		$this->assertFalse($cache->get($key2));
-		
+
 		$cache->set($key1,$data1);
 		$cache->set($key2,$data2);
 		$this->assertTrue($cache->get($key1)===$data1);
 		$this->assertTrue($cache->get($key2)===$data2);
-		
+
 		$mgetResult = $cache->mget(array($key1, $key2));
 		$this->assertTrue(is_array($mgetResult));
 		$this->assertEquals($mgetResult[$key1],$data1);

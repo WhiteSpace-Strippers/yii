@@ -91,12 +91,12 @@ he essentially owns all relevant session information.
 There are several countermeasures to prevent cookies from being attacked.
 
 * An application can use SSL to create a secure communication channel and
-  only pass the authentication cookie over an HTTPS connection. Attackers
-  are thus unable to decipher the contents in the transferred cookies.
+	only pass the authentication cookie over an HTTPS connection. Attackers
+	are thus unable to decipher the contents in the transferred cookies.
 * Expire sessions appropriately, including all cookies and session tokens,
-  to reduce the likelihood of being attacked.
+	to reduce the likelihood of being attacked.
 * Prevent cross-site scripting which causes arbitrary code to run in a
-  user's browser and expose his cookies.
+	user's browser and expose his cookies.
 * Validate cookie data and detect if they are altered.
 
 Yii implements a cookie validation scheme that prevents cookies from being

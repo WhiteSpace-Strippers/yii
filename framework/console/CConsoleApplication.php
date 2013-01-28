@@ -55,11 +55,11 @@ class CConsoleApplication extends CApplication
 	 * the corresponding command properties. For example,
 	 * <pre>
 	 * array(
-	 *   'email'=>array(
-	 *      'class'=>'path.to.Mailer',
-	 *      'interval'=>3600,
-	 *   ),
-	 *   'log'=>'path/to/LoggerCommand.php',
+	 *	 'email'=>array(
+	 *			'class'=>'path.to.Mailer',
+	 *			'interval'=>3600,
+	 *	 ),
+	 *	 'log'=>'path/to/LoggerCommand.php',
 	 * )
 	 * </pre>
 	 */
@@ -114,7 +114,7 @@ class CConsoleApplication extends CApplication
 	public function displayError($code,$message,$file,$line)
 	{
 		echo "PHP Error[$code]: $message\n";
-		echo "    in file $file at line $line\n";
+		echo "		in file $file at line $line\n";
 		$trace=debug_backtrace();
 		// skip the first 4 stacks as they do not tell the error position
 		if(count($trace)>4)

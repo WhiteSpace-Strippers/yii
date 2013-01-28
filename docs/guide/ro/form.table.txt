@@ -29,7 +29,7 @@ public function actionBatchUpdate()
 				$item->attributes=$_POST['Item'][$i];
 			$valid=$valid && $item->validate();
 		}
-		if($valid)  // toate elementele sunt valide
+		if($valid)	// toate elementele sunt valide
 			// ...se executa ceva aici
 	}
 	// afisam view-ul pentru colectarea input-ului tabular

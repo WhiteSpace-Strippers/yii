@@ -36,26 +36,26 @@ PHP memcache extension and uses memory as the medium of cache storage; the
 [CDbCache] component stores cached data in database. The following is a
 summary of the available cache components:
 
-   - [CMemCache]: uses PHP [memcache extension](http://www.php.net/manual/en/book.memcache.php).
+	 - [CMemCache]: uses PHP [memcache extension](http://www.php.net/manual/en/book.memcache.php).
 
-   - [CApcCache]: uses PHP [APC extension](http://www.php.net/manual/en/book.apc.php).
+	 - [CApcCache]: uses PHP [APC extension](http://www.php.net/manual/en/book.apc.php).
 
-   - [CXCache]: uses PHP [XCache extension](http://xcache.lighttpd.net/).
+	 - [CXCache]: uses PHP [XCache extension](http://xcache.lighttpd.net/).
 
-   - [CEAcceleratorCache]: uses PHP [EAccelerator extension](http://eaccelerator.net/).
+	 - [CEAcceleratorCache]: uses PHP [EAccelerator extension](http://eaccelerator.net/).
 
-   - [CDbCache]: uses a database table to store cached data. By default,
+	 - [CDbCache]: uses a database table to store cached data. By default,
 it will create and use a SQLite3 database under the runtime directory. You
 can explicitly specify a database for it to use by setting its
 [connectionID|CDbCache::connectionID] property.
 
-   - [CZendDataCache]: uses [Zend Data Cache](http://files.zend.com/help/Zend-Server-Community-Edition/data_cache_component.htm)
-   as the underlying caching medium.
+	 - [CZendDataCache]: uses [Zend Data Cache](http://files.zend.com/help/Zend-Server-Community-Edition/data_cache_component.htm)
+	 as the underlying caching medium.
 
-   - [CFileCache]: uses files to store cached data. This is particular suitable to
+	 - [CFileCache]: uses files to store cached data. This is particular suitable to
 cache large chunk of data (such as pages).
 
-   - [CDummyCache]: presents dummy cache that does no caching at all. The purpose
+	 - [CDummyCache]: presents dummy cache that does no caching at all. The purpose
 of this component is to simplify the code that needs to check the availability of cache.
 For example, during development or if the server doesn't have actual cache support, we
 can use this cache component. When an actual cache support is enabled, we can switch

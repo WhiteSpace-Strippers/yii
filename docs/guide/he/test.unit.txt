@@ -19,12 +19,12 @@
 [php]
 class CommentTest extends CDbTestCase
 {
-    public $fixtures=array(
-        'posts'=»'Post',
-        'comments'=»'Comment',
-    );
+		public $fixtures=array(
+				'posts'=»'Post',
+				'comments'=»'Comment',
+		);
 
-    ......
+		......
 }
 ~~~
 
@@ -50,28 +50,28 @@ $post = $this-»posts('sample1');
 [php]
 public function testApprove()
 {
-    // הוספת תגובה במצב המתנה
-    $comment=new Comment;
-    $comment-»setAttributes(array(
-        'content'=»'comment 1',
-        'status'=»Comment::STATUS_PENDING,
-        'createTime'=»time(),
-        'author'=»'me',
-        'email'=»'me@example.com',
-        'postId'=»$this-»posts['sample1']['id'],
-    ),false);
-    $this-»assertTrue($comment-»save(false));
+		// הוספת תגובה במצב המתנה
+		$comment=new Comment;
+		$comment-»setAttributes(array(
+				'content'=»'comment 1',
+				'status'=»Comment::STATUS_PENDING,
+				'createTime'=»time(),
+				'author'=»'me',
+				'email'=»'me@example.com',
+				'postId'=»$this-»posts['sample1']['id'],
+		),false);
+		$this-»assertTrue($comment-»save(false));
 
-    // אימות במידה והתגובה באמת במצב המתנה
-    $comment=Comment::model()-»findByPk($comment-»id);
-    $this-»assertTrue($comment instanceof Comment);
-    $this-»assertEquals(Comment::STATUS_PENDING,$comment-»status);
+		// אימות במידה והתגובה באמת במצב המתנה
+		$comment=Comment::model()-»findByPk($comment-»id);
+		$this-»assertTrue($comment instanceof Comment);
+		$this-»assertEquals(Comment::STATUS_PENDING,$comment-»status);
 
-    // קריאה למתודה approve  ובדיקת התגובה שהיא נמצאת במצב פעיל
-    $comment-»approve();
-    $this-»assertEquals(Comment::STATUS_APPROVED,$comment-»status);
-    $comment=Comment::model()-»findByPk($comment-»id);
-    $this-»assertEquals(Comment::STATUS_APPROVED,$comment-»status);
+		// קריאה למתודה approve	ובדיקת התגובה שהיא נמצאת במצב פעיל
+		$comment-»approve();
+		$this-»assertEquals(Comment::STATUS_APPROVED,$comment-»status);
+		$comment=Comment::model()-»findByPk($comment-»id);
+		$this-»assertEquals(Comment::STATUS_APPROVED,$comment-»status);
 }
 ~~~
 

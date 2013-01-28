@@ -17,8 +17,8 @@
  * <pre>
  * public function setPropertyName($value)
  * {
- *     $value=CPropertyValue::ensureBoolean($value);
- *     // $value is now of boolean type
+ *		 $value=CPropertyValue::ensureBoolean($value);
+ *		 // $value is now of boolean type
  * }
  * </pre>
  *
@@ -26,12 +26,12 @@
  * <ul>
  * <li>string: a boolean value will be converted to 'true' or 'false'.</li>
  * <li>boolean: string 'true' (case-insensitive) will be converted to true,
- *            string 'false' (case-insensitive) will be converted to false.</li>
+ *						string 'false' (case-insensitive) will be converted to false.</li>
  * <li>integer</li>
  * <li>float</li>
  * <li>array: string starting with '(' and ending with ')' will be considered as
- *          as an array expression and will be evaluated. Otherwise, an array
- *          with the value to be ensured is returned.</li>
+ *					as an array expression and will be evaluated. Otherwise, an array
+ *					with the value to be ensured is returned.</li>
  * <li>object</li>
  * <li>enum: enumerable type, represented by an array of strings.</li>
  * </ul>

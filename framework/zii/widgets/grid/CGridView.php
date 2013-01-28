@@ -34,7 +34,7 @@ Yii::import('zii.widgets.grid.CCheckBoxColumn');
  * $dataProvider=new CActiveDataProvider('Post');
  *
  * $this->widget('zii.widgets.grid.CGridView', array(
- *     'dataProvider'=>$dataProvider,
+ *		 'dataProvider'=>$dataProvider,
  * ));
  * </pre>
  *
@@ -50,23 +50,23 @@ Yii::import('zii.widgets.grid.CCheckBoxColumn');
  *
  * <pre>
  * $this->widget('zii.widgets.grid.CGridView', array(
- *     'dataProvider'=>$dataProvider,
- *     'columns'=>array(
- *         'title',          // display the 'title' attribute
- *         'category.name',  // display the 'name' attribute of the 'category' relation
- *         'content:html',   // display the 'content' attribute as purified HTML
- *         array(            // display 'create_time' using an expression
- *             'name'=>'create_time',
- *             'value'=>'date("M j, Y", $data->create_time)',
- *         ),
- *         array(            // display 'author.username' using an expression
- *             'name'=>'authorName',
- *             'value'=>'$data->author->username',
- *         ),
- *         array(            // display a column with "view", "update" and "delete" buttons
- *             'class'=>'CButtonColumn',
- *         ),
- *     ),
+ *		 'dataProvider'=>$dataProvider,
+ *		 'columns'=>array(
+ *				 'title',					// display the 'title' attribute
+ *				 'category.name',	// display the 'name' attribute of the 'category' relation
+ *				 'content:html',	 // display the 'content' attribute as purified HTML
+ *				 array(						// display 'create_time' using an expression
+ *						 'name'=>'create_time',
+ *						 'value'=>'date("M j, Y", $data->create_time)',
+ *				 ),
+ *				 array(						// display 'author.username' using an expression
+ *						 'name'=>'authorName',
+ *						 'value'=>'$data->author->username',
+ *				 ),
+ *				 array(						// display a column with "view", "update" and "delete" buttons
+ *						 'class'=>'CButtonColumn',
+ *				 ),
+ *		 ),
  * ));
  * </pre>
  *
@@ -149,9 +149,9 @@ class CGridView extends CBaseListView
 	 *
 	 * Example (adding a custom selector to the default ones):
 	 * <pre>
-	 *  ...
-	 *  'updateSelector'=>'{page}, {sort}, #mybutton',
-	 *  ...
+	 *	...
+	 *	'updateSelector'=>'{page}, {sort}, #mybutton',
+	 *	...
 	 * </pre>
 	 * @since 1.1.7
 	 */
@@ -172,9 +172,9 @@ class CGridView extends CBaseListView
 	 *
 	 * Example (add in a call to CGridView):
 	 * <pre>
-	 *  ...
-	 *  'ajaxUpdateError'=>'function(xhr,ts,et,err){ $("#myerrordiv").text(err); }',
-	 *  ...
+	 *	...
+	 *	'ajaxUpdateError'=>'function(xhr,ts,et,err){ $("#myerrordiv").text(err); }',
+	 *	...
 	 * </pre>
 	 */
 	public $ajaxUpdateError;
@@ -192,7 +192,7 @@ class CGridView extends CBaseListView
 	/**
 	 * @var string a javascript function that will be invoked before an AJAX update occurs.
 	 * The function signature is <code>function(id,options)</code> where 'id' refers to the ID of the grid view,
-	 * 'options' the AJAX request options  (see jQuery.ajax api manual).
+	 * 'options' the AJAX request options	(see jQuery.ajax api manual).
 	 */
 	public $beforeAjaxUpdate;
 	/**
@@ -254,9 +254,9 @@ class CGridView extends CBaseListView
 	 *
 	 * Example (adding a custom selector to the default one):
 	 * <pre>
-	 *  ...
-	 *  'filterSelector'=>'{filter}, #myfilter',
-	 *  ...
+	 *	...
+	 *	'filterSelector'=>'{filter}, #myfilter',
+	 *	...
 	 * </pre>
 	 * @since 1.1.13
 	 */
@@ -270,9 +270,9 @@ class CGridView extends CBaseListView
 	/**
 	 * @var string whether the filters should be displayed in the grid view. Valid values include:
 	 * <ul>
-	 *    <li>header: the filters will be displayed on top of each column's header cell.</li>
-	 *    <li>body: the filters will be displayed right below each column's header cell.</li>
-	 *    <li>footer: the filters will be displayed below each column's footer cell.</li>
+	 *		<li>header: the filters will be displayed on top of each column's header cell.</li>
+	 *		<li>body: the filters will be displayed right below each column's header cell.</li>
+	 *		<li>footer: the filters will be displayed below each column's footer cell.</li>
 	 * </ul>
 	 * @see filter
 	 * @since 1.1.1
@@ -296,11 +296,11 @@ class CGridView extends CBaseListView
 	 */
 	public $hideHeader=false;
 	/**
-	 * @var boolean whether to leverage the {@link https://developer.mozilla.org/en/DOM/window.history DOM history object}.  Set this property to true
-	 * to persist state of grid across page revisits.  Note, there are two limitations for this feature:
+	 * @var boolean whether to leverage the {@link https://developer.mozilla.org/en/DOM/window.history DOM history object}.	Set this property to true
+	 * to persist state of grid across page revisits.	Note, there are two limitations for this feature:
 	 * <ul>
-	 *    <li>this feature is only compatible with browsers that support HTML5.</li>
-	 *    <li>expect unexpected functionality (e.g. multiple ajax calls) if there is more than one grid/list on a single page with enableHistory turned on.</li>
+	 *		<li>this feature is only compatible with browsers that support HTML5.</li>
+	 *		<li>expect unexpected functionality (e.g. multiple ajax calls) if there is more than one grid/list on a single page with enableHistory turned on.</li>
 	 * </ul>
 	 * @since 1.1.11
 	 */

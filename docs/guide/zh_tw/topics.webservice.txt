@@ -31,7 +31,7 @@ class StockController extends CController
 	{
 		$prices=array('IBM'=>100, 'GOOGLE'=>350);
 		return isset($prices[$symbol])?$prices[$symbol]:0;
-	    //...回傳 $symbol 的股價
+			//...回傳 $symbol 的股價
 	}
 }
 ~~~
@@ -64,7 +64,7 @@ class StockController extends CController
 	 */
 	public function getPrice($symbol)
 	{
-	    //...return 回傳 $symbol 的股價
+			//...return 回傳 $symbol 的股價
 	}
 }
 ~~~
@@ -95,16 +95,16 @@ echo $client->getPrice('GOOGLE');
 
 當定義的方法和屬性被遠程存取，我們需要指定輸入和輸出參數的資料類型。以下的原始資料類型可以使用：
 
-   - str/string: 對應 `xsd:string`;
-   - int/integer: 對應 `xsd:int`;
-   - float/double: 對應 `xsd:float`;
-   - bool/boolean: 對應 `xsd:boolean`;
-   - date: 對應 `xsd:date`;
-   - time: 對應 `xsd:time`;
-   - datetime: 對應 `xsd:dateTime`;
-   - array: 對應 `xsd:string`;
-   - object: 對應 `xsd:struct`;
-   - mixed: 對應 `xsd:anyType`.
+	 - str/string: 對應 `xsd:string`;
+	 - int/integer: 對應 `xsd:int`;
+	 - float/double: 對應 `xsd:float`;
+	 - bool/boolean: 對應 `xsd:boolean`;
+	 - date: 對應 `xsd:date`;
+	 - time: 對應 `xsd:time`;
+	 - datetime: 對應 `xsd:dateTime`;
+	 - array: 對應 `xsd:string`;
+	 - object: 對應 `xsd:struct`;
+	 - mixed: 對應 `xsd:anyType`.
 
 如果類型不屬於上述任何原始類型，它被看作是複合型屬性。複合型類型被看做類別，他的屬性當做類別的空開成員變數，在檔案註釋中被用 `@soap` 標記。
 
@@ -158,7 +158,7 @@ class PostController extends CController
 			'service'=>array(
 				'class'=>'CWebServiceAction',
 				'classMap'=>array(
-					'Post'=>'Post',  // 或是只用 'Post'
+					'Post'=>'Post',	// 或是只用 'Post'
 				),
 			),
 		);
@@ -171,7 +171,7 @@ class PostController extends CController
 攔截遠程方法調用
 -------------------------------------
 
-透過實現 [IWebServiceProvider] 接口，服務提供者可以攔截遠程方法調用。在 
+透過實現 [IWebServiceProvider] 接口，服務提供者可以攔截遠程方法調用。在
 [IWebServiceProvider::beforeWebMethod]，服務提供者可以獲得當前 [CWebService]實體和透過 [CWebService::methodName] 請求的方法的名字 。它會回傳 false 如果遠程方法基於某種原因不允許被調用（例如：未經授權的存取） 。
 
 <div class="revision">$Id$</div>

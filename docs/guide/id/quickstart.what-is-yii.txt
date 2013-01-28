@@ -4,13 +4,13 @@ Apa itu Yii
 Yii adalah framework (kerangka kerja) PHP berbasis-komponen, berkinerja tinggi untuk
 pengembangan aplikasi Web berskala-besar. Yii menyediakan reusability maksimum dalam
 pemrograman Web dan mampu meningkatkan kecepatan pengembangan secara signifikan. Nama
-Yii (dieja sebagai `/i:/`) singkatan dari 
+Yii (dieja sebagai `/i:/`) singkatan dari
 "**Yes It Is!**". Berikut merupakan respon yang paling tepat dan akurat untuk
 yang baru dengan Yii:
 
 
-Apakah Yii cepat? ... Apakah Yii aman? ... Apakah Yii profesional? ... Apakah Yii 
-cocok untuk projek saya berikutnya? ... **Yes, it is!** 
+Apakah Yii cepat? ... Apakah Yii aman? ... Apakah Yii profesional? ... Apakah Yii
+cocok untuk projek saya berikutnya? ... **Yes, it is!**
 
 
 Persyaratan

@@ -19,7 +19,7 @@
 <p>
 Tento skript preverí, či je konfigurácia vášho servera postačujúca
 pre korektné fungovanie aplikácii vytvorených pre <a href="http://www.yiiframework.com/">Yii framework</a>.
-Test preveruje správnu verziu PHP, prítomnosť potrebných PHP rozšírení a správne nastavenie 
+Test preveruje správnu verziu PHP, prítomnosť potrebných PHP rozšírení a správne nastavenie
 konfigurácie v php.ini.
 </p>
 
@@ -28,7 +28,7 @@ konfigurácie v php.ini.
 <?php if($result>0): ?>
 Gratulujem! Váš server spĺňa všetky požiadavky potrebné pre korektné fungovanie Yii.
 <?php elseif($result<0): ?>
-Váš server spĺňa minimálne požiadavky potrebné pre fungovanie Yii. 
+Váš server spĺňa minimálne požiadavky potrebné pre fungovanie Yii.
 Venujte prosím pozornosť upozorneniam uvedeným nižšie v prípade, že vaša aplikácia bude využívať potrebné funkcie.
 <?php else: ?>
 Bohužiaľ, váš server nespĺňa požiadavky potrebné pre fungovanie Yii.

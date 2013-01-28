@@ -24,7 +24,7 @@ Konstruktora zapytań najlepiej używać gdy potrzebujesz złożyć instrukcje S
 * oferta pewnego stopnia abstrakcji bazy danych, co umożliwia migrację do innych platform bazodanowych.
 
 
-Nie jest konieczne używanie kreatora zapytań. W rzeczywistości, jeśli twoje zapytania są proste, łatwiej i szybciej napisać je bezpośrednio w instrukcji SQL. 
+Nie jest konieczne używanie kreatora zapytań. W rzeczywistości, jeśli twoje zapytania są proste, łatwiej i szybciej napisać je bezpośrednio w instrukcji SQL.
 
 > Note|Uwaga: Konstruktor zapytań nie może być używany do modyfikowania istniejącego zapytania utworzonego za pomocą instrukcji SQL.
 > Na przykład, poniższy kod nie zadziała:
@@ -65,17 +65,17 @@ Zapytania zwracające dane odnoszą się do instrukcji SELECT w SQL-u. Konstrukt
 * [selectDistinct()|CDbCommand::selectDistinct]: definiuje część SELECT zapytania i zwraca flagę DISTINCT
 * [from()|CDbCommand::from()]: definiuje część FROM zapytania
 * [where()|CDbCommand::where()]: definiuje część WHERE zapytania
-* [join()|CDbCommand::join]: dołącza fragment zapytania inner join 
-* [leftJoin()|CDbCommand::leftJoin]: dołącza fragment zapytania outer join 
-* [rightJoin()|CDbCommand::rightJoin]: dołącza fragment zapytania right inner join 
-* [crossJoin()|CDbCommand::crossJoin]: dołącza fragment zapytania cross join 
-* [naturalJoin()|CDbCommand::naturalJoin]: dołącza fragment zapytania natural join 
+* [join()|CDbCommand::join]: dołącza fragment zapytania inner join
+* [leftJoin()|CDbCommand::leftJoin]: dołącza fragment zapytania outer join
+* [rightJoin()|CDbCommand::rightJoin]: dołącza fragment zapytania right inner join
+* [crossJoin()|CDbCommand::crossJoin]: dołącza fragment zapytania cross join
+* [naturalJoin()|CDbCommand::naturalJoin]: dołącza fragment zapytania natural join
 * [group()|CDbCommand::group()]: definiuje część GROUP BY zapytania
 * [having()|CDbCommand::having()]: definiuje część HAVING zapytania
 * [order()|CDbCommand::order()]: definiuje część ORDER BY zapytania
 * [limit()|CDbCommand::limit()]: definiuje część LIMIT zapytania
 * [offset()|CDbCommand::offset()]: definiuje część OFFSET zapytania
-* [union()|CDbCommand::union()]: dołącza fragment zapytania UNION 
+* [union()|CDbCommand::union()]: dołącza fragment zapytania UNION
 
 
 W dalszej części, wyjaśnimi jak używać tych metod kreatora zapytań. Zakładamy, że używamy MySQL. Zauważ, że jeśli używasz innego DBMS, dołączanie cudzysłowów do tabel/kolumn/wartości może się różnić od tego z przykładów.
@@ -159,7 +159,7 @@ Metoda [where()|CDbCommand::where()] określa część `WHERE` zapytania. Parame
 array(operator, argument1, argument2, ...)
 ~~~
 
-gdzie `operator` może być jednym z: 
+gdzie `operator` może być jednym z:
 
 * `and`: argumenty powinny zostać złączone razem przy użyciu `AND`. Na przykład, `array('and', 'id=1', 'id=2')` wygeneruje `id=1 AND id=2`. Jeśli argument jest tablicą, zostanie on przekonwertowany do łańcucha przy użyciu przed chwilą opisanej reguły. Na przykład, `array('and', 'type=1', array('or', 'id=1', 'id=2'))` wygeneruje `type=1 AND (id=1 OR id=2)`. Metoda ta NIE dodaje cudzysłowów ani nie wycina znaków sterujących (ang. quoting and escaping).
 
@@ -169,7 +169,7 @@ gdzie `operator` może być jednym z:
 
 * `not in`: podony do operatora `in` z tą różnicą, że `IN` zastąpione jest `NOT IN` w wygenerowanym warunku.
 
-* `like`: pierwszy argument powinien być kolumną lub też wyrażeniem bazodanowym, a drugi argument łańcuchem lub tablicą reprezentującą zakres wartości, do których je przypasowujemy. Na przykład, `array('like', 'name', '%tester%')` wygeneruje `name LIKE '%tester%'`. Jeśli przekazany zostałzakres wartości w postaci tablicy, `LIKE` zostanie  wielokrotnie zostanie użyte i połączone za pomocą operatora `AND`. Na przykład, `array('like', 'name', array('test', 'sample'))` wygeneruje `name LIKE '%test%' AND name LIKE '%sample%'`. Metoda ta poprawnie doda cudzysłowy oraz wytnie znaki sterujace dla wartości w zakresie.
+* `like`: pierwszy argument powinien być kolumną lub też wyrażeniem bazodanowym, a drugi argument łańcuchem lub tablicą reprezentującą zakres wartości, do których je przypasowujemy. Na przykład, `array('like', 'name', '%tester%')` wygeneruje `name LIKE '%tester%'`. Jeśli przekazany zostałzakres wartości w postaci tablicy, `LIKE` zostanie	wielokrotnie zostanie użyte i połączone za pomocą operatora `AND`. Na przykład, `array('like', 'name', array('test', 'sample'))` wygeneruje `name LIKE '%test%' AND name LIKE '%sample%'`. Metoda ta poprawnie doda cudzysłowy oraz wytnie znaki sterujace dla wartości w zakresie.
 
 * `not like`: podobny do operatora `like` z tą różnicą, że `LIKE` zastąpione jest `NOT LIKE` w wygenerowanym warunku.
 
@@ -211,7 +211,7 @@ Zauważ, że jeśli operator zawiera `like`, musimy bezpośrednio zdefiniować s
 ~~~
 [php]
 $keyword=$_GET['q'];
-// usuwanie znaków % oraz _ 
+// usuwanie znaków % oraz _
 $keyword=strtr($keyword, array('%'=>'\%', '_'=>'\_'));
 $command->where(array('like', 'title', '%'.$keyword.'%'));
 ~~~
@@ -224,7 +224,7 @@ $command->where(array('like', 'title', '%'.$keyword.'%'));
 function order($columns)
 ~~~
 
-Metoda [order()|CDbCommand::order()] określa część `ORDER BY` zapytania. 
+Metoda [order()|CDbCommand::order()] określa część `ORDER BY` zapytania.
 Parametr `$columns` definiuje kolumny, po których będziemy sortować. Może on być zarówno łańcuchem reprezentującym rozdzielone przecinkiem kolumny i kierunki sortowania (`ASC` or `DESC`) lub tablicą kolumn i kierunków sortowania. Nazwy kolumn mogą zawierać prefiksy tabeli. Metoda automatycznie doda cudzysłowy do nazwy kolumn chyba, że kolumna zawiera nawiasy (co oznacze, że kolumna jest wyrażeniem bazodanowym).
 
 Poniżej znajduje się kilka przykładów:
@@ -272,7 +272,7 @@ function crossJoin($table)
 function naturalJoin($table)
 ~~~
 
-Metoda [join()|CDbCommand::join()] i jej warianty określa w jaki sposób tabele złączyć pozostałe tabele używając `INNER JOIN`, `LEFT OUTER JOIN`, `RIGHT OUTER JOIN`, `CROSS JOIN` lub `NATURAL JOIN`. Parametr `$table` definiuje nazwę tabeli dołączanej. Nazwa tabeli może zawierać prefiks schematu bazy danych i/lub alias. Metoda ta doda cudzysłowy do nazw tabel, chyba że zawiera ona nawiasy, bo oznacze że jest ona wyrażeniem bądź podzapytaniem. Parametr `$conditions` określa warunki złączenia. Jego składnia jest taka sama jak [where()|CDbCommand::where()]. Parametr `$params` określa parametry, które zostaną związane z całym zapytaniem. 
+Metoda [join()|CDbCommand::join()] i jej warianty określa w jaki sposób tabele złączyć pozostałe tabele używając `INNER JOIN`, `LEFT OUTER JOIN`, `RIGHT OUTER JOIN`, `CROSS JOIN` lub `NATURAL JOIN`. Parametr `$table` definiuje nazwę tabeli dołączanej. Nazwa tabeli może zawierać prefiks schematu bazy danych i/lub alias. Metoda ta doda cudzysłowy do nazw tabel, chyba że zawiera ona nawiasy, bo oznacze że jest ona wyrażeniem bądź podzapytaniem. Parametr `$conditions` określa warunki złączenia. Jego składnia jest taka sama jak [where()|CDbCommand::where()]. Parametr `$params` określa parametry, które zostaną związane z całym zapytaniem.
 
 Zauważ, że w odróżnieniu do pozostałych metod konstruktora zapytań każde wywołanie metody join zostanie dołączone do poprzedniego wywołania.
 
@@ -294,7 +294,7 @@ leftJoin('pub.tbl_profile p', 'p.user_id=id AND type=:type', array(':type'=>1))
 function group($columns)
 ~~~
 
-Metoda [group()|CDbCommand::group()] określa część  `GROUP BY` zapytania.
+Metoda [group()|CDbCommand::group()] określa część	`GROUP BY` zapytania.
 Parametr `$columns` definiuje kolumny, po których będziemy grupować. Może nim być zarówno łańcuch reprezentujący rozdzielone przecinkami kolumny jak i tablica kolumn. Nazwy kolumn mogą zawierać prefiksy tabel. Metoda ta automatycznie doda cudzysłów do nazwy kolumn chyba że zawierają one nawiasy (co oznacza, że kolumna jest wyrażeniem bazodanowym).
 
 Poniżej znajduje się kilka przykładów:
@@ -406,7 +406,7 @@ Instancja [CDbCommand] może być wielokrotnie używana do konstruowania kilku z
 [php]
 $command = Yii::app()->createCommand();
 $users = $command->select('*')->from('tbl_users')->queryAll();
-$command->reset();  // wyszyść poprzednie zapytanie
+$command->reset();	// wyszyść poprzednie zapytanie
 $posts = $command->select('*')->from('tbl_posts')->queryAll();
 ~~~
 
@@ -495,7 +495,7 @@ Poza zwykłymi zapytaniami zwracającymi i manipulującymi danymi, kreator zapyt
 * [dropTable()|CDbCommand::dropTable]: usuwa tabelę
 * [truncateTable()|CDbCommand::truncateTable]: usuwa wszystkie wpisy z tabeli
 * [addColumn()|CDbCommand::addColumn]: dodaje kolumnę do tabeli
-* [renameColumn()|CDbCommand::renameColumn]: zmienia nazwę kolumny tabeli 
+* [renameColumn()|CDbCommand::renameColumn]: zmienia nazwę kolumny tabeli
 * [alterColumn()|CDbCommand::alterColumn]: zmienia kolumnę tabeli
 * [dropColumn()|CDbCommand::dropColumn]: usuwa kolumnę tabeli
 * [createIndex()|CDbCommand::createIndex]: tworzy index
@@ -543,9 +543,9 @@ Poniżej znajduje się przykład pokazujący jak utworzyć tabelę:
 ~~~
 [php]
 // CREATE TABLE `tbl_user` (
-//     `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-//     `username` varchar(255) NOT NULL,
-//     `location` point
+//		 `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+//		 `username` varchar(255) NOT NULL,
+//		 `location` point
 // ) ENGINE=InnoDB
 createTable('tbl_user', array(
 	'id' => 'pk',
@@ -651,7 +651,7 @@ dropColumn('tbl_user', 'location')
 function renameColumn($table, $name, $newName)
 ~~~
 
-Metoda [renameColumn()|CDbCommand::renameColumn] buduje i wykonuje instrukcję SQL służąca zmianie nazw kolumny w tabeli. Parametr `$table` określa nazwę tabeli, w której nazwa kolumn zostanie zmieniona. Parametr `$name` określa starą nazwę kolumny. Parametr `$newName` definiuje nową nazwę kolumny. Konstruktor zapyta doda prawidłowo cudzysłowy zarówno dla nazwy tabli jak i dla nazw kolumn. 
+Metoda [renameColumn()|CDbCommand::renameColumn] buduje i wykonuje instrukcję SQL służąca zmianie nazw kolumny w tabeli. Parametr `$table` określa nazwę tabeli, w której nazwa kolumn zostanie zmieniona. Parametr `$name` określa starą nazwę kolumny. Parametr `$newName` definiuje nową nazwę kolumny. Konstruktor zapyta doda prawidłowo cudzysłowy zarówno dla nazwy tabli jak i dla nazw kolumn.
 
 Poniżej znajduje się przykład pokazujący jak zmienić nazwę kolumny w tabeli:
 

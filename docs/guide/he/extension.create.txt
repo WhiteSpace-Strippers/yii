@@ -26,19 +26,19 @@
 
 כשמפתחים התנהגות עבור [CModel] ו [CActiveRecord], ניתן להרחיב מהמחלקות [CModelBehavior] ו [CActiveRecordBehavior], בהתאמה. מחלקות בסיס אלו מציעות אפשרויות נוספות שמיועדות ספציפית ל [CModel] ו [CActiveRecord]. לדוגמא, המחלקה [CActiveRecordBehavior] מיישמת סט של מתודות המגיבות לאירועים אשר מתבצעים במחלקת ActiveRecord.
 
-הקוד הבא מציג דוגמא להתנהגות של ActiveRecord. כשההתנהגות מצורפת לאובייקט של  AR וכשהאובייקט AR נשמר על ידי קריאה למתודה `save()`, הוא אוטומטית יגדיר את המאפיינים `create_time` ו `update_time` עם הזמן הנוכחי בשרת.
+הקוד הבא מציג דוגמא להתנהגות של ActiveRecord. כשההתנהגות מצורפת לאובייקט של	AR וכשהאובייקט AR נשמר על ידי קריאה למתודה `save()`, הוא אוטומטית יגדיר את המאפיינים `create_time` ו `update_time` עם הזמן הנוכחי בשרת.
 
 ~~~
 [php]
 class TimestampBehavior extends CActiveRecordBehavior
 {
-    public function beforeSave($event)
-    {
-        if($this-»owner-»isNewRecord)
-            $this-»owner-»create_time=time();
-        else
-            $this-»owner-»update_time=time();
-    }
+		public function beforeSave($event)
+		{
+				if($this-»owner-»isNewRecord)
+						$this-»owner-»create_time=time();
+				else
+						$this-»owner-»update_time=time();
+		}
 }
 ~~~
 
@@ -54,15 +54,15 @@ class TimestampBehavior extends CActiveRecordBehavior
 [php]
 class MyTabView extends CTabView
 {
-    public function init()
-    {
-        if($this-»cssFile===null)
-        {
-            $file=dirname(__FILE__).DIRECTORY_SEPARATOR.'tabview.css';
-            $this-»cssFile=Yii::app()-»getAssetManager()-»publish($file);
-        }
-        parent::init();
-    }
+		public function init()
+		{
+				if($this-»cssFile===null)
+				{
+						$file=dirname(__FILE__).DIRECTORY_SEPARATOR.'tabview.css';
+						$this-»cssFile=Yii::app()-»getAssetManager()-»publish($file);
+				}
+				parent::init();
+		}
 }
 ~~~
 
@@ -77,13 +77,13 @@ class MyTabView extends CTabView
 [php]
 class MyWidget extends CWidget
 {
-    protected function registerClientScript()
-    {
-        // ..פרסום קבצי CSS ו JS כאן...
-        $cs=Yii::app()-»clientScript;
-        $cs-»registerCssFile($cssFile);
-        $cs-»registerScriptFile($jsFile);
-    }
+		protected function registerClientScript()
+		{
+				// ..פרסום קבצי CSS ו JS כאן...
+				$cs=Yii::app()-»clientScript;
+				$cs-»registerCssFile($cssFile);
+				$cs-»registerScriptFile($jsFile);
+		}
 }
 ~~~
 
@@ -103,16 +103,16 @@ class MyWidget extends CWidget
 [php]
 class MyFilter extends CFilter
 {
-    protected function preFilter($filterChain)
-    {
-        // לוגיקה שרצה לפני שהפעולה בקונטרולר רצה
-        return true; // יש להחזיר false במידה ורוצים לבטל את הרצת הפעולה
-    }
+		protected function preFilter($filterChain)
+		{
+				// לוגיקה שרצה לפני שהפעולה בקונטרולר רצה
+				return true; // יש להחזיר false במידה ורוצים לבטל את הרצת הפעולה
+		}
 
-    protected function postFilter($filterChain)
-    {
-        // לוגיקה שרצה לאחר הרצת הפעולה בקונטרולר
-    }
+		protected function postFilter($filterChain)
+		{
+				// לוגיקה שרצה לאחר הרצת הפעולה בקונטרולר
+		}
 }
 ~~~
 
@@ -132,12 +132,12 @@ class MyFilter extends CFilter
 [php]
 class MyValidator extends CValidator
 {
-    protected function validateAttribute($model,$attribute)
-    {
-        $value=$model-»$attribute;
-        if($value has error)
-            $model-»addError($attribute,$errorMessage);
-    }
+		protected function validateAttribute($model,$attribute)
+		{
+				$value=$model-»$attribute;
+				if($value has error)
+						$model-»addError($attribute,$errorMessage);
+		}
 }
 ~~~
 
@@ -150,15 +150,15 @@ class MyValidator extends CValidator
 [php]
 class MyCommand extends CConsoleCommand
 {
-    public function run($args)
-    {
-        // הפרמטר היחידה בפונקציה זו מחזיר מערך עם המידע שהוזן לפקודה
-    }
+		public function run($args)
+		{
+				// הפרמטר היחידה בפונקציה זו מחזיר מערך עם המידע שהוזן לפקודה
+		}
 
-    public function getHelp()
-    {
-        return 'הסבר כיצד להריץ פקודה זו';
-    }
+		public function getHelp()
+		{
+				return 'הסבר כיצד להריץ פקודה זו';
+		}
 }
 ~~~
 

@@ -104,10 +104,10 @@
 	 */
 	function ucs2decode(string) {
 		var output = [],
-		    counter = 0,
-		    length = string.length,
-		    value,
-		    extra;
+				counter = 0,
+				length = string.length,
+				value,
+				extra;
 		while (counter < length) {
 			value = string.charCodeAt(counter++);
 			if ((value & 0xF800) == 0xD800 && counter < length) {
@@ -177,7 +177,7 @@
 	 * if flag is non-zero and `digit` has no uppercase form.
 	 */
 	function digitToBasic(digit, flag) {
-		//  0..25 map to ASCII a..z or A..Z
+		//	0..25 map to ASCII a..z or A..Z
 		// 26..35 map to ASCII 0..9
 		return digit + 22 + 75 * (digit < 26) - ((flag != 0) << 5);
 	}
@@ -221,22 +221,22 @@
 	function decode(input) {
 		// Don't use UCS-2
 		var output = [],
-		    inputLength = input.length,
-		    out,
-		    i = 0,
-		    n = initialN,
-		    bias = initialBias,
-		    basic,
-		    j,
-		    index,
-		    oldi,
-		    w,
-		    k,
-		    digit,
-		    t,
-		    length,
-		    /** Cached calculation results */
-		    baseMinusT;
+				inputLength = input.length,
+				out,
+				i = 0,
+				n = initialN,
+				bias = initialBias,
+				basic,
+				j,
+				index,
+				oldi,
+				w,
+				k,
+				digit,
+				t,
+				length,
+				/** Cached calculation results */
+				baseMinusT;
 
 		// Handle the basic code points: let `basic` be the number of input code
 		// points before the last delimiter, or `0` if there is none, then copy
@@ -322,23 +322,23 @@
 	 */
 	function encode(input) {
 		var n,
-		    delta,
-		    handledCPCount,
-		    basicLength,
-		    bias,
-		    j,
-		    m,
-		    q,
-		    k,
-		    t,
-		    currentValue,
-		    output = [],
-		    /** `inputLength` will hold the number of code points in `input`. */
-		    inputLength,
-		    /** Cached calculation results */
-		    handledCPCountPlusOne,
-		    baseMinusT,
-		    qMinusT;
+				delta,
+				handledCPCount,
+				basicLength,
+				bias,
+				j,
+				m,
+				q,
+				k,
+				t,
+				currentValue,
+				output = [],
+				/** `inputLength` will hold the number of code points in `input`. */
+				inputLength,
+				/** Cached calculation results */
+				handledCPCountPlusOne,
+				baseMinusT,
+				qMinusT;
 
 		// Convert the input in UCS-2 to Unicode
 		input = ucs2decode(input);

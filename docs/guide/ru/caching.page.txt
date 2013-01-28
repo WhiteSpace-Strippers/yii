@@ -21,7 +21,7 @@
 
 Для кэширования всей страницы мы должны пропустить этап формирования
 содержимого страницы. Для выполнения этой задачи мы можем использовать класс
-[COutputCache] как  [фильтр](/doc/guide/basics.controller#filter) действия.
+[COutputCache] как	[фильтр](/doc/guide/basics.controller#filter) действия.
 В коде ниже показано, как можно сконфигурировать фильтр кэша:
 
 ~~~
@@ -66,17 +66,17 @@ HTTP-заголовки, которые говорят клиенту (чаще 
 [php]
 public function filters()
 {
-    return array(
-        array(
-            'CHttpCacheFilter + index',
-            'lastModified'=>Yii::app()->db->createCommand("SELECT MAX(`update_time`) FROM {{post}}")->queryScalar(),
-        ),
-    );
+		return array(
+				array(
+						'CHttpCacheFilter + index',
+						'lastModified'=>Yii::app()->db->createCommand("SELECT MAX(`update_time`) FROM {{post}}")->queryScalar(),
+				),
+		);
 }
 ~~~
 
 Приведённый выше код добавит заголовок `Last-Modified` с значением, равным
-последней дате изменения записи. Также вы можете  использовать
+последней дате изменения записи. Также вы можете	использовать
 [CHttpCacheFilter::lastModifiedExpression] для того, чтобы задать значение
 `Last-Modified` при помощи выражения PHP.
 

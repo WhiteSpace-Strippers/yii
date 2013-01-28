@@ -18,8 +18,8 @@
  * Reading or writing a property will cause the invocation of the corresponding
  * getter or setter method, e.g
  * <pre>
- * $a=$component->text;     // equivalent to $a=$component->getText();
- * $component->text='abc';  // equivalent to $component->setText('abc');
+ * $a=$component->text;		 // equivalent to $a=$component->getText();
+ * $component->text='abc';	// equivalent to $component->setText('abc');
  * </pre>
  * The signatures of getter and setter methods are as follows,
  * <pre>
@@ -44,13 +44,13 @@
  * To attach an event handler to an event, see {@link attachEventHandler}.
  * You can also use the following syntax:
  * <pre>
- * $component->onClick=$callback;    // or $component->onClick->add($callback);
+ * $component->onClick=$callback;		// or $component->onClick->add($callback);
  * </pre>
  * where $callback refers to a valid PHP callback. Below we show some callback examples:
  * <pre>
- * 'handleOnClick'                   // handleOnClick() is a global function
- * array($object,'handleOnClick')    // using $object->handleOnClick()
- * array('Page','handleOnClick')     // using Page::handleOnClick()
+ * 'handleOnClick'									 // handleOnClick() is a global function
+ * array($object,'handleOnClick')		// using $object->handleOnClick()
+ * array('Page','handleOnClick')		 // using Page::handleOnClick()
  * </pre>
  *
  * To raise an event, use {@link raiseEvent}. The on-method defining an event is
@@ -58,7 +58,7 @@
  * <pre>
  * public function onClick($event)
  * {
- *     $this->raiseEvent('onClick',$event);
+ *		 $this->raiseEvent('onClick',$event);
  * }
  * </pre>
  * where <code>$event</code> is an instance of {@link CEvent} or its child class.
@@ -284,9 +284,9 @@ class CComponent
 	 * array of the following structure:
 	 * <pre>
 	 * array(
-	 *     'class'=>'path.to.BehaviorClass',
-	 *     'property1'=>'value1',
-	 *     'property2'=>'value2',
+	 *		 'class'=>'path.to.BehaviorClass',
+	 *		 'property1'=>'value1',
+	 *		 'property2'=>'value2',
 	 * )
 	 * </pre>
 	 * @param array $behaviors list of behaviors to be attached to the component
@@ -667,8 +667,8 @@ class CEvent extends CComponent
  * <pre>
  * class TextAlign extends CEnumerable
  * {
- *     const Left='Left';
- *     const Right='Right';
+ *		 const Left='Left';
+ *		 const Right='Right';
  * }
  * </pre>
  * Then, one can use the enumerable values such as TextAlign::Left and

@@ -235,8 +235,8 @@ class YiiBase
 	 *
 	 * Path aliases are used to import a class or directory. For example,
 	 * <ul>
-	 *   <li><code>application.components.GoogleMap</code>: import the <code>GoogleMap</code> class.</li>
-	 *   <li><code>application.components.*</code>: import the <code>components</code> directory.</li>
+	 *	 <li><code>application.components.GoogleMap</code>: import the <code>GoogleMap</code> class.</li>
+	 *	 <li><code>application.components.*</code>: import the <code>components</code> directory.</li>
 	 * </ul>
 	 *
 	 * The same path alias can be imported multiple times, but only the first time is effective.
@@ -262,7 +262,7 @@ class YiiBase
 	 */
 	public static function import($alias,$forceInclude=false)
 	{
-		if(isset(self::$_imports[$alias]))  // previously imported
+		if(isset(self::$_imports[$alias]))	// previously imported
 			return self::$_imports[$alias];
 
 		if(class_exists($alias,false) || interface_exists($alias,false))
@@ -291,7 +291,7 @@ class YiiBase
 					array('{alias}'=>$namespace)));
 		}
 
-		if(($pos=strrpos($alias,'.'))===false)  // a simple class name
+		if(($pos=strrpos($alias,'.'))===false)	// a simple class name
 		{
 			if($forceInclude && self::autoload($alias))
 				self::$_imports[$alias]=$alias;
@@ -320,7 +320,7 @@ class YiiBase
 					self::$classMap[$className]=$path.'.php';
 				return $className;
 			}
-			else  // a directory
+			else	// a directory
 			{
 				if(self::$_includePaths===null)
 				{
@@ -398,7 +398,7 @@ class YiiBase
 		else
 		{
 			// include class file relying on include_path
-			if(strpos($className,'\\')===false)  // class without namespace
+			if(strpos($className,'\\')===false)	// class without namespace
 			{
 				if(self::$enableIncludePath===false)
 				{
@@ -420,7 +420,7 @@ class YiiBase
 				else
 					include($className.'.php');
 			}
-			else  // class name with namespace in PHP 5.3
+			else	// class name with namespace in PHP 5.3
 			{
 				$namespace=str_replace('\\','.',ltrim($className,'\\'));
 				if(($path=self::getPathOfAlias($namespace))!==false)

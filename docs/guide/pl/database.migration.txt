@@ -47,11 +47,11 @@ class m101129_185401_create_news_table extends CDbMigration
 	{
 	}
 
-    public function down()
-    {
+		public function down()
+		{
 		echo "m101129_185401_create_news_table does not support migration down.\n";
 		return false;
-    }
+		}
 
 	/*
 	// implement safeUp/safeDown instead if transaction is needed
@@ -74,7 +74,7 @@ Czasami niemożliwe jest zaimplementowanie metody `down()`. Na przykład, jeśli
 
 > Info|Info: Poczynając od wersji 1.1.7, jeśli metody `up()` oraz `down()` zwracają
 > `false`, wszystkie następne migrację zostaną anulowane. W poprzedniej wersji
-> 1.1.6, każda musiała zwrócić wyjątek aby anulować kolejne migracje. 
+> 1.1.6, każda musiała zwrócić wyjątek aby anulować kolejne migracje.
 
 W ramach przykładu pokażemy migrację tworzącą tabelę wiadomości.
 
@@ -211,7 +211,7 @@ yiic migrate down [step]
 
 gdzie opcjonalny parametr `step` określa jak wiele migracji zostanie odwróconych. Domyślnie przyjmuje wartość 1 co oznacza odwracanie ostatnio zaaplikowanej migracji.
 
-Tak jak wspominaliśmy wcześniej nie wszystkie migracje można odwracać. Próbując odwrócać nieodwracalną migrację otrzymamy wyjątek i proces odwracania zostanie przerwany. 
+Tak jak wspominaliśmy wcześniej nie wszystkie migracje można odwracać. Próbując odwrócać nieodwracalną migrację otrzymamy wyjątek i proces odwracania zostanie przerwany.
 
 
 Poprawianie migracji
@@ -264,7 +264,7 @@ Polecenia migracji dostarczane są wraz z czterema opcjami, które mogą być ok
 
 * `interactive`: boolean, określa kiedy wykonywać migrację w trybie interaktywnym. Domyślnie true, co oznacza, iż użytkownik jest monitowany o wynikach migracji podczas jej wykonywania. Jeżeli ustawisz tę wartość na false migracja powinna przebiegać w tle.
 
-* `migrationPath`: łańcuch znaków, określający katalog przechowujący wszystkie pliki klas migracji. Należy go zdefiniować używając aliasu ścieżki do istniejącego katalogu. Jeśli opcja ta nie została określona, będzie ona używać podkatalogu `migrations` znajdującego się w katalogu bazowym aplikacji. 
+* `migrationPath`: łańcuch znaków, określający katalog przechowujący wszystkie pliki klas migracji. Należy go zdefiniować używając aliasu ścieżki do istniejącego katalogu. Jeśli opcja ta nie została określona, będzie ona używać podkatalogu `migrations` znajdującego się w katalogu bazowym aplikacji.
 
 * `migrationTable`: łańcuch znaków, określający nazwę tabeli bazy danych przechowywującej informacje o historii migracji. Domyślna wartość to `tbl_migration`. Struktura tej tabeli jest następująca `version varchar(255) primary key, apply_time integer`.
 

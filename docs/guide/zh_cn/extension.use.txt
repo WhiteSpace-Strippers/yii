@@ -3,10 +3,10 @@
 
 适用扩展通常半酣了以下三步:
 
-  1. 从 Yii 的 [扩展库](http://www.yiiframework.com/extensions/) 下载扩展.
-  2. 解压到 [应用程序的基目录](/doc/guide/basics.application#application-base-directory)
+	1. 从 Yii 的 [扩展库](http://www.yiiframework.com/extensions/) 下载扩展.
+	2. 解压到 [应用程序的基目录](/doc/guide/basics.application#application-base-directory)
 的子目录 `extensions/xyz` 下,这里的 `xyz` 是扩展的名称.
-  3. 导入, 配置和使用扩展.
+	3. 导入, 配置和使用扩展.
 
 每个扩展都有一个所有扩展中唯一的名称标识.把一个扩展命名为 `xyz` ,我们也可以使用路径别名定位到包含了 `xyz`
 所有文件的基目录.
@@ -46,20 +46,20 @@ $this->widget('zii.widgets.grid.CGridView', array(
 ~~~
 [php]
 return array(
-    // 'preload'=>array('xyz',...),
-    'components'=>array(
-        'xyz'=>array(
-            'class'=>'application.extensions.xyz.XyzClass',
-            'property1'=>'value1',
-            'property2'=>'value2',
-        ),
-        // 其他部件配置
-    ),
+		// 'preload'=>array('xyz',...),
+		'components'=>array(
+				'xyz'=>array(
+						'class'=>'application.extensions.xyz.XyzClass',
+						'property1'=>'value1',
+						'property2'=>'value2',
+				),
+				// 其他部件配置
+		),
 );
 ~~~
 
 然后,我们可以在任何地方通过使用 `Yii::app()->xyz` 来访问部件.部件将会被 `惰性创建`(就是,仅当它第一次被访问时创建.) ,
-除非我们把它配置到  `preload` 属性里.
+除非我们把它配置到	`preload` 属性里.
 
 
 Behavior
@@ -136,13 +136,13 @@ public function behaviors()
 [php]
 // 组件不需要主体内容
 <?php $this->widget('application.extensions.xyz.XyzClass', array(
-    'property1'=>'value1',
-    'property2'=>'value2')); ?>
+		'property1'=>'value1',
+		'property2'=>'value2')); ?>
 
 // 组件可以包含主体内容
 <?php $this->beginWidget('application.extensions.xyz.XyzClass', array(
-    'property1'=>'value1',
-    'property2'=>'value2')); ?>
+		'property1'=>'value1',
+		'property2'=>'value2')); ?>
 
 ...组件的主体内容...
 
@@ -264,7 +264,7 @@ return array(
 
 然后,我们就能使用配备了额外命令 `xyz` 的 `yiic` 工具了.
 
-> Note|注意: 控制台应用通常使用了一个不同于 Web 应用的配置文件.如果使用了 `yiic webapp` 命令创建了一个应用,这样的话,控制台应用的 `protected/yiic` 的配置文件就是 `protected/config/console.php`  了,而Web应用的配置文件
+> Note|注意: 控制台应用通常使用了一个不同于 Web 应用的配置文件.如果使用了 `yiic webapp` 命令创建了一个应用,这样的话,控制台应用的 `protected/yiic` 的配置文件就是 `protected/config/console.php`	了,而Web应用的配置文件
 则是 `protected/config/main.php`.
 
 模块

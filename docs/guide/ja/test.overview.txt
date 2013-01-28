@@ -46,15 +46,15 @@ PHPUnit と Selenium Remote Control のインストール方法については�
 
 ~~~
 testdrive/
-   protected/                保護されたアプリケーションファイルが含まれる
-      tests/                 アプリケーションのテストが含まれる
-         fixtures/           データベースフィクスチャが含まれる
-         functional/         機能テストが含まれる
-         unit/               ユニットテストが含まれる
-         report/             カバレッジレポートが含まれる
-         bootstrap.php       最初に実行されるスクリプト
-         phpunit.xml         PHPUnitの設定ファイル
-         WebTestCase.php     ウェブベースの機能テストのための基本クラス
+	 protected/								保護されたアプリケーションファイルが含まれる
+			tests/								 アプリケーションのテストが含まれる
+				 fixtures/					 データベースフィクスチャが含まれる
+				 functional/				 機能テストが含まれる
+				 unit/							 ユニットテストが含まれる
+				 report/						 カバレッジレポートが含まれる
+				 bootstrap.php			 最初に実行されるスクリプト
+				 phpunit.xml				 PHPUnitの設定ファイル
+				 WebTestCase.php		 ウェブベースの機能テストのための基本クラス
 ~~~
 
 上記で示すように、テストコードは主として3つのディレクトリ、`fixtures`, `functional` および `unit` に置かれます。
@@ -64,8 +64,8 @@ testdrive/
 
 ~~~
 % cd testdrive/protected/tests
-% phpunit functional/PostTest.php    // 特定のテストを実行
-% phpunit --verbose functional       // 'functional' 下の全てのテストを実行
+% phpunit functional/PostTest.php		// 特定のテストを実行
+% phpunit --verbose functional			 // 'functional' 下の全てのテストを実行
 % phpunit --coverage-html ./report unit
 ~~~
 

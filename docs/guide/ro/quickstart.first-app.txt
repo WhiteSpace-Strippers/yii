@@ -27,7 +27,7 @@ Aceste comenzi vor crea un schelet de aplicatie Yii in directorul
 pentru majoritatea aplicatiilor Yii.
 
 Fara sa scriem nici o linie de cod, putem testa prima noastra aplicatie Yii
-prin accesarea urmatorului URL intr-un browser Web: 
+prin accesarea urmatorului URL intr-un browser Web:
 
 ~~~
 http://hostname/myproject/index.php
@@ -36,7 +36,7 @@ http://hostname/myproject/index.php
 Dupa cum putem vedea, aplicatia are trei pagini: pagina home, pagina contact
 si pagina de logare. Pagina home contine cateva informatii despre aplicatie
 si despre utilizator. Pagina de contact afiseaza un formular de contact care poate fi
-completat de catre utilizatori. Pagina de logare permite utilizatorilor sa fie autentificati 
+completat de catre utilizatori. Pagina de logare permite utilizatorilor sa fie autentificati
 inainte de a accesa continut pentru care au nevoie de anumite privilegii.
 Putem vedea screenshot-urile urmatoare pentru mai multe detalii.
 
@@ -57,40 +57,40 @@ explicatii detaliate despre aceasta structura.
 
 ~~~
 myproject/
-   index.php                 fisierul php de intrare in aplicatia Web
-   assets/                   contine fisiere cu resurse accesibile din Web
-   css/                      contine fisiere CSS
-   images/                   contine imagini
-   themes/                   contine teme
-   protected/                contine fisierele protejate ale aplicatiei
-      yiic                   scriptul yiic de linie de comanda
-      yiic.bat               scriptul yiic de linie de comanda pt Windows
-      commands/              contine comenzi customizate pt 'yiic'
-         shell/              contine comenzi customizate pt 'yiic shell'
-      components/            contine componente utilizator reutilizabile
-         MainMenu.php        clasa widget-ului 'MainMenu'
-         Identity.php        clasa 'Identity' folosita pentru autentificare
-         views/              contine fisiere view pentru widget-uri
-            mainMenu.php     fisierul view pentru widget-ul 'MainMenu'
-      config/                contine fisiere de configurare
-         console.php         configuratia aplicatiei consola
-         main.php            configuratia aplicatiei Web
-      controllers/           contine fisierele cu clasele controller-elor
-         SiteController.php  clasa controller-ului implicit
-      extensions/            contine extensii third-party
-      messages/              contine mesaje traduse
-      models/                contine fisiere cu clasele modelelor
-         LoginForm.php       modelul de tip formular pentru action-ul 'login'
-         ContactForm.php     modelul de tip formular pentru action-ul 'contact'
-      runtime/               contine fisiere generate temporar
-      views/                 contine fisiere layout si view-urile controller-elor
-         layouts/            contine fisiere layout pt view-uri
-            main.php         layout-ul implicit pt toate view-urile
-         site/               contine fisierele view pentru controller-ul 'site'
-            contact.php      view-ul pentru action-ul 'contact'
-            index.php        view-ul pentru action-ul 'index'
-            login.php        view-ul pentru action-ul 'login'
-         system/             contine fisierele view pt erorile sistemului
+	 index.php								 fisierul php de intrare in aplicatia Web
+	 assets/									 contine fisiere cu resurse accesibile din Web
+	 css/											contine fisiere CSS
+	 images/									 contine imagini
+	 themes/									 contine teme
+	 protected/								contine fisierele protejate ale aplicatiei
+			yiic									 scriptul yiic de linie de comanda
+			yiic.bat							 scriptul yiic de linie de comanda pt Windows
+			commands/							contine comenzi customizate pt 'yiic'
+				 shell/							contine comenzi customizate pt 'yiic shell'
+			components/						contine componente utilizator reutilizabile
+				 MainMenu.php				clasa widget-ului 'MainMenu'
+				 Identity.php				clasa 'Identity' folosita pentru autentificare
+				 views/							contine fisiere view pentru widget-uri
+						mainMenu.php		 fisierul view pentru widget-ul 'MainMenu'
+			config/								contine fisiere de configurare
+				 console.php				 configuratia aplicatiei consola
+				 main.php						configuratia aplicatiei Web
+			controllers/					 contine fisierele cu clasele controller-elor
+				 SiteController.php	clasa controller-ului implicit
+			extensions/						contine extensii third-party
+			messages/							contine mesaje traduse
+			models/								contine fisiere cu clasele modelelor
+				 LoginForm.php			 modelul de tip formular pentru action-ul 'login'
+				 ContactForm.php		 modelul de tip formular pentru action-ul 'contact'
+			runtime/							 contine fisiere generate temporar
+			views/								 contine fisiere layout si view-urile controller-elor
+				 layouts/						contine fisiere layout pt view-uri
+						main.php				 layout-ul implicit pt toate view-urile
+				 site/							 contine fisierele view pentru controller-ul 'site'
+						contact.php			view-ul pentru action-ul 'contact'
+						index.php				view-ul pentru action-ul 'index'
+						login.php				view-ul pentru action-ul 'login'
+				 system/						 contine fisierele view pt erorile sistemului
 ~~~
 
 Conectarea la baza de date
@@ -120,7 +120,7 @@ aplicatiei sa se conecteze la baza de date SQLite
 `WebRoot/myproject/protected/data/source.db` atunci cand este necesar.
 
 > Note|Nota: Pentru a folosi o baza de date in Yii, trebuie sa activam extensia PHP PDO
-si extensia PDO cu driver-ul specific pentru baza de date pe care vrem sa o folosim. 
+si extensia PDO cu driver-ul specific pentru baza de date pe care vrem sa o folosim.
 Pentru aplicatia noastra, trebuie ca extensiile `php_pdo` si `php_pdo_sqlite` sa fie activate.
 
 Trebuie sa cream o baza de date SQLite astfel incat configuratia de mai sus sa
@@ -138,9 +138,9 @@ CREATE TABLE User (
 ~~~
 
 Pentru simplitate, cream o singura tabela (`User`) in baza de date. Fisierul
-bazei de date SQLite este salvat avand urmatoarea cale: `WebRoot/myproject/protected/data/source.db`. 
+bazei de date SQLite este salvat avand urmatoarea cale: `WebRoot/myproject/protected/data/source.db`.
 Trebuie remarcat ca fisierul bazei de date si directorul care contine acest fisier
-trebuie sa permita scrierea de catre serverul Web server. 
+trebuie sa permita scrierea de catre serverul Web server.
 
 
 implementarea operatiilor CRUD
@@ -161,22 +161,22 @@ comenzi:
 Yii Interactive Tool v1.0
 Please type 'help' for help. Type 'exit' to quit.
 >> model User
-   generate User.php
+	 generate User.php
 
 The 'User' class has been successfully created in the following file:
-    D:\wwwroot\myproject\protected\models\User.php
+		D:\wwwroot\myproject\protected\models\User.php
 
 If you have a 'db' database connection, you can test it now with:
-    $model=User::model()->find();
-    print_r($model);
+		$model=User::model()->find();
+		print_r($model);
 
 >> crud User
-   generate UserController.php
-   generate create.php
-      mkdir D:/wwwroot/myproject/protected/views/user
-   generate update.php
-   generate list.php
-   generate show.php
+	 generate UserController.php
+	 generate create.php
+			mkdir D:/wwwroot/myproject/protected/views/user
+	 generate update.php
+	 generate list.php
+	 generate show.php
 
 Crud 'user' has been successfully created. You may access it via:
 http://hostname/path/to/index.php?r=user

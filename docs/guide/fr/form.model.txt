@@ -41,7 +41,7 @@ entrés par l'utilisateur, ainsi que l'option pour rester connecté.
 Comme `$rememberMe` à pour valeur par défaut `false`, l'option correspondante
 quand le formulaire sera affiché sera décochée.
 
-> Info: Plutot que d'appeler ces variables des propriétés, le terme 
+> Info: Plutot que d'appeler ces variables des propriétés, le terme
 d'attribut est préféré afin de les distinguer des propriétés normales. Un
 attribut est une propriété qui est principalement utilisé pour stocker des
 données venant d'entrées utilisateur ou de la base de données.
@@ -127,49 +127,49 @@ ci dessus, le nom `required` est un alias pour [CRequiredValidator]
 qui s'assure que la valeur de l'attribut a validater n´est pas vide. Vous trouverez ci dessous
 la liste complète des alias de `Validator` prédéfinis:
 
-   - `boolean`: alias pour [CBooleanValidator], s'assure que l'attribut est
+	 - `boolean`: alias pour [CBooleanValidator], s'assure que l'attribut est
 soit [CBooleanValidator::trueValue] ou [CBooleanValidator::falseValue].
 
-   - `captcha`: alias pour [CCaptchaValidator], s'assure que l'attribut est
+	 - `captcha`: alias pour [CCaptchaValidator], s'assure que l'attribut est
 égal à un code de vérification affiché dans un [CAPTCHA](http://en.wikipedia.org/wiki/Captcha).
 
-   - `compare`: alias pour [CCompareValidator], s'assure que the attribute est égal à un autre attribut ou constante.
+	 - `compare`: alias pour [CCompareValidator], s'assure que the attribute est égal à un autre attribut ou constante.
 
-   - `email`: alias pour [CEmailValidator], s'assure que l'attribut est une
+	 - `email`: alias pour [CEmailValidator], s'assure que l'attribut est une
 adresse email valide.
 
-   - `default`: alias pour [CDefaultValueValidator], assigne une valeur par défaut aux attributs.
+	 - `default`: alias pour [CDefaultValueValidator], assigne une valeur par défaut aux attributs.
 
-   - `exist`: alias pour [CExistValidator], s'assure que la valeur de l'attribut
+	 - `exist`: alias pour [CExistValidator], s'assure que la valeur de l'attribut
 existe dans la colonne de la table spécifiée.
 
-   - `file`: alias pour [CFileValidator], s'assure que l'attribute contient
+	 - `file`: alias pour [CFileValidator], s'assure que l'attribute contient
 le nome d'un fichier uploadé.
 
-   - `filter`: alias pour [CFilterValidator], transforme un attribut grâce à un filtre.
+	 - `filter`: alias pour [CFilterValidator], transforme un attribut grâce à un filtre.
 
-   - `in`: alias pour [CRangeValidator], s'assure que les données sont contenu dans une
+	 - `in`: alias pour [CRangeValidator], s'assure que les données sont contenu dans une
 liste de valeurs pré-specifiées.
 
-   - `length`: alias pour [CStringValidator], s'assure que la longueur de la valeur est
+	 - `length`: alias pour [CStringValidator], s'assure que la longueur de la valeur est
 dans un certain interval.
 
-   - `match`: alias pour [CRegularExpressionValidator], s'assure que la valeur satisfait
+	 - `match`: alias pour [CRegularExpressionValidator], s'assure que la valeur satisfait
 une expression régulière.
 
-   - `numerical`: alias pour [CNumberValidator], s'assure que la valeur est un 
+	 - `numerical`: alias pour [CNumberValidator], s'assure que la valeur est un
 nombre valide.
 
-   - `required`: alias pour [CRequiredValidator], s'assure que l'attribut n´est
+	 - `required`: alias pour [CRequiredValidator], s'assure que l'attribut n´est
 pas vide.
 
-   - `type`: alias pour [CTypeValidator], s'assure que l'attribut est d'un type de
+	 - `type`: alias pour [CTypeValidator], s'assure que l'attribut est d'un type de
 donnée spécifique.
 
-   - `unique`: alias pour [CUniqueValidator], s'assure que la valeur est unique dans
+	 - `unique`: alias pour [CUniqueValidator], s'assure que la valeur est unique dans
 une colonne de table.
 
-   - `url`: alias pour [CUrlValidator], s'assure que la valeur est une URL valide.
+	 - `url`: alias pour [CUrlValidator], s'assure que la valeur est une URL valide.
 
 Quelques exemples d'utilisation de ces `Validator` prédéfinis:
 
@@ -313,15 +313,15 @@ structure suivant:
 ~~~
 [php]
 array(
-   // ces attributs peuvent être assignés massivement pour tous les scénarios
-   // qui ne sont pas explicitement cités ci dessous
-   'attr1, attr2, ...',
+	 // ces attributs peuvent être assignés massivement pour tous les scénarios
+	 // qui ne sont pas explicitement cités ci dessous
+	 'attr1, attr2, ...',
 	 *
-   // ces attributs peuvent être assignés massivement seulement pour le scénario 1
-   'scenario1' => 'attr2, attr3, ...',
+	 // ces attributs peuvent être assignés massivement seulement pour le scénario 1
+	 'scenario1' => 'attr2, attr3, ...',
 	 *
-   // ces attributs peuvent être assignés massivement seulement pour le scénario 2
-   'scenario2' => 'attr1, attr3, ...',
+	 // ces attributs peuvent être assignés massivement seulement pour le scénario 2
+	 'scenario2' => 'attr1, attr3, ...',
 )
 ~~~
 
@@ -374,10 +374,10 @@ $model=new User('register');
 $model->attributes=$_POST['User'];
 
 // effectue la validation
-if($model->validate())   // si les données sont valides
-    ...
+if($model->validate())	 // si les données sont valides
+		...
 else
-    ...
+		...
 ~~~
 
 Les scénarios applicables associés à une règle sont spécifiés au travers

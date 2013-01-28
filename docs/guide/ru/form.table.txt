@@ -27,7 +27,7 @@ public function actionBatchUpdate()
 				$item->attributes=$_POST['Item'][$i];
 			$valid=$item->validate() && $valid;
 		}
-		if($valid)  // все элементы корректны
+		if($valid)	// все элементы корректны
 			// …некоторая обработка
 	}
 	// отображаем представление с формой для ввода табличных данных

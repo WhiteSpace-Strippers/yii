@@ -18,14 +18,14 @@
  * $transaction=$connection->beginTransaction();
  * try
  * {
- *    $connection->createCommand($sql1)->execute();
- *    $connection->createCommand($sql2)->execute();
- *    //.... other SQL executions
- *    $transaction->commit();
+ *		$connection->createCommand($sql1)->execute();
+ *		$connection->createCommand($sql2)->execute();
+ *		//.... other SQL executions
+ *		$transaction->commit();
  * }
  * catch(Exception $e)
  * {
- *    $transaction->rollback();
+ *		$transaction->rollback();
  * }
  * </pre>
  *

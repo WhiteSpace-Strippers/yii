@@ -5,7 +5,7 @@ Fisierul de intrare este fisierul PHP care trateaza initial cererile utilizatori
 Este singurul fisier PHP accesibil pe care utilizatorii il pot executa direct.
 
 In cele mai multe cazuri, fisierul de intrare al unei aplicatii Yii
-contine codul urmator: 
+contine codul urmator:
 
 ~~~
 [php]
@@ -30,6 +30,6 @@ aceasta insemnand ca modul implicit este production. Pentru a rula aplicatia in 
 definim constanta ca fiind `true` inainte de a include fisierul `yii.php`. Rularea
 aplicatiei in modul debug este mult mai putin eficienta din cauza log-urilor interne necesare
 in timpul stadiului de dezvoltare al aplicatiei cand avem nevoie de mai multe informatii
-atunci cand apar erori de programare. 
+atunci cand apar erori de programare.
 
 <div class="revision">$Id: basics.entry.txt 162 2008-11-05 12:44:08Z weizhuo $</div>

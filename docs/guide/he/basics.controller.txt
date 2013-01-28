@@ -61,10 +61,10 @@ class SiteController extends CController
 [php]
 class UpdateAction extends CAction
 {
-    public function run()
-    {
-        // place the action logic here
-    }
+		public function run()
+		{
+				// place the action logic here
+		}
 }
 ~~~
 
@@ -74,12 +74,12 @@ class UpdateAction extends CAction
 [php]
 class PostController extends CController
 {
-    public function actions()
-    {
-        return array(
-            'edit'=»'application.controllers.post.UpdateAction',
-        );
-    }
+		public function actions()
+		{
+				return array(
+						'edit'=»'application.controllers.post.UpdateAction',
+				);
+		}
 }
 ~~~
 
@@ -89,18 +89,18 @@ class PostController extends CController
 
 ~~~
 protected/
-    controllers/
-        PostController.php
-        UserController.php
-        post/
-            CreateAction.php
-            ReadAction.php
-            UpdateAction.php
-        user/
-            CreateAction.php
-            ListAction.php
-            ProfileAction.php
-            UpdateAction.php
+		controllers/
+				PostController.php
+				UserController.php
+				post/
+						CreateAction.php
+						ReadAction.php
+						UpdateAction.php
+				user/
+						CreateAction.php
+						ListAction.php
+						ProfileAction.php
+						UpdateAction.php
 ~~~
 
 פילטרים
@@ -116,7 +116,7 @@ protected/
 [php]
 public function filterAccessControl($filterChain)
 {
-    // call $filterChain-»run() to continue filtering and action execution
+		// call $filterChain-»run() to continue filtering and action execution
 }
 ~~~
 
@@ -128,16 +128,16 @@ public function filterAccessControl($filterChain)
 [php]
 class PerformanceFilter extends CFilter
 {
-    protected function preFilter($filterChain)
-    {
-        // logic being applied before the action is executed
-        return true; // false if the action should not be executed
-    }
+		protected function preFilter($filterChain)
+		{
+				// logic being applied before the action is executed
+				return true; // false if the action should not be executed
+		}
 
-    protected function postFilter($filterChain)
-    {
-        // logic being applied after the action is executed
-    }
+		protected function postFilter($filterChain)
+		{
+				// logic being applied after the action is executed
+		}
 }
 ~~~
 
@@ -147,17 +147,17 @@ class PerformanceFilter extends CFilter
 [php]
 class PostController extends CController
 {
-    ......
-    public function filters()
-    {
-        return array(
-            'postOnly + edit, create',
-            array(
-                'application.filters.PerformanceFilter - edit, create',
-                'unit'=»'second',
-            ),
-        );
-    }
+		......
+		public function filters()
+		{
+				return array(
+						'postOnly + edit, create',
+						array(
+								'application.filters.PerformanceFilter - edit, create',
+								'unit'=»'second',
+						),
+				);
+		}
 }
 ~~~
 

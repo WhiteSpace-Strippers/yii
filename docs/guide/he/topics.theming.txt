@@ -31,32 +31,32 @@
 
 ~~~
 WebRoot/
-    assets
-    protected/
-        .htaccess
-        components/
-        controllers/
-        models/
-        views/
-            layouts/
-                main.php
-            site/
-                index.php
-    themes/
-        basic/
-            views/
-                .htaccess
-                layouts/
-                    main.php
-                site/
-                    index.php
-        fancy/
-            views/
-                .htaccess
-                layouts/
-                    main.php
-                site/
-                    index.php
+		assets
+		protected/
+				.htaccess
+				components/
+				controllers/
+				models/
+				views/
+						layouts/
+								main.php
+						site/
+								index.php
+		themes/
+				basic/
+						views/
+								.htaccess
+								layouts/
+										main.php
+								site/
+										index.php
+				fancy/
+						views/
+								.htaccess
+								layouts/
+										main.php
+								site/
+										index.php
 ~~~
 
 בהגדרות האפליקציה, אם נגדיר
@@ -64,8 +64,8 @@ WebRoot/
 ~~~
 [php]
 return array(
-    'theme'=>'basic',
-    ......
+		'theme'=>'basic',
+		......
 );
 ~~~
 
@@ -82,9 +82,9 @@ return array(
 ~~~
 [php]
 $this->widget('CLinkPager', array(
-    'pages'=>$pagination,
-    'maxButtonCount'=>5,
-    'cssFile'=>false,
+		'pages'=>$pagination,
+		'maxButtonCount'=>5,
+		'cssFile'=>false,
 ));
 ~~~
 
@@ -95,19 +95,19 @@ $this->widget('CLinkPager', array(
 ~~~
 [php]
 return array(
-    'components'=>array(
-        'widgetFactory'=>array(
-            'widgets'=>array(
-                'CLinkPager'=>array(
-                    'maxButtonCount'=>5,
-                    'cssFile'=>false,
-                ),
-                'CJuiDatePicker'=>array(
-                    'language'=>'ru',
-                ),
-            ),
-        ),
-    ),
+		'components'=>array(
+				'widgetFactory'=>array(
+						'widgets'=>array(
+								'CLinkPager'=>array(
+										'maxButtonCount'=>5,
+										'cssFile'=>false,
+								),
+								'CJuiDatePicker'=>array(
+										'language'=>'ru',
+								),
+						),
+				),
+		),
 );
 ~~~
 
@@ -118,7 +118,7 @@ return array(
 ~~~
 [php]
 $this->widget('CLinkPager', array(
-    'pages'=>$pagination,
+		'pages'=>$pagination,
 ));
 ~~~
 
@@ -127,8 +127,8 @@ $this->widget('CLinkPager', array(
 ~~~
 [php]
 $this->widget('CLinkPager', array(
-    'pages'=>$pagination,
-    'maxButtonCount'=>2,
+		'pages'=>$pagination,
+		'maxButtonCount'=>2,
 ));
 ~~~
 
@@ -147,11 +147,11 @@ $this->widget('CLinkPager', array(
 ~~~
 [php]
 return array(
-    'components'=>array(
-        'widgetFactory'=>array(
-            'enableSkin'=>true,
-        ),
-    ),
+		'components'=>array(
+				'widgetFactory'=>array(
+						'enableSkin'=>true,
+				),
+		),
 );
 ~~~
 
@@ -160,11 +160,11 @@ return array(
 ~~~
 [php]
 return array(
-    'components'=>array(
-        'widgetFactory'=>array(
-            'class'=>'CWidgetFactory',
-        ),
-    ),
+		'components'=>array(
+				'widgetFactory'=>array(
+						'class'=>'CWidgetFactory',
+				),
+		),
 );
 ~~~
 
@@ -174,14 +174,14 @@ return array(
 [php]
 <?php
 return array(
-    'default'=>array(
-        'nextPageLabel'=>'&gt;&gt;',
-        'prevPageLabel'=>'&lt;&lt;',
-    ),
-    'classic'=>array(
-        'header'=>'',
-        'maxButtonCount'=>5,
-    ),
+		'default'=>array(
+				'nextPageLabel'=>'&gt;&gt;',
+				'prevPageLabel'=>'&lt;&lt;',
+		),
+		'classic'=>array(
+				'header'=>'',
+				'maxButtonCount'=>5,
+		),
 );
 ~~~
 
@@ -205,9 +205,9 @@ array('header'=>'', 'maxButtonCount'=>6, 'cssFile'=>false)
 ~~~
 [php]
 <?php $this->widget('CLinkPager', array(
-    'skin'=>'classic',
-    'maxButtonCount'=>6,
-    'cssFile'=>false,
+		'skin'=>'classic',
+		'maxButtonCount'=>6,
+		'cssFile'=>false,
 )); ?>
 ~~~
 

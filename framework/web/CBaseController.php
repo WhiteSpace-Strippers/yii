@@ -55,8 +55,8 @@
  * <pre>
  * if($this->beginCache('cacheID',array('property1'=>'value1',...))
  * {
- *     // ... display the content to be cached here
- *    $this->endCache();
+ *		 // ... display the content to be cached here
+ *		$this->endCache();
  * }
  * </pre>
  *
@@ -241,8 +241,8 @@ abstract class CBaseController extends CComponent
 	 * <pre>
 	 * if($this->beginCache($id))
 	 * {
-	 *     // ...generate content here
-	 *     $this->endCache();
+	 *		 // ...generate content here
+	 *		 $this->endCache();
 	 * }
 	 * </pre>
 	 * @param string $id a unique ID identifying the fragment to be cached.

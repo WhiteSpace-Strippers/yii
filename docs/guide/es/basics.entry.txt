@@ -30,7 +30,7 @@ de la constante `YII_DEBUG`. Por predeterminado el valor de esta constante es `f
 lo que significa modo producción. Para correr su aplicación en modo debug
 defina esta constante con el valor `true` antes de incluir el archivo `yii.php`.
 Ejecutar aplicaciones en modo debug es menos eficienta ya que debe mantener los logs
-internamente. Por otro lado el modo debug es de mucha ayuda durante la etapa de 
+internamente. Por otro lado el modo debug es de mucha ayuda durante la etapa de
 desarrollo ya que provee información de debug rica cuando ocurre el error.
 
 <div class="revision">$Id: basics.entry.txt 162 2008-11-05 12:44:08Z sebathi $</div>

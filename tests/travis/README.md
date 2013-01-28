@@ -5,8 +5,8 @@ These scripts might be used to configure your own system for test runs. But sinc
 The scripts are:
 
  - `memcache-setup.sh`
-   Compiles and installs the [memcache pecl extension](http://pecl.php.net/package/memcache)
+	 Compiles and installs the [memcache pecl extension](http://pecl.php.net/package/memcache)
  - `mysql-setup.sh`
-   Prepares the [MySQL](http://www.mysql.com) server instance by creating the test database and granting access to it
+	 Prepares the [MySQL](http://www.mysql.com) server instance by creating the test database and granting access to it
  - `postgresql-setup.sh`
-   Same for [PostgreSQL](http://www.postgresql.org/)
+	 Same for [PostgreSQL](http://www.postgresql.org/)

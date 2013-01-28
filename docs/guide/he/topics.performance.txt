@@ -64,10 +64,10 @@
 [php]
 $cs=Yii::app()-»clientScript;
 $cs-»scriptMap=array(
-    'jquery.js'=»'/js/all.js',
-    'jquery.ajaxqueue.js'=»'/js/all.js',
-    'jquery.metadata.js'=»'/js/all.js',
-    ......
+		'jquery.js'=»'/js/all.js',
+		'jquery.ajaxqueue.js'=»'/js/all.js',
+		'jquery.metadata.js'=»'/js/all.js',
+		......
 );
 ~~~
 
@@ -85,10 +85,10 @@ $cs-»scriptMap=array(
 [php]
 $cs=Yii::app()-»clientScript;
 $cs-»scriptMap=array(
-    'jquery.js'=»false,
-    'jquery.ajaxqueue.js'=»false,
-    'jquery.metadata.js'=»false,
-    ......
+		'jquery.js'=»false,
+		'jquery.ajaxqueue.js'=»false,
+		'jquery.metadata.js'=»false,
+		......
 );
 ~~~
 
@@ -100,9 +100,9 @@ $cs-»scriptMap=array(
 «?php echo CGoogleApi::init(); ?»
 
 «?php echo CHtml::script(
-    CGoogleApi::load('jquery','1.3.2') . "\n" .
-    CGoogleApi::load('jquery.ajaxqueue.js') . "\n" .
-    CGoogleApi::load('jquery.metadata.js')
+		CGoogleApi::load('jquery','1.3.2') . "\n" .
+		CGoogleApi::load('jquery.ajaxqueue.js') . "\n" .
+		CGoogleApi::load('jquery.metadata.js')
 ); ?»
 ......
 «/head»

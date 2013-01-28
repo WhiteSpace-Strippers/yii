@@ -75,32 +75,32 @@ która posiada dwa tematy podstawowy `basic` oraz fantazyjny `fancy`.
 
 ~~~
 WebRoot/
-  assets
-  protected/
-    .htaccess
-    components/
-    controllers/
-    models/
-    views/
-      layouts/
-        main.php
-      site/
-        index.php
-  themes/
-    basic/
-      views/
-        .htaccess
-        layouts/
-          main.php
-        site/
-          index.php
-    fancy/
-      views/
-        .htaccess
-        layouts/
-          main.php
-        site/
-          index.php
+	assets
+	protected/
+		.htaccess
+		components/
+		controllers/
+		models/
+		views/
+			layouts/
+				main.php
+			site/
+				index.php
+	themes/
+		basic/
+			views/
+				.htaccess
+				layouts/
+					main.php
+				site/
+					index.php
+		fancy/
+			views/
+				.htaccess
+				layouts/
+					main.php
+				site/
+					index.php
 ~~~
 
 W konfiguracji aplikacji, jeśli użyć następującej skonfiguracji
@@ -108,14 +108,14 @@ W konfiguracji aplikacji, jeśli użyć następującej skonfiguracji
 ~~~
 [php]
 return array(
-  'theme'=>'basic',
-  ......
+	'theme'=>'basic',
+	......
 );
 ~~~
 
 to będzie obowiązywać temat podstawowy `basic`, co oznacza iż aplikacja będzie
-używać tego tematu z katalogu `themes/basic/views/layouts`, natomiast indeks strony 
-będzie używał tego z katalogu `themes/basic/views/site`. W przypadku plik widoku nie  
+używać tego tematu z katalogu `themes/basic/views/layouts`, natomiast indeks strony
+będzie używał tego z katalogu `themes/basic/views/site`. W przypadku plik widoku nie
 zostanie znaleziony w temacie, to wykorzystamy ten znajdujący się w katalogu `protected/views`.
 
 
@@ -136,8 +136,8 @@ Globalne dostosowanywanie widżetów do własnych potrzeb
 > Note|Uwaga: funkcjonalność ta dostępna jest od wersji 1.1.3.
 
 W trakcie używania widżetów dostarczonych przez osoby trzecie czy też Yii, często potrzebujemy
-dostosować je do konkretnych potrzeb. Na przykład, możemy chcieć zmienić wartość 
-[CLinkPager::maxButtonCount] z 10 (domyślnie) na 5. Możemy zrobić to poprzez przekazanie 
+dostosować je do konkretnych potrzeb. Na przykład, możemy chcieć zmienić wartość
+[CLinkPager::maxButtonCount] z 10 (domyślnie) na 5. Możemy zrobić to poprzez przekazanie
 inicjalnych wartości gdy wywołujemy metodę [CBaseController::widget] w celu utworzenia widżetu.
 Jednakże staje się to uciążliwe, jeśli musimy powtarzać tę samą operację dostosowywania
 w każdym miejscu gdzie używany [CLinkPager].
@@ -146,12 +146,12 @@ w każdym miejscu gdzie używany [CLinkPager].
 [php]
 $this->widget('CLinkPager', array(
 	'pages'=>$pagination,
-    'maxButtonCount'=>5,
-    'cssFile'=>false,
+		'maxButtonCount'=>5,
+		'cssFile'=>false,
 ));
 ~~~
 
-Uzywając funkcjonalności globalnego dostosowywania właściwości widżetów, musimy 
+Uzywając funkcjonalności globalnego dostosowywania właściwości widżetów, musimy
 okreslić tą wartość inicjalną tylko w jednym miejscu, np. w konfiguracji aplikacji.
 Dzięki temu łatwiej nam zapanować nad dostosowywaniem właściwości widżetów.
 
@@ -161,25 +161,25 @@ Aby używać tę funkcjonalność potrzebujemy skonfigurować
 ~~~
 [php]
 return array(
-    'components'=>array(
-        'widgetFactory'=>array(
-            'widgets'=>array(
-                'CLinkPager'=>array(
-                    'maxButtonCount'=>5,
-                    'cssFile'=>false,
-                ),
-                'CJuiDatePicker'=>array(
-                    'language'=>'ru',
-                ),
-            ),
-        ),
-    ),
+		'components'=>array(
+				'widgetFactory'=>array(
+						'widgets'=>array(
+								'CLinkPager'=>array(
+										'maxButtonCount'=>5,
+										'cssFile'=>false,
+								),
+								'CJuiDatePicker'=>array(
+										'language'=>'ru',
+								),
+						),
+				),
+		),
 );
 ~~~
 
 W powyższym kodzie, dostosowaliśmy globalnie właściwości dla dwóch widżetów
 [CLinkPager] oraz [CJuiDatePicker] poprzez skonfigurowanie właściwości [CWidgetFactory::widgets].
-Zauważ, że globalne konfiguracja dla każdego z widżetów reprezetnowana jest 
+Zauważ, że globalne konfiguracja dla każdego z widżetów reprezetnowana jest
 przez pary klucz-wartość w tablicy, gdzie klucz odpowiada nazwie klasy widżetu
 zaś wartością jest tablica inicjalnych wartości właściwości widżetu.
 
@@ -193,8 +193,8 @@ $this->widget('CLinkPager', array(
 ));
 ~~~
 
-Wciąż możemy nadpisać wartości inicjalne jeśli jest taka potrzeba. Na przykład, jeśli 
-w niektórych widokach chcemy ustawić właściwość  `maxButtonCount` na 2, możemy zrobić to następująco:
+Wciąż możemy nadpisać wartości inicjalne jeśli jest taka potrzeba. Na przykład, jeśli
+w niektórych widokach chcemy ustawić właściwość	`maxButtonCount` na 2, możemy zrobić to następująco:
 
 ~~~
 [php]
@@ -207,12 +207,12 @@ $this->widget('CLinkPager', array(
 Skórki
 ------
 
-Używając tematów możemy szybko zmieniać wygląd widoków. Możemy używać skórek do 
+Używając tematów możemy szybko zmieniać wygląd widoków. Możemy używać skórek do
 systematycznego dostosowywania wyglądu [widżetów](/doc/guide/basics.view#widget) używanych w widoku.
 
 Skórka jest tavblicą par nazwa-wartość, która może zostać użyta do zainicjalizowania
-właściwości widżetu. Skórka należy do klasy widżetu, a klasa widżetu może posiadać  
-wiele skórek identyfikowanych przez ich nazwę. Na przykład, możemy mieć skórkę dla widżetu 
+właściwości widżetu. Skórka należy do klasy widżetu, a klasa widżetu może posiadać
+wiele skórek identyfikowanych przez ich nazwę. Na przykład, możemy mieć skórkę dla widżetu
 [CLinkPager] nazwanej `classic`.
 
 Aby móc skorzystać z funkcjonalności skórek musimy najpierw zmodyfikować konfigurację
@@ -221,11 +221,11 @@ aplikacji poprzez zainstalowanie komponentu `widgetFactory`:
 ~~~
 [php]
 return array(
-    'components'=>array(
-        'widgetFactory'=>array(
-            'enableSkin'=>true,
-        ),
-    ),
+		'components'=>array(
+				'widgetFactory'=>array(
+						'enableSkin'=>true,
+				),
+		),
 );
 ~~~
 
@@ -234,39 +234,39 @@ Zauważ, że w wersjach wcześniejszych niż 1.1.3, musisz użyć następującej
 ~~~
 [php]
 return array(
-    'components'=>array(
-        'widgetFactory'=>array(
-        ),
-    ),
+		'components'=>array(
+				'widgetFactory'=>array(
+				),
+		),
 );
 ~~~
 
 Następnie tworzymy potrzebne skórki. Skórki należa do tego samej klasy widżetu
 są przechowywane w pojedynczym skrypcie pliku, którego nazwa jest taka jak nazwa
 klasy widżetu. Wszystkie pliki skórek przechowywane są domyślnie w katalogu `protected/views/skins`.
-Jeśli chcesz zmienić go na inny katalog, możesz skonfigurować właściwość `skinPath` 
-komponentu `widgetFactory`. Na przykład możemy stworzyć w katalogu `protected/views/skins` 
+Jeśli chcesz zmienić go na inny katalog, możesz skonfigurować właściwość `skinPath`
+komponentu `widgetFactory`. Na przykład możemy stworzyć w katalogu `protected/views/skins`
 plik o nazwie `CLinkPager.php`, którego zawartość jest następująca:
 
 ~~~
 [php]
 <?php
 return array(
-    'default'=>array(
-        'nextPageLabel'=>'&gt;&gt;',
-        'prevPageLabel'=>'&lt;&lt;',
-    ),
-    'classic'=>array(
-        'header'=>'',
-        'maxButtonCount'=>5,
-    ),
+		'default'=>array(
+				'nextPageLabel'=>'&gt;&gt;',
+				'prevPageLabel'=>'&lt;&lt;',
+		),
+		'classic'=>array(
+				'header'=>'',
+				'maxButtonCount'=>5,
+		),
 );
 ~~~
 
-W powyższym przykładzie, utworzyliśmy skórki dla widżetu [CLinkPager]: domyślną `default` 
+W powyższym przykładzie, utworzyliśmy skórki dla widżetu [CLinkPager]: domyślną `default`
 oraz klasyczną `classic`. Pierwsza skórka stosowana jest do wszystkich widżetów [CLinkPager]
-dla których nie określiliśmy bezpośrednio ich właściwości `skin`, gdy zaś druga jest 
-skórką stosowaną do widżetu [CLinkPager], którego właściwość `skin` jest określona jako `classic`. 
+dla których nie określiliśmy bezpośrednio ich właściwości `skin`, gdy zaś druga jest
+skórką stosowaną do widżetu [CLinkPager], którego właściwość `skin` jest określona jako `classic`.
 Na przykład, w następującym kodzie widoku, pierwszy pager będzie używał skórki `default`
 gdy zaś drugi użyje skórki `classic`:
 
@@ -276,38 +276,38 @@ gdy zaś drugi użyje skórki `classic`:
 
 <?php $this->widget('CLinkPager', array('skin'=>'classic')); ?>
 ~~~
-Jeśli utworzymy widżet wraz z zestawem inicjalnych wartości właściwości, będą one miały 
-pierwszeństwo oraz zostaną złączone z każdą zastosowaną skórką. Na przykład, następujący 
-kod widoku utworzy pager, którego inicjalne wartości będą tablicą 
-`array('header'=>'', 'maxButtonCount'=>6, 'cssFile'=>false)`, która jest wynikiem 
+Jeśli utworzymy widżet wraz z zestawem inicjalnych wartości właściwości, będą one miały
+pierwszeństwo oraz zostaną złączone z każdą zastosowaną skórką. Na przykład, następujący
+kod widoku utworzy pager, którego inicjalne wartości będą tablicą
+`array('header'=>'', 'maxButtonCount'=>6, 'cssFile'=>false)`, która jest wynikiem
 połączenia inicjalnych wartości właściwości określonych w widoku oraz skórki `classic`.
 
 ~~~
 [php]
 <?php $this->widget('CLinkPager', array(
-    'skin'=>'classic',
-    'maxButtonCount'=>6,
-    'cssFile'=>false,
+		'skin'=>'classic',
+		'maxButtonCount'=>6,
+		'cssFile'=>false,
 )); ?>
 ~~~
 
 Zauważ, że funkcjonalność skórek nie wymaga stosowanie tematów. Jednakże, jeśli temat jest
-aktywny, Yii również będzie poszukiwało skórek w katalogu `skins` dla katalogu tematu widoku 
-(np. `WebRoot/themes/classic/views/skins`). W przypadku gdy skórka o tej samej nazwie istnieje 
+aktywny, Yii również będzie poszukiwało skórek w katalogu `skins` dla katalogu tematu widoku
+(np. `WebRoot/themes/classic/views/skins`). W przypadku gdy skórka o tej samej nazwie istnieje
 zarówno w temacie jak i w katalogach widoków głównej aplikacji, skórka tematu będzie miała pierwszeństwo.
 
-Jeśli widżet używa skórki, która nie istnieje, Yii pomimo tego faktu utwoży widżet 
-tak jak to czyni zazwyczaj, bez zgłaszani błędu. 
+Jeśli widżet używa skórki, która nie istnieje, Yii pomimo tego faktu utwoży widżet
+tak jak to czyni zazwyczaj, bez zgłaszani błędu.
 
-> Info|Info: Używanie skórek może zmiejszyć wydajność, ponieważ Yii musi znaleźć  
+> Info|Info: Używanie skórek może zmiejszyć wydajność, ponieważ Yii musi znaleźć
 plik skórki gdy widżet jest tworzony po raz pierwszy.
 
-Skórka jest bardzo podobna do funkcjonalności globalnego dostosowywania właściwości. 
+Skórka jest bardzo podobna do funkcjonalności globalnego dostosowywania właściwości.
 Podstawowa różnice są nastepujące:
 
-   - skórka wiąże się raczej z dostosowywaniem wartości właściwości związanych z warstwą prezentacji;
-   - widżet może posiadać wiele skórek;
-   - dla skórek można stosowac motywy (ang. theme);
-   - używanie skórek jest bardziej kosztowne niż używanie funkcjonalności globalnego dostosowywania właściwości widżetu;
+	 - skórka wiąże się raczej z dostosowywaniem wartości właściwości związanych z warstwą prezentacji;
+	 - widżet może posiadać wiele skórek;
+	 - dla skórek można stosowac motywy (ang. theme);
+	 - używanie skórek jest bardziej kosztowne niż używanie funkcjonalności globalnego dostosowywania właściwości widżetu;
 
 <div class="revision">$Id: topics.theming.txt 2890 2011-01-18 15:58:34Z qiang.xue $</div>

@@ -19,12 +19,12 @@
  *
  * CHttpSession can be used like an array to set and get session data. For example,
  * <pre>
- *   $session=new CHttpSession;
- *   $session->open();
- *   $value1=$session['name1'];  // get session variable 'name1'
- *   $value2=$session['name2'];  // get session variable 'name2'
- *   foreach($session as $name=>$value) // traverse all session variables
- *   $session['name3']=$value3;  // set session variable 'name3'
+ *	 $session=new CHttpSession;
+ *	 $session->open();
+ *	 $value1=$session['name1'];	// get session variable 'name1'
+ *	 $value2=$session['name2'];	// get session variable 'name2'
+ *	 foreach($session as $name=>$value) // traverse all session variables
+ *	 $session['name3']=$value3;	// set session variable 'name3'
  * </pre>
  *
  * The following configurations are available for session:

@@ -53,7 +53,7 @@ Zmiana w skrypcie `view` dotyczy przede wszystkim dostosowania formatowania oraz
 Dostosowywanie operacji wyświetlenia listy `index`
 ----------------------------
 
-Podobnie jak operację wyświetlenia `view`, dostosujemy operację wyświetlenia listy `index` w dwóch miejscach: metodzie `actionIndex()` w kontrolerze `PostController` oraz pliku widoku  `/wwwroot/blog/protected/views/post/index.php`. Musimy przede wszystkim dodać wsparcie dla wyświetlania listy wiadomości, które powiązane są z określonym tagiem.
+Podobnie jak operację wyświetlenia `view`, dostosujemy operację wyświetlenia listy `index` w dwóch miejscach: metodzie `actionIndex()` w kontrolerze `PostController` oraz pliku widoku	`/wwwroot/blog/protected/views/post/index.php`. Musimy przede wszystkim dodać wsparcie dla wyświetlania listy wiadomości, które powiązane są z określonym tagiem.
 
 Poniżej znajduje się zmieniona metoda `actionIndex()` kontrolera `PostController`:
 
@@ -86,9 +86,9 @@ W powyższym kodzie, tworzymy najpierw kryteria zapytania służące otrzymaniu 
 
 W przypadku kiedy użytkownik chce zobaczyć wiadomości z określonym tagiem, dodamy warunek przeszukiwania do kryteriów uwzględniający ten tag.
 
-Używając kryteria zapytań, tworzymy dostawcę danych (ang. data provider), który służy głównie do trzech celów. Po pierwsze, dzieli dane na strony jeśli zbyt wiele wyników zostanie zwróconych. Tutaj dostosowujemy stronicowanie poprzez ustawienie rozmiaru strony równego 5. Po drugie, sortuje on w zależności od żądania użytkownika. I wreszcie, dostarcza podzielone na strony oraz posortowane dane do widżetu lub kodu widoku w celu wyświetlenia. 
+Używając kryteria zapytań, tworzymy dostawcę danych (ang. data provider), który służy głównie do trzech celów. Po pierwsze, dzieli dane na strony jeśli zbyt wiele wyników zostanie zwróconych. Tutaj dostosowujemy stronicowanie poprzez ustawienie rozmiaru strony równego 5. Po drugie, sortuje on w zależności od żądania użytkownika. I wreszcie, dostarcza podzielone na strony oraz posortowane dane do widżetu lub kodu widoku w celu wyświetlenia.
 
-Po zakończeniu prac z metodą `actionIndex()`, możemy przejść do modyfikacji widoku `index`. Nasze zmiany wiążą się głównie z dodaniem nagłówka `h1` jeśli użytkownik określił, że chce wyświetlić wiadomości o określonym tagu. 
+Po zakończeniu prac z metodą `actionIndex()`, możemy przejść do modyfikacji widoku `index`. Nasze zmiany wiążą się głównie z dodaniem nagłówka `h1` jeśli użytkownik określił, że chce wyświetlić wiadomości o określonym tagu.
 
 ~~~
 [php]

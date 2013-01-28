@@ -46,7 +46,7 @@ class UserIdentity extends CUserIdentity
 			$this->errorCode=self::ERROR_NONE;
 		}
 		return !$this->errorCode;
-    }
+		}
 
 	public function getId()
 	{
@@ -185,41 +185,41 @@ class PostController extends CController
 > ~~~
 > [php]
 > return array(
->     // ... 別的規則...
->     // 以下匹配所有人規則拒絕 'delete' 動作
->     array('deny',
->         'action'=>'delete',
->     ),
+>		 // ... 別的規則...
+>		 // 以下匹配所有人規則拒絕 'delete' 動作
+>		 array('deny',
+>				 'action'=>'delete',
+>		 ),
 > );
 > ~~~
 > 因為如果沒有設置規則匹配動作，動作預設會被執行。
 
 存取規則透過如下的內文參數設置：
 
-   - [actions|CAccessRule::actions]: 設置哪個動作匹配此規則。
+	 - [actions|CAccessRule::actions]: 設置哪個動作匹配此規則。
 
-   - [users|CAccessRule::users]: 設置哪個使用者匹配此規則。此當前使用者的 [name|CWebUser::name] 被用來匹配。三種設定字符在這裡可以用：
+	 - [users|CAccessRule::users]: 設置哪個使用者匹配此規則。此當前使用者的 [name|CWebUser::name] 被用來匹配。三種設定字符在這裡可以用：
 
-	   - `*`: 任何使用者，包括匿名和驗證透過的使用者。
-	   - `?`: 匿名使用者。
-	   - `@`: 驗證透過的使用者。
+		 - `*`: 任何使用者，包括匿名和驗證透過的使用者。
+		 - `?`: 匿名使用者。
+		 - `@`: 驗證透過的使用者。
 
-   - [roles|CAccessRule::roles]: 設定哪個角色匹配此規則。這裡用到了將在後面描述的 [role-based access control](#role-based-access-control) 技術。這規則會在當 [CWebUser::checkAccess] 回傳某個腳色為 true 時而使用。注意，設定腳色應該以 `allow` 規則為主，因為定義上，一個腳色表示對某些東西的權限。除此之外，雖然我們使用 `roles` 這個詞彙，事實上，他的值可以是任何驗證項目，包括腳色、任務和操作。
+	 - [roles|CAccessRule::roles]: 設定哪個角色匹配此規則。這裡用到了將在後面描述的 [role-based access control](#role-based-access-control) 技術。這規則會在當 [CWebUser::checkAccess] 回傳某個腳色為 true 時而使用。注意，設定腳色應該以 `allow` 規則為主，因為定義上，一個腳色表示對某些東西的權限。除此之外，雖然我們使用 `roles` 這個詞彙，事實上，他的值可以是任何驗證項目，包括腳色、任務和操作。
 
-   - [ips|CAccessRule::ips]: 設定哪個客戶端 IP 匹配此規則。
+	 - [ips|CAccessRule::ips]: 設定哪個客戶端 IP 匹配此規則。
 
-   - [verbs|CAccessRule::verbs]: 設定哪種請求類別型（例如：`GET`、`POST`）匹配此規則。
+	 - [verbs|CAccessRule::verbs]: 設定哪種請求類別型（例如：`GET`、`POST`）匹配此規則。
 
-   - [expression|CAccessRule::expression]: 設定一個PHP表達式。它的值用來表明這條規則是否適用。在表達式，你可以使用一個叫 `$user` 的變數，它代表的是`Yii::app()->user`。
+	 - [expression|CAccessRule::expression]: 設定一個PHP表達式。它的值用來表明這條規則是否適用。在表達式，你可以使用一個叫 `$user` 的變數，它代表的是`Yii::app()->user`。
 
 
 ### 處理授權結果
 
 當授權失敗，即使用者不允許執行此動作，以下的兩種可能將會產生：
 
-   - 如果使用者沒有登入且在使用者元件中設定了 [loginUrl|CWebUser::loginUrl]，瀏覽器將導向網頁到此設定 URL。
+	 - 如果使用者沒有登入且在使用者元件中設定了 [loginUrl|CWebUser::loginUrl]，瀏覽器將導向網頁到此設定 URL。
 
-   - 否則一個錯誤程式碼 401 的 HTTP 例外將顯示。
+	 - 否則一個錯誤程式碼 401 的 HTTP 例外將顯示。
 
 設定 [loginUrl|CWebUser::loginUrl] 屬性，可以用相對和絕對 URL。還可以使用陣列透過 [CWebApplication::createUrl]來產生 URL。第一個元素將設置 [route](/doc/guide/basics.controller#route) 為登入控制器動作，其它為名-值配對形式的 GET 參數。如下，
 
@@ -278,7 +278,7 @@ if(Yii::app()->user->checkAccess('deletePost'))
 授權管理器
 ---------------------------------
 
-在我們準備定義一個授權階層並執行存取權限檢查之前，我們需要設定一下 [authManager|CWebApplication::authManager] 應用程式元件。Yii 提供了兩種授權管理器：  [CPhpAuthManager] 和 [CDbAuthManager]。前者將授權資料儲存在一個 PHP 腳本文件中而後者儲存在資料庫中。設定 [authManager|CWebApplication::authManager] 應用程式元件時，我們需要指定使用哪個授權管理器元件類別，以及所選授權管理器元件的初始化屬性值。例如：
+在我們準備定義一個授權階層並執行存取權限檢查之前，我們需要設定一下 [authManager|CWebApplication::authManager] 應用程式元件。Yii 提供了兩種授權管理器：	[CPhpAuthManager] 和 [CDbAuthManager]。前者將授權資料儲存在一個 PHP 腳本文件中而後者儲存在資料庫中。設定 [authManager|CWebApplication::authManager] 應用程式元件時，我們需要指定使用哪個授權管理器元件類別，以及所選授權管理器元件的初始化屬性值。例如：
 
 ~~~
 [php]
@@ -307,21 +307,21 @@ return array(
 
 要定義一個授權項目，可調用下列方法之一，具體取決於項目的類型：
 
-   - [CAuthManager::createRole]
-   - [CAuthManager::createTask]
-   - [CAuthManager::createOperation]
+	 - [CAuthManager::createRole]
+	 - [CAuthManager::createTask]
+	 - [CAuthManager::createOperation]
 
 建立授權項目之後，我們就可以調用下列方法建立授權項目之間的關係：
 
-   - [CAuthManager::addItemChild]
-   - [CAuthManager::removeItemChild]
-   - [CAuthItem::addChild]
-   - [CAuthItem::removeChild]
+	 - [CAuthManager::addItemChild]
+	 - [CAuthManager::removeItemChild]
+	 - [CAuthItem::addChild]
+	 - [CAuthItem::removeChild]
 
 最後，我們調用下列方法將角色分配給使用者。
 
-   - [CAuthManager::assign]
-   - [CAuthManager::revoke]
+	 - [CAuthManager::assign]
+	 - [CAuthManager::revoke]
 
 下面的程式碼展示了使用 Yii 提供的 API 構建一個授權階層的例子：
 

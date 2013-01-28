@@ -29,41 +29,41 @@ class ControllerCommand extends CConsoleCommand
 	{
 		return <<<EOD
 USAGE
-  controller <controller-ID> [action-ID] ...
+	controller <controller-ID> [action-ID] ...
 
 DESCRIPTION
-  This command generates a controller and views associated with
-  the specified actions.
+	This command generates a controller and views associated with
+	the specified actions.
 
 PARAMETERS
  * controller-ID: required, controller ID, e.g., 'post'.
-   If the controller should be located under a subdirectory,
-   please specify the controller ID as 'path/to/ControllerID',
-   e.g., 'admin/user'.
+	 If the controller should be located under a subdirectory,
+	 please specify the controller ID as 'path/to/ControllerID',
+	 e.g., 'admin/user'.
 
-   If the controller belongs to a module, please specify
-   the controller ID as 'ModuleID/ControllerID' or
-   'ModuleID/path/to/Controller' (assuming the controller is
-   under a subdirectory of that module).
+	 If the controller belongs to a module, please specify
+	 the controller ID as 'ModuleID/ControllerID' or
+	 'ModuleID/path/to/Controller' (assuming the controller is
+	 under a subdirectory of that module).
 
  * action-ID: optional, action ID. You may supply one or several
-   action IDs. A default 'index' action will always be generated.
+	 action IDs. A default 'index' action will always be generated.
 
 EXAMPLES
  * Generates the 'post' controller:
-        controller post
+				controller post
 
  * Generates the 'post' controller with additional actions 'contact'
-   and 'about':
-        controller post contact about
+	 and 'about':
+				controller post contact about
 
  * Generates the 'post' controller which should be located under
-   the 'admin' subdirectory of the base controller path:
-        controller admin/post
+	 the 'admin' subdirectory of the base controller path:
+				controller admin/post
 
  * Generates the 'post' controller which should belong to
-   the 'admin' module:
-        controller admin/post
+	 the 'admin' module:
+				controller admin/post
 
 NOTE: in the last two examples, the commands are the same, but
 the generated controller file is located under different directories.
@@ -151,24 +151,24 @@ EOD;
 		echo <<<EOD
 
 Controller '{$controllerID}' has been created in the following file:
-    $controllerFile
+		$controllerFile
 
 You may access it in the browser using the following URL:
-    http://hostname/path/to/index.php?r={$moduleID}{$controllerID}
+		http://hostname/path/to/index.php?r={$moduleID}{$controllerID}
 
 EOD;
 	}
 
 	public function generateController($source,$params)
 	{
-		if(!is_file($source))  // fall back to default ones
+		if(!is_file($source))	// fall back to default ones
 			$source=YII_PATH.'/cli/views/shell/controller/'.basename($source);
 		return $this->renderFile($source,array('className'=>$params[0],'actions'=>$params[1]),true);
 	}
 
 	public function generateAction($source,$params)
 	{
-		if(!is_file($source))  // fall back to default ones
+		if(!is_file($source))	// fall back to default ones
 			$source=YII_PATH.'/cli/views/shell/controller/'.basename($source);
 		return $this->renderFile($source,$params,true);
 	}

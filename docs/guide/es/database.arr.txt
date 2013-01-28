@@ -32,13 +32,13 @@ diagrama entidad-relacion (ER) para ilustrar ejemplos en esta sección.
 > [sql]
 > CREATE TABLE Foo
 > (
->   id INTEGER NOT NULL PRIMARY KEY
+>	 id INTEGER NOT NULL PRIMARY KEY
 > );
 > CREATE TABLE bar
 > (
->   id INTEGER NOT NULL PRIMARY KEY,
->   fooID INTEGER
->      COMMENT 'CONSTRAINT FOREIGN KEY (fooID) REFERENCES Foo(id)'
+>	 id INTEGER NOT NULL PRIMARY KEY,
+>	 fooID INTEGER
+>			COMMENT 'CONSTRAINT FOREIGN KEY (fooID) REFERENCES Foo(id)'
 > );
 > ~~~
 > En lo anterior, usamos la palabra clave `COMMENT` para describir la clave foránea
@@ -59,16 +59,16 @@ A y B tiene tres tipos: uno-a-muchos (ej.: `User` y `Post`), uno-a-uno (ej.: `Us
 y `Profile`) y muchos-a-muchos (ej.: `Category` y `Post`). En AR, hay cuatro
 tipo de relaciones:
 
-   - `BELONGS_TO`: si la relación entre la tabla A y B es uno-a-muchos,
+	 - `BELONGS_TO`: si la relación entre la tabla A y B es uno-a-muchos,
 entonces B pertenece a A (ej.: `Post` pertenece a `User`);
 
-   - `HAS_MANY`: si la relación entre la tabla A y B es uno-a-muchos,
+	 - `HAS_MANY`: si la relación entre la tabla A y B es uno-a-muchos,
 entonces A tiene muchos B (ej.: `User` tiene muchos `Post`);
 
-   - `HAS_ONE`: este es un caso especial de `HAS_MANY` donde A tiene a lo sumo
+	 - `HAS_ONE`: este es un caso especial de `HAS_MANY` donde A tiene a lo sumo
 un B (ej.: `User` tiene a lo sumo un `Profile`);
 
-   - `MANY_MANY`: corresponde a la relación muchos-a-muchos en la base de datos
+	 - `MANY_MANY`: corresponde a la relación muchos-a-muchos en la base de datos
 Una tabla asociativa es necesaria para romper una relación muchos-a-muchos en
 relaciones uno-a-muchos, ya que la mayoría de los DBMS no soportan directamente
 la relación muchos-a-muchos. En nuestro esquema de la base de datos de ejemplo,
@@ -131,7 +131,7 @@ especificada con la clave foránea `PostCategory(postID, categoryID)`.
 La declaración de relaciones en las clases AR implicitamente agrega una propiedad
 a la clase por cada relación. Luego de que una consulta relacional es ejecutada,
 la correspondiente propiedad será rellenada con la(s) instancia(s) AR relacionada(s).
-Por ejemplo, si `$author` representa una instancia AR `User`, podemos usar 
+Por ejemplo, si `$author` representa una instancia AR `User`, podemos usar
 `$author->posts` para acceder a sus instancias `Post` relacionadas.
 
 Ejecutando Consultas Relacionales
@@ -231,7 +231,7 @@ $posts=Post::model()->with(
 	'categories')->together()->findAll();
 ~~~
 
-La consulta anterior será hecha en una sola consulta SQL. Sin llamar a 
+La consulta anterior será hecha en una sola consulta SQL. Sin llamar a
 [together|CActiveFinder::together], serán necesarias dos consultas SQL:
 una junta las tablas `Post`, `User` y `Profile`, y la otra junta las
 tablas `User` y `Post`.
@@ -241,46 +241,46 @@ Opciones de la Consulta Relacional
 
 Mencionamos que las opciones adicionales pueden ser especificadas en la
 declaración de la relación. Estas opciones, especificadas como pares
-nombre-valor, son usadas para personalizar la consulta relacional. 
+nombre-valor, son usadas para personalizar la consulta relacional.
 
 We mentioned that additional options can be specified in relationship
 declaration. These options, specified as name-value pairs, are used to
 customize the relational query. Se resumen a continuación:
 
-   - `select`: una lista de columnas a ser seleccionadad para la clase AR
+	 - `select`: una lista de columnas a ser seleccionadad para la clase AR
 relacionada. Por defecto es `'*'`, lo que significa todas las columnas. Los
 nombres de las columnas deben ser desambiguados usando `aliasToken` si aparecen
 en una expresión (ej.: `COUNT(??.name) AS nameCount`).
 
-   - `condition`: la cláusula `WHERE`. Por defecto vacía. Notar que las referencias
+	 - `condition`: la cláusula `WHERE`. Por defecto vacía. Notar que las referencias
 a las columnas deber ser desambiguadas usando `aliasToken` (ej.: `??.id=10`).
 
-   - `params`: los parámetros a ser enlazados en la sentencia SQL generada. Éstos
+	 - `params`: los parámetros a ser enlazados en la sentencia SQL generada. Éstos
 deben ser dados como un arreglo de pares nombre-valor. Esta opción está disponible
 desde la versión 1.0.3.
 
-   - `on`: la cláusula `ON`. La condición especificada aquí será agregada a la
+	 - `on`: la cláusula `ON`. La condición especificada aquí será agregada a la
 condición de union (del join) usando el operador `AND`. Esta opción está disponible
 desde la versión 1.0.2.
 
-   - `order`: la cláusula `ORDER BY`. Por defecto vacía. Notar que las referencias
+	 - `order`: la cláusula `ORDER BY`. Por defecto vacía. Notar que las referencias
 a las columnas deber ser desambiguadas usando `aliasToken` (ej.: `??.age DESC`).
 
-   - `with`: una lisata de objetos relacionados que deben ser cargados junto con
-este objeto. Note, this is only honored by lazy loading, not eager loading. 
+	 - `with`: una lisata de objetos relacionados que deben ser cargados junto con
+este objeto. Note, this is only honored by lazy loading, not eager loading.
 
-   - `joinType`: tipo de union (join) para esta relación. Por defecto es
+	 - `joinType`: tipo de union (join) para esta relación. Por defecto es
 `LEFT OUTER JOIN`.
 
-   - `aliasToken`: el marcador profijo de columna. Será reemplazado por el alias
+	 - `aliasToken`: el marcador profijo de columna. Será reemplazado por el alias
 de la tabla para desambiguar las referencias a las columnas. Por defecto es `'??.'`.
 
-   - `alias`: el alias de la tabla asociada con esta relación. Esta opcion está disponible
+	 - `alias`: el alias de la tabla asociada con esta relación. Esta opcion está disponible
 desde la versión 1.0.1. Por defecto en `null`, lo que significa que el alias de la tabla
 es generado automáticamente. Difiere de `aliasToken` en que `aliasToken` es sólo un
 marcador de posición y será reemplazado por el alias real de la tabla.
 
-   - `together`: si la tabla asociada con esta relación debe ser forzada a unirse junto con la
+	 - `together`: si la tabla asociada con esta relación debe ser forzada a unirse junto con la
 tabla primaria. Esta opcion sólo tiene sentido para relaciones `HAS_MANY` y `MANY_MANY`. Si
 esta opción no esta establecida en falso, cada relación `HAS_MANY` o `MANY_MANY` terndra su
 propia sentencia `JOIN` para mejorar el desempeño. Esta opción está disponible desde la versión
@@ -288,17 +288,17 @@ propia sentencia `JOIN` para mejorar el desempeño. Esta opción está disponibl
 
 Además, las siguientes opciones están disponibles para ciertas relación durante el *lazy loading*:
 
-   - `group`: la cláusula `GROUP BY`. Por defecto vacía. Notar que las referencias a las columnas
+	 - `group`: la cláusula `GROUP BY`. Por defecto vacía. Notar que las referencias a las columnas
 deben ser desambiguadas usando `aliasToken` (ej.: `??.age`). Esta opción solo se aplica a relaciones
 `HAS_MANY` y `MANY_MANY`.
 
-   - `having`: la cláusula `HAVING`. Por defecto vacía. Notar que las referencias a las columnas
+	 - `having`: la cláusula `HAVING`. Por defecto vacía. Notar que las referencias a las columnas
 deben ser desambiguadas usando `aliasToken` (ej.: `??.age`). Esta opción solo se aplica a relaciones
 `HAS_MANY` y `MANY_MANY`. Nota: esta opción está disponible desde la versión 1.0.1.
 
-   - `limit`: el límite de las filas a ser seleccionadas. Esta opción NO se aplica a la relación `BELONGS_TO`.
+	 - `limit`: el límite de las filas a ser seleccionadas. Esta opción NO se aplica a la relación `BELONGS_TO`.
 
-   - `offset`: desplazamiento de las filas a ser seleccionadas.  Esta opción NO se aplica a la relación `BELONGS_TO`.
+	 - `offset`: desplazamiento de las filas a ser seleccionadas.	Esta opción NO se aplica a la relación `BELONGS_TO`.
 
 A continuación modificamos la declaración de la relación `posts` en `User` incluyendo algunas de las opción anteriores:
 
@@ -352,4 +352,4 @@ User::model()->with(array(
 ))->findAll();
 ~~~
 
-<div class="revision">$Id: database.arr.txt 6834 2009-02-16 05:20:17Z freakpol $</div> 
+<div class="revision">$Id: database.arr.txt 6834 2009-02-16 05:20:17Z freakpol $</div>

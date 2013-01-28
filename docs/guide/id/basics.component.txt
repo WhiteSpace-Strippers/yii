@@ -15,8 +15,8 @@ membaca nilainya atau menempatkan sebuah nilai ke dalamnya. Sebagai contoh,
 
 ~~~
 [php]
-$width=$component->textWidth;     // ambil properti textWidth
-$component->enableCaching=true;   // setel properti enableCaching
+$width=$component->textWidth;		 // ambil properti textWidth
+$component->enableCaching=true;	 // setel properti enableCaching
 ~~~
 
 Untuk mendefinisikan properti komponen, kita cukup mendeklarasikan variabel
@@ -27,12 +27,12 @@ mendefinisikan metode getter (pengambil) dan setter (penyetel) seperti berikut:
 [php]
 public function getTextWidth()
 {
-    return $this->_textWidth;
+		return $this->_textWidth;
 }
 
 public function setTextWidth($value)
 {
-    $this->_textWidth=$value;
+		$this->_textWidth=$value;
 }
 ~~~
 
@@ -90,7 +90,7 @@ Tanda pengenal event harus seperti berikut:
 [php]
 function methodName($event)
 {
-    ......
+		......
 }
 ~~~
 

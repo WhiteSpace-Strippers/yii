@@ -7,12 +7,12 @@ DAO を用いてデータにアクセスすることで、コードを変更せ�
 Yii DAO は MySQL や PostgreSQL といった多くのポピュラーな DBMS への統一的なデータアクセスを提供する [PHP Data Objects (PDO)](http://php.net/manual/en/book.pdo.php) 拡張を用いて構築されています。
 そのため、Yii DAO を利用するには、PDO 拡張と特定の PDO データベースドライバ (たとえば `PDO_MYSQL`) がインストールされている必要があります。
 
-Yii DAO は、主に以下の 4 つのクラスから構成されています: 
+Yii DAO は、主に以下の 4 つのクラスから構成されています:
 
-   - [CDbConnection]: データベースとの接続を表します。
-   - [CDbCommand]: データベースに対して実行する SQL 文を表します。
-   - [CDbDataReader]: クエリ結果セットからの後戻りしないストリームを表します。
-   - [CDbTransaction]: DB トランザクションを表します。
+	 - [CDbConnection]: データベースとの接続を表します。
+	 - [CDbCommand]: データベースに対して実行する SQL 文を表します。
+	 - [CDbDataReader]: クエリ結果セットからの後戻りしないストリームを表します。
+	 - [CDbTransaction]: DB トランザクションを表します。
 
 以下に、さまざまなシナリオでの Yii DAO の使用方法を紹介します。
 
@@ -30,7 +30,7 @@ $connection=new CDbConnection($dsn,$username,$password);
 // 接続を確立する。try...catch で例外処理を行う事もできます
 $connection->active=true;
 ......
-$connection->active=false;  // 接続を閉じる
+$connection->active=false;	// 接続を閉じる
 ~~~
 
 DSN のフォーマットは、使用する PDO データベースドライバに依存します。
@@ -38,11 +38,11 @@ DSN のフォーマットは、使用する PDO データベースドライバ�
 詳細な情報は、[PDO documentation](http://www.php.net/manual/en/pdo.construct.php) を参照してください。
 以下に、一般に用いられる DSN フォーマットのリストを示します:
 
-   - SQLite: `sqlite:/path/to/dbfile`
-   - MySQL: `mysql:host=localhost;dbname=testdb`
-   - PostgreSQL: `pgsql:host=localhost;port=5432;dbname=testdb`
-   - SQL Server: `mssql:host=localhost;dbname=testdb`
-   - Oracle: `oci:dbname=//localhost:1521/testdb`
+	 - SQLite: `sqlite:/path/to/dbfile`
+	 - MySQL: `mysql:host=localhost;dbname=testdb`
+	 - PostgreSQL: `pgsql:host=localhost;port=5432;dbname=testdb`
+	 - SQL Server: `mssql:host=localhost;dbname=testdb`
+	 - Oracle: `oci:dbname=//localhost:1521/testdb`
 
 [CDbConnection] は [CApplicationComponent] から拡張されているため、[アプリケーションコンポーネント](/doc/guide/basics.application#sec-4) として使用できます。
 そうするには、[アプリケーション初期構成](/doc/guide/basics.application#sec-2) 内で `db` という名前 (もしくは他の名前) のアプリケーションコンポーネントを下記のように設定します。
@@ -58,7 +58,7 @@ array(
 			'connectionString'=>'mysql:host=localhost;dbname=testdb',
 			'username'=>'root',
 			'password'=>'password',
-			'emulatePrepare'=>true,  // MySQL の設定によっては必要
+			'emulatePrepare'=>true,	// MySQL の設定によっては必要
 		),
 	),
 )
@@ -75,7 +75,7 @@ SQL 文の実行
 
 ~~~
 [php]
-$connection=Yii::app()->db;   // "db" 接続を構成したと仮定した場合
+$connection=Yii::app()->db;	 // "db" 接続を構成したと仮定した場合
 // もしくは、明示的に接続を作成してもよい
 // $connection=new CDbConnection($dsn,$username,$password);
 $command=$connection->createCommand($sql);
@@ -85,10 +85,10 @@ $command=$connection->createCommand($sql);
 
 SQL 文は、次の2つの方法のうちのいずれかで、[CDbCommand] によって実行されます:
 
-   - [execute()|CDbCommand::execute]: `INSERT`, `UPDATE`, `DELETE` のような、非クエリ型の SQL 文を実行します。
+	 - [execute()|CDbCommand::execute]: `INSERT`, `UPDATE`, `DELETE` のような、非クエリ型の SQL 文を実行します。
 成功した場合、SQL 文の実行によって影響された行数を返します。
 
-   - [query()|CDbCommand::query]: `SELECT` のような、データ行を返す SQL 文を実行します。
+	 - [query()|CDbCommand::query]: `SELECT` のような、データ行を返す SQL 文を実行します。
 成功した場合、結果の行を読み出すことが出来る [CDbDataReader] インタンスが返されます。
 便宜上、直接クエリ結果の行を返す一連の `queryXXX()` メソッドも実装されています。
 
@@ -96,12 +96,12 @@ SQL 文の実行中にエラーが発生した場合は、例外が発生しま�
 
 ~~~
 [php]
-$rowCount=$command->execute();   // 非クエリ型 SQL を実行する
-$dataReader=$command->query();   // クエリ型 SQL を実行する
-$rows=$command->queryAll();      // クエリを実行して、結果の全行を返す
-$row=$command->queryRow();       // クエリを実行して、結果の最初の行を返す
+$rowCount=$command->execute();	 // 非クエリ型 SQL を実行する
+$dataReader=$command->query();	 // クエリ型 SQL を実行する
+$rows=$command->queryAll();			// クエリを実行して、結果の全行を返す
+$row=$command->queryRow();			 // クエリを実行して、結果の最初の行を返す
 $column=$command->queryColumn(); // クエリを実行して、結果の最初の列を返す
-$value=$command->queryScalar();  // クエリを実行して、最初の行の最初の項目を返す
+$value=$command->queryScalar();	// クエリを実行して、最初の行の最初の項目を返す
 ~~~
 
 クエリ結果の取得
@@ -130,10 +130,10 @@ $rows=$dataReader->readAll();
 アプリケーションがいくつかのクエリを実行して、各クエリがデータベース中の情報を読み書きする場合は、クエリのどれかが実行されずに残る、という事が無いように確認することが重要です。
 Yii の [CDbTransaction] インスタンスとして表されるトランザクションは、このような場合に開始できます:
 
-   - トランザクションを開始する。
-   - 一つずつクエリを実行する。データベースへのどんな更新も外の世界には見えません。
-   - トランザクションをコミットする。処理が成功した場合、更新が適用されます。
-   - もしクエリのひとつが失敗した場合、全処理がロールバックされます。
+	 - トランザクションを開始する。
+	 - 一つずつクエリを実行する。データベースへのどんな更新も外の世界には見えません。
+	 - トランザクションをコミットする。処理が成功した場合、更新が適用されます。
+	 - もしクエリのひとつが失敗した場合、全処理がロールバックされます。
 
 上記のワークフローは次のコードを使用して実装できます:
 

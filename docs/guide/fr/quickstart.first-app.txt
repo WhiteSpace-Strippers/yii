@@ -58,40 +58,40 @@ de plus amples informations à propos de cette structure.
 
 ~~~
 testdrive/
-   index.php                 Point d'entrée de l'application.
-   assets/                   Contient les fichiers de ressources publiés
-   css/                      Contient les fichiers CSS de l'application
-   images/                   Contient les images
-   themes/                   Contient les différents thèmes de l'application
-   protected/                Contient les fichiers protégés de l'application
-      yiic                   L'outil en ligne de commande 'yiic'
-      yiic.bat               L'outil en ligne de commande 'yiic' pour Windows
-      commands/              Contient les commandes personnalisées pour l'outil 'yiic'
-         shell/              Contient les commandes personnalisées pour l'outil 'yiic shell'
-      components/            Contient les composants utilisateur
-         MainMenu.php        Le widget 'MainMenu'
-         Identity.php        La class 'Identity' utilisée pour l'authentification
-         views/              Contient les fichiers 'Vue' des widgets
-            mainMenu.php     Le fichier Vue pour le widget 'MainMenu"
-      config/                Contient les fichiers de configuration
-         console.php         Le fichier de configuration pour l'application en ligne de commande
-         main.php            Le fichier de confiruration pour l'application Web
-      controllers/           Contient les fichiers des Controlleurs
-         SiteController.php  Le controlleur par défaut
-      extensions/            Contient les extensions tierces
-      messages/              Contient les messages traduits
-      models/                Contient les fichiers des Modèles
-         LoginForm.php       Le modèle de type Formulaire pour l'action 'Login'
-         ContactForm.php     Le modèle de type Formulaire pour l'action 'Contact'
-      runtime/               Contient les fichiers temporaires générés par l'application
-      views/                 Contient les fichiers Vue des controlleurs et Layout
-         layouts/            Contient les fichiers Vue des Layout
-            main.php         Le 'layout' par défaut pour toutes les vues
-         site/               Contient les fichiers Vue pour le controlleur 'site'
-            contact.php      La vue pour l'action 'Contact'
-            index.php        La vue pour l'action 'index'
-            login.php        La vue pour l'action 'login'
-         system/             Contient les fichiers pour les vues system
+	 index.php								 Point d'entrée de l'application.
+	 assets/									 Contient les fichiers de ressources publiés
+	 css/											Contient les fichiers CSS de l'application
+	 images/									 Contient les images
+	 themes/									 Contient les différents thèmes de l'application
+	 protected/								Contient les fichiers protégés de l'application
+			yiic									 L'outil en ligne de commande 'yiic'
+			yiic.bat							 L'outil en ligne de commande 'yiic' pour Windows
+			commands/							Contient les commandes personnalisées pour l'outil 'yiic'
+				 shell/							Contient les commandes personnalisées pour l'outil 'yiic shell'
+			components/						Contient les composants utilisateur
+				 MainMenu.php				Le widget 'MainMenu'
+				 Identity.php				La class 'Identity' utilisée pour l'authentification
+				 views/							Contient les fichiers 'Vue' des widgets
+						mainMenu.php		 Le fichier Vue pour le widget 'MainMenu"
+			config/								Contient les fichiers de configuration
+				 console.php				 Le fichier de configuration pour l'application en ligne de commande
+				 main.php						Le fichier de confiruration pour l'application Web
+			controllers/					 Contient les fichiers des Controlleurs
+				 SiteController.php	Le controlleur par défaut
+			extensions/						Contient les extensions tierces
+			messages/							Contient les messages traduits
+			models/								Contient les fichiers des Modèles
+				 LoginForm.php			 Le modèle de type Formulaire pour l'action 'Login'
+				 ContactForm.php		 Le modèle de type Formulaire pour l'action 'Contact'
+			runtime/							 Contient les fichiers temporaires générés par l'application
+			views/								 Contient les fichiers Vue des controlleurs et Layout
+				 layouts/						Contient les fichiers Vue des Layout
+						main.php				 Le 'layout' par défaut pour toutes les vues
+				 site/							 Contient les fichiers Vue pour le controlleur 'site'
+						contact.php			La vue pour l'action 'Contact'
+						index.php				La vue pour l'action 'index'
+						login.php				La vue pour l'action 'login'
+				 system/						 Contient les fichiers pour les vues system
 ~~~
 
 Connexions aux bases de données
@@ -168,22 +168,22 @@ afin de générer automatiquement le code. Ce processus est aussi connu sous le 
 Yii Interactive Tool v1.0
 Please type 'help' for help. Type 'exit' to quit.
 >> model User
-   generate User.php
+	 generate User.php
 
 The 'User' class has been successfully created in the following file:
-    D:\wwwroot\testdrive\protected\models\User.php
+		D:\wwwroot\testdrive\protected\models\User.php
 
 If you have a 'db' database connection, you can test it now with:
-    $model=User::model()->find();
-    print_r($model);
+		$model=User::model()->find();
+		print_r($model);
 
 >> crud User
-   generate UserController.php
-   mkdir D:/wwwroot/testdrive/protected/views/user
-   generate create.php
-   generate update.php
-   generate list.php
-   generate show.php
+	 generate UserController.php
+	 mkdir D:/wwwroot/testdrive/protected/views/user
+	 generate create.php
+	 generate update.php
+	 generate list.php
+	 generate show.php
 
 Crud 'user' has been successfully created. You may access it via:
 http://hostname/path/to/index.php?r=user

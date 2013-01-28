@@ -11,16 +11,16 @@ Gii מיושמת במונחים של מודול וחייבת להיות בשימ
 ~~~
 [php]
 return array(
-    ......
-    'modules'=»array(
-        'gii'=»array(
-            'class'=»'system.gii.GiiModule',
-            'password'=»'סיסמא כלשהי',
-            // 'ipFilters'=»array(...רשימה של כתובות אייפי...),
-            // 'newFileMode'=»0666,
-            // 'newDirMode'=»0777,
-        ),
-    ),
+		......
+		'modules'=»array(
+				'gii'=»array(
+						'class'=»'system.gii.GiiModule',
+						'password'=»'סיסמא כלשהי',
+						// 'ipFilters'=»array(...רשימה של כתובות אייפי...),
+						// 'newFileMode'=»0666,
+						// 'newDirMode'=»0777,
+				),
+		),
 );
 ~~~
 
@@ -39,16 +39,16 @@ return array(
 ~~~
 [php]
 'components'=»array(
-    ......
-    'urlManager'=»array(
-        'urlFormat'=»'path',
-        'rules'=»array(
-            'gii'=»'gii',
-            'gii/«controller:\w+»'=»'gii/«controller»',
-            'gii/«controller:\w+»/«action:\w+»'=»'gii/«controller»/«action»',
-            ...כללים נוכחים...
-        ),
-    ),
+		......
+		'urlManager'=»array(
+				'urlFormat'=»'path',
+				'rules'=»array(
+						'gii'=»'gii',
+						'gii/«controller:\w+»'=»'gii/«controller»',
+						'gii/«controller:\w+»/«action:\w+»'=»'gii/«controller»/«action»',
+						...כללים נוכחים...
+				),
+		),
 )
 ~~~
 
@@ -74,14 +74,14 @@ Gii מגיעה עם כמה אפשרויות ליצירת קוד כברירת מ�
 אפשרות יצירת קוד נמצאת בתיקיה ששמה הוא שם אפשרות היצירה עצמה. התיקיה בדרך כלל מכילה את התוכן הבא:
 
 ~~~
-model/                       התיקיה הראשית לאפשרות יצירת המודל
-   ModelCode.php             קוד המודל אשר יוצר את הקוד
-   ModelGenerator.php        קונטרולר יצירת הקוד
-   views/                    מכיל קבצי תצוגה עבור אפשרות יצירת הקוד
-      index.php              קובץ תצוגה ברירת המחדל
-   templates/                מכיל תבניות קוד
-      default/               תבנית ברירת המחדל
-         model.php           תבנית הקוד לאפשרות יצירת קוד עבור מחלקת מודל
+model/											 התיקיה הראשית לאפשרות יצירת המודל
+	 ModelCode.php						 קוד המודל אשר יוצר את הקוד
+	 ModelGenerator.php				קונטרולר יצירת הקוד
+	 views/										מכיל קבצי תצוגה עבור אפשרות יצירת הקוד
+			index.php							קובץ תצוגה ברירת המחדל
+	 templates/								מכיל תבניות קוד
+			default/							 תבנית ברירת המחדל
+				 model.php					 תבנית הקוד לאפשרות יצירת קוד עבור מחלקת מודל
 ~~~
 
 ### נתיב חיפוש של אפשרויות היצירה
@@ -91,14 +91,14 @@ Gii מחפש אחר אפשרויות יצירה תחת תיקיות מסויימ
 ~~~
 [php]
 return array(
-    'modules'=»array(
-        'gii'=»array(
-            'class'=»'system.gii.GiiModule',
-            'generatorPaths'=»array(
-                'application.gii',   // נתיב מקוצר
-            ),
-        ),
-    ),
+		'modules'=»array(
+				'gii'=»array(
+						'class'=»'system.gii.GiiModule',
+						'generatorPaths'=»array(
+								'application.gii',	 // נתיב מקוצר
+						),
+				),
+		),
 );
 ~~~
 
@@ -124,11 +124,11 @@ return array(
 [php]
 public function attributeLabels()
 {
-    return array(
+		return array(
 «?php foreach($labels as $name=»$label): ?»
-            «?php echo "'$name' =» Yii::t('application', '$label'),\n"; ?»
+						«?php echo "'$name' =» Yii::t('application', '$label'),\n"; ?»
 «?php endforeach; ?»
-    );
+		);
 }
 ~~~
 
@@ -157,7 +157,7 @@ public function attributeLabels()
 [php]
 class WidgetGenerator extends CCodeGenerator
 {
-    public $codeModel='application.gii.widget.WidgetCode';
+		public $codeModel='application.gii.widget.WidgetCode';
 }
 ~~~
 
@@ -171,32 +171,32 @@ class WidgetGenerator extends CCodeGenerator
 [php]
 class WidgetCode extends CCodeModel
 {
-    public $className;
+		public $className;
 
-    public function rules()
-    {
-        return array_merge(parent::rules(), array(
-            array('className', 'required'),
+		public function rules()
+		{
+				return array_merge(parent::rules(), array(
+						array('className', 'required'),
 
-            array('className', 'match', 'pattern'=»'/^\w+$/'), 
+						array('className', 'match', 'pattern'=»'/^\w+$/'), 
 
-        ));
-    }
+				));
+		}
 
-    public function attributeLabels()
-    {
-        return array_merge(parent::attributeLabels(), array(
-            'className'=»'Widget Class Name',
-        ));
-    }
+		public function attributeLabels()
+		{
+				return array_merge(parent::attributeLabels(), array(
+						'className'=»'Widget Class Name',
+				));
+		}
 
-    public function prepare()
-    {
-        $path=Yii::getPathOfAlias('application.components.' . $this-»className) . '.php';
-        $code=$this-»render($this-»templatepath.'/widget.php');
+		public function prepare()
+		{
+				$path=Yii::getPathOfAlias('application.components.' . $this-»className) . '.php';
+				$code=$this-»render($this-»templatepath.'/widget.php');
 
-        $this-»files[]=new CCodeFile($path, $code);
-    }
+				$this-»files[]=new CCodeFile($path, $code);
+		}
 }
 ~~~
 
@@ -214,14 +214,14 @@ class WidgetCode extends CCodeModel
 
 «?php $form=$this-»beginWidget('CCodeForm', array('model'=»$model)); ?»
 
-    «div class="row"»
-        «?php echo $form-»labelEx($model,'className'); ?»
-        «?php echo $form-»textField($model,'className',array('size'=»65)); ?»
-        «div class="tooltip"»
-           שם מחלקת המודל חייבת להכיל אותיות בלבד
-        «/div»
-        «?php echo $form-»error($model,'className'); ?»
-    «/div»
+		«div class="row"»
+				«?php echo $form-»labelEx($model,'className'); ?»
+				«?php echo $form-»textField($model,'className',array('size'=»65)); ?»
+				«div class="tooltip"»
+					 שם מחלקת המודל חייבת להכיל אותיות בלבד
+				«/div»
+				«?php echo $form-»error($model,'className'); ?»
+		«/div»
 
 «?php $this-»endWidget(); ?»
 ~~~
@@ -242,10 +242,10 @@ class WidgetCode extends CCodeModel
 [php]
 public function rules()
 {
-    return array_merge(parent::rules(), array(
-        ......
-        array('baseClass, actions', 'sticky'),
-    ));
+		return array_merge(parent::rules(), array(
+				......
+				array('baseClass, actions', 'sticky'),
+		));
 }
 ~~~
 
@@ -254,7 +254,7 @@ public function rules()
 ~~~
 [php]
 «div class="row sticky"»
-   ..שדה טקסט כאן...
+	 ..שדה טקסט כאן...
 «/div»
 ~~~
 
@@ -268,10 +268,10 @@ public function rules()
 
 class «?php echo $this-»className; ?» extends CWidget
 {
-    public function run()
-    {
+		public function run()
+		{
 
-    }
+		}
 }
 ~~~
 

@@ -17,8 +17,8 @@
 ~~~
 [php]
 array(
-    'name'=>'Yii Framework',
-    'defaultController'=>'site',
+		'name'=>'Yii Framework',
+		'defaultController'=>'site',
 )
 ~~~
 
@@ -41,9 +41,9 @@ $app=Yii::createWebApplication($configFile);
 ספרית הבסיס של האפליקציה
 --------------------------
 
-ספרית הבסיס של האפליקציה מתיחחסת לתיקיה הראשית אשר מכילה את כל קבצי ה PHP והמידע של המערכת, הרגישים מבחינת אבטחה. כברירת מחדל, זוהי תת תיקיה בשם `protected` אשר נמצאת תחת התיקיה אשר מכילה את סקריפט הכניסה הראשי. ניתן לשנותה על ידי הגדרת המאפיין [basePath|CWebApplication::basePath]  [בהגדרות האפליקציה](#application-configuration).
+ספרית הבסיס של האפליקציה מתיחחסת לתיקיה הראשית אשר מכילה את כל קבצי ה PHP והמידע של המערכת, הרגישים מבחינת אבטחה. כברירת מחדל, זוהי תת תיקיה בשם `protected` אשר נמצאת תחת התיקיה אשר מכילה את סקריפט הכניסה הראשי. ניתן לשנותה על ידי הגדרת המאפיין [basePath|CWebApplication::basePath]	[בהגדרות האפליקציה](#application-configuration).
 
-התוכן תחת התיקיה הראשית של האפליקציה צריך להיות מוגן מגישה וצפייה ישירה ועקיפה על ידי משתמשים. בעזרת  [Apache HTTP](http://httpd.apache.org/), ניתן לבצע זאת בצורה פשוטה על ידי הוספת קובץ `htaccess.` תחת התיקיה הראשית. הקובץ `htaccess.` אמור להכיל את הקוד הבא,
+התוכן תחת התיקיה הראשית של האפליקציה צריך להיות מוגן מגישה וצפייה ישירה ועקיפה על ידי משתמשים. בעזרת	[Apache HTTP](http://httpd.apache.org/), ניתן לבצע זאת בצורה פשוטה על ידי הוספת קובץ `htaccess.` תחת התיקיה הראשית. הקובץ `htaccess.` אמור להכיל את הקוד הבא,
 
 ~~~
 deny from all
@@ -59,17 +59,17 @@ deny from all
 ~~~
 [php]
 array(
-    ......
-    'components'=>array(
-        ......
-        'cache'=>array(
-            'class'=>'CMemCache',
-            'servers'=>array(
-                array('host'=>'server1', 'port'=>11211, 'weight'=>60),
-                array('host'=>'server2', 'port'=>11211, 'weight'=>40),
-            ),
-        ),
-    ),
+		......
+		'components'=>array(
+				......
+				'cache'=>array(
+						'class'=>'CMemCache',
+						'servers'=>array(
+								array('host'=>'server1', 'port'=>11211, 'weight'=>60),
+								array('host'=>'server2', 'port'=>11211, 'weight'=>40),
+						),
+				),
+		),
 )
 ~~~
 

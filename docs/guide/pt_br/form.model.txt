@@ -1,18 +1,18 @@
 Criando um Modelo
 =================
 
-Antes de escrever o código HTML necessário para um formulário, devemos 
-decidir quais tipos de dados esperamos dos usuários e a quais regras eles devem 
-estar de acordo. Uma classe de modelo pode ser utilizada para registrar essas 
-informações. Um modelo, como descrito em [Modelo](/doc/guide/basics.model), 
+Antes de escrever o código HTML necessário para um formulário, devemos
+decidir quais tipos de dados esperamos dos usuários e a quais regras eles devem
+estar de acordo. Uma classe de modelo pode ser utilizada para registrar essas
+informações. Um modelo, como descrito em [Modelo](/doc/guide/basics.model),
 é o lugar central para manter as entradas fornecidas pelo usuário e validá-las.
 
-Dependendo da forma como utilizamos as entradas dos usuários, podemos criar 
-dois tipos de modelo. Se os dados são coletados, utilizados e, então, descartados, 
-devemos criar um [modelo de formulário](/doc/guide/basics.model) (form model); 
-porém, se a entrada do usuário deve ser coletada e armazenada em uma base de dados, devemos 
-utilizar um [active record](/doc/guide/database.ar). Ambos os tipos de modelo 
-compartilham [CModel] como classe base, onde está definida uma interface 
+Dependendo da forma como utilizamos as entradas dos usuários, podemos criar
+dois tipos de modelo. Se os dados são coletados, utilizados e, então, descartados,
+devemos criar um [modelo de formulário](/doc/guide/basics.model) (form model);
+porém, se a entrada do usuário deve ser coletada e armazenada em uma base de dados, devemos
+utilizar um [active record](/doc/guide/database.ar). Ambos os tipos de modelo
+compartilham [CModel] como classe base, onde está definida uma interface
 comum necessária a formulários.
 
 > Note|Nota: Nós utilizaremos modelos de formulários nos exemplos desta seção.
@@ -21,10 +21,10 @@ Entretanto, o mesmo pode ser aplicado para modelos utilizando [active record](/d
 Definindo uma Classe de Modelo
 ------------------------------
 
-No trecho de código abaixo, criamos uma classe de modelo chamada `LoginForm` 
-que será utilizada para coletar os dados informados pelo usuário em uma página 
-de login. Como essa informação é utilizada somente para autenticar o usuário e 
-não necessita ser armazenada, criaremos a classe `LoginForm` como um modelo de 
+No trecho de código abaixo, criamos uma classe de modelo chamada `LoginForm`
+que será utilizada para coletar os dados informados pelo usuário em uma página
+de login. Como essa informação é utilizada somente para autenticar o usuário e
+não necessita ser armazenada, criaremos a classe `LoginForm` como um modelo de
 formulário.
 
 ~~~
@@ -37,24 +37,24 @@ class LoginForm extends CFormModel
 }
 ~~~
 
-Foram declarados três atributos na classe `LoginForm`: `$username`, `$password`, 
-e `$rememberMe`. Eles são utilizados para manter o nome de usuário e senha 
-informados no formulário, bem como a opção se ele deseja que o sistema se lembre 
-de seu login. Como a valor padrão de `$rememberMe` é `false`, a opção 
+Foram declarados três atributos na classe `LoginForm`: `$username`, `$password`,
+e `$rememberMe`. Eles são utilizados para manter o nome de usuário e senha
+informados no formulário, bem como a opção se ele deseja que o sistema se lembre
+de seu login. Como a valor padrão de `$rememberMe` é `false`, a opção
 correspondente no formulário de login estará, inicialmente, desmarcada.
 
-> Info|Informação: Em vez de chamarmos essas variáveis membro de propriedades, 
-utilizamos o termo *atributos* para diferenciá-las de propriedades normais. 
-Um atributo é uma propriedade utilizada, basicamente, para armazenar dados 
+> Info|Informação: Em vez de chamarmos essas variáveis membro de propriedades,
+utilizamos o termo *atributos* para diferenciá-las de propriedades normais.
+Um atributo é uma propriedade utilizada, basicamente, para armazenar dados
 originados de entradas de usuários ou do banco de dados.
 
 Declarando Regras de Validação
 ------------------------------
 
-Uma vez que o usuário envia seus dados e o modelo é preenchido com eles, 
-devemos garantir que essas informações sejam validadas antes de serem utilizadas. 
-Para isso, utilizamos um conjunto de regras que são testadas contra os dados 
-informados. Para especificar essas regras de validação, utilizamos o método `rules()`, 
+Uma vez que o usuário envia seus dados e o modelo é preenchido com eles,
+devemos garantir que essas informações sejam validadas antes de serem utilizadas.
+Para isso, utilizamos um conjunto de regras que são testadas contra os dados
+informados. Para especificar essas regras de validação, utilizamos o método `rules()`,
 que deve retornar um vetor contendo as configurações de regras.
 
 ~~~
@@ -85,7 +85,7 @@ class LoginForm extends CFormModel
 }
 ~~~
 
-No código acima, especificamos que `username` e `password` são obrigatórios (required). 
+No código acima, especificamos que `username` e `password` são obrigatórios (required).
 Além disso, definimos que `password` deve ser autenticado (authenticate) e
 `rememberMe` deve aceitar apenas valores booleanos (boolean).
 
@@ -96,14 +96,14 @@ Cada regra retornada pelo método `rules()` deve estar no seguinte formato:
 array('ListaDeAtributos', 'Validador', 'on'=>'ListaDeCenarios', ...opções adicionais)
 ~~~
 
-Onde, `ListaDeAtributos` é uma string contendo todos os atributos, separados por vírgula, 
-que devem ser validados de acordo com a regra; `Validador` determina que tipo de validação 
-deverá ser efetuada; o parâmetro `on` é opcional e é utilizado para especificar uma 
-lista de cenários onde a regra deve ser aplicada; opções adicionais são pares chave-valor, 
+Onde, `ListaDeAtributos` é uma string contendo todos os atributos, separados por vírgula,
+que devem ser validados de acordo com a regra; `Validador` determina que tipo de validação
+deverá ser efetuada; o parâmetro `on` é opcional e é utilizado para especificar uma
+lista de cenários onde a regra deve ser aplicada; opções adicionais são pares chave-valor,
 utilizados para iniciar as propriedades do validador.
 
-Existem três maneiras de especificar o `Validador` em uma regra. Primeira, `Validador` 
-pode ser o nome de um método na classe do modelo, como o `authenticate` no exemplo acima. 
+Existem três maneiras de especificar o `Validador` em uma regra. Primeira, `Validador`
+pode ser o nome de um método na classe do modelo, como o `authenticate` no exemplo acima.
 Nesse caso, o método validador deve ter a seguinte assinatura:
 
 ~~~
@@ -115,59 +115,59 @@ Nesse caso, o método validador deve ter a seguinte assinatura:
 public function nomeDoValidador($atributo,$parametros) { ... }
 ~~~
 
-Segunda, `Validador` pode ser o nome de uma classe validadora. Dessa maneira, quando 
-a regra é aplicada, uma instância dessa classe será criada para efetuar a validação. 
-As opções adicionais na regra serão utilizadas para iniciar os valores dos atributos 
+Segunda, `Validador` pode ser o nome de uma classe validadora. Dessa maneira, quando
+a regra é aplicada, uma instância dessa classe será criada para efetuar a validação.
+As opções adicionais na regra serão utilizadas para iniciar os valores dos atributos
 da instância. Uma classe validadora deve estender a classe [CValidator].
 
-Terceira, `Validador` pode ser um alias (apelido) predefinido para uma classe validadora. 
-No exemplo acima, o nome `required` é um alias para a classe [CRequiredValidator], a qual 
-valida se o valor do atributo não está vazio. Abaixo, temos uma lista completa dos 
+Terceira, `Validador` pode ser um alias (apelido) predefinido para uma classe validadora.
+No exemplo acima, o nome `required` é um alias para a classe [CRequiredValidator], a qual
+valida se o valor do atributo não está vazio. Abaixo, temos uma lista completa dos
 aliases (apelidos) predefinidos:
 
-   - `boolean`: alias para [CBooleanValidator], garante que o valor de um atributo seja somente  
+	 - `boolean`: alias para [CBooleanValidator], garante que o valor de um atributo seja somente
 [CBooleanValidator::trueValue] ou [CBooleanValidator::falseValue].
 
-   - `captcha`: alias para [CCapthcaValidator], garante que o atributo é igual ao código 
+	 - `captcha`: alias para [CCapthcaValidator], garante que o atributo é igual ao código
 de verificação exibido em um [CAPTCHA](http://en.wikipedia.org/wiki/Captcha).
 
-   - `compare`: alias para [CCompareValidator], garante que o atributo é igual a outro
+	 - `compare`: alias para [CCompareValidator], garante que o atributo é igual a outro
 atributo ou a uma constante.
 
-   - `email`: alias para [CEmailValidator], garante que o atributo é um endereço de email
+	 - `email`: alias para [CEmailValidator], garante que o atributo é um endereço de email
 válido.
 
-   - `default`: alias para [CDefaultValueValidator], utilizado para atribuir um valor padrão 
+	 - `default`: alias para [CDefaultValueValidator], utilizado para atribuir um valor padrão
 (default) aos atributos especificados.
 
-   - `exist`: alias para [CExistValidator], garante que o valor do atributo existe na coluna 
+	 - `exist`: alias para [CExistValidator], garante que o valor do atributo existe na coluna
 da tabela informada.
 
-   - `file`: alias para [CFileValidator], garante que o atributo contém o nome de um arquivo 
+	 - `file`: alias para [CFileValidator], garante que o atributo contém o nome de um arquivo
 enviado via upload.
 
-   - `filter`: alias para [CFilterValidator], modifica o atributo com um filtro.
-   
-   - `in`: alias para [CRangeValidator], garante que o dado informado está entre uma lista 
+	 - `filter`: alias para [CFilterValidator], modifica o atributo com um filtro.
+
+	 - `in`: alias para [CRangeValidator], garante que o dado informado está entre uma lista
 específica de valores.
 
-   - `length`: alias para [CStringValidator], garante que o tamanho do dado está dentro de 
+	 - `length`: alias para [CStringValidator], garante que o tamanho do dado está dentro de
 um tamanho específico.
 
-   - `match`: alias para [CRegularExpressionValidator], garante que o dado informado 
+	 - `match`: alias para [CRegularExpressionValidator], garante que o dado informado
 casa com um expressão regular.
 
-   - `numerical`: alias para [CNumberValidator], garante que o dado informado é um número 
+	 - `numerical`: alias para [CNumberValidator], garante que o dado informado é um número
 válido.
 
-   - `required`: alias para [CRequiredValidator], garante que o valor do atributo não está vazio.
-   
-   - `type`: alias para [CTypeValidator], garante que o atributo é de um tipo específico.
-   
-   - `unique`: alias para [CUniqueValidator], garante que o dado informado é único na coluna da 
+	 - `required`: alias para [CRequiredValidator], garante que o valor do atributo não está vazio.
+
+	 - `type`: alias para [CTypeValidator], garante que o atributo é de um tipo específico.
+
+	 - `unique`: alias para [CUniqueValidator], garante que o dado informado é único na coluna da
 tabela do banco de dados informada.
 
-   - `url`: alias para [CUrlValidator], garante que o dado informado é uma URL válida.
+	 - `url`: alias para [CUrlValidator], garante que o dado informado é uma URL válida.
 
 Abaixo listamos alguns exemplos da utilização de validadores predefinidos:
 
@@ -186,8 +186,8 @@ array('password', 'authenticate', 'on'=>'login'),
 Atribuição Segura de Atributos
 ------------------------------
 
-Normalmente, depois que uma instância de um modelo é criada, precisamos popular seus 
-atributos com as informações enviadas pelo usuário. Isso pode ser feito de uma 
+Normalmente, depois que uma instância de um modelo é criada, precisamos popular seus
+atributos com as informações enviadas pelo usuário. Isso pode ser feito de uma
 maneira conveniente, utilizando a atribuição em massa, como pode ser visto no código abaixo:
 
 ~~~
@@ -284,12 +284,12 @@ atributos seguros.
 
 
 Na versão 1.0, a tarefa de decidir se um dado é seguro ou não é baseada no valor de retorno do
-método `safeAttributes` e o cenário especificado. Por padrão, esse método 
-retorna todas as variáveis membro públicas como atributos seguros para a classe 
-[CFormModel], ou todas as colunas de uma tabela, menos a chave primária, como atributos 
-para a classe [CActiveRecord]. Nós podemos sobrescrever este método para limitar esses 
-atributos seguros de acordo com os cenários. Por exemplo, um modelo usuário deve 
-conter vários atributos, mas no cenário `login`, precisamos apenas do `username` e do 
+método `safeAttributes` e o cenário especificado. Por padrão, esse método
+retorna todas as variáveis membro públicas como atributos seguros para a classe
+[CFormModel], ou todas as colunas de uma tabela, menos a chave primária, como atributos
+para a classe [CActiveRecord]. Nós podemos sobrescrever este método para limitar esses
+atributos seguros de acordo com os cenários. Por exemplo, um modelo usuário deve
+conter vários atributos, mas no cenário `login`, precisamos apenas do `username` e do
 `password`. Podemos especificar esses limites da seguinte maneira:
 
 ~~~
@@ -303,25 +303,25 @@ public function safeAttributes()
 }
 ~~~
 
-Mais precisamente, o valor de retorno do método `safeAttributes` deve ter a seguinte 
+Mais precisamente, o valor de retorno do método `safeAttributes` deve ter a seguinte
 estrutura:
 
 ~~~
 [php]
 array(
-   // esses atributos podem ser atribuídos em massa em qualquer cenário
-   // isso não ser explicitamente especificado, como vemos abaixo
-   'attr1, attr2, ...',
+	 // esses atributos podem ser atribuídos em massa em qualquer cenário
+	 // isso não ser explicitamente especificado, como vemos abaixo
+	 'attr1, attr2, ...',
 	 *
-   // esses atributos só podem ser atribuídos em massa no cenário 1
-   'cenario1' => 'attr2, attr3, ...',
+	 // esses atributos só podem ser atribuídos em massa no cenário 1
+	 'cenario1' => 'attr2, attr3, ...',
 	 *
-   // esses atributos só podem ser atribuídos em massa no cenário 2
-   'cenario2' => 'attr1, attr3, ...',
+	 // esses atributos só podem ser atribuídos em massa no cenário 2
+	 'cenario2' => 'attr1, attr3, ...',
 )
 ~~~
 
-Se os cenários não são importantes para o modelo, ou se todos os cenários tem o mesmo 
+Se os cenários não são importantes para o modelo, ou se todos os cenários tem o mesmo
 conjunto de atributos, o valor de retorno pode ser simplificado para um simples string:
 
 ~~~
@@ -329,7 +329,7 @@ conjunto de atributos, o valor de retorno pode ser simplificado para um simples 
 'attr1, attr2, ...'
 ~~~
 
-Para dados não seguros, devemos atribui-los individualmente aos atributos, como 
+Para dados não seguros, devemos atribui-los individualmente aos atributos, como
 no exemplo a seguir:
 
 ~~~
@@ -342,9 +342,9 @@ Disparando a Validação
 ----------------------
 
 Uma vez que o modelo foi preenchido com os dados enviados pelo usuário,
-podemos executar o método [CModel::validate()] para disparar o processo de 
-validação. Esse método retorna uma valor indicando se a validação ocorreu com 
-sucesso ou não. Para modelos utilizando [CActiveRecord], a validação pode ser 
+podemos executar o método [CModel::validate()] para disparar o processo de
+validação. Esse método retorna uma valor indicando se a validação ocorreu com
+sucesso ou não. Para modelos utilizando [CActiveRecord], a validação pode ser
 disparada automaticamente quando o método [CActiveRecord::save()] é executado.
 
 Podemos configurar utilizando o cenário utilizando a propriedade
@@ -367,10 +367,10 @@ $model=new User('register');
 $model->attributes=$_POST['User'];
 
 // executa a validação
-if($model->validate())   // se as entradas são validas
-    ...
+if($model->validate())	 // se as entradas são validas
+		...
 else
-    ...
+		...
 ~~~
 
 Os cenários aplicáveis a uma regra pode ser especificados através da opção `on`.
@@ -404,16 +404,16 @@ segundo irá retornar apenas o *primeiro* erro.
 Rótulos de Atributos
 --------------------
 
-Quando desenvolvemos um formulário, normalmente precisamos exibir um rótulo 
-para cada campo. Esse rótulo indica ao usuário que tipo de informação espera-se 
-que ele informe naquele campo. Embora podemos escrever esses rótulos diretamente 
-na visão, seria mais flexível e conveniente poder especifica-los diretamente no 
+Quando desenvolvemos um formulário, normalmente precisamos exibir um rótulo
+para cada campo. Esse rótulo indica ao usuário que tipo de informação espera-se
+que ele informe naquele campo. Embora podemos escrever esses rótulos diretamente
+na visão, seria mais flexível e conveniente poder especifica-los diretamente no
 modelo correspondente.
 
-Por padrão, a classe [CModel] irá retornar o nome do atributo como seu rótulo. 
-Essa característica pode ser alterada sobrescrevendo o método 
-[attributeLabels()|CModel::attributeLabels]. Como veremos nas subseções a seguir, 
-especificando rótulos nos modelos nos permite criar formulários poderosos de uma 
+Por padrão, a classe [CModel] irá retornar o nome do atributo como seu rótulo.
+Essa característica pode ser alterada sobrescrevendo o método
+[attributeLabels()|CModel::attributeLabels]. Como veremos nas subseções a seguir,
+especificando rótulos nos modelos nos permite criar formulários poderosos de uma
 maneira mais rápida.
 
 <div class="revision">$Id: form.model.txt 2285 2010-07-28 20:40:00Z qiang.xue $</div>

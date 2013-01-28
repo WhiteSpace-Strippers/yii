@@ -3,7 +3,7 @@
 
 Yii 提供了一個完整的，基於 PHP5 例外處理的錯誤處理機制。當一個應用程式開始運行，進行使用者請求的處理的時候，會註冊 [handleError|CApplication::handleError] 方法來處理 PHP warnings 和 notices 訊息；同時也註冊 [handleException|CApplication::handleException] 方法來處理未被捕獲的 PHP 例外。因此，如果在應用程式運行期間出現一個 PHP warning/notice 或者一個未捕獲的 PHP 例外，錯誤處理器就會接過控制權來運行必要的處理機制。
 
-> Tip|提示: 錯誤處理器的註冊是在應用程式中的建構器方法中進行的，使用了 PHP 函數[set_exception_handler](http://www.php.net/manual/en/function.set-exception-handler.php) 
+> Tip|提示: 錯誤處理器的註冊是在應用程式中的建構器方法中進行的，使用了 PHP 函數[set_exception_handler](http://www.php.net/manual/en/function.set-exception-handler.php)
 和 [set_error_handler](http://www.php.net/manual/en/function.set-error-handler.php)。
 如果你不想讓 Yii 來處理錯誤和例外，你可以在[入口腳本](/doc/guide/basics.entry)中定義 `YII_ENABLE_ERROR_HANDLER` 和 `YII_ENABLE_EXCEPTION_HANDLER` 為false.
 
@@ -39,11 +39,11 @@ throw new CHttpException(404,'此頁面不存在');
 
 [CErrorHandler] 會搜尋合適的視圖來顯示錯誤訊息，搜尋的順序如下：
 
-   1. `WebRoot/themes/ThemeName/views/system`: 在當前主題視圖下的 `system` 目錄中。
+	 1. `WebRoot/themes/ThemeName/views/system`: 在當前主題視圖下的 `system` 目錄中。
 
-   2. `WebRoot/protected/views/system`: 在應用程式的預設視圖的 `system` 目錄中。
+	 2. `WebRoot/protected/views/system`: 在應用程式的預設視圖的 `system` 目錄中。
 
-   3. `yii/framework/views`: 在 Yii 提供的標準視圖目錄中。
+	 3. `yii/framework/views`: 在 Yii 提供的標準視圖目錄中。
 
 因此，如果你想要自定錯誤顯示，可以直接在 `system` 視圖目錄中或者主題的 `system` 視圖目錄中建立一個視圖檔案。每個視圖檔案都是一個包含許多 HTML程 式碼的普通 PHP 檔案。參考框架的 `view` 目錄下的檔案，可以取得更多訊息。
 

@@ -12,7 +12,7 @@
  * CWidget is the base class for widgets.
  *
  * A widget is a self-contained component that may generate presentation
- * based on model data.  It can be viewed as a micro-controller that embeds
+ * based on model data.	It can be viewed as a micro-controller that embeds
  * into the controller-managed views.
  *
  * Compared with {@link CController controller}, a widget has neither actions nor filters.

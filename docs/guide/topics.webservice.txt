@@ -52,7 +52,7 @@ class StockController extends CController
 	{
 		$prices=array('IBM'=>100, 'GOOGLE'=>350);
 		return isset($prices[$symbol])?$prices[$symbol]:0;
-	    //...return stock price for $symbol
+			//...return stock price for $symbol
 	}
 }
 ~~~
@@ -91,7 +91,7 @@ class StockController extends CController
 	 */
 	public function getPrice($symbol)
 	{
-	    //...return stock price for $symbol
+			//...return stock price for $symbol
 	}
 }
 ~~~
@@ -128,16 +128,16 @@ When declaring class methods and properties to be remotely accessible, we
 need to specify the data types of the input and output parameters. The
 following primitive data types can be used:
 
-   - str/string: maps to `xsd:string`;
-   - int/integer: maps to `xsd:int`;
-   - float/double: maps to `xsd:float`;
-   - bool/boolean: maps to `xsd:boolean`;
-   - date: maps to `xsd:date`;
-   - time: maps to `xsd:time`;
-   - datetime: maps to `xsd:dateTime`;
-   - array: maps to `xsd:string`;
-   - object: maps to `xsd:struct`;
-   - mixed: maps to `xsd:anyType`.
+	 - str/string: maps to `xsd:string`;
+	 - int/integer: maps to `xsd:int`;
+	 - float/double: maps to `xsd:float`;
+	 - bool/boolean: maps to `xsd:boolean`;
+	 - date: maps to `xsd:date`;
+	 - time: maps to `xsd:time`;
+	 - datetime: maps to `xsd:dateTime`;
+	 - array: maps to `xsd:string`;
+	 - object: maps to `xsd:struct`;
+	 - mixed: maps to `xsd:anyType`.
 
 If a type is not any of the above primitive types, it is considered as a
 composite type consisting of properties. A composite type is represented in
@@ -202,7 +202,7 @@ class PostController extends CController
 			'service'=>array(
 				'class'=>'CWebServiceAction',
 				'classMap'=>array(
-					'Post'=>'Post',  // or simply 'Post'
+					'Post'=>'Post',	// or simply 'Post'
 				),
 			),
 		);

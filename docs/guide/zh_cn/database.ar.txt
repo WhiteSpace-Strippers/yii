@@ -57,23 +57,23 @@ return array(
 ~~~
 
 > Tip|提示: 由于 Active Record 依靠表的元数据（metadata）测定列的信息，读取元数据并解析需要时间。
-如果你数据库的表结构很少改动，你应该通过配置 [CDbConnection::schemaCachingDuration] 
+如果你数据库的表结构很少改动，你应该通过配置 [CDbConnection::schemaCachingDuration]
 属性的值为一个大于零的值开启表结构缓存。
 
 对 AR 的支持受 DBMS 的限制，当前只支持下列几种 DBMS：
 
-   - [MySQL 4.1 或更高版本](http://www.mysql.com)
-   - [PostgreSQL 7.3 或更高版本](http://www.postgres.com)
-   - [SQLite 2 和 3](http://www.sqlite.org)
-   - [Microsoft SQL Server 2000 或更高版本](http://www.microsoft.com/sqlserver/)
-   - [Oracle](http://www.oracle.com)
+	 - [MySQL 4.1 或更高版本](http://www.mysql.com)
+	 - [PostgreSQL 7.3 或更高版本](http://www.postgres.com)
+	 - [SQLite 2 和 3](http://www.sqlite.org)
+	 - [Microsoft SQL Server 2000 或更高版本](http://www.microsoft.com/sqlserver/)
+	 - [Oracle](http://www.oracle.com)
 
-> Note|注意:  1.0.4 版开始支持  Microsoft SQL Server；从1.0.5 版开始支持 Oracle。
+> Note|注意:	1.0.4 版开始支持	Microsoft SQL Server；从1.0.5 版开始支持 Oracle。
 
 如果你想使用一个不是 `db` 的应用组件，或者如果你想使用 AR 处理多个数据库，你应该覆盖
 [CActiveRecord::getDbConnection()]。 [CActiveRecord] 类是所有 AR 类的基类。
 
-> Tip|提示: 通过 AR 使用多个数据库有两种方式。如果数据库的结构不同，你可以创建不同的 AR 基类实现不同的 
+> Tip|提示: 通过 AR 使用多个数据库有两种方式。如果数据库的结构不同，你可以创建不同的 AR 基类实现不同的
 [getDbConnection()|CActiveRecord::getDbConnection]。否则，动态改变静态变量 [CActiveRecord::db] 是一个好主意。
 
 定义 AR 类
@@ -100,7 +100,7 @@ class Post extends CActiveRecord
 ~~~
 
 > Tip|提示: 由于 AR 类经常在多处被引用，我们可以导入包含 AR 类的整个目录，而不是一个个导入。
-> 例如，如果我们所有的 AR 类文件都在 
+> 例如，如果我们所有的 AR 类文件都在
 > `protected/models` 目录中，我们可以配置应用如下：
 > ~~~
 > [php]
@@ -120,7 +120,7 @@ class Post extends CActiveRecord
 > [php]
 > public function tableName()
 > {
->     return '{{post}}';
+>		 return '{{post}}';
 > }
 > ~~~
 > 这就是说，我们将返回通过双大括号括起来的没有前缀的表名，而不是完整的表的名字。
@@ -175,8 +175,8 @@ $post->save();
 如果表的主键是自增的，在插入完成后，AR 实例将包含一个更新的主键。在上面的例子中，
 `id` 属性将反映出新插入帖子的主键值，即使我们从未显式地改变它。
 
-如果一个列在表结构中使用了静态默认值（例如一个字符串，一个数字）定义。则 AR 
-实例中相应的属性将在此实例创建时自动含有此默认值。改变此默认值的一个方式就是在 AR 
+如果一个列在表结构中使用了静态默认值（例如一个字符串，一个数字）定义。则 AR
+实例中相应的属性将在此实例创建时自动含有此默认值。改变此默认值的一个方式就是在 AR
 类中显示定义此属性：
 
 ~~~
@@ -188,7 +188,7 @@ class Post extends CActiveRecord
 }
 
 $post=new Post;
-echo $post->title;  // 这儿将显示: please enter a title
+echo $post->title;	// 这儿将显示: please enter a title
 ~~~
 
 记录在保存（插入或更新）到数据库之前，其属性可以赋值为 [CDbExpression] 类型。
@@ -207,7 +207,7 @@ $post->save();
 [日志功能](/doc/guide/topics.logging) 实现。例如，我们在应用配置中开启了
 [CWebLogRoute] ，我们将会在每个网页的最后看到执行过的 SQL 语句。
 
-我们可以在应用配置中设置 [CDbConnection::enableParamLogging] 为 true 
+我们可以在应用配置中设置 [CDbConnection::enableParamLogging] 为 true
 ，这样绑定在 SQL 语句中的参数值也会被记录。
 
 
@@ -233,7 +233,7 @@ $post=Post::model()->findBySql($sql,$params);
 此方法返回在对象上下文中的一个用于访问类级别方法（类似于静态类方法的东西）的 AR 实例。
 
 如果 `find` 方法找到了一个满足查询条件的行，它将返回一个 `Post` 实例，实例的属性含有数据表行中相应列的值。
-然后我们就可以像读取普通对象的属性那样读取载入的值，例如  `echo $post->title;`。
+然后我们就可以像读取普通对象的属性那样读取载入的值，例如	`echo $post->title;`。
 
 如果使用给定的查询条件在数据库中没有找到任何东西， `find` 方法将返回 null 。
 
@@ -258,7 +258,7 @@ $post=Post::model()->find('postID=:postID', array(':postID'=>10));
 ~~~
 [php]
 $criteria=new CDbCriteria;
-$criteria->select='title';  // 只选择 'title' 列
+$criteria->select='title';	// 只选择 'title' 列
 $criteria->condition='postID=:postID';
 $criteria->params=array(':postID'=>10);
 $post=Post::model()->find($criteria); // $params 不需要了
@@ -376,7 +376,7 @@ Post::model()->deleteByPk($pk,$condition,$params);
 如果列的值是由最终用户提供的，这一点就更加重要。总体来说，我们永远不能相信任何来自客户端的数据。
 
 当调用 [save()|CActiveRecord::save] 时， AR 会自动执行数据验证。
-验证是基于在 AR 类的  [rules()|CModel::rules]  方法中指定的规则进行的。
+验证是基于在 AR 类的	[rules()|CModel::rules]	方法中指定的规则进行的。
 关于验证规则的更多详情，请参考 [声明验证规则](/doc/guide/form.model#declaring-validation-rules) 一节。
 下面是保存记录时所需的典型的工作流。
 
@@ -388,7 +388,7 @@ if($post->save())
 }
 else
 {
-	// 数据无效，调用  getErrors() 提取错误信息
+	// 数据无效，调用	getErrors() 提取错误信息
 }
 ~~~
 
@@ -403,9 +403,9 @@ $post->save();
 ~~~
 
 如果有很多列，我们可以看到一个用于这种复制的很长的列表。
-这可以通过使用如下所示的 [attributes|CActiveRecord::attributes]  属性简化操作。
+这可以通过使用如下所示的 [attributes|CActiveRecord::attributes]	属性简化操作。
 更多信息可以在 [安全的特性赋值](/doc/guide/form.model#securing-attribute-assignments)
-一节和  [创建动作](/doc/guide/form.action) 一节找到。
+一节和	[创建动作](/doc/guide/form.action) 一节找到。
 
 ~~~
 [php]
@@ -431,21 +431,21 @@ $post->save();
 
 [CActiveRecord] 提供了几个占位符方法，它们可以在子类中被覆盖以自定义其工作流。
 
-   - [beforeValidate|CModel::beforeValidate] 和
+	 - [beforeValidate|CModel::beforeValidate] 和
 [afterValidate|CModel::afterValidate]: 这两个将在验证执行之前和之后被调用。
 
-   - [beforeSave|CActiveRecord::beforeSave] 和
+	 - [beforeSave|CActiveRecord::beforeSave] 和
 [afterSave|CActiveRecord::afterSave]: 这两个将在保存 AR 实例之前和之后被调用。
 
-   - [beforeDelete|CActiveRecord::beforeDelete] 和
+	 - [beforeDelete|CActiveRecord::beforeDelete] 和
 [afterDelete|CActiveRecord::afterDelete]: 这两个将在一个 AR 实例被删除之前和之后被调用。
 
-   - [afterConstruct|CActiveRecord::afterConstruct]: 这个将在每个使用 `new` 操作符创建 AR 实例后被调用。
+	 - [afterConstruct|CActiveRecord::afterConstruct]: 这个将在每个使用 `new` 操作符创建 AR 实例后被调用。
 
-   - [beforeFind|CActiveRecord::beforeFind]: 这个将在一个 AR 查找器被用于执行查询（例如 `find()`, `findAll()`）之前被调用。
-1.0.9 版本开始可用。  
+	 - [beforeFind|CActiveRecord::beforeFind]: 这个将在一个 AR 查找器被用于执行查询（例如 `find()`, `findAll()`）之前被调用。
+1.0.9 版本开始可用。
 
-   - [afterFind|CActiveRecord::afterFind]: 这个将在每个 AR 实例作为一个查询结果创建时被调用。
+	 - [afterFind|CActiveRecord::afterFind]: 这个将在每个 AR 实例作为一个查询结果创建时被调用。
 
 
 使用 AR 处理事务

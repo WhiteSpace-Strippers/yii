@@ -48,12 +48,12 @@ class SiteController extends CController
 控制器实例在 [CWebApplication] 处理到来的请求时创建。指定了控制器 ID ，
 应用将使用如下规则确定控制器的类以及类文件的位置。
 
-   - 如果指定了 [CWebApplication::catchAllRequest] , 控制器将基于此属性创建，
+	 - 如果指定了 [CWebApplication::catchAllRequest] , 控制器将基于此属性创建，
 而用户指定的控制器 ID 将被忽略。这通常用于将应用设置为维护状态并显示一个静态提示页面。
 
-   - 如果在 [CWebApplication::controllerMap] 中找到了 ID, 相应的控制器配置将被用于创建控制器实例。
+	 - 如果在 [CWebApplication::controllerMap] 中找到了 ID, 相应的控制器配置将被用于创建控制器实例。
 
-   - 如果 ID 为 `'path/to/xyz'`的格式，控制器类的名字将判断为 `XyzController`，
+	 - 如果 ID 为 `'path/to/xyz'`的格式，控制器类的名字将判断为 `XyzController`，
 相应的类文件则为 `protected/controllers/path/to/XyzController.php`。例如，
 控制器 ID `admin/user` 将被解析为控制器类 `UserController`，类文件是 `protected/controllers/admin/UserController.php`。
 如果类文件不存在，将触发一个 404 [CHttpException] 异常。
@@ -104,23 +104,23 @@ class PostController extends CController
 
 ~~~
 protected/
-    controllers/
-        PostController.php
-        UserController.php
-        post/
-            CreateAction.php
-            ReadAction.php
-            UpdateAction.php
-        user/
-            CreateAction.php
-            ListAction.php
-            ProfileAction.php
-            UpdateAction.php
+		controllers/
+				PostController.php
+				UserController.php
+				post/
+						CreateAction.php
+						ReadAction.php
+						UpdateAction.php
+				user/
+						CreateAction.php
+						ListAction.php
+						ProfileAction.php
+						UpdateAction.php
 ~~~
 
 ### 动作参数绑定
 
-从版本  1.1.4 开始，Yii 提供了对自动动作参数绑定的支持。
+从版本	1.1.4 开始，Yii 提供了对自动动作参数绑定的支持。
 就是说，控制器动作可以定义命名的参数，参数的值将由 Yii 自动从 `$_GET` 填充。
 
 为了详细说明此功能，假设我们需要为 `PostController` 写一个 `create` 动作。此动作需要两个参数：

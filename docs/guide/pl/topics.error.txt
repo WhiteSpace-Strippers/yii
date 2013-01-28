@@ -2,29 +2,29 @@ Kontrola błędów
 ==============
 
 Yii dostarcza kompletnego frameworku do zarządzania błędami, bazującego na mechanizmie
-wyjątków w PHP5. Podczas tworzenia aplikacji przeznaczonej do przetwarzania 
-przychodzących żądań użytkownika rejestrowana jest jej metoda 
+wyjątków w PHP5. Podczas tworzenia aplikacji przeznaczonej do przetwarzania
+przychodzących żądań użytkownika rejestrowana jest jej metoda
 [handleException|CApplication::handleException], która przechwytuje błędy i ostrzeżenia PHP.
-Rejestruje ona również swoją metodę [handleException|CApplication::handleException] 
-aby przechwytywać niezłapane wyjątki PHP. W konsekwencji, jeśli wystąpi ostrzeżenie/uwaga 
+Rejestruje ona również swoją metodę [handleException|CApplication::handleException]
+aby przechwytywać niezłapane wyjątki PHP. W konsekwencji, jeśli wystąpi ostrzeżenie/uwaga
 lub nieprzechwycony wyjątek jeden z tych kontrolerów błędów przejmie kontrolę i rozpocznie
 odpowiednią procedurę kontroli błędów.
 
 
-> Tip|Wskazówka: Rejestracja kontrolerów błędów następuje w konstruktorze aplikacji poprzez 
+> Tip|Wskazówka: Rejestracja kontrolerów błędów następuje w konstruktorze aplikacji poprzez
 wywołanie funkcji PHP [set_exception_handler](http://www.php.net/manual/en/function.set-exception-handler.php)
 oraz [set_error_handler](http://www.php.net/manual/en/function.set-error-handler.php).
 Jeśli nie chcesz by Yii zarządzało błędami i wyjątkami, musisz zdefiniować zmienną
-`YII_ENABLE_ERROR_HANDLER` oraz `YII_ENABLE_EXCEPTION_HANDLER` i przypisać jej wartość false w 
+`YII_ENABLE_ERROR_HANDLER` oraz `YII_ENABLE_EXCEPTION_HANDLER` i przypisać jej wartość false w
 [skrypcie wejściowym](/doc/guide/basics.entry).
 
 Domyślnie, [handleError|CApplication::handleError] (lub
-[handleException|CApplication::handleException]) wywoła zdarzenie 
-[onError|CApplication::onError] (lub [onException|CApplication::onException]). 
+[handleException|CApplication::handleException]) wywoła zdarzenie
+[onError|CApplication::onError] (lub [onException|CApplication::onException]).
 Jeśli błąd (lub wyjątek) nie zostanie przechwycony przez żaden kontroler błędów
 to wezwie na pomoc komponent aplikacji [errorHandler|CErrorHandler].
 
-Zgłaszanie wyjątków 
+Zgłaszanie wyjątków
 ------------------
 
 Zgłaszanie wyjątków w Yii nie różni się niczym od zgłaszania zwykłych wyjątków w PHP.
@@ -35,52 +35,52 @@ Można użyć następującej składni aby zgłosić wyjątek, gdy nastąpi taka 
 throw new ExceptionClass('ExceptionMessage');
 ~~~
 
-Yii definiuje trzy klasy wyjątków: [CException], [CDbException] oraz [CHttpException]. 
+Yii definiuje trzy klasy wyjątków: [CException], [CDbException] oraz [CHttpException].
 [CException] jest ogólną klasą wyjątków. [CDbException] reprezentuje wyjątek powodowany
-przez pewne operacje związane z bazą danych. [CHttpException] reprezentuje wyjątek, który powinien być 
-wyświetlony użytkownikowi końcowemu. Przenosi on również właściwość 
-[statusCode|CHttpException::statusCode] reprezentującą kod statusu w HTTP. 
+przez pewne operacje związane z bazą danych. [CHttpException] reprezentuje wyjątek, który powinien być
+wyświetlony użytkownikowi końcowemu. Przenosi on również właściwość
+[statusCode|CHttpException::statusCode] reprezentującą kod statusu w HTTP.
 Klasa wyjątku określa jak powinien być on wyświetlony, co wyjaśnimy w dalszej części.
 
-> Tip|Wskazówka: Zgłaszanie wyjątku [CHttpException] jest prostym sposobem raportowanie 
+> Tip|Wskazówka: Zgłaszanie wyjątku [CHttpException] jest prostym sposobem raportowanie
 błędów zawinionych przez niepoprawne operacje wykonane przez użytkownika.
-Na przykład, jeśli użytkownik użyje nieprawidłowego ID postu w adresie URL, możemy 
+Na przykład, jeśli użytkownik użyje nieprawidłowego ID postu w adresie URL, możemy
 zrobić co następuje aby pokazać błąd 404 (nie znaleziono strony).
 ~~~
 [php]
-// jeśli ID posta nie jest poprawne 
+// jeśli ID posta nie jest poprawne
 throw new CHttpException(404,'Nie można znaleźć podanego postu.');
 ~~~
 
 Wyświetlanie błędów
 -----------------
 
-Gdy błąd jest przekazywany do komponentu aplikacji [CErrorHandler], to wybierany 
-jest odpowiedni widok w celu wyświetlenia błędu. Jeśli błąd jest przewidziany  
+Gdy błąd jest przekazywany do komponentu aplikacji [CErrorHandler], to wybierany
+jest odpowiedni widok w celu wyświetlenia błędu. Jeśli błąd jest przewidziany
 do wyświetlenia użytkownikowi końcowemu, tak jak [CHttpException] użyje on widoku
 nazwanego `errorXXX`, gdzie `XXX` oznacza kod statusu HTTP (np.
-400, 404, 500). Jeśli błąd jest błędem wewnętrznym i powinien być pokazany jedynie  
+400, 404, 500). Jeśli błąd jest błędem wewnętrznym i powinien być pokazany jedynie
 deweloperowi, użyje widoku nazwanego `exception`. W ostatnim przypadku, kompletny
 stos wywołań, jak również linia wystąpienia błędu zostaną wyświetlone.
 
-> Info|Info: Gdy aplikacja jest uruchomiona w [trybie produkcyjnym](/doc/guide/basics.entry#debug-mode), 
-wszystkie błędy, włączając w to wewnętrzne będą wyświetlone przy użyciu widoku 
-`errorXXX`. Dzieje się tak, ponieważ stos wywołań może zawierać ważne informacje.  
+> Info|Info: Gdy aplikacja jest uruchomiona w [trybie produkcyjnym](/doc/guide/basics.entry#debug-mode),
+wszystkie błędy, włączając w to wewnętrzne będą wyświetlone przy użyciu widoku
+`errorXXX`. Dzieje się tak, ponieważ stos wywołań może zawierać ważne informacje.
 W tym przypadku deweloperzy powinni polegać na logu błędów aby odnaleźć prawdziwą przyczynę błędu.
 
 [CErrorHandler] szuka pliku odpowiedniego pliku widoku w następującym porządku:
 
-   1. `WebRoot/themes/ThemeName/views/system`: `system` jest to systemowy folder widoków 
-   dla aktualnie aktywnego tematu.
+	 1. `WebRoot/themes/ThemeName/views/system`: `system` jest to systemowy folder widoków
+	 dla aktualnie aktywnego tematu.
 
-   2. `WebRoot/protected/views/system`: `system` jest domyślnym folderem widoków 
-   systemowych dla aplikacji.
-   
+	 2. `WebRoot/protected/views/system`: `system` jest domyślnym folderem widoków
+	 systemowych dla aplikacji.
 
-   3. `yii/framework/views`: jest to standardowy folder systemowy dostarczony wraz 
-   z frameworkiem Yii.
 
-Dlatego też, jeśli chcemy dostosować do własnych potrzeb wyświetlanie błędów, 
+	 3. `yii/framework/views`: jest to standardowy folder systemowy dostarczony wraz
+	 z frameworkiem Yii.
+
+Dlatego też, jeśli chcemy dostosować do własnych potrzeb wyświetlanie błędów,
 możemy po prostu utworzyć plik widoku w folderze systemowym aplikacji lub tematu.
 Każdy plik widoku jest zwykłym skryptem PHP zawierającym głównie kod HTML.
 Aby uzyskać więcej szczegółów, zobacz domyślne pliki widoków w folderze `view` frameworku.
@@ -89,23 +89,23 @@ Obsługa błędów przy użyciu akcji
 --------------------------------
 
 Yii umożliwia używanie [akcji kontrolera](/doc/guide/basics.controller#action)
-do obsługi wyświetlania błędu. Aby to uzyskać, powinniśmy skonfigurować obsługę błędu 
+do obsługi wyświetlania błędu. Aby to uzyskać, powinniśmy skonfigurować obsługę błędu
 w konfiguracji aplikacji w następujący sposób:
 
 ~~~
 [php]
 return array(
-  ......
-  'components'=>array(
-    'errorHandler'=>array(
-      'errorAction'=>'site/error',
-    ),
-  ),
+	......
+	'components'=>array(
+		'errorHandler'=>array(
+			'errorAction'=>'site/error',
+		),
+	),
 );
 ~~~
 
 Powyżej, skonfigurowaliśmy właściwość [CErrorHandler::errorAction] tak aby wskazywała na `site/error`,
-referując  do akcji `error` w kontrolerze `SiteController`. Możemy użyć innej ścieżki jeśli mamy taką potrzebę.
+referując	do akcji `error` w kontrolerze `SiteController`. Możemy użyć innej ścieżki jeśli mamy taką potrzebę.
 
 Możemy napisać akcję `error` w następujący sposób:
 
@@ -113,13 +113,13 @@ Możemy napisać akcję `error` w następujący sposób:
 [php]
 public function actionError()
 {
-  if($error=Yii::app()->errorHandler->error)
-    $this->render('error', $error);
+	if($error=Yii::app()->errorHandler->error)
+		$this->render('error', $error);
 }
 ~~~
 
 W akcji tej, najpierw otrzymujemy szczegółową informację o błędzie w [CErrorHandler::error].
-Jeśli nie jest ona pusta, generujemy widok `error` wraz z informacją o błędzie. 
+Jeśli nie jest ona pusta, generujemy widok `error` wraz z informacją o błędzie.
 Informacje o błędzie zwrócone w [CErrorHandler::error] są tablicą zawierającą następujące pola:
 
  * `code`: kod statusu HTTP(np. 403, 500);
@@ -130,8 +130,8 @@ Informacje o błędzie zwrócone w [CErrorHandler::error] są tablicą zawieraj�
  * `trace`: stos wywołań błędu;
  * `source`: kontekst źródła kodu w którym wystąpił błąd.
 
-> Tip|Wskazówka: Powodem dla którego sprawdzamy czy [CErrorHandler::error] czy jest pusty czy też nie jest 
-fakt iż akcja `error` może być bezpośrednio wywołana przez użytkownika końcowego w przypadku gdy nie ma błędu. 
+> Tip|Wskazówka: Powodem dla którego sprawdzamy czy [CErrorHandler::error] czy jest pusty czy też nie jest
+fakt iż akcja `error` może być bezpośrednio wywołana przez użytkownika końcowego w przypadku gdy nie ma błędu.
 Ponieważ przekazujemy tablicę `$error` do widoku, będzie ona automatycznie rozwinięta w indywidualne zmienne.
 W rezultacie, w widoku możemy bezpośrednio odwołać się do zmiennych takich jak `$code`, `$type`.
 
@@ -140,8 +140,8 @@ Logowanie komunikatów
 
 Komunikat o poziomie `błędu` będzie zawsze logowane jeśli wystąpi błąd. Jeśli jest to
 błąd spowodowany przez ostrzeżenie lub wiadomość PHP, komunikat będzie zalogowany
-przy użyciu kategorii `php`; jeśli błąd spowodowany jest przez nieprzechwycony wyjątek 
-kategorią będzie `exception.ExceptionClassName` (dla [CHttpException] jego 
+przy użyciu kategorii `php`; jeśli błąd spowodowany jest przez nieprzechwycony wyjątek
+kategorią będzie `exception.ExceptionClassName` (dla [CHttpException] jego
 [kod statusu|CHttpException::statusCode] będzie również dołączony do kategorii).
 Można więc wykorzystać tą funkcjonalność [logowania](/doc/guide/topics.logging)
 do monitorowania błędów powstałych podczas działania aplikacji.

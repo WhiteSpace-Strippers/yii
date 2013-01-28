@@ -418,7 +418,7 @@ class CHttpRequest extends CApplicationComponent
 			$pathInfo=$this->getRequestUri();
 
 			if(($pos=strpos($pathInfo,'?'))!==false)
-			   $pathInfo=substr($pathInfo,0,$pos);
+				 $pathInfo=substr($pathInfo,0,$pos);
 
 			$pathInfo=$this->decodePathInfo($pathInfo);
 
@@ -453,14 +453,14 @@ class CHttpRequest extends CApplicationComponent
 		// is it UTF-8?
 		// http://w3.org/International/questions/qa-forms-utf-8.html
 		if(preg_match('%^(?:
-		   [\x09\x0A\x0D\x20-\x7E]            # ASCII
-		 | [\xC2-\xDF][\x80-\xBF]             # non-overlong 2-byte
-		 | \xE0[\xA0-\xBF][\x80-\xBF]         # excluding overlongs
-		 | [\xE1-\xEC\xEE\xEF][\x80-\xBF]{2}  # straight 3-byte
-		 | \xED[\x80-\x9F][\x80-\xBF]         # excluding surrogates
-		 | \xF0[\x90-\xBF][\x80-\xBF]{2}      # planes 1-3
-		 | [\xF1-\xF3][\x80-\xBF]{3}          # planes 4-15
-		 | \xF4[\x80-\x8F][\x80-\xBF]{2}      # plane 16
+			 [\x09\x0A\x0D\x20-\x7E]						# ASCII
+		 | [\xC2-\xDF][\x80-\xBF]						 # non-overlong 2-byte
+		 | \xE0[\xA0-\xBF][\x80-\xBF]				 # excluding overlongs
+		 | [\xE1-\xEC\xEE\xEF][\x80-\xBF]{2}	# straight 3-byte
+		 | \xED[\x80-\x9F][\x80-\xBF]				 # excluding surrogates
+		 | \xF0[\x90-\xBF][\x80-\xBF]{2}			# planes 1-3
+		 | [\xF1-\xF3][\x80-\xBF]{3}					# planes 4-15
+		 | \xF4[\x80-\x8F][\x80-\xBF]{2}			# plane 16
 		)*$%xs', $pathInfo))
 		{
 			return $pathInfo;
@@ -496,7 +496,7 @@ class CHttpRequest extends CApplicationComponent
 				else
 					$this->_requestUri=preg_replace('/^(http|https):\/\/[^\/]+/i','',$this->_requestUri);
 			}
-			elseif(isset($_SERVER['ORIG_PATH_INFO']))  // IIS 5.0 CGI
+			elseif(isset($_SERVER['ORIG_PATH_INFO']))	// IIS 5.0 CGI
 			{
 				$this->_requestUri=$_SERVER['ORIG_PATH_INFO'];
 				if(!empty($_SERVER['QUERY_STRING']))
@@ -906,15 +906,15 @@ class CHttpRequest extends CApplicationComponent
 	 * There is a Bug with Internet Explorer 6, 7 and 8 when X-SENDFILE is used over an SSL connection, it will show
 	 * an error message like this: "Internet Explorer was not able to open this Internet site. The requested site is either unavailable or cannot be found.".
 	 * You can work around this problem by removing the <code>Pragma</code>-header.
-	 * 
+	 *
 	 * <b>Example</b>:
 	 * <pre>
 	 * <?php
-	 *    Yii::app()->request->xSendFile('/home/user/Pictures/picture1.jpg',array(
-	 *        'saveName'=>'image1.jpg',
-	 *        'mimeType'=>'image/jpeg',
-	 *        'terminate'=>false,
-	 *    ));
+	 *		Yii::app()->request->xSendFile('/home/user/Pictures/picture1.jpg',array(
+	 *				'saveName'=>'image1.jpg',
+	 *				'mimeType'=>'image/jpeg',
+	 *				'terminate'=>false,
+	 *		));
 	 * ?>
 	 * </pre>
 	 * @param string $filePath file name with full path
@@ -1055,7 +1055,7 @@ class CHttpRequest extends CApplicationComponent
  * <pre>
  * $cookies[$name]=new CHttpCookie($name,$value); // sends a cookie
  * $value=$cookies[$name]->value; // reads a cookie value
- * unset($cookies[$name]);  // removes a cookie
+ * unset($cookies[$name]);	// removes a cookie
  * </pre>
  *
  * @author Qiang Xue <qiang.xue@gmail.com>

@@ -78,7 +78,7 @@ class CCookieCollectionTest extends CTestCase
 		}
 		//check if cookies were added, else fail the test, since it makes no sence to do this, if there are no cookies
 		$this->assertTrue($this->cookies->contains('testCookieOne'),'A default cookie is missing! Check the testcase!');
-		$this->assertTrue($this->cookies->contains('someEmptyCookie'),'A default cookie is missing! Check the testcase!');		
+		$this->assertTrue($this->cookies->contains('someEmptyCookie'),'A default cookie is missing! Check the testcase!');
 		$this->assertTrue($this->cookies->contains('someEmptyCookie'),'A default cookie is missing! Check the testcase!');
 		$this->assertTrue($this->cookies->contains('cookieWithOptions'),'A default cookie is missing! Check the testcase!');
 		// Real tests below:
@@ -96,7 +96,7 @@ class CCookieCollectionTest extends CTestCase
 				$this->assertTrue($this->cookies->remove($name) instanceof CHttpCookie);
 				$this->assertFalse($this->cookies->contains($name));
 			}
-		}		
+		}
 	}
 	public function testGetRequest()
 	{

@@ -7,7 +7,7 @@ konfigurasi yang rumit. Tentunya, Yii masih dapat dikustomisasi dalam hampir
 setiap aspek dengan konfigurasi bila diperlukan.
 
 Di bawah ini dijelaskan konvensi yang direkomendasikan untuk pemrograman Yii.
-Demi kenyamanan, kami asumsikan bahwa `WebRoot` adalah direktori di mana 
+Demi kenyamanan, kami asumsikan bahwa `WebRoot` adalah direktori di mana
 aplikasi Yii diinstalasi.
 
 URL
@@ -44,7 +44,7 @@ direkomendasikan untuk mengawali namanya dengan karakter garis bawah (contoh
 `$_actionList`).
 
 Karena namespace tidak didukung oleh PHP sebelum versi 5.3.0, direkomendasikan
-kelas dinamai dalam cara yang unik guna menghindari konflik nama dengan 
+kelas dinamai dalam cara yang unik guna menghindari konflik nama dengan
 kelas pihak-ketiga. Untuk alasan ini, semua kelas Yii framework diawali dengan
 huruf "C".
 
@@ -76,7 +76,7 @@ File
 Konvensi penamaan dan penggunaan file tergantung pada tipenya.
 
 File Kelas harus dinamai sesuai kelas publik di dalam file tersebut. Sebagai contoh,
-kelas [CController] pada file `CController.php`.  Kelas publik maksudnya
+kelas [CController] pada file `CController.php`.	Kelas publik maksudnya
 adalah kelas yang bisa dipakai oleh kelas lain. Setiap file kelas harus
 berisi paling banyak hanya satu kelas publik. Kelas Private (kelas yang hanya dipakai
 oleh satu kelas publik) bisa berada dalam file yang sama dengan
@@ -96,49 +96,49 @@ Direktori
 Secara default, Yii mengambil asumsi pada satu set direktori yang dipakai untuk berbagai keperluan.
 Masing-masing bisa dikustomisasi jika diperlukan.
 
-   - `WebRoot/protected`: ini adalah [basis direktori 
+	 - `WebRoot/protected`: ini adalah [basis direktori
 aplikasi](/doc/guide/basics.application#application-base-directory) yang menampung semua
 skrip PHP dan file data yang sensitif . Yii memiliki alias standar
 bernama `application` yang dikaitkan dengan path ini. Direktori ini dan
 semua yang ada di bawahnya dilindungi dari pengaksesan pengguna Web.
 Bisa dikustomisasi via [CWebApplication::basePath].
 
-   - `WebRoot/protected/runtime`: direktori ini menampung file privat sementara
+	 - `WebRoot/protected/runtime`: direktori ini menampung file privat sementara
 yang dibuat selama menjalankan aplikasi. Direktori ini harus bisa ditulis oleh
 server Web. Dapat dikustomisasi melalui
 [CApplication::runtimePath].
 
-   - `WebRoot/protected/extensions`: direktori ini menampung semua extension dari
+	 - `WebRoot/protected/extensions`: direktori ini menampung semua extension dari
 pihak ketiga. Dapat dikustomisasi melalui [CApplication::extensionPath]. Yii memiliki alias default
 bernama `ext` untuk mewakilinya.
 
-   - `WebRoot/protected/modules`: direktori ini menampung semua 
+	 - `WebRoot/protected/modules`: direktori ini menampung semua
 [module](/doc/guide/basics.module) aplikasi, masing-masing diwakili oleh subdirektori.
 
-   - `WebRoot/protected/controllers`: direktori ini menampung semua file kelas
+	 - `WebRoot/protected/controllers`: direktori ini menampung semua file kelas
 controller. Dapat dikustomisasi melalui [CWebApplication::controllerPath].
 
-   - `WebRoot/protected/views`: direktori ini menampung semua file tampilan,
+	 - `WebRoot/protected/views`: direktori ini menampung semua file tampilan,
 termasuk tampilan controller, tampilan tata letak dan tampilan sistem. Dapat
 dikustomisasi melalui [CWebApplication::viewPath].
 
-   - `WebRoot/protected/views/ControllerID`: direktori ini menampung file tampilan
+	 - `WebRoot/protected/views/ControllerID`: direktori ini menampung file tampilan
 untuk satu kelas controller. Di sini, `ControllerID` merupakan ID
 controller. Dapat dikustomisasi melalui [CController::getViewPath].
 
-   - `WebRoot/protected/views/layouts`: direktori ini menampung semua file
+	 - `WebRoot/protected/views/layouts`: direktori ini menampung semua file
 tampilan tata letak. Dapat dikustomisasi melalui [CWebApplication::layoutPath].
 
-   - `WebRoot/protected/views/system`: direktori ini menampung semua file tampilan
+	 - `WebRoot/protected/views/system`: direktori ini menampung semua file tampilan
 sistem. Tampilan sistem adalah template yang dipakai dalam menampilkan exception (exception) dan
 kesalahan. Dapat dikustomisasi melalui [CWebApplication::systemViewPath].
 
-   - `WebRoot/assets`: direktori ini menampung file aset yang dipublikasikan. File
+	 - `WebRoot/assets`: direktori ini menampung file aset yang dipublikasikan. File
 asset adalah file privat yang dapat diterbitkan agar bisa diakses oleh pengguna
 Web. Direktori ini harus bisa ditulis oleh proses server Web. Dapat dikustomisasi
 melalui [CAssetManager::basePath].
 
-   - `WebRoot/themes`: direktori ini menampung berbagai tema yang dapat diterapkan
+	 - `WebRoot/themes`: direktori ini menampung berbagai tema yang dapat diterapkan
 pada aplikasi. Setiap subdirektori mewakili satu tema yang namanya adalah nama
 subdirektori. Dapat dikustomisasi melalui
 [CThemeManager::basePath].
@@ -150,14 +150,14 @@ Kebanyakan aplikasi Web didukung oleh basis data. Kami mengusulkan beberapa cara
 penamaan tabel dan kolom database. Harap diingat bahwa
 konvensi ini tidak wajib dalam Yii.
 
-   - Kolom maupun tabel pada database dinamakan dalam huruf kecil.
+	 - Kolom maupun tabel pada database dinamakan dalam huruf kecil.
 
-   - Kata-kata dalam nama harus dipisahkan dengan garis bawah (misalnya `product_order`).
+	 - Kata-kata dalam nama harus dipisahkan dengan garis bawah (misalnya `product_order`).
 
-   - Khusus jika menggunakan nama dalam bahasa Inggris, untuk nama tabel, Anda dapat menggunakan nama
+	 - Khusus jika menggunakan nama dalam bahasa Inggris, untuk nama tabel, Anda dapat menggunakan nama
 tunggal (singular) atau jamak (plural) tetapi jangan dua-duanya. Supaya sederhana kami menyarankan menggunakan nama dalam bentuk tunggal.
 
-   - Nama tabel bisa diawali dengan prefiks yang umum seperti `tbl_`. Cara ini sangat berguna
+	 - Nama tabel bisa diawali dengan prefiks yang umum seperti `tbl_`. Cara ini sangat berguna
 terutama jika tabel-tabel suatu aplikasi berbaur dalam satu tabel dengan tabel-tabel aplikasi lain.
 Dua kumpulan tabel itu dapat dipisahkan dengan menggunakan nama tabel dengan prefiks yang berbeda.
 

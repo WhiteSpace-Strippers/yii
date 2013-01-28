@@ -16,9 +16,9 @@
 [php]
 class LoginForm extends CFormModel
 {
-    public $username;
-    public $password;
-    public $rememberMe=false;
+		public $username;
+		public $password;
+		public $rememberMe=false;
 }
 ~~~
 
@@ -35,27 +35,27 @@ class LoginForm extends CFormModel
 [php]
 class LoginForm extends CFormModel
 {
-    public $username;
-    public $password;
-    public $rememberMe=false;
+		public $username;
+		public $password;
+		public $rememberMe=false;
 
-    private $_identity;
+		private $_identity;
 
-    public function rules()
-    {
-        return array(
-            array('username, password', 'required'),
-            array('rememberMe', 'boolean'),
-            array('password', 'authenticate'),
-        );
-    }
+		public function rules()
+		{
+				return array(
+						array('username, password', 'required'),
+						array('rememberMe', 'boolean'),
+						array('password', 'authenticate'),
+				);
+		}
 
-    public function authenticate($attribute,$params)
-    {
-        $this-»_identity=new UserIdentity($this-»username,$this-»password);
-        if(!$this-»_identity-»authenticate())
-            $this-»addError('password','Incorrect username or password.');
-    }
+		public function authenticate($attribute,$params)
+		{
+				$this-»_identity=new UserIdentity($this-»username,$this-»password);
+				if(!$this-»_identity-»authenticate())
+						$this-»addError('password','Incorrect username or password.');
+		}
 }
 ~~~
 
@@ -68,7 +68,7 @@ class LoginForm extends CFormModel
 array('AttributeList', 'Validator', 'on'=»'ScenarioList', ...additional options)
 ~~~
 
-כשהערך  `AttributeList` הינו סטרינג המופרד בפסיקים של שמות שצריך לאמת אותם מול החוק שהוגדר; `Validator` מגדיר את סוג הבדיקה שיש לבצע על גבי המשתנים שהוגדרו במשתנה קודם לכן; `on` הינו ערך אופציונלי המגדיר באילו תסריטים (מצבים) יש לבצע את האימות הנוכחי; ואפשרויות נוספות הינם זוגות של מפתח=»ערך שנועדו לאתחול של המאפיינים בחוק הנוכחי.
+כשהערך	`AttributeList` הינו סטרינג המופרד בפסיקים של שמות שצריך לאמת אותם מול החוק שהוגדר; `Validator` מגדיר את סוג הבדיקה שיש לבצע על גבי המשתנים שהוגדרו במשתנה קודם לכן; `on` הינו ערך אופציונלי המגדיר באילו תסריטים (מצבים) יש לבצע את האימות הנוכחי; ואפשרויות נוספות הינם זוגות של מפתח=»ערך שנועדו לאתחול של המאפיינים בחוק הנוכחי.
 
 ישנם שלושה דרכים להגדרת `Validator` בחוק. אפשרות ראשונה, `Validator` יכול להיות שמה של מתודה במחלקת המודל הנוכחי, כמו `authenticate` בדוגמא למעלה. המתודה צריכה להראות בצורה הבאה:
 
@@ -147,7 +147,7 @@ array('password', 'authenticate', 'on'=»'login'),
 [php]
 $model=new LoginForm;
 if(isset($_POST['LoginForm']))
-    $model-»attributes=$_POST['LoginForm'];
+		$model-»attributes=$_POST['LoginForm'];
 ~~~
 
 הפקודה האחרונה נקראת *הצבה מאסיבית* אשר מציבה את כל המאפיינים ב `$_POST['LoginForm']` למאפיינים המתאימים במודל. פקודה זו זהה לקוד הבא:
@@ -156,8 +156,8 @@ if(isset($_POST['LoginForm']))
 [php]
 foreach($_POST['LoginForm'] as $name=»$value)
 {
-    if($name is a safe attribute)
-        $model-»$name=$value;
+		if($name is a safe attribute)
+				$model-»$name=$value;
 }
 ~~~
 
@@ -183,12 +183,12 @@ array('email', 'required', 'on'=»'register'),
 // בתסריט התחברות
 $model=new User('login');
 if(isset($_POST['User']))
-    $model-»attributes=$_POST['User'];
+		$model-»attributes=$_POST['User'];
 
 // בתסריט הרשמה
 $model=new User('register');
 if(isset($_POST['User']))
-    $model-»attributes=$_POST['User'];
+		$model-»attributes=$_POST['User'];
 ~~~
 
 אז למה אנחנו משתמשים במדיניות זו בכדי לקבוע אם מאפיין הוא בטוח או לא?
@@ -217,17 +217,17 @@ array('permission', 'unsafe')
 
 בגרסאות 1.0, ההחלטה בין אם מאפיין הוא בטוח או לא מבוססת על הערך המוחזר מהמתודה `safeAttributes` והתסריט המוגדר כרגע. כברירת מחדל, המתודה מחזירה את כל מאפייני המחלקה [CFormModel] כמאפיינים בטוחים, בזמן שהינה מחזירה את כל העמודות בטבלה מלבד העמודה של המפתח הראשי עבור המחלקה [CActiveRecord].
 אנו יכולים לדרוס מתודה זו בכדי להגביל את המאפיינים הבטוחים לפי התסריט המוגדר.
-לדוגמא, מודל משתמשים יכול להכיל מאפיינים רבים, אבל בזמן השימוש בתסריט `login` אנו נצטרך רק את המאפיינים של שם המשתמש והסיסמא, `username` ו  `password`.
+לדוגמא, מודל משתמשים יכול להכיל מאפיינים רבים, אבל בזמן השימוש בתסריט `login` אנו נצטרך רק את המאפיינים של שם המשתמש והסיסמא, `username` ו	`password`.
 אנו יכולים להגדיר את ההגבלה בצורה הבאה:
 
 ~~~
 [php]
 public function safeAttributes()
 {
-    return array(
-        parent::safeAttributes(),
-        'login' =» 'username, password',
-    );
+		return array(
+				parent::safeAttributes(),
+				'login' =» 'username, password',
+		);
 }
 ~~~
 
@@ -236,15 +236,15 @@ public function safeAttributes()
 ~~~
 [php]
 array(
-   // מאפיינים אלו ניתנים להצבה מאסיבית בכל תסריט
-   // שלא הוגדר ספציפית כמו בדוגמאות למטה
-   'attr1, attr2, ...',
-     *
-   // מאפיינים אלו ניתנים להצבה מאסיבית רק בזמן השימוש בתסריט מספר 1
-   'scenario1' =» 'attr2, attr3, ...',
-     *
-   // מאפיינים אלו ניתנים להצבה מאסיבית רק בזמן השימוש בתסריט מספר 2
-   'scenario2' =» 'attr1, attr3, ...',
+	 // מאפיינים אלו ניתנים להצבה מאסיבית בכל תסריט
+	 // שלא הוגדר ספציפית כמו בדוגמאות למטה
+	 'attr1, attr2, ...',
+		 *
+	 // מאפיינים אלו ניתנים להצבה מאסיבית רק בזמן השימוש בתסריט מספר 1
+	 'scenario1' =» 'attr2, attr3, ...',
+		 *
+	 // מאפיינים אלו ניתנים להצבה מאסיבית רק בזמן השימוש בתסריט מספר 2
+	 'scenario2' =» 'attr1, attr3, ...',
 )
 ~~~
 
@@ -285,10 +285,10 @@ $model=new User('register');
 $model-»attributes=$_POST['User'];
 
 // מבצע את הבדיקה
-if($model-»validate())   // במידה והנתונים תקינים
-    ...
+if($model-»validate())	 // במידה והנתונים תקינים
+		...
 else
-    ...
+		...
 ~~~
 
 בכדי להגדיר חוקים מסויימים עבור תסריטים מסויימים יש להגדיר את המאפיין `on` בהגדרה של החוק עצמו. במידה והמאפיין `on` לא הוגדר, זה אומר שהחוק צריך להיות תקף בכל התסריטים האפשריים. לדוגמא,
@@ -297,11 +297,11 @@ else
 [php]
 public function rules()
 {
-    return array(
-        array('username, password', 'required'),
-        array('password_repeat', 'required', 'on'=»'register'),
-        array('password', 'compare', 'on'=»'register'),
-    );
+		return array(
+				array('username, password', 'required'),
+				array('password_repeat', 'required', 'on'=»'register'),
+				array('password', 'compare', 'on'=»'register'),
+		);
 }
 ~~~
 

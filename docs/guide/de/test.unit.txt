@@ -8,7 +8,7 @@ Grundsätze beim Schreiben eines Tests zu verstehen. Zusammengefasst gelten
 diese Grundprinzipien für das Schreiben von Unittests in Yii:
 
 
- * Ein Unittest wird als Klasse `XyzTest` geschrieben, die [CTestCase] oder [CDbTestCase] erweitert, 
+ * Ein Unittest wird als Klasse `XyzTest` geschrieben, die [CTestCase] oder [CDbTestCase] erweitert,
 wobei `Xyz` für die zu testende Klasse steht. Um z.B. die Klasse `Post` zu
 testen, würden wir den Unittest per Konvention `PostTest` nennen. Die
 Basisklasse [CTestCase] dient für allgemeine Unittests, während [CDbTestCase]
@@ -54,7 +54,7 @@ In dieser Klasse geben wir in der Variable `fixtures` die zu verwendenden
 Fixtures als Array an. Das Array stellt eine Zuordnung von Fixturenamen auf
 Modelklassen- oder Tabellennamen dar (z.B. von Fixturename `post` zur
 Modelklasse `Post`). Beachten Sie, dass Tabellennamen ein Doppelpunkt
-vorangestellt werden muss, um sie vom Namen der Modelklasse unterscheiden zu 
+vorangestellt werden muss, um sie vom Namen der Modelklasse unterscheiden zu
 können (z.B. `:Post`). Wenn wir Modelklassennamen verwenden werden die
 entsprechenden Tabellen als Fixturetabellen interpretiert. Wie bereits
 erwähnt, werden Fixturetabellen jedesmal, wenn eine Testmethode ausgeführt
@@ -75,7 +75,7 @@ $post = $this->post('sample1');
 
 > Note|Hinweis: Wenn ein Fixture über seinen Tabellennamen festgelegt wurde
 (z.B. `'posts'=>':Post'`), kann die dritte Variante in obigem Beispiel nicht
-verwendet werden, da wir keine Information darüber haben, mit welcher Modelklasse 
+verwendet werden, da wir keine Information darüber haben, mit welcher Modelklasse
 die Tabelle verbunden ist.
 
 Als nächstes schreiben wir die Methode `testApprove` um die `approve`-Methode

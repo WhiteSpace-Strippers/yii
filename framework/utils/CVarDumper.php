@@ -106,7 +106,7 @@ class CVarDumper
 					self::$_output.="array\n".$spaces.'(';
 					foreach($keys as $key)
 					{
-						self::$_output.="\n".$spaces.'    ';
+						self::$_output.="\n".$spaces.'		';
 						self::dumpInternal($key,0);
 						self::$_output.=' => ';
 						self::dumpInternal($var[$key],$level+1);
@@ -129,7 +129,7 @@ class CVarDumper
 					foreach($members as $key=>$value)
 					{
 						$keyDisplay=strtr(trim($key),array("\0"=>':'));
-						self::$_output.="\n".$spaces."    [$keyDisplay] => ";
+						self::$_output.="\n".$spaces."		[$keyDisplay] => ";
 						self::$_output.=self::dumpInternal($value,$level+1);
 					}
 					self::$_output.="\n".$spaces.')';

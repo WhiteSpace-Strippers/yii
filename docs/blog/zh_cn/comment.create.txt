@@ -9,7 +9,7 @@
 评论的显示
 -------------------
 
-我们使用日志详情页(由 `PostController` 的  `view`  动作生成)来显示和创建评论，而不是使用单独的页面。在日志内容下面，我们首先显示此日志的评论列表，然后显示一个用于创建评论的表单。
+我们使用日志详情页(由 `PostController` 的	`view`	动作生成)来显示和创建评论，而不是使用单独的页面。在日志内容下面，我们首先显示此日志的评论列表，然后显示一个用于创建评论的表单。
 
 为了在日志详情页中显示评论，我们把视图脚本 `/wwwroot/blog/protected/views/post/view.php` 修改如下：
 
@@ -95,7 +95,7 @@ protected function newComment($post)
 </div><!-- comments -->
 ~~~
 
-以上代码中，如果有可用的闪过信息，我们就会显示它。如果没有，我们就通过渲染局部视图  `/wwwroot/blog/protected/views/comment/_form.php` 显示评论输入表单。
+以上代码中，如果有可用的闪过信息，我们就会显示它。如果没有，我们就通过渲染局部视图	`/wwwroot/blog/protected/views/comment/_form.php` 显示评论输入表单。
 
 
 客户端验证

@@ -50,10 +50,10 @@ class PostTest extends WebTestCase
 	public function testShow()
 	{
 		$this->open('post/1');
-	    // перевіряємо наявність заголовка певного запису
-	    $this->assertTextPresent($this->posts['sample1']['title']);
-	    // перевіряємо наявність форми коментаря
-	    $this->assertTextPresent('Leave a Comment');
+			// перевіряємо наявність заголовка певного запису
+			$this->assertTextPresent($this->posts['sample1']['title']);
+			// перевіряємо наявність форми коментаря
+			$this->assertTextPresent('Leave a Comment');
 	}
 
 	…

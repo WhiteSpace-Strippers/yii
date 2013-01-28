@@ -66,7 +66,7 @@ class UserIdentity extends CUserIdentity
 			$this->errorCode=self::ERROR_NONE;
 		}
 		return !$this->errorCode;
-    }
+		}
 
 	public function getId()
 	{
@@ -124,7 +124,7 @@ fitur ini mengharuskan browser pengguna untuk menerima cookie.
 Yii::app()->user->login($identity,3600*24*7);
 ~~~
 
-Seperti yang kami singgung di atas, ketika kita mengaktifkan login berbasis cookie, 
+Seperti yang kami singgung di atas, ketika kita mengaktifkan login berbasis cookie,
 state-state yang disimpan melalui [CBaseUserIdentity::setState] akan disimpan juga ke dalam cookie.
 Ketika lain kali user tersebut login kembali, state-state ini akan dibaca dari
 cookie dan menjadi dapat diakses melalui `Yii::app()->user`.
@@ -234,7 +234,7 @@ Aturan akses dievaluasi satu demi satu sesuai urutan yang ditetapkan.
 Aturan pertama yang sesuai dengan pola saat ini (misalnya nama pengguna, roles,
 alamat IP klien) menentukan hasil otorisasi. Jika aturan ini adalah aturan `allow`,
 aksi bisa dijalankan; jika aturan `deny`, aksi tidak bisa dijalankan;
-jika tidak ada aturan yang sesuai konteks, aksi masih bisa 
+jika tidak ada aturan yang sesuai konteks, aksi masih bisa
 dijalankan.
 
 > Tip: Untuk memastikan aksi tidak bisa dijalankan pada konteks tertentu,
@@ -243,11 +243,11 @@ dijalankan.
 > ~~~
 > [php]
 > return array(
->     // ... aturan lain...
->     // aturan ini menolak aksi 'delete' untuk semua konteks
->     array('deny',
->         'action'=>'delete',
->     ),
+>		 // ... aturan lain...
+>		 // aturan ini menolak aksi 'delete' untuk semua konteks
+>		 array('deny',
+>				 'action'=>'delete',
+>		 ),
 > );
 > ~~~
 > Alasan atas aturan ini dikarenakan jika tidak ada seorangpun yang sesuai konteks aturan, aksi akan dijalankan.
@@ -255,21 +255,21 @@ dijalankan.
 
 Aturan akses akan sesuai dengan parameter konteks berikut:
 
-   - [aksi|CAccessRule::actions]: menetapkan aksi mana dijalankan jika aturan sesuai.
+	 - [aksi|CAccessRule::actions]: menetapkan aksi mana dijalankan jika aturan sesuai.
 Ini harus berupa array ID aksi. Pembandingannya bersifat case-sensitive.
 
-   - [controller|CAccessRule::controllers]: menetapkan controller mana yang sesuai aturan
+	 - [controller|CAccessRule::controllers]: menetapkan controller mana yang sesuai aturan
 ini. Ini harus berupa array ID controller. Pembandingannya bersifat case-sensitive.
 
-   - [pengguna|CAccessRule::users]: menetapkan pengguna mana yang sesuai aturan ini.
+	 - [pengguna|CAccessRule::users]: menetapkan pengguna mana yang sesuai aturan ini.
 [Nama|CWebUser::name] pengguna saat ini dipakai untuk penyesuaian. Pembandingannya
 bersifat case-sensitive. Tiga karakter khusus dapat dipakai di sini:
 
-	   - `*`: setiap pengguna, termasuk anonim dan pengguna terotentikasi.
-	   - `?`: pengguna anonim.
-	   - `@`: pengguna terotentikasi.
+		 - `*`: setiap pengguna, termasuk anonim dan pengguna terotentikasi.
+		 - `?`: pengguna anonim.
+		 - `@`: pengguna terotentikasi.
 
-   - [roles|CAccessRule::roles]: menetapkan roles mana yang sesuai aturan ini.
+	 - [roles|CAccessRule::roles]: menetapkan roles mana yang sesuai aturan ini.
 Pemakaian fitur [kontrol akses berbasis-role](#role-based-access-control)
 dijelaskan pada subseksi berikutnya. Aturan diterapkan khususnya jika
 [CWebUser::checkAccess] mengembalikan true pada salah satu set aturan.
@@ -278,13 +278,13 @@ aturan mewakili perijinan untuk melakukan sesuatu. Juga harap dicatat, meskipun 
 batasan `roles` di sini, nilainya sebenarnya dapat berupa item otentikasi, termasuk roles,
 tugas dan operasi.
 
-   - [ip|CAccessRule::ips]: menetapkan alamat IP klien mana yang sesuai aturan
+	 - [ip|CAccessRule::ips]: menetapkan alamat IP klien mana yang sesuai aturan
 ini.
 
-   - [verb|CAccessRule::verbs]: menetapkan jenis permintaan apa (misalnya
+	 - [verb|CAccessRule::verbs]: menetapkan jenis permintaan apa (misalnya
 `GET`, `POST`) sesuai aturan ini. Pembandingannya tidak bersifat case-sensitive.
 
-   - [ekspresi|CAccessRule::expression]: menetapkan ekspresi PHP yang nilainya menunjukan
+	 - [ekspresi|CAccessRule::expression]: menetapkan ekspresi PHP yang nilainya menunjukan
 apakah aturan ini sesuai atau tidak. Dalam ekspresi, Anda dapat menggunakan variabel `$user`
 yang merujuk ke `Yii::app()->user`.
 
@@ -295,12 +295,12 @@ Menangani Hasil Otorisasi
 Ketika otorisasi gagal, misalnya, pengguna tidak diijinkan untuk melakukan
 aksi yang ditetapkan, salah satu dari dua skenario berikut mungkin terjadi:
 
-   - Jika pengguna tidak masuk dan jika properti [loginUrl|CWebUser::loginUrl]
+	 - Jika pengguna tidak masuk dan jika properti [loginUrl|CWebUser::loginUrl]
 komponen pengguna dikonfigurasi menjadi URL halaman login,
 browser akan mengalihkan ke halaman itu. Catatan bahwa standarnya,
 [loginUrl|CWebUser::loginUrl] merujuk ke halaman `site/login`.
 
-   - Sebaliknya exception HTTP akan ditampilkan dengan kode kesalahan 401.
+	 - Sebaliknya exception HTTP akan ditampilkan dengan kode kesalahan 401.
 
 Ketika mengkonfigurasi properti [loginUrl|CWebUser::loginUrl], Anda dapat
 menyediakan URL relatif ataupun absolut. Selain itu, Anda juga bisa menyediakan array
@@ -447,23 +447,23 @@ untuk tugas-tugas ini.
 Untuk mendefinisikan item otorisasi, panggil salah satu metode berikut,
 tergantung pada jenis itemnya:
 
-   - [CAuthManager::createRole]
-   - [CAuthManager::createTask]
-   - [CAuthManager::createOperation]
+	 - [CAuthManager::createRole]
+	 - [CAuthManager::createTask]
+	 - [CAuthManager::createOperation]
 
 Setelah kita memiliki satu set item otorisasi, kita dapat memanggil metode
 untuk membuat hubungan diantara item-item otorisasi:
 
-   - [CAuthManager::addItemChild]
-   - [CAuthManager::removeItemChild]
-   - [CAuthItem::addChild]
-   - [CAuthItem::removeChild]
+	 - [CAuthManager::addItemChild]
+	 - [CAuthManager::removeItemChild]
+	 - [CAuthItem::addChild]
+	 - [CAuthItem::removeChild]
 
 Dan terakhir, kita memanggil metode berikut untuk menempatkan item role ke
 pengguna individual:
 
-   - [CAuthManager::assign]
-   - [CAuthManager::revoke]
+	 - [CAuthManager::assign]
+	 - [CAuthManager::revoke]
 
 Di bawah ini kami memperlihatkan contoh mengenai pembangunan hirarki otorisasi dengan
 API yang sudah disediakan:

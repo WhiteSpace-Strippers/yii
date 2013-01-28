@@ -71,7 +71,7 @@ class SiteController extends CController
 и отображения статической страницы с соответствующим сообщением;
 
 - если идентификатор контроллера обнаружен в [CWebApplication::controllerMap], то для
-создания экземпляра контроллера  будет использована соответствующая конфигурация контроллера;
+создания экземпляра контроллера	будет использована соответствующая конфигурация контроллера;
 
 - если идентификатор контроллера соответствует формату `'path/to/xyz'`, то имя класса
 контроллера определяется как `XyzController`, а соответствующий класс как
@@ -129,18 +129,18 @@ class PostController extends CController
 Например, следующая структура директорий может быть использована для организации кода контроллеров:
 ~~~
 protected/
-    controllers/
-        PostController.php
-        UserController.php
-        post/
-            CreateAction.php
-            ReadAction.php
-            UpdateAction.php
-        user/
-            CreateAction.php
-            ListAction.php
-            ProfileAction.php
-            UpdateAction.php
+		controllers/
+				PostController.php
+				UserController.php
+				post/
+						CreateAction.php
+						ReadAction.php
+						UpdateAction.php
+				user/
+						CreateAction.php
+						ListAction.php
+						ProfileAction.php
+						UpdateAction.php
 ~~~
 
 ### Привязка параметров действий
@@ -187,7 +187,7 @@ class PostController extends CController
 {
 	public function actionCreate($category, $language='en')
 	{
-	    $category=(int)$category;
+			$category=(int)$category;
 
 		// … действительно полезная часть кода …
 	}
@@ -289,7 +289,7 @@ class PerformanceFilter extends CFilter
 ~~~
 
 Для того чтобы применить фильтр к действию, необходимо переопределить метод
-`CController::filters()`, возвращающий  массив конфигураций фильтров. Например:
+`CController::filters()`, возвращающий	массив конфигураций фильтров. Например:
 
 ~~~
 [php]

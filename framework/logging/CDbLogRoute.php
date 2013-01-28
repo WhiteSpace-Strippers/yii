@@ -34,13 +34,13 @@ class CDbLogRoute extends CLogRoute
 	 * If {@link autoCreateLogTable} is false and you want to create the DB table manually by yourself,
 	 * you need to make sure the DB table is of the following structure:
 	 * <pre>
-	 *  (
-	 *		id       INTEGER NOT NULL PRIMARY KEY,
-	 *		level    VARCHAR(128),
+	 *	(
+	 *		id			 INTEGER NOT NULL PRIMARY KEY,
+	 *		level		VARCHAR(128),
 	 *		category VARCHAR(128),
-	 *		logtime  INTEGER,
-	 *		message  TEXT
-	 *   )
+	 *		logtime	INTEGER,
+	 *		message	TEXT
+	 *	 )
 	 * </pre>
 	 * Note, the 'id' column must be created as an auto-incremental column.
 	 * In MySQL, this means it should be <code>id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY</code>;

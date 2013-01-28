@@ -75,14 +75,14 @@ Gii 有一些預設的程式碼產生器。每個程式碼產生器負責產生�
 一個程式碼產生器存儲在一個目錄中，這個目錄的名字被認為是產生器的名字。目錄通常由如下內容組成：
 
 ~~~
-model/                       模型產生器跟目錄
-   ModelCode.php             產生程式碼的程式碼模型
-   ModelGenerator.php        程式碼產生控制器
-   views/                    產生器的視圖腳本
-      index.php              預設的視圖腳本
-   templates/                包含程式碼樣板集
-      default/               'default' 程式碼樣板集
-         model.php           產生模型類別程式碼的樣板
+model/											 模型產生器跟目錄
+	 ModelCode.php						 產生程式碼的程式碼模型
+	 ModelGenerator.php				程式碼產生控制器
+	 views/										產生器的視圖腳本
+			index.php							預設的視圖腳本
+	 templates/								包含程式碼樣板集
+			default/							 'default' 程式碼樣板集
+				 model.php					 產生模型類別程式碼的樣板
 ~~~
 
 
@@ -97,7 +97,7 @@ return array(
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
 			'generatorPaths'=>array(
-				'application.gii',   // 路徑別名
+				'application.gii',	 // 路徑別名
 			),
 		),
 	),
@@ -121,7 +121,7 @@ return array(
 
 複製文件 `framework/gii/generators/model/templates/default/model.php` 到 `protected/gii/model/templates/compact`。若我們再次嘗試以 `compact` 樣板產生，我們會成功。但是，產生的程式碼和以 `default` 樣板集產生的程式碼沒什麼不同。
 
-現在是時候做點真正的工作了。打開文件 `protected/gii/model/templates/compact/model.php` 以編輯它。記得這個文件將作為類別似一個視圖文件被使用，意味著它可以包含 PHP 表達式和語句。讓我們更改樣板以便產生的程式碼裡  `attributeLabels()` 方法使用 `Yii::t()` 來翻譯屬性標籤：
+現在是時候做點真正的工作了。打開文件 `protected/gii/model/templates/compact/model.php` 以編輯它。記得這個文件將作為類別似一個視圖文件被使用，意味著它可以包含 PHP 表達式和語句。讓我們更改樣板以便產生的程式碼裡	`attributeLabels()` 方法使用 `Yii::t()` 來翻譯屬性標籤：
 
 ~~~
 [php]

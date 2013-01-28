@@ -15,8 +15,8 @@ objet. Il est possible d'y lire ou d'y assigner une valeur. Par exemple,
 
 ~~~
 [php]
-$width=$component->textWidth;     // récupère la propriété textWidth
-$component->enableCaching=true;   // défini la propriété enableCaching
+$width=$component->textWidth;		 // récupère la propriété textWidth
+$component->enableCaching=true;	 // défini la propriété enableCaching
 ~~~
 
 Pour définir une propriété, il est possible soit de déclarer une
@@ -27,12 +27,12 @@ les getter et setter correspondant comme ceci:
 [php]
 public function getTextWidth()
 {
-    return $this->_textWidth;
+		return $this->_textWidth;
 }
 
 public function setTextWidth($value)
 {
-    $this->_textWidth=$value;
+		$this->_textWidth=$value;
 }
 ~~~
 
@@ -93,7 +93,7 @@ La signature d'un gestionnaire d'évènement doit être:
 [php]
 function methodName($event)
 {
-    ......
+		......
 }
 ~~~
 

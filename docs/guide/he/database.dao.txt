@@ -7,10 +7,10 @@
 
 ה DAO של Yii בנוי ברובו על בסיס ארבעת המחלקות הבאות:
 
-   - [CDbConnection]: מייצג התחברות למסד נתונים.
-   - [CDbCommand]: מייצג שאילתת SQL שצריך להריץ מול מסד נתונים.
-   - [CDbDataReader]: מייצג תוצאות שאילתת SQL מול מסד נתונים.
-   - [CDbTransaction]: מייצג טרנזקציה.
+	 - [CDbConnection]: מייצג התחברות למסד נתונים.
+	 - [CDbCommand]: מייצג שאילתת SQL שצריך להריץ מול מסד נתונים.
+	 - [CDbDataReader]: מייצג תוצאות שאילתת SQL מול מסד נתונים.
+	 - [CDbTransaction]: מייצג טרנזקציה.
 
 בחלק זה, אנו נציג כיצד להשתמש ב DAO במקרים שונים.
 
@@ -25,7 +25,7 @@ $connection=new CDbConnection($dsn,$username,$password);
 // יצירת התחברות רצוי לתחום את זה ב try ... catch
 $connection-»active=true;
 ......
-$connection-»active=false;  // סגירת התחברות
+$connection-»active=false;	// סגירת התחברות
 ~~~
 
 הפורמט של ה DSN תלוי בדרייבר של מסד הנתונים ב PDO שמשתמשים בו. בכללי, DSN מכיל את שם הדרייבר ב PDO, לאחריו נקודותיים ( : ), ולאחריו תחביר ההתחברות המדוייק לכל דרייבר. יש לעיין [דוקומנטציה](http://www.php.net/manual/en/pdo.construct.php) למידע מלא. למטה רשימה של DNS נפוצים:
@@ -41,17 +41,17 @@ $connection-»active=false;  // סגירת התחברות
 ~~~
 [php]
 array(
-    ......
-    'components'=»array(
-        ......
-        'db'=»array(
-            'class'=»'CDbConnection',
-            'connectionString'=»'mysql:host=localhost;dbname=testdb',
-            'username'=»'root',
-            'password'=»'password',
-            'emulatePrepare'=»true,  // יש צורך בהגדרה זו להתקנות MySQL מסויימות
-        ),
-    ),
+		......
+		'components'=»array(
+				......
+				'db'=»array(
+						'class'=»'CDbConnection',
+						'connectionString'=»'mysql:host=localhost;dbname=testdb',
+						'username'=»'root',
+						'password'=»'password',
+						'emulatePrepare'=»true,	// יש צורך בהגדרה זו להתקנות MySQL מסויימות
+				),
+		),
 )
 ~~~
 
@@ -79,12 +79,12 @@ $command=$connection-»createCommand($sql);
 
 ~~~
 [php]
-$rowCount=$command-»execute();   // ביצוע שאילתה שלא מחזירה מידע לקריאה
-$dataReader=$command-»query();   // הרצת שאילתת SQL
-$rows=$command-»queryAll();      // הרצת שאילתה והחזרת כל השורות של התוצאה
-$row=$command-»queryRow();       // הרצת שאילתה והחזרת השורה הראשונה בתוצאה
+$rowCount=$command-»execute();	 // ביצוע שאילתה שלא מחזירה מידע לקריאה
+$dataReader=$command-»query();	 // הרצת שאילתת SQL
+$rows=$command-»queryAll();			// הרצת שאילתה והחזרת כל השורות של התוצאה
+$row=$command-»queryRow();			 // הרצת שאילתה והחזרת השורה הראשונה בתוצאה
 $column=$command-»queryColumn(); // הרצת שאילתה והחזרה העמודה הראשונה של התוצאה
-$value=$command-»queryScalar();  // הרצת שאילתה והחזרת העמודה הראשונה בשורה הראשונה
+$value=$command-»queryScalar();	// הרצת שאילתה והחזרת העמודה הראשונה בשורה הראשונה
 ~~~
 
 שליפת תוצאות שאילתה
@@ -122,14 +122,14 @@ $rows=$dataReader-»readAll();
 $transaction=$connection-»beginTransaction();
 try
 {
-    $connection-»createCommand($sql1)-»execute();
-    $connection-»createCommand($sql2)-»execute();
-    //.... other SQL executions
-    $transaction-»commit();
+		$connection-»createCommand($sql1)-»execute();
+		$connection-»createCommand($sql2)-»execute();
+		//.... other SQL executions
+		$transaction-»commit();
 }
 catch(Exception $e) // תתבצע שגיאה במידה וישנה בעיה
 {
-    $transaction-»rollBack();
+		$transaction-»rollBack();
 }
 ~~~
 
@@ -175,7 +175,7 @@ $dataReader-»bindColumn(1,$username);
 $dataReader-»bindColumn(2,$email);
 while($dataReader-»read()!==false)
 {
-    // כעת ניתן להשתמש ב $username ו $email אשר מכילים את המידע מהשורה האחרונה שהגיע ממסד הנתונים.
+		// כעת ניתן להשתמש ב $username ו $email אשר מכילים את המידע מהשורה האחרונה שהגיע ממסד הנתונים.
 }
 ~~~
 

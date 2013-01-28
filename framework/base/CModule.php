@@ -26,9 +26,9 @@
  * For example,
  * <pre>
  * array(
- *    'models'=>'application.models',              // an existing alias
- *    'extensions'=>'application.extensions',      // an existing alias
- *    'backend'=>dirname(__FILE__).'/../backend',  // a directory
+ *		'models'=>'application.models',							// an existing alias
+ *		'extensions'=>'application.extensions',			// an existing alias
+ *		'backend'=>dirname(__FILE__).'/../backend',	// a directory
  * )
  * </pre>.
  *
@@ -233,9 +233,9 @@ abstract class CModule extends CComponent
 	 * For example,
 	 * <pre>
 	 * array(
-	 *    'models'=>'application.models',              // an existing alias
-	 *    'extensions'=>'application.extensions',      // an existing alias
-	 *    'backend'=>dirname(__FILE__).'/../backend',  // a directory
+	 *		'models'=>'application.models',							// an existing alias
+	 *		'extensions'=>'application.extensions',			// an existing alias
+	 *		'backend'=>dirname(__FILE__).'/../backend',	// a directory
 	 * )
 	 * </pre>
 	 */
@@ -318,10 +318,10 @@ abstract class CModule extends CComponent
 	 * For example, the following array declares two modules:
 	 * <pre>
 	 * array(
-	 *     'admin',                // a single module ID
-	 *     'payment'=>array(       // ID-configuration pair
-	 *         'server'=>'paymentserver.com',
-	 *     ),
+	 *		 'admin',								// a single module ID
+	 *		 'payment'=>array(			 // ID-configuration pair
+	 *				 'server'=>'paymentserver.com',
+	 *		 ),
 	 * )
 	 * </pre>
 	 *
@@ -478,15 +478,15 @@ abstract class CModule extends CComponent
 	 * The following is the configuration for two components:
 	 * <pre>
 	 * array(
-	 *     'db'=>array(
-	 *         'class'=>'CDbConnection',
-	 *         'connectionString'=>'sqlite:path/to/file.db',
-	 *     ),
-	 *     'cache'=>array(
-	 *         'class'=>'CDbCache',
-	 *         'connectionID'=>'db',
-	 *         'enabled'=>!YII_DEBUG,  // enable caching in non-debug mode
-	 *     ),
+	 *		 'db'=>array(
+	 *				 'class'=>'CDbConnection',
+	 *				 'connectionString'=>'sqlite:path/to/file.db',
+	 *		 ),
+	 *		 'cache'=>array(
+	 *				 'class'=>'CDbCache',
+	 *				 'connectionID'=>'db',
+	 *				 'enabled'=>!YII_DEBUG,	// enable caching in non-debug mode
+	 *		 ),
 	 * )
 	 * </pre>
 	 *

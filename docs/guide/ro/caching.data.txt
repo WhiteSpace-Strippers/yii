@@ -57,8 +57,8 @@ aplicatii.
 > ~~~
 > [php]
 > $cache=Yii::app()->cache;
-> $cache['var1']=$value1;  // echivalent cu: $cache->set('var1',$value1);
-> $value2=$cache['var2'];  // echivalent cu: $value2=$cache->get('var2');
+> $cache['var1']=$value1;	// echivalent cu: $cache->set('var1',$value1);
+> $value2=$cache['var2'];	// echivalent cu: $value2=$cache->get('var2');
 > ~~~
 
 Dependente Cache
@@ -67,7 +67,7 @@ Dependente Cache
 In afara de expirare, datele din cache pot fi invalidate in functie de unele schimbari
 ale unor dependente. De exemplu, daca introducem in cache continutul unui fisier,
 iar fisierul se modifica in vreun fel, atunci ar trebui sa invalidam copia sa din cache si sa
-citim ultima versiune a fisierului pentru a o adauga in cache. 
+citim ultima versiune a fisierului pentru a o adauga in cache.
 
 Reprezentam o dependenta ca instanta a clasei [CCacheDependency] sau a unei clase derivate.
 Transmitem instanta dependentei impreuna cu datele care trebuie memorate in cache atunci cand
@@ -86,18 +86,18 @@ false, ceea ce indica faptul ca datele trebuie regenerate.
 
 Mai jos avem un sumar ale dependentelor cache posibile:
 
-   - [CFileCacheDependency]: dependenta este modificata daca timpul ultimei modificari s-a schimbat.
+	 - [CFileCacheDependency]: dependenta este modificata daca timpul ultimei modificari s-a schimbat.
 
-   - [CDirectoryCacheDependency]: dependenta este modificata daca s-a modificat cel putin un fisier din
+	 - [CDirectoryCacheDependency]: dependenta este modificata daca s-a modificat cel putin un fisier din
 director sau din subdirectoarele acestuia.
 
-   - [CDbCacheDependency]: dependenta este modificata daca rezultatul cererii SQL este modificata.
+	 - [CDbCacheDependency]: dependenta este modificata daca rezultatul cererii SQL este modificata.
 
-   - [CGlobalStateCacheDependency]: dependenta este modificata daca valoarea starii globale specificate
+	 - [CGlobalStateCacheDependency]: dependenta este modificata daca valoarea starii globale specificate
 este modificata. O stare globala este o variabila care este persistenta intre cererile
 si sesiunile unei aplicatii. Variabila este definita prin [CApplication::setGlobalState()].
 
-   - [CChainedCacheDependency]: dependenta este modificata daca este modificata oricare dintre dependentele
+	 - [CChainedCacheDependency]: dependenta este modificata daca este modificata oricare dintre dependentele
 dintr-un chain.
 
 <div class="revision">$Id: caching.data.txt 169 2008-11-06 19:43:44Z qiang.xue $</div>

@@ -20,7 +20,7 @@ putem defini noi alias-uri de cale. Pentru convenienta, Yii predefineste urmatoa
 In plus, daca aplicatia foloseste [module](/doc/guide/basics.module), un alias radacina este
 de asemenea predefinit pentru fiecare ID de modul si se refera la calea modulului respectiv.
 Acest feature este disponibil incepand cu versiunea 1.0.3.
- 
+
 Folosind [YiiBase::getPathOfAlias()], un alias poate fi tradus in path-ul corespunzator.
 De exemplu, `system.web.CController` ar fi tradus in `yii/framework/web/CController`.
 
@@ -56,7 +56,7 @@ a fost inclus anterior.
 Sa nu confuzam path alias-urile cu namespace-uri. Un namespace se refera la o grupare logica
 a unor nume de clase, astfel incat acestea sa fie diferite de alte clase care au acelasi nume.
 Path alias-urile sunt folosite pentru a se face referinta la o clasa dintr-un fisier fizic sau la
-un director. Path alias-ul nu intra in conflict cu 
+un director. Path alias-ul nu intra in conflict cu
 
 > Tip|Sfat: Pentru ca inainte de versiunea PHP 5.3.0 nu exista suport pentru namespace,
 nu putem crea instante a doua clase care au acelasi nume (dar definitii diferite). Din acest

@@ -114,8 +114,8 @@ For example, if we define the following command class:
 [php]
 class SitemapCommand extends CConsoleCommand
 {
-    public function actionIndex($type, $limit=5) { ... }
-    public function actionInit() { ... }
+		public function actionIndex($type, $limit=5) { ... }
+		public function actionInit() { ... }
 }
 ~~~
 
@@ -213,7 +213,7 @@ Example:
 ~~~
 [php]
 if (/* error */) {
-    return 1; // exit with error code 1
+		return 1; // exit with error code 1
 }
 // ... do something ...
 return 0; // exit successfully

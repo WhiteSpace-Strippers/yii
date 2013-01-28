@@ -34,11 +34,11 @@ Yii::createConsoleApplication($configFile)-»run();
 [php]
 class EmailCommand extends CConsoleCommand
 {
-    public function run($args)
-    {
-        $receiver=$args[0];
-        // send email to $receiver
-    }
+		public function run($args)
+		{
+				$receiver=$args[0];
+				// send email to $receiver
+		}
 }
 ~~~
 

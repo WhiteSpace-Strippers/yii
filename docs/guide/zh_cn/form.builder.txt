@@ -57,26 +57,26 @@ public function actionLogin()
 return array(
 	'title'=>'Please provide your login credential',
 
-    'elements'=>array(
-        'username'=>array(
-            'type'=>'text',
-            'maxlength'=>32,
-        ),
-        'password'=>array(
-            'type'=>'password',
-            'maxlength'=>32,
-        ),
-        'rememberMe'=>array(
-            'type'=>'checkbox',
-        )
-    ),
+		'elements'=>array(
+				'username'=>array(
+						'type'=>'text',
+						'maxlength'=>32,
+				),
+				'password'=>array(
+						'type'=>'password',
+						'maxlength'=>32,
+				),
+				'rememberMe'=>array(
+						'type'=>'checkbox',
+				)
+		),
 
-    'buttons'=>array(
-        'login'=>array(
-            'type'=>'submit',
-            'label'=>'Login',
-        ),
-    ),
+		'buttons'=>array(
+				'login'=>array(
+						'type'=>'submit',
+						'label'=>'Login',
+				),
+		),
 );
 ~~~
 
@@ -109,13 +109,13 @@ return array(
 ### 指定输入元素
 
 一个输入元素主要由标签，输入框，提示文字和错误显示组成。
-它必须和一个模型属性关联。一个输入元素的规格被代表为一个 [CFormInputElement]  实例。 [CForm::elements] 数组中的如下代码指定了一个单独的输入元素：
+它必须和一个模型属性关联。一个输入元素的规格被代表为一个 [CFormInputElement]	实例。 [CForm::elements] 数组中的如下代码指定了一个单独的输入元素：
 
 ~~~
 [php]
 'username'=>array(
-    'type'=>'text',
-    'maxlength'=>32,
+		'type'=>'text',
+		'maxlength'=>32,
 ),
 ~~~
 
@@ -149,9 +149,9 @@ return array(
 ~~~
 [php]
 'gender'=>array(
-    'type'=>'dropdownlist',
-    'items'=>User::model()->getGenderOptions(),
-    'prompt'=>'Please select:',
+		'type'=>'dropdownlist',
+		'items'=>User::model()->getGenderOptions(),
+		'prompt'=>'Please select:',
 ),
 
 ...
@@ -185,19 +185,19 @@ the specification as given for the input element.
 ~~~
 [php]
 return array(
-    'elements'=>array(
+		'elements'=>array(
 		......
-        'password'=>array(
-            'type'=>'password',
-            'maxlength'=>32,
-        ),
+				'password'=>array(
+						'type'=>'password',
+						'maxlength'=>32,
+				),
 
-        '<hr />',
+				'<hr />',
 
-        'rememberMe'=>array(
-            'type'=>'checkbox',
-        )
-    ),
+				'rememberMe'=>array(
+						'type'=>'checkbox',
+				)
+		),
 	......
 );
 ~~~
@@ -218,35 +218,35 @@ return array(
 ~~~
 [php]
 return array(
-    'elements'=>array(
+		'elements'=>array(
 		......
-        'user'=>array(
-            'type'=>'form',
-            'title'=>'Login Credential',
-            'elements'=>array(
-            	'username'=>array(
-            		'type'=>'text',
-            	),
-            	'password'=>array(
-            		'type'=>'password',
-            	),
-            	'email'=>array(
-            		'type'=>'text',
-            	),
-            ),
-        ),
+				'user'=>array(
+						'type'=>'form',
+						'title'=>'Login Credential',
+						'elements'=>array(
+							'username'=>array(
+								'type'=>'text',
+							),
+							'password'=>array(
+								'type'=>'password',
+							),
+							'email'=>array(
+								'type'=>'text',
+							),
+						),
+				),
 
-        'profile'=>array(
-        	'type'=>'form',
-        	......
-        ),
-        ......
-    ),
+				'profile'=>array(
+					'type'=>'form',
+					......
+				),
+				......
+		),
 	......
 );
 ~~~
 
-类似于配置一个根表单，我们主要需要为一个子表单指定 [CForm::elements] 属性。若一个子表单需要关联一个数据模型，我们也可以配置它的 [CForm::model]  属性。
+类似于配置一个根表单，我们主要需要为一个子表单指定 [CForm::elements] 属性。若一个子表单需要关联一个数据模型，我们也可以配置它的 [CForm::model]	属性。
 
 有时，我们想要使用一个类代表表单，而不使用默认的 [CForm] 类。例如，
 此小节将简短展示，我们可以扩展 [CForm] 以定制表单渲染逻辑。
@@ -258,7 +258,7 @@ return array(
 -----------------------
 
 访问表单元素和访问数组元素一样简单。[CForm::elements] 属性返回一个 [CFormElementCollection] 对象，
-它扩展自 [CMap]  并允许以类似于一个普通数组的方式来访问它的元素。例如，要访问登录表单中的元素 `username`，我们可以使用下面的代码：
+它扩展自 [CMap]	并允许以类似于一个普通数组的方式来访问它的元素。例如，要访问登录表单中的元素 `username`，我们可以使用下面的代码：
 
 ~~~
 [php]
@@ -327,15 +327,15 @@ return array(
 			'type'=>'form',
 			'title'=>'Login information',
 			'elements'=>array(
-		        'username'=>array(
-		            'type'=>'text',
-		        ),
-		        'password'=>array(
-		            'type'=>'password',
-		        ),
-		        'email'=>array(
-		            'type'=>'text',
-		        )
+						'username'=>array(
+								'type'=>'text',
+						),
+						'password'=>array(
+								'type'=>'password',
+						),
+						'email'=>array(
+								'type'=>'text',
+						)
 			),
 		),
 
@@ -343,22 +343,22 @@ return array(
 			'type'=>'form',
 			'title'=>'Profile information',
 			'elements'=>array(
-		        'firstName'=>array(
-		            'type'=>'text',
-		        ),
-		        'lastName'=>array(
-		            'type'=>'text',
-		        ),
+						'firstName'=>array(
+								'type'=>'text',
+						),
+						'lastName'=>array(
+								'type'=>'text',
+						),
 			),
 		),
 	),
 
-    'buttons'=>array(
-        'register'=>array(
-            'type'=>'submit',
-            'label'=>'Register',
-        ),
-    ),
+		'buttons'=>array(
+				'register'=>array(
+						'type'=>'submit',
+						'label'=>'Register',
+				),
+		),
 );
 ~~~
 
@@ -383,7 +383,7 @@ return array(
 使用表单生成器最主要的好处是逻辑 (表单配置被存储在一个单独的文件中) 和表现 ([CForm::render]方法) 的分离。
 这样，我们可以实现定制表单显示，通过重写 [CForm::render] 或提供一个局部视图来渲染表单。两种方法都可以保持表单配置的完整性，并且可以容易地重用。
 
-当重写 [CForm::render] 时, 你主要需要遍历 [CForm::elements]  和 [CForm::buttons] 并调用每个表单元素的 [CFormElement::render] 方法。例如,
+当重写 [CForm::render] 时, 你主要需要遍历 [CForm::elements]	和 [CForm::buttons] 并调用每个表单元素的 [CFormElement::render] 方法。例如,
 
 ~~~
 [php]

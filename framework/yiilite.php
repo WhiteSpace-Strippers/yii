@@ -111,7 +111,7 @@ class YiiBase
 	}
 	public static function import($alias,$forceInclude=false)
 	{
-		if(isset(self::$_imports[$alias]))  // previously imported
+		if(isset(self::$_imports[$alias]))	// previously imported
 			return self::$_imports[$alias];
 		if(class_exists($alias,false) || interface_exists($alias,false))
 			return self::$_imports[$alias]=$alias;
@@ -137,7 +137,7 @@ class YiiBase
 				throw new CException(Yii::t('yii','Alias "{alias}" is invalid. Make sure it points to an existing directory.',
 					array('{alias}'=>$namespace)));
 		}
-		if(($pos=strrpos($alias,'.'))===false)  // a simple class name
+		if(($pos=strrpos($alias,'.'))===false)	// a simple class name
 		{
 			if($forceInclude && self::autoload($alias))
 				self::$_imports[$alias]=$alias;
@@ -163,7 +163,7 @@ class YiiBase
 					self::$classMap[$className]=$path.'.php';
 				return $className;
 			}
-			else  // a directory
+			else	// a directory
 			{
 				if(self::$_includePaths===null)
 				{
@@ -215,7 +215,7 @@ class YiiBase
 		else
 		{
 			// include class file relying on include_path
-			if(strpos($className,'\\')===false)  // class without namespace
+			if(strpos($className,'\\')===false)	// class without namespace
 			{
 				if(self::$enableIncludePath===false)
 				{
@@ -237,7 +237,7 @@ class YiiBase
 				else
 					include($className.'.php');
 			}
-			else  // class name with namespace in PHP 5.3
+			else	// class name with namespace in PHP 5.3
 			{
 				$namespace=str_replace('\\','.',ltrim($className,'\\'));
 				if(($path=self::getPathOfAlias($namespace))!==false)
@@ -1745,7 +1745,7 @@ class CWebApplication extends CApplication
 			if(!$caseSensitive)
 				$id=strtolower($id);
 			$route=(string)substr($route,$pos+1);
-			if(!isset($basePath))  // first segment
+			if(!isset($basePath))	// first segment
 			{
 				if(isset($owner->controllerMap[$id]))
 				{
@@ -2141,7 +2141,7 @@ class CLogger extends CComponent
 			{
 				$pid=getmypid();
 				exec("ps -eo%mem,rss,pid | grep $pid", $output);
-				$output=explode("  ",$output[0]);
+				$output=explode("	",$output[0]);
 				return isset($output[1]) ? $output[1]*1024 : 0;
 			}
 		}
@@ -2404,7 +2404,7 @@ class CHttpRequest extends CApplicationComponent
 		{
 			$pathInfo=$this->getRequestUri();
 			if(($pos=strpos($pathInfo,'?'))!==false)
-			   $pathInfo=substr($pathInfo,0,$pos);
+				 $pathInfo=substr($pathInfo,0,$pos);
 			$pathInfo=$this->decodePathInfo($pathInfo);
 			$scriptUrl=$this->getScriptUrl();
 			$baseUrl=$this->getBaseUrl();
@@ -2426,14 +2426,14 @@ class CHttpRequest extends CApplicationComponent
 		// is it UTF-8?
 		// http://w3.org/International/questions/qa-forms-utf-8.html
 		if(preg_match('%^(?:
-		   [\x09\x0A\x0D\x20-\x7E]            # ASCII
-		 | [\xC2-\xDF][\x80-\xBF]             # non-overlong 2-byte
-		 | \xE0[\xA0-\xBF][\x80-\xBF]         # excluding overlongs
-		 | [\xE1-\xEC\xEE\xEF][\x80-\xBF]{2}  # straight 3-byte
-		 | \xED[\x80-\x9F][\x80-\xBF]         # excluding surrogates
-		 | \xF0[\x90-\xBF][\x80-\xBF]{2}      # planes 1-3
-		 | [\xF1-\xF3][\x80-\xBF]{3}          # planes 4-15
-		 | \xF4[\x80-\x8F][\x80-\xBF]{2}      # plane 16
+			 [\x09\x0A\x0D\x20-\x7E]						# ASCII
+		 | [\xC2-\xDF][\x80-\xBF]						 # non-overlong 2-byte
+		 | \xE0[\xA0-\xBF][\x80-\xBF]				 # excluding overlongs
+		 | [\xE1-\xEC\xEE\xEF][\x80-\xBF]{2}	# straight 3-byte
+		 | \xED[\x80-\x9F][\x80-\xBF]				 # excluding surrogates
+		 | \xF0[\x90-\xBF][\x80-\xBF]{2}			# planes 1-3
+		 | [\xF1-\xF3][\x80-\xBF]{3}					# planes 4-15
+		 | \xF4[\x80-\x8F][\x80-\xBF]{2}			# plane 16
 		)*$%xs', $pathInfo))
 		{
 			return $pathInfo;
@@ -2460,7 +2460,7 @@ class CHttpRequest extends CApplicationComponent
 				else
 					$this->_requestUri=preg_replace('/^(http|https):\/\/[^\/]+/i','',$this->_requestUri);
 			}
-			elseif(isset($_SERVER['ORIG_PATH_INFO']))  // IIS 5.0 CGI
+			elseif(isset($_SERVER['ORIG_PATH_INFO']))	// IIS 5.0 CGI
 			{
 				$this->_requestUri=$_SERVER['ORIG_PATH_INFO'];
 				if(!empty($_SERVER['QUERY_STRING']))
@@ -5510,9 +5510,9 @@ EOD;
 	{
 		if(($pos=strpos($attribute,'['))!==false)
 		{
-			if($pos!==0)  // e.g. name[a][b]
+			if($pos!==0)	// e.g. name[a][b]
 				return get_class($model).'['.substr($attribute,0,$pos).']'.substr($attribute,$pos);
-			if(($pos=strrpos($attribute,']'))!==false && $pos!==strlen($attribute)-1)  // e.g. [a][b]name
+			if(($pos=strrpos($attribute,']'))!==false && $pos!==strlen($attribute)-1)	// e.g. [a][b]name
 			{
 				$sub=substr($attribute,0,$pos+1);
 				$attribute=substr($attribute,$pos+1);
@@ -5624,7 +5624,7 @@ class CWidgetFactory extends CApplicationComponent implements IWidgetFactory
 	public $widgets=array();
 	public $skinnableWidgets;
 	public $skinPath;
-	private $_skins=array();  // class name, skin name, property name => value
+	private $_skins=array();	// class name, skin name, property name => value
 	public function init()
 	{
 		parent::init();
@@ -6351,7 +6351,7 @@ class CFilterChain extends CList
 		$actionID=$action->getId();
 		foreach($filters as $filter)
 		{
-			if(is_string($filter))  // filterName [+|- action1 action2]
+			if(is_string($filter))	// filterName [+|- action1 action2]
 			{
 				if(($pos=strpos($filter,'+'))!==false || ($pos=strpos($filter,'-'))!==false)
 				{
@@ -6362,7 +6362,7 @@ class CFilterChain extends CList
 				else
 					$filter=CInlineFilter::create($controller,$filter);
 			}
-			elseif(is_array($filter))  // array('path.to.class [+|- action1, action2]','param1'=>'value1',...)
+			elseif(is_array($filter))	// array('path.to.class [+|- action1, action2]','param1'=>'value1',...)
 			{
 				if(!isset($filter[0]))
 					throw new CException(Yii::t('yii','The first element in a filter configuration must be the filter class.'));
@@ -6608,8 +6608,8 @@ class CAccessRule extends CComponent
 abstract class CModel extends CComponent implements IteratorAggregate, ArrayAccess
 {
 	private $_errors=array();	// attribute name => array of errors
-	private $_validators;  		// validators
-	private $_scenario='';  	// scenario
+	private $_validators;			// validators
+	private $_scenario='';		// scenario
 	abstract public function attributeNames();
 	public function rules()
 	{
@@ -6691,7 +6691,7 @@ abstract class CModel extends CComponent implements IteratorAggregate, ArrayAcce
 		$validators=new CList;
 		foreach($this->rules() as $rule)
 		{
-			if(isset($rule[0],$rule[1]))  // attributes, validator name
+			if(isset($rule[0],$rule[1]))	// attributes, validator name
 				$validators->add(CValidator::createValidator($rule[1],$this,$rule[0],array_slice($rule,2)));
 			else
 				throw new CException(Yii::t('yii','{class} has an invalid validation rule. The rule must specify attributes to be validated and the validator name.',
@@ -7636,7 +7636,7 @@ abstract class CActiveRecord extends CModel
 		if(func_num_args()>0)
 		{
 			$with=func_get_args();
-			if(is_array($with[0]))  // the parameter is given as an array
+			if(is_array($with[0]))	// the parameter is given as an array
 				$with=$with[0];
 			if(!empty($with))
 				$this->getDbCriteria()->mergeWith(array('with'=>$with));
@@ -7963,7 +7963,7 @@ class CActiveRecordMetaData
 	}
 	public function addRelation($name,$config)
 	{
-		if(isset($config[0],$config[1],$config[2]))  // relation class, AR class, FK
+		if(isset($config[0],$config[1],$config[2]))	// relation class, AR class, FK
 			$this->relations[$name]=new $config[0]($name,$config[1],$config[2],array_slice($config,3));
 		else
 			throw new CDbException(Yii::t('yii','Active record "{class}" has an invalid configuration for relation "{relation}". It must specify the relation type, the related active record class and the foreign key.', array('{class}'=>get_class($this->_model),'{relation}'=>$name)));
@@ -7997,15 +7997,15 @@ class CDbConnection extends CApplicationComponent
 	public $tablePrefix;
 	public $initSQLs;
 	public $driverMap=array(
-		'pgsql'=>'CPgsqlSchema',    // PostgreSQL
-		'mysqli'=>'CMysqlSchema',   // MySQL
-		'mysql'=>'CMysqlSchema',    // MySQL
-		'sqlite'=>'CSqliteSchema',  // sqlite 3
+		'pgsql'=>'CPgsqlSchema',		// PostgreSQL
+		'mysqli'=>'CMysqlSchema',	 // MySQL
+		'mysql'=>'CMysqlSchema',		// MySQL
+		'sqlite'=>'CSqliteSchema',	// sqlite 3
 		'sqlite2'=>'CSqliteSchema', // sqlite 2
-		'mssql'=>'CMssqlSchema',    // Mssql driver on windows hosts
-		'dblib'=>'CMssqlSchema',    // dblib drivers on linux (and maybe others os) hosts
-		'sqlsrv'=>'CMssqlSchema',   // Mssql
-		'oci'=>'COciSchema',        // Oracle driver
+		'mssql'=>'CMssqlSchema',		// Mssql driver on windows hosts
+		'dblib'=>'CMssqlSchema',		// dblib drivers on linux (and maybe others os) hosts
+		'sqlsrv'=>'CMssqlSchema',	 // Mssql
+		'oci'=>'COciSchema',				// Oracle driver
 	);
 	public $pdoClass = 'PDO';
 	private $_attributes=array();
@@ -8173,7 +8173,7 @@ class CDbConnection extends CApplicationComponent
 		$this->setActive(true);
 		if(($value=$this->_pdo->quote($str))!==false)
 			return $value;
-		else  // the driver doesn't support quote (e.g. oci)
+		else	// the driver doesn't support quote (e.g. oci)
 			return "'" . addcslashes(str_replace("'", "''", $str), "\000\n\r\\\032") . "'";
 	}
 	public function quoteTableName($name)
@@ -8340,7 +8340,7 @@ abstract class CDbSchema extends CComponent
 			}
 			else
 				$this->_tables[$name]=$table=$this->loadTable($realName);
-			if(isset($qcDuration))  // re-enable query caching
+			if(isset($qcDuration))	// re-enable query caching
 				$this->_connection->queryCachingDuration=$qcDuration;
 			return $table;
 		}
@@ -8555,7 +8555,7 @@ abstract class CDbSchema extends CComponent
 		foreach($columns as $i=>$col)
 			$columns[$i]=$this->quoteColumnName($col);
 		return 'ALTER TABLE ' . $this->quoteTableName($table) . ' ADD CONSTRAINT '
-			. $this->quoteColumnName($name) . '  PRIMARY KEY ('
+			. $this->quoteColumnName($name) . '	PRIMARY KEY ('
 			. implode(', ', $columns). ' )';
 	}
 	public function dropPrimaryKey($name,$table)
@@ -8566,19 +8566,19 @@ abstract class CDbSchema extends CComponent
 }
 class CSqliteSchema extends CDbSchema
 {
-    public $columnTypes=array(
-        'pk' => 'integer PRIMARY KEY AUTOINCREMENT NOT NULL',
-        'string' => 'varchar(255)',
-        'text' => 'text',
-        'integer' => 'integer',
-        'float' => 'float',
-        'decimal' => 'decimal',
-        'datetime' => 'datetime',
-        'timestamp' => 'timestamp',
-        'time' => 'time',
-        'date' => 'date',
-        'binary' => 'blob',
-        'boolean' => 'tinyint(1)',
+		public $columnTypes=array(
+				'pk' => 'integer PRIMARY KEY AUTOINCREMENT NOT NULL',
+				'string' => 'varchar(255)',
+				'text' => 'text',
+				'integer' => 'integer',
+				'float' => 'float',
+				'decimal' => 'decimal',
+				'datetime' => 'datetime',
+				'timestamp' => 'timestamp',
+				'time' => 'time',
+				'date' => 'date',
+				'binary' => 'blob',
+				'boolean' => 'tinyint(1)',
 		'money' => 'decimal(19,4)',
 	);
 	public function resetSequence($table,$value=null)
@@ -9066,7 +9066,7 @@ class CDbCommand extends CComponent
 			{
 				if(strpos($table,'(')===false)
 				{
-					if(preg_match('/^(.*?)(?i:\s+as\s+|\s+)(.*)$/',$table,$matches))  // with alias
+					if(preg_match('/^(.*?)(?i:\s+as\s+|\s+)(.*)$/',$table,$matches))	// with alias
 						$tables[$i]=$this->_connection->quoteTableName($matches[1]).' '.$this->_connection->quoteTableName($matches[2]);
 					else
 						$tables[$i]=$this->_connection->quoteTableName($table);
@@ -9432,7 +9432,7 @@ class CDbCommand extends CComponent
 	{
 		if(strpos($table,'(')===false)
 		{
-			if(preg_match('/^(.*?)(?i:\s+as\s+|\s+)(.*)$/',$table,$matches))  // with alias
+			if(preg_match('/^(.*?)(?i:\s+as\s+|\s+)(.*)$/',$table,$matches))	// with alias
 				$table=$this->_connection->quoteTableName($matches[1]).' '.$this->_connection->quoteTableName($matches[2]);
 			else
 				$table=$this->_connection->quoteTableName($table);

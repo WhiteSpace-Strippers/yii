@@ -56,11 +56,11 @@ class CInlineValidator extends CValidator
 	 * the method that returns the client validation code and can look like:
 	 * <pre>
 	 * <?php
-	 *   public function clientValidate123($attribute)
-	 *   {
-	 *      $js = "if(value != '123') { messages.push('Value should be 123'); }";
-	 *      return $js;
-	 *   }
+	 *	 public function clientValidate123($attribute)
+	 *	 {
+	 *			$js = "if(value != '123') { messages.push('Value should be 123'); }";
+	 *			return $js;
+	 *	 }
 	 * ?>
 	 * </pre>
 	 * @param CModel $object the data object being validated

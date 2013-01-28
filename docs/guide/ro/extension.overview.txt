@@ -18,7 +18,7 @@ o extensie poate fi clasificata in felul urmator:
  * [comanda de consola](/doc/guide/topics.console)
  * validator: un validator este o clasa de componenta derivata din [CValidator].
  * helper: un helper este o clasa care contine doar metode statice. Folosim metodele ca niste
-   functii globale impreuna cu numele clasei din care apartin ca namespace.
+	 functii globale impreuna cu numele clasei din care apartin ca namespace.
  * [modul](/doc/guide/basics.module): un modul este o unitate de sine statatoare care este
  formata din [modele](/doc/guide/basics.model), [view-uri](/doc/guide/basics.view),
  [controllere](/doc/guide/basics.controller) si alte componente suportate.

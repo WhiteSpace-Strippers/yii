@@ -16,7 +16,7 @@ Yii 权威指南
 * qiang
 * rainyjune
 * riverlet
-* sharehua 
+* sharehua
 * thaiki
 
 All Rights Reserved.

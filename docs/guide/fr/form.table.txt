@@ -28,7 +28,7 @@ public function actionBatchUpdate()
 				$item->attributes=$_POST['Item'][$i];
 			$valid=$valid && $item->validate();
 		}
-		if($valid)  // tous les objets sont valides
+		if($valid)	// tous les objets sont valides
 			// ...faire quelque chose ici
 	}
 	// affiche la vue pour récupérer les entrées tabulaires

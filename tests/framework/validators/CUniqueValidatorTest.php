@@ -1,5 +1,5 @@
 <?php
- 
+
 class CUniqueValidatorTest extends CTestCase
 {
 	/**
